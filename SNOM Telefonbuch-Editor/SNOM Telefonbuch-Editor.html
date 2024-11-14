@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>SNOM Telefonbuch-Editor</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+  <link rel="icon" type="image/x-icon" href="../images/MB_Icon_01.png"></link>
+  <link rel="stylesheet" href="../assets/css/main.css"></link>
+  <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+</head>
+<body onload="window.location.href='#snom_editor';" class="is-preload">
+  <div id="wrapper">
+    
+    <nav id="nav">
+      <a href="../index.html" class="icon solid"><img class="mb_icon" src="../images/MB_Icon_02.png"></img><span>Home</span></a>
+      <a href="../index.html#web-tools" class="icon solid"><img class="mb_icon" src="../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
+      <a href="../index.html#local-tools" class="icon solid"><img class="mb_icon" src="../images/Local_Icon_01.png"></img><span>Local-Tools</span></a>
+      <a href="#snom_editor" class="icon solid"><img class="mb_icon" src="icon_01.png"></img><span>SNOM</span></a>
+    </nav>
+    
+    <div id="main">
+      <article id="snom_editor" class="panel">
+        <header><h2>SNOM Telefonbuch-Editor</h2></header>
+        <section>
+          <div class="description">
+            Mit diesem Tool lässt sich ein Telefonbuch für SNOM-IP-Telefone in Excel erstellen und anschliessend konvertieren. 
+            Die daraus erzeugte XML-Datei kann in die SNOM-Anlage als Globales Telefonbuch importiert werden.
+          </div>
+          <div class="button_container">
+            <button class="button large" onclick="download_csv();">Vorlage<br>Herunterladen</button>
+            <button class="button large"><label><input type="file" accept=".csv" onchange="load_document(this);"></input>CSV<br>Konvertieren</label></button>
+          </div>
+          <p id="info" class="center"></p>
+        </section>
+      </article>
+    </div>
+    
+    <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
+
+  </div>
+</body>
+<div id="content" style="display: none;"></div>
+
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="main.js"></script>

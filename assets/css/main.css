@@ -71,7 +71,7 @@ header > p {margin: 0.5em 0 0 0;color: #aaa;}
 .image {display: inline-block;}
 .image img {display: block;width: 100%;}
 .image.fit {display: block;width: 100%;text-align: center;color: #999999;text-decoration: none;}
-.image.fit:hover {color: #00ff6a;}
+.image.fit:hover {color: #dddddd;font-weight: 500;border: 1px solid #888888;}
 .image.featured {display: block;width: 100%;margin: 0 0 2em 0;}
 .image.left {float: left;margin: 0 2em 2em 0;}
 .image.centered {display: block;margin: 0 0 2em 0;}
@@ -162,6 +162,13 @@ body.is-preload #wrapper {opacity: 0;}
 /* Extra */
 article {display: none;}
 article:target {display: block;}
+
+.mb_icon {top: 0.04em;left: 0em;position: relative;display: inline-block;color: #ffffff;width: 0.4em;height: 0.4em;line-height: 0.9em;font-size: 2.5em;margin: 0 0 0 0;opacity: 1;outline: 0;-moz-transition: opacity .25s ease-in-out;-webkit-transition: opacity .25s ease-in-out;-ms-transition: opacity .25s ease-in-out;transition: opacity .25s ease-in-out;cursor: pointer;}
+.mb_icon:hover {opacity: 1.0;}
+.mb_icon:hover .mb_icon_span {opacity: 1.0;}
+.mb_icon.active {opacity: 1.0;}
+.mb_icon.active:after {border-bottom-width: 0.5em;}
+
 
 .button_container {display: flex;justify-content: space-between;margin: 1em 0 0 0;}
 .mb_button {width: 46%;color: #aaaaaa;}
