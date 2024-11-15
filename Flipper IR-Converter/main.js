@@ -12,16 +12,27 @@ function select_format(obj) {
 	if (obj.id == 'remote_nec') {document.getElementById('flipper_nec').style.opacity = '1';document.getElementById('flipper_nec').value = true;}
 	if (obj.id == 'remote_nec2') {document.getElementById('flipper_nec2').style.opacity = '1';document.getElementById('flipper_nec2').value = true;}
 	if (obj.id == 'remote_rc6') {document.getElementById('flipper_rc6').style.opacity = '1';document.getElementById('flipper_rc6').value = true;}
+	correct_input();shortToCommand();correct_output();
 }
 
-function check_onfocus(obj) {if (obj.innerHTML != '') {obj.innerHTML = '';}}
+function check_onfocus(obj) {
+	if (obj.id == 'remote_name' && obj.innerHTML == 'Name Der Fernbedienung') {obj.innerHTML = '';}
+	if (obj.id == 'command_name' && obj.innerHTML == 'Name Der Taste') {obj.innerHTML = '';}
+}
+
 function check_onblur(obj) {
 	if (obj.id == 'flipper_input_phase_1' && obj.innerHTML == '') {obj.innerHTML = '0x02';correct_input();shortToCommand();correct_output();}
+	if (obj.id == 'flipper_input_phase_1' && obj.innerHTML != '') {correct_input();shortToCommand();correct_output();}
 	if (obj.id == 'flipper_input_phase_2' && obj.innerHTML == '') {obj.innerHTML = '0x04';correct_input();shortToCommand();correct_output();}
+	if (obj.id == 'flipper_input_phase_2' && obj.innerHTML != '') {correct_input();shortToCommand();correct_output();}
 	if (obj.id == 'remote_input' && obj.innerHTML == '') {obj.innerHTML = 'M@ster_B';commandToShort();correct_output();}
+	if (obj.id == 'remote_name' && obj.innerHTML == '') {obj.innerHTML = 'Name Der Fernbedienung';}
+	if (obj.id == 'command_name' && obj.innerHTML == '') {obj.innerHTML = 'Name Der Taste';}
 }
 
 function correct_input() {
+	//document.getElementById('flipper_input_phase_1').innerHTML = document.getElementById('flipper_input_phase_1').innerHTML.toUpperCase();
+	//document.getElementById('flipper_input_phase_2').innerHTML = document.getElementById('flipper_input_phase_2').innerHTML.toUpperCase();
 	var flipper_code = document.getElementById('flipper_input_phase_1').innerHTML+' '+document.getElementById('flipper_input_phase_2').innerHTML;
 	if (document.getElementById('flipper_nec').value == true) {
 		var string_part_1 = flipper_code.substr(2,2);
@@ -51,19 +62,19 @@ function correct_input() {
 	}
 }
 function correct_output() {
+	var phase_1 = document.getElementById('flipper_input_phase_1').innerHTML;
+	var phase_2 = document.getElementById('flipper_input_phase_2').innerHTML;
 	var string_1 = document.getElementById('code_field_flipper').innerHTML.toUpperCase().replace(/ /g,'');
 	var string_2 = document.getElementById('remote_input').innerHTML.toUpperCase().replace(/ /g,'');
 	document.getElementById('code_field_flipper').innerHTML = string_1;
 	document.getElementById('remote_input').innerHTML = string_2;
-	if (document.getElementById('flipper_nec').value == true) {var out_string = string_2.substr(0,4)+string_2.substr(18,4);document.getElementById('remote_input').innerHTML = out_string;}
-	if (document.getElementById('flipper_necext').value == true) {var out_string = string_2.substr(4,2)+string_2.substr(18,4);document.getElementById('remote_input').innerHTML = out_string;}
-	if (document.getElementById('flipper_nec2').value == true) {var out_string = string_2.substr(0,2)+string_2.substr(0,2)+string_2.substr(18,4);document.getElementById('remote_input').innerHTML = out_string;}
-	if (document.getElementById('flipper_rc6').value == true) {var string = document.getElementById('flipper_input').value;var out_string = string.substr(0,2)+string.substr(10,2);document.getElementById('remote_input').innerHTML = out_string;}
-}
-	
+	if (document.getElementById('flipper_nec').value == true && phase_1.length == 4 && phase_2.length == 4) {var out_string = string_2.substr(0,4)+string_2.substr(18,4);document.getElementById('remote_input').innerHTML = out_string;}
+	else if (document.getElementById('flipper_necext').value == true && phase_1.length == 6 && phase_2.length == 6) {var out_string = string_2.substr(4,2)+string_2.substr(18,4);document.getElementById('remote_input').innerHTML = out_string;}
+	else if (document.getElementById('flipper_nec2').value == true && phase_1.length == 4 && phase_2.length == 4) {var out_string = string_2.substr(0,2)+string_2.substr(0,2)+string_2.substr(18,4);document.getElementById('remote_input').innerHTML = out_string;}
+	else if (document.getElementById('flipper_rc6').value == true && phase_1.length == 4 && phase_2.length == 4) {var out_string = string_1.substr(0,2)+string_1.substr(10,2);document.getElementById('remote_input').innerHTML = out_string;}
 
-function clipboard(obj) {navigator.clipboard.writeText(obj.innerHTML);}
-function clipboard_value(obj) {navigator.clipboard.writeText(obj.value);}
+	else {document.getElementById('remote_input').innerHTML = 'Input Falsch';}
+}
 
 function getField(name) {return document.getElementById(name).innerHTML;}
 function setField(name, val) {if (typeof val === 'undefined') {document.getElementById(name).innerHTML = '';} else {document.getElementById(name).innerHTML = val;}}
@@ -77,36 +88,66 @@ function necDepair(hex) {let byte1 = parseInt(hex.slice(0,2), 16);let byte2 = pa
 function toLsb(byte) {let lsb = 128 * (byte & 1);lsb += 64 * ((byte & 2) != 0);lsb += 32 * ((byte & 4) != 0);lsb += 16 * ((byte & 8) != 0);lsb += 8 * ((byte & 16) != 0);lsb += 4 * ((byte & 32) != 0);lsb += 2 * ((byte & 64) != 0);lsb += 1 * ((byte & 128) != 0);return lsb;}
 function invert(byte) {return byte ^ 255;}
 function getShortFromCommand(hex, opt) {let errMsg = '';let err1 = ', no pairing found for values in parenthesis. ';let err2 = ' (partial conversion)';hex = stripHex(hex, 4);if (hex != '') {setField('remote_input', formatShort(hex, 4, 8));let short = '';while (hex.length > 3) {short += necDepair(hex.slice(0,4));hex = hex.slice(4);} if (short.includes('(')) {errMsg = err1};if (hex) {errMsg += err2};if (errMsg != '') {if (opt) {info('= ' + short + errMsg)};return '';} return formatShort(short, 0, 4);}}
-	
+
+function clipboard(obj) {navigator.clipboard.writeText(document.getElementById(obj).innerHTML);}
+
 function add_remote() {
-	var divider = ';'
 	var codec = '';
-	if (document.getElementById('remote_nec').checked == true) {codec = 'NEC'};
-	if (document.getElementById('remote_nec2').checked == true) {codec = 'NECx2'};
-	if (document.getElementById('remote_rc6').checked == true) {codec = 'RC6'};
-	var remote_name = document.getElementById('remote_name').value;
-	var command_name = document.getElementById('command_name').value;
+	if (document.getElementById('remote_nec').value == true) {codec = 'NEC';};
+	if (document.getElementById('remote_nec2').value == true) {codec = 'NECx2';};
+	if (document.getElementById('remote_rc6').value == true) {codec = 'RC6';};
+	var command_name = document.getElementById('command_name').innerHTML;
 	var remote_input = document.getElementById('remote_input').innerHTML;
-	document.getElementById('remote_collection').innerHTML += list_number+divider+remote_name+divider+command_name+divider+remote_input+divider+list_number+divider+'false'+divider+codec+divider+'Default'+divider+'3'+'\n';
+	document.getElementById('remote_collection').innerHTML +=
+	'<tr class="tr_ir_list">'+
+	'<td class="'+list_number+'">'+list_number+'</td>'+
+	'<td class="'+list_number+'">'+command_name+'</td>'+
+	'<td class="'+list_number+'">'+remote_input+'</td>'+
+	'<td class="'+list_number+'">'+codec+'</td>'+
+	'</tr>';
 	list_number +=1;
+	document.getElementById('list_icon').style = 'visbility: ""';
 }
 function add_remote_empty() {
-	var divider = ';'
 	var codec = '';
-	if (document.getElementById('remote_nec').checked == true) {codec = 'NEC'};
-	if (document.getElementById('remote_nec2').checked == true) {codec = 'NECx2'};
-	if (document.getElementById('remote_rc6').checked == true) {codec = 'RC6'};
-	var remote_name = document.getElementById('remote_name').value;
-	var command_name = document.getElementById('command_name').value;
-	var remote_input = document.getElementById('remote_input').innerHTML;
-	document.getElementById('remote_collection').innerHTML += list_number+divider+remote_name+divider+'EMPTY_COMMAND_LABEL_FLAG'+divider+'undefined'+divider+list_number+divider+'false'+divider+codec+divider+'Default'+divider+'3'+'\n';
+	if (document.getElementById('remote_nec').value == true) {codec = 'NEC';};
+	if (document.getElementById('remote_nec2').value == true) {codec = 'NECx2';};
+	if (document.getElementById('remote_rc6').value == true) {codec = 'RC6';};
+	var command_name = 'EMPTY_COMMAND_LABEL_FLAG';
+	var remote_input = 'undefined';
+	document.getElementById('remote_collection').innerHTML +=
+	'<tr class="tr_ir_list">'+
+	'<td class="'+list_number+'">'+list_number+'</td>'+
+	'<td class="'+list_number+'">'+command_name+'</td>'+
+	'<td class="'+list_number+'">'+remote_input+'</td>'+
+	'<td class="'+list_number+'">'+codec+'</td>'+
+	'</tr>';
 	list_number +=1;
+	document.getElementById('list_icon').style = 'visbility: ""';
 }
+
 function export_list() {
-    var remote_name = document.getElementById('remote_name').value;
-    var to_copy = document.getElementById('remote_collection').innerHTML;
-	to_copy = to_copy.replace(/<br>/g,'\n');
-	//to_copy = to_copy.replace(/|/g,';');
+	var codec = '';
+	if (document.getElementById('remote_nec').value == true) {codec = 'NEC;';};
+	if (document.getElementById('remote_nec2').value == true) {codec = 'NECx2;';};
+	if (document.getElementById('remote_rc6').value == true) {codec = 'RC6;';};
+	var remote_name = document.getElementById('remote_name').innerHTML;
+	
+	var to_copy = '';
+	
+	for (i = 0; i < list_number; i++) {
+		var subclasses = document.getElementsByClassName([i]);
+		var number = subclasses[0].innerHTML+';';
+		var command_name = subclasses[1].innerHTML+';';
+		var remote_input = subclasses[2].innerHTML+';';
+		var something = 'false;';
+		var color = 'Default;';
+		var columns = '3';
+		var end_of_line = '\n';
+
+		to_copy += number+remote_name+';'+command_name+remote_input+number+something+codec+color+columns+end_of_line;
+	}
+	document.getElementById('code_field_output').innerHTML = to_copy;
 
     var link = document.createElement("A");
     var filename = remote_name+'.csv';
@@ -120,8 +161,8 @@ function export_list() {
     document.body.removeChild(link);
 }
 
-function check_keypress(obj) {
-	if (event.key == "Enter" && obj.id == 'flipper_input') {event.preventDefault();document.getElementById('flipper_convert').click();}
-	if (event.key == "Enter" && obj.id == 'remote_input') {event.preventDefault();document.getElementById('remote_convert').click();}
-	if (event.key == "Enter" && obj.id == 'command_name') {add_remote();}
+function check_key(obj) {
+	if (event.key == "Enter" && obj.id == 'flipper_input_phase_1') {event.preventDefault();check_onblur(obj);}
+	if (event.key == "Enter" && obj.id == 'flipper_input_phase_2') {event.preventDefault();check_onblur(obj);}
+	//if (event.key == "Enter" && obj.id == 'remote_input') {add_remote();}
 }

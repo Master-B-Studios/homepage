@@ -8,13 +8,13 @@
   <link rel="stylesheet" href="../assets/css/main.css"></link>
   <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 </head>
-<body onload="window.location.href = '#ir_flipper';" class="is-preload">
+<body onload="window.location.href = '#ir_flipper';document.getElementById('flipper_nec').click();" class="is-preload">
   <div id="wrapper">
     
     <nav id="nav">
       <a href="../index.html" class="icon solid"><img class="mb_icon" src="../images/MB_Icon_02.png"></img><span>Home</span></a>
       <a href="../index.html#web-tools" class="icon solid"><img class="mb_icon" src="../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
-      <a href="../index.html#local-tools" class="icon solid"><img class="mb_icon" src="../images/Local_Icon_01.png"></img><span>Local-Tools</span></a>
+      <a href="../index.html#local-tools" class="icon solid"><img class="mb_icon" src="../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
       <a href="#ir_flipper" class="icon solid"><img class="mb_icon" src="icon_01.png"></img><span>IR Flipper</span></a>
       
     </nav>
@@ -22,6 +22,7 @@
     <div id="main">
       <article id="ir_flipper" class="panel">
         <header><h2>Flipper IR-Converter</h2></header>
+
         <div class="ir_flipper black">
 			<div class="center padding">Flipper Code</div>
 			<table class="table_flipper">
@@ -36,16 +37,18 @@
 			<table class="table_flipper">
 				<tr class="tr_flipper">
 					<td></td>
-					<td id="flipper_input_phase_1" class="flipper_input" contenteditable="true" onkeypress="check_keypress(this);" onfocus="check_onfocus(this);" onblur="check_onblur(this);">0x02</td>
+					<td id="flipper_input_phase_1" class="flipper_input" contenteditable="true" onkeydown="check_key(this);" onblur="check_onblur(this);">0x02</td>
 					<td></td>
-					<td id="flipper_input_phase_2" class="flipper_input" contenteditable="true" onkeypress="check_keypress(this);" onfocus="check_onfocus(this);" onblur="check_onblur(this);">0x04</td>
+					<td id="flipper_input_phase_2" class="flipper_input" contenteditable="true" onkeydown="check_key(this);" onblur="check_onblur(this);">0x04</td>
 					<td></td>
 				</tr>
 				<tr class="tr_flipper"><td class="tr_flipper_gap"></td></tr>
 			</table>
         </div>
+
 		<div class="tr_flipper_gap"></div>
-		<div class="ir_remote black">
+
+		<div class="ir_remote white">
 			<div class="center padding">Remote Code</div>
 			<table class="table_flipper">
 				<tr class="tr_flipper_checkbox">
@@ -58,14 +61,54 @@
 			<table class="table_flipper">
 				<tr class="tr_flipper">
 					<td></td>
-					<td id="remote_input" class="flipper_input" contenteditable="true" onkeypress="check_keypress(this);" onfocus="check_onfocus(this);" onblur="check_onblur(this);">M@ster_B</td>
+					<td id="remote_input" class="flipper_input" contenteditable="true" onblur="check_onblur(this);">M@ster_B</td>
+					<td></td>
+					<td class="flipper_icon" onclick="clipboard('remote_input')"><img src="../images/Copy_Icon_01.png"></img></td>
 					<td></td>
 				</tr>
 				<tr class="tr_flipper"><td class="tr_flipper_gap"></td></tr>
 			</table>
         </div>
+
+		<div class="tr_flipper_gap"></div>
+
+		<div class="ir_list white">
+			<div class="center padding">Remote List</div>
+			<table class="table_flipper">
+				<tr class="tr_flipper">
+					<td></td>
+					<td id="remote_name" class="flipper_input" contenteditable="true" onfocus="check_onfocus(this);" onblur="check_onblur(this);">Name Der Fernbedienung</td>
+					<td></td>
+				</tr>
+				<tr class="tr_flipper"><td class="tr_flipper_gap"></td></tr>
+			</table>
+			<table class="table_flipper">
+				<tr class="tr_flipper">
+					<td></td>
+					<td id="command_name" class="flipper_input" contenteditable="true" onfocus="check_onfocus(this);" onblur="check_onblur(this);">Name Der Taste</td>
+					<td></td>
+					<td class="flipper_icon" onclick="add_remote_empty();"><img src="../images/Downlist_Icon_02.png"></img></td>
+					<td></td>
+					<td class="flipper_icon" onclick="add_remote();"><img src="../images/Downlist_Icon_01.png"></img></td>
+					<td></td>
+				</tr>
+			</table>
+			<table id="remote_collection" class="table_flipper"></table>
+			<div class="tr_flipper_gap"></div>
+			<table id="list_icon" class="table_flipper" style="display: none;">
+				<tr class="tr_flipper">
+					<td></td>
+					<td class="flipper_icon" onclick="export_list();"><img src="../images/Download_Icon_02.png"></img></td>
+					<td></td>
+				</tr>
+				<tr class="tr_flipper"><td class="tr_flipper_gap"></td></tr>
+			</table>
+        </div>
+
       </article>
     </div>
+	<div id="code_field_flipper" style="visibility: hidden;"></div>
+	<div id="code_field_output" style="visibility: hidden;"></div>
     <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
 
   </div>
@@ -77,5 +120,3 @@
 <script src="../assets/js/util.js"></script>
 <script src="../assets/js/main.js"></script>
 <script src="main.js"></script>
-
-<div id="code_field_flipper"></div>
