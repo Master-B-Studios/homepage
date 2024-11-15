@@ -163,6 +163,8 @@ body.is-preload #wrapper {opacity: 0;}
 article {display: none;}
 article:target {display: block;}
 
+.black {color: #000000;}
+
 .mb_icon {top: 0.04em;left: 0em;position: relative;display: inline-block;color: #ffffff;width: 0.4em;height: 0.4em;line-height: 0.9em;font-size: 2.5em;margin: 0 0 0 0;opacity: 1;outline: 0;-moz-transition: opacity .25s ease-in-out;-webkit-transition: opacity .25s ease-in-out;-ms-transition: opacity .25s ease-in-out;transition: opacity .25s ease-in-out;cursor: pointer;}
 .mb_icon:hover {opacity: 1.0;}
 .mb_icon:hover .mb_icon_span {opacity: 1.0;}
@@ -180,7 +182,9 @@ input[accept=".nfo"] {display: none;z-index: 100;cursor: pointer;}
 input[accept=".episodes"] {display: none;z-index: 100;cursor: pointer;}
 
 .description {text-align: justify;}
-.center {text-align: center;}
+.center {text-align: center;align-content: center;}
+.margin {margin: 1em;}
+.padding {padding: 1em;}
 .space_evenly {display: flex;justify-content: space-evenly;}
 
 .table_nfo {width: 100%;height: auto;margin: auto;}
@@ -190,3 +194,16 @@ input[accept=".episodes"] {display: none;z-index: 100;cursor: pointer;}
 .td_as_input_text {width: 30%;background-color: #888888;padding: 0.5em;margin: 0.5em;color: #000000;font-weight: 500;cursor: pointer;}
 .td_as_input_text:hover {background-color: #cccccc;}
 .td_as_input_text:focus {background-color: #cccccc;}
+
+.ir_flipper {background-color: #ff9900;}
+.table_flipper {width: 100%;height: auto;margin: auto;}
+.tr_flipper {width: 100%;height: auto;}
+.tr_flipper_gap {width: auto;height: 1em;}
+.tr_flipper_checkbox {width: 100%;height: auto;display: flex;justify-content: space-around;text-align: center;}
+.tr_flipper_checkbox td {width: 4em;height: auto;background-color: #222222;cursor: pointer;border: 1px solid #000000;color: #aaaaaa;opacity: 0.5;transition: opacity 1s;}
+.tr_flipper_checkbox td:hover {border: 1px solid #00ff6a;opacity: 1;transition: opacity 1s;}
+.flipper_input {width: 40%;height: 4em;text-align: center;align-content: center;border: 1px solid #000000;cursor: pointer;background-color: #222222;color: #aaaaaa;}
+.flipper_input:hover {border: 1px solid #00ff6a;background-color: #aaaaaa;color: #000000;transition: border 1s, background-color 1s, color 1s;}
+.flipper_input:focus {border: 1px solid #000000;background-color: #222222;color: #aaaaaa;}
+
+.ir_remote {background-color: #444444;}

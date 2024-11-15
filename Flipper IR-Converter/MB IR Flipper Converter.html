@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>IR Flipper</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+  <link rel="icon" type="image/x-icon" href="../images/MB_Icon_01.png"></link>
+  <link rel="stylesheet" href="../assets/css/main.css"></link>
+  <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+</head>
+<body onload="window.location.href = '#ir_flipper';" class="is-preload">
+  <div id="wrapper">
+    
+    <nav id="nav">
+      <a href="../index.html" class="icon solid"><img class="mb_icon" src="../images/MB_Icon_02.png"></img><span>Home</span></a>
+      <a href="../index.html#web-tools" class="icon solid"><img class="mb_icon" src="../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
+      <a href="../index.html#local-tools" class="icon solid"><img class="mb_icon" src="../images/Local_Icon_01.png"></img><span>Local-Tools</span></a>
+      <a href="#ir_flipper" class="icon solid"><img class="mb_icon" src="icon_01.png"></img><span>IR Flipper</span></a>
+      
+    </nav>
+    
+    <div id="main">
+      <article id="ir_flipper" class="panel">
+        <header><h2>Flipper IR-Converter</h2></header>
+        <div class="ir_flipper black">
+			<div class="center padding">Flipper Code</div>
+			<table class="table_flipper">
+				<tr class="tr_flipper_checkbox">
+					<td id="flipper_nec" class="checkbox" onclick="select_format(this);">NEC</td>
+					<td id="flipper_necext" class="checkbox" onclick="select_format(this);">NECext</td>
+					<td id="flipper_nec2" class="checkbox" onclick="select_format(this);">NECx2</td>
+					<td id="flipper_rc6" class="checkbox" onclick="select_format(this);">RC6</td>
+				</tr>
+				<tr class="tr_flipper"><td class="tr_flipper_gap"></td></tr>
+			</table>
+			<table class="table_flipper">
+				<tr class="tr_flipper">
+					<td></td>
+					<td id="flipper_input_phase_1" class="flipper_input" contenteditable="true" onkeypress="check_keypress(this);" onfocus="check_onfocus(this);" onblur="check_onblur(this);">0x02</td>
+					<td></td>
+					<td id="flipper_input_phase_2" class="flipper_input" contenteditable="true" onkeypress="check_keypress(this);" onfocus="check_onfocus(this);" onblur="check_onblur(this);">0x04</td>
+					<td></td>
+				</tr>
+				<tr class="tr_flipper"><td class="tr_flipper_gap"></td></tr>
+			</table>
+        </div>
+		<div class="tr_flipper_gap"></div>
+		<div class="ir_remote black">
+			<div class="center padding">Remote Code</div>
+			<table class="table_flipper">
+				<tr class="tr_flipper_checkbox">
+					<td id="remote_nec" class="checkbox" onclick="select_format(this);">NEC</td>
+					<td id="remote_nec2" class="checkbox" onclick="select_format(this);">NECx2</td>
+					<td id="remote_rc6" class="checkbox" onclick="select_format(this);">RC6</td>
+				</tr>
+				<tr class="tr_flipper"><td class="tr_flipper_gap"></td></tr>
+			</table>
+			<table class="table_flipper">
+				<tr class="tr_flipper">
+					<td></td>
+					<td id="remote_input" class="flipper_input" contenteditable="true" onkeypress="check_keypress(this);" onfocus="check_onfocus(this);" onblur="check_onblur(this);">M@ster_B</td>
+					<td></td>
+				</tr>
+				<tr class="tr_flipper"><td class="tr_flipper_gap"></td></tr>
+			</table>
+        </div>
+      </article>
+    </div>
+    <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
+
+  </div>
+</body>
+
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="main.js"></script>
+
+<div id="code_field_flipper"></div>
