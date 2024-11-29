@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Whiteboard</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+  <link rel="icon" type="image/x-icon" href="../images/MB_Icon_01.png"></link>
+  <link rel="stylesheet" href="../assets/css/main.css"></link>
+  <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+</head>
+<body onload="window.location.href = '#whiteboard';prepare_whiteboard();" class="is-preload">
+  <div id="">
+    
+    <nav id="nav" class="whiteboard_nav_bar">
+      <a href="../index.html" class="icon solid"><img class="mb_icon" src="../images/MB_Icon_02.png"></img><span>Home</span></a>
+      <a href="../index.html#web-tools" class="icon solid"><img class="mb_icon" src="../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
+      <a href="../index.html#local-tools" class="icon solid"><img class="mb_icon" src="../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
+      <a href="#whiteboard" class="icon solid"><img class="mb_icon" src="icon_01.png"></img><span>Whiteboard</span></a>
+    </nav>
+    
+    <div id="main">
+      <section id="whiteboard" class="panel" style="padding: 0;margin: 0;margin-bottom: -1em;">
+        <canvas id="whiteboard_frame"></canvas>
+      </section>
+    </div>
+  </div>
+</body>
+
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="main.js"></script>
+<script src="pdf.js"></script>
