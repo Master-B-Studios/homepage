@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic,400italic");
-@import url("fontawesome-all.min.css");
+/*@import url("fontawesome-all.min.css");*/
 
 html, body, div, span, applet, object,iframe, h1, h2, h3, h4, h5, h6, p, blockquote,pre, a, abbr, acronym, address, big, cite,code, del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var, b,u, i, center, dl, dt, dd, ol, ul, li, fieldset,form, label, legend, table, caption, tbody,tfoot, thead, tr, th, td, article, aside,canvas, details, embed, figure, figcaption,footer, header, hgroup, menu, nav, output, ruby,section, summary, time, mark, audio, video {margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;}
 article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
@@ -7,7 +7,7 @@ body {line-height: 1;cursor: default;background-color: #000000;}
 ol, ul {list-style: none;}
 blockquote, q {quotes: none;}
 blockquote:before, blockquote:after, q:before, q:after {content: '';content: none;}
-table {border-collapse: collapse;border-spacing: 0;color: #000000;}
+table {border-collapse: collapse;border-spacing: 0;color: #dddddd;}
 body {-webkit-text-size-adjust: none;}
 mark {background-color: transparent;color: inherit;}
 input::-moz-focus-inner {border: 0;padding: 0;}
@@ -25,7 +25,7 @@ html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
 body {background-image: url("../../images/overlay.png"), url("../../images/BG_Soft_01.jpg");background-repeat: repeat, no-repeat;background-size: auto, 100% 100%;background-attachment: fixed;overflow-y: scroll;}
 body.is-preload *, body.is-preload *:before, body.is-preload *:after {-moz-animation: none !important;-webkit-animation: none !important;-ms-animation: none !important;animation: none !important;-moz-transition: none !important;-webkit-transition: none !important;-ms-transition: none !important;transition: none !important;}
-body, input, textarea, select {font-family: 'Source Sans Pro', sans-serif;font-weight: 300;color: #000000;font-size: 20pt;line-height: 1.75em;}
+body, input, textarea, select {font-family: 'Source Sans Pro', sans-serif;font-weight: 300;color: #aaaaaa;font-size: 20pt;line-height: 1.75em;}
 @media screen and (max-width: 1680px) {body, input, textarea, select {font-size: 15pt;}}
 @media screen and (max-width: 1280px) {body, input, textarea, select {font-size: 14pt;}}
 @media screen and (max-width: 736px) {body, input, textarea, select {font-size: 12pt;}}
@@ -216,7 +216,23 @@ input[accept=".episodes"] {display: none;z-index: 100;cursor: pointer;}
 .tr_ir_list {width: 100%;height: auto;}
 .tr_ir_list td {width: auto;height: auto;padding: 0.5em;}
 
-.whiteboard_nav_bar {height: 6em;}
+.table_video_scripts {width: 100%;height: auto;margin: auto;}
+.tr_video_scripts {width: 100%;height: auto;}
+.tr_video_scripts_gap {width: auto;height: 1em;}
+.tr_video_scripts_checkbox_small {width: 100%;height: auto;display: flex;justify-content: space-around;text-align: center;}
+.tr_video_scripts_checkbox_large {width: 100%;height: auto;display: flex;justify-content: space-evenly;text-align: center;}
+.tr_video_scripts_checkbox_small td {width: 4em;height: auto;background-color: #111111;cursor: pointer;border: 1px solid #000000;color: #aaaaaa;opacity: 0.5;transition: opacity 1s;padding-left: 1em;padding-right: 1em;}
+.tr_video_scripts_checkbox_large td {width: 8em;height: auto;background-color: #111111;cursor: pointer;border: 1px solid #000000;color: #aaaaaa;opacity: 0.5;transition: opacity 1s;padding-left: 1em;padding-right: 1em;}
+.tr_video_scripts_checkbox_small td:hover,.tr_video_scripts_checkbox_large td:hover {border: 1px solid #00ff6a;opacity: 1;transition: opacity 1s;}
+.tr_video_scripts_checkbox td:hover {border: 1px solid #00ff6a;opacity: 1;transition: opacity 1s;}
+
+.td_video_scripts_50 {width: 50%;text-align: center;}
+.inactive {visibility: hidden;}
+
+.video_film_panel {background-color: #333333;}
+
+.panel {margin: 0;padding: 0;}
 
 .text_link {cursor: pointer;}
 .text_link:hover {font-weight: bold;}
+
