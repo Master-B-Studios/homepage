@@ -236,4 +236,4 @@ input[accept=".episodes"] {display: none;z-index: 100;cursor: pointer;}
 .text_link {cursor: pointer;}
 .text_link:hover {font-weight: bold;}
 
-.sudoku {width: 100%;height: 70vh;background-color: #00ff6a;margin: auto;}
+.sudoku {width: 100%;height: 70vh;margin: auto;}
