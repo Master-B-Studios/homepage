@@ -1,4 +1,4 @@
-*, *:before, *:after {box-sizing: border-box;}
+*, *:before, *:after {box-sizing: border-box;-webkit-tap-highlight-color: transparent;}
 body {
 	padding-top: 2em;
 	background-attachment: fixed;
