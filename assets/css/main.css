@@ -22,7 +22,7 @@ input, select, textarea {-moz-appearance: none;-webkit-appearance: none;-ms-appe
 
 /* Basic */
 html {box-sizing: border-box;}
-*, *:before, *:after {box-sizing: inherit;}
+*, *:before, *:after {box-sizing: inherit;-webkit-tap-highlight-color: transparent;}
 body {background-image: url("../../images/overlay.png"), url("../../images/BG_Soft_01.jpg");background-repeat: repeat, no-repeat;background-size: auto, 100% 100%;background-attachment: fixed;overflow-y: scroll;}
 body.is-preload *, body.is-preload *:before, body.is-preload *:after {-moz-animation: none !important;-webkit-animation: none !important;-ms-animation: none !important;animation: none !important;-moz-transition: none !important;-webkit-transition: none !important;-ms-transition: none !important;transition: none !important;}
 body, input, textarea, select {font-family: 'Source Sans Pro', sans-serif;font-weight: 300;color: #aaaaaa;font-size: 20pt;line-height: 1.75em;}
