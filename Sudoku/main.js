@@ -2,7 +2,7 @@
 	var methods = {
 		init : function(options) {
 			return this.each(function() {
-				var settings = {levels : [{level: "Easy", numbers: 70},{level: "Medium", numbers: 30},{level: "Hard", numbers: 20}]};
+				var settings = {levels : [{level: "Einfach", numbers: 70},{level: "Mittel", numbers: 30},{level: "Schwer", numbers: 20}]};
 				var defaults = {matrix : [], domMatrix : [], numOfRows : 9, numOfCols : 9, level : 40, selected : null, selectedSolution : null, anwerTracker : {"1" : 9,"2" : 9,"3" : 9,"4" : 9,"5" : 9,"6" : 9,"7" : 9,"8" : 9,"9" : 9}}
 				if ( options ) {$.extend( settings, options );}
 				var $this = $(this);$this.addClass('sdk-game');
