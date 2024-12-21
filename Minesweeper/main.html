@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Minesweeper</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+  <link rel="icon" type="image/x-icon" href="../images/MB_Icon_01.png"></link>
+  <link rel="stylesheet" href="main.css"></link>
+</head>
+<body onload="window.location.href = '#settings'">
+	<section id="settings">
+		<table class="minesweeper_table">
+			<tr><td class="header_table" colspan="2">Einstellungen:</td></tr>
+			<tr><td class="left_table">Reihen:</td><td class="right_table"><input id="row_count" type="number" value="15" /></td></tr>
+			<tr><td class="left_table">Spalten:</td><td class="right_table"><input id="col_count" type="number" value="11" /></td></tr>
+			<tr><td class="left_table">Minen:</td><td class="right_table"><input id="mine_num" type="number" value="25" /></td></tr>
+		</table>
+		<div class="minesweeper_button"><button onclick="CheckConfigAndStart();">Start</button></div>
+	</section>
+	<section id="game"><div id="playground"></div></section>
+</body>
+</html>
+
+<script src="main.js"></script>
