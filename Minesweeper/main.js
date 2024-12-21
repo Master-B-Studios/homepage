@@ -92,8 +92,10 @@ function FaceButton() {
 	oImgFace = document.createElement("img");
 	oImgFace.border = 0;
 	oImgFace.src = "images/smile.gif";
+	oImgFace.style.width = "24px";
+	oImgFace.style.height = "24px";
 	oImgFace.style.padding = "0px";
-	oImgFace.style.margin = "-2px 0 0 -2px";
+	oImgFace.style.margin = "0px 0 0 0px";
 	
 	with (oButtonSelf) {
 		onmousedown = function() {oButtonSelf.className = "img_button_down";oButtonSelf.setAttribute("pushed", true);}
