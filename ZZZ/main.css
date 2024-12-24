@@ -1,0 +1,42 @@
+* {padding: none;border: none;margin: none;border-radius: none;cursor: default;-webkit-tap-highlight-color: transparent;}
+body {background-image: url("BG.jpg");background-repeat: no-repeat;background-size: cover;background-attachment: fixed;overflow-y: scroll;}
+
+section {display: none;}
+section:target {display: block;}
+
+.starter {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  margin-top: 40vh;
+  text-align: center;
+  text-shadow: 2px 2px 5px #000000,-2px -2px 5px #000000;
+  font-size: 4em;
+  color: #dbdbdb;
+}
+
+.header {
+  margin: auto;
+  margin-top: 10vh;
+  text-align: center;
+  text-shadow: 2px 2px 5px #000000,-2px -2px 5px #000000;
+  font-size: 4em;
+  color: #dbdbdb;
+}
+
+.image {
+  margin-top: 10vh;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.image img {
+  width: 80%;
+  height: auto;
+  position: relative;
+  margin: auto;
+  cursor: pointer;
+}

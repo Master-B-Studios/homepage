@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>MB Studios</title>
+		<meta charset="utf-8"></meta>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+		<link rel="icon" type="image/x-icon" href="../images/MB_Icon_01.png"></link>
+		<link rel="stylesheet" href="main.css"></link>
+	</head>
+	<body onload="window.location.href='#start';">
+		<section id="start">
+			<div class="starter" onclick="window.location.href='#normal';play_bgm();">?</div>
+		</section>
+		<section id="normal">
+			<div class="header">Leonie's<br>Gutschein<br>für</div>
+			<div id="image" class="image" onclick="stages();"><img id="to_show" src="01.gif"></div>
+		</section>
+		<div><audio id="bgm" src="bells.mp3" autoplay></audio></div>
+		<div><audio id="highlight" src="end.mp3"></audio></div>
+	</body>
+</html>
+<script src="main.js"></script>
