@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html allow="fullscreen">
+<head>
+	<link rel="stylesheet" href="sidepanel.css"></link>
+</head>
+<body>
+	<div id="gap"></div>
+	<div><a onclick="reload();"><img id="reload" src="sources/dartmaster_sources/image/icon.png"></img></a></div>
+	<div id="gap"></div>
+	<div id="gap"></div>
+	<div><a onclick="toggle_fullscreen();"><img id="fullscreen" src="sources/dartmaster_sources/image/Fullscreen_On.png"></img></a></div>
+	<div id="gap"></div>
+	<div id="gap"></div>
+	<div><a href="../index.html" target="_parent"><img id="homepage" src="../images/MB_Icon_01.png"></img></a></div>
+	<div id="gap"></div>
+</body>
+</html>
+
+<script>
+	function reload() {window.location.reload();}
+
+	function toggle_fullscreen_key() {
+		var e = new Event('keypress');
+		e.which = 122; // Character F11 equivalent.
+		e.altKey=false;
+		e.ctrlKey=false;
+		e.shiftKey=false;
+		e.metaKey=false;
+		e.bubbles=true;
+		document.dispatchEvent(e);
+		//if (document.documentElement.webkitRequestFullscreen) {document.documentElement.webkitRequestFullscreen();}
+	}
+
+	/* Get the documentElement (<html>) to display the page in fullscreen */
+var elem = document.documentElement;
+
+/* View in fullscreen */
+function toggle_fullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+
+/* Close fullscreen */
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) { /* Safari */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE11 */
+    document.msExitFullscreen();
+  }
+}
+</script>
