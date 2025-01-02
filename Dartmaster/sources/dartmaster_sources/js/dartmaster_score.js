@@ -1,17 +1,4 @@
-/*
- * DartMaster V 2.0
- *
- * HTML-Source for DartMaster Android-App.
- *
- * Copyright (C) 2018 by Master B. All rights reserved.
- *
- * Special Thanks to Ohno Tomoaki for inventing n01.
- */
-
-var resources = {
-	en : {
-	},
-};
+var resources = {en : {},};
 var res = {};
 var lang = 'en';
 $(document).ready(function() {
@@ -38,9 +25,7 @@ $(document).ready( function() {
 	init();
 	resize();
 
-	$(window).resize(function() {
-		resize();
-	});
+	$(window).resize(function() {resize();});
 
 	$(document).on('keydown', function(e) {
 		switch (e.keyCode) {
@@ -58,16 +43,9 @@ $(document).ready( function() {
 		}
 	});
 
-	$('#button_cancel').click(function() {
-		window.location.href = dartmaster_data.topPage;
-	});
-	$('#button_stats').click(function() {
-		window.location.href = 'stats.html';
-	});
-	$('#print_score').click(function(){
-		;
-		genscreen();
-	});
+	$('#button_cancel').click(function() {window.location.href = dartmaster_data.topPage;});
+	$('#button_stats').click(function() {window.location.href = 'stats.html';});
+	$('#print_score').click(function() {genscreen();});
 });
 
 function genscreen() {
@@ -214,38 +192,19 @@ function init() {
 	}
 }
 
-function convScore(score) {
-	if (score < 0) {
-		return "x" + (score * -1);
-	}
-	return score;
-}
-
-function convLeft(left) {
-	if (left === 0) {
-		return "";
-	}
-	return left;
-}
-
+function convScore(score) {if (score < 0) {return "x" + (score * -1);} return score;}
+function convLeft(left) {if (left === 0) {return "";} return left;}
 function isShowRound(leg, round, player) {
-	if (round === leg.currentRound + 1 && leg.first === leg.currentPlayer && leg.currentPlayer !== player) {
-		return false;
-	}
+	if (round === leg.currentRound + 1 && leg.first === leg.currentPlayer && leg.currentPlayer !== player) {return false;}
 	return true;
 }
 
 function setCircleTon(obj) {
-	if (dartmaster_data.options.circleTon !== 1) {
-		return;
-	}
+	if (dartmaster_data.options.circleTon !== 1) {return;}
 	var score = parseInt(obj.text(), 10);
 	if (score >= 100) {
 		var canvas = document.getElementById('canvas_ton');
-		if (canvas && canvas.getContext) {
-			obj.css('background-image', 'url("' + canvas.toDataURL() + '")');
-		}
-	} else {
-		obj.css('background-image', 'none');
+		if (canvas && canvas.getContext) {obj.css('background-image', 'url("' + canvas.toDataURL() + '")');}
 	}
+	else {obj.css('background-image', 'none');}
 }
