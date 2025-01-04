@@ -46,19 +46,15 @@
 
     <table class="options_table">
       <tbody>
-        <tr id="menu_new" onclick="new_game();">
-          <td class="options_table_left"><img src="sources/dartmaster_sources/image/Icon_Dart_01.png"></img></td>
-          <td class="options_table_right">Neues Spiel</td>
+        <tr>
+          <td class="options_table_left" onclick="new_game();"><img src="sources/dartmaster_sources/image/Icon_Dart_01.png"></img></td>
+          <td class="options_table_middle" onclick="toggle_fullscreen();"><img src="sources/dartmaster_sources/image/Icon_Fullscreen_I.png"></img></td>
+          <td class="options_table_right" onclick="homepage();"><img src="sources/dartmaster_sources/image/Icon_MB_01.png"></img></td>
         </tr>
-        <tr><td class="options_table_gap"></td></tr>
-        <tr id="fullscreen" onclick="toggle_fullscreen();">
-          <td class="options_table_left"><img id="fullscreen_image" src="sources/dartmaster_sources/image/Icon_Fullscreen_I.png"></img></td>
-          <td class="options_table_right">Fullscreen</td>
-        </tr>
-        <tr><td class="options_table_gap"></td></tr>
-        <tr id="homepage" onclick="homepage();">
-          <td class="options_table_left"><img src="sources/dartmaster_sources/image/Icon_MB_01.png"></img></td>
-          <td class="options_table_right">Zurück zur Homepage</td>
+        <tr>
+          <td class="options_table_left" onclick="new_game();">Neues Spiel</td>
+          <td class="options_table_middle" onclick="toggle_fullscreen();">Fullscreen</td>
+          <td class="options_table_right" onclick="homepage();">Homepage</td>
         </tr>
       </tbody>
     </table>
