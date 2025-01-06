@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Kodi NFO-Creator</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+  <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
+  <link rel="stylesheet" href="../../assets/css/main.css"></link>
+  <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+</head>
+<body onload="window.location.href = '#nfo_creator';init();" class="is-preload">
+  <div id="wrapper">
+    
+    <nav id="nav">
+      <a href="../../index.html"><img class="mb_icon" src="../../images/MB_Icon_02.png"></img><span>Home</span></a>
+      <a href="../../index.html#web-tools"><img class="mb_icon" src="../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
+      <a href="../../index.html#local-tools"><img class="mb_icon" src="../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
+      <a href="../../index.html#games"><img class="mb_icon" src="../../images/Games_Icon_01.png"></img><span>Games</span></a>
+      <a href="#nfo_creator"><img class="mb_icon" src="icon_01.png"></img><span>NFO-Creator</span></a>
+      
+    </nav>
+    
+    <div id="main">
+      <article id="nfo_creator" class="panel">
+        <header><h2>Kodi NFO-Creator</h2></header>
+        <div class="button_container">
+            <button class="mb_button large" onclick="jump_page_film();">Film<br>Erstellen</button>
+            <button class="mb_button large" onclick="subclick(this);"><input type="file" accept=".nfo" onchange="load_nfo(this, 'film');"></input>Film<br>Bearbeiten</button>
+        </div>
+        <div class="button_container">
+            <button class="mb_button large" onclick="jump_page_serie();">Serie<br>Erstellen</button>
+            <button class="mb_button large" onclick="subclick(this);"><input type="file" accept=".nfo" onchange="load_nfo(this, 'serie');"></input>Serie<br>Bearbeiten</button>
+        </div>
+        <div class="button_container">
+            <button class="mb_button large" onclick="jump_page_episode();">Episode<br>Erstellen</button>
+            <button class="mb_button large" onclick="subclick(this);"><input type="file" accept=".nfo" onchange="load_nfo(this, 'episode');"></input>Episode<br>Bearbeiten</button>
+        </div>
+      </article>
+
+      <article id="film" class="panel">
+        <header><h2>Filmdaten Eingeben</h2></header>
+        <table class="table_nfo">
+            <tr class="tr_nfo"><td class="td_nfo_01">Titel:</td><td id="input_title_movie" class="td_as_input_text" contenteditable="true" colspan="3"></td></tr>
+            <tr class="tr_nfo"><td class="tr_nfo_gap"></td></tr>
+            <tr class="tr_nfo"><td class="td_nfo_01">Nummer:</td><td id="input_number_movie" class="td_as_input_text" contenteditable="true"></td><td class="td_nfo_01">Laufzeit:</td><td id="input_runtime_movie" class="td_as_input_text" contenteditable="true"></td></tr>
+            <tr class="tr_nfo"><td class="tr_nfo_gap"></td></tr>
+            <tr class="tr_nfo"><td class="td_nfo_01">Jahr:</td><td id="input_year_movie" class="td_as_input_text" contenteditable="true"></td><td class="td_nfo_01">Altersfreigabe:</td><td id="input_age_movie" class="td_as_input_text" contenteditable="true"></td></tr>
+            <tr class="tr_nfo"><td class="tr_nfo_gap"></td></tr>
+            <tr class="tr_nfo"><td class="td_nfo_01">Beschreibung:</td><td id="input_content_movie" class="td_as_input_text" contenteditable="true" colspan="3" oninput="format_text(this);"></td></tr>
+        </table>
+        <div class="button_container">
+            <button class="mb_button large" onclick="reset_all();">Alles<br>Leeren</button>
+            <button class="mb_button large" onclick="save_film();">Film<br>Speichern</button>
+        </div>
+      </article>
+
+      <article id="serie" class="panel">
+        <header><h2>Seriendaten Eingeben</h2></header>
+        <table class="table_nfo">
+            <tr class="tr_nfo"><td class="td_nfo_01">Titel:</td><td id="input_title_serie" class="td_as_input_text" contenteditable="true" colspan="3"></td></tr>
+            <tr class="tr_nfo"><td class="tr_nfo_gap"></td></tr>
+            <tr class="tr_nfo"><td class="td_nfo_01">Nummer:</td><td id="input_number_serie" class="td_as_input_text" contenteditable="true"></td><td class="td_nfo_01">Staffelanzahl:</td><td id="input_seasons_serie" class="td_as_input_text" contenteditable="true"></td></tr>
+            <tr class="tr_nfo"><td class="tr_nfo_gap"></td></tr>
+            <tr class="tr_nfo"><td class="td_nfo_01">Jahr:</td><td id="input_year_serie" class="td_as_input_text" contenteditable="true"></td><td class="td_nfo_01">Altersfreigabe:</td><td id="input_age_serie" class="td_as_input_text" contenteditable="true"></td></tr>
+            <tr class="tr_nfo"><td class="tr_nfo_gap"></td></tr>
+            <tr class="tr_nfo"><td class="td_nfo_01">Beschreibung:</td><td id="input_content_serie" class="td_as_input_text" contenteditable="true" colspan="3" oninput="format_text(this);"></td></tr>
+        </table>
+        <div class="button_container">
+            <button class="mb_button large" onclick="reset_all();">Alles<br>Leeren</button>
+            <button class="mb_button large" onclick="save_serie();">Serie<br>Speichern</button>
+        </div>
+        <div class="button_container">
+            <button class="mb_button large" onclick="save_editor_serie();">Ordner<br>Erstellen</button>
+            <button class="mb_button large" onclick="episode_prepare();">Episoden<br>Erstellen</button>
+        </div>
+      </article>
+
+      <article id="episode" class="panel">
+        <header><h2>Episodendaten Eingeben</h2></header>
+        <table class="table_nfo">
+            <tr class="tr_nfo"><td class="td_nfo_01">Serie:</td><td id="input_title_serie_episode" class="td_as_input_text" contenteditable="true" colspan="3"></td></tr>
+            <tr class="tr_nfo"><td class="tr_nfo_gap"></td></tr>
+            <tr class="tr_nfo"><td class="td_nfo_01">Nummer:</td><td id="input_number_serie_episode" class="td_as_input_text" contenteditable="true"></td></tr>
+            <tr class="tr_nfo"><td class="tr_nfo_gap"></td></tr>
+            <tr class="tr_nfo"><td class="td_nfo_01" onblur="parse_episodes_list();">Staffel:</td><td id="input_season_episode" class="td_as_input_text" contenteditable="true"></td><td class="td_nfo_01" onclick="episode_remove_pretitle();">Folge:</td><td id="input_number_episode" class="td_as_input_text" contenteditable="true"></td></tr>
+            <tr class="tr_nfo"><td class="tr_nfo_gap"></td></tr>
+            <tr class="tr_nfo"><td class="td_nfo_01">Titel:</td><td id="input_title_episode" class="td_as_input_text" contenteditable="true" colspan="3"></td></tr>
+            <tr class="tr_nfo"><td class="tr_nfo_gap"></td></tr>
+            <tr class="tr_nfo"><td class="td_nfo_01">Beschreibung:</td><td id="input_content_episode" class="td_as_input_text" contenteditable="true" colspan="3" oninput="format_text(this);"></td></tr>
+        </table>
+        <div class="button_container">
+            <button id="load_episodes_list" class="mb_button large" onclick="subclick(this);"><input type="file" accept=".episodes" onchange="load_episodes_list(this);"></input>Episoden-Liste<br>Laden</button>
+            <button class="mb_button large" onclick="save_episode();">Episode<br>Speichern</button>
+        </div>
+        <div class="button_container">
+            <button id="unload_episodes_list" class="mb_button large" onclick="unload_episodes_list();">Episoden-Liste<br>Entfernen</button>
+            <button class="mb_button large" onclick="episode_prepare_next();">Nächste<br>Folge</button>
+        </div>
+      </article>
+    </div>
+    
+    <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
+
+  </div>
+</body>
+<article id="loaded_content"></article>
+<article id="episodes_list"></article>
+
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/browser.min.js"></script>
+<script src="../../assets/js/breakpoints.min.js"></script>
+<script src="../../assets/js/util.js"></script>
+<script src="../../assets/js/main.js"></script>
+<script src="main.js"></script>

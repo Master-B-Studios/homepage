@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Video-Scripts</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+  <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
+  <link rel="stylesheet" href="../../assets/css/main.css"></link>
+</head>
+<body onload="window.location.href = '#scripts';" class="is-preload">
+  <div id="wrapper">
+    
+    <nav id="nav">
+      <a href="../../index.html"><img class="mb_icon" src="../../images/MB_Icon_02.png"></img><span>Home</span></a>
+      <a href="../../index.html#web-tools"><img class="mb_icon" src="../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
+      <a href="../../index.html#local-tools"><img class="mb_icon" src="../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
+      <a href="../../index.html#games"><img class="mb_icon" src="../../images/Games_Icon_01.png"></img><span>Games</span></a>
+      <a href="#scripts"><img class="mb_icon" src="icon_01.png"></img><span>Video-Scripts</span></a>
+      
+    </nav>
+    
+    <div id="main">
+      <article id="scripts" class="panel">
+        <header><h2>Video-Scripts</h2></header>
+        <div class="description">Hier können Command-Line-Scripts für FFMpeg und MKVToolnix erzeugt werden. Für die Erzeugung angehängter Metadaten werden ein Cover im Format "600x900 Pixel-poster.jpg" und eine Kodi "Titelname.nfo" benötigt.</div>
+        <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="tr_video_scripts_gap"></td></tr></table>
+        <div class="video_film_panel">
+          <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="tr_video_scripts_gap"></td></tr></table>
+          <header><h2>Film:</h2></header>
+          <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="td_video_scripts_50">Start-Container</td><td class="td_video_scripts_50">Ziel-Container</td></tr></table>
+          <table class="table_video_scripts">
+            <tr class="tr_video_scripts_checkbox_small">
+              <td id="give_mkv" class="checkbox" onclick="select_format(this);">MKV</td>
+              <td id="give_mp4" class="checkbox" onclick="select_format(this);">MP4</td>
+              <td id="make_mkv" class="checkbox" onclick="select_format(this);">MKV</td>
+              <td id="make_mp4" class="checkbox" onclick="select_format(this);">MP4</td>
+            </tr>
+          </table>
+          <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="tr_video_scripts_gap"></td></tr></table>
+
+          <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="center">Video-Stream</td></tr></table>
+          <table class="table_video_scripts activate_1 inactive">
+            <tr class="tr_video_scripts_checkbox_large">
+              <td id="video_copy" class="checkbox" onclick="select_format(this);">Kopieren</td>
+              <td id="video_conv" class="checkbox" onclick="select_format(this);">Konvertieren</td>
+            </tr>
+          </table>
+          <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="tr_video_scripts_gap"></td></tr></table>
+
+          <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="center">Auflösung</td></tr></table>
+          <table class="table_video_scripts activate_2 inactive">
+            <tr class="tr_video_scripts_checkbox_large">
+              <td id="video_resolution_org" class="checkbox" onclick="select_format(this);">Original</td>
+              <td id="video_resolution_uhd" class="checkbox" onclick="select_format(this);">1920 x 1080</td>
+              <td id="video_resolution_fhd" class="checkbox" onclick="select_format(this);">1280 x 720</td>
+            </tr>
+          </table>
+          <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="tr_video_scripts_gap"></td></tr></table>
+
+          <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="center">Framerate</td></tr></table>
+          <table class="table_video_scripts activate_2 inactive">
+            <tr class="tr_video_scripts_checkbox_large">
+              <td id="video_frame_orig" class="checkbox" onclick="select_format(this);">Original</td>
+              <td id="video_frame_ntsc" class="checkbox" onclick="select_format(this);">29.97</td>
+            </tr>
+          </table>
+          <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="tr_video_scripts_gap"></td></tr></table>
+
+          <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="tr_video_scripts_gap"></td></tr></table>
+          <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="center">Audio-Stream</td></tr></table>
+          <table class="table_video_scripts activate_3 inactive">
+            <tr class="tr_video_scripts_checkbox_large">
+              <td id="audio_copy" class="checkbox" onclick="select_format(this);">Kopieren</td>
+              <td id="audio_conv" class="checkbox" onclick="select_format(this);">Konvertieren</td>
+            </tr>
+          </table>
+          <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="tr_video_scripts_gap"></td></tr></table>
+
+          <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="center">Codec</td></tr></table>
+          <table class="table_video_scripts activate_4 inactive">
+            <tr class="tr_video_scripts_checkbox_small">
+              <td id="audio_aac" class="checkbox" onclick="select_format(this);">AAC</td>
+              <td id="audio_ac3" class="checkbox" onclick="select_format(this);">AC3</td>
+              <td id="audio_mp3" class="checkbox" onclick="select_format(this);">MP3</td>
+            </tr>
+          </table>
+          <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="tr_video_scripts_gap"></td></tr></table>
+
+          <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="tr_video_scripts_gap"></td></tr></table>
+          <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="td_video_scripts_50">Cover</td><td class="td_video_scripts_50">Info-File</td></tr></table>
+          <table class="table_video_scripts">
+            <tr class="tr_video_scripts_checkbox_small">
+              <td id="cover_yes" class="checkbox" onclick="select_format(this);">Ja</td>
+              <td id="cover_no" class="checkbox" onclick="select_format(this);">Nein</td>
+              <td id="info_yes" class="checkbox" onclick="select_format(this);">Ja</td>
+              <td id="info_no" class="checkbox" onclick="select_format(this);">Nein</td>
+            </tr>
+          </table>
+          <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="tr_video_scripts_gap"></td></tr></table>
+
+          <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="tr_video_scripts_gap"></td></tr></table>
+          <table class="table_video_scripts activate_6 inactive">
+            <tr class="tr_video_scripts">
+              <td></td>
+              <td class="flipper_icon" onclick="create_command();"><img src="../../images/Download_Icon_02.png"></img></td>
+              <td></td>
+            </tr>
+          </table>
+          <table class="table_video_scripts"><tr class="tr_video_scripts"><td class="tr_video_scripts_gap"></td></tr></table>
+        </div>
+      </article>
+    </div>
+    
+    <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
+
+  </div>
+</body>
+
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/browser.min.js"></script>
+<script src="../../assets/js/breakpoints.min.js"></script>
+<script src="../../assets/js/util.js"></script>
+<script src="../../assets/js/main.js"></script>
+<script src="main.js"></script>
