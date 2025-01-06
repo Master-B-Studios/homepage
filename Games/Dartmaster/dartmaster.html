@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MB DartMaster</title>
+
+	<meta charset="UTF-8"></meta>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"></meta>
+	<meta name="apple-mobile-web-app-capable" content="yes"></meta>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"></meta>
+	<meta name="mobile-web-app-capable" content="yes"></meta>
+
+  <link rel="stylesheet" type="text/css" href="sources/dartmaster_sources/css/reset.css"></link>
+  <link rel="stylesheet" type="text/css" href="sources/dartmaster_sources/css/dartmaster.css"></link>
+
+  <script type="text/javascript" src="sources/dartmaster_sources/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="sources/dartmaster_sources/js/dartmaster_util.js"></script>
+	<script type="text/javascript" src="sources/dartmaster_sources/js/dartmaster_data.js"></script>
+	<script type="text/javascript" src="sources/dartmaster_sources/js/dartmaster_com.js"></script>
+	<script type="text/javascript" src="sources/dartmaster_sources/js/dartmaster.js"></script>
+</head>
+<body onload="load_spiel();load_statistik();" onContextmenu="return false" ontouchstart="">
+	<div id="statistik">
+    <table class="name_table"><tbody><tr><td id="p1_name_stats" class="p_name"></td><td class="name_center"></td><td id="p2_name_stats" class="p_name"></td></tr></tbody></table>
+
+		<table class="title_table"><tbody><tr><td class="subtitle">Zusammenfassung</td></tr></tbody></table>
+		<table class="stats_table">
+			<tbody>
+				<tr><td id="p1_legs" class="left"></td><td class="center">Legs</td><td id="p2_legs" class="right"></td></tr>
+				<tr><td id="p1_ton00" class="left"></td><td class="center">100+</td><td id="p2_ton00" class="right"></td></tr>
+				<tr><td id="p1_ton40" class="left"></td><td class="center">140+</td><td id="p2_ton40" class="right"></td></tr>
+				<tr><td id="p1_ton80" class="left"></td><td class="center">180's</td><td id="p2_ton80" class="right"></td></tr>
+				<tr><td id="p1_highout" class="left"></td><td class="center">High Finish</td><td id="p2_highout" class="right"></td></tr>
+				<tr><td id="p1_best" class="left"></td><td class="center">Bestes Leg</td><td id="p2_best" class="right"></td></tr>
+				<tr><td id="p1_worst" class="left"></td><td class="center">Schlechtestes Leg</td><td id="p2_worst" class="right"></td></tr>
+			</tbody>
+		</table>
+
+		<table class="title_table"><tbody><tr><td class="subtitle">Averages</td></tr></tbody></table>
+		<table class="stats_table">
+			<tbody>
+				<tr><td id="p1_darts" class="left">0.00</td><td class="center">Darts</td><td id="p2_darts" class="right">0.00</td></tr>
+				<tr><td id="p1_score" class="left">0.00</td><td class="center">Score</td><td id="p2_score" class="right">0.00</td></tr>
+				<tr><td id="p1_first9" class="left">0.00</td><td class="center">Erste 9 Darts</td><td id="p2_first9" class="right">0.00</td></tr>
+			</tbody>
+		</table>
+
+    <table class="options_table">
+      <tbody>
+        <tr>
+          <td class="options_table_left" onclick="new_game();"><img src="sources/dartmaster_sources/image/Icon_Dart_01.png"></img></td>
+          <td class="options_table_middle" onclick="toggle_fullscreen();"><img src="sources/dartmaster_sources/image/Icon_Fullscreen_I.png"></img></td>
+          <td class="options_table_right" onclick="homepage();"><img src="sources/dartmaster_sources/image/Icon_MB_01.png"></img></td>
+        </tr>
+        <tr>
+          <td class="options_table_left" onclick="new_game();">Neues Spiel</td>
+          <td class="options_table_middle" onclick="toggle_fullscreen();">Fullscreen</td>
+          <td class="options_table_right" onclick="homepage();">Homepage</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="spiel">
+    <div id="header">
+      <table id="header_table">
+        <tbody>
+          <tr><td id="p1_name" class="player_name"></td><td id="legs"></td><td id="p2_name" class="player_name"></td></tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div id="article">
+      <table id="score_table" class="score_table">
+        <thead>
+          <tr>
+            <th class="score_input" round="-1">Scored</th>
+            <th class="score_left" round="-1">To Go</th>
+            <th class="score_round"></th>
+            <th class="score_input" round="-1">Scored</th>
+            <th class="score_left" round="-1">To Go</th>
+          </tr>
+        </thead>
+        <tbody id="score_body">
+        </tbody>
+      </table>
+      <table id="hidden_table" class="hidden_table">
+        <tbody>
+          <tr id="score_list_start">
+            <td class="score_none"></td>
+            <td class="p1left"></td>
+            <td class="score_round"></td>
+            <td class="score_none"></td>
+            <td class="p2left"></td>
+          </tr>
+          <tr id="score_list_score">
+            <td class="score_input p1score" player="0"></td>
+            <td class="score_left p1left" player="0"></td>
+            <td class="score_round"></td>
+            <td class="score_input p2score" player="1"></td>
+            <td class="score_left p2left" player="1"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="footer">
+      <table id="left_table">
+        <tr>
+          <td id="p1left_big_td" class="score_left_big"><div id="p1left_big"></div></td>
+          <td id="p2left_big_td" class="score_left_big"><div id="p2left_big"></div></td>
+        </tr>
+      </table>
+    </div>
+    
+    <div id="finish_menu" class="modal_window" style="display:none;">
+      <ul class="menu_ul">
+        <li id="finish_first">1. Dart</li>
+        <li id="finish_second">2. Dart</li>
+        <li id="finish_third">3. Dart</li>
+        <li id="finish_cancel">Abbruch</li>
+      </ul>
+    </div>
+    <div id="middle_menu" class="modal_window" style="display:none;">
+      <ul class="menu_ul">
+        <li id="middle_p1win">Spieler 1 Sieg</li>
+        <li id="middle_p2win">Spieler 2 Sieg</li>
+        <li id="middle_draw">Unentschieden</li>
+        <li id="middle_cancel">Abbruch</li>
+      </ul>
+    </div>
+    <div id="popup_message" class="modal_window" style="display:none;">
+      <table class="message_table">
+        <tr><td id="msg_title" class="message_title" colspan="2"></td></tr>
+        <tr><td id="msg_text" class="message_msg" colspan="2"></td></tr>
+        <tr>
+          <td class="message_btn_left"><div id="msg_cancel" class="msg_button">Abbruch</div></td>
+          <td class="message_btn_right"><div id="msg_ok" class="msg_button">OK</div></td>
+        </tr>
+      </table>
+    </div>
+    <div id="popup_message_com" class="modal_window" style="display:none;">
+      <table class="message_table">
+        <tr><td id="msg_com_title" class="message_title"></td></tr>
+        <tr><td id="msg_com_text" class="message_msg"></td></tr>
+        <tr>
+          <td class="message_btn_ok"><div id="msg_com_ok" class="msg_button">OK</div></td>
+        </tr>
+      </table>
+    </div>
+    <div id="com_throw" class="throw_window" style="display:none;">
+      <div class="throw_div"><table class="throw_table">
+        <tr>
+          <td id="com_throw_1" class="throw"></td>
+          <td id="com_throw_2" class="throw"></td>
+          <td id="com_throw_3" class="throw"></td>
+        </tr>
+      </table></div>
+    </div>
+    <canvas id="canvas_ton" style="display:none;"></canvas>
+  </div>
+
+  <div id="verlauf"><iframe id="verlauf_frame" src="sources/dartmaster_sources/score.html"></iframe></div>
+</body>
+</html>

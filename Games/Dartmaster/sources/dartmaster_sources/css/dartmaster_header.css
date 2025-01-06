@@ -1,0 +1,64 @@
+/*
+ * DartMaster V 2.0
+ *
+ * HTML-Source for DartMaster Android-App.
+ *
+ * Copyright (C) 2018 by Master B. All rights reserved.
+ *
+ * Special Thanks to Ohno Tomoaki for inventing n01.
+ */
+
+#header {
+	position: fixed;
+	z-index: 2;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+
+	background-color: #000000;
+	color: #adff2f;
+}
+
+#header_back {
+	height: 50px;
+	width: 100%;
+}
+
+#header_table {
+	width: 100%;
+	text-align: center;
+}
+
+#header_table td {
+	padding: 8px;
+	vertical-align: middle;
+}
+
+.td_button {
+	width: 80px;
+}
+
+.button {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	cursor: pointer;
+	font-size: 16px;
+	border: 1px solid #adff2f;
+	padding: 8px 0px 8px 0px;
+	
+	border-radius: 17px;
+	-webkit-border-radius: 17px;
+	-moz-border-radius: 17px;
+
+	-ms-touch-action: none;
+	touch-action: none;
+}
+
+#header_title {
+	font-size: 20px;
+}
+
+@media print{
+	#header {
+		display:none;
+	}
+}
