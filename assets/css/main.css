@@ -235,3 +235,9 @@ input[accept=".episodes"] {display: none;z-index: 100;cursor: pointer;}
 .text_link:hover {font-weight: bold;}
 
 .sudoku {width: 100%;height: 66vh;margin: auto;}
+
+.details_1 {width: 100%;height: auto;margin: auto;cursor: pointer;}
+.details_2 {width: 90%;height: auto;margin: 1em auto 1em auto;cursor: pointer;}
+.quest_text {width: 100%;height: auto;margin: 1em auto 1em auto;text-align: justify;font-style: italic;color: #f8c471;}
+.quest_answer {width: 100%;height: auto;margin: auto;text-align: justify;}
+.quest_img {width: 100%;height: auto;margin: 1em auto 1em auto;}
