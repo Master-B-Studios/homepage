@@ -244,6 +244,6 @@ input[accept=".episodes"] {display: none;z-index: 100;cursor: pointer;}
 
 .download_table {width: 100%;height: auto;border: 1px solid #444444;}
 .download_table_header {width: 100%;height: auto;font-size: 2em;padding: 0.5em;border: 1px solid #444444;text-align: center;}
-.download_table_icon {width: 20%;height: auto;border: 1px solid #444444;cursor: pointer;}
+.download_table_icon {width: 4em;height: 4em;border: 1px solid #444444;cursor: pointer;}
 .download_table_icon_img {width: 100%;height: 100%;margin: auto;vertical-align: middle;}
-.download_table_desc {width: 80%;height: auto;border: 1px solid #444444;padding: 0.5em;text-align: justify;vertical-align: top;}
+.download_table_desc {width: auto;height: auto;border: 1px solid #444444;padding: 0.5em;text-align: justify;vertical-align: top;}
