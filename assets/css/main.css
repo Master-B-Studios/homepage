@@ -242,6 +242,11 @@ input[accept=".episodes"] {display: none;z-index: 100;cursor: pointer;}
 .quest_answer {width: 100%;height: auto;margin: auto;text-align: justify;cursor: default;}
 .quest_img {width: 100%;height: auto;margin: 1em auto 1em auto;cursor: default;}
 
-.design_header_01 {text-align: center;font-weight: bold;font-size: 2em;}
+.design_header_01 {text-align: center;font-weight: bold;font-size: 1.5em;}
 .design_border_01 {border: 1px solid #444444;}
 .design_padding_01 {padding: 0.5em;}
+
+.download_icon {width: 4em;height: 4em;text-align: center;align-content: center;cursor: pointer;}
+.download_icon img {width: 90%;height: 90%;vertical-align: middle;}
+.download_icon:hover {border: 1px solid #00ff6a;color: #000000;transition: border 1s, background-color 1s;}
+.download_icon:hover img {filter: invert(10%);transition: filter 1s}
