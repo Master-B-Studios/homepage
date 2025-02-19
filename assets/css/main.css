@@ -251,5 +251,5 @@ input[accept=".episodes"] {display: none;z-index: 100;cursor: pointer;}
 
 .download_desc {width: auto;height: auto;padding: 1em 1.5em 1em 1.5em;text-align: justify;}
 
-.download_banner {width: 20%;height: auto;text-align: center;align-content: center;vertical-align: bottom;cursor: pointer;border: 1px solid #444444;}
+.download_banner {width: 20%;height: 2em;text-align: center;align-content: center;vertical-align: bottom;cursor: pointer;border: 1px solid #444444;}
 .download_banner:hover {font-weight: bold;border: 1px solid #00ff6a;transition: border 1.5s;}
