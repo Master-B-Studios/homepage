@@ -253,3 +253,7 @@ input[accept=".episodes"] {display: none;z-index: 100;cursor: pointer;}
 
 .download_banner {width: 20%;height: 2em;text-align: center;align-content: center;vertical-align: bottom;cursor: pointer;border: 1px solid #444444;}
 .download_banner:hover {font-weight: bold;border: 1px solid #00ff6a;transition: border 1.5s;}
+
+.ir_name {width: 100%;height: auto;font-weight: bold;padding: 0.5em;background-color: #333333;}
+.ir_raw {width: 100%;height: auto;text-align: justify;padding-bottom: 2em;cursor: pointer;}
+.ir_raw:hover {color: #00ff6a;transition: color 3s;}
