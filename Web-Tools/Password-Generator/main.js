@@ -50,3 +50,8 @@ function getPassword(pw_length) {
     }
     return password;
 }
+
+function copy_pw(obj) {
+	navigator.clipboard.writeText(obj.innerHTML);
+	alert('Passwort in Zwischenablage kopiert')
+}
