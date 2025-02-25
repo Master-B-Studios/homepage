@@ -261,9 +261,10 @@ input[accept=".episodes"] {display: none;z-index: 100;cursor: pointer;}
 .table_pw {max-width: 100%;max-height: 100%;margin: auto;vertical-align: middle;}
 .tr_pw {height: auto;}
 .tr_pw_gap {width: auto;height: 0.5em;}
-.td_pw_01 {width: auto;text-align: left;border-top: 1px dotted #222222;border-bottom: 1px dotted #222222;padding: 0 1em 0 0;vertical-align: middle;}
+.td_pw_01-01 {width: auto;text-align: left;border-top: 1px dotted #222222;padding: 0 1em 0 0;vertical-align: middle;}
+.td_pw_01-02 {width: auto;text-align: left;border-bottom: 1px dotted #222222;padding: 0 1em 0 0;vertical-align: middle;color: #444444;}
 .td_pw_02 {width: 1em;}
 .td_pw_03 {width: 2em;}
-.td_pw_03-01 {width: 2em;height: 2em;color: #dddddd;background-color: #227946;border-radius: 20%;vertical-align: middle;text-align: center;cursor: pointer;}
+.td_pw_03-01 {width: 2em;height: 2em;color: #dddddd;background-color: #227946;border-radius: 20%;vertical-align: middle;text-align: center;cursor: pointer;margin: auto;}
 .td_pw_03-01:hover {color: #222222;transition: color 1s;}
 .td_pw_03-02 {width: 2em;background-color: #111111;vertical-align: middle;padding: 0 1em 0 1em;}

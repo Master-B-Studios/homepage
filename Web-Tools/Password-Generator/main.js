@@ -1,10 +1,10 @@
 var numbers = ["2","3","4","5","6","7","8","9"];
 var lower = ["a","b","c","d","e","f","g","h","j","k","m","n","p","q","r","s","t","u","v","w","x","y","z"];
 var upper = ["A","B","C","D","E","F","G","H","J","K","M","N","P","Q","R","S","T","U","V","W","X","Y","Z"];
-var symbols = ["!","#","$","%","&","*","+","-","?","@","'","(",")",",",".","/",":",";","<","=",">","_"];
+var symbols = ["!","#","$","%","&","*","+","-","?","@","'","(",")",",",".","/",":",";","=","_"];
 
 var similars = ["i","l","o","I","L","O","1","0","|"];
-var ambiguous = ["\"","[","\\","]","^","`","{","}","~"];
+var ambiguous = ["\"","[","\\","]","^","`","{","}","~","<",">"];
 
 function switch_change(obj) {
     if (obj.innerHTML == 'On') {obj.style = 'background-color: #ff0000';obj.innerHTML = 'Off';}
@@ -13,7 +13,7 @@ function switch_change(obj) {
 }
 
 function generate_pw() {
-    var pw_length = parseFloat(document.getElementById('pw_length').value);
+    var pw_length = parseFloat(document.getElementById('pw_length').innerHTML);
     var password = "";
 	if (!isNaN(pw_length)) {
         if (pw_length < 8 || pw_length > 2048) {document.getElementById('pw_field').value = "Kein sicheres Kennwort";}
@@ -26,7 +26,7 @@ function generate_pw() {
 }
 
 function getPassword(pw_length) {
-    var pw_length = parseFloat(document.getElementById('pw_length').value);
+    var pw_length = parseFloat(document.getElementById('pw_length').innerHTML);
     var pw_numbers = document.getElementById('pw_numbers').innerHTML;
     var pw_lower = document.getElementById('pw_lower').innerHTML;
     var pw_upper = document.getElementById('pw_upper').innerHTML;
