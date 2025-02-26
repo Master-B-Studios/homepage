@@ -1,170 +1,107 @@
 <!DOCTYPE html>
-<html lang="de">
-<head>
-<title id="title_id" style="background-color: #000000">Legacy Of Kain 1 - Blood Omen</title>
-<link rel="stylesheet" type="text/css" href="sources/css/main.css"></link>
-<script type="text/javascript" src="sources/js/main.js"></script>
-<meta http-equiv="content-type" content="text/html; charset=utf-8"></meta>
-<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0"/></meta>
+<html>
+  <head>
+  <title>Legacy Of Kain 1 - Blood Omen</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+  <link rel="icon" type="image/x-icon" href="../../../images/MB_Icon_01.png"></link>
+  <link rel="stylesheet" href="../../../assets/css/main.css"></link>
 </head>
+<body onload="window.location.href = '#content';" class="is-preload">
+  <div id="wrapper">
+    
+    <nav id="nav">
+      <a href="../../../index.html"><img class="mb_icon" src="../../../images/MB_Icon_02.png"></img><span>Home</span></a>
+      <a href="../../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
+      <a href="../../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
+      <a href="../../../Games/games.html"><img class="mb_icon" src="../../../images/Games_Icon_01.png"></img><span>Games</span></a>
+      <a href="../booklets.html"><img class="mb_icon" src="../icon_01.png"></img><span>Booklets</span></a>
+      
+    </nav>
+    
+    <div id="main">
+      <article id="content" class="panel">
+        <header><h2>Legacy Of Kain 1 - Blood Omen</h2></header>
+        <section>
+          <div><img class="quest_img" src="cover/Legacy Of Kain 1 - Blood Omen - Poster.jpg"></img></div>
+          <details class="details_1" style="color: #1fc0ff;" close>
+            <summary>Weltkarte</summary>
+            <img class="quest_img" src="maps/Map - World.jpg"></img>
+          </details>
+        </section>
 
-<body onload="jump_page_home();bg_intro();">
-    <audio id="intro" src="sources/audio/Intro.mp3" type="audio/mpeg"></audio>
-    <audio id="soundtrack" loop src="sources/audio/Soundtrack.mp3" type="audio/mpeg"></audio>
+        <section>
+          <details class="details_1" style="color: #1fff50;" close>
+            <summary>Cheats</summary>
+            <div class="quest_text">Alle Cheats müssen im Hauptmenü eingegeben werden</div>
 
-    <section id="credits">
-        <div class="section_header">
-            <img class="swipe_left" src="sources/pics/Swipe_Left_1.png" onclick="jump_page_home();">
-            <img class="credits" src="sources/pics/MB_Logo_Alu_01.png" style="visibility: hidden;">
-            <img class="swipe_right" src="sources/pics/Swipe_Right_1.png" style="visibility: hidden;">
-        </div>
-        <div class="section_footer">
-            <div class="header">M@ster Studios Booklets</div>
-            <img class="logo_credits" src="sources/pics/MB_Logo_Alu_01.png" onclick="jump_page_tutorials();"></img>
-            <div class="text_container" style="text-align: center;">
-                HTML & JS in WebView for Android<br>
-                <br>
-                <br>
-                <br>
-                ...See tutorials with another click...
+            <details class="details_2" style="color: #aaaaaa;" close>
+              <summary>Zusätzliche Animation</summary>
+              <div class="quest_text"></div>
+              <div class="quest_answer"></div>
+              <div class="cheat_list">
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Up.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Up.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Down.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Right.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Left.png"></img>
             </div>
-        </div>
-    </section>
-    <section id="tutorials">
-        <div class="section_header">
-            <img class="swipe_left" src="sources/pics/Swipe_Left_1.png" onclick="jump_page_credits();">
-            <img class="credits" src="sources/pics/MB_Logo_Alu_01.png" style="cursor: default;">
-            <img class="swipe_right" src="sources/pics/Swipe_Right_1.png" style="visibility: hidden;">
-        </div>
-        <div class="section_footer">
-            <div class="header">Tutorials</div>
-            <div class="divider"><img class="divider_left" src="sources/pics/Divider_Left.png"></img><img class="divider_middle" src="sources/pics/Divider_Middle.png"></img><img class="divider_right" src="sources/pics/Divider_Right.png"></img></div>
-            <div class="text_credits"><br>create new Empty Activity in Android Studio<br><br></div>
-            <div class="divider"><img class="divider_left" src="sources/pics/Divider_Left.png"></img><img class="divider_middle" src="sources/pics/Divider_Middle.png"></img><img class="divider_right" src="sources/pics/Divider_Right.png"></img></div>
-            <div class="text_credits">
-                <br>
-                activity_main.xml:
-                <br><br><br>
-                remove TextView and add Widget WebView in ConstraintLayout
-                <br><br><br>
-                add ID in CodeView
-                <br><br>
-                &lt;WebView<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;android:id="@+id/WebView"<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;android:layout_width="match_parent"<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;android:layout_height="match_parent" /&gt;<br><br>
-            </div>
-            <div class="divider"><img class="divider_left" src="sources/pics/Divider_Left.png"></img><img class="divider_middle" src="sources/pics/Divider_Middle.png"></img><img class="divider_right" src="sources/pics/Divider_Right.png"></img></div>
-            <div class="text_credits">
-                <br>
-                MainActivity.java:
-                <br><br><br>
-                package com.masterstudios.iukleihformulare;<br>
-                <br>
-                import androidx.appcompat.app.AppCompatActivity;<br>
-                <br>
-                import android.os.Bundle;<br>
-                <br>
-                import android.webkit.WebView;<br>
-                <br>
-                public class MainActivity extends AppCompatActivity {<br>
-                    private WebView view;<br>
-                    <br>
-                    @Override<br>
-                    protected void onCreate(Bundle savedInstanceState) {<br>
-                    super.onCreate(savedInstanceState);<br>
-                    setContentView(R.layout.activity_main);<br>
-                    <br>
-                    WebView view = (WebView) findViewById(R.id.WebView);<br>
-                    view.getSettings().setJavaScriptEnabled(true);<br>
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {<br>
-                        view.getSettings().setMediaPlaybackRequiresUserGesture(false);<br>
-                    }<br>
-                    view.loadUrl("file:///android_asset/XXXX.html");<br>
-                    }<br>
-                }<br><br>
-            </div>
-            <div class="divider"><img class="divider_left" src="sources/pics/Divider_Left.png"></img><img class="divider_middle" src="sources/pics/Divider_Middle.png"></img><img class="divider_right" src="sources/pics/Divider_Right.png"></img></div>
-            <div class="text_credits">
-                <br>
-                AndroidManifest.xml
-                <br><br><br>
-                &lt;activity<br>
-                android:name=".MainActivity"<br>
-                android:exported="true"<br>
-                android:theme="@style/Theme.AppCompat.NoActionBar"&gt;<br>
-                &lt;intent-filter&gt;<br><br>
-            </div>
-            <div class="divider"><img class="divider_left" src="sources/pics/Divider_Left.png"></img><img class="divider_middle" src="sources/pics/Divider_Middle.png"></img><img class="divider_right" src="sources/pics/Divider_Right.png"></img></div>
-            <div class="text_credits">
-                <br>
-                Create Icon
-                <br><br><br>
-                delete mipmaps-folder and ic_launcher-folders<br>
-                <br>
-                rightclick res and create new Image Asset<br>
-                <br>
-                configure Legacy Icon<br><br>
-            </div>
-            <div class="divider"><img class="divider_left" src="sources/pics/Divider_Left.png"></img><img class="divider_middle" src="sources/pics/Divider_Middle.png"></img><img class="divider_right" src="sources/pics/Divider_Right.png"></img></div>
-        </div>
-    </section>
+            </details>
 
-    <section id="home">
-        <div class="section_header">
-            <img class="volume" src="sources/pics/BG_Music_Off.png" onclick="bg_music();">
-            <img class="credits" src="sources/pics/MB_Logo_Alu_01.png" onclick="jump_page_credits();">
-            <img class="swipe_right" src="sources/pics/Swipe_Right_1.png" onclick="jump_page_content();">
-        </div>
-        <div class="section_footer">
-            <div class="header">Legacy Of Kain 1<br>- Blood Omen -</div>
-            <img class="cover" src="sources/poster/Legacy Of Kain 1 - Blood Omen - Poster.jpg" alt="Cover"></img>
-        </div>
-    </section>
+          </details>
+        </section>
 
-    <section id="content">
-        <div class="section_header">
-            <img class="swipe_left" src="sources/pics/Swipe_Left_1.png" onclick="jump_page_home();">
-            <img class="home" src="sources/poster/Legacy Of Kain 1 - Blood Omen - Icon.png" style="cursor: default;">
-            <img class="swipe_right" src="sources/pics/Swipe_Right_1.png" onclick="jump_page_map();">
-        </div>
-        <div class="section_footer">
-            <div class="header">Inhaltsverzeichnis</div>
-            <div class="content_entry_container" onclick="jump_page_map();"><span class="chapter_number_link"></span><span class="chapter_gap"></span><span class="chapter_title_link">Weltkarte</span></div>
-            <div class="content_entry_container" onclick="jump_page(this);" chapter="0"><span class="chapter_number_link"></span><span class="chapter_gap"></span><span class="chapter_title_link">Cheats</span></div>
-            <div class="content_entry_container" onclick="jump_page(this);" chapter="1"><span class="chapter_number_link">01.</span><span class="chapter_gap"></span><span class="chapter_title_link">Die Säulen Von Nosgoth</span></div>
-            <div class="content_entry_container" onclick="jump_page(this);" chapter="2"><span class="chapter_number_link">02.</span><span class="chapter_gap"></span><span class="chapter_title_link">Nupraptor's Retreat</span></div>
-            <div class="content_entry_container" onclick="jump_page(this);" chapter="3"><span class="chapter_number_link">03.</span><span class="chapter_gap"></span><span class="chapter_title_link">Malek's Bastion</span></div>
-            <div class="content_entry_container" onclick="jump_page(this);" chapter="4"><span class="chapter_number_link">04.</span><span class="chapter_gap"></span><span class="chapter_title_link">Das Orakel Von Nosgoth</span></div>
-            <div class="content_entry_container" onclick="jump_page(this);" chapter="5"><span class="chapter_number_link">05.</span><span class="chapter_gap"></span><span class="chapter_title_link">Vorador's Mansion</span></div>
-            <div class="content_entry_container" onclick="jump_page(this);" chapter="6"><span class="chapter_number_link">06.</span><span class="chapter_gap"></span><span class="chapter_title_link">Dark Eden</span></div>
-            <div class="content_entry_container" onclick="jump_page(this);" chapter="7"><span class="chapter_number_link">07.</span><span class="chapter_gap"></span><span class="chapter_title_link">Avernus' Kathedrale</span></div>
-            <div class="content_entry_container" onclick="jump_page(this);" chapter="8"><span class="chapter_number_link">08.</span><span class="chapter_gap"></span><span class="chapter_title_link">Willendorf</span></div>
-            <div class="content_entry_container" onclick="jump_page(this);" chapter="9"><span class="chapter_number_link">09.</span><span class="chapter_gap"></span><span class="chapter_title_link">Elzevir, Der Puppenmacher</span></div>
-            <div class="content_entry_container" onclick="jump_page(this);" chapter="10"><span class="chapter_number_link">10.</span><span class="chapter_gap"></span><span class="chapter_title_link">Nemesis</span></div>
-            <div class="content_entry_container" onclick="jump_page(this);" chapter="11"><span class="chapter_number_link">11.</span><span class="chapter_gap"></span><span class="chapter_title_link">Das Ende</span></div>
-        </div>
-    </section>
+        <section>
+          <details class="details_1" close>
+            <summary style="color: #de0000;">01. Die Säulen Von Nosgoth</summary>
+            <div class="quest_answer">Euer Abenteuer beginnt in einem Wirtshaus (in Ziegsturhl), wo Ihr automatisch eine kleine Unterhaltung mit dem Wirt führt. Anschließend verlaßt Ihr das Gebäude, worauf Ihr es mit mehreren Angreifern zu tun bekommt. Ihr könnt Euch so gut schlagen wie Ihr wollt, schließlich werdet Ihr doch besiegt und getötet. In der darauf folgenden Videosequenz seht Ihr dann, wie Ihr eine zweite Chance bekommt und als Vampir wieder auf die Menschheit losgelassen werdet.<br><br>Ihr erwacht in einer Gruft, die von nun an Eure Zuflucht sein wird. Verschafft Euch zunächst einen Überblick des Bereichs. Im ersten Raum müßt Ihr in der oberen Nische den Schalter betätigen, um die linke Tür zu öffnen. Lauft dann nach links durch zum nächsten Raum, wo Ihr auf der blauen Bodenplatte den Zufluchtszauber findet. Weiter geht es dann nach oben, wo Ihr den Menschen erschlagt und dessen Blut trinkt. Marschiert danach weiter nach rechts, schiebt im nächsten Abschnitt auf der rechten Seite den Felsbrocken nach rechts und sammelt in der rechten Nische das Herz der Dunkelheit auf. Begebt Euch nun nach oben (den Felsbrocken im Gang nach oben schieben, dann umgehen), betätigt im nächsten Raum den grünen Bodenschalter, lauft nach links durch, saugt dort die Gefangene aus, betätigt den grauen Bodenschalter und sammelt die Blutphiole ganz links ein.<br><br>Weiter geht es dann ganz nach rechts durch, wo Ihr eine weitere Gefangene aussaugen könnt und ein Runendreieck findet, welches Eure magische Energie erhöht. Lauft anschließend wieder links durch, betätigt im mittleren Raum an der Wand oben rechts den Schalter und marschiert durch die geöffnete Tür weiter nach oben. Hier müßt Ihr ein Skelett erledigen, bevor Ihr die schwebende, violette Magiekugel aufnehmt und Euch dann nach rechts begebt, um in diesem Raum abzuspeichern. Marschiert nun wieder nach links und weiter nach oben in den nächsten Raum, von wo aus Ihr diesen Bereich verlassen könnt (die Treppe hoch und links herum weitergehen - folgt dem Gang).<br><br>Im Freien angekommen folgt Ihr dann dem Weg nach unten durchs Tor, erledigt den Menschen und betretet das nächste Gebäude durch die offene Tür. Drinnen angekommen, geht es gleich nach rechts in den nächsten Raum, um dort auf dem Sockel abzuspeichern. Lauft danach ganz nach links und folgt dem Gang nach unten, wobei folgendes zu tun ist: Skelette erledigen, Stacheln ausweichen, Menschen und Gefangene aussaugen, Blutphiole, Runendreieck und violette Magiekugel einsammeln und über die Treppe den nächsten Bereich betreten.<br><br>Dort müssen folgende Dinge erledigt werden: grünen Schalter neben den Speeren betätigen, Skelett beseitigen, 2. Schalter betätigen, Skelett beseitigen, sobald Ihr an die drei Schalter kommt: nur den linken und den mittleren Schalter betätigen, Mensch erledigen, durch die Tür gehen, Peitsche vom Boden aufnehmen, 2 Skelette töten, Bodenschalter durch Betreten betätigen, 2 Gefangene aussaugen und über die Treppe den nächsten Bereich betreten. Hier findet Ihr rechts ein Herz hinter einer Tür (lauft einfach an die Grabplatte in der rechten, oberen Ecke heran, worauf sich diese öffnet), lauft weiter nach links, beseitigt ein Skelett, findet eine Peitsche hinter einer Tür (Grabdeckel durch Nähern öffnen), verschiebt einen der beiden Steine nach links, beseitigt ein weiteres Skelett, öffnet am Ende des Ganges im rechten Abschnitt 2 Truhen, findet in diesen ein Herz und ein Runendreieck und marschiert dann nach links über die Treppe in den nächsten Bereich.<br><br>Lauft nun ganz nach rechts (2 Räume), speichert auf dem Sockel ab, lauft wieder ein Stück nach links (1 Raum) und dort weiter nach unten durch die Tür, um diesen Bereich zu verlassen. Im Freien folgt Ihr dann dem Weg nach unten und links in den Wald (dort weiter nach links oben), bekämpft alle Menschen und sammelt die blaue Magiekugel auf. Am Ende erhaltet Ihr den Auftrag, zu den Säulen von Nosgoth zu gehen.<br><br>Weiter geht es dann auf dem Weg nach rechts, wo Ihr auf einen Wegweiser (Ziegsturhl) stoßt. Folgt Ihr dem Weg nach rechts und runter, landet Ihr schließlich im Ort "Ziegsturhl", wo Ihr drei Häuser aufsucht (im Überblick könnt Ihr erkennen, welche Häuser zugänglich sind). Saugt hier alle Dorfbewohner aus und zerschlagt die Fässer, um an weitere Peitschen zu kommen, bevor Ihr das Dorf nach unten wieder verlaßt.<br><br>Überquert nun die Brücke nach rechts und folgt dem Weg weiter nach oben zur nächsten Brücke. Auch diese gilt es zu überqueren. Marschiert dann immer weiter nach oben, bis Ihr am Ende ein Teleporterfeld entdeckt (weiße Platte mit goldenem Emblem), auf das Ihr Euch stellen müßt. Auf diese Weise gelangt Ihr zu den Säulen von Nosgoth. Lauft Ihr zu diesen hin (die Stufen hoch und in die Mitte der Säulen gehen), erhaltet Ihr in einer Sequenz den Auftrag, die Säulen zu festigen, damit der Zauber gebrochen wird. Anschließend nähert Ihr Euch noch jeder einzelnen Säule, um genaueres über diese zu erfahren, bevor Ihr Euch nach links unten auf das zweite Teleporterfeld begebt.</div>
+          </details>
+        </section>
+    
+      </article>
+    </div>
+    
+    <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
+
+  </div>
+</body>
+
+<script src="../../../assets/js/jquery.min.js"></script>
+<script src="../../../assets/js/browser.min.js"></script>
+<script src="../../../assets/js/breakpoints.min.js"></script>
+<script src="../../../assets/js/util.js"></script>
+<script src="../../../assets/js/main.js"></script>
 
 
-    <section id="map">
-        <div class="section_header">
-            <img class="swipe_left" src="sources/pics/Swipe_Left_1.png" onclick="jump_page_content();">
-            <img class="home" src="sources/poster/Legacy Of Kain 1 - Blood Omen - Icon.png" onclick="jump_page_content();">
-            <img class="swipe_right" src="sources/pics/Swipe_Right_1.png" onclick="jump_page_cheats();">
-        </div>
-        <div class="section_footer">
-            <div class="header">Weltkarte</div>
-            <img class="cover" src="sources/poster/Map.jpg" alt="Weltkarte"></img>
-        </div>
-    </section>
 
-    <section id="0">
-        <div class="section_header">
-            <img class="swipe_left" src="sources/pics/Swipe_Left_1.png" onclick="jump_page_map();">
-            <img class="home" src="sources/poster/Legacy Of Kain 1 - Blood Omen - Icon.png" onclick="jump_page_content();">
-            <img class="swipe_right" src="sources/pics/Swipe_Right_1.png" onclick="jump_page_next();">
-        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="section_footer">
             <div class="header">Cheats</div>
             <div class="subheader">Im Hauptmenü</div>
