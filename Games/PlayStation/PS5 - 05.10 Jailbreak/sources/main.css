@@ -1,17 +1,17 @@
 :root{
-    --primary-color: #333348;
-    --text-color-primary: #fff;
-    --text-color-secondary: #ccc;
-    --text-color-tertiary: #999;
-    --text-color-primary-hover: #303030;
-    --text-color-secondary-hover: #444;
-    --text-color-tertiary-hover: #555;
+    --primary-color: #444444;
+    --text-color-primary: #dbdbdb;
+    --text-color-secondary: #aaaaaa;
+    --text-color-tertiary: #888888;
+    --text-color-primary-hover: #333333;
+    --text-color-secondary-hover: #444444;
+    --text-color-tertiary-hover: #333333;
 }
 
 body {
     user-select: none;
     -webkit-user-select: none;
-    background-color: rgb(14, 14, 20);
+    background-color: #111111;
     color: white;
     font-family: Arial;
 
@@ -24,20 +24,10 @@ body {
     box-sizing: border-box;
 }
 
-input:focus {
-    outline:none;
-}
+input:focus {outline:none;}
 
-a {
-    color: #e3e3e3;
-}
-
-a:active,
-a:focus {
-    outline: 0;
-    border: none;
-}
-
+a {color: var(--text-color-primary)}
+a:active, a:focus {outline: 0;border: none;}
 
 .btn {
     padding: 1rem 2rem;
@@ -52,7 +42,7 @@ a:focus {
     width: 50%;
     background-color: var(--primary-color);
     border: none;
-    color: #fff;
+    color: var(--text-color-primary);
     font-size: 1.3rem;
     transition: background-color 0.3s ease-in-out;
     box-sizing: border-box;
