@@ -1,7 +1,8 @@
 function download(obj) {
-  if (obj == 'firmware') {url = 'files/firmware/Firmware Update 7.4.22-1.5.20.zip'}
-  else if (obj == 'booklet') {url = 'files/booklet/booklet_pronto_script.pdf'}
-  else if (obj == 'skin') {url = 'files/skin/MB-Pronto.mxcf'}
+  if (obj == 'tc') {url = 'files/apps/Total Commander 3.5.0.apk'}
+  else if (obj == 'tc_smb') {url = 'files/apps/Total Commander SMB-Plugin.apk'}
+  else if (obj == 'magisk') {url = 'files/apps/Magisk 27.apk'}
+  else if (obj == 'magisk_rec') {url = 'files/apps/Magisk 27.zip'}
   var link = document.createElement("a");
   link.href = url;
   link.download = url.split('/').pop();
