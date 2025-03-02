@@ -181,7 +181,7 @@ input[accept=".csv"] {display: none;z-index: 100;cursor: pointer;}
 input[accept=".nfo"] {display: none;z-index: 100;cursor: pointer;}
 input[accept=".episodes"] {display: none;z-index: 100;cursor: pointer;}
 
-.description {text-align: justify;}
+.description {text-align: justify;cursor: default;}
 .center {text-align: center;align-content: center;}
 .margin {margin: 1em;}
 .padding {padding: 1em;}
