@@ -81,7 +81,6 @@ function load_preview() {
 	poster.onload = function() {
 		canvas.width = 980;
 		canvas.height = 980;
-		//ctx.drawImage(poster, 190, 40,);
 
 		ctx.save();
 		roundedImage(ctx, 190, 40, 600, 900, 20);
@@ -106,6 +105,7 @@ function resize() {
 		canvas.height = original_width;
 		ctx.clearRect(0, 0, original_width, original_width);
 		console.log('cleared')
+
 		original_width -= 2;
 		canvas.width = original_width;
 		canvas.height = original_width;
@@ -113,7 +113,7 @@ function resize() {
 		console.log('drawn'+original_width);
 		resize();
 	}
-	else if (original_width == 512) {return;}
+	else if (original_width == 512) {original_width = 980;console.log('Final Resolution');}
 }
 
 function save_document(obj) {
@@ -122,7 +122,7 @@ function save_document(obj) {
 	var day = date.substring(8);var month = date.substring(5, 7);var year = date.substring(0, 4);var second = time.substring(6);var minute = time.substring(3, 5);var hour = ('0' + (parseInt(time.substring(0, 2)) + 2)).slice(-2);
 	var date_string = year+'-'+month+'-'+day+' '+hour+'-'+minute+'-'+second;
   
-	var link = document.createElement("A");
+	var link = document.createElement('A');
 	var filename = ' icon0.png';
 	var to_download = obj;
 	link.setAttribute('href',to_download.toDataURL('image/png'));
@@ -162,8 +162,8 @@ function import_img(file) {
 			ctx.drawImage(cover, 0, 0);
 			resize();
 		});
-			img.src = reader.result;
-		},false,);
+		img.src = reader.result;
+	},false,);
 	if (file) {reader.readAsDataURL(file);}
 }
 
