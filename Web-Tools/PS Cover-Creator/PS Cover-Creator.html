@@ -42,7 +42,7 @@
 
         <div><label><input type="file" accept=".jpg,.png" onchange="load_document(this);"></input>Cover Laden</label></div>
         <div class="canvas_container">
-          <canvas id="drawer" style="width: 300px;height: 300px;margin: auto;display: inline;" onclick="save_document(this);"></canvas>
+          <canvas id="drawer" style="width: 300px;height: 300px;margin: auto;display: none;" onclick="save_document(this);"></canvas>
 		  <canvas id="resizer" style="width: 300px;height: 300px;margin: auto;display: inline;" onclick="save_document(this);"></canvas>
         </div>
 
@@ -103,29 +103,7 @@ function load_preview() {
 		ctx.restore();
     
 		ctx.drawImage(cover, 0, 0,);
-	};
-	poster.src = poster.getAttribute('data-src');
-	cover.src = cover.getAttribute('data-src');
-}
-
-function draw_poster() {
-	var canvas = document.getElementById('drawer');
-	var ctx = canvas.getContext('2d');
-	var poster = document.getElementById('image1');
-	var cover = document.getElementById('image2');
-	
-	poster.onload = function() {
-		canvas.width = 980;
-		canvas.height = 980;
-		//ctx.drawImage(poster, 190, 40,);
-
-		ctx.save();
-		roundedImage(ctx, 190, 40, 600, 900, 20);
-		ctx.clip();
-		ctx.drawImage(poster, 190, 40, 600, 900);
-		ctx.restore();
-    
-		ctx.drawImage(cover, 0, 0,);
+		resize();
 	};
 	poster.src = poster.getAttribute('data-src');
 	cover.src = cover.getAttribute('data-src');
@@ -146,13 +124,11 @@ function resize() {
 		
 		canvas.width = original_width;
 		canvas.height = original_width;
-		ctx.drawImage(original_img, 0, 0, original_width, original_width)
-		console.log('drawn'+original_width)
-		resize()
+		ctx.drawImage(original_img, 0, 0, original_width, original_width);
+		console.log('drawn'+original_width);
+		resize();
 	}
-	else if (original_width == 512) {
-		save_document(document.getElementById('resizer'))
-	}
+	else if (original_width == 512) {save_document(document.getElementById('resizer'));}
 }
 
 function save_document(obj) {
@@ -162,11 +138,11 @@ function save_document(obj) {
 	var date_string = year+'-'+month+'-'+day+' '+hour+'-'+minute+'-'+second;
   
 	var link = document.createElement("A");
-	var filename = 'icon0.png';
+	var filename = ' icon0.png';
 	var to_download = obj;
-	link.setAttribute("href",to_download.toDataURL("image/png"));
-	link.setAttribute("style","display:none");
-	link.setAttribute("download",filename+date_string);
+	link.setAttribute('href',to_download.toDataURL('image/png'));
+	link.setAttribute('style','display:none');
+	link.setAttribute('download',date_string+filename);
 	document.body.appendChild(link);
 	console.log(link.outerHTML);
 	link.click();
@@ -216,14 +192,4 @@ function import_img(file) {
 	if (file) {reader.readAsDataURL(file);}
 }
 
-function copy_canvas() {
-	var canvas = document.getElementById("resizer");
-	var ctx = canvas.getContext("2d");
-	var poster = document.getElementById("drawer");
-	ctx.drawImage(poster, 0, 0)
-	ctx.scale(0.5, 0.5)
-	ctx.drawImage(poster, 0, 0)
-
-	//<canvas id="output" style="width: 512px;height: 512px;background-color: black;" onclick="copy_canvas(this);"></canvas>
-}
 </script>
