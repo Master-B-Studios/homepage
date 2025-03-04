@@ -120,15 +120,13 @@ function resize() {
 		ctx.clearRect(0, 0, original_width, original_width);
 		console.log('cleared')
 		original_width -= 2;
-
-		
 		canvas.width = original_width;
 		canvas.height = original_width;
 		ctx.drawImage(original_img, 0, 0, original_width, original_width);
 		console.log('drawn'+original_width);
 		resize();
 	}
-	else if (original_width == 512) {save_document(document.getElementById('resizer'));}
+	else if (original_width == 512) {return;}
 }
 
 function save_document(obj) {
@@ -147,16 +145,6 @@ function save_document(obj) {
 	console.log(link.outerHTML);
 	link.click();
 	document.body.removeChild(link);
-}
-
-function download(obj) {
-  if (obj == 'resizer') {url = 'Cover Resizer.zip'}
-  var link = document.createElement("a");
-  link.href = url;
-  link.download = url.split('/').pop();
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
 }
 
 function load_document(obj) {
