@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-  <title>PS Cover-Creator</title>
-  <meta charset="utf-8"></meta>
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
-  <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
-  <link rel="stylesheet" href="../../assets/css/main.css"></link>
-  <style>
-  .container {display: none;}
+<head>
+	<title>PS Cover-Creator</title>
+	<meta charset="utf-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+	<link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
+	<link rel="stylesheet" href="../../assets/css/main.css"></link>
+	<style>
+	.container {display: none;}
 	input {cursor: pointer;}
 	input[accept=".jpg,.png"] {display: none;z-index: 100;}
 	label {width: 300px;height: 50px;display: flex;align-items: center;justify-content: center;cursor: pointer;margin: 1em auto 1em auto;background-color: #333333;border-radius: 10px;}
-  label:hover {color: #00ff6a;transition: color 3s;}
-  .canvas_container {width: 100%;text-align:center;}
-  </style>
+	label:hover {color: #00ff6a;transition: color 3s;}
+	.canvas_container {width: 100%;text-align:center;}
+	#resizer {cursor: pointer;}
+	#resizer:hover {
+		filter: drop-shadow(0px 0px 10px #aaaaaa);
+		/*transition: filter 2s;*/
+	}
+	</style>
 </head>
 <body onload="window.location.href = '#creator';load_preview();" class="is-preload">
 	<div id="wrapper">
