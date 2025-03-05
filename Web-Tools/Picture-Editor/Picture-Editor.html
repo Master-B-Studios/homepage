@@ -51,7 +51,7 @@
 </body>
 <div id="content" style="display: none;"></div>
 <img style="display: none;" id="preload" src="preload.png" data-src="preload.png">
-<div style="display: none;"><label><input id="pic_in" type="file" accept=".jpg,.png" onchange="load_document(this);"></input>Bild Laden</label></div>
+<div style="display: none;"><label><input id="pic_inp" type="file" accept=".jpg,.png" onchange="load_document(this);"></input>Bild Laden</label></div>
 
 <script src="../../assets/js/jquery.min.js"></script>
 <script src="../../assets/js/browser.min.js"></script>
@@ -60,37 +60,68 @@
 <script src="../../assets/js/main.js"></script>
 
 <script>
-  var original_width = 980;
+
+function load_preview() {
+  var canvas = document.getElementById('input');
+  var ctx = canvas.getContext('2d');
+  var preload = document.getElementById('preload');
+  console.log('stuff injected')
   
-  function roundedImage(ctx, x, y, width, height, radius) {
-    ctx.beginPath();
-    ctx.moveTo(x + radius, y);
-    ctx.lineTo(x + width - radius, y);
-    ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
-    ctx.lineTo(x + width, y + height - radius);
-    ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
-    ctx.lineTo(x + radius, y + height);
-    ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
-    ctx.lineTo(x, y + radius);
-    ctx.quadraticCurveTo(x, y, x + radius, y);
-    ctx.closePath();
-  }
-  
-  function load_preview() {
-    var canvas = document.getElementById('input');
-    var ctx = canvas.getContext('2d');
-    var preload = document.getElementById('preload');
-    console.log('stuff injected')
+  preload.onload = function() {
+    canvas.width = this.width;
+    canvas.height = this.height;
     
-    preload.onload = function() {
-      canvas.width = this.width;
-      canvas.height = this.height;
+    ctx.drawImage(preload, 0, 0, canvas.width, canvas.height);
+  };
+  preload.src = preload.getAttribute('data-src');
+}
+
+function pic_inp() {
+  document.getElementById('pic_inp').click();
+}
+
+function load_document(obj) {
+  file = obj.files[0];
+  if (file && file.type == 'image/jpeg') {import_img(file);}
+  if (file && file.type == 'image/png') {import_img(file);}
+}
+
+function import_img(file) {
+  var img = new Image();
+  var reader = new FileReader();
   
-      ctx.drawImage(preload, 0, 0, canvas.width, canvas.height);
-    };
-    preload.src = preload.getAttribute('data-src');
-  }
+  var canvas = document.getElementById('input');
+  var ctx = canvas.getContext('2d');
   
+  reader.addEventListener('load',() => {
+    
+    img.addEventListener('load', () => {
+      console.log(img.width+' x '+img.height);
+      if (img.width < img.height) {
+        var offset_left = (img.height - img.width) / 2;
+        canvas.width = img.height;
+        canvas.height = img.height;
+        ctx.drawImage(img, offset_left, 0, img.width, img.height);
+      }
+      else if (img.width > img.height) {
+        var offset_top = (img.width - img.height) / 2;
+        canvas.width = img.width;
+        canvas.height = img.width;
+        ctx.drawImage(img, 0, offset_top, img.width, img.height);
+      }
+
+      
+      
+      
+
+    });
+    img.src = reader.result;
+  },false,);
+  if (file) {reader.readAsDataURL(file);}
+}
+    
+
+
   function resize() {
     var canvas = document.getElementById('resizer');
     var ctx = canvas.getContext('2d');
@@ -128,39 +159,6 @@
     console.log(link.outerHTML);
     link.click();
     document.body.removeChild(link);
-  }
-  
-  function load_document(obj) {
-    file = obj.files[0];
-    if (file && file.type == 'image/jpeg') {import_img(file);}
-    if (file && file.type == 'image/png') {import_img(file);}
-  }
-  
-  function import_img(file) {
-    var img = new Image();
-    var reader = new FileReader();
-  
-    var canvas = document.getElementById('drawer');
-    var ctx = canvas.getContext('2d');
-    var cover = document.getElementById('image2');
-  
-      reader.addEventListener('load',() => {
-      img.addEventListener('load', () => {
-        canvas.width = 980;
-        canvas.height = 980;
-  
-        ctx.save();
-        roundedImage(ctx, 190, 40, 600, 900, 20);
-        ctx.clip();
-        ctx.drawImage(img, 190, 40, 600, 900);
-        ctx.restore();
-        
-        ctx.drawImage(cover, 0, 0);
-        resize();
-      });
-      img.src = reader.result;
-    },false,);
-    if (file) {reader.readAsDataURL(file);}
   }
   
   </script>
