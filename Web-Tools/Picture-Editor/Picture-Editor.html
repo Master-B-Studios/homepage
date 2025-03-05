@@ -9,12 +9,18 @@
   <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
   <style>
     #container {width: 100%;}
-    #container td {width: 50%;align-items: center;margin: auto;text-align: center;vertical-align: middle;}
+    #container td {width: 5%;align-items: center;margin: auto;vertical-align: middle;}
     #container td button {width: 50%;margin: 1em auto 1em auto;border-radius: 0.5em;cursor: pointer;background-color: #333333;}
     #container td button:hover {color: #00ff6a;background-color: #222222;transition: color 2s, background-color 2s;}
-    
-    #container td canvas {width: 10em;height: 10em;margin: 1em auto 1em auto;border-radius: 0.1em;background-color: #333333;}
-    
+    .btn {text-align: center;}
+    #ratio:hover {color: #00ff6a;background-color: #222222;transition: color 2s, background-color 2s;}
+
+    #container td canvas {width: 10em;height: 10em;margin: 1em auto 1em auto;}
+    .canvas_holder {width: 12em;height: 12em;margin: auto;border: 1px solid #aaaaaa;border-radius: 1em;text-align: center;}
+    .info_left {text-align: right;padding: 0.25em;}
+    .info_right {text-align: center;padding: 0.25em;}
+    .info_entry {text-align: center;padding: 0.25em;background-color: #333333;border-radius: 0.5em;cursor: pointer;}
+
     #resizer {cursor: pointer;}
     #resizer:hover {filter: drop-shadow(0px 0px 10px #aaaaaa);transition: filter 2s;}
     </style>
@@ -34,12 +40,72 @@
       <article id="picture_editor" class="panel">
           <table id="container">
             <tr>
-              <td><button onclick="pic_inp();">Bild Laden</button></td>
-              <td><button onclick="pic_out();">Download</button></td>
+              <td colspan="10" class="btn"><button onclick="pic_inp();">Bild Laden</button></td>
+              <td colspan="10" class="btn"><button onclick="pic_out();">Download</button></td>
             </tr>
             <tr>
-              <td><canvas id="input"></canvas></td>
-              <td><canvas id="output"></canvas></td>
+              <td></td>
+              <td></td>
+              <td colspan="6"><div class="canvas_holder"><canvas id="input"></canvas></div></td>
+              <td colspan="4" class="btn"><button onclick="resize();">Los</button></td>
+              <td colspan="6"><div class="canvas_holder"><canvas id="output"></canvas></div></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="info_left" colspan="2">Breite:</td>
+              <td class="info_right" colspan="2" id="input_width"></td>
+              <td class="info_left" colspan="2">Höhe:</td>
+              <td class="info_right" colspan="2" id="input_height"></td>
+              <td></td>
+
+              <td></td>
+              <td class="info_left" colspan="2">Breite:</td>
+              <td class="info_right" colspan="2" id="output_width"></td>
+              <td class="info_left" colspan="2">Höhe:</td>
+              <td class="info_right" colspan="2" id="output_height"></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td class="info_left" colspan="3">Neue Grösse:</td>
+              <td class="info_entry" colspan="2" contenteditable="true" id="new_width" onkeyup="calc_ratio(this);"></td>
+              <td colspan="2" style="text-align: center;">x</td>
+              <td class="info_entry" colspan="2" contenteditable="true" id="new_height" onkeyup="calc_ratio(this);"></td>
+              <td></td>
+
+              <td class="info_left" colspan="3">Verhältnis:</td>
+              <td class="info_entry" colspan="2" id="ratio" onclick="change_ratio(this);"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
           </table>
       </article>
@@ -60,18 +126,30 @@
 <script src="../../assets/js/main.js"></script>
 
 <script>
+var import_img_width = 0;
+var import_img_height = 0;
+var ratio = 0;
+var keep_ratio = true;
+
+var original_width = 0;
+var original_height = 0;
 
 function load_preview() {
   var canvas = document.getElementById('input');
   var ctx = canvas.getContext('2d');
   var preload = document.getElementById('preload');
-  console.log('stuff injected')
   
   preload.onload = function() {
     canvas.width = this.width;
     canvas.height = this.height;
+    calc_ratios(this.width, this.height);
     
     ctx.drawImage(preload, 0, 0, canvas.width, canvas.height);
+    document.getElementById('input').style = 'width: 10em;height: 10em;';
+    document.getElementById('input_width').innerHTML = this.width+'px';
+    document.getElementById('input_height').innerHTML = this.height+'px';
+    original_width = this.width;
+    original_height = this.height;
   };
   preload.src = preload.getAttribute('data-src');
 }
@@ -96,51 +174,111 @@ function import_img(file) {
   reader.addEventListener('load',() => {
     
     img.addEventListener('load', () => {
-      console.log(img.width+' x '+img.height);
-      if (img.width < img.height) {
-        var offset_left = (img.height - img.width) / 2;
-        canvas.width = img.height;
+      import_img_width = img.width;
+      import_img_height = img.height;
+      calc_ratios(img.width, img.height);
+      
+      if (img.width == img.height) {
+        canvas.width = img.width;
         canvas.height = img.height;
-        ctx.drawImage(img, offset_left, 0, img.width, img.height);
+        ctx.drawImage(img, 0, 0, img.width, img.height);
+        document.getElementById('input').style = 'width: 10em;height: 10em;';
+        document.getElementById('input_width').innerHTML = img.width+'px';
+        document.getElementById('input_height').innerHTML = img.height+'px';
+      }
+
+      else if (img.width < img.height) {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0, img.width, img.height);
+        document.getElementById('input').style = 'width: auto;height: 10em;';
+        document.getElementById('input_width').innerHTML = img.width+'px';
+        document.getElementById('input_height').innerHTML = img.height+'px';
       }
       else if (img.width > img.height) {
-        var offset_top = (img.width - img.height) / 2;
         canvas.width = img.width;
-        canvas.height = img.width;
-        ctx.drawImage(img, 0, offset_top, img.width, img.height);
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0, img.width, img.height);
+        document.getElementById('input').style = 'width: 10em;height: auto;';
+        document.getElementById('input_width').innerHTML = img.width+'px';
+        document.getElementById('input_height').innerHTML = img.height+'px';
       }
-
-      
-      
-      
-
+      original_width = img.width;
+      original_height = img.height;
     });
     img.src = reader.result;
   },false,);
   if (file) {reader.readAsDataURL(file);}
 }
-    
 
+// calc ratio from loaded image
+function calc_ratios(width, height) {
+ratio = width/height.toFixed(4);
+document.getElementById('ratio').innerHTML = ratio.toFixed(2);
+}
 
-  function resize() {
-    var canvas = document.getElementById('resizer');
-    var ctx = canvas.getContext('2d');
-    var original_img = document.getElementById('drawer');
-    
-    if (original_width >= 513) {
-      canvas.width = original_width;
-      canvas.height = original_width;
-      ctx.clearRect(0, 0, original_width, original_width);
-      console.log('cleared')
+// change ratio-binding and reverse
+function change_ratio(obj) {
+  if (keep_ratio == true) {obj.innerHTML = 'Nein';keep_ratio = false;}
+  else if (keep_ratio == false) {obj.innerHTML = ratio.toFixed(2);keep_ratio = true;}
+}
+
+// handle 
+function calc_ratio(obj) {
+  // handle width input
+  if (obj.id == 'new_width' && keep_ratio == true) {
+    calced_height = obj.innerHTML/ratio;
+    document.getElementById('new_height').innerHTML = calced_height.toFixed();
+    if (isNaN(calced_height)) {document.getElementById('new_height').innerHTML = '';}
+  }
+  //handle height input
+  if (obj.id == 'new_height' && keep_ratio == true) {
+    calced_width = obj.innerHTML*ratio;
+    document.getElementById('new_width').innerHTML = calced_width.toFixed();
+    if (isNaN(calced_width)) {document.getElementById('new_width').innerHTML = '';}
+  }
+}
+
+function resize() {
+  var canvas = document.getElementById('output');
+  var ctx = canvas.getContext('2d');
+  var original_img = document.getElementById('input');
+  var new_width = document.getElementById('new_width').innerHTML;
+  var new_height = document.getElementById('new_height').innerHTML;
   
-      original_width -= 2;
-      canvas.width = original_width;
-      canvas.height = original_width;
-      ctx.drawImage(original_img, 0, 0, original_width, original_width);
-      console.log('drawn'+original_width);
-      resize();
-    }
-    else if (original_width == 512) {original_width = 980;console.log('Final Resolution');}
+  if (original_width < new_width) {
+    canvas.width = original_width;
+    canvas.height = original_height;
+    ctx.clearRect(0, 0, original_width, original_height);
+    
+    original_width += 1;
+    original_height = original_width/ratio;
+
+    canvas.width = original_width;
+    canvas.height = original_height;
+    ctx.drawImage(original_img, 0, 0, original_width, original_height);
+    if (original_width == original_height) {document.getElementById('output').style = 'width: 10em;height: 10em;';}
+    else if (original_width < original_height) {document.getElementById('output').style = 'width: auto;height: 10em;';}
+    else if (original_width > original_height) {document.getElementById('output').style = 'width: 10em;height: auto;';}
+    resize();
+  }
+  else if (original_width > new_width) {
+    canvas.width = original_width;
+    canvas.height = original_height;
+    ctx.clearRect(0, 0, original_width, original_height);
+    
+    original_width -= 1;
+    original_height = original_width/ratio;
+
+    canvas.width = original_width;
+    canvas.height = original_height;
+    ctx.drawImage(original_img, 0, 0, original_width, original_height);
+    if (original_width == original_height) {document.getElementById('output').style = 'width: 10em;height: 10em;';}
+    else if (original_width < original_height) {document.getElementById('output').style = 'width: auto;height: 10em;';}
+    else if (original_width > original_height) {document.getElementById('output').style = 'width: 10em;height: auto;';}
+    resize();
+  }
+  else if (original_width == new_width) {original_width = document.getElementById('input_width').innerHTML;}
   }
   
   function save_document(obj) {
