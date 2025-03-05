@@ -7,8 +7,19 @@
   <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
   <link rel="stylesheet" href="../../assets/css/main.css"></link>
   <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+  <style>
+    #container {width: 100%;}
+    #container td {width: 50%;align-items: center;margin: auto;text-align: center;vertical-align: middle;}
+    #container td button {width: 50%;margin: 1em auto 1em auto;border-radius: 0.5em;cursor: pointer;background-color: #333333;}
+    #container td button:hover {color: #00ff6a;background-color: #222222;transition: color 2s, background-color 2s;}
+    
+    #container td canvas {width: 10em;height: 10em;margin: 1em auto 1em auto;border-radius: 0.1em;background-color: #333333;}
+    
+    #resizer {cursor: pointer;}
+    #resizer:hover {filter: drop-shadow(0px 0px 10px #aaaaaa);transition: filter 2s;}
+    </style>
 </head>
-<body onload="window.location.href='#picture_editor';" class="is-preload">
+<body onload="window.location.href='#picture_editor';load_preview();" class="is-preload">
   <div id="wrapper">
     
     <nav id="nav">
@@ -21,12 +32,16 @@
     
     <div id="main">
       <article id="picture_editor" class="panel">
-        <header><h2>Picture-Editor</h2></header>
-        <section>
-          <div class="description">
-            Under construction...
-          </div>
-        </section>
+          <table id="container">
+            <tr>
+              <td><button onclick="pic_inp();">Bild Laden</button></td>
+              <td><button onclick="pic_out();">Download</button></td>
+            </tr>
+            <tr>
+              <td><canvas id="input"></canvas></td>
+              <td><canvas id="output"></canvas></td>
+            </tr>
+          </table>
       </article>
     </div>
     
@@ -35,10 +50,117 @@
   </div>
 </body>
 <div id="content" style="display: none;"></div>
+<img style="display: none;" id="preload" src="preload.png" data-src="preload.png">
+<div style="display: none;"><label><input id="pic_in" type="file" accept=".jpg,.png" onchange="load_document(this);"></input>Bild Laden</label></div>
 
 <script src="../../assets/js/jquery.min.js"></script>
 <script src="../../assets/js/browser.min.js"></script>
 <script src="../../assets/js/breakpoints.min.js"></script>
 <script src="../../assets/js/util.js"></script>
 <script src="../../assets/js/main.js"></script>
-<script src="main.js"></script>
+
+<script>
+  var original_width = 980;
+  
+  function roundedImage(ctx, x, y, width, height, radius) {
+    ctx.beginPath();
+    ctx.moveTo(x + radius, y);
+    ctx.lineTo(x + width - radius, y);
+    ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+    ctx.lineTo(x + width, y + height - radius);
+    ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+    ctx.lineTo(x + radius, y + height);
+    ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+    ctx.lineTo(x, y + radius);
+    ctx.quadraticCurveTo(x, y, x + radius, y);
+    ctx.closePath();
+  }
+  
+  function load_preview() {
+    var canvas = document.getElementById('input');
+    var ctx = canvas.getContext('2d');
+    var preload = document.getElementById('preload');
+    console.log('stuff injected')
+    
+    preload.onload = function() {
+      canvas.width = this.width;
+      canvas.height = this.height;
+  
+      ctx.drawImage(preload, 0, 0, canvas.width, canvas.height);
+    };
+    preload.src = preload.getAttribute('data-src');
+  }
+  
+  function resize() {
+    var canvas = document.getElementById('resizer');
+    var ctx = canvas.getContext('2d');
+    var original_img = document.getElementById('drawer');
+    
+    if (original_width >= 513) {
+      canvas.width = original_width;
+      canvas.height = original_width;
+      ctx.clearRect(0, 0, original_width, original_width);
+      console.log('cleared')
+  
+      original_width -= 2;
+      canvas.width = original_width;
+      canvas.height = original_width;
+      ctx.drawImage(original_img, 0, 0, original_width, original_width);
+      console.log('drawn'+original_width);
+      resize();
+    }
+    else if (original_width == 512) {original_width = 980;console.log('Final Resolution');}
+  }
+  
+  function save_document(obj) {
+    var date = new Date().toISOString().substring(0, 10);
+    var time = new Date().toISOString().substring(11, 19);
+    var day = date.substring(8);var month = date.substring(5, 7);var year = date.substring(0, 4);var second = time.substring(6);var minute = time.substring(3, 5);var hour = ('0' + (parseInt(time.substring(0, 2)) + 2)).slice(-2);
+    var date_string = year+'-'+month+'-'+day+' '+hour+'-'+minute+'-'+second;
+    
+    var link = document.createElement('A');
+    var filename = ' icon0.png';
+    var to_download = obj;
+    link.setAttribute('href',to_download.toDataURL('image/png'));
+    link.setAttribute('style','display:none');
+    link.setAttribute('download',date_string+filename);
+    document.body.appendChild(link);
+    console.log(link.outerHTML);
+    link.click();
+    document.body.removeChild(link);
+  }
+  
+  function load_document(obj) {
+    file = obj.files[0];
+    if (file && file.type == 'image/jpeg') {import_img(file);}
+    if (file && file.type == 'image/png') {import_img(file);}
+  }
+  
+  function import_img(file) {
+    var img = new Image();
+    var reader = new FileReader();
+  
+    var canvas = document.getElementById('drawer');
+    var ctx = canvas.getContext('2d');
+    var cover = document.getElementById('image2');
+  
+      reader.addEventListener('load',() => {
+      img.addEventListener('load', () => {
+        canvas.width = 980;
+        canvas.height = 980;
+  
+        ctx.save();
+        roundedImage(ctx, 190, 40, 600, 900, 20);
+        ctx.clip();
+        ctx.drawImage(img, 190, 40, 600, 900);
+        ctx.restore();
+        
+        ctx.drawImage(cover, 0, 0);
+        resize();
+      });
+      img.src = reader.result;
+    },false,);
+    if (file) {reader.readAsDataURL(file);}
+  }
+  
+  </script>
