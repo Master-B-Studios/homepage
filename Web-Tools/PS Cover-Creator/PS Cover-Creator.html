@@ -85,9 +85,9 @@ function load_preview() {
 		canvas.height = 980;
 
 		ctx.save();
-		roundedImage(ctx, 190, 40, 600, 900, 20);
+		roundedImage(ctx, 228, 33, 600, 900, 20);
 		ctx.clip();
-		ctx.drawImage(poster, 190, 40, 600, 900);
+		ctx.drawImage(poster, 228, 33, 600, 900);
 		ctx.restore();
     
 		ctx.drawImage(cover, 0, 0,);
@@ -156,9 +156,9 @@ function import_img(file) {
 			canvas.height = 980;
 
 			ctx.save();
-			roundedImage(ctx, 190, 40, 600, 900, 20);
+			roundedImage(ctx, 228, 33, 600, 900, 20);
 			ctx.clip();
-			ctx.drawImage(img, 190, 40, 600, 900);
+			ctx.drawImage(img, 228, 33, 600, 900);
 			ctx.restore();
 			
 			ctx.drawImage(cover, 0, 0);
