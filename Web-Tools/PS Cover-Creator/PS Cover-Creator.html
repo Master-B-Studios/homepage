@@ -99,19 +99,19 @@ function load_preview() {
 
 function resize() {
 	var canvas = document.getElementById('resizer');
-	var ctx = canvas.getContext('2d',{colorSpace:'srgb'});
+	var ctx = canvas.getContext('2d');
 	var original_img = document.getElementById('drawer');
 	
 	if (original_width >= 513) {
 		canvas.width = original_width;
 		canvas.height = original_width;
-		ctx.clearRect(0, 0, original_width, original_width,{colorSpace:'srgb'});
+		ctx.clearRect(0, 0, original_width, original_width,);
 		console.log('cleared')
 
 		original_width -= 2;
 		canvas.width = original_width;
 		canvas.height = original_width;
-		ctx.drawImage(original_img, 0, 0, original_width, original_width,{colorSpace:'srgb'});
+		ctx.drawImage(original_img, 0, 0, original_width, original_width);
 		console.log('drawn'+original_width);
 		resize();
 	}
