@@ -99,19 +99,19 @@ function load_preview() {
 
 function resize() {
 	var canvas = document.getElementById('resizer');
-	var ctx = canvas.getContext('2d');
+	var ctx = canvas.getContext('2d',{colorSpace:'srgb'});
 	var original_img = document.getElementById('drawer');
 	
 	if (original_width >= 513) {
 		canvas.width = original_width;
 		canvas.height = original_width;
-		ctx.clearRect(0, 0, original_width, original_width);
+		ctx.clearRect(0, 0, original_width, original_width,{colorSpace:'srgb'});
 		console.log('cleared')
 
 		original_width -= 2;
 		canvas.width = original_width;
 		canvas.height = original_width;
-		ctx.drawImage(original_img, 0, 0, original_width, original_width);
+		ctx.drawImage(original_img, 0, 0, original_width, original_width,{colorSpace:'srgb'});
 		console.log('drawn'+original_width);
 		resize();
 	}
@@ -125,7 +125,7 @@ function save_document(obj) {
 	var date_string = year+'-'+month+'-'+day+' '+hour+'-'+minute+'-'+second;
   
 	var link = document.createElement('A');
-	var filename = ' icon0.png';
+	var filename = 'icon0.png';
 	var to_download = obj;
 	link.setAttribute('href',to_download.toDataURL('image/png'));
 	link.setAttribute('style','display:none');
