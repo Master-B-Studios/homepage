@@ -129,7 +129,7 @@ function save_document(obj) {
 	var to_download = obj;
 	link.setAttribute('href',to_download.toDataURL('image/png'));
 	link.setAttribute('style','display:none');
-	link.setAttribute('download',date_string+filename);
+	link.setAttribute('download',filename);
 	//link.setAttribute('download',date_string+filename);
 	document.body.appendChild(link);
 	console.log(link.outerHTML);
