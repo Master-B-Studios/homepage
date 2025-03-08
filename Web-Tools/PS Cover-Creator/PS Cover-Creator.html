@@ -32,7 +32,7 @@
 			<article id="creator" class="panel">
 				<div class="container" id="container">
 					<img class="image1" id="image1" src="poster.jpg" data-src="poster.jpg">
-					<img class="image2" id="image2" src="cover.png"  data-src="cover.png">
+					<img class="image2" id="image2" src="template.png"  data-src="template.png">
 				</div>
 				
 				<div class="description">
@@ -81,14 +81,14 @@ function load_preview() {
 	var cover = document.getElementById('image2');
 	
 	poster.onload = function() {
-		canvas.width = 980;
-		canvas.height = 980;
+		canvas.width = 960;
+		canvas.height = 960;
 
-		ctx.save();
-		roundedImage(ctx, 228, 33, 600, 900, 20);
-		ctx.clip();
-		ctx.drawImage(poster, 228, 33, 600, 900);
-		ctx.restore();
+		//ctx.save();
+		//roundedImage(ctx, 228, 33, 600, 900, 20);
+		//ctx.clip();
+		ctx.drawImage(poster, 180, 30, 600, 900);
+		//ctx.restore();
     
 		ctx.drawImage(cover, 0, 0);
 		resize();
@@ -152,14 +152,14 @@ function import_img(file) {
 
     reader.addEventListener('load',() => {
 		img.addEventListener('load', () => {
-			canvas.width = 980;
-			canvas.height = 980;
+			canvas.width = 960;
+			canvas.height = 960;
 
-			ctx.save();
-			roundedImage(ctx, 228, 33, 600, 900, 20);
-			ctx.clip();
-			ctx.drawImage(img, 228, 33, 600, 900);
-			ctx.restore();
+			//ctx.save();
+			//roundedImage(ctx, 228, 33, 600, 900, 20);
+			//ctx.clip();
+			ctx.drawImage(img, 180, 30, 600, 900);
+			//ctx.restore();
 			
 			ctx.drawImage(cover, 0, 0);
 			resize();
