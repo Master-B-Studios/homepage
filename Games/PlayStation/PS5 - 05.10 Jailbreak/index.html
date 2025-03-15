@@ -29,6 +29,8 @@ a {color: white; text-decoration: none;}
     40%, 60% {transform: rotate(0deg) scale(1);}
     100% {transform: rotate(90deg) scale(0);}
 }
+
+.button {width: 50%;height: 10%;background-color: #444444;border-radius: 10px;color: #dbdbdb;}
 </style>
 
 <body>
@@ -42,6 +44,7 @@ a {color: white; text-decoration: none;}
 <script type="module" src="psfree/psfree.mjs"></script>
 <script src="payload_map.js"></script>
 
+<!--
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="67px" height="67px" viewBox="0 0 67 67" style="enable-background:new 0 0 67 67;" xml:space="preserve">
     <style type="text/css">.st0 {fill: #FFFFFF;} .bottopmsg {position: fixed;bottom: 34px;width: 1520px; padding: 5px 0 1px 0;}</style>
     <symbol id="ps_triangle" viewBox="0 0 67 67"><path class="st0" d="M0.1,62.2L33.4,4.5l33.5,57.7L0.1,62.2z M33.4,18.9L12.5,55h41.8L33.4,18.9z"/></symbol>
@@ -55,24 +58,28 @@ a {color: white; text-decoration: none;}
     <div class="icon animate" id="icon3"><svg><use xlink:href="#ps_cross" id="svg3" class="svg-icon"/></svg></div>
     <div class="icon animate" id="icon4"><svg><use xlink:href="#ps_circle" id="svg4" class="svg-icon"/></svg></div>
 </div>
+-->
 
 <!-- Row 1 -->
-<div style="position: relative; top: -50px;">
-    <!-- <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="453" height="35" viewBox="0 0 453 35"></svg><br> -->
+<div>
+    <!--
+    <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="453" height="35" viewBox="0 0 453 35"></svg><br> 
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="150px" height="150px" viewBox="0 0 150 150" version="1.1"><defs><image id="image5" width="2200" height="1900" xlink:href=""/></defs><g id="surface2"><use xlink:href="#image5" transform="matrix(0.075,0,0,0.075,0,0)"/></g></svg>
-    <a tabindex="0" class="btn fw-bold" id="run-jb" onclick="run()">Run</a>
-    <p class="text-center" id="top-bar-text" style="position: relative; z-index: 9999; text-align: left; margin: 0; padding: 10px 20px; top:70px;margin-left:20px;">PS5-Firmware: <span class="fw-bold" id="current-fw"></span></p>
+    -->
     
+    <p class="text-center" id="top-bar-text" style="z-index: 9999;">PS5-Firmware: <span class="fw-bold" id="current-fw"></span></p>
+    <button class="button" id="run-jb" onclick="run()">Run</button>
+
     <div id="main-content">
-        <div id="pre-jb-view" class="d-flex align-items-center justify-content-center flex-direction-column selected" style="position: relative; z-index: 9999;">
+        <div id="pre-jb-view" style="z-index: 9999;">
         <!-- auto-jailbreak by m0ur0ne -->
     </div>
 
-    <div id="console-view" style="position: relative; z-index: 9999;height:50px;">
-        <textarea id="console" class="log" readonly>★ Activating Xploit ...</textarea>
+    <div id="console-view" style="z-index: 9999;">
+        <textarea id="console" class="log" readonly>>_ Starting Exploit...</textarea>
     </div>
 
-    <div id="payloads-view" style="position: relative; z-index: 9999; height: 350px; top: -570px;width:480px;"></div>
+    <div id="payloads-view" style="z-index: 9999;"></div>
 </div>
 
 
@@ -94,7 +101,7 @@ a {color: white; text-decoration: none;}
     <script>
         // Ocultamos el botón 'Jailbreak' y mostramos el mensaje "Activating Xploit ..."
         //document.getElementById("run-jb").style.display = "none";
-        document.getElementById("console").innerHTML = "★ Activating Xploit ...";
+        document.getElementById("console").innerHTML = ">_ Starting Exploit...";
 
         // Ejecutamos automáticamente el jailbreak cuando la página se carga
         window.onload = function() {
