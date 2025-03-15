@@ -126,53 +126,53 @@ function registerAppCacheEventHandlers() {
 
     if (document.documentElement.hasAttribute("manifest")) {
         if (!navigator.onLine) {
-            createOrUpdateAppCacheToast('★ Off-line wait...', 2000);
+            createOrUpdateAppCacheToast('>_ Off-line Wait...', 2000);
         } else {
-            createOrUpdateAppCacheToast("★ Check updates...");
+            createOrUpdateAppCacheToast(">_ Check Updates...");
         }
     }
 
     appCache.addEventListener('cached', function (e) {
-        createOrUpdateAppCacheToast('★ Finished caching site', 1500);
+        createOrUpdateAppCacheToast('>_ Finished Caching Website...', 1500);
     }, false);
 
     appCache.addEventListener('checking', function (e) {
-        createOrUpdateAppCacheToast('★ Check updates...');
+        createOrUpdateAppCacheToast('>_ Check Updates...');
     }, false);
 
     appCache.addEventListener('downloading', function (e) {
-        createOrUpdateAppCacheToast('★ Downloading cache');
+        createOrUpdateAppCacheToast('>_ Downloading Cache...');
     }, false);
 
     appCache.addEventListener('error', function (e) {
         if (navigator.onLine) {
-            createOrUpdateAppCacheToast('★ Error caching ', 5000);
+            createOrUpdateAppCacheToast('>_ Error Caching...', 5000);
         } else {
-            createOrUpdateAppCacheToast('★ Off-line wait...', 2000);
+            createOrUpdateAppCacheToast('>_ Off-line Wait...', 2000);
         }
     }, false);
 
     appCache.addEventListener('noupdate', function (e) {
-        createOrUpdateAppCacheToast('★ Cache is up', 1500);
+        createOrUpdateAppCacheToast('>_ Cache OK...', 1500);
     }, false);
 
     appCache.addEventListener('obsolete', function (e) {
-        createOrUpdateAppCacheToast('★ Site is obsolete.');
+        createOrUpdateAppCacheToast('>_ Site Is Down...');
     }, false);
 
     appCache.addEventListener('progress', function (e) {
     let dots = '.'.repeat(Math.min(Math.floor((e.loaded / e.total) * 3), 3)); // Máximo 3 puntos suspensivos
 
-    createOrUpdateAppCacheToast('★ Downloading cache' + dots);
+    createOrUpdateAppCacheToast('>_ Downloading Cache...' + dots);
 
     if (e.loaded + 1 == e.total) {
-        createOrUpdateAppCacheToast("★ Done wait ...");
+        createOrUpdateAppCacheToast(">_ Done... Wait...");
     }
 }, false);
 
     appCache.addEventListener('updateready', function (e) {
         if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-            createOrUpdateAppCacheToast('★ Site updated. Refresh');
+            createOrUpdateAppCacheToast('>_ Site Updated... Refresh...');
         }
     }, false);
 }
@@ -272,7 +272,7 @@ for (const payload of payloads) {
     debugMessage.style.cursor = "default"; // Elimina el cursor de tipo "mano" para no dar la impresión de que es clickeable
 
     // El contenido del mensaje que queremos mostrar
-    debugMessage.innerHTML = "★ Debug Settings Ready ✓<br>Waiting payload";
+    debugMessage.innerHTML = ">_ Debug Settings Ready ✓";
 
     payloadsView.appendChild(debugMessage); // Agregar el mensaje al contenedor
 }
