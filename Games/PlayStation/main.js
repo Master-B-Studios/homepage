@@ -10,3 +10,7 @@ function download(obj) {
   link.click();
   document.body.removeChild(link);
 }
+
+function call_jailbreak_0510() {
+  window.location.href = 'PS5 - 05.10 Jailbreak/index.html'
+}
