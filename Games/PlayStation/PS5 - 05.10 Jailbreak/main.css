@@ -217,8 +217,8 @@ background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAABICAI
 
 
 #console-view {
-    width: 400px;
-    height: 400px;
+    width: 70%;
+    height: 30%;
     border: none;
     font-family: monospace;
     background-color: #222222;
