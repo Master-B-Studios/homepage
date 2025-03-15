@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <style>
-body {background-color: #000000;}
+body {background-color: #000000;color: #dbdbdb;}
+.bar_top {background-color: #555555;color: #dbdbdb;}
+.preview {background-color: #555555;color: #dbdbdb;}
 </style>
 
 <body>
@@ -18,13 +20,18 @@ body {background-color: #000000;}
 <script src="webkit_fontface.js"></script>
 <script type="module" src="psfree/psfree.mjs"></script>
 <script src="payload_map.js"></script>
-  
+
+<div class="bar_top">
     <p class="text-center" id="top-bar-text" style="position: relative; z-index: 9999; text-align: left; margin: 0; padding: 10px 20px; top:70px;margin-left:20px;">Erkannte Firmware: <span class="fw-bold" id="current-fw"></span></p>
-    
-    <div id="main-content">
+</div>
+
+<div id="main-content">
+    <div id="pre-jb-view" class="preview" style="position: relative; z-index: 9999;">
+            <!--
         <div id="pre-jb-view" class="d-flex align-items-center justify-content-center flex-direction-column selected" style="position: relative; z-index: 9999;">
-            <!-- auto-jailbreak by m0ur0ne -->
-            <a tabindex="0" class="btn fw-bold" id="run-jb" style="display: none;" onclick="run();"></a>
+         auto-jailbreak by m0ur0ne 
+         -->
+            <a tabindex="0" class="btn fw-bold" id="run-jb" style="display: block;" onclick="run();"></a>
         </div>
         <div id="console-view" style="position: relative; z-index: 9999;height:50px;">
             <!-- Texto AutoJailbreak -->
