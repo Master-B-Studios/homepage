@@ -6,8 +6,8 @@
 </head>
 <style>
 body {background-color: #000000;color: #dbdbdb;}
-.bar_top {background-color: #555555;color: #dbdbdb;}
-.preview {background-color: #555555;color: #dbdbdb;}
+.bar_top {width: 100%;height: auto;color: #dbdbdb;text-align: center;padding: 2em 0 1em 0;margin: auto;}
+.preview {width: 50%;height: 20%;background-color: #555555;color: #dbdbdb;}
 </style>
 
 <body>
@@ -22,11 +22,11 @@ body {background-color: #000000;color: #dbdbdb;}
 <script src="payload_map.js"></script>
 
 <div class="bar_top">
-    <p class="text-center" id="top-bar-text" style="position: relative; z-index: 9999; text-align: left; margin: 0; padding: 10px 20px; top:70px;margin-left:20px;">Erkannte Firmware: <span class="fw-bold" id="current-fw"></span></p>
+    <p class="fw_info" id="top-bar-text">PS5 Firmware: <span class="fw-bold" id="current-fw"></span></p>
 </div>
 
 <div id="main-content">
-    <div id="pre-jb-view" class="preview" style="position: relative; z-index: 9999;">
+    <div id="pre-jb-view" class="preview">
             <!--
         <div id="pre-jb-view" class="d-flex align-items-center justify-content-center flex-direction-column selected" style="position: relative; z-index: 9999;">
          auto-jailbreak by m0ur0ne 
