@@ -31,7 +31,7 @@ a {color: white;text-decoration: none;}
 body {
   user-select: none;
   -webkit-user-select: none;
-  background-color: rgb(14, 14, 20);
+  background-color: #000000;
   color: white;
   font-family: Arial;
   display: grid;
@@ -55,11 +55,8 @@ a:active, a:focus {outline: 0;border: none;}
 .btn {padding: 1rem 2rem;text-align: center;text-decoration: none;display: inline-block;margin: 0.2rem;cursor: pointer;line-height: 2.5rem;min-width: 5rem;border-radius: 1rem;width: 50%;background-color: var(--primary-color);border: none;color: #fff;font-size: 28px;transition: background-color 0.3s ease-in-out;box-sizing: border-box;}
 .btn:hover {background-color: #c2c2c2;color: #303030;}
 
-
-#main-content {position: relative;box-sizing: border-box;border: none;}
-
 #main-content > div {
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
     transition: opacity 0.3s ease-in-out;
     box-sizing: border-box;
@@ -67,6 +64,7 @@ a:active, a:focus {outline: 0;border: none;}
 	 border: none;
 font-size: 25px;
 font-family: monospace;
+margin: 1em auto 1em auto;
 }
 
 #payloads-view {
@@ -217,7 +215,7 @@ font-family: monospace;
 
 #console-view {
     width: 70%;
-    height: 40%;
+    height: 60%;
     border: none;
     font-family: monospace;
     background-color: #222222;

@@ -20,17 +20,8 @@ a {color: white; text-decoration: none;}
 .loader3 { margin: auto; width: 243px; height: 10px; position: absolute; left: 90px; top: 30px; }
 .oneline { width: 200px; height: 50px; }
 
-.icon, .icon svg {width: 50px;height: 50px;display: inline-block;}
-.icon {transform: rotate(-90deg) scale(0);}
-.animate {animation: psicon 2s cubic-bezier(.75,0,1,1) infinite;}
-
-@keyframes psicon {
-    0% {transform: rotate(-90deg) scale(0);animation-timing-function: cubic-bezier(0,0,.25,1);}
-    40%, 60% {transform: rotate(0deg) scale(1);}
-    100% {transform: rotate(90deg) scale(0);}
-}
-
-.button {width: 50%;height: 10%;background-color: #444444;border-radius: 10px;color: #dbdbdb;}
+.bar_top {width: 100%;height: auto;text-align: center;padding: 1em 0 0.5em 0;margin: auto;}
+.button_interact {width: 40%;height: 4em;margin: auto;border-radius: 1em;background-color: #444444;color: #dbdbdb;cursor: pointer;}
 </style>
 
 <body>
@@ -67,14 +58,29 @@ a {color: white; text-decoration: none;}
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="150px" height="150px" viewBox="0 0 150 150" version="1.1"><defs><image id="image5" width="2200" height="1900" xlink:href=""/></defs><g id="surface2"><use xlink:href="#image5" transform="matrix(0.075,0,0,0.075,0,0)"/></g></svg>
     -->
     
-    <p class="text-center" id="top-bar-text" style="z-index: 9999;">PS5-Firmware: <span class="fw-bold" id="current-fw"></span></p>
+    <div class="bar_top">
+        <p class="fw_info" id="top-bar-text">PS5-Firmware: <span class="fw-bold" id="current-fw"></span></p>
+    </div>
+    <!--
     <button class="button" id="run-jb" onclick="run();">Jailbreak</button>
-
-    <div id="main-content">
+<div id="main-content">
         <div id="pre-jb-view" style="z-index: 9999;"></div>
         
         <div id="console-view" style="z-index: 9999;">
             <textarea id="console" class="log" readonly>>_ Starting Exploit...</textarea>
+        </div>
+        
+        <div id="payloads-view" style="z-index: 9999;display: none;"></div>
+    </div>
+
+    -->
+    <button id="run-jb" class="button_interact" onclick="run();">Jailbreak Starten</button>
+
+    <div id="main-content">
+        <div id="pre-jb-view" style="z-index: 9999;"></div>
+        
+        <div id="console-view">
+            <textarea id="console" class="log" readonly>>_ Ready...</textarea>
         </div>
         
         <div id="payloads-view" style="z-index: 9999;display: none;"></div>
