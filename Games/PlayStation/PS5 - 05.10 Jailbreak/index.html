@@ -20,10 +20,9 @@ a {color: white; text-decoration: none;}
 .loader3 { margin: auto; width: 243px; height: 10px; position: absolute; left: 90px; top: 30px; }
 .oneline { width: 200px; height: 50px; }
 
-.bar_top {width: 100%;height: auto;text-align: center;padding: 1em 0 0.5em 0;margin: auto;}
-.button_interact {width: 40%;height: 4em;margin: auto;border-radius: 1em;background-color: #444444;color: #dbdbdb;cursor: pointer;}
+.bar_top {width: 100%;height: auto;text-align: center;padding: 1em 0 0.5em 0;margin: auto;font-size: 20px;}
+.button_interact {width: 40%;height: 4em;margin: auto;border-radius: 1em;background-color: #444444;color: #ffffff;cursor: pointer;font-size: 20px;font-family: monospace;}
 .button_interact:hover {color: #00ff00;background-color: #222222;border-color: #00ff00;transition: all 2s;}
-.button_interact:focus {outline: none;color: #00ff00;}
 </style>
 
 <body>
@@ -82,7 +81,7 @@ a {color: white; text-decoration: none;}
         <div id="pre-jb-view" style="z-index: 9999;"></div>
         
         <div id="console-view">
-            <textarea id="console" class="log" readonly>>_ Ready...</textarea>
+            <textarea id="console" class="log" readonly style="color: #00ff00;">>_ Ready...</textarea>
         </div>
         
         <div id="payloads-view" style="z-index: 9999;display: none;"></div>
@@ -102,7 +101,7 @@ a {color: white; text-decoration: none;}
 
         // Ejecutamos automáticamente el jailbreak cuando la página se carga
         window.onload = function() {
-            document.getElementById('run-jb').focus();
+            //document.getElementById('run-jb').focus();
             //run();
         };
     </script>
