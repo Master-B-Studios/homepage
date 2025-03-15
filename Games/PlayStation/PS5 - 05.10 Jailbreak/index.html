@@ -7,9 +7,11 @@
 <style>
 body {background-color: #000000;color: #dbdbdb;}
 .bar_top {width: 100%;height: auto;text-align: center;padding: 1em 0 0.5em 0;margin: auto;}
-.main {width: 100%;height: auto;text-align: center;padding: 1em 0 0.5em 0;margin: auto;}
-.button_interact {width: 40%;height: 4em;}
-.log {width: 60%;height: 30%;background-color: #111111;color: #00ff00;margin: auto;padding: 1em;}
+.main {width: 100%;height: auto;text-align: center;padding: 0 0 0.5em 0;margin: auto;}
+.button_container {width: 100%;height: auto;padding: 1em 0 1em 0;margin: auto;}
+.button_interact {width: 40%;height: 4em;margin: auto;border-radius: 1em;background-color: #444444;color: #dbdbdb;cursor: pointer;}
+.button_interact:hover {color: #00ff00;background-color: #222222;border-color: #00ff00;transition: all 2s;}
+.log {width: 60%;height: 30%;background-color: #111111;color: #00ff00;margin: auto;padding: 1em;cursor: default;}
 </style>
 
 <body>
@@ -28,8 +30,8 @@ body {background-color: #000000;color: #dbdbdb;}
 </div>
 
 <div id="main-content" class="main">
-    <div id="pre-jb-view">
-        <button id="run-jb" class="button_interact" onclick="run();">Jailbreak Starten</button>
+    <div id="pre-jb-view" class="button_container">
+        <button id="run-jb" class="button_interact" onclick="exploit();">Jailbreak Starten</button>
     </div>
     
     <div id="console-view">
@@ -38,18 +40,6 @@ body {background-color: #000000;color: #dbdbdb;}
     
     <div id="payloads-view"></div>
 </div>
-            <!--
-        <div id="pre-jb-view" class="d-flex align-items-center justify-content-center flex-direction-column selected" style="position: relative; z-index: 9999;">
-         auto-jailbreak by m0ur0ne 
-         -->
-            
-        
-        
-            <!-- Texto AutoJailbreak -->
-            
-        
-        
-    
 
     <div id="footer">
         <!--
@@ -76,33 +66,29 @@ body {background-color: #000000;color: #dbdbdb;}
     <div id="toast-container"></div></div>
 
     <!-- auto jailbreak etahen by mouuu -->
-    <script>
-        // Ocultamos el botón 'Jailbreak' y mostramos el mensaje "Activating Xploit ..."
-        //document.getElementById("run-jb").style.display = "none";
-        //document.getElementById("console").innerHTML = "Starte Exploit...";
-
-        // Ejecutamos automáticamente el jailbreak cuando la página se carga
-        //window.onload = function() {run();};
-    </script>
-
-    <script>
-        addEventListener('unhandledrejection', (event) => {
-            const reason = event.reason;
-            // We log the line and column numbers as well since some exceptions (like
-            // SyntaxError) do not show it in the stack trace.
-            alert(
-                `${reason}\n`
-                + `${reason.sourceURL}:${reason.line}:${reason.column}\n`
-                + `${reason.stack}`
-            );
-            throw reason;
-        });
-
-        document.getElementById("current-fw").innerHTML = fw_str;
-        localStorage.setItem(LOCALSTORE_WK_EXPLOIT_TYPE_KEY, LOCALSTORE_WK_EXPLOIT_TYPE_VALUE_PSFREE);
-        registerAppCacheEventHandlers();
-        registerL2ButtonHandler();
-    </script>
+    
 </body>
+<script>
+//document.getElementById("run-jb").style.display = "none";
+//document.getElementById("console").innerHTML = "Starte Exploit...";
 
+window.onload = function() {document.getElementById('run-jb').focus();}
+//window.onload = function() {run();};
+function exploit() {run();}
+
+addEventListener('unhandledrejection', (event) => {
+    const reason = event.reason;
+    alert (
+        `${reason}\n`
+        + `${reason.sourceURL}:${reason.line}:${reason.column}\n`
+        + `${reason.stack}`
+    );
+    throw reason;
+});
+
+document.getElementById("current-fw").innerHTML = fw_str;
+//localStorage.setItem(LOCALSTORE_WK_EXPLOIT_TYPE_KEY, LOCALSTORE_WK_EXPLOIT_TYPE_VALUE_PSFREE);
+//registerAppCacheEventHandlers();
+registerL2ButtonHandler();
+</script>
 </html>
