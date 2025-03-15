@@ -72,7 +72,10 @@ body {background-color: #000000;color: #dbdbdb;}
 //document.getElementById("run-jb").style.display = "none";
 //document.getElementById("console").innerHTML = "Starte Exploit...";
 
-window.onload = function() {document.getElementById('run-jb').focus();}
+window.onload = function() {
+    document.getElementById('run-jb').focus();
+    run();
+}
 //window.onload = function() {run();};
 function exploit() {run();}
 
