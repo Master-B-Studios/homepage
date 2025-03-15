@@ -24,16 +24,16 @@ async function run(wkonly = false, animate = true) {
             await new Promise((resolve) => setTimeout(resolve, 100));
         }
         if (wk_exploit_type == LOCALSTORE_WK_EXPLOIT_TYPE_VALUE_PSFREE) {
-            debug_log("[+] running psfree for userland exploit...");
+            debug_log(">_ running psfree for userland exploit...");
             await run_psfree(fw_str);
         } else if (wk_exploit_type == LOCALSTORE_WK_EXPLOIT_TYPE_VALUE_FONTFACE) {
-            debug_log("[+] running fontface for userland exploit...");
+            debug_log(">_ running fontface for userland exploit...");
             await run_fontface();
         }
     } catch (error) {
         debug_log("[!] Webkit exploit failed: " + error);
 
-        debug_log("[+] Retrying in 2 seconds...");
+        debug_log(">_ Retrying in 2 seconds...");
         await new Promise((resolve) => setTimeout(resolve, 2000));
         window.location.reload();
         return;
@@ -45,7 +45,7 @@ async function run(wkonly = false, animate = true) {
         debug_log("[!] Kernel exploit/main() failed: " + error);
     }
 
-    debug_log("[+] Retrying in 4 seconds...");
+    debug_log(">_ Retrying in 4 seconds...");
     await new Promise((resolve) => setTimeout(resolve, 4000));
     window.location.reload();
 }
