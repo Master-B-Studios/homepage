@@ -101,7 +101,8 @@ a {color: white; text-decoration: none;}
 
         // Ejecutamos automáticamente el jailbreak cuando la página se carga
         window.onload = function() {
-            alert('')
+            document.getElementById("top-bar-text").innerHTML = '-Firmware: <span class="fw-bold" id="current-fw"></span>';
+            // alert('')
             //document.getElementById('run-jb').focus();
             //run();
         };
