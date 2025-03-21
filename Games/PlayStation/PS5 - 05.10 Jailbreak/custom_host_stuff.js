@@ -129,7 +129,7 @@ function registerAppCacheEventHandlers() {
         else {createOrUpdateAppCacheToast(">_ Auf Updates prüfen...");}
     }
 
-    appCache.addEventListener('cached', function (e) {createOrUpdateAppCacheToast(' Cache Aktuell...', 2000);}, false);
+    appCache.addEventListener('cached', function (e) {createOrUpdateAppCacheToast('>_ Cache Aktuell...', 2000);}, false);
     appCache.addEventListener('checking', function (e) {createOrUpdateAppCacheToast('>_ Auf Updates prüfen...');}, false);
     appCache.addEventListener('downloading', function (e) {createOrUpdateAppCacheToast('>_ Lade Cache...');}, false);
 
@@ -138,7 +138,7 @@ function registerAppCacheEventHandlers() {
         else {createOrUpdateAppCacheToast('>_ Offline... Warten...', 2000);}
     }, false);
 
-    appCache.addEventListener('noupdate', function (e) {createOrUpdateAppCacheToast(' Cache Aktuell...', 2000);}, false);
+    appCache.addEventListener('noupdate', function (e) {createOrUpdateAppCacheToast('>_ Cache Aktuell...', 2000);}, false);
     appCache.addEventListener('obsolete', function (e) {createOrUpdateAppCacheToast('>_ Website nicht erreichbar...');}, false);
 
     appCache.addEventListener('progress', function (e) {
