@@ -166,8 +166,8 @@ font-family: monospace;
     border-radius: 10px; /* Mantenido el redondeo de las esquinas */
     margin-top: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    max-width: 200px; /* Reducido el ancho máximo */
-    min-width: 200px; /* Reducido el ancho mínimo */
+    max-width: 300px; /* Reducido el ancho máximo */
+    min-width: 300px; /* Reducido el ancho mínimo */
     opacity: 0.2; /* Cambiado el valor de la opacidad a 0.8 para hacerlo un poco transparente */
     transform: translateX(100%); /* Cambiado para que aparezca desde la derecha */
     transition: opacity 0.4s, transform 0.4s;
@@ -204,7 +204,7 @@ font-family: monospace;
     font-family: monospace;
     white-space: pre-wrap; /* Asegura que los saltos de línea se respeten y el texto se ajuste */
     font-size: 25px;
-    color: #fff;
+    color: #ffffff;
     background-color: inherit;
     padding: 8px;
    margin-left:30px;
