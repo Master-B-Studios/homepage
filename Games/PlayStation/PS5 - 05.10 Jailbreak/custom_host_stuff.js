@@ -126,53 +126,49 @@ function registerAppCacheEventHandlers() {
 
     if (document.documentElement.hasAttribute("manifest")) {
         if (!navigator.onLine) {
-            createOrUpdateAppCacheToast('>_ Off-line Wait...', 2000);
+            createOrUpdateAppCacheToast('>_ Offline... Warte...', 2000);
         } else {
-            createOrUpdateAppCacheToast(">_ Check Updates...");
+            createOrUpdateAppCacheToast(">_ Auf Updates prüfen...");
         }
     }
 
     appCache.addEventListener('cached', function (e) {
-        createOrUpdateAppCacheToast('>_ Finished Caching Website...', 1500);
+        createOrUpdateAppCacheToast('>_ Cache Aktuell...', 1500);
     }, false);
 
     appCache.addEventListener('checking', function (e) {
-        createOrUpdateAppCacheToast('>_ Check Updates...');
+        createOrUpdateAppCacheToast('>_ Auf Updates prüfen...');
     }, false);
 
     appCache.addEventListener('downloading', function (e) {
-        createOrUpdateAppCacheToast('>_ Downloading Cache...');
+        createOrUpdateAppCacheToast('>_ Lade Cache...');
     }, false);
 
     appCache.addEventListener('error', function (e) {
         if (navigator.onLine) {
-            createOrUpdateAppCacheToast('>_ Error Caching...', 5000);
+            createOrUpdateAppCacheToast('>_ Fehler beim Cachen...', 5000);
         } else {
-            createOrUpdateAppCacheToast('>_ Off-line Wait...', 2000);
+            createOrUpdateAppCacheToast('>_ Offline... Warten...', 2000);
         }
     }, false);
 
     appCache.addEventListener('noupdate', function (e) {
-        createOrUpdateAppCacheToast('>_ Cache OK...', 1500);
+        createOrUpdateAppCacheToast('>_ Cache Aktuell...', 1500);
     }, false);
 
     appCache.addEventListener('obsolete', function (e) {
-        createOrUpdateAppCacheToast('>_ Site Is Down...');
+        createOrUpdateAppCacheToast('>_ Website nicht erreichbar...');
     }, false);
 
     appCache.addEventListener('progress', function (e) {
-    let dots = '.'.repeat(Math.min(Math.floor((e.loaded / e.total) * 3), 3)); // Máximo 3 puntos suspensivos
-
-    createOrUpdateAppCacheToast('>_ Downloading Cache...' + dots);
-
-    if (e.loaded + 1 == e.total) {
-        createOrUpdateAppCacheToast(">_ Done... Wait...");
-    }
-}, false);
+        let dots = '.'.repeat(Math.min(Math.floor((e.loaded / e.total) * 3), 3)); // Máximo 3 puntos suspensivos
+        createOrUpdateAppCacheToast('>_ Lade Cache...' + dots);
+        if (e.loaded + 1 == e.total) {createOrUpdateAppCacheToast(">_ Warten...");}
+    }, false);
 
     appCache.addEventListener('updateready', function (e) {
         if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-            createOrUpdateAppCacheToast('>_ Site Updated... Refresh...');
+            createOrUpdateAppCacheToast('>_ Seite Neu Laden...');
         }
     }, false);
 }
