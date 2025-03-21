@@ -153,7 +153,7 @@ function registerAppCacheEventHandlers() {
     }, false);
 
     appCache.addEventListener('noupdate', function (e) {
-        createOrUpdateAppCacheToast('>_ Cache Aktuell...', 1500);
+        createOrUpdateAppCacheToast(' Cache Aktuell...', 2000);
     }, false);
 
     appCache.addEventListener('obsolete', function (e) {
