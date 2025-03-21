@@ -31,9 +31,9 @@ async function run(wkonly = false, animate = true) {
             await run_fontface();
         }
     } catch (error) {
-        debug_log("[!] Webkit exploit failed: " + error);
+        debug_log(">_ Webkit exploit failed: " + error);
 
-        debug_log(">_ Retrying in 2 seconds...");
+        debug_log(">_ Neuversuch in 2 Sekunden...");
         await new Promise((resolve) => setTimeout(resolve, 2000));
         window.location.reload();
         return;
@@ -45,7 +45,7 @@ async function run(wkonly = false, animate = true) {
         debug_log("[!] Kernel exploit/main() failed: " + error);
     }
 
-    debug_log(">_ Retrying in 4 seconds...");
+    debug_log(">_ Neuversuch in 4 Sekunden...");
     await new Promise((resolve) => setTimeout(resolve, 4000));
     window.location.reload();
 }
