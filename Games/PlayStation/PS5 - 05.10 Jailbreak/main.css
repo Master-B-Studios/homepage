@@ -31,7 +31,7 @@ a {color: white;text-decoration: none;}
 body {
   user-select: none;
   -webkit-user-select: none;
-  background-color: #363341;
+  background-color: #36363b;
   color: #dbdbdb;
   font-family: Arial;
   display: grid;
