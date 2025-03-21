@@ -1,6 +1,6 @@
 // Función para mostrar un popup
 function mostrarPopup() {
-    const url = prompt("🌐​ URL:", "https://www.bing.com");
+    const url = prompt("🌐​ URL:", "https://google.de");
 
     if (url) {
         // Abre la URL en una nueva pestaña o ventana
