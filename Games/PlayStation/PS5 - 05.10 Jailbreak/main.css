@@ -161,7 +161,8 @@ font-family: monospace;
 
 .toast {
     background: none;
-    color: #dbdbdb;
+    background-color: #444444;
+    color: #00ff00;
     padding: 10px 15px; /* Reducido el padding para hacer la notificación más pequeña */
     border-radius: 10px; /* Mantenido el redondeo de las esquinas */
     margin-top: 10px;
