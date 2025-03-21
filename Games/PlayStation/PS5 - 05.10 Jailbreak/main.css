@@ -161,6 +161,7 @@ font-family: monospace;
 
 .toast {
     background: none;
+    background-color: #111111;
     color: #00ff00;
     padding: 10px 15px; /* Reducido el padding para hacer la notificación más pequeña */
     border-radius: 10px; /* Mantenido el redondeo de las esquinas */
@@ -178,25 +179,11 @@ font-family: monospace;
 	padding-left: 40px; /* Agregar espacio desde el lado izquierdo */
 }
 
-.toast.show {
-    opacity: 1;
-    transform: translateX(0); /* Cambiado para que aparezca desde la derecha */
-}
+.toast.show {opacity: 1;transform: translateX(0);}
+.toast.hide {opacity: 0;transform: translateX(100%);}
+.j {font-size: 15px;color: #2F3335;}
+.d-none {display: block !important;}
 
-.toast.hide {
-    opacity: 0;
-    transform: translateX(100%); /* Cambiado para que desaparezca hacia la derecha */
-}
-
-
-.j {
-    font-size: 15px;
-    color: #2F3335;
-}
-
-.d-none {
-    display: block !important;  /* O alguna propiedad que mantenga el elemento visible */
-}
 .log {
     display: block;
     flex-grow: 1;

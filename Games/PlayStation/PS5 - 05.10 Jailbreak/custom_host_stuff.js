@@ -133,7 +133,7 @@ function registerAppCacheEventHandlers() {
     }
 
     appCache.addEventListener('cached', function (e) {
-        createOrUpdateAppCacheToast('>_ Cache Aktuell...', 1500);
+        createOrUpdateAppCacheToast(' Cache Aktuell...', 1500);
     }, false);
 
     appCache.addEventListener('checking', function (e) {
