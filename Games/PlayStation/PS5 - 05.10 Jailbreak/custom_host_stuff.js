@@ -125,40 +125,21 @@ function registerAppCacheEventHandlers() {
     }
 
     if (document.documentElement.hasAttribute("manifest")) {
-        if (!navigator.onLine) {
-            createOrUpdateAppCacheToast('>_ Offline... Warte...', 2000);
-        } else {
-            createOrUpdateAppCacheToast(">_ Auf Updates prüfen...");
-        }
+        if (!navigator.onLine) {createOrUpdateAppCacheToast('>_ Offline... Warte...', 2000);}
+        else {createOrUpdateAppCacheToast(">_ Auf Updates prüfen...");}
     }
 
-    appCache.addEventListener('cached', function (e) {
-        createOrUpdateAppCacheToast(' Cache Aktuell...', 1500);
-    }, false);
-
-    appCache.addEventListener('checking', function (e) {
-        createOrUpdateAppCacheToast('>_ Auf Updates prüfen...');
-    }, false);
-
-    appCache.addEventListener('downloading', function (e) {
-        createOrUpdateAppCacheToast('>_ Lade Cache...');
-    }, false);
+    appCache.addEventListener('cached', function (e) {createOrUpdateAppCacheToast(' Cache Aktuell...', 2000);}, false);
+    appCache.addEventListener('checking', function (e) {createOrUpdateAppCacheToast('>_ Auf Updates prüfen...');}, false);
+    appCache.addEventListener('downloading', function (e) {createOrUpdateAppCacheToast('>_ Lade Cache...');}, false);
 
     appCache.addEventListener('error', function (e) {
-        if (navigator.onLine) {
-            createOrUpdateAppCacheToast('>_ Fehler beim Cachen...', 5000);
-        } else {
-            createOrUpdateAppCacheToast('>_ Offline... Warten...', 2000);
-        }
+        if (navigator.onLine) {createOrUpdateAppCacheToast('>_ Fehler beim Cachen...', 5000);}
+        else {createOrUpdateAppCacheToast('>_ Offline... Warten...', 2000);}
     }, false);
 
-    appCache.addEventListener('noupdate', function (e) {
-        createOrUpdateAppCacheToast(' Cache Aktuell...', 2000);
-    }, false);
-
-    appCache.addEventListener('obsolete', function (e) {
-        createOrUpdateAppCacheToast('>_ Website nicht erreichbar...');
-    }, false);
+    appCache.addEventListener('noupdate', function (e) {createOrUpdateAppCacheToast(' Cache Aktuell...', 2000);}, false);
+    appCache.addEventListener('obsolete', function (e) {createOrUpdateAppCacheToast('>_ Website nicht erreichbar...');}, false);
 
     appCache.addEventListener('progress', function (e) {
         let dots = '.'.repeat(Math.min(Math.floor((e.loaded / e.total) * 3), 3)); // Máximo 3 puntos suspensivos
@@ -167,9 +148,7 @@ function registerAppCacheEventHandlers() {
     }, false);
 
     appCache.addEventListener('updateready', function (e) {
-        if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-            createOrUpdateAppCacheToast('>_ Seite Neu Laden...');
-        }
+        if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {createOrUpdateAppCacheToast('>_ Seite Neu Laden...');}
     }, false);
 }
 
