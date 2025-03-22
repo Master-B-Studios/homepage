@@ -27,17 +27,17 @@
           <table class="design_border_01 design_borderspacing_01" style="cursor: default;">
             <tr>
               <td class="design_table_04 design_padding_01 design_text_right">Name Des Spiels:</td>
-              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" colspan="3" contenteditable="true">Assassin's Creed 4 - Black Flag</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" colspan="3" contenteditable="true" onfocus="clean(this);">Assassin's Creed 4 - Black Flag</td>
             </tr>
             <tr>
               <td class="design_table_04 design_padding_01 design_text_right">ID:</td>
-              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true">CUSA00009</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true" onfocus="clean(this);">CUSA00009</td>
               <td class="design_table_04 design_padding_01 design_text_right">Master-Version:</td>
-              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true">1.02</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true" onfocus="clean(this);">1.02</td>
             </tr>
             <tr>
               <td class="design_table_04 design_padding_01 design_text_right">Anzahl Cheats:</td>
-              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true" id="number_cheat_tables">5</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true" onfocus="clean(this);" id="number_cheat_tables">5</td>
               <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" colspan="2" onclick="create_cheat_tables();">Erstellen</td>
             </tr>
             <div class="tr_flipper_gap"></div>
@@ -67,6 +67,10 @@
 var cheats = 0;
 var container = document.getElementById('cheat_section');
 
+function clean(obj) {
+  obj.innerHTML = '';
+}
+
 function create_cheat_tables() {
   cheats = document.getElementById('number_cheat_tables').innerHTML;
   container.innerHTML = '';
@@ -81,10 +85,11 @@ function create_cheat_tables() {
     '</tr>'+
     '<tr>'+
       '<td class="design_table_04 design_padding_01 design_text_right">Beschreibung:</td>'+
-      '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true">Platzhalter</td>'+
+      '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true" onfocus="clean(this);">Platzhalter</td>'+
       '</tr>'+
-      '<tr id="offset_list_'+i+'"></tr>'+
-    '</table>';
+      '<table class="design_border_01 design_borderspacing_01" style="cursor: default;" id="offset_list_'+i+'"></table>'+
+    '</table>'+
+    '<div class="tr_flipper_gap"></div>';
     i--;
   }
 }
@@ -92,20 +97,22 @@ function create_cheat_tables() {
 function offset(offset_list, offset_amount) {
   offset_list.innerHTML = '';
   for (let i = 0; i < offset_amount; i++) {
+    i++;
     offset_list.innerHTML += ''+
-        '<td class="design_table_04 design_padding_01 design_text_right">Offset:</td>'+
-        '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true">Platzhalter</td>'+
+      '<tr>'+
+        '<td class="design_table_04 design_padding_01 design_text_right">Offset '+i+':</td>'+
+        '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true" onfocus="clean(this);">Platzhalter</td>'+
       '</tr>'+
       '<tr>'+
         '<td class="design_table_04 design_padding_01 design_text_right">Wert Aktiv:</td>'+
-        '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true">Platzhalter</td>'+
+        '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true" onfocus="clean(this);">Platzhalter</td>'+
       '</tr>'+
       '<tr>'+
         '<td class="design_table_04 design_padding_01 design_text_right">Wert Inaktiv:</td>'+
-        '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true">Platzhalter</td>';        
+        '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true" onfocus="clean(this);">Platzhalter</td>'+
+      '</tr>';
+    i--;
   }
-  localStorage.setItem('page', document.getElementById('playstation').innerHTML);
-  window.location.reload();
 }
 
 </script>
