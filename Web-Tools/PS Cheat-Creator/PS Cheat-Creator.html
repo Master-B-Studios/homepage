@@ -7,7 +7,7 @@
   <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
   <link rel="stylesheet" href="../../assets/css/main.css"></link>
 </head>
-<body onload="window.location.href = '#playstation';" class="is-preload">
+<body onload="window.location.href = '#playstation';localStorage.getItem('page');" class="is-preload">
   <div id="wrapper">
     
     <nav id="nav">
@@ -37,37 +37,16 @@
             </tr>
             <tr>
               <td class="design_table_04 design_padding_01 design_text_right">Anzahl Cheats:</td>
-              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true">5</td>
-              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" colspan="2">Erstellen</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true" id="number_cheat_tables">5</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" colspan="2" onclick="create_cheat_tables();">Erstellen</td>
             </tr>
             <div class="tr_flipper_gap"></div>
           </table>
+        </section>
 
-          <table class="design_border_01 design_borderspacing_01" style="cursor: default;">
-            <tr>
-              <td class="design_table_04 design_padding_01 design_text_center" colspan="2">Cheat 1</td>
-              <td class="design_table_04 design_padding_01 design_text_center design_editable_01" onclick="offset(this);">1 Offset</td>
-              <td class="design_table_04 design_padding_01 design_text_center design_editable_01" onclick="offset(this);">2 Offsets</td>
-            </tr>
-            <tr>
-              <td class="design_table_04 design_padding_01 design_text_right">Beschreibung:</td>
-              <td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true">Platzhalter</td>
-            </tr>
-            <tr>
-              <td class="design_table_04 design_padding_01 design_text_right">Offset:</td>
-              <td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true">Platzhalter</td>
-            </tr>
-            <tr>
-              <td class="design_table_04 design_padding_01 design_text_right">Wert Aktiv:</td>
-              <td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true">Platzhalter</td>
-            </tr>
-            <tr>
-              <td class="design_table_04 design_padding_01 design_text_right">Wert Inaktiv:</td>
-              <td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true">Platzhalter</td>
-            </tr>
-            <tr><td class="design_table_04"></td><td class="design_table_04"></td><td class="design_table_04"></td><td class="design_table_04"></td></tr>
-            <div class="tr_flipper_gap"></div>
-          </table>
+        <section id="cheat_section"></section>
+
+          
         </section>
 
       </article>
@@ -83,4 +62,50 @@
 <script src="../../assets/js/breakpoints.min.js"></script>
 <script src="../../assets/js/util.js"></script>
 <script src="../../assets/js/main.js"></script>
-<script src="main.js"></script>
+
+<script>
+var cheats = 0;
+var container = document.getElementById('cheat_section');
+
+function create_cheat_tables() {
+  cheats = document.getElementById('number_cheat_tables').innerHTML;
+  container.innerHTML = '';
+  for (let i = 0; i < cheats; i++) {
+    i++;
+    container.innerHTML += ''+
+  '<table class="design_border_01 design_borderspacing_01" style="cursor: default;">'+
+    '<tr>'+
+      '<td class="design_table_04 design_padding_01 design_text_center" colspan="2">Cheat '+i+'</td>'+
+      '<td class="design_table_04 design_padding_01 design_text_center design_editable_01" onclick="offset(offset_list_'+i+', 1);">1 Offset</td>'+
+      '<td class="design_table_04 design_padding_01 design_text_center design_editable_01" onclick="offset(offset_list_'+i+', 2);">2 Offsets</td>'+
+    '</tr>'+
+    '<tr>'+
+      '<td class="design_table_04 design_padding_01 design_text_right">Beschreibung:</td>'+
+      '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true">Platzhalter</td>'+
+      '</tr>'+
+      '<tr id="offset_list_'+i+'"></tr>'+
+    '</table>';
+    i--;
+  }
+}
+
+function offset(offset_list, offset_amount) {
+  offset_list.innerHTML = '';
+  for (let i = 0; i < offset_amount; i++) {
+    offset_list.innerHTML += ''+
+        '<td class="design_table_04 design_padding_01 design_text_right">Offset:</td>'+
+        '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true">Platzhalter</td>'+
+      '</tr>'+
+      '<tr>'+
+        '<td class="design_table_04 design_padding_01 design_text_right">Wert Aktiv:</td>'+
+        '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true">Platzhalter</td>'+
+      '</tr>'+
+      '<tr>'+
+        '<td class="design_table_04 design_padding_01 design_text_right">Wert Inaktiv:</td>'+
+        '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true">Platzhalter</td>';        
+  }
+  localStorage.setItem('page', document.getElementById('playstation').innerHTML);
+  window.location.reload();
+}
+
+</script>
