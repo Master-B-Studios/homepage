@@ -242,9 +242,19 @@ input[accept=".episodes"] {display: none;z-index: 100;cursor: pointer;}
 .quest_answer {width: 100%;height: auto;margin: auto;text-align: justify;cursor: default;}
 .quest_img {width: 100%;height: auto;margin: 1em auto 1em auto;cursor: default;}
 
+.design_table_04 {width: 25%;}
 .design_header_01 {text-align: center;font-weight: bold;font-size: 1.5em;}
 .design_border_01 {border: 1px solid #444444;}
+.design_borderspacing_01 {border-spacing: 6px;border-collapse: separate;}
 .design_padding_01 {padding: 0.5em;}
+.design_margin_01 {margin: 0.5em;}
+.design_editable_01 {cursor: pointer;background-color: #080808;}
+.design_editable_01:hover {color: #00aa44;background-color: #222222;transition: all 1.5s;}
+
+
+.design_text_left {text-align: left;}
+.design_text_right {text-align: right;}
+.design_text_center {text-align: center;}
 
 .download_icon {width: auto;height: auto;text-align: center;align-content: center;border-left: 1px solid #444444;border-top: 1px solid #444444;border-right: 1px solid #444444;}
 .download_icon img {width: 90%;height: 90%;vertical-align: middle;}

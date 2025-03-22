@@ -148,7 +148,7 @@ function registerAppCacheEventHandlers() {
     }, false);
 
     appCache.addEventListener('updateready', function (e) {
-        if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {createOrUpdateAppCacheToast('>_ Seite Neu Laden...');}
+        if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {createOrUpdateAppCacheToast('>_ Bitte Seite Neu Laden...');}
     }, false);
 }
 
