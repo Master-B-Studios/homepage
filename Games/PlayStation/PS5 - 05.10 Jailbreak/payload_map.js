@@ -59,7 +59,7 @@ const payload_map = [
       author: "Master Studios",
       projectSource: "spoofer",
       binarySource: "spoofer",
-      version: "5",
+      version: "5.50",
       supportedFirmwares: ["5", "550"]
     },
    
