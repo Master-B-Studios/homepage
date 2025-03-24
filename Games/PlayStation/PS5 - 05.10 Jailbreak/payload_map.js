@@ -33,24 +33,34 @@ const payload_map = [
     // etaHEN is added twice so that on 1.xx-2.xx you can load it in webkit only mode too
     // but on 3.xx-4.xx it only shows in kernel exploit mode since it needs the 9020 elf loader for kstuff
     {
-        displayTitle: "etaHEN",
-        description: "AIO HEN",
-        fileName: "etaHEN.bin",
-        author: "LightningMods, Buzzer, sleirsgoevy, ChendoChap, astrelsky, illusion, CTN, SiSTR0, Nomadic",
-        projectSource: "https://github.com/LightningMods/etaHEN",
-        binarySource: "https://github.com/LightningMods/etaHEN/releases/download/1.9b/etaHEN.bin",
-        version: "2.0b",
-        supportedFirmwares: ["3.", "4."]
+      displayTitle: "etaHEN",
+      description: "AIO HEN",
+      fileName: "etaHEN.bin",
+      author: "LightningMods, Buzzer, sleirsgoevy, ChendoChap, astrelsky, illusion, CTN, SiSTR0, Nomadic",
+      projectSource: "https://github.com/LightningMods/etaHEN",
+      binarySource: "https://github.com/LightningMods/etaHEN/releases/download/1.9b/etaHEN.bin",
+      version: "2.0b",
+      supportedFirmwares: ["3.", "4."]
     },
-     {
-        displayTitle: "kstuff-550",
-        description: "kstuff-550",
-        fileName: "kstuff-550.elf",
-        author: "kstuff-550",
-        projectSource: "kstuff-550",
-        binarySource: "kstuff-550",
-        version: "5.50",
-        supportedFirmwares: ["5", "550"]
+    {
+      displayTitle: "kstuff-550",
+      description: "kstuff-550",
+      fileName: "kstuff-550.elf",
+      author: "kstuff-550",
+      projectSource: "kstuff-550",
+      binarySource: "kstuff-550",
+      version: "5.50",
+      supportedFirmwares: ["5", "550"]
+    },
+    {
+      displayTitle: "fw-spoofer",
+      description: "ps4-fw-spoofer",
+      fileName: "spoofer.elf",
+      author: "Master Studios",
+      projectSource: "spoofer",
+      binarySource: "spoofer",
+      version: "5",
+      supportedFirmwares: ["5", "550"]
     },
    
    // {
