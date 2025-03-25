@@ -2,7 +2,7 @@
     --text-color-primary: #dbdbdb;
     --text-color-secondary: #66ff66;
     --text-color-tertiary: #999;
-    --background-color-primary: #0c0c0f;
+    --background-color-primary: #202125;
     --surface-color-primary: #202125;
     --surface-color-secondary: #15161a;
     --surface-color-hover: #a2a2a6;
@@ -41,7 +41,7 @@ a:active, a:focus {outline: 0;border: none;color: #66ff66;}
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    margin: 0.2rem;
+    margin: 1.2rem;
     cursor: pointer;
     line-height: 2.5rem;
     min-width: 5rem;
