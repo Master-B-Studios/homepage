@@ -249,13 +249,9 @@ function populatePayloadsPage(wkOnlyMode = false) {
     const payloads = payload_map;
 
     for (const payload of payloads) {
-        if (wkOnlyMode && !payload.toPort && !payload.customAction) {
-            continue;
-        }
+        if (wkOnlyMode && !payload.toPort && !payload.customAction) {continue;}
 
-        if (payload.supportedFirmwares && !payload.supportedFirmwares.some(fwPrefix => window.fw_str.startsWith(fwPrefix))) {
-            continue;
-        }
+        if (payload.supportedFirmwares && !payload.supportedFirmwares.some(fwPrefix => window.fw_str.startsWith(fwPrefix))) {continue;}
 
         const payloadButton = document.createElement("a");
         payloadButton.classList.add("btn");
@@ -277,9 +273,7 @@ function populatePayloadsPage(wkOnlyMode = false) {
         payloadButton.appendChild(payloadTitle);
         payloadButton.appendChild(payloadDescription);
         payloadButton.appendChild(payloadInfo);
-        payloadButton.addEventListener("click", function () {
-            window.dispatchEvent(new CustomEvent(MAINLOOP_EXECUTE_PAYLOAD_REQUEST, { detail: payload }));
-        });
+        payloadButton.addEventListener("click", function () {window.dispatchEvent(new CustomEvent(MAINLOOP_EXECUTE_PAYLOAD_REQUEST, {detail: payload}));});
 
         payloadsView.appendChild(payloadButton);
     }
