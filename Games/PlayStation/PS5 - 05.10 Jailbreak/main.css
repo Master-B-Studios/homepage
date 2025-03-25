@@ -209,11 +209,11 @@ a:active, a:focus {outline: 0;border: none;color: #66ff66;}
 
 
 .l2-redirect-box {
+    width: 2rem;
     background: #bdc0c2;
     border-radius: 5px;
     padding: 0.2rem 0.4rem;
     text-align: center;
-    position: relative;
     display: flex;
     color: #4e4e4e;
     font-size: 1.2rem;
@@ -281,8 +281,8 @@ a:active, a:focus {outline: 0;border: none;color: #66ff66;}
 .align-items-center { align-items: center; }
 .justify-content-center { justify-content: center; }
 
-.text-center { text-align: center; }
-.fw-bold { font-weight: 800; }
+.text-center {text-align: center;font-weight: bolder;}
+.fw-bold {font-weight: 800;}
 .text-secondary {
     color: var(--text-color-secondary);
     margin: 0;
@@ -329,7 +329,11 @@ a:active, a:focus {outline: 0;border: none;color: #66ff66;}
 .mb-4 { margin-bottom: 1.5rem !important; }
 
 .icon_container {width: 20%;}
-.icon_ps {width: 80%;height: auto;}
+.icon_ps {width: 70%;height: auto;}
 .icon_mb {width: 100%;height: auto;}
 
 .text_container {width: 50%;padding: 1rem;text-align: center;}
+
+.l2_button_container {width: 100%;font-weight: bolder;}
+.l2_box {padding: 0.25rem 0.5rem 0.25rem 0.5rem;background-color: #bdc0c2;color: #4e4e4e;border-radius: 0.25rem;}
+.l2_desc {padding: 0.5rem;}
