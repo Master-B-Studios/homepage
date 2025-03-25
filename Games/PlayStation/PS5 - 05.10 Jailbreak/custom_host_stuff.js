@@ -143,11 +143,11 @@ function registerAppCacheEventHandlers() {
 function registerL2ButtonHandler() {
     document.addEventListener("keydown", async (event) => {
         if (event.keyCode === 118) {
-            const lastRedirectorValue = localStorage.getItem(LOCALSTORE_REDIRECTOR_LAST_URL_KEY) || "http://";
-            const redirectorValue = prompt("Enter url", lastRedirectorValue);
+            const lastRedirectorValue = localStorage.getItem(LOCALSTORE_REDIRECTOR_LAST_URL_KEY) || "https://";
+            const redirectorValue = prompt("🌐 Url Eingeben:", lastRedirectorValue);
 
             // pressing cancel works as expected, but pressing the back button unfortunately is the same as pressing ok
-            if (redirectorValue && redirectorValue !== "http://") {
+            if (redirectorValue && redirectorValue !== "https://") {
                 localStorage.setItem(LOCALSTORE_REDIRECTOR_LAST_URL_KEY, redirectorValue);
                 window.location.href = redirectorValue;
             }
