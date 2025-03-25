@@ -1,783 +1,130 @@
 <!DOCTYPE html>
-<!-- Copyright (C) 2021 by Master B. All rights reserved. -->
-
 <html lang="de">
-
 <head>
-<title id="title_id" style="background-color: #000000">Geräteausgabe</title>
-<link rel="icon" href="https://sveschulen.vaihingen.online/index.php/apps/files_sharing/publicpreview/SGPwN4gAwENKPW7?x=2772&y=888&a=true&file=MB_Logo_Alu_01.png">
+<title id="title_id" style="background-color: #000000">IuK Geräteausgabe</title>
+<link rel="icon" href="">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <style>
-	@font-face {font-family: Futura;src: url(sources/fonts/Futura.ttf);}
-	section {display: none;}
-	section:target {display: block;}
-	body {background-color: #000000;font-family: Futura;font-size: 2em;color: #dbdbdb;cursor: default;}
+	body {font-family: Arial, Helvetica, sans-serif;font-size: 2.5vh;cursor: default;}
 
-	.gap_1vh {width: auto;height: 1vh;} .gap_2vh {width: auto;height: 2vh;} .gap_4vh {width: auto;height: 4vh;} .gap_8vh {width: auto;height: 8vh;}
+	.header_container {width: 99vw;height: 8vh;display: flex;background-color: #0A54A0;margin: auto;border-radius: 20px;}
+	.header_left {width: 5%;height: 100%;display: flex;align-items: center;}
+	.header_center {width: 90%;height: 100%;display: flex;align-items: center;justify-content: center;font-size: 4vh;font-weight: bold;color: #dbdbdb;}
+	.header_right {width: 5%;height: 100%;display: flex;align-items: center;}
 
-	.header {width: 90%;height: auto;display: flex;align-items: center;justify-content: center;margin: auto;font-size: 2em;background-color: #0A54A0;border-radius: 1vw;}
-	.header_text {width: 90%;height: auto;text-align: center;}
-	.header_text_addy {width: 90%;height: auto;text-align: center;font-size: 0.5em;}
-	.header_image {width: 10%;height: auto;border-radius: 1vw;cursor: pointer;}
+	.table_container {width: 99vw;height: 50vh;margin: 1em auto 1em auto;background-color: #999999;display: block;}
+	.table_1 {width: 100%;}
+	.table_1 td {width: 4%;background-color: #0A54A0;padding: 0.5em;}
 
-	.table_device {display: flex;align-items: center;justify-content: space-around;width: 60%;height: 14%;margin: auto;cursor: pointer;border: 2px solid #0A54A0;border-radius: 1vw;}
-	.checkbox_text {width: 50%;height: auto;}
-	.checkbox_image {width: 14%;height: auto;display: flex;align-items: center;justify-content: center;}
-	.cb_image {width: 100%;height: 100%;padding-top: 10%;padding-bottom: 10%;}
+	.set_device_container {cursor: pointer;padding: 0;}
+	.set_device {height: 3vh;width: 2vh;background-color: #dbdbdb;border-radius: 10px;cursor: pointer;margin: auto;}
 
-	.checkbox_container {display: flex;align-items: center;justify-content: space-around;width: 80%;height: 20%;margin: auto;cursor: pointer;border: 2px solid #0A54A0;border-radius: 1vw;margin-bottom: 1vh;}
-	.checkbox_prescription {width: 30%;height: auto;padding: 2vh;display: flex;align-items: center;}
-	.checkbox_input {width: 60%;height: auto;padding: 1vh;background-color: #333333;border-radius: 1vw;display: flex;align-items: center;}
-
-	.option_line {width: 80%;height: auto;display: flex;align-items: center;justify-content: space-between;margin: auto;margin-bottom: 4vh;}
-	.option {width: 100%;height: auto;display: flex;align-items: center;justify-content: left;margin: auto;}
-	.option_text {width: 80%;height: auto;padding-left: 1vh;}
-
-	.checkbox {width: 6vh;height: 6vh;cursor: pointer;padding: 1vh;}
-	.checkbox-wrapper-31 {position: relative;display: inline-block;width: 6vh;height: 6vh;}
+	.checkbox {height: 3vh;width: 3vh;border-top-left-radius: 1.4vh;border-bottom-left-radius: 1.4vh;cursor: pointer;}
+	input[type="checkbox"] {height: 3vh;width: 4vh;cursor: pointer;}
+	.checkbox-wrapper-31 {position: relative;display: inline-block;width: 3.5vh;height: 3.5vh;top: 8%;}
 	.checkbox-wrapper-31 .background {fill: #555555;transition: ease all 0.6s;-webkit-transition: ease all 0.6s;}
 	.checkbox-wrapper-31 .stroke {fill: none;stroke: #dbdbdb;stroke-miterlimit: 10;stroke-width: 2px;stroke-dashoffset: 100;stroke-dasharray: 100;transition: ease all 0.6s;-webkit-transition: ease all 0.6s;}
 	.checkbox-wrapper-31 .check {fill: none;stroke: #dbdbdb;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2px;stroke-dashoffset: 22;stroke-dasharray: 22;transition: ease all 0.6s;-webkit-transition: ease all 0.6s;}
-	.checkbox-wrapper-31 input[type=checkbox] {position: absolute;width: 100%;height: 100%;left: 0;top: 0;margin: 0;opacity: 0;-appearance: none;}
+	.checkbox-wrapper-31 input[type=checkbox] {position: absolute;width: 100%;height: 100%;left: 0;top: 0;margin: 0;opacity: 0;-appearance: none;-webkit-appearance: none;}
 	.checkbox-wrapper-31 input[type=checkbox]:hover {cursor: pointer;}
 	.checkbox-wrapper-31 input[type=checkbox]:checked + svg .background {fill: #1c9e10;}
 	.checkbox-wrapper-31 input[type=checkbox]:checked + svg .stroke {stroke-dashoffset: 0;}
 	.checkbox-wrapper-31 input[type=checkbox]:checked + svg .check {stroke-dashoffset: 0;}
-
-	
-	.checkbox_space {width: auto;height: auto;}
-	.checkbox_proceed {width: auto;height: 20vh;text-align: center;border: 2px solid#555555;border-radius: 1vw;cursor: pointer;}
-
-	.a4 {width: 21cm;height: 29.7cm;background-color: #ffffff;margin: auto;color: #000000;border-radius: 1vw;}
-	.a4_table {width: 21cm;height: auto;margin: auto;color: #000000;border-radius: 1vw;font-size: 11pt;}
-	
-	.gap_top {width: auto; height: 2.5cm;}
-	.gap_left {width: 2.5cm; height: auto;}
-	.gap_right {width: 2.5cm; height: auto;}
-
-	.a4_header_text {width: 12cm;height: 4cm;text-decoration: underline;font-size: 18pt;font-weight: bold;}
-	.a4_header_image {width: 4cm;height: 4cm;cursor: pointer;}
-	.a4_header_image_src {width: 100%;height: 100%;}
-
-	.a4_quest {width: 6cm;height: 1cm;text-align: left;font-size: 12pt;padding-top: 0.2cm;cursor: pointer;}
-	.a4_fill {width: 10cm;height: 1cm;text-align: left;border-bottom: 1px solid #000000;padding-top: 0.2cm;cursor: pointer;}
-	
-	.a4_subheader {width: 16cm;height: auto;text-align: center;padding-top: 1cm;padding-bottom: 1cm;font-size: 18pt;font-style: italic;}
-	.a4_text {width: 16cm;height: auto;text-align: justify;padding-top: 0.08cm;padding-bottom: 0.08cm;}
-
-	.a4_hardware {width: 16cm;height: auto;border-top: 1px solid #000000;border-left: 1px solid #000000;border-right: 1px solid #000000;padding: 0.5cm;}
-	.a4_hardware_fill {width: 16cm;height: auto;border-left: 1px solid #000000;border-right: 1px solid #000000;padding: 0.5cm;cursor: pointer;}
-	.a4_hardware_end {width: 16cm;height: auto;border-bottom: 1px solid #000000;border-left: 1px solid #000000;border-right: 1px solid #000000;padding: 0.2cm;}
-	.a4_vpn {width: 16cm;height: auto;border-bottom: 1px solid #000000;font-size: 16pt;cursor: pointer;}
-
-	.a4_date {width: 1.6cm;height: auto;}
-	.a4_date_fill {width: 4.4cm;height: auto;cursor: pointer;}
-	.a4_user {width: 4cm;height: auto;text-align: right;}
-	.a4_signature {width: 6cm;height: auto;border-bottom: 1px solid #000000;}
-
-	@media print {
-		body {background-color: #ffffff;}
-		.gap_top {width: auto; height: 1.5cm;}
-		.gap_left {width: 1.5cm; height: auto;}
-		.gap_right {width: 1.5cm; height: auto;}
-		.a4_table {font-size: 12pt;}
-		.a4_header_image {width: 4cm;height: 4.5cm;cursor: pointer;}
-		}
 </style>
 </head>
 
-<body id="body" onload="jump_page_home();set_date();">
-	<section id="home">
-		<div class="header">
-			<img class="header_image" src="sources/images/City Logo.png" onclick="jump_page_home();"></img>
-			<div class="header_text">Geräteausgabe</div>
-			<div class="header_image"></div>
+<body onload="">
+    <section id="home">
+        <div class="header_container">
+            <div class="header_left"></div>
+            <div class="header_center">Geräteausgabe Stadt Vaihingen an der Enz</div>
+            <div class="header_right"></div>
+        </div>
+		<div class="table_container">
+			<table class="table_1">
+				<tr>
+					<td colspan="4">Nutzungsberechtigte(r):</td>
+					<td colspan="10"></td>
+					<td></td>
+					<td colspan="10" rowspan="5"></td>
+				</tr>
+				<tr>
+					<td colspan="4">Amt / Abteilung:</td>
+					<td colspan="10"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td colspan="4">Geräteart:</td>
+					<td colspan="10"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td colspan="4">Verwendungszweck:</td>
+					<td colspan="10"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td colspan="4">Datum:</td>
+					<td colspan="10"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td colspan="14"></td>
+					<td></td>
+					<td colspan="10">- Unterschrift Nutzungsberechtigte(r) -</td>
+				</tr>
+
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr>
+					<td colspan="14">Folgende Posten werden ausgegeben:</td>
+					<td></td>
+					<td colspan="10"></td>
+				</tr>
+				<tr>
+					<td colspan="13" id="device"></td>
+					<td class="set_device_container">
+						<select class="set_device" id="set_device" onchange="set_device();">
+							<option value=""></option>
+							<option value="VPN">VPN</option>
+							<option value="Notebook">Notebook</option>
+							<option value="Notebook mit VPN">Notebook mit VPN</option>
+							<option value="PC">PC</option>
+							<option value="PC mit VPN">PC mit VPN</option>
+							<option value="iPad">iPad</option>
+							<option value="Mobiltelefon Privatgerät">Mobiltelefon Privatgerät</option>
+							<option value="Mobiltelefon Dienstgerät">Mobiltelefon Dienstgerät</option>
+						</select>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td colspan="4">VPN-Passwort:</td>
+					<td colspan="10"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="checkbox"><div class="checkbox-wrapper-31"><input id="entleihen_wlan_check" type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>
+					<td colspan="3">VPN-Passwort</td>
+				</tr>
+			</table>
+			<table class="table_1" id="device_table"></table>
 		</div>
-		<div class="gap_8vh"></div>
-		<div class="table_device" id="notebook" onclick="set_device(this);">
-			<div class="checkbox_text">Notebook / PC</div>
-			<div class="checkbox_image"><img class="cb_image" src="sources/images/Notebook.png"></img></div>
-		</div>
-		<div class="gap_4vh"></div>
-		<div class="table_device" id="ipad" onclick="set_device(this);">
-			<div class="checkbox_text">iPad</div>
-			<div class="checkbox_image"><img class="cb_image" src="sources/images/iPad.png"></img></div>
-		</div>
-		<div class="gap_4vh"></div>
-		<div class="table_device" id="mobile" onclick="set_device(this);">
-			<div class="checkbox_text">Mobiltelefon</div>
-			<div class="checkbox_image"><img class="cb_image" src="sources/images/Mobile.png"></img></div>
-		</div>
-	</section>
+    </section>
 </body>
 </html>
 
-<section id="company">
-	<div class="header">
-		<img class="header_image" src="sources/images/Swipe_Left.png" onclick="jump_page_home();"></img>
-		<div class="header_text">Eigentümerschaft</div>
-		<div class="header_image"></div>
-	</div>
-	<div class="gap_8vh"></div>
-	<div class="table_device" id="cod" onclick="set_property(this);">
-		<div class="checkbox_text">Dienstgerät</div>
-		<div class="checkbox_image"><img class="cb_image" src="sources/images/City Logo.png"></img></div>
-	</div>
-	<div class="gap_4vh"></div>
-	<div class="table_device" id="byod" onclick="set_property(this);">
-		<div class="checkbox_text">Privatgerät</div>
-		<div class="checkbox_image"><img class="cb_image" src="sources/images/BYOD.png"></img></div>
-	</div>
-</section>
-
-<section id="additional">
-	<div class="header">
-		<img class="header_image" src="sources/images/Swipe_Left.png" onclick="window.location.href = '#company';"></img>
-		<div class="header_text">Ausstattungsauswahl</div>
-		<img class="header_image" src="sources/images/Swipe_Right.png" onclick="jump_data();"></img>
-	</div>
-	<div class="gap_8vh"></div>
-	<div class="option_line" id="option_vpn">
-		<div class="option">
-			<div class="checkbox"><div class="checkbox-wrapper-31"><input id="vpn_check" type="checkbox" onclick="set_addition(this);"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></div>
-			<div class="option_text">VPN</div>
-		</div>
-	</div>
-	<div class="option_line" id="option_cable">
-		<div class="option">
-			<div class="checkbox"><div class="checkbox-wrapper-31"><input id="cable_check" type="checkbox" onclick="set_addition(this);"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></div>
-			<div class="option_text">Ladegerät & Ladekabel</div>
-		</div>
-	</div>
-	<div class="option_line" id="option_mouse">
-		<div class="option">
-			<div class="checkbox"><div class="checkbox-wrapper-31"><input id="mouse_check" type="checkbox" onclick="set_addition(this);"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></div>
-			<div class="option_text">Maus</div>
-		</div>
-	</div>
-	<div class="option_line" id="option_pencil_apple">
-		<div class="option">
-			<div class="checkbox"><div class="checkbox-wrapper-31"><input id="pencil_apple_check" type="checkbox" onclick="set_addition(this);"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></div>
-			<div class="option_text">Apple Pencil</div>
-		</div>
-	</div>
-	<div class="option_line" id="option_keyboard">
-		<div class="option">
-			<div class="checkbox"><div class="checkbox-wrapper-31"><input id="keyboard_check" type="checkbox" onclick="set_addition(this);"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></div>
-			<div class="option_text">Tastatur</div>
-		</div>
-	</div>
-	<div class="option_line" id="option_keyboard_apple">
-		<div class="option">
-			<div class="checkbox"><div class="checkbox-wrapper-31"><input id="keyboard_apple_check" type="checkbox" onclick="set_addition(this);"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></div>
-			<div class="option_text">Apple Keyboard</div>
-		</div>
-	</div>
-	<div class="option_line" id="option_case">
-		<div class="option">
-			<div class="checkbox"><div class="checkbox-wrapper-31"><input id="case_check" type="checkbox" onclick="set_addition(this);"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></div>
-			<div class="option_text">Tasche</div>
-		</div>
-	</div>
-	<div class="option_line" id="option_protection">
-		<div class="option">
-			<div class="checkbox"><div class="checkbox-wrapper-31"><input id="protect_check" type="checkbox" onclick="set_addition(this);"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></div>
-			<div class="option_text">Hülle</div>
-		</div>
-	</div>
-	<div class="option_line" id="option_other">
-		<div class="option">
-			<div class="checkbox"><div class="checkbox-wrapper-31"><input id="other_check" type="checkbox" onclick="set_addition(this);"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></div>
-			<div class="option_text">Sonstiges</div>
-		</div>
-	</div>
-</section>
-
-<section id="data">
-	<div class="header">
-		<img class="header_image" src="sources/images/Swipe_Left.png" onclick="window.location.href = '#additional';"></img>
-		<div class="header_text">Zusätzliche Angaben</div>
-		<img class="header_image" src="sources/images/Swipe_Right.png" onclick="jump_document();"></img>
-	</div>
-	<div class="gap_2vh"></div>
-	<div class="checkbox_container" id="input_manufacturer">
-		<div class="checkbox_prescription">Marke:</div>
-		<div class="checkbox_input" id="input_manufacturer_text" contenteditable="true"></div>
-	</div>
-	<div class="checkbox_container" id="input_model">
-		<div class="checkbox_prescription">Modell:</div>
-		<div class="checkbox_input" id="input_model_text" contenteditable="true"></div>
-	</div>
-	<div class="checkbox_container" id="input_serial">
-		<div class="checkbox_prescription">Seriennummer:</div>
-		<div class="checkbox_input" id="input_serial_text" contenteditable="true"></div>
-	</div>
-	<div class="checkbox_container" id="input_phone">
-		<div class="checkbox_prescription">Rufnummer:</div>
-		<div class="checkbox_input" id="input_phone_text" contenteditable="true">01</div>
-	</div>
-	<div class="checkbox_container" id="input_pin">
-		<div class="checkbox_prescription">PIN:</div>
-		<div class="checkbox_input" id="input_pin_text" contenteditable="true"></div>
-	</div>
-	<div class="checkbox_container" id="input_imei">
-		<div class="checkbox_prescription">IMEI:</div>
-		<div class="checkbox_input" id="input_imei_text" contenteditable="true"></div>
-	</div>
-	<div class="checkbox_container" id="input_sense">
-		<div class="checkbox_prescription">Verwendungszweck:</div>
-		<div class="checkbox_input" id="input_sense_text" contenteditable="true"></div>
-	</div>
-	<div class="checkbox_container" id="input_location">
-		<div class="checkbox_prescription">Aufstellungsort:</div>
-		<div class="checkbox_input" id="input_location_text" contenteditable="true"></div>
-	</div>
-	<div class="checkbox_container" id="input_room">
-		<div class="checkbox_prescription">Raum:</div>
-		<div class="checkbox_input" id="input_room_text" contenteditable="true"></div>
-	</div>
-	<div class="checkbox_container" id="input_user">
-		<div class="checkbox_prescription">Nutzungsberechtigte(r):</div>
-		<div class="checkbox_input" id="input_user_text" contenteditable="true"></div>
-	</div>
-	<div class="checkbox_container" id="input_vpn">
-		<div class="checkbox_prescription">VPN-Kennwort:</div>
-		<div class="checkbox_input" id="input_vpn_text" contenteditable="true"></div>
-	</div>
-</section>
-
-
-<section id="document">
-	<div class="a4" id="document_content_1">
-		<table class="a4_table">
-			<tr><td class="gap_top" colspan="4"></td></tr>
-			<tr>
-				<td class="gap_left"></td>
-				<td class="a4_header_text">Bestimmungen zum Gebrauch von<br>Endgeräten bereitgestellt durch die<br>IuK-Abteilung der Stadtverwaltung<br>Vaihingen an der Enz</td>
-				<td class="a4_header_image"><img class="a4_header_image_src" src="sources/images/City Logo.png" onclick="window.location.reload();"></img></td>
-				<td class="gap_right"></td>
-			</tr>
-		</table>
-	</div>
-	<div class="a4" id="document_content_2">
-		<table class="a4_table"><tr><td class="gap_top" colspan="4"></td></tr></table>
-	</div>
-
-	<div><button onclick="print();">Drucken</button></div>
-</section>
-
-<section id="notebook_cod_local">
-	<div class="a4">
-		<table class="a4_table">
-			<tr><td class="gap_top" colspan="4"></td></tr>
-			<tr>
-				<td class="gap_left"></td>
-				<td class="a4_header_text">Bestimmungen zum Gebrauch von<br>Endgeräten bereitgestellt durch die<br>IuK-Abteilung der Stadtverwaltung<br>Vaihingen an der Enz</td>
-				<td class="a4_header_image"><img class="a4_header_image_src" src="sources/images/City Logo.png" onclick="window.location.reload();"></img></td>
-				<td class="gap_right"></td>
-			</tr>
-		</table>
-		<table class="a4_table">
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Ort der Aufstellung:</td><td class="a4_fill" contenteditable="true"></td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Bezeichnung der Räumlichkeit:</td><td class="a4_fill" contenteditable="true"></td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Verwendungszweck:</td><td class="a4_fill" contenteditable="true"></td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Nutzungsberechtigter:</td><td class="a4_fill" contenteditable="true"></td><td class="gap_right"></td></tr>
-		</table>
-		<table class="a4_table">
-			<tr><td class="gap_left"></td><td class="a4_subheader">– Nutzungsvereinbarung –</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Die durch die Stadtverwaltung Vaihingen an der Enz bereitgestellten Computer dürfen nur für den oben angegebenen Verwendungszweck benutzt werden. Jede weitere Nutzung über diesen Verwendungszweck hinaus ist untersagt.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Nutzungsberechtigt ist lediglich der oben angegebene Personenkreis.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Peripheriegeräte wie Maus und Tastatur dürfen nicht ohne Rücksprache mit der IuK-Abteilung der Stadtverwaltung getauscht werden.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Nach Beendigung der Nutzung muss der Computer ordnungsgemäß herunter gefahren werden. Hierbei müssen vom Betriebssystem vorgegebene Updates durchgeführt werden, um die Aktualität des Betriebssystems zu gewährleisten.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Veränderungen an der Installation und Konfiguration durch den nutzungsberechtigten Personenkreis sind untersagt und bei Kenntnisnahme sofort der IuK-Abteilung der Stadtverwaltung anzuzeigen. Ebenso sind Beschädigungen an den Computer-Arbeitsplätzen oder deren Peripherie sofort zu melden.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Das Verändern, Löschen oder sonstiges Unbrauchbarmachen von gespeicherten Daten, die von anderen Personen als dem jeweiligen Nutzer gespeichert wurden, ist grundsätzlich untersagt.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Die Nutzer verpflichten sich, ihre Kennwörter geheim zu halten und nicht an Dritte weiter zu geben. Sollten Kennwörter bekannt werden, muss dies sofort mitgeteilt werden.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Es ist verboten, pornografische, gewaltverherrlichende, rassistische oder jugendgefährdende Inhalte aufzurufen oder zu speichern. Werden solche Inhalte versehentlich aufgerufen, ist die Anwendung zu schließen und der IuK-Abteilung der Stadtverwaltung unverzüglich Mitteilung zu machen.</td><td class="gap_right"></td></tr>
-		</table>
-	</div>
-	<div class="a4">
-		<table class="a4_table"><tr><td class="gap_top" colspan="4"></td></tr></table>
-		<table class="a4_table">
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Der Download, d. h. das Kopieren von Dateien (vor allem von Musikstücken und Filmen), die in sogenannten File–Sharing–Netzwerken angeboten werden, ist untersagt.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Die Stadtverwaltung übernimmt keine Haftung für eine missbräuchliche Nutzung des Zugangs. Die Abwehr von Rechtsfolgen liegt beim Nutzer.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Es wird keine Garantie dafür übernommen, dass das System fehlerfrei und ohne Unterbrechung läuft.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Die Umsetzung und Durchsetzung dieser Nutzungsvereinbarung obliegt der jeweiligen Einrichtung.</td><td class="gap_right"></td></tr>
-		</table>
-		<table class="a4_table"><tr><td colspan="4" style="height: 0.5cm;"></td></tr></table>
-		<table class="a4_table">
-			<tr><td class="gap_left"></td><td class="a4_hardware" contenteditable="true">Ausgegebene Hardware:</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_hardware_fill" contenteditable="true">1x PC – Seriennummer <br><br>1x Tastatur + Maus<br><br>1x Ladegerät & Kabel</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_hardware_end"></td><td class="gap_right"></td></tr>
-		</table>
-		<table class="a4_table">
-			<tr><td colspan="4" style="height: 0.5cm;"></td></tr>
-			<tr><td colspan="4" style="height: 0.5cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Bei Austritt aus dem Unternehmen ist oben gelistete Ausstattung von der nutzungsberechtigten Person oder deren Vertretung bei der IuK-Abteilung, Mühlstrasse 2, 71665 Vaihingen an der Enz, zurück zu geben. Eine Weitergabe der Ausstattung an Dritte ist untersagt. Eine Weitergabe der Ausstattung an Mitarbeiter innerhalb der Abteilung kann nur nach Rücksprache mit der IuK-Abteilung erfolgen. Alle Veränderungen sind stets anzuzeigen.</td><td class="gap_right"></td></tr>
-		</table>
-		<table class="a4_table">
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_date"></td><td class="a4_date_fill"></td><td class="a4_user">Verteter IuK-Abteilung:</td><td class="a4_signature"></td><td class="gap_right"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_date">Datum:</td><td id="date_notebook_cod_local" class="a4_date_fill" contenteditable="true"></td><td class="a4_user">Nutzungsberechtigte(r):</td><td class="a4_signature"></td><td class="gap_right"></td></tr>
-		</table>
-	</div>
-</section>
-
-<section id="notebook_byod">
-	<div class="a4">
-		<table class="a4_table">
-			<tr><td class="gap_top" colspan="4"></td></tr>
-			<tr>
-				<td class="gap_left"></td>
-				<td class="a4_header_text">Bestimmungen zum Gebrauch von<br>Endgeräten bereitgestellt durch die<br>IuK-Abteilung der Stadtverwaltung<br>Vaihingen an der Enz</td>
-				<td class="a4_header_image"><img class="a4_header_image_src" src="sources/images/City Logo.png" onclick="window.location.reload();"></img></td>
-				<td class="gap_right"></td>
-			</tr>
-		</table>
-		<table class="a4_table">
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Ort der Aufstellung:</td><td class="a4_fill" contenteditable="true"></td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Bezeichnung der Räumlichkeit:</td><td class="a4_fill" contenteditable="true"></td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Verwendungszweck:</td><td class="a4_fill" contenteditable="true"></td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Nutzungsberechtigter:</td><td class="a4_fill" contenteditable="true"></td><td class="gap_right"></td></tr>
-		</table>
-		<table class="a4_table">
-			<tr><td class="gap_left"></td><td class="a4_subheader">– Nutzungsvereinbarung –</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Nutzungsberechtigt ist lediglich der oben angegebene Personenkreis.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Nach Beendigung der Nutzung muss die Terminal-Sitzung ordnungsgemäß abgemeldet werden.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Veränderungen an der Installation und Konfiguration durch den nutzungsberechtigten Personenkreis sind untersagt und bei Kenntnisnahme sofort der IuK-Abteilung der Stadtverwaltung anzuzeigen.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Das Speichern von personenbezogenen Daten auf lokalen Datenträgern außerhalb der Terminal-Sitzung ist untersagt. Das Verändern, Löschen oder sonstiges Unbrauchbarmachen von gespeicherten Daten, die von anderen Personen als dem jeweiligen Nutzer gespeichert wurden, ist grundsätzlich untersagt.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Die Nutzer verpflichten sich, ihre Kennwörter geheim zu halten und nicht an Dritte weiter zu geben. Sollten Kennwörter bekannt werden, muss dies sofort mitgeteilt werden.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Es ist verboten, pornografische, gewaltverherrlichende, rassistische oder jugendgefährdende Inhalte aufzurufen oder zu speichern. Werden solche Inhalte versehentlich aufgerufen, ist die Anwendung zu schließen und der IuK-Abteilung der Stadtverwaltung unverzüglich Mitteilung zu machen.</td><td class="gap_right"></td></tr>
-		</table>
-	</div>
-	<div class="a4">
-		<table class="a4_table"><tr><td class="gap_top" colspan="4"></td></tr></table>
-		<table class="a4_table">
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Der Download, d. h. das Kopieren von Dateien (vor allem von Musikstücken und Filmen), die in sogenannten File–Sharing–Netzwerken angeboten werden, ist untersagt.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Die Stadtverwaltung übernimmt keine Haftung für eine missbräuchliche Nutzung des Zugangs. Die Abwehr von Rechtsfolgen liegt beim Nutzer.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Es wird keine Garantie dafür übernommen, dass das System fehlerfrei und ohne Unterbrechung läuft.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Die Umsetzung und Durchsetzung dieser Nutzungsvereinbarung obliegt der jeweiligen Einrichtung.</td><td class="gap_right"></td></tr>
-		</table>
-		<table class="a4_table"><tr><td colspan="4" style="height: 0.5cm;"></td></tr></table>
-		<table class="a4_table">
-			<tr><td class="gap_left"></td><td class="a4_hardware" contenteditable="true">Verwendete Hardware:</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_hardware_fill" contenteditable="true">1x PC – Seriennummer DMPD2E0YPV03</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_hardware_end"></td><td class="gap_right"></td></tr>
-		</table>
-		<table class="a4_table">
-			<tr><td colspan="4" style="height: 0.5cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Für die Nutzung der VPN-Anwendungen ist ein sicheres Kennwort erforderlich. Dieses muss aus mindestens 12 Zeichen bestehen, die sowohl Groß- und Kleinschreibung, als auch Ziffern und Sonderzeichen enthalten.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Bitte geben Sie hier Ihr Kennwort an, das zur Nutzung verwendet werden soll:</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_vpn" contenteditable="true"></td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Ihre Angaben verbleiben ausschließlich in der IuK-Abteilung der Stadtverwaltung und werden nur zur Erzeugung Ihres VPN-Profils verwendet.</td><td class="gap_right"></td></tr>
-			<tr><td colspan="4" style="height: 0.5cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Bei Austritt aus dem Unternehmen ist das Gerät bei der IuK-Abteilung, Mühlstrasse 2, 71665 Vaihingen an der Enz, vorzuführen. Hier muss der Nutzungsberechtigte sein Gerät entsperren und die VPN-Software sowie die zugehörigen Profile werden von einem Mitarbeiter der IuK-Abteilung fachgerecht gelöscht. Alle Veränderungen sind stets anzuzeigen.</td><td class="gap_right"></td></tr>
-		</table>
-		<table class="a4_table">
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_date"></td><td class="a4_date_fill"></td><td class="a4_user">Verteter IuK-Abteilung:</td><td class="a4_signature"></td><td class="gap_right"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_date">Datum:</td><td id="date_notebook_byod" class="a4_date_fill" contenteditable="true"></td><td class="a4_user">Nutzungsberechtigte(r):</td><td class="a4_signature"></td><td class="gap_right"></td></tr>
-		</table>
-	</div>
-</section>
-
-<section id="ipad_cod">
-	<div class="a4">
-		<table class="a4_table">
-			<tr><td class="gap_top" colspan="4"></td></tr>
-			<tr>
-				<td class="gap_left"></td>
-				<td class="a4_header_text">Bestimmungen zum Gebrauch von<br>Endgeräten bereitgestellt durch die<br>IuK-Abteilung der Stadtverwaltung<br>Vaihingen an der Enz</td>
-				<td class="a4_header_image"><img class="a4_header_image_src" src="sources/images/City Logo.png" onclick="window.location.reload();"></img></td>
-				<td class="gap_right"></td>
-			</tr>
-		</table>
-		<table class="a4_table">
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Ort der Aufstellung:</td><td class="a4_fill" contenteditable="true">Entfällt</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Bezeichnung der Räumlichkeit:</td><td class="a4_fill" contenteditable="true">Entfällt</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Verwendungszweck:</td><td class="a4_fill" contenteditable="true"></td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Nutzungsberechtigter:</td><td class="a4_fill" contenteditable="true"></td><td class="gap_right"></td></tr>
-		</table>
-		<table class="a4_table">
-			<tr><td class="gap_left"></td><td class="a4_subheader">– Nutzungsvereinbarung –</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Die durch die Stadtverwaltung Vaihingen an der Enz bereitgestellten Geräte dürfen nur für den oben angegebenen Verwendungszweck benutzt werden. Jede weitere Nutzung über diesen Verwendungszweck hinaus ist untersagt.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Nutzungsberechtigt ist lediglich der oben angegebene Personenkreis.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Peripheriegeräte wie Maus und Tastatur dürfen nicht ohne Rücksprache mit der IuK-Abteilung der Stadtverwaltung getauscht werden.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Vom Betriebssystem vorgeschlagene Updates müssen regelmäßig durchgeführt werden, um die Aktualität des Betriebssystems zu gewährleisten.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Veränderungen an der Installation und Konfiguration durch den nutzungsberechtigten Personenkreis sind untersagt und bei Kenntnisnahme sofort der IuK-Abteilung der Stadtverwaltung anzuzeigen. Ebenso sind Beschädigungen an den Endgeräten oder deren Peripherie sofort zu melden.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Das Verändern, Löschen oder sonstiges Unbrauchbarmachen von gespeicherten Daten, die von anderen Personen als dem jeweiligen Nutzer gespeichert wurden, ist grundsätzlich untersagt.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Die Nutzer verpflichten sich, ihre Kennwörter geheim zu halten und nicht an Dritte weiter zu geben. Sollten Kennwörter bekannt werden, muss dies sofort mitgeteilt werden.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Es ist verboten, pornografische, gewaltverherrlichende, rassistische oder jugendgefährdende Inhalte aufzurufen oder zu speichern. Werden solche Inhalte versehentlich aufgerufen, ist die Anwendung zu schließen und der IuK-Abteilung der Stadtverwaltung unverzüglich Mitteilung zu machen.</td><td class="gap_right"></td></tr>
-		</table>
-	</div>
-	<div class="a4">
-		<table class="a4_table"><tr><td class="gap_top" colspan="4"></td></tr></table>
-		<table class="a4_table">
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Der Download, d. h. das Kopieren von Dateien (vor allem von Musikstücken und Filmen), die in sogenannten File–Sharing–Netzwerken angeboten werden, ist untersagt.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Die Stadtverwaltung übernimmt keine Haftung für eine missbräuchliche Nutzung des Zugangs. Die Abwehr von Rechtsfolgen liegt beim Nutzer.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Es wird keine Garantie dafür übernommen, dass das System fehlerfrei und ohne Unterbrechung läuft.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Die Umsetzung und Durchsetzung dieser Nutzungsvereinbarung obliegt der jeweiligen Einrichtung.</td><td class="gap_right"></td></tr>
-		</table>
-		<table class="a4_table"><tr><td colspan="4" style="height: 0.5cm;"></td></tr></table>
-		<table class="a4_table">
-			<tr><td class="gap_left"></td><td class="a4_hardware" contenteditable="true">Ausgegebene Hardware:</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_hardware_fill" contenteditable="true">1x iPad – Seriennummer DMPD2E0YPV03<br><br>1x Ladegerät & Kabel<br><br>1x Apple-Tastatur passend zum Endgerät</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_hardware_end"></td><td class="gap_right"></td></tr>
-		</table>
-		<table class="a4_table">
-			<tr><td colspan="4" style="height: 0.5cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Bei Austritt aus dem Unternehmen ist oben gelistete Ausstattung von der nutzungsberechtigten Person oder deren Vertretung bei der IuK-Abteilung, Mühlstrasse 2, 71665 Vaihingen an der Enz, zurück zu geben. Eine Weitergabe der Ausstattung an Dritte ist untersagt. Eine Weitergabe der Ausstattung an Mitarbeiter innerhalb der Abteilung kann nur nach Rücksprache mit der IuK-Abteilung erfolgen. Alle Veränderungen sind stets anzuzeigen.</td><td class="gap_right"></td></tr>
-		</table>
-		<table class="a4_table">
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_date"></td><td class="a4_date_fill"></td><td class="a4_user">Verteter IuK-Abteilung:</td><td class="a4_signature"></td><td class="gap_right"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_date">Datum:</td><td id="date_ipad_cod" class="a4_date_fill" contenteditable="true"></td><td class="a4_user">Nutzungsberechtigte(r):</td><td class="a4_signature"></td><td class="gap_right"></td></tr>
-		</table>
-	</div>
-</section>
-
-<section id="ipad_byod">
-</section>
-
-<section id="mobile_cod">
-	<div class="a4">
-		<table class="a4_table">
-			<tr><td class="gap_top" colspan="4"></td></tr>
-			<tr>
-				<td class="gap_left"></td>
-				<td class="a4_header_text">Bestimmungen zum Gebrauch von<br>Endgeräten bereitgestellt durch die<br>IuK-Abteilung der Stadtverwaltung<br>Vaihingen an der Enz</td>
-				<td class="a4_header_image"><img class="a4_header_image_src" src="sources/images/City Logo.png" onclick="window.location.reload();"></img></td>
-				<td class="gap_right"></td>
-			</tr>
-		</table>
-		<table class="a4_table">
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Rufnummer:</td><td class="a4_fill" contenteditable="true"></td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">PIN:</td><td class="a4_fill" contenteditable="true"></td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Verwendungszweck:</td><td class="a4_fill" contenteditable="true">Mobile Erreichbarkeit</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Nutzungsberechtigter:</td><td class="a4_fill" contenteditable="true"></td><td class="gap_right"></td></tr>
-		</table>
-		<table class="a4_table">
-			<tr><td class="gap_left"></td><td class="a4_subheader">– Nutzungsvereinbarung –</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Die durch die Stadtverwaltung Vaihingen an der Enz bereitgestellten Geräte dürfen nur für den oben angegebenen Verwendungszweck benutzt werden. Jede weitere Nutzung über diesen Verwendungszweck hinaus ist untersagt.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Nutzungsberechtigt ist lediglich der oben angegebene Personenkreis.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Vom Betriebssystem vorgeschlagene Updates müssen regelmäßig durchgeführt werden, um die Aktualität des Betriebssystems zu gewährleisten.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Veränderungen an der Installation und Konfiguration durch den nutzungsberechtigten Personenkreis sind untersagt und bei Kenntnisnahme sofort der IuK-Abteilung der Stadtverwaltung anzuzeigen. Ebenso sind Beschädigungen an den Endgeräten oder deren Peripherie sofort zu melden.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Das Verändern, Löschen oder sonstiges Unbrauchbarmachen von gespeicherten Daten, die von anderen Personen als dem jeweiligen Nutzer gespeichert wurden, ist grundsätzlich untersagt.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Die Nutzer verpflichten sich, ihre Kennwörter geheim zu halten und nicht an Dritte weiter zu geben. Sollten Kennwörter bekannt werden, muss dies sofort mitgeteilt werden.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Es ist verboten, pornografische, gewaltverherrlichende, rassistische oder jugendgefährdende Inhalte aufzurufen oder zu speichern. Werden solche Inhalte versehentlich aufgerufen, ist die Anwendung zu schließen und der IuK-Abteilung der Stadtverwaltung unverzüglich Mitteilung zu machen.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Der Download, d. h. das Kopieren von Dateien (vor allem von Musikstücken und Filmen), die in sogenannten File–Sharing–Netzwerken angeboten werden, ist untersagt.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Die Abwehr von Rechtsfolgen liegt beim Nutzer.</td><td class="gap_right"></td></tr>
-		</table>
-	</div>
-	<div class="a4">
-		<table class="a4_table"><tr><td class="gap_top" colspan="4"></td></tr></table>
-		<table class="a4_table">
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Es wird keine Garantie dafür übernommen, dass das System fehlerfrei und ohne Unterbrechung läuft.</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Die Umsetzung und Durchsetzung dieser Nutzungsvereinbarung obliegt der jeweiligen Einrichtung.</td><td class="gap_right"></td></tr>
-		</table>
-		<table class="a4_table"><tr><td colspan="4" style="height: 0.5cm;"></td></tr></table>
-		<table class="a4_table">
-			<tr><td class="gap_left"></td><td class="a4_hardware" contenteditable="true">Ausgegebene Hardware:</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_hardware_fill" contenteditable="true">1x Mobiltelefon "Marke & Modell" – IMEI 000000000000<br><br>1x Ladegerät & Kabel<br><br>1x Schutzhülle</td><td class="gap_right"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_hardware_end"></td><td class="gap_right"></td></tr>
-		</table>
-		<table class="a4_table">
-			<tr><td colspan="4" style="height: 0.5cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_text">Bei Austritt aus dem Unternehmen ist oben gelistete Ausstattung von der nutzungsberechtigten Person oder deren Vertretung bei der IuK-Abteilung, Mühlstrasse 2, 71665 Vaihingen an der Enz, zurück zu geben. Eine Weitergabe der Ausstattung an Dritte ist untersagt. Eine Weitergabe der Ausstattung an Mitarbeiter innerhalb der Abteilung kann nur nach Rücksprache mit der IuK-Abteilung erfolgen. Alle Veränderungen sind stets anzuzeigen.</td><td class="gap_right"></td></tr>
-		</table>
-		<table class="a4_table">
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_date"></td><td class="a4_date_fill"></td><td class="a4_user">Verteter IuK-Abteilung:</td><td class="a4_signature"></td><td class="gap_right"></td></tr>
-			<tr><td style="height: 1cm;"></td></tr>
-			<tr><td class="gap_left"></td><td class="a4_date">Datum:</td><td class="a4_date_fill" contenteditable="true"></td><td class="a4_user">Nutzungsberechtigte(r):</td><td class="a4_signature"></td><td class="gap_right"></td></tr>
-		</table>
-	</div>
-</section>
-
-
 <script>
-	var date = '';
-	var device = '';
-	var property = '';
-	var vpn = '';
+	function jump_page_home() {window.location.href = '#home';}
 
-	var cable = '';
-	var mouse = '';
-	var keyboard = '';
-	var pencil_apple = '';
-	var keyboard_apple = '';
-	var cases = '';
-	var protect = '';
-
-	function reset_params() {device = '';property = '';vpn = '';cable = '';mouse = '';keyboard = '';pencil_apple = '';keyboard_apple = '';cases = '';protect_check = '';}
-
-	function jump_page_home() {reset_params();window.location.href = '#home';}
-	function set_date() {date = new Date().toISOString().substring(0, 10);var day = date.substring(8);var month = date.substring(5, 7);var year = date.substring(0, 4);date = day+'.'+month+'.'+year;}
-
-	function set_device(obj) {
-		device = obj.id;
-		document.getElementById('option_vpn').style.display = 'block';
-		document.getElementById('option_cable').style.display = 'block';
-		document.getElementById('option_mouse').style.display = 'block';
-		document.getElementById('option_pencil_apple').style.display = 'block';
-		document.getElementById('option_keyboard').style.display = 'block';
-		document.getElementById('option_keyboard_apple').style.display = 'block';
-		document.getElementById('option_case').style.display = 'block';
-		document.getElementById('option_protection').style.display = 'block';
-		document.getElementById('option_other').style.display = 'block';
-
-		document.getElementById('input_manufacturer').style.display = 'flex';
-		document.getElementById('input_model').style.display = 'flex';
-		document.getElementById('input_serial').style.display = 'flex';
-		document.getElementById('input_phone').style.display = 'flex';
-		document.getElementById('input_pin').style.display = 'flex';
-		document.getElementById('input_imei').style.display = 'flex';
-		document.getElementById('input_sense').style.display = 'flex';
-		document.getElementById('input_location').style.display = 'flex';
-		document.getElementById('input_room').style.display = 'flex';
-		document.getElementById('input_user').style.display = 'flex';
-		document.getElementById('input_vpn').style.display = 'flex';
-
-		if (device == 'notebook') {
-			document.getElementById('option_pencil_apple').style.display = 'none';
-			document.getElementById('option_keyboard_apple').style.display = 'none';
-			document.getElementById('option_protection').style.display = 'none';
-
-			document.getElementById('input_phone').style.display = 'none';
-			document.getElementById('input_pin').style.display = 'none';
-			document.getElementById('input_imei').style.display = 'none';
-		}
-		if (device == 'ipad') {
-			document.getElementById('option_vpn').style.display = 'none';
-			document.getElementById('option_mouse').style.display = 'none';
-			document.getElementById('option_keyboard').style.display = 'none';
-		}
-		if (device == 'mobile') {
-			document.getElementById('option_vpn').style.display = 'none';
-			document.getElementById('option_mouse').style.display = 'none';
-			document.getElementById('option_keyboard').style.display = 'none';
-			document.getElementById('option_pencil_apple').style.display = 'none';
-			document.getElementById('option_keyboard_apple').style.display = 'none';
-			document.getElementById('option_case').style.display = 'none';
-
-			document.getElementById('input_serial').style.display = 'none';
-			document.getElementById('input_location').style.display = 'none';
-			document.getElementById('input_room').style.display = 'none';
-
-			document.getElementById('input_sense_text').innerHTML = 'Mobile Erreichbarkeit';
-		}
-		window.location.href = '#company';
+	function set_date() {
+		var date = new Date().toISOString().substring(0, 10);var day = date.substring(8);var month = date.substring(5, 7);var year = date.substring(0, 4);
+		document.getElementById('entleihen_datum_aus').innerHTML = day+'.'+month+'.'+year;
+		document.getElementById('entleihen_datum_ein').innerHTML = day+'.'+month+'.'+year;
+		document.getElementById('back_datum_ein').innerHTML = day+'.'+month+'.'+year;
 	}
 
-	function set_property(obj) {
-		property = obj.id;
-		window.location.href = '#additional';
-	}
-
-	function set_addition(obj) {
-		if (obj.id == 'cable_check' && obj.checked == true) {cable = '<br><br>Ladegerät & Ladekabel';} else if (obj.id == 'keyboard_check' && obj.checked == false) {cable = '';}
-		if (obj.id == 'keyboard_check' && obj.checked == true) {keyboard = '<br><br>1x Tastatur';} else if (obj.id == 'keyboard_check' && obj.checked == false) {keyboard = '';}
-		if (obj.id == 'mouse_check' && obj.checked == true) {mouse = '<br><br>1x Maus';} else if (obj.id == 'mouse_check' && obj.checked == false) {mouse = '';}
-		if (obj.id == 'pencil_apple_check' && obj.checked == true) {pencil_apple = '<br><br>1x Apple Pencil 2. Generation';} else if (obj.id == 'pencil_apple_check' && obj.checked == false) {pencil_apple = '';}
-		if (obj.id == 'keyboard_apple_check' && obj.checked == true) {keyboard_apple = '<br><br>1x Apple Tastatur passend zum Endgerät';} else if (obj.id == 'keyboard_apple_check' && obj.checked == false) {keyboard_apple = '';}
-		if (obj.id == 'case_check' && obj.checked == true) {cases = '<br><br>1x Trage- / Aufbewahrungstasche';} else if (obj.id == 'case_check' && obj.checked == false) {cases = '';}
-		if (obj.id == 'protect_check' && obj.checked == true) {protect = '<br><br>1x Schutzhülle';} else if (obj.id == 'protect_check' && obj.checked == false) {protect = '';}
-	}
-
-	function jump_data() {
-		if (document.getElementById('vpn_check').checked == true) {
-			document.getElementById('input_vpn').style.display = 'flex';
-			document.getElementById('input_sense_text').innerHTML = 'Mobiles Arbeiten';
-		} else {
-			document.getElementById('input_vpn').style.display = 'none';
-			document.getElementById('input_sense_text').innerHTML = '';
-		}
-		window.location.href = '#data';
-	}
-
-	function jump_document() {
-		var location = document.getElementById('input_location_text').innerHTML; if (location == '') {location = 'Entfällt'}
-		var room = document.getElementById('input_room_text').innerHTML; if (room == '') {room = 'Entfällt'}
-		var sense = document.getElementById('input_sense_text').innerHTML; if (sense == '') {sense = 'Keine Angabe'}
-		var user = document.getElementById('input_user_text').innerHTML; if (user == '') {user = 'Keine Angabe'}
-		var phone = document.getElementById('input_phone_text').innerHTML; if (phone == '') {phone = 'Keine Angabe'}
-		var pin = document.getElementById('input_pin_text').innerHTML; if (pin == '') {pin = 'Keine Angabe'}
-
-		var manufacturer = document.getElementById('input_manufacturer_text').innerHTML; if (manufacturer == '') {manufacturer = '"Marke"'}
-		var model = document.getElementById('input_model_text').innerHTML; if (model == '') {model = '"Modell"'}
-		var serial = document.getElementById('input_serial_text').innerHTML; if (serial == '') {serial = '"Seriennummer"'}
-		var imei = document.getElementById('input_imei_text').innerHTML; if (serial == '') {serial = '"Seriennummer"'}
-
-		if (device == 'notebook' && property == 'cod') {
-			document.getElementById('document_content_1').innerHTML +=
-			'<table class="a4_table">' +
-				'<tr><td style="height: 1cm;"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Ort der Aufstellung:</td><td class="a4_fill" contenteditable="true">' + location + '</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Bezeichnung der Räumlichkeit:</td><td class="a4_fill" contenteditable="true">' + room + '</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Verwendungszweck:</td><td class="a4_fill" contenteditable="true">' + sense + '</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Nutzungsberechtigter:</td><td class="a4_fill" contenteditable="true">' + user + '</td><td class="gap_right"></td></tr>' +
-			'</table>' +
-			'<table class="a4_table">' +
-				'<tr><td class="gap_left"></td><td class="a4_subheader">– Nutzungsvereinbarung –</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Die durch die Stadtverwaltung Vaihingen an der Enz bereitgestellten Computer dürfen nur für den oben angegebenen Verwendungszweck benutzt werden. Jede weitere Nutzung über diesen Verwendungszweck hinaus ist untersagt.</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Nutzungsberechtigt ist lediglich der oben angegebene Personenkreis.</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Peripheriegeräte wie Maus und Tastatur dürfen nicht ohne Rücksprache mit der IuK-Abteilung der Stadtverwaltung getauscht werden.</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Nach Beendigung der Nutzung muss der Computer ordnungsgemäß herunter gefahren werden. Hierbei müssen vom Betriebssystem vorgegebene Updates durchgeführt werden, um die Aktualität des Betriebssystems zu gewährleisten.</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Veränderungen an der Installation und Konfiguration durch den nutzungsberechtigten Personenkreis sind untersagt und bei Kenntnisnahme sofort der IuK-Abteilung der Stadtverwaltung anzuzeigen. Ebenso sind Beschädigungen an den Computer-Arbeitsplätzen oder deren Peripherie sofort zu melden.</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Das Speichern von personenbezogenen Daten auf lokalen Datenträgern außerhalb der Terminal-Sitzung ist untersagt. Das Verändern, Löschen oder sonstiges Unbrauchbarmachen von gespeicherten Daten, die von anderen Personen als dem jeweiligen Nutzer gespeichert wurden, ist grundsätzlich untersagt.</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Die Nutzer verpflichten sich, ihre Kennwörter geheim zu halten und nicht an Dritte weiter zu geben. Sollten Kennwörter bekannt werden, muss dies sofort mitgeteilt werden.</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Es ist verboten, pornografische, gewaltverherrlichende, rassistische oder jugendgefährdende Inhalte aufzurufen oder zu speichern. Werden solche Inhalte versehentlich aufgerufen, ist die Anwendung zu schließen und der IuK-Abteilung der Stadtverwaltung unverzüglich Mitteilung zu machen.</td><td class="gap_right"></td></tr>' +
-			'</table>';
-			document.getElementById('document_content_2').innerHTML +=
-			'<table class="a4_table">' +
-				'<tr><td style="height: 1cm;"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Der Download, d. h. das Kopieren von Dateien (vor allem von Musikstücken und Filmen), die in sogenannten File–Sharing–Netzwerken angeboten werden, ist untersagt.</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Die Stadtverwaltung übernimmt keine Haftung für eine missbräuchliche Nutzung des Zugangs. Die Abwehr von Rechtsfolgen liegt beim Nutzer.</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Es wird keine Garantie dafür übernommen, dass das System fehlerfrei und ohne Unterbrechung läuft.</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Die Umsetzung und Durchsetzung dieser Nutzungsvereinbarung obliegt der jeweiligen Einrichtung.</td><td class="gap_right"></td></tr>' +
-			'</table>' +
-			'<table class="a4_table"><tr><td colspan="4" style="height: 0.5cm;"></td></tr></table>' +
-			'<table class="a4_table">' +
-				'<tr><td class="gap_left"></td><td class="a4_hardware" contenteditable="true">Ausgegebene Hardware:</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_hardware_fill" contenteditable="true">1x PC – Seriennummer '+serial+cable+keyboard+mouse+pencil_apple+keyboard_apple+cases+protect+'</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_hardware_end"></td><td class="gap_right"></td></tr>' +
-			'</table>';
-			if (document.getElementById('input_vpn_text').innerHTML != '') {
-				document.getElementById('document_content_2').innerHTML +=
-				'<table class="a4_table">' +
-					'<tr><td colspan="4" style="height: 0.5cm;"></td></tr>' +
-					'<tr><td class="gap_left"></td><td class="a4_text">Für die Nutzung der VPN-Anwendungen ist ein sicheres Kennwort erforderlich. Dieses muss aus mindestens 12 Zeichen bestehen, die sowohl Groß- und Kleinschreibung, als auch Ziffern und Sonderzeichen enthalten.</td><td class="gap_right"></td></tr>' +
-					'<tr><td class="gap_left"></td><td class="a4_text">Bitte geben Sie hier Ihr Kennwort an, das zur Nutzung verwendet werden soll:</td><td class="gap_right"></td></tr>' +
-					'<tr><td class="gap_left"></td><td class="a4_vpn" contenteditable="true">' + document.getElementById('input_vpn_text').innerHTML + '</td><td class="gap_right"></td></tr>' +
-					'<tr><td class="gap_left"></td><td class="a4_text">Ihre Angaben verbleiben ausschließlich in der IuK-Abteilung der Stadtverwaltung und werden nur zur Erzeugung Ihres VPN-Profils verwendet.</td><td class="gap_right"></td></tr>' +
-				'</table>';
-			}
-			document.getElementById('document_content_2').innerHTML +=
-			'<table class="a4_table">' +
-				'<tr><td colspan="4" style="height: 0.5cm;"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Bei Austritt aus dem Unternehmen ist oben gelistete Ausstattung von der nutzungsberechtigten Person oder deren Vertretung bei der IuK-Abteilung, Mühlstrasse 2, 71665 Vaihingen an der Enz, zurück zu geben. Eine Weitergabe der Ausstattung an Dritte ist untersagt. Eine Weitergabe der Ausstattung an Mitarbeiter innerhalb der Abteilung kann nur nach Rücksprache mit der IuK-Abteilung erfolgen. Alle Veränderungen sind stets anzuzeigen.</td><td class="gap_right"></td></tr>' +
-			'</table>' +
-			'<table class="a4_table">' +
-				'<tr><td style="height: 1cm;"></td></tr>' +
-				'<tr><td style="height: 1cm;"></td></tr>' +
-				'<tr><td style="height: 1cm;"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_date"></td><td class="a4_date_fill"></td><td class="a4_user">Verteter IuK-Abteilung:</td><td class="a4_signature"></td><td class="gap_right"></td></tr>' +
-				'<tr><td style="height: 1cm;"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_date">Datum:</td><td class="a4_date_fill" contenteditable="true">'+ date +'</td><td class="a4_user">Nutzungsberechtigte(r):</td><td class="a4_signature"></td><td class="gap_right"></td></tr>' +
-			'</table>';
-		}
-
-		if (device == 'mobile' && property == 'cod') {
-			document.getElementById('document_content_1').innerHTML +=
-			'<table class="a4_table">' +
-				'<tr><td style="height: 1cm;"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Rufnummer:</td><td class="a4_fill" contenteditable="true">' + phone + '</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">PIN:</td><td class="a4_fill" contenteditable="true">' + pin + '</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Verwendungszweck:</td><td class="a4_fill" contenteditable="true">' + sense + '</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_quest" contenteditable="true">Nutzungsberechtigter:</td><td class="a4_fill" contenteditable="true">' + user + '</td><td class="gap_right"></td></tr>' +
-			'</table>' +
-			'<table class="a4_table">' +
-				'<tr><td class="gap_left"></td><td class="a4_subheader">– Nutzungsvereinbarung –</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Die durch die Stadtverwaltung Vaihingen an der Enz bereitgestellten Geräte dürfen nur für den oben angegebenen Verwendungszweck benutzt werden. Jede weitere Nutzung über diesen Verwendungszweck hinaus ist untersagt.</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Nutzungsberechtigt ist lediglich der oben angegebene Personenkreis.</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Vom Betriebssystem vorgeschlagene Updates müssen regelmäßig durchgeführt werden, um die Aktualität des Betriebssystems zu gewährleisten.</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Veränderungen an der Installation und Konfiguration durch den nutzungsberechtigten Personenkreis sind untersagt und bei Kenntnisnahme sofort der IuK-Abteilung der Stadtverwaltung anzuzeigen. Ebenso sind Beschädigungen an den Endgeräten oder deren Peripherie sofort zu melden.</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Das Verändern, Löschen oder sonstiges Unbrauchbarmachen von gespeicherten Daten, die von anderen Personen als dem jeweiligen Nutzer gespeichert wurden, ist grundsätzlich untersagt.</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Die Nutzer verpflichten sich, ihre Kennwörter geheim zu halten und nicht an Dritte weiter zu geben. Sollten Kennwörter bekannt werden, muss dies sofort mitgeteilt werden.</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Es ist verboten, pornografische, gewaltverherrlichende, rassistische oder jugendgefährdende Inhalte aufzurufen oder zu speichern. Werden solche Inhalte versehentlich aufgerufen, ist die Anwendung zu schließen und der IuK-Abteilung der Stadtverwaltung unverzüglich Mitteilung zu machen.</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Der Download, d. h. das Kopieren von Dateien (vor allem von Musikstücken und Filmen), die in sogenannten File–Sharing–Netzwerken angeboten werden, ist untersagt.</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Die Abwehr von Rechtsfolgen liegt beim Nutzer.</td><td class="gap_right"></td></tr>' +
-			'</table>';
-			document.getElementById('document_content_2').innerHTML +=
-			'<table class="a4_table">' +
-				'<tr><td style="height: 1cm;"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Es wird keine Garantie dafür übernommen, dass das System fehlerfrei und ohne Unterbrechung läuft.</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Die Umsetzung und Durchsetzung dieser Nutzungsvereinbarung obliegt der jeweiligen Einrichtung.</td><td class="gap_right"></td></tr>' +
-			'</table>' +
-			'<table class="a4_table"><tr><td colspan="4" style="height: 0.5cm;"></td></tr></table>' +
-			'<table class="a4_table">' +
-				'<tr><td class="gap_left"></td><td class="a4_hardware" contenteditable="true">Ausgegebene Hardware:</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_hardware_fill" contenteditable="true">1x Mobiltelefon '+manufacturer+' '+model+' – IMEI '+imei+cable+protect+'</td><td class="gap_right"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_hardware_end"></td><td class="gap_right"></td></tr>' +
-			'</table>' +
-			'<table class="a4_table">' +
-				'<tr><td colspan="4" style="height: 0.5cm;"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_text">Bei Austritt aus dem Unternehmen ist oben gelistete Ausstattung von der nutzungsberechtigten Person oder deren Vertretung bei der IuK-Abteilung, Mühlstrasse 2, 71665 Vaihingen an der Enz, zurück zu geben. Eine Weitergabe der Ausstattung an Dritte ist untersagt. Eine Weitergabe der Ausstattung an Mitarbeiter innerhalb der Abteilung kann nur nach Rücksprache mit der IuK-Abteilung erfolgen. Alle Veränderungen sind stets anzuzeigen.</td><td class="gap_right"></td></tr>' +
-			'</table>' +
-				'<table class="a4_table">' +
-				'<tr><td style="height: 1cm;"></td></tr>' +
-				'<tr><td style="height: 1cm;"></td></tr>' +
-				'<tr><td style="height: 1cm;"></td></tr>' +
-				'<tr><td style="height: 1cm;"></td></tr>' +
-				'<tr><td style="height: 1cm;"></td></tr>' +
-				'<tr><td style="height: 1cm;"></td></tr>' +
-				'<tr><td style="height: 1cm;"></td></tr>' +
-				'<tr><td style="height: 1cm;"></td></tr>' +
-				'<tr><td style="height: 1cm;"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_date"></td><td class="a4_date_fill"></td><td class="a4_user">Verteter IuK-Abteilung:</td><td class="a4_signature"></td><td class="gap_right"></td></tr>' +
-				'<tr><td style="height: 1cm;"></td></tr>' +
-				'<tr><td class="gap_left"></td><td class="a4_date">Datum:</td><td class="a4_date_fill" contenteditable="true">'+ date +'</td><td class="a4_user">Nutzungsberechtigte(r):</td><td class="a4_signature"></td><td class="gap_right"></td></tr>' +
-			'</table>';
-		}
-		window.location.href = '#document';
-	}
-
-	function check(obj) {
-		var notebook = document.getElementById('notebook_check');
-		var ipad = document.getElementById('ipad_check');
-		var mobile = document.getElementById('mobile_check');
-		var cod = document.getElementById('cod_check');
-		var byod = document.getElementById('byod_check');
-		var vpn = document.getElementById('vpn_check');
-		var local = document.getElementById('local_check');
-		if (obj.id == 'notebook_check' && obj.checked == true) {ipad.checked = false;mobile.checked = false;device_selected = 'notebook';} else if (obj.id == 'notebook_check' && obj.checked == false) {device_selected = '';}
-		if (obj.id == 'ipad_check' && obj.checked == true) {notebook.checked = false;mobile.checked = false;device_selected = 'ipad';} else if (obj.id == 'ipad_check' && obj.checked == false) {device_selected = '';}
-		if (obj.id == 'mobile_check' && obj.checked == true) {notebook.checked = false;ipad.checked = false;device_selected = 'mobile';} else if (obj.id == 'mobile_check' && obj.checked == false) {device_selected = '';}
-		if (obj.id == 'cod_check' && obj.checked == true) {byod.checked = false;device_property = 'cod';} else if (obj.id == 'cod_check' && obj.checked == false) {device_property = '';}
-		if (obj.id == 'byod_check' && obj.checked == true) {cod.checked = false;device_property = 'byod';} else if (obj.id == 'byod_check' && obj.checked == false) {device_property = '';}
-		if (obj.id == 'vpn_check' && obj.checked == true) {local.checked = false;device_property = 'cod_vpn';} else if (obj.id == 'vpn_check' && obj.checked == false) {device_property = '';}
-		if (obj.id == 'local_check' && obj.checked == true) {vpn.checked = false;device_property = 'cod_local';} else if (obj.id == 'local_check' && obj.checked == false) {device_property = '';}
-	}
-
-	function jump_page_selected() {
-		if (device_selected == '') {document.getElementById('notebook_warning').style.color = '#ff0000';document.getElementById('ipad_warning').style.color = '#ff0000';document.getElementById('mobile_warning').style.color = '#ff0000';return;}
-		if (device_property == '') {document.getElementById('cod_warning').style.color = '#ff0000';document.getElementById('byod_warning').style.color = '#ff0000';document.getElementById('vpn_warning').style.color = '#ff0000';document.getElementById('local_warning').style.color = '#ff0000';return;}
-		window.location.href = '#'+device_selected+'_'+device_property;
-		device_property = '';
-	}
-
-	function print() {
-		window.print();
+	function set_device() {
+		var device = document.getElementById('set_device').value;
+		document.getElementById('device').innerHTML = device;
 	}
 </script>
