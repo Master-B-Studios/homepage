@@ -116,28 +116,28 @@ function registerAppCacheEventHandlers() {
 
     if (document.documentElement.hasAttribute("manifest")) {
         if (!navigator.onLine) {createOrUpdateAppCacheToast('Offline.', 2000);}
-        else {createOrUpdateAppCacheToast("Checking for updates...");}
+        else {createOrUpdateAppCacheToast("Aktualisiere Cache...");}
     }
 
-    appCache.addEventListener('cached', function (e) {createOrUpdateAppCacheToast('Finished caching site.', 1500);}, false);
-    appCache.addEventListener('checking', function (e) {createOrUpdateAppCacheToast('Checking for updates...');}, false);
-    appCache.addEventListener('downloading', function (e) {createOrUpdateAppCacheToast('Downloading new cache...');}, false);
+    appCache.addEventListener('cached', function (e) {createOrUpdateAppCacheToast('Cache Aktualisiert...', 1500);}, false);
+    appCache.addEventListener('checking', function (e) {createOrUpdateAppCacheToast('Aktualisiere Cache...');}, false);
+    appCache.addEventListener('downloading', function (e) {createOrUpdateAppCacheToast('Aktualisiere Cache...');}, false);
 
     appCache.addEventListener('error', function (e) {
-        if (navigator.onLine) {createOrUpdateAppCacheToast('Error while caching site.', 5000);}
+        if (navigator.onLine) {createOrUpdateAppCacheToast('Fehler Beim Cachen...', 5000);}
         else {createOrUpdateAppCacheToast('Offline.', 2000);}
     }, false);
 
-    appCache.addEventListener('noupdate', function (e) {createOrUpdateAppCacheToast('Cache is up-to-date.', 1500);}, false);
-    appCache.addEventListener('obsolete', function (e) {createOrUpdateAppCacheToast('Site is obsolete.');}, false);
+    appCache.addEventListener('noupdate', function (e) {createOrUpdateAppCacheToast('Cache Aktuell...', 1500);}, false);
+    appCache.addEventListener('obsolete', function (e) {createOrUpdateAppCacheToast('Seite Nicht Erreichbar.');}, false);
 
     appCache.addEventListener('progress', function (e) {
         let percentage = Math.round((e.loaded / e.total) * 100);
-        createOrUpdateAppCacheToast('Downloading new cache... ' + percentage + '%');
-        if (e.loaded + 1 == e.total) {createOrUpdateAppCacheToast("Processing... This may take a minute.");}
+        createOrUpdateAppCacheToast('Aktualisiere Cache... ' + percentage + '%');
+        if (e.loaded + 1 == e.total) {createOrUpdateAppCacheToast("Lade Cache... Bitte Warten...");}
     }, false);
 
-    appCache.addEventListener('updateready', function (e) {if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {createOrUpdateAppCacheToast('The site was updated. Refresh to switch to updated version');}}, false);
+    appCache.addEventListener('updateready', function (e) {if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {createOrUpdateAppCacheToast('Cache Aktuell... Seite Neu Laden Zum Aktualisieren...');}}, false);
 }
 
 function registerL2ButtonHandler() {
