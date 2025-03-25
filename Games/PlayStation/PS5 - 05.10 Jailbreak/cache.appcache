@@ -55,6 +55,17 @@ payloads\ps5-versions.elf
 payloads\rp-get-pin.elf 
 payloads\shsrv.elf 
 payloads\websrv.elf 
+psfree\alert.js 
+psfree\config.js 
+psfree\COPYING 
+psfree\psfree.js 
+psfree\module\chain.js 
+psfree\module\int64.js 
+psfree\module\mem.js 
+psfree\module\memtools.js 
+psfree\module\offset.js 
+psfree\module\rw.js 
+psfree\module\utils.js 
 
 NETWORK: 
 * 
