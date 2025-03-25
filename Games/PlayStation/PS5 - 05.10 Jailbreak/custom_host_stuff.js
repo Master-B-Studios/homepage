@@ -109,76 +109,35 @@ function registerAppCacheEventHandlers() {
     let toast;
 
     function createOrUpdateAppCacheToast(message, timeout = -1) {
-        if (!toast) {
-            toast = showToast(message, timeout);
-        } else {
-            updateToastMessage(toast, message);
-        }
-
-        if (timeout > 0) {
-            setTimeout(() => {
-                removeToast(toast);
-                toast = null;
-            }, timeout);
-        }
+        if (!toast) {toast = showToast(message, timeout);}
+        else {updateToastMessage(toast, message);}
+        if (timeout > 0) {setTimeout(() => {removeToast(toast);toast = null;}, timeout);}
     }
 
     if (document.documentElement.hasAttribute("manifest")) {
-        if (!navigator.onLine) {
-            createOrUpdateAppCacheToast('Offline.', 2000);
-        } else {
-            // this is redundant
-            createOrUpdateAppCacheToast("Checking for updates...");
-        }
+        if (!navigator.onLine) {createOrUpdateAppCacheToast('Offline.', 2000);}
+        else {createOrUpdateAppCacheToast("Checking for updates...");}
     }
 
-    appCache.addEventListener('cached', function (e) {
-        createOrUpdateAppCacheToast('Finished caching site.', 1500);
-    }, false);
-
-    appCache.addEventListener('checking', function (e) {
-        createOrUpdateAppCacheToast('Checking for updates...');
-    }, false);
-
-    appCache.addEventListener('downloading', function (e) {
-        createOrUpdateAppCacheToast('Downloading new cache...');
-    }, false);
+    appCache.addEventListener('cached', function (e) {createOrUpdateAppCacheToast('Finished caching site.', 1500);}, false);
+    appCache.addEventListener('checking', function (e) {createOrUpdateAppCacheToast('Checking for updates...');}, false);
+    appCache.addEventListener('downloading', function (e) {createOrUpdateAppCacheToast('Downloading new cache...');}, false);
 
     appCache.addEventListener('error', function (e) {
-        // only show error toast if we're online
-        if (navigator.onLine) {
-            createOrUpdateAppCacheToast('Error while caching site.', 5000);
-        } else {
-            createOrUpdateAppCacheToast('Offline.', 2000);
-        }
+        if (navigator.onLine) {createOrUpdateAppCacheToast('Error while caching site.', 5000);}
+        else {createOrUpdateAppCacheToast('Offline.', 2000);}
     }, false);
 
-    appCache.addEventListener('noupdate', function (e) {
-        createOrUpdateAppCacheToast('Cache is up-to-date.', 1500);
-    }, false);
-
-    appCache.addEventListener('obsolete', function (e) {
-        createOrUpdateAppCacheToast('Site is obsolete.');
-    }, false);
+    appCache.addEventListener('noupdate', function (e) {createOrUpdateAppCacheToast('Cache is up-to-date.', 1500);}, false);
+    appCache.addEventListener('obsolete', function (e) {createOrUpdateAppCacheToast('Site is obsolete.');}, false);
 
     appCache.addEventListener('progress', function (e) {
         let percentage = Math.round((e.loaded / e.total) * 100);
-
         createOrUpdateAppCacheToast('Downloading new cache... ' + percentage + '%');
-
-        // the last item takes an unreasonably long time to complete (with a big update)
-        // ig its doing some extra stuff before the last event is fired
-        // so show a new message for it
-        if (e.loaded + 1 == e.total) {
-            createOrUpdateAppCacheToast("Processing... This may take a minute.");
-        }
+        if (e.loaded + 1 == e.total) {createOrUpdateAppCacheToast("Processing... This may take a minute.");}
     }, false);
 
-    appCache.addEventListener('updateready', function (e) {
-        if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-            createOrUpdateAppCacheToast('The site was updated. Refresh to switch to updated version');
-        }
-    }, false);
+    appCache.addEventListener('updateready', function (e) {if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {createOrUpdateAppCacheToast('The site was updated. Refresh to switch to updated version');}}, false);
 }
 
 function registerL2ButtonHandler() {
