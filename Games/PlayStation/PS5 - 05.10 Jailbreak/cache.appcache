@@ -2,7 +2,15 @@ CACHE MANIFEST
 
 # Generated 2025-03-21 joup # 
 custom_host_stuff.js 
+index.html 
+int64.js 
+main.css 
+main.js 
+payload_map.js 
+rop_slave.js 
+rop.js 
+syscalls.js 
+umtx2.js 
 
- 
 NETWORK: 
 * 
