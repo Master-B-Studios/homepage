@@ -262,6 +262,8 @@
 	<div class="a4" id="document_content_2">
 		<table class="a4_table"><tr><td class="gap_top" colspan="4"></td></tr></table>
 	</div>
+
+	<div><button onclick="print();">Drucken</button></div>
 </section>
 
 <section id="notebook_cod_local">
@@ -773,5 +775,9 @@
 		if (device_property == '') {document.getElementById('cod_warning').style.color = '#ff0000';document.getElementById('byod_warning').style.color = '#ff0000';document.getElementById('vpn_warning').style.color = '#ff0000';document.getElementById('local_warning').style.color = '#ff0000';return;}
 		window.location.href = '#'+device_selected+'_'+device_property;
 		device_property = '';
+	}
+
+	function print() {
+		window.print();
 	}
 </script>
