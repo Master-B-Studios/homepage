@@ -54,6 +54,7 @@ payloads\ps5debug_v1.0b2.elf
 payloads\ps5-versions.elf 
 payloads\rp-get-pin.elf 
 payloads\shsrv.elf 
+payloads\spoofer.elf 
 payloads\websrv.elf 
 psfree\alert.js 
 psfree\config.js 

@@ -194,5 +194,4 @@ function populatePayloadsPage(wkOnlyMode = false) {
 
         payloadsView.appendChild(payloadButton);
     }
-
 }

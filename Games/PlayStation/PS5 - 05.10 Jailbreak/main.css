@@ -90,46 +90,15 @@ a:active, a:focus {outline: 0;border: none;color: #66ff66;}
     display: flex;
 }
 
-#payloads-view {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: auto;
-    column-gap: 2.5rem;
-    row-gap: 1rem;
-    padding: 0 2rem 2rem 2rem;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    box-sizing: border-box;
-    align-content: start;
-}
-#payloads-view .btn {width: 100% !important;}
+#payloads-view {display: grid !important;grid-template-columns: repeat(2, minmax(0, 1fr));grid-auto-rows: auto;column-gap: 2.5rem;row-gap: 1rem;padding: 0 2rem 2rem 2rem;overflow-y: scroll;overflow-x: hidden;box-sizing: border-box;align-content: start;}
+#payloads-view .btn {width: 100% !important;cursor: pointer;background-color: var(--black_1);border-radius: 10px;padding: 0.8rem;color: #66ff66;}
 .payload-btn-title {line-height: 2.5rem;font-weight: bolder;font-size: 1.3rem;padding: 0;margin: 0;}
-.payload-btn-description {
-    color: var(--text-color-secondary);
-    margin: 0;
-    padding: 0;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    line-height: 2rem;
-    font-size: 1rem;
-    max-width: 100%;
-}
-.btn:hover p.payload-btn-description {color: var(--text-color-secondary-hover);}
-.payload-btn-info {
-    color: var(--text-color-tertiary);
-    margin: 0;
-    padding: 0;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    line-height: 1.5rem;
-    font-size: 0.9rem;
-    font-weight: normal;
-    line-clamp: 3;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-}
-.btn:hover p.payload-btn-info {color: var(--text-color-tertiary-hover);}
+.payload-btn-description {color: #dddddd;margin: 0;padding: 0;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;line-height: 2rem;font-size: 1rem;max-width: 100%;}
+.payload-btn-info {color: #aaaaaa;margin: 0;padding: 0;text-overflow: ellipsis;overflow: hidden;line-height: 1.5rem;font-size: 0.9rem;font-weight: normal;line-clamp: 3;-webkit-line-clamp: 3;-webkit-box-orient: vertical;}
+#payloads-view .btn:hover {background-color: #1262a4;color: #dddddd;}
+.btn:hover p.payload-btn-title {color: #dddddd;;}
+.btn:hover p.payload-btn-description {color: var(--black_0);}
+.btn:hover p.payload-btn-info {color: var(--black_0);}
 .selected {opacity: 1 !important;pointer-events: auto !important;}
 
 #toast-container {position: absolute;top: 100px;right: 20px;z-index: 9999;}
