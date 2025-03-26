@@ -5,7 +5,7 @@
 <link rel="icon" href="">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <style>
-	body {font-family: Arial, Helvetica, sans-serif;font-size: 2.5vh;cursor: default;}
+	body {font-family: Arial, Helvetica, sans-serif;font-size: 2.5vh;cursor: default;overflow: hidden;}
 
 	.header_container {width: 99vw;height: 8vh;display: flex;background-color: #0A54A0;margin: auto;border-radius: 20px;}
 	.header_left {width: 5%;height: 100%;display: flex;align-items: center;}
@@ -17,15 +17,17 @@
 	.table_1 td {width: 4%;height: 3.5vh;padding: 0.5em;}
 
 	.fillbox {background-color: #dddddd;border-radius: 0.3em;cursor: pointer;}
-	.infobox {text-align: center;font-size: 0.8em;}
-	.writebox {background-color: #dddddd;border-radius: 0.3em;}
+	.infobox_top {text-align: center;font-size: 0.8em;vertical-align: top;}
+	.infobox_bottom {text-align: center;font-size: 0.8em;vertical-align: bottom;}
+	.writebox {background-color: #dddddd;border-radius: 0.3em;text-align: justify;vertical-align: top;}
+	.select {background-color: #dddddd;text-align: center;border-radius: 0.3em;}
 
 	.set_device_container {cursor: pointer;padding: 0;}
 	.set_device {height: 3.5vh;width: 2vh;background-color: #dbdbdb;border-radius: 10px;cursor: pointer;margin: auto;}
 
-	.checkbox {height: auto;width: auto;cursor: pointer;}
+	.checkbox {height: auto;width: auto;cursor: pointer;text-align: center;}
 	input[type="checkbox"] {height: auto;width: auto;cursor: pointer;}
-	.checkbox-wrapper-31 {position: relative;display: inline-block;width: 2vh;height: 2vh;top: 8%;}
+	.checkbox-wrapper-31 {position: relative;display: inline-block;width: 4vh;height: 4vh;top: 0.3vh;}
 	.checkbox-wrapper-31 .background {fill: #555555;transition: ease all 0.6s;-webkit-transition: ease all 0.6s;}
 	.checkbox-wrapper-31 .stroke {fill: none;stroke: #dbdbdb;stroke-miterlimit: 10;stroke-width: 2px;stroke-dashoffset: 100;stroke-dasharray: 100;transition: ease all 0.6s;-webkit-transition: ease all 0.6s;}
 	.checkbox-wrapper-31 .check {fill: none;stroke: #dbdbdb;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2px;stroke-dashoffset: 22;stroke-dasharray: 22;transition: ease all 0.6s;-webkit-transition: ease all 0.6s;}
@@ -75,17 +77,13 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td colspan="14"></td>
+					<td colspan="13" class="infobox_bottom">Folgende Posten werden ausgegeben:</td>
 					<td></td>
-					<td colspan="10" class="infobox">- Unterschrift Nutzungsberechtigte(r) -</td>
-				</tr>				
-				<tr>
-					<td colspan="14">Folgende Posten werden ausgegeben:</td>
 					<td></td>
-					<td colspan="10"></td>
+					<td colspan="10" class="infobox_top">- Unterschrift Nutzungsberechtigte(r) -</td>
 				</tr>
 				<tr>
-					<td colspan="13" id="device"></td>
+					<td colspan="13" id="device" class="select"></td>
 					<td class="set_device_container">
 						<select class="set_device" id="set_device" onchange="set_device();">
 							<option value=""></option>
@@ -100,7 +98,7 @@
 						</select>
 					</td>
 					<td></td>
-					<td colspan="10">- Belehrung -</td>
+					<td colspan="10" class="infobox_bottom">- Belehrung -</td>
 				</tr>
 			</table>
 			<table class="table_1" id="device_table"></table>
@@ -126,18 +124,27 @@
 		if (device == 'VPN') {
 			document.getElementById('device_table').innerHTML = '';
 			document.getElementById('device_table').innerHTML += ''+
-			'<tr><td colspan="4">VPN-Passwort:</td><td colspan="10"></td><td></td><td colspan="10" rowspan="5"></td></tr>'+
+			'<tr><td colspan="4">VPN-Passwort:</td><td colspan="9" class="fillbox" contenteditable="true"></td><td></td><td></td><td colspan="10" rowspan="6" class="writebox">Diese Infos</td></tr>'+
+			'<tr><td colspan="15"></td></tr>'+
+			'<tr><td colspan="15"></td></tr>'+
+			'<tr><td colspan="15"></td></tr>'+
+			'<tr><td colspan="15"></td></tr>'+
+			'<tr><td colspan="15"></td></tr>'+
 			'<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>';
 		}
 		if (device == 'Notebook mit VPN') {
 			document.getElementById('device_table').innerHTML = '';
 			document.getElementById('device_table').innerHTML += ''+
-			'<tr><td colspan="4">VPN-Passwort:</td><td colspan="10"></td><td></td><td colspan="10" rowspan="6"></td></tr>'+
-			'<tr><td class="checkbox"><div class="checkbox-wrapper-31"><input id="entleihen_wlan_check" type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="13">Ladegerät & Ladekabel</td><td></td></tr>'+
-			'<tr><td class="checkbox"><div class="checkbox-wrapper-31"><input id="entleihen_wlan_check" type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="13">Maus</td><td></td></tr>'+
-			'<tr><td class="checkbox"><div class="checkbox-wrapper-31"><input id="entleihen_wlan_check" type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="13">Tastatur</td><td></td></tr>'+
-			'<tr><td class="checkbox"><div class="checkbox-wrapper-31"><input id="entleihen_wlan_check" type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="13">Dockingstation</td><td></td></tr>'+
-			'<tr><td class="checkbox"><div class="checkbox-wrapper-31"><input id="entleihen_wlan_check" type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="13">Ladegerät & Ladekabel</td><td></td></tr>'+
+			'<tr><td colspan="4">VPN-Passwort:</td><td colspan="9" class="fillbox" contenteditable="true"></td><td></td><td></td><td colspan="10" rowspan="6" class="writebox">Diese Infos</td></tr>'+
+			'<tr>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Ladegerät & Ladekabel</td>'+
+				'<td class="checkbox"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Notebooktasche</td>'+
+				'<td></td>'+
+			'</tr>'+
+			'<tr><td class="checkbox"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="13">Maus</td><td></td></tr>'+
+			'<tr><td class="checkbox"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="13">Tastatur</td><td></td></tr>'+
+			'<tr><td class="checkbox"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="13">Dockingstation</td><td></td></tr>'+
+			'<tr><td class="checkbox"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="13">Ladegerät & Ladekabel</td><td></td></tr>'+
 			'<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>';
 		}
 	}
