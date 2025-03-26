@@ -9,7 +9,7 @@
 
 	.header_container {width: 99vw;height: 8vh;display: flex;background-color: #0A54A0;margin: auto;border-radius: 20px;}
 	.header_left {width: 5%;height: 100%;display: flex;align-items: center;}
-	.header_center {width: 90%;height: 100%;display: flex;align-items: center;justify-content: center;font-size: 4vh;font-weight: bold;color: #dbdbdb;}
+	.header_center {width: 90%;height: 100%;display: flex;align-items: center;justify-content: center;font-size: 4vh;font-weight: bold;color: #ffffff;}
 	.header_right {width: 5%;height: 100%;display: flex;align-items: center;}
 
 	.table_container {width: 98vw;height: auto;margin: auto auto 1em auto;display: block;}
@@ -20,12 +20,12 @@
 	.infobox_top {text-align: center;font-size: 0.8em;vertical-align: top;}
 	.infobox_bottom {text-align: center;font-size: 0.8em;vertical-align: bottom;}
 	.writebox {background-color: #dddddd;border-radius: 0.3em;text-align: justify;vertical-align: top;}
-	.select {background-color: #dddddd;text-align: center;border-radius: 0.3em;}
+	.select {background-color: #0A54A0;color: #ffffff;text-align: center;border-radius: 0.3em;}
 
 	.set_device_container {cursor: pointer;padding: 0;}
 	.set_device {height: 3.5vh;width: 2vh;background-color: #dbdbdb;border-radius: 10px;cursor: pointer;margin: auto;}
 
-	.checkbox {height: auto;width: auto;cursor: pointer;text-align: center;}
+	.checkbox {height: auto;width: auto;cursor: pointer;text-align: right;}
 	input[type="checkbox"] {height: auto;width: auto;cursor: pointer;}
 	.checkbox-wrapper-31 {position: relative;display: inline-block;width: 4vh;height: 4vh;top: 0.3vh;}
 	.checkbox-wrapper-31 .background {fill: #555555;transition: ease all 0.6s;-webkit-transition: ease all 0.6s;}
@@ -50,29 +50,29 @@
 			<table class="table_1">
 				<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>
 				<tr>
-					<td colspan="4" style="padding-left: 0;">Nutzungsberechtigte(r):</td>
+					<td colspan="4" style="padding-left: 0;text-align: right;">Nutzungsberechtigte(r):</td>
 					<td colspan="5" class="fillbox" contenteditable="true" onclick="clean(this);">Vorname</td>
 					<td colspan="5" class="fillbox" contenteditable="true" onclick="clean(this);">Nachname</td>
 					<td></td>
 					<td colspan="10" rowspan="5" class="writebox"></td>
 				</tr>
 				<tr>
-					<td colspan="4" style="padding-left: 0;">Amt / Abteilung:</td>
+					<td colspan="4" style="padding-left: 0;text-align: right;">Amt / Abteilung:</td>
 					<td colspan="10" class="fillbox" contenteditable="true"></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td colspan="4" style="padding-left: 0;">Aufstellungsort:</td>
+					<td colspan="4" style="padding-left: 0;text-align: right;">Aufstellungsort:</td>
 					<td colspan="10" class="fillbox" contenteditable="true"></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td colspan="4" style="padding-left: 0;">Verwendungszweck:</td>
+					<td colspan="4" style="padding-left: 0;text-align: right;">Verwendungszweck:</td>
 					<td colspan="10" class="fillbox" contenteditable="true"></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td colspan="4" style="padding-left: 0;">Datum:</td>
+					<td colspan="4" style="padding-left: 0;text-align: right;">Datum:</td>
 					<td colspan="10" class="fillbox" contenteditable="true"></td>
 					<td></td>
 				</tr>
@@ -83,7 +83,6 @@
 					<td colspan="10" class="infobox_top">- Unterschrift Nutzungsberechtigte(r) -</td>
 				</tr>
 				<tr>
-					<td colspan="13" id="device" class="select"></td>
 					<td class="set_device_container">
 						<select class="set_device" id="set_device" onchange="set_device();">
 							<option value=""></option>
@@ -97,8 +96,9 @@
 							<option value="Mobiltelefon Dienstgerät">Mobiltelefon Dienstgerät</option>
 						</select>
 					</td>
+					<td colspan="13" id="device" class="select"></td>
 					<td></td>
-					<td colspan="10" class="infobox_bottom">- Belehrung -</td>
+					<td colspan="10" rowspan="6" class="writebox">Diese Infos</td>
 				</tr>
 			</table>
 			<table class="table_1" id="device_table"></table>
@@ -124,36 +124,44 @@
 		if (device == 'VPN') {
 			document.getElementById('device_table').innerHTML = '';
 			document.getElementById('device_table').innerHTML += ''+
-			'<tr><td colspan="4">VPN-Passwort:</td><td colspan="9" class="fillbox" contenteditable="true"></td><td></td><td></td><td colspan="10" rowspan="6" class="writebox">Diese Infos</td></tr>'+
+			'<tr><td colspan="4">VPN-Passwort:</td><td colspan="10" class="fillbox" contenteditable="true">'+
 			'<tr><td colspan="15"></td></tr>'+
 			'<tr><td colspan="15"></td></tr>'+
 			'<tr><td colspan="15"></td></tr>'+
 			'<tr><td colspan="15">Besonderheiten:</td></tr>'+
-			'<tr><td colspan="14" class="fillbox" contenteditable="true"></td><td></td></tr>'+
+			'<tr><td colspan="14" class="fillbox" contenteditable="true"></td><td></td><td colspan="10" class="infobox_bottom">- Belehrung -</td></tr>'+
 			'<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>';
 		}
 		if (device == 'Notebook') {
 			document.getElementById('device_table').innerHTML = '';
 			document.getElementById('device_table').innerHTML += ''+
 			'<tr>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Ladegerät & Ladekabel</td>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Notebooktasche</td>'+
+				'<td colspan="2" style="text-align: right;">Marke:</td>'+
+				'<td class="fillbox" colspan="5" contenteditable="true"></td>'+
+				'<td colspan="2" style="text-align: right;">Modell:</td>'+
+				'<td class="fillbox" colspan="5" contenteditable="true"></td>'+
 				'<td></td>'+
 				'<td colspan="10" rowspan="6" class="writebox">Diese Infos</td>'+
 			'</tr>'+
 			'<tr>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Maus</td>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Tastatur</td>'+
-				'<td></td>'+
+				'<td colspan="3" style="text-align: right;">Seriennummer:</td>'+
+				'<td class="fillbox" colspan="11" contenteditable="true"></td>'+
 			'</tr>'+
 			'<tr>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Dockingstation</td>'+
-				'<td colspan="7"></td>'+
+				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Ladegerät & Ladekabel</td>'+
+				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Notebooktasche</td>'+
+				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Dockingstation</td>'+
+			'</tr>'+
+			'<tr>'+
+				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Maus</td>'+
+				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Tastatur</td>'+
+			'</tr>'+
+			'<tr><td></td></tr>'+
+			'<tr>'+
+				'<td colspan="3" style="text-align: right;">Besonderheiten:</td>'+
+				'<td class="fillbox" colspan="11" contenteditable="true"></td>'+
 				'<td></td>'+
 			'</tr>'+
-			'<tr><td colspan="15"></td></tr>'+
-			'<tr><td colspan="15">Besonderheiten:</td></tr>'+
-			'<tr><td colspan="14" class="fillbox" contenteditable="true"></td><td></td></tr>'+
 			'<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>';
 		}
 		if (device == 'Notebook mit VPN') {
@@ -183,10 +191,10 @@
 			document.getElementById('device_table').innerHTML = '';
 			document.getElementById('device_table').innerHTML += ''+
 			'<tr>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Monitor</td>'+
-				'<td>Anzahl:</td>'+
+				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Monitor</td>'+
+				'<td colspan="2" style="text-align: right;">Anzahl:</td>'+
 				'<td class="fillbox" colspan="2" contenteditable="true"></td>'+
-				'<td colspan="5"></td>'+
+				'<td colspan="6"></td>'+
 				'<td colspan="10" rowspan="6" class="writebox">Diese Infos</td>'+
 			'</tr>'+
 			'<tr>'+
@@ -195,6 +203,54 @@
 				'<td></td>'+
 			'</tr>'+
 			'<tr><td colspan="15"></td></tr>'+
+			'<tr><td colspan="15"></td></tr>'+
+			'<tr><td colspan="15">Besonderheiten:</td></tr>'+
+			'<tr><td colspan="14" class="fillbox" contenteditable="true"></td><td></td></tr>'+
+			'<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>';
+		}
+		if (device == 'PC mit VPN') {
+			document.getElementById('device_table').innerHTML = '';
+			document.getElementById('device_table').innerHTML += ''+
+			'<tr><td colspan="4">VPN-Passwort:</td><td colspan="9" class="fillbox" contenteditable="true"></td><td></td><td></td><td colspan="10" rowspan="6" class="writebox">Diese Infos</td></tr>'+
+			'<tr>'+
+				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="5">Monitor</td>'+
+				'<td colspan="2" style="text-align: right;">Anzahl:</td>'+
+				'<td class="fillbox" colspan="2" contenteditable="true"></td>'+
+				'<td colspan="5"></td>'+
+			'</tr>'+
+			'<tr>'+
+				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Maus</td>'+
+				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Tastatur</td>'+
+				'<td></td>'+
+			'</tr>'+
+			'<tr>'+
+				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Dockingstation</td>'+
+				'<td colspan="7"></td>'+
+				'<td></td>'+
+			'</tr>'+
+			'<tr><td colspan="15">Besonderheiten:</td></tr>'+
+			'<tr><td colspan="14" class="fillbox" contenteditable="true"></td><td></td></tr>'+
+			'<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>';
+		}
+		if (device == 'iPad') {
+			document.getElementById('device_table').innerHTML = '';
+			document.getElementById('device_table').innerHTML += ''+
+			'<tr>'+
+				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Ladegerät & Ladekabel</td>'+
+				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Notebooktasche</td>'+
+				'<td></td>'+
+				'<td colspan="10" rowspan="6" class="writebox">Diese Infos</td>'+
+			'</tr>'+
+			'<tr>'+
+				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Maus</td>'+
+				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Tastatur</td>'+
+				'<td></td>'+
+			'</tr>'+
+			'<tr>'+
+				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Dockingstation</td>'+
+				'<td colspan="7"></td>'+
+				'<td></td>'+
+			'</tr>'+
 			'<tr><td colspan="15"></td></tr>'+
 			'<tr><td colspan="15">Besonderheiten:</td></tr>'+
 			'<tr><td colspan="14" class="fillbox" contenteditable="true"></td><td></td></tr>'+
