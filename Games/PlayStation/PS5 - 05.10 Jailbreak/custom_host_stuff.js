@@ -1,19 +1,11 @@
-// @ts-check
-
 const LOCALSTORE_REDIRECTOR_LAST_URL_KEY = "redirector_last_url";
-
 const SESSIONSTORE_ON_LOAD_AUTORUN_KEY = "on_load_autorun";
-
 const MAINLOOP_EXECUTE_PAYLOAD_REQUEST = "mainloop_execute_payload_request";
-
 let exploitStarted = false;
 
 async function run(wkonly = false, animate = true) {
-    if (exploitStarted) {
-        return;
-    }
+    if (exploitStarted) {return;}
     exploitStarted = true;
-
     await switchPage("console-view", animate);
 
     // not setting it in the catch since we want to retry both on a handled error and on a browser crash
@@ -26,24 +18,18 @@ async function run(wkonly = false, animate = true) {
             await new Promise((resolve) => setTimeout(resolve, 100));
         }
         await run_psfree(fw_str);
-
-    } catch (error) {
+    }
+    catch (error) {
         log("Webkit exploit failed: " + error, LogLevel.ERROR);
-
         log("Retrying in 2 seconds...", LogLevel.LOG);
         await new Promise((resolve) => setTimeout(resolve, 2000));
         window.location.reload();
         return; // this is necessary
     }
+    try {await main(window.p, wkonly);}
+    catch (error) {log("Kernel exploit/main() failed: " + error, LogLevel.ERROR);}
 
-    try {
-        await main(window.p, wkonly); // if all goes well, this should block forever
-    } catch (error) {
-        log("Kernel exploit/main() failed: " + error, LogLevel.ERROR);
-        // p.write8(new int64(0,0), 0); // crash
-    }
-
-    log("Retrying in 4 seconds...", LogLevel.LOG);
+    log("Neuversuch in 4 Sekunden...", LogLevel.LOG);
     await new Promise((resolve) => setTimeout(resolve, 4000));
     window.location.reload();
 }
@@ -51,12 +37,8 @@ async function run(wkonly = false, animate = true) {
 async function switchPage(id, animate = true) {
     const parentElement = document.getElementById('main-content');
     const targetElement = document.getElementById(id);
-    if (!targetElement || targetElement.parentElement !== parentElement) {
-        throw new Error('Invalid target element');
-    }
-
+    if (!targetElement || targetElement.parentElement !== parentElement) {throw new Error('Invalid target element');}
     const oldSelectedElement = parentElement.querySelector('.selected');
-
     if (oldSelectedElement) {
         if (animate) {
             let oldSelectedElementTransitionEnd = new Promise((resolve) => {
@@ -70,7 +52,8 @@ async function switchPage(id, animate = true) {
             });
             oldSelectedElement.classList.remove('selected');
             await oldSelectedElementTransitionEnd;
-        } else {
+        }
+        else {
             // override transition with none for instant switch
             oldSelectedElement.style.setProperty('transition', 'none', 'important');
             oldSelectedElement.offsetHeight;
@@ -92,7 +75,8 @@ async function switchPage(id, animate = true) {
         });
         targetElement.classList.add('selected');
         await targetElementTransitionEnd;
-    } else {
+    }
+    else {
         // override transition with none for instant switch
         targetElement.style.setProperty('transition', 'none', 'important');
         targetElement.offsetHeight;
@@ -105,9 +89,7 @@ async function switchPage(id, animate = true) {
 
 function registerAppCacheEventHandlers() {
     var appCache = window.applicationCache;
-
     let toast;
-
     function createOrUpdateAppCacheToast(message, timeout = -1) {
         if (!toast) {toast = showToast(message, timeout);}
         else {updateToastMessage(toast, message);}
@@ -163,55 +145,31 @@ function showToast(message, timeout = 2000) {
     const toast = document.createElement('div');
     toast.className = 'toast';
     toast.textContent = message;
-
     toastContainer.appendChild(toast);
 
     // Trigger reflow to enable animation
     toast.offsetHeight;
-
     toast.classList.add('show');
-
-    if (timeout > 0) {
-        setTimeout(() => {
-            removeToast(toast);
-        }, timeout);
-    }
-
+    if (timeout > 0) {setTimeout(() => {removeToast(toast);}, timeout);}
     return toast;
 }
 
-function updateToastMessage(toast, message) {
-    if (!toast) {
-        return;
-    }
-    toast.textContent = message;
-}
+function updateToastMessage(toast, message) {if (!toast) {return;}toast.textContent = message;}
 
 async function removeToast(toast) {
-    if (!toast) {
-        return;
-    }
+    if (!toast) {return;}
     toast.classList.add('hide');
-    toast.addEventListener('transitionend', () => {
-        toast.remove();
-    });
+    toast.addEventListener('transitionend', () => {toast.remove();});
 }
 
 
 function populatePayloadsPage(wkOnlyMode = false) {
     const payloadsView = document.getElementById('payloads-view');
-
-    while (payloadsView.firstChild) {
-        payloadsView.removeChild(payloadsView.firstChild);
-    }
-
+    while (payloadsView.firstChild) {payloadsView.removeChild(payloadsView.firstChild);}
     const payloads = payload_map;
-
     for (const payload of payloads) {
         if (wkOnlyMode && !payload.toPort && !payload.customAction) {continue;}
-
         if (payload.supportedFirmwares && !payload.supportedFirmwares.some(fwPrefix => window.fw_str.startsWith(fwPrefix))) {continue;}
-
         const payloadButton = document.createElement("a");
         payloadButton.classList.add("btn");
         payloadButton.classList.add("w-100");
