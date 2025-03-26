@@ -14,7 +14,11 @@
 
 	.table_container {width: 99vw;height: auto;margin: auto auto 1em auto;display: block;}
 	.table_1 {width: 100%;}
-	.table_1 td {width: 4%;height: 3.5vh;background-color: #0A54A0;padding: 0.5em;}
+	.table_1 td {width: 4%;height: 3.5vh;padding: 0.5em;}
+
+	.fillbox {background-color: #dddddd;border-radius: 0.3em;cursor: pointer;}
+	.infobox {text-align: center;font-size: 0.8em;}
+	.writebox {background-color: #dddddd;border-radius: 0.3em;}
 
 	.set_device_container {cursor: pointer;padding: 0;}
 	.set_device {height: 3.5vh;width: 2vh;background-color: #dbdbdb;border-radius: 10px;cursor: pointer;margin: auto;}
@@ -45,34 +49,35 @@
 				<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>
 				<tr>
 					<td colspan="4">Nutzungsberechtigte(r):</td>
-					<td colspan="10"></td>
+					<td colspan="5" class="fillbox" contenteditable="true" onclick="clean(this);">Vorname</td>
+					<td colspan="5" class="fillbox" contenteditable="true" onclick="clean(this);">Nachname</td>
 					<td></td>
-					<td colspan="10" rowspan="5"></td>
+					<td colspan="10" rowspan="5" class="writebox"></td>
 				</tr>
 				<tr>
 					<td colspan="4">Amt / Abteilung:</td>
-					<td colspan="10"></td>
+					<td colspan="10" class="fillbox" contenteditable="true"></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td colspan="4">Geräteart:</td>
-					<td colspan="10"></td>
+					<td colspan="4">Aufstellungsort:</td>
+					<td colspan="10" class="fillbox" contenteditable="true"></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td colspan="4">Verwendungszweck:</td>
-					<td colspan="10"></td>
+					<td colspan="10" class="fillbox" contenteditable="true"></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td colspan="4">Datum:</td>
-					<td colspan="10"></td>
+					<td colspan="10" class="fillbox" contenteditable="true"></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td colspan="14"></td>
 					<td></td>
-					<td colspan="10">- Unterschrift Nutzungsberechtigte(r) -</td>
+					<td colspan="10" class="infobox">- Unterschrift Nutzungsberechtigte(r) -</td>
 				</tr>				
 				<tr>
 					<td colspan="14">Folgende Posten werden ausgegeben:</td>
@@ -136,4 +141,6 @@
 			'<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>';
 		}
 	}
+
+	function clean(obj) {obj.innerHTML = '';}
 </script>
