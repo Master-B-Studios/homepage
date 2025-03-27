@@ -5,7 +5,10 @@
 <link rel="icon" href="">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <style>
-	body {font-family: Arial, Helvetica, sans-serif;font-size: 2.5vh;cursor: default;overflow: hidden;}
+	@font-face {font-family: Futura;src: url(sources/fonts/Futura.ttf);}
+	section {display: none;}
+	section:target {display: block;}
+	body {font-family: Arial, Helvetica, sans-serif;font-size: 2.5vh;cursor: default;overflow: hidden;margin: 0;padding: 0;}
 
 	.header_container {width: 99vw;height: 8vh;display: flex;background-color: #0A54A0;margin: auto;border-radius: 20px;}
 	.header_left {width: 5%;height: 100%;display: flex;align-items: center;}
@@ -35,10 +38,18 @@
 	.checkbox-wrapper-31 input[type=checkbox]:checked + svg .background {fill: #1c9e10;}
 	.checkbox-wrapper-31 input[type=checkbox]:checked + svg .stroke {stroke-dashoffset: 0;}
 	.checkbox-wrapper-31 input[type=checkbox]:checked + svg .check {stroke-dashoffset: 0;}
+
+	.contract {width: 100vw;height: 100vh;margin: auto;padding: 0;}
+	.contract td {width: 5%;height: auto;}
+	.contract td img {width: 100%;height: auto;}
+
+	.page_bg {background-color: #888888;}
+	.page_left {border-left: 1px solid #000000;}
+	.page_right {border-right: 1px solid #000000;}
 </style>
 </head>
 
-<body onload="">
+<body onload="jump_page_contract();">
     <section id="home">
         <div class="header_container">
             <div class="header_left"></div>
@@ -88,7 +99,8 @@
 					<td colspan="10" class="infobox_top">- Unterschrift Nutzungsberechtigte(r) -</td>
 				</tr>
 				<tr>
-					<td colspan="14" class="infobox_bottom">- Details -</td>
+					<td colspan="4"></td>
+					<td colspan="10" class="infobox_bottom"></td>
 					<td></td>
 					<td colspan="10" class="infobox_bottom">- Belehrung -</td>
 				</tr>
@@ -96,11 +108,52 @@
 			<table class="table_1" id="device_table"></table>
 		</div>
     </section>
+	<section id="contract">
+		<table class="contract">
+			<tr>
+				<td class="page_bg"></td>
+				<td class="page_left"></td>
+				<td colspan="4">Bestimmungen zum Gebrauch von<br>Endgeräten bereitgestellt durch die<br>IuK-Abteilung der Stadtverwaltung<br>Vaihingen an der Enz</td>
+				<td colspan="2"><img src="sources/images/City Logo.png"></td>
+				<td class="page_right"></td>
+
+				<td colspan="2" class="page_bg"></td>
+
+				<td class="page_left"></td>
+				<td colspan="6"></td>
+				<td class="page_right"></td>
+				<td class="page_bg"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</section>
 </body>
 </html>
 
 <script>
 	function jump_page_home() {window.location.href = '#home';}
+	function jump_page_contract() {window.location.href = '#contract';}
 
 	function set_date() {
 		var date = new Date().toISOString().substring(0, 10);var day = date.substring(8);var month = date.substring(5, 7);var year = date.substring(0, 4);
@@ -117,63 +170,36 @@
 		'Zudem wird bestätigt, dass die allgemeine Nutzungsvereinbarung der Stadtverwaltung Vaihingen an der Enz für digitale Endgeräte gelesen und akzeptiert wurde.'+
 		'<br>'+
 		'<br>'+
-		'Der Defekt oder Verlust eines ausgegebenen Postens oder dessen Zubehör ist umgehend bei der IuK-Abteilung zu melden.';
+		'Der Defekt oder Verlust eines ausgegebenen Postens oder dessen Zubehör ist umgehend bei der IuK-Abteilung zu melden.'+
+		'<br>'+
+		'<br>'+
+		'<br>'+
+		'<br>'+
+		'<span style="color: #0A54A0;cursor: pointer;" onclick="jump_page_contract();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Nutzungsvereinbarung anzeigen -</span>';
 
 		if (device == '') {document.getElementById('device_table').innerHTML = '';}
-		if (device == 'VPN') {
+		else if (device == 'VPN') {
 			document.getElementById('device_table').innerHTML = '';
 			document.getElementById('device_table').innerHTML += ''+
-			'<tr><td colspan="4" style="text-align: right;">VPN-Passwort:</td><td colspan="10" class="fillbox" contenteditable="true"><td></td><td colspan="10" rowspan="6" class="writebox" style="padding: 1em;">'+belehrung+'</td>'+
+			'<tr><td colspan="4" style="text-align: right;">VPN-Passwort:</td><td colspan="10" class="fillbox" contenteditable="true"></td><td></td><td colspan="10" rowspan="6" class="writebox" style="padding: 1em;">'+belehrung+'</td>'+
 			'<tr><td colspan="15"></td></tr>'+
 			'<tr><td colspan="15"></td></tr>'+
 			'<tr><td colspan="15"></td></tr>'+
 			'<tr><td colspan="15"></td></tr>'+
-			'<tr><td colspan="4" style="text-align: right;">Besonderheiten:</td><td colspan="10" class="fillbox" contenteditable="true">'+
+			'<tr><td colspan="4" style="text-align: right;">Besonderheiten:</td><td colspan="10" class="fillbox" contenteditable="true"></td>'+
 			'<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>';
 		}
-		if (device == 'Notebook') {
+		else if (device == 'Notebook') {
 			document.getElementById('device_table').innerHTML = '';
 			document.getElementById('device_table').innerHTML += ''+
-			'<tr>'+
-				'<td colspan="2" style="text-align: right;">Marke:</td>'+
-				'<td class="fillbox" colspan="5" contenteditable="true"></td>'+
-				'<td colspan="2" style="text-align: right;">Modell:</td>'+
-				'<td class="fillbox" colspan="5" contenteditable="true"></td>'+
-				'<td></td>'+
-				'<td colspan="10" rowspan="6" class="writebox">Diese Infos</td>'+
-			'</tr>'+
-			'<tr>'+
-				'<td colspan="3" style="text-align: right;">Seriennummer:</td>'+
-				'<td class="fillbox" colspan="11" contenteditable="true"></td>'+
-			'</tr>'+
-			'<tr>'+
-				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Ladegerät & Ladekabel</td>'+
-				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Notebooktasche</td>'+
-				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Dockingstation</td>'+
-			'</tr>'+
-			'<tr>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Maus</td>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Tastatur</td>'+
-			'</tr>'+
-			'<tr><td></td></tr>'+
-			'<tr>'+
-				'<td colspan="3" style="text-align: right;">Besonderheiten:</td>'+
-				'<td class="fillbox" colspan="11" contenteditable="true"></td>'+
-				'<td></td>'+
-			'</tr>'+
-			'<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>';
-		}
-		if (device == 'Notebook mit VPN') {
-			document.getElementById('device_table').innerHTML = '';
-			document.getElementById('device_table').innerHTML += ''+
-			'<tr><td></td><td colspan="3">VPN-Passwort:</td><td colspan="10" class="fillbox" contenteditable="true"><td></td><td colspan="10" rowspan="6" class="writebox" style="padding: 1em;">'+belehrung+'</td>'+
 			'<tr>'+
 				'<td></td><td colspan="3">Marke:</td>'+
-				'<td colspan="3" class="fillbox" contenteditable="true">'+
+				'<td colspan="3" class="fillbox" contenteditable="true"></td>'+
 				'<td></td><td colspan="2">Modell:</td>'+
 				'<td colspan="4" class="fillbox" contenteditable="true"></td>'+
+				'<td></td><td colspan="10" rowspan="6" class="writebox" style="padding: 1em;">'+belehrung+'</td>'+
 			'</tr>'+
-			'<tr><td></td><td colspan="3">Seriennummer:</td><td colspan="10" class="fillbox" contenteditable="true">'+
+			'<tr><td></td><td colspan="3">Seriennummer:</td><td colspan="10" class="fillbox" contenteditable="true"></td>'+
 			'<tr>'+
 				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="2">Monitor</td>'+
 				'<td></td><td colspan="3" class="fillbox" contenteditable="true"></td>'+
@@ -181,84 +207,166 @@
 				'<td colspan="4" class="fillbox" contenteditable="true"></td>'+
 			'</tr>'+
 			'<tr>'+
-				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Ladegerät & Ladekabel</td>'+
-				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Notebooktasche</td>'+
-				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Dockingstation</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="2">Ladegerät</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="3">Ladekabel</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="3">Tragetasche</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="2">Dockingstation</td>'+
 			'</tr>'+
 			'<tr>'+
-				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Maus</td>'+
-				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Tastatur</td>'+
-				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Headset</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="2">Maus</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="3">Tastatur</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="3">Headset</td>'+
+			'</tr>'+
+			'<tr><td colspan="15"></td></tr>'+
+			'<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>';
+		}
+		else if (device == 'Notebook mit VPN') {
+			document.getElementById('device_table').innerHTML = '';
+			document.getElementById('device_table').innerHTML += ''+
+			'<tr><td></td><td colspan="3">VPN-Passwort:</td><td colspan="10" class="fillbox" contenteditable="true"></td><td></td><td colspan="10" rowspan="6" class="writebox" style="padding: 1em;">'+belehrung+'</td>'+
+			'<tr>'+
+				'<td></td><td colspan="3">Marke:</td>'+
+				'<td colspan="3" class="fillbox" contenteditable="true"></td>'+
+				'<td></td><td colspan="2">Modell:</td>'+
+				'<td colspan="4" class="fillbox" contenteditable="true"></td>'+
+			'</tr>'+
+			'<tr><td></td><td colspan="3">Seriennummer:</td><td colspan="10" class="fillbox" contenteditable="true"></td>'+
+			'<tr>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="2">Monitor</td>'+
+				'<td></td><td colspan="3" class="fillbox" contenteditable="true"></td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="2">Drucker</td>'+
+				'<td colspan="4" class="fillbox" contenteditable="true"></td>'+
+			'</tr>'+
+			'<tr>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="2">Ladegerät</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="3">Ladekabel</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="3">Tragetasche</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="2">Dockingstation</td>'+
+			'</tr>'+
+			'<tr>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="2">Maus</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="3">Tastatur</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="3">Headset</td>'+
 			'</tr>'+
 			'<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>';
 		}
-		if (device == 'PC') {
+		else if (device == 'PC') {
 			document.getElementById('device_table').innerHTML = '';
 			document.getElementById('device_table').innerHTML += ''+
+			'<tr><td></td><td colspan="3">Aufstellungsort:</td><td colspan="10" class="fillbox" contenteditable="true"></td><td></td><td colspan="10" rowspan="6" class="writebox" style="padding: 1em;">'+belehrung+'</td>'+
 			'<tr>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Monitor</td>'+
-				'<td colspan="2" style="text-align: right;">Anzahl:</td>'+
-				'<td class="fillbox" colspan="2" contenteditable="true"></td>'+
-				'<td colspan="6"></td>'+
-				'<td colspan="10" rowspan="6" class="writebox">Diese Infos</td>'+
+				'<td></td><td colspan="3">Marke:</td>'+
+				'<td colspan="3" class="fillbox" contenteditable="true"></td>'+
+				'<td></td><td colspan="2">Modell:</td>'+
+				'<td colspan="4" class="fillbox" contenteditable="true"></td>'+
+			'</tr>'+
+			'<tr><td></td><td colspan="3">Seriennummer:</td><td colspan="10" class="fillbox" contenteditable="true"></td>'+
+			'<tr>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="2">Monitor</td>'+
+				'<td></td><td colspan="3" class="fillbox" contenteditable="true"></td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="2">Drucker</td>'+
+				'<td colspan="4" class="fillbox" contenteditable="true"></td>'+
 			'</tr>'+
 			'<tr>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Maus</td>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Tastatur</td>'+
-				'<td></td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="2">Maus</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="3">Tastatur</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="3">Headset</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="2">Webcam</td>'+
 			'</tr>'+
 			'<tr><td colspan="15"></td></tr>'+
-			'<tr><td colspan="15"></td></tr>'+
-			'<tr><td colspan="15">Besonderheiten:</td></tr>'+
-			'<tr><td colspan="14" class="fillbox" contenteditable="true"></td><td></td></tr>'+
 			'<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>';
 		}
-		if (device == 'PC mit VPN') {
+		else if (device == 'PC mit VPN') {
 			document.getElementById('device_table').innerHTML = '';
 			document.getElementById('device_table').innerHTML += ''+
-			'<tr><td colspan="4">VPN-Passwort:</td><td colspan="9" class="fillbox" contenteditable="true"></td><td></td><td></td><td colspan="10" rowspan="6" class="writebox">Diese Infos</td></tr>'+
+			'<tr><td></td><td colspan="3">VPN-Passwort:</td><td colspan="10" class="fillbox" contenteditable="true"></td><td></td><td colspan="10" rowspan="6" class="writebox" style="padding: 1em;">'+belehrung+'</td>'+
+			'<tr><td></td><td colspan="3">Aufstellungsort:</td><td colspan="10" class="fillbox" contenteditable="true"></td>'+
 			'<tr>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="5">Monitor</td>'+
-				'<td colspan="2" style="text-align: right;">Anzahl:</td>'+
-				'<td class="fillbox" colspan="2" contenteditable="true"></td>'+
-				'<td colspan="5"></td>'+
+				'<td></td><td colspan="3">Marke:</td>'+
+				'<td colspan="3" class="fillbox" contenteditable="true"></td>'+
+				'<td></td><td colspan="2">Modell:</td>'+
+				'<td colspan="4" class="fillbox" contenteditable="true"></td>'+
+			'</tr>'+
+			'<tr><td></td><td colspan="3">Seriennummer:</td><td colspan="10" class="fillbox" contenteditable="true"></td>'+
+			'<tr>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="2">Monitor</td>'+
+				'<td></td><td colspan="3" class="fillbox" contenteditable="true"></td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="2">Drucker</td>'+
+				'<td colspan="4" class="fillbox" contenteditable="true"></td>'+
 			'</tr>'+
 			'<tr>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Maus</td>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Tastatur</td>'+
-				'<td></td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="2">Maus</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="3">Tastatur</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="3">Headset</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="2">Webcam</td>'+
 			'</tr>'+
-			'<tr>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Dockingstation</td>'+
-				'<td colspan="7"></td>'+
-				'<td></td>'+
-			'</tr>'+
-			'<tr><td colspan="15">Besonderheiten:</td></tr>'+
-			'<tr><td colspan="14" class="fillbox" contenteditable="true"></td><td></td></tr>'+
 			'<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>';
 		}
-		if (device == 'iPad') {
+		else if (device == 'iPad') {
 			document.getElementById('device_table').innerHTML = '';
 			document.getElementById('device_table').innerHTML += ''+
 			'<tr>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Ladegerät & Ladekabel</td>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Notebooktasche</td>'+
-				'<td></td>'+
-				'<td colspan="10" rowspan="6" class="writebox">Diese Infos</td>'+
+				'<td></td><td colspan="3">Marke:</td>'+
+				'<td colspan="3" class="fillbox" contenteditable="true">Apple</td>'+
+				'<td></td><td colspan="2">Modell:</td>'+
+				'<td colspan="4" class="fillbox" contenteditable="true">12,9 Zoll - 4. Generation</td>'+
+				'<td></td><td colspan="10" rowspan="6" class="writebox" style="padding: 1em;">'+belehrung+'</td>'+
+			'</tr>'+
+			'<tr><td></td><td colspan="3">Seriennummer:</td><td colspan="10" class="fillbox" contenteditable="true"></td>'+
+			'<tr>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Ladegerät</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Ladekabel</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Displayfolie</td>'+
 			'</tr>'+
 			'<tr>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Maus</td>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Tastatur</td>'+
-				'<td></td>'+
-			'</tr>'+
-			'<tr>'+
-				'<td class="checkbox" style="padding: 0;" onclick="click_sub(this);"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="6">Dockingstation</td>'+
-				'<td colspan="7"></td>'+
-				'<td></td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Schutzhülle</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Apple Keyboard</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Apple Pencil</td>'+
 			'</tr>'+
 			'<tr><td colspan="15"></td></tr>'+
-			'<tr><td colspan="15">Besonderheiten:</td></tr>'+
-			'<tr><td colspan="14" class="fillbox" contenteditable="true"></td><td></td></tr>'+
+			'<tr><td colspan="15"></td></tr>'+
+			'<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>';
+		}
+		else if (device == 'Mobiltelefon Privatgerät') {
+			document.getElementById('device_table').innerHTML = '';
+			document.getElementById('device_table').innerHTML += ''+
+			'<tr>'+
+				'<td></td><td colspan="3">Marke:</td>'+
+				'<td colspan="3" class="fillbox" contenteditable="true"></td>'+
+				'<td></td><td colspan="2">Modell:</td>'+
+				'<td colspan="4" class="fillbox" contenteditable="true"></td>'+
+				'<td></td><td colspan="10" rowspan="6" class="writebox" style="padding: 1em;">'+belehrung+'</td>'+
+			'</tr>'+
+			'<tr><td></td><td colspan="3">IMEI:</td><td colspan="10" class="fillbox" contenteditable="true"></td>'+
+			'<tr>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Ladegerät</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Ladekabel</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Schutzhülle</td>'+
+			'</tr>'+
+			'<tr><td colspan="15"></td></tr>'+
+			'<tr><td colspan="15"></td></tr>'+
+			'<tr><td colspan="15"></td></tr>'+
+			'<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>';
+		}
+		else if (device == 'Mobiltelefon Dienstgerät') {
+			document.getElementById('device_table').innerHTML = '';
+			document.getElementById('device_table').innerHTML += ''+
+			'<tr>'+
+				'<td></td><td colspan="3">Marke:</td>'+
+				'<td colspan="3" class="fillbox" contenteditable="true">Motorola</td>'+
+				'<td></td><td colspan="2">Modell:</td>'+
+				'<td colspan="4" class="fillbox" contenteditable="true">G 04 S</td>'+
+				'<td></td><td colspan="10" rowspan="6" class="writebox" style="padding: 1em;">'+belehrung+'</td>'+
+			'</tr>'+
+			'<tr><td></td><td colspan="3">IMEI:</td><td colspan="10" class="fillbox" contenteditable="true"></td>'+
+			'<tr>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Ladegerät</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Ladekabel</td>'+
+				'<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td><td colspan="4">Schutzhülle</td>'+
+			'</tr>'+
+			'<tr><td colspan="15"></td></tr>'+
+			'<tr><td colspan="15"></td></tr>'+
+			'<tr><td colspan="15"></td></tr>'+
 			'<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>';
 		}
 	}
