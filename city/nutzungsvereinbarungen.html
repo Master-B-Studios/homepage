@@ -22,8 +22,7 @@
 	.writebox {background-color: #dddddd;border-radius: 0.3em;text-align: justify;vertical-align: top;}
 	
 	.select_container {background-color: #0A54A0;color: #ffffff;text-align: center;border-radius: 0.3em;cursor: pointer;}
-	.select_title {height: 100%;width: 100%;background-color: #222222;color: #ffffff;text-align: center;}
-	.set_device {height: 3.5vh;width: 56%;background-color: #dbdbdb;cursor: pointer;margin: auto;opacity: 1;background-color: #1c9e10;position: absolute;left: 2%;top: 49.6%;}
+	.set_device {height: 120%;width: 100%;background-color: #0A54A0;color: #ffffff;text-align: center;outline: none;border: none;box-shadow: none;font-size: 2.5vh;margin: auto;}
 
 	.checkbox {height: auto;width: auto;cursor: pointer;text-align: right;}
 	input[type="checkbox"] {height: auto;width: auto;cursor: pointer;}
@@ -84,9 +83,8 @@
 				</tr>
 				<tr>
 					<td colspan="14" id="device" class="select_container">
-						<div class="select_title" id="select_title"></div>
 						<select class="set_device" id="set_device" onchange="set_device();">
-							<option value=""></option>
+							<option value="">&nbsp;</option>
 							<option value="VPN">VPN</option>
 							<option value="Notebook">Notebook</option>
 							<option value="Notebook mit VPN">Notebook mit VPN</option>
@@ -119,7 +117,6 @@
 
 	function set_device() {
 		var device = document.getElementById('set_device').value;
-		document.getElementById('select_title').innerHTML = device;
 
 		if (device == 'VPN') {
 			document.getElementById('device_table').innerHTML = '';
