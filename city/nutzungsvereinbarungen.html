@@ -22,7 +22,7 @@
 	.writebox {background-color: #dddddd;border-radius: 0.3em;text-align: justify;vertical-align: top;}
 	
 	.select_container {background-color: #0A54A0;color: #ffffff;text-align: center;border-radius: 0.3em;cursor: pointer;}
-	.set_device {height: 120%;width: 100%;background-color: #0A54A0;color: #ffffff;text-align: center;outline: none;border: none;box-shadow: none;font-size: 2.5vh;margin: auto;}
+	.set_device {height: 120%;width: 100%;background-color: #0A54A0;color: #ffffff;text-align: center;outline: none;border: none;box-shadow: none;font-size: 2.5vh;margin: auto;border-radius: 0.3em;}
 
 	.checkbox {height: auto;width: auto;cursor: pointer;text-align: right;}
 	input[type="checkbox"] {height: auto;width: auto;cursor: pointer;}
@@ -61,8 +61,20 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td colspan="4" style="padding-left: 0;text-align: right;">Aufstellungsort:</td>
-					<td colspan="10" class="fillbox" contenteditable="true"></td>
+					<td colspan="4" style="padding-left: 0;text-align: right;">Ausgabe:</td>
+					<td colspan="10" id="device" class="select_container">
+						<select class="set_device" id="set_device" onchange="set_device();">
+							<option value="">&nbsp;</option>
+							<option value="VPN">VPN</option>
+							<option value="Notebook">Notebook</option>
+							<option value="Notebook mit VPN">Notebook mit VPN</option>
+							<option value="PC">PC</option>
+							<option value="PC mit VPN">PC mit VPN</option>
+							<option value="iPad">iPad</option>
+							<option value="Mobiltelefon Privatgerät">Mobiltelefon Privatgerät</option>
+							<option value="Mobiltelefon Dienstgerät">Mobiltelefon Dienstgerät</option>
+						</select>
+					</td>
 					<td></td>
 				</tr>
 				<tr>
@@ -96,7 +108,7 @@
 						</select>
 					</td>
 					<td></td>
-					<td colspan="10" rowspan="6" class="writebox">Diese Infos</td>
+					<td colspan="10" class="infobox_bottom">- Belehrung -</td>
 				</tr>
 			</table>
 			<table class="table_1" id="device_table"></table>
@@ -117,16 +129,16 @@
 
 	function set_device() {
 		var device = document.getElementById('set_device').value;
-
+		if (device == '') {document.getElementById('device_table').innerHTML = '';}
 		if (device == 'VPN') {
 			document.getElementById('device_table').innerHTML = '';
 			document.getElementById('device_table').innerHTML += ''+
-			'<tr><td colspan="4">VPN-Passwort:</td><td colspan="10" class="fillbox" contenteditable="true">'+
+			'<tr><td colspan="4">VPN-Passwort:</td><td colspan="10" class="fillbox" contenteditable="true"><td></td><td colspan="10" rowspan="6" class="writebox">Diese Infos</td>'+
 			'<tr><td colspan="15"></td></tr>'+
 			'<tr><td colspan="15"></td></tr>'+
 			'<tr><td colspan="15"></td></tr>'+
 			'<tr><td colspan="15">Besonderheiten:</td></tr>'+
-			'<tr><td colspan="14" class="fillbox" contenteditable="true"></td><td></td><td colspan="10" class="infobox_bottom">- Belehrung -</td></tr>'+
+			'<tr><td colspan="14" class="fillbox" contenteditable="true"></td><td></td></tr>'+
 			'<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>';
 		}
 		if (device == 'Notebook') {
