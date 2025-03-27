@@ -20,10 +20,10 @@
 	.infobox_top {text-align: center;font-size: 0.8em;vertical-align: top;}
 	.infobox_bottom {text-align: center;font-size: 0.8em;vertical-align: bottom;}
 	.writebox {background-color: #dddddd;border-radius: 0.3em;text-align: justify;vertical-align: top;}
-	.select {background-color: #0A54A0;color: #ffffff;text-align: center;border-radius: 0.3em;}
-
-	.set_device_container {cursor: pointer;padding: 0;}
-	.set_device {height: 3.5vh;width: 2vh;background-color: #dbdbdb;border-radius: 10px;cursor: pointer;margin: auto;}
+	
+	.select_container {background-color: #0A54A0;color: #ffffff;text-align: center;border-radius: 0.3em;cursor: pointer;}
+	.select_title {height: 100%;width: 100%;background-color: #222222;color: #ffffff;text-align: center;}
+	.set_device {height: 3.5vh;width: 56%;background-color: #dbdbdb;cursor: pointer;margin: auto;opacity: 1;background-color: #1c9e10;position: absolute;left: 2%;top: 49.6%;}
 
 	.checkbox {height: auto;width: auto;cursor: pointer;text-align: right;}
 	input[type="checkbox"] {height: auto;width: auto;cursor: pointer;}
@@ -83,7 +83,8 @@
 					<td colspan="10" class="infobox_top">- Unterschrift Nutzungsberechtigte(r) -</td>
 				</tr>
 				<tr>
-					<td class="set_device_container">
+					<td colspan="14" id="device" class="select_container">
+						<div class="select_title" id="select_title"></div>
 						<select class="set_device" id="set_device" onchange="set_device();">
 							<option value=""></option>
 							<option value="VPN">VPN</option>
@@ -96,7 +97,6 @@
 							<option value="Mobiltelefon Dienstgerät">Mobiltelefon Dienstgerät</option>
 						</select>
 					</td>
-					<td colspan="13" id="device" class="select"></td>
 					<td></td>
 					<td colspan="10" rowspan="6" class="writebox">Diese Infos</td>
 				</tr>
@@ -119,7 +119,7 @@
 
 	function set_device() {
 		var device = document.getElementById('set_device').value;
-		document.getElementById('device').innerHTML = device;
+		document.getElementById('select_title').innerHTML = device;
 
 		if (device == 'VPN') {
 			document.getElementById('device_table').innerHTML = '';
@@ -259,5 +259,4 @@
 	}
 
 	function clean(obj) {obj.innerHTML = '';}
-	function click_sub(obj) {}
 </script>
