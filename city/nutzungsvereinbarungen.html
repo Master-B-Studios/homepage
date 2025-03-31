@@ -52,7 +52,7 @@
 </style>
 </head>
 
-<body onload="jump_page_home();">
+<body onload="jump_page_home();set_date();">
     <section id="home">
         <div class="header_container">
             <div class="header_left"></div>
@@ -95,7 +95,7 @@
 				</tr>
 				<tr>
 					<td colspan="4" style="padding-left: 0;text-align: right;">Datum:</td>
-					<td colspan="10" class="fillbox" contenteditable="true"></td>
+					<td colspan="10" class="fillbox" contenteditable="true" id="date"></td>
 				</tr>
 				<tr>
 					<td colspan="15"></td>
@@ -126,9 +126,7 @@
 
 	function set_date() {
 		var date = new Date().toISOString().substring(0, 10);var day = date.substring(8);var month = date.substring(5, 7);var year = date.substring(0, 4);
-		document.getElementById('entleihen_datum_aus').innerHTML = day+'.'+month+'.'+year;
-		document.getElementById('entleihen_datum_ein').innerHTML = day+'.'+month+'.'+year;
-		document.getElementById('back_datum_ein').innerHTML = day+'.'+month+'.'+year;
+		document.getElementById('date').innerHTML = day+'.'+month+'.'+year;
 	}
 
 	function set_device() {
