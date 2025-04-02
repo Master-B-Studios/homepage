@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<title id="title_id" style="background-color: #000000">IuK Geräteausgabe</title>
+<link rel="icon" href="">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style>
+	@font-face {font-family: Futura;src: url(sources/fonts/Futura.ttf);}
+	section {display: none;}
+	section:target {display: block;}
+	body {font-family: Arial, Helvetica, sans-serif;font-size: 2.5vh;cursor: default;overflow: hidden;margin: 0;padding: 0;}
+
+	.header_container {width: 99vw;height: 8vh;display: flex;background-color: #0A54A0;margin: 0.5em auto 0 auto;border-radius: 20px;}
+	.header_left {width: 5%;height: 100%;display: flex;align-items: center;}
+	.header_center {width: 90%;height: 100%;display: flex;align-items: center;justify-content: center;font-size: 4vh;font-weight: bold;color: #ffffff;}
+	.header_right {width: 5%;height: 100%;display: flex;align-items: center;}
+
+	.icon_container {width: 20%;height: auto;background-color: #0A54A0;margin: auto;}
+	.icon_image {width: 98%;height: auto;border: 2px solid #000000;border-radius: 10px;margin: 1em auto 1em auto;}
+	.icon_text {width: 100%;text-align: center;}
+</style>
+</head>
+
+<body onload="jump_page_home();">
+	<section id="selector">
+		<div class="header_container">
+            <div class="header_left"></div>
+            <div class="header_center" onclick="window.location.reload();">IuK-Formulare</div>
+            <div class="header_right"></div>
+        </div>
+		<figure class="icon_container">
+			<img class="icon_image" src="sources/images/icon_devices.png">
+			<figcaption class="icon_text">Geräteausgabe</figcaption>
+		</figure>
+	</section>
+</body>
+</html>
+
+<script>
+	function jump_page_home() {window.location.href = '#selector'}
+</script>
