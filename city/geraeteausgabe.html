@@ -11,7 +11,8 @@
 	body {font-family: Arial, Helvetica, sans-serif;font-size: 2.5vh;cursor: default;overflow: hidden;margin: 0;padding: 0;}
 
 	.header_container {width: 99vw;height: 8vh;display: flex;background-color: #0A54A0;margin: 0.5em auto 0 auto;border-radius: 20px;}
-	.header_left {width: 5%;height: 100%;display: flex;align-items: center;}
+	.header_left {width: 5%;height: 100%;display: flex;align-items: center;justify-content: center;cursor: pointer;}
+	.header_left img {width: auto;height: 70%;}
 	.header_center {width: 90%;height: 100%;display: flex;align-items: center;justify-content: center;font-size: 4vh;font-weight: bold;color: #ffffff;}
 	.header_right {width: 5%;height: 100%;display: flex;align-items: center;}
 
@@ -55,7 +56,7 @@
 <body onload="jump_page_home();set_date();">
     <section id="home">
         <div class="header_container">
-            <div class="header_left"></div>
+            <div class="header_left" onclick="jump_page_main();"><img src="sources/images/swipe.png"></div>
             <div class="header_center" onclick="window.location.reload();">Geräteausgabe Stadt Vaihingen an der Enz</div>
             <div class="header_right"></div>
         </div>
@@ -123,6 +124,7 @@
 <script>
 	function jump_page_home() {window.location.href = '#home';}
 	function jump_page_contract() {window.location.href = '#contract';}
+	function jump_page_main() {window.location.href = 'iuk-formulare.html';}
 
 	function set_date() {
 		var date = new Date().toISOString().substring(0, 10);var day = date.substring(8);var month = date.substring(5, 7);var year = date.substring(0, 4);
