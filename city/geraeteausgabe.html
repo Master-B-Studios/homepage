@@ -29,8 +29,10 @@
 	.writebox {background-color: #dddddd;border-radius: 0.3em;text-align: justify;vertical-align: top;padding: 2em;font-size: 2.2vh;}
 	
 	.select_container {background-color: #0A54A0;color: #ffffff;text-align: center;border-radius: 0.3em;cursor: pointer;}
-	.select_container_reason {background-color: #dddddd;color: #ffffff;text-align: center;border-radius: 0.3em;cursor: pointer;}
 	.set_device {height: 120%;width: 100%;background-color: #0A54A0;color: #ffffff;text-align: center;outline: none;border: none;box-shadow: none;font-size: 2.5vh;margin: auto;border-radius: 0.3em;}
+
+	.select_container_reason {height: 3.5vh;width: 2px;background-color: #dddddd;color: #000000;text-align: center;border-radius: 0.3em;cursor: pointer;}
+	.set_reason {height: 120%;width: 1rem;background-color: #dddddd;color: #000000;text-align: center;outline: none;border: none;box-shadow: none;font-size: 2.5vh;margin: auto;border-radius: 0.3em;}
 
 	input[type="date"] {height: 3.5vh;width: auto;cursor: pointer;font-family: Futura;font-size: 2.2vh;background-color: #dddddd;border: none;outline: none;}
 
@@ -98,12 +100,12 @@
 				</tr>
 				<tr>
 					<td colspan="4" style="padding-left: 0;text-align: right;">Verwendungszweck:</td>
-					<td colspan="7" class="fillbox" contenteditable="true"></td>
-					<td colspan="3" id="device" class="select_container_reason">
+					<td colspan="9" class="fillbox" contenteditable="true"></td>
+					<td colspan="1" id="set_reason" class="select_container_reason">
 						<select class="set_reason" id="set_reason" onchange="set_reason();">
-							<option value="">Auswahl</option>
-							<option value="Mobiles Arbeiten">VPN</option>
-							<option value="Mobile Erreichbarkeit">Mobile Erreichbarkeit</option>
+							<option value="">&nbsp;</option>
+							<option value="Mobiles Arbeiten">&nbsp;&nbsp;Mobiles Arbeiten&nbsp;&nbsp;</option>
+							<option value="Mobile Erreichbarkeit">&nbsp;&nbsp;Mobile Erreichbarkeit&nbsp;&nbsp;</option>
 						</select>
 					</td>
 				</tr>
