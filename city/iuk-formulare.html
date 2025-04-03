@@ -17,7 +17,8 @@
 
 	.selection_container {width: 100%;height: auto;display: flex;align-items: center;justify-content: space-evenly;}
 
-	.icon_container {width: 20%;height: auto;margin: 6em auto;border-radius: 10px;cursor: pointer;}
+	.icon_container {width: 20%;height: auto;margin: 6em auto;border-radius: 10px;text-align: center;padding: 1em;cursor: pointer;background-color: #dddddd;}
+	.icon_container:hover {background-color: #aaaaaa;}
 	.icon_image {width: calc(100% - 4px);height: auto;border: 2px solid #000000;border-radius: 10px;margin: auto auto 1em auto;}
 	.icon_text {width: 100%;text-align: center;}
 </style>
@@ -36,12 +37,12 @@
 				<figcaption class="icon_text">Geräteausgabe</figcaption>
 			</figure>
 			<figure class="icon_container" onclick="jump_page_ausgabe();">
-				<img class="icon_image" src="sources/images/icon_devices.png">
-				<figcaption class="icon_text">Geräteausgabe</figcaption>
+				<img class="icon_image" src="sources/images/icon_verleih_aus.jpg">
+				<figcaption class="icon_text">Inventar-Verleih</figcaption>
 			</figure>
 			<figure class="icon_container" onclick="jump_page_ausgabe();">
-				<img class="icon_image" src="sources/images/icon_devices.png">
-				<figcaption class="icon_text">Geräteausgabe</figcaption>
+				<img class="icon_image" src="sources/images/icon_verleih_ein.jpg">
+				<figcaption class="icon_text">Inventar-Rückgabe</figcaption>
 			</figure>
 		</div>
 	</section>
