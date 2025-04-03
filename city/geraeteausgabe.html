@@ -29,6 +29,7 @@
 	.writebox {background-color: #dddddd;border-radius: 0.3em;text-align: justify;vertical-align: top;padding: 2em;font-size: 2.2vh;}
 	
 	.select_container {background-color: #0A54A0;color: #ffffff;text-align: center;border-radius: 0.3em;cursor: pointer;}
+	.select_container_reason {background-color: #dddddd;color: #ffffff;text-align: center;border-radius: 0.3em;cursor: pointer;}
 	.set_device {height: 120%;width: 100%;background-color: #0A54A0;color: #ffffff;text-align: center;outline: none;border: none;box-shadow: none;font-size: 2.5vh;margin: auto;border-radius: 0.3em;}
 
 	.checkbox {height: auto;width: auto;cursor: pointer;text-align: right;}
@@ -95,7 +96,14 @@
 				</tr>
 				<tr>
 					<td colspan="4" style="padding-left: 0;text-align: right;">Verwendungszweck:</td>
-					<td colspan="10" class="fillbox" contenteditable="true"></td>
+					<td colspan="9" class="fillbox" contenteditable="true"></td>
+					<td colspan="1" id="device" class="select_container_reason">
+						<select class="set_reason" id="set_reason" onchange="set_reason();">
+							<option value="">Auswahl</option>
+							<option value="Mobiles Arbeiten">VPN</option>
+							<option value="Mobile Erreichbarkeit">Mobile Erreichbarkeit</option>
+						</select>
+					</td>
 				</tr>
 				<tr>
 					<td colspan="4" style="padding-left: 0;text-align: right;">Datum:</td>
@@ -148,7 +156,7 @@
 		'<br>'+
 		'<br>'+
 		'<br>'+
-		'<span style="color: #0A54A0;cursor: pointer;" onclick="jump_page_contract();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Nutzungsvereinbarung anzeigen -</span>';
+		'<span style="color: #0A54A0;cursor: pointer;" onclick="jump_page_contract();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Nutzungsvereinbarung anzeigen -</span>';
 
 		if (device == '') {document.getElementById('device_table').innerHTML = '';}
 		else if (device == 'VPN') {
