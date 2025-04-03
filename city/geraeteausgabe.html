@@ -13,8 +13,10 @@
 	.header_container {width: 99vw;height: 8vh;display: flex;background-color: #0A54A0;margin: 0.5em auto 0 auto;border-radius: 20px;}
 	.header_left {width: 5%;height: 100%;display: flex;align-items: center;justify-content: center;cursor: pointer;}
 	.header_left img {width: auto;height: 70%;}
+	.header_left img:hover {filter: invert(5%) sepia() saturate(100000%) hue-rotate(170deg);}
 	.header_center {width: 90%;height: 100%;display: flex;align-items: center;justify-content: center;font-size: 4vh;font-weight: bold;color: #ffffff;}
-	.header_right {width: 5%;height: 100%;display: flex;align-items: center;}
+	.header_right {width: 5%;height: 100%;display: flex;align-items: center;justify-content: center;cursor: pointer;}
+	.header_right img {width: auto;height: 70%;}
 
 	.table_container {width: 98vw;height: auto;margin: auto auto 1em auto;display: block;}
 	.table_1 {width: 100%;}
@@ -57,8 +59,8 @@
     <section id="home">
         <div class="header_container">
             <div class="header_left" onclick="jump_page_main();"><img src="sources/images/swipe.png"></div>
-            <div class="header_center" onclick="window.location.reload();">Geräteausgabe Stadt Vaihingen an der Enz</div>
-            <div class="header_right"></div>
+            <div class="header_center">Geräteausgabe Stadt Vaihingen an der Enz</div>
+            <div class="header_right" onclick="clean_site();"><img src="sources/images/trash.png"></div>
         </div>
 		<div class="table_container">
 			<table class="table_1">
