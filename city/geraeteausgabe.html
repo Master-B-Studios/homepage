@@ -32,6 +32,8 @@
 	.select_container_reason {background-color: #dddddd;color: #ffffff;text-align: center;border-radius: 0.3em;cursor: pointer;}
 	.set_device {height: 120%;width: 100%;background-color: #0A54A0;color: #ffffff;text-align: center;outline: none;border: none;box-shadow: none;font-size: 2.5vh;margin: auto;border-radius: 0.3em;}
 
+	input[type="date"] {height: 3.5vh;width: auto;cursor: pointer;font-family: Futura;font-size: 2.2vh;background-color: #dddddd;border: none;outline: none;}
+
 	.checkbox {height: auto;width: auto;cursor: pointer;text-align: right;}
 	input[type="checkbox"] {height: auto;width: auto;cursor: pointer;}
 	.checkbox-wrapper-31 {position: relative;display: inline-block;width: 4vh;height: 4vh;top: 0.3vh;}
@@ -96,8 +98,8 @@
 				</tr>
 				<tr>
 					<td colspan="4" style="padding-left: 0;text-align: right;">Verwendungszweck:</td>
-					<td colspan="9" class="fillbox" contenteditable="true"></td>
-					<td colspan="1" id="device" class="select_container_reason">
+					<td colspan="7" class="fillbox" contenteditable="true"></td>
+					<td colspan="3" id="device" class="select_container_reason">
 						<select class="set_reason" id="set_reason" onchange="set_reason();">
 							<option value="">Auswahl</option>
 							<option value="Mobiles Arbeiten">VPN</option>
@@ -107,7 +109,8 @@
 				</tr>
 				<tr>
 					<td colspan="4" style="padding-left: 0;text-align: right;">Datum:</td>
-					<td colspan="10" class="fillbox" contenteditable="true" id="date"></td>
+					<td colspan="2" class="fillbox" contenteditable="true" id="day_of_week"></td>
+					<td colspan="8" class="fillbox"><input id="date" type="date" onchange="change_day(this);"></td>
 				</tr>
 				<tr>
 					<td colspan="15"></td>
@@ -139,7 +142,15 @@
 
 	function set_date() {
 		var date = new Date().toISOString().substring(0, 10);var day = date.substring(8);var month = date.substring(5, 7);var year = date.substring(0, 4);
-		document.getElementById('date').innerHTML = day+'.'+month+'.'+year;
+		document.getElementById('date').value = year+'-'+month+'-'+day;
+		var day_of_week = new Date().getDay();
+		var days = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+		document.getElementById('day_of_week').innerHTML = days[day_of_week]+', ';
+	}
+	function change_day(obj) {
+		var day_of_week = new Date(obj.value+'T00:00:00').getDay();
+		var days = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+		document.getElementById('day_of_week').innerHTML = days[day_of_week]+', ';
 	}
 	function clean_site() {window.location.reload();}
 
