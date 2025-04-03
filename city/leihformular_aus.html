@@ -24,6 +24,7 @@
 	.table_1 td {width: 4%;height: 3.5vh;padding: 0.48em;}
 
 	.fillbox {background-color: #dddddd;border-radius: 0.3em;cursor: pointer;}
+	.fillbox_center {background-color: #dddddd;cursor: pointer;}
 	.fillbox_left {background-color: #dddddd;border-radius: 0.3em 0 0 0.3em;cursor: pointer;}
 	.fillbox_right {background-color: #dddddd;border-radius: 0 0.3em 0.3em 0;cursor: pointer;}
 	.infobox_top {text-align: center;font-size: 0.8em;vertical-align: top;}
@@ -38,7 +39,9 @@
 
 	input[type="date"] {height: 3.5vh;width: auto;cursor: pointer;font-family: Futura;font-size: 1.9vh;background-color: #dddddd;border: none;outline: none;}
 
-	.checkbox {height: auto;width: auto;cursor: pointer;text-align: right;}
+	.textbox {height: auto;width: auto;text-align: left;background-color: #bbbbbb;}
+
+	.checkbox {height: auto;width: auto;cursor: pointer;text-align: center;background-color: #bbbbbb;border-radius: 0.3em 0 0 0.3em;}
 	input[type="checkbox"] {height: auto;width: auto;cursor: pointer;}
 	.checkbox-wrapper-31 {position: relative;display: inline-block;width: 4vh;height: 4vh;top: 0.3vh;}
 	.checkbox-wrapper-31 .background {fill: #555555;transition: ease all 0.6s;-webkit-transition: ease all 0.6s;}
@@ -94,17 +97,80 @@
 					<td colspan="2" class="fillbox_left" contenteditable="true" id="day_of_week_back"></td>
 					<td colspan="8" class="fillbox_right"><input id="date_back" type="date" onchange="change_day(this);"></td>
 				</tr>
+				<tr><td></td></tr>
 				<tr>
 					<td colspan="15"></td>
-					<td colspan="10" class="infobox_top">- Unterschrift Nutzungsberechtigte(r) -</td>
+					<td colspan="10" class="infobox_top">- Unterschrift des Entleihers -</td>
 				</tr>
 				<tr>
-					<td colspan="4"></td>
-					<td colspan="10" class="infobox_bottom"></td>
+					<td colspan="14" class="infobox_bottom">- Folgende Posten werden entliehen -</td>
 					<td></td>
 					<td colspan="10" class="infobox_bottom">- Belehrung -</td>
 				</tr>
-				<tr><td></td></tr>
+				<tr>
+					<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>
+					<td class="textbox" colspan="7">Notebook</td>
+					<td class="textbox" style="text-align: right;" colspan="2">Anzahl:</td>
+					<td class="fillbox_center" contenteditable="true" type="number"></td>
+					<td class="textbox" style="text-align: right;" colspan="2">Inventar-Nr.:</td>
+					<td class="fillbox_right" contenteditable="true" type="number"></td>
+					<td></td>
+					<td colspan="10" rowspan="8" class="writebox" style="padding: 1em;">
+						Mit Unterschrift wird die Richtigkeit und Vollständigkeit vorstehender Angaben bestätigt.<br>
+						<br>
+						Zudem wird bestätigt, dass die entliehenen Posten vollständig und intakt übergeben wurden. Die Vollständigkeit eines Postens beinhaltet ebenso das entsprechende Zubehör, das gemeinsam mit dem Posten übergeben wird (bspw. Notebooktasche mit Notebook, Ladegerät, Maus, etc.). Eine exakte Auflistung des Zubehörs liegt der Umverpackung des jeweilig entliehenen Postens bei.<br>
+						<br>
+						Der Defekt eines Postens oder dessen Zubehör ist umgehend bei der IuK-Abteilung zu melden.
+					</td>
+				</tr>
+				<tr>
+					<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>
+					<td class="textbox" colspan="7">Beamer</td>
+					<td class="textbox" style="text-align: right;" colspan="2">Anzahl:</td>
+					<td class="fillbox_center" contenteditable="true" type="number"></td>
+					<td class="textbox" style="text-align: right;" colspan="2">Inventar-Nr.:</td>
+					<td class="fillbox_right" contenteditable="true" type="number"></td>
+				</tr>
+				<tr>
+					<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>
+					<td class="textbox" colspan="7">Konferenz-Lautsprecher</td>
+					<td class="textbox" style="text-align: right;" colspan="2">Anzahl:</td>
+					<td class="fillbox_center" contenteditable="true" type="number"></td>
+					<td class="textbox" style="text-align: right;" colspan="2">Inventar-Nr.:</td>
+					<td class="fillbox_right" contenteditable="true" type="number"></td>
+				</tr>
+				<tr>
+					<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>
+					<td class="textbox" colspan="7">Webcam</td>
+					<td class="textbox" style="text-align: right;" colspan="2">Anzahl:</td>
+					<td class="fillbox_center" contenteditable="true" type="number"></td>
+					<td class="textbox" style="text-align: right;" colspan="2">Inventar-Nr.:</td>
+					<td class="fillbox_right" contenteditable="true" type="number"></td>
+				</tr>
+				<tr>
+					<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>
+					<td class="textbox" colspan="7">Laserpointer</td>
+					<td class="textbox" style="text-align: right;" colspan="2">Anzahl:</td>
+					<td class="fillbox_center" contenteditable="true" type="number"></td>
+					<td class="textbox" style="text-align: right;" colspan="2">Inventar-Nr.:</td>
+					<td class="fillbox_right" contenteditable="true" type="number"></td>
+				</tr>
+				<tr>
+					<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>
+					<td class="textbox" colspan="7">WLAN-Hotspot</td>
+					<td class="textbox" style="text-align: right;" colspan="2">Anzahl:</td>
+					<td class="fillbox_center" contenteditable="true" type="number"></td>
+					<td class="textbox" style="text-align: right;" colspan="2">Inventar-Nr.:</td>
+					<td class="fillbox_right" contenteditable="true" type="number"></td>
+				</tr>
+				<tr>
+					<td class="checkbox" style="padding: 0;"><div class="checkbox-wrapper-31"><input type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>
+					<td class="fillbox_center" colspan="7" contenteditable="true">Sonstiges</td>
+					<td class="textbox" style="text-align: right;" colspan="2">Anzahl:</td>
+					<td class="fillbox_center" contenteditable="true" type="number"></td>
+					<td class="textbox" style="text-align: right;" colspan="2">Inventar-Nr.:</td>
+					<td class="fillbox_right" contenteditable="true" type="number"></td>
+				</tr>
 			</table>
 			<table class="table_1" id="device_table"></table>
 		</div>
