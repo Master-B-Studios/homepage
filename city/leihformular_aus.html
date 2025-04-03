@@ -31,10 +31,10 @@
 	.writebox {background-color: #dddddd;border-radius: 0.3em;text-align: justify;vertical-align: top;padding: 2em;font-size: 1.9vh;}
 	
 	.select_container {background-color: #0A54A0;color: #ffffff;text-align: center;border-radius: 0.3em;cursor: pointer;}
-	.set_device {height: 120%;width: 100%;background-color: #0A54A0;color: #ffffff;text-align: center;outline: none;border: none;box-shadow: none;font-size: 1.9vh;margin: auto;border-radius: 0.3em;}
+	.set_device {height: 120%;width: 100%;background-color: #0A54A0;color: #ffffff;text-align: center;outline: none;border: none;box-shadow: none;font-size: 2.5vh;margin: auto;border-radius: 0.3em;}
 
 	.select_container_reason {height: 3.5vh;width: 2px;background-color: #dddddd;color: #000000;text-align: center;border-radius: 0 0.3em 0.3em 0;cursor: pointer;}
-	.set_reason {height: 120%;width: 1rem;background-color: #dddddd;color: #000000;text-align: center;outline: none;border: none;box-shadow: none;font-size: 1.9vh;margin: auto;border-radius: 0.3em;}
+	.set_reason {height: 120%;width: 1rem;background-color: #dddddd;color: #000000;text-align: center;outline: none;border: none;box-shadow: none;font-size: 2.5vh;margin: auto;border-radius: 0.3em;}
 
 	input[type="date"] {height: 3.5vh;width: auto;cursor: pointer;font-family: Futura;font-size: 1.9vh;background-color: #dddddd;border: none;outline: none;}
 
@@ -67,54 +67,32 @@
     <section id="home">
         <div class="header_container">
             <div class="header_left" onclick="jump_page_main();"><img src="sources/images/swipe.png"></div>
-            <div class="header_center">Geräteausgabe Stadt Vaihingen an der Enz</div>
+            <div class="header_center">Leihformular Stadt Vaihingen an der Enz</div>
             <div class="header_right" onclick="clean_site();"><img src="sources/images/trash.png"></div>
         </div>
 		<div class="table_container">
 			<table class="table_1">
 				<tr style="opacity: 0;"><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td><td style="height: 0;"></td></tr>
 				<tr>
-					<td colspan="4" style="padding-left: 0;text-align: right;">Ausgabe:</td>
-					<td colspan="10" id="device" class="select_container">
-						<select class="set_device" id="set_device" onchange="set_device();">
-							<option value="">Bitte Auswählen...</option>
-							<option value="VPN">VPN</option>
-							<option value="Notebook">Notebook</option>
-							<option value="Notebook mit VPN">Notebook mit VPN</option>
-							<option value="PC">PC</option>
-							<option value="PC mit VPN">PC mit VPN</option>
-							<option value="iPad">iPad</option>
-							<option value="Mobiltelefon Privatgerät">Mobiltelefon Privatgerät</option>
-							<option value="Mobiltelefon Dienstgerät">Mobiltelefon Dienstgerät</option>
-						</select>
-					</td>
-					<td></td>
-					<td colspan="10" rowspan="5" class="writebox"></td>
-				</tr>
-				<tr>
-					<td colspan="4" style="padding-left: 0;text-align: right;">Nutzungsberechtigte(r):</td>
+					<td colspan="4" style="padding-left: 0;text-align: right;">Entleiher:</td>
 					<td colspan="5" class="fillbox_left" contenteditable="true" onclick="clean(this);">Vorname</td>
 					<td colspan="5" class="fillbox_right" contenteditable="true" onclick="clean(this);">Nachname</td>
+					<td></td>
+					<td colspan="10" rowspan="4" class="writebox"></td>
 				</tr>
 				<tr>
 					<td colspan="4" style="padding-left: 0;text-align: right;">Amt / Abteilung:</td>
 					<td colspan="10" class="fillbox" contenteditable="true"></td>
 				</tr>
 				<tr>
-					<td colspan="4" style="padding-left: 0;text-align: right;">Verwendungszweck:</td>
-					<td colspan="9" class="fillbox_left" contenteditable="true" id="reason_text"></td>
-					<td colspan="1" class="select_container_reason">
-						<select class="set_reason" id="set_reason" onchange="set_reason();">
-							<option value="">&nbsp;</option>
-							<option value="Mobiles Arbeiten">&nbsp;&nbsp;Mobiles Arbeiten&nbsp;&nbsp;</option>
-							<option value="Mobile Erreichbarkeit">&nbsp;&nbsp;Mobile Erreichbarkeit&nbsp;&nbsp;</option>
-						</select>
-					</td>
+					<td colspan="4" style="padding-left: 0;text-align: right;">Datum:</td>
+					<td colspan="2" class="fillbox_left" contenteditable="true" id="day_of_week_out"></td>
+					<td colspan="8" class="fillbox_right"><input id="date_out" type="date" onchange="change_day(this);"></td>
 				</tr>
 				<tr>
-					<td colspan="4" style="padding-left: 0;text-align: right;">Datum:</td>
-					<td colspan="2" class="fillbox_left" contenteditable="true" id="day_of_week"></td>
-					<td colspan="8" class="fillbox_right"><input id="date" type="date" onchange="change_day(this);"></td>
+					<td colspan="4" style="padding-left: 0;text-align: right;">Geplante Rückgabe:</td>
+					<td colspan="2" class="fillbox_left" contenteditable="true" id="day_of_week_back"></td>
+					<td colspan="8" class="fillbox_right"><input id="date_back" type="date" onchange="change_day(this);"></td>
 				</tr>
 				<tr>
 					<td colspan="15"></td>
@@ -146,15 +124,18 @@
 
 	function set_date() {
 		var date = new Date().toISOString().substring(0, 10);var day = date.substring(8);var month = date.substring(5, 7);var year = date.substring(0, 4);
-		document.getElementById('date').value = year+'-'+month+'-'+day;
+		document.getElementById('date_out').value = year+'-'+month+'-'+day;
+		document.getElementById('date_back').value = year+'-'+month+'-'+day;
 		var day_of_week = new Date().getDay();
 		var days = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
-		document.getElementById('day_of_week').innerHTML = days[day_of_week]+', ';
+		document.getElementById('day_of_week_out').innerHTML = days[day_of_week]+', ';
+		document.getElementById('day_of_week_back').innerHTML = days[day_of_week]+', ';
 	}
 	function change_day(obj) {
 		var day_of_week = new Date(obj.value+'T00:00:00').getDay();
 		var days = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
-		document.getElementById('day_of_week').innerHTML = days[day_of_week]+', ';
+		if (obj.id == 'date_out') {document.getElementById('day_of_week_out').innerHTML = days[day_of_week]+', ';}
+		else if (obj.id == 'date_back') {document.getElementById('day_of_week_back').innerHTML = days[day_of_week]+', ';}
 	}
 
 	function clean_site() {window.location.reload();}
