@@ -24,6 +24,8 @@
 	.table_1 td {width: 4%;height: 3.5vh;padding: 0.48em;}
 
 	.fillbox {background-color: #dddddd;border-radius: 0.3em;cursor: pointer;}
+	.fillbox_left {background-color: #dddddd;border-radius: 0.3em 0 0 0.3em;cursor: pointer;}
+	.fillbox_right {background-color: #dddddd;border-radius: 0 0.3em 0.3em 0;cursor: pointer;}
 	.infobox_top {text-align: center;font-size: 0.8em;vertical-align: top;}
 	.infobox_bottom {text-align: center;font-size: 0.8em;vertical-align: bottom;}
 	.writebox {background-color: #dddddd;border-radius: 0.3em;text-align: justify;vertical-align: top;padding: 2em;font-size: 2.2vh;}
@@ -31,7 +33,7 @@
 	.select_container {background-color: #0A54A0;color: #ffffff;text-align: center;border-radius: 0.3em;cursor: pointer;}
 	.set_device {height: 120%;width: 100%;background-color: #0A54A0;color: #ffffff;text-align: center;outline: none;border: none;box-shadow: none;font-size: 2.5vh;margin: auto;border-radius: 0.3em;}
 
-	.select_container_reason {height: 3.5vh;width: 2px;background-color: #dddddd;color: #000000;text-align: center;border-radius: 0.3em;cursor: pointer;}
+	.select_container_reason {height: 3.5vh;width: 2px;background-color: #dddddd;color: #000000;text-align: center;border-radius: 0 0.3em 0.3em 0;cursor: pointer;}
 	.set_reason {height: 120%;width: 1rem;background-color: #dddddd;color: #000000;text-align: center;outline: none;border: none;box-shadow: none;font-size: 2.5vh;margin: auto;border-radius: 0.3em;}
 
 	input[type="date"] {height: 3.5vh;width: auto;cursor: pointer;font-family: Futura;font-size: 2.2vh;background-color: #dddddd;border: none;outline: none;}
@@ -91,8 +93,8 @@
 				</tr>
 				<tr>
 					<td colspan="4" style="padding-left: 0;text-align: right;">Nutzungsberechtigte(r):</td>
-					<td colspan="5" class="fillbox" contenteditable="true" onclick="clean(this);">Vorname</td>
-					<td colspan="5" class="fillbox" contenteditable="true" onclick="clean(this);">Nachname</td>
+					<td colspan="5" class="fillbox_left" contenteditable="true" onclick="clean(this);">Vorname</td>
+					<td colspan="5" class="fillbox_right" contenteditable="true" onclick="clean(this);">Nachname</td>
 				</tr>
 				<tr>
 					<td colspan="4" style="padding-left: 0;text-align: right;">Amt / Abteilung:</td>
@@ -100,7 +102,7 @@
 				</tr>
 				<tr>
 					<td colspan="4" style="padding-left: 0;text-align: right;">Verwendungszweck:</td>
-					<td colspan="9" class="fillbox" contenteditable="true"></td>
+					<td colspan="9" class="fillbox_left" contenteditable="true"></td>
 					<td colspan="1" id="set_reason" class="select_container_reason">
 						<select class="set_reason" id="set_reason" onchange="set_reason();">
 							<option value="">&nbsp;</option>
@@ -111,8 +113,8 @@
 				</tr>
 				<tr>
 					<td colspan="4" style="padding-left: 0;text-align: right;">Datum:</td>
-					<td colspan="2" class="fillbox" contenteditable="true" id="day_of_week"></td>
-					<td colspan="8" class="fillbox"><input id="date" type="date" onchange="change_day(this);"></td>
+					<td colspan="2" class="fillbox_left" contenteditable="true" id="day_of_week"></td>
+					<td colspan="8" class="fillbox_right"><input id="date" type="date" onchange="change_day(this);"></td>
 				</tr>
 				<tr>
 					<td colspan="15"></td>
