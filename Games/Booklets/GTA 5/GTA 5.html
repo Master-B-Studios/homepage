@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
   <link rel="icon" type="image/x-icon" href="../../../images/MB_Icon_01.png"></link>
   <link rel="stylesheet" href="../../../assets/css/main.css"></link>
+  <style>
+    #map_container {background-color: aqua;}
+    .marker {width: 2px;height: 2px;position: absolute;left: 0px;}
+  </style>
 </head>
 <body onload="window.location.href = '#content';" class="is-preload">
   <div id="wrapper">
@@ -27,7 +31,11 @@
         </section>
 
         <section>
-          <div><img class="quest_img" src="maps/map_full_satellite.jpg"></img></div>
+          <div><button onclick="show_ufo();">UFO-Teile</button></div>
+        </section>
+
+        <section>
+          <div id="map_container"><img class="quest_img" src="maps/map_full_satellite.jpg"></img></div>
         </section>
       </article>
     </div>
@@ -42,3 +50,10 @@
 <script src="../../../assets/js/breakpoints.min.js"></script>
 <script src="../../../assets/js/util.js"></script>
 <script src="../../../assets/js/main.js"></script>
+
+<script>
+  function show_ufo() {
+    var draw_page = document.getElementById('map_container');
+    draw_page.innerHTML += '<img src="markers/red.png" class="marker">';
+  }
+</script>
