@@ -7,8 +7,7 @@
   <link rel="icon" type="image/x-icon" href="../../../images/MB_Icon_01.png"></link>
   <link rel="stylesheet" href="../../../assets/css/main.css"></link>
   <style>
-    #map_container {background-color: aqua;}
-    .marker {width: 2px;height: 2px;position: absolute;left: 0px;}
+    #map_container {background-color: none;}
   </style>
 </head>
 <body onload="window.location.href = '#content';" class="is-preload">
@@ -54,6 +53,12 @@
 <script>
   function show_ufo() {
     var draw_page = document.getElementById('map_container');
-    draw_page.innerHTML += '<img src="markers/red.png" class="marker">';
+    var map_size = document.getElementById('map_container').childNodes[0].width;
+    var map_resolution = 8192;
+    var percent = map_resolution/map_size;
+
+    var button_size = (map_size/100)*0.52;
+    console.log(button_size)
+    draw_page.innerHTML += '<img src="markers/red.png" style="width: '+button_size+'px;height: '+button_size+'px;top: ;">';
   }
 </script>
