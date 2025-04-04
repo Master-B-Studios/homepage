@@ -7,7 +7,7 @@
   <link rel="icon" type="image/x-icon" href="../../../images/MB_Icon_01.png"></link>
   <link rel="stylesheet" href="../../../assets/css/main.css"></link>
   <style>
-    #map_container {background-color: none;}
+    #map_container {position: relative;}
   </style>
 </head>
 <body onload="window.location.href = '#content';" class="is-preload">
@@ -30,11 +30,21 @@
         </section>
 
         <section>
-          <div><button onclick="show_ufo();">UFO-Teile</button></div>
+          <div><button onclick="show_ufo();">UFO-Teile</button><button onclick="show_rocket_launcher();">Raketenwerfer</button></div>
         </section>
 
         <section>
           <div id="map_container"><img class="quest_img" src="maps/map_full_satellite.jpg"></img></div>
+        </section>
+        <section>
+          <div>
+            <table>
+              <tr><td>Schnellrechner</td></tr>
+              <tr><td>X-Koordinate:</td><td><input id="ratio_width" type="number" onchange="calc(this);"></td></tr>
+              <tr><td>Y-Koordinate:</td><td><input id="ratio_height" type="number" onchange="calc(this);"></td></tr>
+              <tr><td><button onclick="copy();">Copy</button></td></tr>
+            </table>
+          </div>
         </section>
       </article>
     </div>
@@ -51,14 +61,38 @@
 <script src="../../../assets/js/main.js"></script>
 
 <script>
+  function calc(obj) {
+    var base_px = obj.value;
+    var pic_px = 756.34;
+    var one_px = 100/pic_px;
+    var ratio = one_px*base_px;
+    obj.value = ratio;
+    console.log(obj.value)
+  }
+  function copy() {
+    var width = document.getElementById('ratio_width').value;
+    var height = document.getElementById('ratio_height').value;
+    navigator.clipboard.writeText("top: '+(map_size/100)*"+height+"+'px;left: '+(map_size/100)*"+width+"+'px;");
+  }
+
+  function show_rocket_launcher() {
+    var draw_page = document.getElementById('map_container');
+    var map_size = document.getElementById('map_container').childNodes[0].width;
+    var map_resolution = 8192;
+    var percent = map_resolution/map_size;
+    var button_size = (map_size/100)*0.52;
+
+    draw_page.innerHTML += '<img src="markers/red.png" style="width: '+button_size+'px;height: '+button_size+'px;position: absolute;top: '+(map_size/100)*88.5844990348256+'px;left: '+(map_size/100)*42.37512229949493+'px;">';
+    //draw_page.innerHTML += '<img src="markers/red.png" style="width: '+button_size+'px;height: '+button_size+'px;position: absolute;top: 676px;left: 322px;">';320.5 672
+  }
+
   function show_ufo() {
     var draw_page = document.getElementById('map_container');
     var map_size = document.getElementById('map_container').childNodes[0].width;
     var map_resolution = 8192;
     var percent = map_resolution/map_size;
-
     var button_size = (map_size/100)*0.52;
-    console.log(button_size)
-    draw_page.innerHTML += '<img src="markers/red.png" style="width: '+button_size+'px;height: '+button_size+'px;top: ;">';
+
+    draw_page.innerHTML += '<img src="markers/red.png" style="width: '+button_size+'px;height: '+button_size+'px;position: absolute;top: '+(map_size/100)*90.83216542824654+'px;left: '+(map_size/100)*54.60507179310891+'px;">';
   }
 </script>
