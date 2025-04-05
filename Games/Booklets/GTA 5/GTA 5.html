@@ -27,25 +27,10 @@
         <header><h2>GTA 5</h2></header>
         <section>
           <div><img class="quest_img" src="cover/GTA 5 - Poster.png"></img></div>
+          <div><button onclick="jump_map();">GTA-5-Map</button></div>
         </section>
 
-        <section>
-          <div><button onclick="show_ufo();">UFO-Teile</button><button onclick="show_rocket_launcher();">Raketenwerfer</button></div>
-        </section>
-
-        <section>
-          <div id="map_container"><img class="quest_img" src="maps/map_full_satellite.jpg"></img></div>
-        </section>
-        <section>
-          <div>
-            <table>
-              <tr><td>Schnellrechner</td></tr>
-              <tr><td>X-Koordinate:</td><td><input id="ratio_width" type="number" onchange="calc(this);"></td></tr>
-              <tr><td>Y-Koordinate:</td><td><input id="ratio_height" type="number" onchange="calc(this);"></td></tr>
-              <tr><td><button onclick="copy();">Copy</button></td></tr>
-            </table>
-          </div>
-        </section>
+        
       </article>
     </div>
     
@@ -61,6 +46,7 @@
 <script src="../../../assets/js/main.js"></script>
 
 <script>
+  function jump_map() {window.location.href = 'https://gta-5-map.com/';}
   function calc(obj) {
     var base_px = obj.value;
     var pic_px = 756.34;
@@ -95,4 +81,23 @@
 
     draw_page.innerHTML += '<img src="markers/red.png" style="width: '+button_size+'px;height: '+button_size+'px;position: absolute;top: '+(map_size/100)*90.83216542824654+'px;left: '+(map_size/100)*54.60507179310891+'px;">';
   }
+
+  //<section>
+  // <div><button onclick="show_ufo();">UFO-Teile</button><button onclick="show_rocket_launcher();">Raketenwerfer</button></div>
+  //</section>
+
+  //<section>
+  // <div id="map_container"><img class="quest_img" src="maps/map_full_satellite.jpg"></img></div>
+  //</section>
+
+  //<section>
+  // <div>
+  //  <table>
+  //    <tr><td>Schnellrechner</td></tr>
+  //    <tr><td>X-Koordinate:</td><td><input id="ratio_width" type="number" onchange="calc(this);"></td></tr>
+  //    <tr><td>Y-Koordinate:</td><td><input id="ratio_height" type="number" onchange="calc(this);"></td></tr>
+  //    <tr><td><button onclick="copy();">Copy</button></td></tr>
+  //  </table>
+  // </div>
+  //</section>
 </script>
