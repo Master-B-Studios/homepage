@@ -6,9 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
   <link rel="icon" type="image/x-icon" href="../../../images/MB_Icon_01.png"></link>
   <link rel="stylesheet" href="../../../assets/css/main.css"></link>
-  <style>
-    #map_container {position: relative;}
-  </style>
 </head>
 <body onload="window.location.href = '#content';" class="is-preload">
   <div id="wrapper">
@@ -27,7 +24,7 @@
         <header><h2>GTA 5</h2></header>
         <section>
           <div><img class="quest_img" src="cover/GTA 5 - Poster.png"></img></div>
-          <div><button onclick="jump_map();">GTA-5-Map</button></div>
+          <div class="button_container"><button onclick="jump_map();" style="margin: auto;">Karte</button></div>
         </section>
 
         
@@ -46,7 +43,10 @@
 <script src="../../../assets/js/main.js"></script>
 
 <script>
-  function jump_map() {window.location.href = 'https://gta-5-map.com/';}
+  function jump_map() {
+    window.open('https://gta-5-map.com/', '_blank');
+    //window.location.href = 'https://gta-5-map.com/';
+  }
   function calc(obj) {
     var base_px = obj.value;
     var pic_px = 756.34;
