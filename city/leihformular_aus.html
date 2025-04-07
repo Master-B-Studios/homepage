@@ -188,6 +188,8 @@
 </html>
 
 <script>
+	var date_out = '';
+	var date_back = '';
 	function jump_page_home() {window.location.href = '#home';}
 	function jump_page_contract() {window.location.href = '#contract';}
 	function jump_page_main() {window.location.href = 'iuk-formulare.html';}
@@ -196,6 +198,8 @@
 		var date = new Date().toISOString().substring(0, 10);var day = date.substring(8);var month = date.substring(5, 7);var year = date.substring(0, 4);
 		document.getElementById('date_out').value = year+'-'+month+'-'+day;
 		document.getElementById('date_back').value = year+'-'+month+'-'+day;
+		date_out = year+'-'+month+'-'+day;
+		date_back = year+'-'+month+'-'+day;
 		var day_of_week = new Date().getDay();
 		var days = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
 		document.getElementById('day_of_week_out').innerHTML = days[day_of_week]+', ';
@@ -209,7 +213,14 @@
 		calc_time();
 	}
 	function calc_time() {
-		document.getElementById('timer').innerHTML = '';
+		var timeline_out = document.getElementById('date_out').value;
+		var timeline_back = document.getElementById('date_back').value;
+
+		const dateDifferenceInDays = (dateInitial, dateFinal) => (dateFinal - dateInitial) / 86_400_000;
+		dateDifferenceInDays(new Date(timeline_out), new Date(timeline_back));
+		
+		if (dateDifferenceInDays(new Date(timeline_out), new Date(timeline_back)) == 1) {document.getElementById('timer').innerHTML = dateDifferenceInDays(new Date(timeline_out), new Date(timeline_back))+' Tag';}
+		else if (dateDifferenceInDays(new Date(timeline_out), new Date(timeline_back)) >= 2) {document.getElementById('timer').innerHTML = dateDifferenceInDays(new Date(timeline_out), new Date(timeline_back))+' Tage';}
 	}
 
 	function clean_site() {window.location.reload();}
