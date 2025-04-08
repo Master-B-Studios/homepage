@@ -215,10 +215,8 @@
 	function calc_time() {
 		var timeline_out = document.getElementById('date_out').value;
 		var timeline_back = document.getElementById('date_back').value;
-
 		const dateDifferenceInDays = (dateInitial, dateFinal) => (dateFinal - dateInitial) / 86_400_000;
 		dateDifferenceInDays(new Date(timeline_out), new Date(timeline_back));
-		
 		if (dateDifferenceInDays(new Date(timeline_out), new Date(timeline_back)) == 1) {document.getElementById('timer').innerHTML = dateDifferenceInDays(new Date(timeline_out), new Date(timeline_back))+' Tag';}
 		else if (dateDifferenceInDays(new Date(timeline_out), new Date(timeline_back)) >= 2) {document.getElementById('timer').innerHTML = dateDifferenceInDays(new Date(timeline_out), new Date(timeline_back))+' Tage';}
 	}
