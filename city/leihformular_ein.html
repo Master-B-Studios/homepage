@@ -71,7 +71,7 @@
         <div class="header_container">
             <div class="header_left" onclick="jump_page_main();"><img src="sources/images/swipe.png"></div>
             <div class="header_center">Rückgabeformular Stadt Vaihingen an der Enz</div>
-            <div class="header_right" onclick="clean_site();"><img src="sources/images/trash.png"></div>
+            <div class="header_right"></div>
         </div>
 		<div class="table_container">
 			<table class="table_1">
@@ -198,23 +198,18 @@
 	function set_date() {
 		var date = new Date().toISOString().substring(0, 10);var day = date.substring(8);var month = date.substring(5, 7);var year = date.substring(0, 4);
 		document.getElementById('date_out').value = year+'-'+month+'-'+day;
-		document.getElementById('date_back').value = year+'-'+month+'-'+day;
 		date_out = year+'-'+month+'-'+day;
 		date_back = year+'-'+month+'-'+day;
 		var day_of_week = new Date().getDay();
 		var days = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
 		document.getElementById('day_of_week_out').innerHTML = days[day_of_week]+', ';
-		document.getElementById('day_of_week_back').innerHTML = days[day_of_week]+', ';
 	}
 	function change_day(obj) {
 		var day_of_week = new Date(obj.value+'T00:00:00').getDay();
 		var days = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
 		if (obj.id == 'date_out') {document.getElementById('day_of_week_out').innerHTML = days[day_of_week]+', ';}
-		else if (obj.id == 'date_back') {document.getElementById('day_of_week_back').innerHTML = days[day_of_week]+', ';}
 	}
-
-	function clean_site() {window.location.reload();}
-
+	
 	function set_reason() {document.getElementById('reason_text').innerHTML = document.getElementById('set_reason').value;}
 
 	function set_device() {

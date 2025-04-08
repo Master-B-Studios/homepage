@@ -71,7 +71,7 @@
         <div class="header_container">
             <div class="header_left" onclick="jump_page_main();"><img src="sources/images/swipe.png"></div>
             <div class="header_center">Leihformular Stadt Vaihingen an der Enz</div>
-            <div class="header_right" onclick="clean_site();"><img src="sources/images/trash.png"></div>
+            <div class="header_right" onclick="set_mail();"><img src="sources/images/mail.png"></div>
         </div>
 		<div class="table_container">
 			<table class="table_1">
@@ -81,7 +81,7 @@
 					<td colspan="5" class="fillbox_left" contenteditable="true" onclick="clean(this);">Vorname</td>
 					<td colspan="5" class="fillbox_right" contenteditable="true" onclick="clean(this);">Nachname</td>
 					<td></td>
-					<td colspan="10" rowspan="5" class="writebox"></td>
+					<td colspan="10" rowspan="5" class="writebox" contenteditable="true" id="subscription"></td>
 				</tr>
 				<tr>
 					<td colspan="4" style="padding-left: 0;text-align: right;">Amt / Abteilung:</td>
@@ -221,7 +221,10 @@
 		else if (dateDifferenceInDays(new Date(timeline_out), new Date(timeline_back)) >= 2) {document.getElementById('timer').innerHTML = dateDifferenceInDays(new Date(timeline_out), new Date(timeline_back))+' Tage';}
 	}
 
-	function clean_site() {window.location.reload();}
+	function set_mail() {
+		document.getElementById('subscription').style = 'text-align: center;vertical-align: center;align-items: center;justify-content: center;';
+		document.getElementById('subscription').innerHTML = 'per Hauspost versendet';
+	}
 
 	function set_reason() {document.getElementById('reason_text').innerHTML = document.getElementById('set_reason').value;}
 
