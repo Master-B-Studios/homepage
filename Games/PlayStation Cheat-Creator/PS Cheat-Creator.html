@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>PS Cheat-Creator</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+  <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
+  <link rel="stylesheet" href="../../assets/css/main.css"></link>
+</head>
+<body onload="window.location.href = '#playstation';localStorage.getItem('page');" class="is-preload">
+  <div id="wrapper">
+    
+    <nav id="nav">
+      <a href="../../index.html"><img class="mb_icon" src="../../images/MB_Icon_02.png"></img><span>Home</span></a>
+      <a href="../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
+      <a href="../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
+      <a href="../../Games/games.html"><img class="mb_icon" src="../../images/Games_Icon_01.png"></img><span>Games</span></a>
+      <a href="#playstation"><img class="mb_icon" src="icon_01.png"></img><span>Cheat-Creator</span></a>
+      
+    </nav>
+    
+    <div id="main">
+      <article id="playstation" class="panel">
+        <header><h2>Erstelle .json-File-Cheats für PS4 & PS5</h2></header>
+        
+        <section>
+          <table class="design_border_01 design_borderspacing_01" style="cursor: default;">
+            <tr>
+              <td class="design_table_04 design_padding_01 design_text_right">Name Des Spiels:</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" colspan="3" contenteditable="true" onfocus="clean(this);" id="game_title"></td>
+            </tr>
+            <tr>
+              <td class="design_table_04 design_padding_01 design_text_right">ID:</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true" onfocus="clean(this);" id="game_id"></td>
+              <td class="design_table_04 design_padding_01 design_text_right">Master-Version:</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true" onfocus="clean(this);"  id="game_version"></td>
+            </tr>
+            <tr>
+              <td class="design_table_04 design_padding_01 design_text_right">Anzahl Cheats:</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true" onfocus="clean(this);" id="number_cheat_tables"></td>
+              <td class="design_table_04 design_padding_01 design_text_right">Prozess:</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true" onfocus="clean(this);" id="game_process">eboot.bin</td>
+            </tr>
+            <tr>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" colspan="4" onclick="create_cheat_tables();">Erstellen</td>
+            </tr>
+            <div class="tr_flipper_gap"></div>
+          </table>
+        </section>
+
+        <section id="cheat_section"></section>
+        <section>
+          <div style="width: 100%;margin: auto;text-align: center;"><button style="margin: auto;" onclick="produce_list();">Download</button></div>
+          <div id="download_list" style="display: none;"></div>
+        </section>
+
+      </article>
+    </div>
+    
+    <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
+
+  </div>
+</body>
+
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/browser.min.js"></script>
+<script src="../../assets/js/breakpoints.min.js"></script>
+<script src="../../assets/js/util.js"></script>
+<script src="../../assets/js/main.js"></script>
+
+<script>
+var cheats = 0;
+var container = document.getElementById('cheat_section');
+
+function clean(obj) {
+  //obj.innerHTML = '';
+}
+
+function create_cheat_tables() {
+  cheats = document.getElementById('number_cheat_tables').innerHTML;
+  container.innerHTML = '';
+  for (let i = 0; i < cheats; i++) {
+    i++;
+    container.innerHTML += ''+
+  '<table class="design_border_01 design_borderspacing_01" style="cursor: default;">'+
+    '<tr>'+
+      '<td class="design_table_04 design_padding_01 design_text_center" colspan="2">Cheat '+i+'</td>'+
+      '<td class="design_table_04 design_padding_01 design_text_center design_editable_01" onclick="offset(offset_list_'+i+', 1);">1 Offset</td>'+
+      '<td class="design_table_04 design_padding_01 design_text_center design_editable_01" onclick="offset(offset_list_'+i+', 2);">2 Offsets</td>'+
+    '</tr>'+
+    '<tr>'+
+      '<td class="design_table_04 design_padding_01 design_text_right">Beschreibung:</td>'+
+      '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true" onfocus="clean(this);" id="cheat_'+i+'_description"></td>'+
+      '</tr>'+
+      '<table class="design_border_01 design_borderspacing_01" style="cursor: default;" id="offset_list_'+i+'"></table>'+
+    '</table>'+
+    '<div class="tr_flipper_gap"></div>';
+    i--;
+  }
+}
+
+function offset(offset_list, offset_amount) {
+  console.log(offset_list.id)
+  var cheat_number = offset_list.id
+  cheat_number = cheat_number.substring(cheat_number.length - 1);
+  offset_list.innerHTML = '';
+  for (let i = 0; i < offset_amount; i++) {
+    i++;
+    offset_list.innerHTML += ''+
+      '<tr>'+
+        '<td class="design_table_04 design_padding_01 design_text_right">Offset '+i+':</td>'+
+        '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true" onfocus="clean(this);" onblur="format_text(this);" id="cheat_'+cheat_number+'_offset_'+i+'"></td>'+
+      '</tr>'+
+      '<tr>'+
+        '<td class="design_table_04 design_padding_01 design_text_right">Wert Aktiv:</td>'+
+        '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true" onfocus="clean(this);" onblur="format_text(this);" id="cheat_'+cheat_number+'_offset_'+i+'_on"></td>'+
+      '</tr>'+
+      '<tr>'+
+        '<td class="design_table_04 design_padding_01 design_text_right">Wert Inaktiv:</td>'+
+        '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true" onfocus="clean(this);" onblur="format_text(this);" id="cheat_'+cheat_number+'_offset_'+i+'_off"></td>'+
+      '</tr>'+
+      '<tr><td class="design_table_04"></td><td class="design_table_04"></td><td class="design_table_04"></td><td class="design_table_04"></td></tr>';
+    i--;
+  }
+}
+
+function produce_list() {
+  var game_title = document.getElementById('game_title').innerHTML;
+  var game_id = document.getElementById('game_id').innerHTML;
+  var game_version = document.getElementById('game_version').innerHTML;
+  var game_process = document.getElementById('game_process').innerHTML;
+
+  var br = '\n';
+  var exportlist = document.getElementById('download_list');
+  exportlist.innerHTML = '';
+  exportlist.innerHTML += ''+
+  '{'+br+
+  ' "name": "'+game_title+'",'+br+
+  ' "id": "'+game_id+'",'+br+
+  ' "version": "'+game_version+'",'+br+
+  ' "process": "'+game_process+'",'+br+
+  ' "mods": ['+br;
+  for (let i = 0; i < cheats; i++) {
+    i++;
+    var cheat_description = document.getElementById('cheat_'+i+'_description').innerHTML;
+    var offset_1 = document.getElementById('cheat_'+i+'_offset_1').innerHTML;
+    var on_1 = document.getElementById('cheat_'+i+'_offset_1_on').innerHTML;
+    var off_1 = document.getElementById('cheat_'+i+'_offset_1_off').innerHTML;
+
+    exportlist.innerHTML += '   {"name": "'+cheat_description+'","type": "checkbox","memory": [';
+    exportlist.innerHTML += '{"offset": "'+offset_1+'",';
+    exportlist.innerHTML += '"on": "'+on_1+'",';
+    exportlist.innerHTML += '"off": "'+off_1+'"}';
+
+    if (document.getElementById('cheat_'+i+'_offset_2')) {
+      var offset_2 = document.getElementById('cheat_'+i+'_offset_2').innerHTML;
+      var on_2 = document.getElementById('cheat_'+i+'_offset_2_on').innerHTML;
+      var off_2 = document.getElementById('cheat_'+i+'_offset_2_off').innerHTML;
+
+      exportlist.innerHTML += ',{"offset": "'+offset_2+'",';
+      exportlist.innerHTML += '"on": "'+on_2+'",';
+      exportlist.innerHTML += '"off": "'+off_2+'"}';
+    }
+    if (i == cheats) {exportlist.innerHTML += ']}'+br;}
+    else {exportlist.innerHTML += ']},'+br;}
+    i--;
+  }
+  exportlist.innerHTML += ''+
+  '  ],'+br+
+  '  "credits": ["Master Studios"]'+br+
+  '}';
+  save_list();
+}
+
+function save_list() {
+  var link = document.createElement("A");
+  var filename = document.getElementById('game_id').innerHTML+'_'+document.getElementById('game_version').innerHTML+'.json';
+
+    var save_content = document.getElementById('download_list').innerHTML;
+
+    link.setAttribute("href","data:text/xml,"+save_content);
+    link.setAttribute("style","display:none");
+    link.setAttribute("download",filename);
+    document.body.appendChild(link);
+    console.log(link.outerHTML);
+    link.click();
+    document.body.removeChild(link);
+}
+function format_text(obj) {
+  var text = obj.innerHTML;
+  text = text.replace(/-/gi, '');
+  text = text.toUpperCase();
+  obj.innerHTML = text;
+}
+
+</script>
