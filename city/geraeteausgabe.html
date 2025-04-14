@@ -157,7 +157,7 @@
 		document.getElementById('day_of_week').innerHTML = days[day_of_week]+', ';
 	}
 
-	function clean_site() {window.location.reload();}
+	function clean(obj) {if (obj.innerHTML == 'Vorname' | obj.innerHTML == 'Nachname') {obj.innerHTML = ''};}
 
 	function set_reason() {document.getElementById('reason_text').innerHTML = document.getElementById('set_reason').value;}
 
