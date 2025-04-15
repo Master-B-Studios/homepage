@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>E-Book-Creator</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+  <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
+  <link rel="stylesheet" href="../../assets/css/main.css"></link>
+</head>
+<body onload="window.location.href = '#ebook';localStorage.getItem('page');" class="is-preload">
+  <div id="wrapper">
+    
+    <nav id="nav">
+      <a href="../../index.html"><img class="mb_icon" src="../../images/MB_Icon_02.png"></img><span>Home</span></a>
+      <a href="../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
+      <a href="../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
+      <a href="../../Games/games.html"><img class="mb_icon" src="../../images/Games_Icon_01.png"></img><span>Games</span></a>
+      <a href="#ebook"><img class="mb_icon" src="icon_01.png"></img><span>E-Book-Creator</span></a>
+      
+    </nav>
+    
+    <div id="main">
+      <article id="ebook" class="panel">
+        <header><h2>Erstelle E-Books</h2></header>
+        
+        <section>
+          <table class="design_border_01 design_borderspacing_01" style="cursor: default;">
+            <tr>
+              <td class="design_table_04 design_padding_01 design_text_right">Titel Des E-Books:</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" colspan="3" contenteditable="true" onfocus="clean(this);" id="book_titel"></td>
+            </tr>
+            <tr>
+              <td class="design_table_04 design_padding_01 design_text_right">Autor:</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" colspan="3" contenteditable="true" onfocus="clean(this);" id="book_autor"></td>
+            </tr>
+            <tr>
+              <td class="design_table_04 design_padding_01 design_text_right">Zyklus:</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" colspan="3" contenteditable="true" onfocus="clean(this);" id="book_text"></td>
+            </tr>
+            <tr>
+              <td class="design_table_04 design_padding_01 design_text_right">Serien-Index:</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true" onfocus="clean(this);" id="book_index"></td>
+              <td class="design_table_04 design_padding_01 design_text_right">Master-Version:</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true" onfocus="clean(this);"  id="game_version"></td>
+            </tr>
+            <tr>
+              <td class="design_table_04 design_padding_01 design_text_right">Klappentext:</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" colspan="3" contenteditable="true" onfocus="clean(this);" id="book_text"></td>
+            </tr>
+            <tr>
+              <td class="design_table_04 design_padding_01 design_text_right">Anzahl Cheats:</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true" onfocus="clean(this);" id="number_cheat_tables"></td>
+              <td class="design_table_04 design_padding_01 design_text_right">Prozess:</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true" onfocus="clean(this);" id="game_process">eboot.bin</td>
+            </tr>
+            <tr>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" colspan="4" onclick="create_cheat_tables();">Erstellen</td>
+            </tr>
+            <div class="tr_flipper_gap"></div>
+          </table>
+        </section>
+
+        <section id="cheat_section"></section>
+        <section>
+          <div style="width: 100%;margin: auto;text-align: center;"><button style="margin: auto;" onclick="produce_list();">Download</button></div>
+          <div id="download_list" style="display: none;"></div>
+        </section>
+
+      </article>
+    </div>
+    
+    <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
+
+  </div>
+</body>
+
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/browser.min.js"></script>
+<script src="../../assets/js/breakpoints.min.js"></script>
+<script src="../../assets/js/util.js"></script>
+<script src="../../assets/js/main.js"></script>
+
+<script>
+var cheats = 0;
+var container = document.getElementById('cheat_section');
+
+function clean(obj) {
+  //obj.innerHTML = '';
+}
+
+function save_list() {
+  var link = document.createElement("A");
+  var filename = document.getElementById('game_id').innerHTML+'_'+document.getElementById('game_version').innerHTML+'.json';
+
+    var save_content = document.getElementById('download_list').innerHTML;
+
+    link.setAttribute("href","data:text/xml,"+save_content);
+    link.setAttribute("style","display:none");
+    link.setAttribute("download",filename);
+    document.body.appendChild(link);
+    console.log(link.outerHTML);
+    link.click();
+    document.body.removeChild(link);
+}
+function format_text(obj) {
+  var text = obj.innerHTML;
+  text = text.replace(/-/gi, '');
+  text = text.toUpperCase();
+  obj.innerHTML = text;
+}
+
+</script>
