@@ -183,7 +183,7 @@
 		else if (device == 'VPN') {
 			document.getElementById('device_table').innerHTML = '';
 			document.getElementById('device_table').innerHTML += ''+
-			'<tr><td colspan="4" style="text-align: right;">VPN-Passwort:</td><td colspan="10" class="fillbox" contenteditable="true"></td><td></td><td colspan="10" rowspan="8" class="writebox" style="padding: 1em;">'+belehrung+'</td>'+
+			'<tr><td colspan="4" style="text-align: right;">VPN-Passwort:</td><td colspan="9" class="fillbox" contenteditable="true" id="vpn_pw"></td><td colspan="1" class="select_container_reason" onclick="create_pw();"></td><td></td><td colspan="10" rowspan="8" class="writebox" style="padding: 1em;">'+belehrung+'</td>'+
 			'<tr><td colspan="15"></td></tr>'+
 			'<tr><td colspan="15"></td></tr>'+
 			'<tr><td colspan="15"></td></tr>'+
