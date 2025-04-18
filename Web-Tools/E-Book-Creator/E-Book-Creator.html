@@ -27,34 +27,25 @@
           <table class="design_border_01 design_borderspacing_01" style="cursor: default;">
             <tr>
               <td class="design_table_04 design_padding_01 design_text_right">Titel Des E-Books:</td>
-              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" colspan="3" contenteditable="true" onfocus="clean(this);" id="book_titel"></td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true" onfocus="clean(this);" id="book_titel">01. Nachtvogel</td>
             </tr>
             <tr>
               <td class="design_table_04 design_padding_01 design_text_right">Autor:</td>
-              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" colspan="3" contenteditable="true" onfocus="clean(this);" id="book_autor"></td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true" onfocus="clean(this);" id="book_autor">R.A. Salvatore</td>
             </tr>
             <tr>
               <td class="design_table_04 design_padding_01 design_text_right">Zyklus:</td>
-              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" colspan="3" contenteditable="true" onfocus="clean(this);" id="book_text"></td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true" onfocus="clean(this);" id="book_saga">Dämonendämmerung</td>
             </tr>
             <tr>
               <td class="design_table_04 design_padding_01 design_text_right">Serien-Index:</td>
-              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true" onfocus="clean(this);" id="book_index"></td>
-              <td class="design_table_04 design_padding_01 design_text_right">Master-Version:</td>
-              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true" onfocus="clean(this);"  id="game_version"></td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_left" contenteditable="true" onfocus="clean(this);" id="book_index">11</td>
+              <td class="design_table_04 design_padding_01 design_text_right">Jahr:</td>
+              <td class="design_table_04 design_padding_01 design_editable_01 design_text_left" contenteditable="true" onfocus="clean(this);" id="book_year">1998</td>
             </tr>
             <tr>
               <td class="design_table_04 design_padding_01 design_text_right">Klappentext:</td>
-              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" colspan="3" contenteditable="true" onfocus="clean(this);" id="book_text"></td>
-            </tr>
-            <tr>
-              <td class="design_table_04 design_padding_01 design_text_right">Anzahl Cheats:</td>
-              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true" onfocus="clean(this);" id="number_cheat_tables"></td>
-              <td class="design_table_04 design_padding_01 design_text_right">Prozess:</td>
-              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" contenteditable="true" onfocus="clean(this);" id="game_process">eboot.bin</td>
-            </tr>
-            <tr>
-              <td class="design_table_04 design_padding_01 design_editable_01 design_text_center" colspan="4" onclick="create_cheat_tables();">Erstellen</td>
+              <td class="design_table_04 design_padding_01 design_editable_01" colspan="3" contenteditable="true" onfocus="clean(this);" id="book_text">Nach jahrhundertelangem Schlaf ist der mächtige geflügelte Dämon mit seinem Gefolge aus Goblins und Riesen nach Korona zurückgekehrt, um die Menschenwelt heimzusuchen. Der junge Elbryan und seine Freundin Pony werden dadurch zu Waisen. Während Pony gedächtnislos durch die Welt irrt, wird Elbryan von Elfen aufgezogen. Nebenbei wird die Ausbildung des jungen Mönches Avelyn geschildert.</td>
             </tr>
             <div class="tr_flipper_gap"></div>
           </table>
@@ -62,7 +53,7 @@
 
         <section id="cheat_section"></section>
         <section>
-          <div style="width: 100%;margin: auto;text-align: center;"><button style="margin: auto;" onclick="produce_list();">Download</button></div>
+          <div style="width: 100%;margin: auto;text-align: center;"><button style="margin: auto;" onclick="produce_script();">Download</button></div>
           <div id="download_list" style="display: none;"></div>
         </section>
 
@@ -81,20 +72,167 @@
 <script src="../../assets/js/main.js"></script>
 
 <script>
-var cheats = 0;
-var container = document.getElementById('cheat_section');
+function produce_script() {
+  var titel = document.getElementById('book_titel').innerHTML;
+  var autor = document.getElementById('book_autor').innerHTML;
+  var saga = document.getElementById('book_saga').innerHTML;
+  var part = document.getElementById('book_index').innerHTML;
+  var jahr = document.getElementById('book_year').innerHTML;
+  var text = document.getElementById('book_text').innerHTML;
 
-function clean(obj) {
-  //obj.innerHTML = '';
+  var absatz = '\r\n';
+  var tab = '\t';
+  document.getElementById('download_list').value = '';
+
+  document.getElementById('download_list').value += ''+
+  'chcp 65001'+absatz+
+  'setlocal EnableDelayedExpansion'+absatz+
+  ''+absatz+
+  'set "name='+titel+'"'+absatz+
+  'set "autor='+autor+'"'+absatz+
+  'set "saga='+saga+'"'+absatz+
+  'set "part='+part+'"'+absatz+
+  'set "jahr='+jahr+'"'+absatz+
+  'set "text='+text+'"'+absatz+
+  'set "text_path=!name!\\OEBPS\\Text\\"'+absatz+
+  ''+absatz+
+  'set "publisher=Master Studios"'+absatz+
+  'set "open=<"'+absatz+
+  'set "clos=>"'+absatz+
+  'set "tab=   "'+absatz+
+  'set "excl=^!"'+absatz+
+  ''+absatz+
+  'set chapters=1'+absatz+
+  'cd !text_path!'+absatz+
+  'for %%a in (*) do (set /a chapters+=1)'+absatz+
+  'cd ..\\..\\..'+absatz+
+  ''+absatz+
+  ''+absatz+
+  'goto create_content'+absatz+
+  ''+absatz+  
+  ''+absatz+
+  ':create_content'+absatz+
+  'set "content=!name!\\OEBPS\\content.opf"'+absatz+
+  'echo.!open!package xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookID" version="2.0"!clos!>!content!'+absatz+
+  'echo.!tab!!open!metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:calibre="http://calibre.kovidgoyal.net/2009/metadata"!clos!>>!content!'+absatz+
+  'echo.!tab!!tab!!open!dc:title opf:file-as="!saga! - !name!"!clos!!saga! - !name!!open!/dc:title!clos!>>!content!'+absatz+
+  'echo.!tab!!tab!!open!meta name="calibre:series_index" content="!part!"/!clos!>>!content!'+absatz+
+  'echo.!tab!!tab!!open!meta name="calibre:series" content="!saga!"/!clos!>>!content!'+absatz+
+  'echo.!tab!!tab!!open!dc:publisher!clos!!publisher!!open!/dc:publisher!clos!>>!content!'+absatz+
+  'echo.!tab!!tab!!open!dc:description!clos!!text!!open!/dc:description!clos!>>!content!'+absatz+
+  'echo.!tab!!tab!!open!dc:creator opf:file-as="!autor!" opf:role="aut"!clos!!autor!!open!/dc:creator!clos!>>!content!'+absatz+
+  'echo.!tab!!tab!!open!dc:date!clos!!jahr!!open!/dc:date!clos!>>!content!'+absatz+
+  'echo.!tab!!tab!!open!dc:language!clos!Deutsch!open!/dc:language!clos!>>!content!'+absatz+
+  'echo.!tab!!tab!!open!meta name="cover" content="cover"/!clos!>>!content!'+absatz+
+  'echo.!tab!!open!/metadata!clos!>>!content!'+absatz+
+  'echo.!tab!!open!manifest!clos!>>!content!'+absatz+
+  'cd !text_path!'+absatz+
+  'for %%a in (*) do (echo.!tab!!tab!!open!item id="%%~na" href="Text/%%a" media-type="application/xhtml+xml"/!clos!>>..\\..\\..\\!content!)'+absatz+
+  'cd ..\\..\\..'+absatz+
+  'echo.!tab!!tab!!open!item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/!clos!>>!content!'+absatz+
+  'echo.!tab!!tab!!open!item id="Style0001.css" href="Styles/Style0001.css" media-type="text/css"/!clos!>>!content!'+absatz+
+  'echo.!tab!!tab!!open!item href="Images/Cover.jpg" id="cover" media-type="image/jpeg"/!clos!>>!content!'+absatz+
+  'echo.!tab!!tab!!open!item href="Images/Cover.jpg" id="prioritorised_cover" media-type="image/jpeg"/!clos!>>!content!'+absatz+
+  'echo.!tab!!open!/manifest!clos!>>!content!'+absatz+
+  'echo.!tab!!open!spine toc="ncx"!clos!>>!content!'+absatz+
+  'cd !text_path!'+absatz+
+  'for %%a in (*) do (echo.!tab!!tab!!open!itemref idref="%%~na"/!clos!>>..\\..\\..\\!content!)'+absatz+
+  'cd ..\\..\\..'+absatz+
+  'echo.!tab!!open!/spine!clos!>>!content!'+absatz+
+  'echo.!tab!!open!guide!clos!>>!content!'+absatz+
+  'echo.!tab!!tab!!open!reference type="cover" title="Cover" href="Text/Section0000.html"/!clos!>>!content!'+absatz+
+  'echo.!tab!!open!/guide!clos!>>!content!'+absatz+
+  'echo.!open!/package!clos!>>!content!'+absatz+
+  ''+absatz+
+  ''+absatz+
+  'goto create_toc'+absatz+
+  ''+absatz+
+  ''+absatz+
+  ':create_toc'+absatz+
+  'set "worker="'+absatz+
+  'set /a counter=0'+absatz+
+  'set "toc=!name!\\OEBPS\\toc.ncx"'+absatz+
+  'echo.!open!?xml version="1.0" encoding="UTF-8"?!clos!>!toc!'+absatz+
+  'echo.!open!!excl!DOCTYPE ncx PUBLIC "-//NISO//DTD ncx 2005-1//EN" "http://www.daisy.org/z3986/2005/ncx-2005-1.dtd"!clos!>>!toc!'+absatz+
+  'echo.!open!ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1"!clos!>>!toc!'+absatz+
+  'echo.!tab!!open!head!clos!>>!toc!'+absatz+
+  'echo.!tab!!tab!!open!meta name="dtb:uid" content="urn:uuid:c2b9a0a2-b89e-4328-8098-f1fd4ce98164"/!clos!>>!toc!'+absatz+
+  'echo.!tab!!tab!!open!meta name="dtb:depth" content="2"/!clos!>>!toc!'+absatz+
+  'echo.!tab!!tab!!open!meta name="dtb:totalPageCount" content="0"/!clos!>>!toc!'+absatz+
+  'echo.!tab!!tab!!open!meta name="dtb:maxPageNumber" content="0"/!clos!>>!toc!'+absatz+
+  'echo.!tab!!open!/head!clos!>>!toc!'+absatz+
+  'echo.!tab!!open!docTitle!clos!!open!text!clos!!saga! - !name!!open!/text!clos!!open!/docTitle!clos!>>!toc!'+absatz+
+  'echo.!tab!!open!navMap!clos!>>!toc!'+absatz+
+  'cd !text_path!'+absatz+
+  'for %%a in (*) do ('+absatz+
+    tab+'set /a counter+=1'+absatz+
+    tab+'set "name_only=%%~na"'+absatz+
+    tab+'set "chapter=!name_only:~0,2!"'+absatz+
+    tab+'if !chapter! == 00 ('+absatz+
+      tab+tab+'echo.!tab!!tab!!open!navPoint id="navPoint-!counter!" playOrder="!counter!"!clos!>>..\\..\\..\\!toc!'+absatz+
+      tab+tab+'echo.!tab!!tab!!tab!!open!navLabel!clos!!open!text!clos!!name_only:~6!!open!/text!clos!!open!/navLabel!clos!>>..\\..\\..\\!toc!'+absatz+
+      tab+tab+'echo.!tab!!tab!!tab!!open!content src="Text/%%a"/!clos!>>..\\..\\..\\!toc!'+absatz+
+      tab+tab+'echo.!tab!!tab!!open!/navPoint!clos!>>..\\..\\..\\!toc!'+absatz+
+    tab+') else ('+absatz+
+      tab+tab+'if !worker! == !chapter! ('+absatz+
+        tab+tab+tab+'echo.!tab!!tab!!tab!!open!navPoint id="navPoint-!counter!" playOrder="!counter!"!clos!>>..\\..\\..\\!toc!'+absatz+
+        tab+tab+tab+'echo.!tab!!tab!!tab!!tab!!open!navLabel!clos!!open!text!clos!!name_only:~2!!open!/text!clos!!open!/navLabel!clos!>>..\\..\\..\\!toc!'+absatz+
+        tab+tab+tab+'echo.!tab!!tab!!tab!!tab!!open!content src="Text/%%a"/!clos!>>..\\..\\..\\!toc!'+absatz+
+        tab+tab+tab+'echo.!tab!!tab!!tab!!open!/navPoint!clos!>>..\\..\\..\\!toc!'+absatz+
+      tab+tab+') else ('+absatz+
+        tab+tab+tab+'if not !chapter! == 01 (echo.!tab!!tab!!open!/navPoint!clos!>>..\\..\\..\\!toc!)'+absatz+
+        tab+tab+tab+'set "worker=!chapter!"'+absatz+
+        tab+tab+tab+'echo.!tab!!tab!!open!navPoint id="navPoint-!counter!" playOrder="!counter!"!clos!>>..\\..\\..\\!toc!'+absatz+
+        tab+tab+tab+'echo.!tab!!tab!!tab!!open!navLabel!clos!!open!text!clos!Teil !chapter!!open!/text!clos!!open!/navLabel!clos!>>..\\..\\..\\!toc!'+absatz+
+        tab+tab+tab+'echo.!tab!!tab!!tab!!open!content src="Text/%%a"/!clos!>>..\\..\\..\\!toc!'+absatz+
+        tab+tab+tab+'set /a counter+=1'+absatz+
+        tab+tab+tab+'echo.!tab!!tab!!tab!!open!navPoint id="navPoint-!counter!" playOrder="!counter!"!clos!>>..\\..\\..\\!toc!'+absatz+
+        tab+tab+tab+'echo.!tab!!tab!!tab!!tab!!open!navLabel!clos!!open!text!clos!!name_only:~6!!open!/text!clos!!open!/navLabel!clos!>>..\\..\\..\\!toc!'+absatz+
+        tab+tab+tab+'echo.!tab!!tab!!tab!!tab!!open!content src="Text/%%a"/!clos!>>..\\..\\..\\!toc!'+absatz+
+        tab+tab+tab+'echo.!tab!!tab!!tab!!open!/navPoint!clos!>>..\\..\\..\\!toc!'+absatz+
+      tab+tab+')'+absatz+
+    tab+')'+absatz+
+  ')'+absatz+
+  'cd ..\\..\\..'+absatz+
+  'echo.!tab!!tab!!open!/navPoint!clos!>>!toc!'+absatz+
+  'echo.!tab!!open!/navMap!clos!>>!toc!'+absatz+
+  'echo.!open!/ncx!clos!>>!toc!'+absatz+
+  ''+absatz+
+  ''+absatz+
+  'goto infolder'+absatz+
+  'rem goto outfolder'+absatz+
+  ''+absatz+
+  ''+absatz+
+  ':infolder'+absatz+
+  'set "zipper=..\\Zip\\7z.exe"'+absatz+
+  'cd "!name!"'+absatz+
+  'if exist "!name!.epub" del "!name!.epub"'+absatz+
+  '!zipper! a -tzip "!name!.zip" mimetype OEBPS META-INF'+absatz+
+  'rename *.zip *.epub'+absatz+
+  'move "!name!.epub" ..\\"!name!.epub"'+absatz+
+  'goto end'+absatz+
+  ''+absatz+
+  ':outfolder'+absatz+
+  'set "zipper=Zip\\7z.exe"'+absatz+
+  'if exist "!name!.epub" del "!name!.epub"'+absatz+
+  '!zipper! a -tzip "!name!.zip" "!name!\\mimetype" "!name!\\OEBPS" "!name!\\META-INF"'+absatz+
+  'rename *.zip *.epub'+absatz+
+  'goto end'+absatz+
+  ''+absatz+
+  ':end'+absatz+
+  'pause'+absatz+
+  'exit';
+
+  save_list();
 }
 
 function save_list() {
   var link = document.createElement("A");
-  var filename = document.getElementById('game_id').innerHTML+'_'+document.getElementById('game_version').innerHTML+'.json';
+  var filename = document.getElementById('book_titel').innerHTML+'.cmd';
 
-    var save_content = document.getElementById('download_list').innerHTML;
+    var save_content = document.getElementById('download_list').value;
 
-    link.setAttribute("href","data:text/xml,"+save_content);
+    link.setAttribute("href","data:text/plain;charset=utf-8,"+save_content);
     link.setAttribute("style","display:none");
     link.setAttribute("download",filename);
     document.body.appendChild(link);
