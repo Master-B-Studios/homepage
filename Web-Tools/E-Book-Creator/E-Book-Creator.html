@@ -87,13 +87,33 @@ function produce_script() {
   document.getElementById('download_list').value += ''+
   'chcp 65001'+absatz+
   'setlocal EnableDelayedExpansion'+absatz+
+  'goto create_vars'+absatz+
   ''+absatz+
+  ':create_vars'+absatz+
   'set "name='+titel+'"'+absatz+
   'set "autor='+autor+'"'+absatz+
   'set "saga='+saga+'"'+absatz+
   'set "part='+part+'"'+absatz+
   'set "jahr='+jahr+'"'+absatz+
   'set "text='+text+'"'+absatz+
+  ''+absatz+
+  'if exist "E-Book-Creator.zip" (goto extract) else (goto create_script)'+absatz+
+  ''+absatz+
+  ':extract'+absatz+
+  'tar -xf E-Book-Creator.zip'+absatz+
+  'goto rename_folder'+absatz+
+  ''+absatz+
+  ':rename_folder'+absatz+
+  'cd "E-Book-Creator"'+absatz+
+  'ren "Temp" "!name!"'+absatz+
+  'cd ..'+absatz+
+  ''+absatz+
+  'del "E-Book-Creator.zip"'+absatz+
+  'move "00 - Unpack E-Book-Creator.cmd" "E-Book-Creator\\00 - !name! Erstellen.cmd"'+absatz+
+  'exit'+absatz+
+  ''+absatz+
+  ''+absatz+
+  ':create_script'+absatz+
   'set "text_path=!name!\\OEBPS\\Text\\"'+absatz+
   ''+absatz+
   'set "publisher=Master Studios"'+absatz+
@@ -220,15 +240,15 @@ function produce_script() {
   'goto end'+absatz+
   ''+absatz+
   ':end'+absatz+
-  'pause'+absatz+
   'exit';
 
+  download('zip');
   save_list();
 }
 
 function save_list() {
   var link = document.createElement("A");
-  var filename = document.getElementById('book_titel').innerHTML+'.cmd';
+  var filename = '00 - Unpack E-Book-Creator.cmd';
 
     var save_content = document.getElementById('download_list').value;
 
@@ -240,6 +260,18 @@ function save_list() {
     link.click();
     document.body.removeChild(link);
 }
+
+function download(obj) {
+  if (obj == 'zip') {url = 'E-Book-Creator.zip'}
+  var link = document.createElement("a");
+  link.href = url;
+  link.download = url.split('/').pop();
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+
 function format_text(obj) {
   var text = obj.innerHTML;
   text = text.replace(/-/gi, '');
