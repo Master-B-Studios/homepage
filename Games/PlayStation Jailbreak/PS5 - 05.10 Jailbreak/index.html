@@ -58,12 +58,12 @@
             throw reason;
         });
         document.getElementById("current-fw").innerHTML = fw_str;
-        //registerAppCacheEventHandlers();
+        registerAppCacheEventHandlers();
         registerL2ButtonHandler();
         window.onload = function () {
             let autoload = sessionStorage.getItem(SESSIONSTORE_ON_LOAD_AUTORUN_KEY);
             if (autoload) {run(autoload == "wkonly", false);}
-            document.getElementById('run-jb').mouseover();
+            document.getElementById('run-jb').focus();
         };
     </script>
 </body>
