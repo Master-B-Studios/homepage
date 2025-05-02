@@ -38,15 +38,15 @@ a {color: var(--text-color-secondary);}
 a:active, a:focus {outline: 0;border: none;color: #66ff66;}
 
 .btn_1 {
-    padding: 1rem 2rem;
+    padding: 2rem;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    margin: 1.2rem;
+    margin: 0.5rem;
     cursor: pointer;
-    line-height: 2.5rem;
+    line-height: 2rem;
     min-width: 5rem;
-    border-radius: 1.25rem;
+    border-radius: 1rem;
     width: 50%;
     background-color: var(--black_1);
     border: none;
@@ -58,15 +58,15 @@ a:active, a:focus {outline: 0;border: none;color: #66ff66;}
 .btn_1:hover {background-color: var(--text-color-green);color: var(--text-color-primary-hover);transition: all 1s;}
 
 .btn_2 {
-    padding: 1rem 2rem;
+    padding: 2rem;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    margin: 1.2rem;
+    margin: 0.5rem;
     cursor: pointer;
-    line-height: 2.5rem;
+    line-height: 2rem;
     min-width: 5rem;
-    border-radius: 1.25rem;
+    border-radius: 1rem;
     width: 50%;
     background-color: var(--black_1);
     border: none;
@@ -78,15 +78,15 @@ a:active, a:focus {outline: 0;border: none;color: #66ff66;}
 .btn_2:hover {background-color: var(--text-color-blue);color: var(--text-color-primary-hover);transition: all 1s;}
 
 .btn_3 {
-    padding: 1rem 2rem;
+    padding: 2rem;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    margin: 1.2rem;
+    margin: 0.5rem;
     cursor: pointer;
-    line-height: 2.5rem;
+    line-height: 2rem;
     min-width: 5rem;
-    border-radius: 1.25rem;
+    border-radius: 1rem;
     width: 50%;
     background-color: var(--black_1);
     border: none;
@@ -208,7 +208,7 @@ a:active, a:focus {outline: 0;border: none;color: #66ff66;}
 .right-0 {right: 0;}
 
 .p-1 {padding: 0.25rem !important;}
-.p-2 {padding: 0.5rem !important;display: flex;margin: auto;align-items: center;justify-content: center;}
+.p-2 {padding: 0.25rem !important;display: flex;margin: auto;align-items: center;justify-content: center;}
 .p-3 {padding: 1rem !important;}
 .p-4 {padding: 1.5rem !important;}
 
