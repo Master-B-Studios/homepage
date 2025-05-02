@@ -63,6 +63,7 @@
         window.onload = function () {
             let autoload = sessionStorage.getItem(SESSIONSTORE_ON_LOAD_AUTORUN_KEY);
             if (autoload) {run(autoload == "wkonly", false);}
+            document.getElementById('run-jb').focus();
         };
     </script>
 </body>
