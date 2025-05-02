@@ -10,6 +10,7 @@
     --text-color-secondary-hover: #333333;
     --text-color-green: #66ff66;
     --text-color-blue: #11d7fa;
+    --text-color-yellow: #fae311;
     --black_0: #000000;
     --black_1: #111111;
     --black_2: #222222;
@@ -75,6 +76,26 @@ a:active, a:focus {outline: 0;border: none;color: #66ff66;}
     box-sizing: border-box;
 }
 .btn_2:hover {background-color: var(--text-color-blue);color: var(--text-color-primary-hover);transition: all 1s;}
+
+.btn_3 {
+    padding: 1rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 1.2rem;
+    cursor: pointer;
+    line-height: 2.5rem;
+    min-width: 5rem;
+    border-radius: 1.25rem;
+    width: 50%;
+    background-color: var(--black_1);
+    border: none;
+    color: var(--text-color-yellow);
+    font-size: 1.3rem;
+    transition: background-color 0.25s ease;
+    box-sizing: border-box;
+}
+.btn_3:hover {background-color: var(--text-color-yellow);color: var(--text-color-primary-hover);transition: all 1s;}
 
 #main-content{position: relative;box-sizing: border-box;}
 #main-content > div {
