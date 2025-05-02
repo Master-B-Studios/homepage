@@ -207,10 +207,10 @@ a:active, a:focus {outline: 0;border: none;color: #66ff66;}
 .left-0 {left: 0;}
 .right-0 {right: 0;}
 
-.p-1 { padding: 0.25rem !important; }
-.p-2 { padding: 0.5rem !important;display: flex;margin: auto;align-items: center;justify-content: center;}
-.p-3 { padding: 1rem !important;}
-.p-4 { padding: 1.5rem !important;}
+.p-1 {padding: 0.25rem !important;}
+.p-2 {padding: 0.5rem !important;display: flex;margin: auto;align-items: center;justify-content: center;}
+.p-3 {padding: 1rem !important;}
+.p-4 {padding: 1.5rem !important;}
 
 .m-1 {margin: 0.25rem !important;}
 .m-2 {margin: 0.5rem !important;}
