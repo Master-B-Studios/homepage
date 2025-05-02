@@ -22,6 +22,8 @@ body {
     -webkit-user-select: none;
     background-color: var(--background-color-primary);
     background-image: url("logo_01.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     /*background-image: linear-gradient(to right, var(--background-color-primary), var(--surface-color-secondary));*/
     color: var(--text-color-primary);
     font-family: Arial;
