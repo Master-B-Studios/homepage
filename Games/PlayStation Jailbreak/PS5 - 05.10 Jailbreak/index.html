@@ -46,7 +46,7 @@
     <script src="payload_map.js"></script>
 
     <script>
-        const creator = 'master_b';
+        const version = '1.0';
         addEventListener('unhandledrejection', (event) => {
             const reason = event.reason;
             // We log the line and column numbers as well since some exceptions (like
@@ -74,41 +74,6 @@
                 }));
             }
         };
-
-        function create_cache() {
-            var appCache = window.applicationCache;
-            let toast;
-            function createOrUpdateAppCacheToast(message, timeout = -1) {
-                if (!toast) {toast = showToast(message, timeout);}
-                else {updateToastMessage(toast, message);}
-                if (timeout > 0) {setTimeout(() => {removeToast(toast);toast = null;}, timeout);}
-            }
-            
-            if (document.documentElement.hasAttribute("manifest")) {
-                if (!navigator.onLine) {createOrUpdateAppCacheToast('Offline.', 2000);}
-                else {createOrUpdateAppCacheToast("Aktualisiere Cache...");}
-            }
-            
-            appCache.addEventListener('cached', function (e) {createOrUpdateAppCacheToast('Cache Aktualisiert...', 1500);}, false);
-            appCache.addEventListener('checking', function (e) {createOrUpdateAppCacheToast('Aktualisiere Cache...');}, false);
-            appCache.addEventListener('downloading', function (e) {createOrUpdateAppCacheToast('Aktualisiere Cache...');}, false);
-            
-            appCache.addEventListener('error', function (e) {
-                if (navigator.onLine) {createOrUpdateAppCacheToast('Fehler Beim Cachen...', 5000);}
-                else {createOrUpdateAppCacheToast('Offline.', 2000);}
-            }, false);
-            
-            appCache.addEventListener('noupdate', function (e) {createOrUpdateAppCacheToast('Cache Aktuell...', 1500);}, false);
-            appCache.addEventListener('obsolete', function (e) {createOrUpdateAppCacheToast('Seite Nicht Erreichbar.');}, false);
-            
-            appCache.addEventListener('progress', function (e) {
-                let percentage = Math.round((e.loaded / e.total) * 100);
-                createOrUpdateAppCacheToast('Aktualisiere Cache... ' + percentage + '%');
-                if (e.loaded + 1 == e.total) {createOrUpdateAppCacheToast("Lade Cache... Bitte Warten...");}
-            }, false);
-            
-            appCache.addEventListener('updateready', function (e) {if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {createOrUpdateAppCacheToast('Cache Aktuell... Seite Neu Laden Zum Aktualisieren...');}}, false);
-        }
     </script>
 </body>
 
