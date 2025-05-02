@@ -161,7 +161,7 @@ a:active, a:focus {outline: 0;border: none;color: #66ff66;}
     font-family: monospace;
     white-space: pre;
     color: var(--text-color-green);
-    background-color: inherit;
+    background-color: #000000;
     border: var(--surface-color-primary) 1px solid;
     border-radius: 5px;
     padding: 8px;
@@ -178,17 +178,17 @@ a:active, a:focus {outline: 0;border: none;color: #66ff66;}
 .LOG-SUCCESS {color: #66ff66;}
 .log:active, .log:focus {outline: 0;border: none;}
 
-.position-relative { position: relative;}
-.position-absolute { position: absolute; }
+.position-relative {position: relative;}
+.position-absolute {position: absolute;}
 
-.d-none { display: none !important; }
-.d-flex { display: flex; }
+.d-none {display: none !important;}
+.d-flex {display: flex;}
 
-.flex-direction-column { flex-direction: column; }
-.flex-direction-row { flex-direction: row; }
+.flex-direction-column {flex-direction: column;}
+.flex-direction-row {flex-direction: row;}
 
-.align-items-center { align-items: center; }
-.justify-content-center { justify-content: center; }
+.align-items-center {align-items: center;}
+.justify-content-center {justify-content: center;}
 
 .text-center {text-align: center;font-weight: bolder;}
 .fw-bold {font-weight: 800;}
