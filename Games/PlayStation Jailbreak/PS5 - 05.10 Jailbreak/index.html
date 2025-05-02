@@ -23,7 +23,7 @@
     <!-- Row 2 -->
     <div id="main-content">
         <div id="pre-jb-view" class="d-flex align-items-center justify-content-center flex-direction-column selected">
-            <a tabindex="0" class="btn_1 fw-bold" id="run-jb" onclick="run();">Jailbreak</a>
+            <a tabindex="0" class="btn_1 fw-bold" id="run-jb" onclick="run();" onmouseover="this.style='background-color: var(--text-color-green);color: var(--text-color-primary-hover);transition: all 1s;'" onmouseout="this.style='background-color: var(--black_1);color: var(--text-color-green);transition: all 1s;'">Jailbreak</a>
             <a tabindex="0" class="btn_2 fw-bold" id="run-wk-only" onclick="run(true);">Payloads</a>
             <a tabindex="0" class="btn_3 fw-bold" id="" onclick="create_cache();">Offline Caching</a>
         </div>
