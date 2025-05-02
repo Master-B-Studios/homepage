@@ -65,6 +65,14 @@
             let autoload = sessionStorage.getItem(SESSIONSTORE_ON_LOAD_AUTORUN_KEY);
             if (autoload) {run(autoload == "wkonly", false);}
             document.getElementById('run-jb').focus();
+            function simulateMouseover() {
+                const button = document.getElementById('run-jb');
+                button.dispatchEvent(new MouseEvent('mouseover', {
+                    'view': window,
+                    'bubbles': true,
+                    'cancelable': true
+                }));
+            }
         };
 
         function create_cache() {
