@@ -1,5 +1,3 @@
-<!-- <html manifest="cache.appcache"> -->
-
 <head>
     <title> PS-5 UMTX2 Jailbreak by Master Studios </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,7 +50,6 @@
             throw reason;
         });
         document.getElementById("current-fw").innerHTML = fw_str;
-        //registerAppCacheEventHandlers();
         registerL2ButtonHandler();
         window.onload = function () {
             let autoload = sessionStorage.getItem(SESSIONSTORE_ON_LOAD_AUTORUN_KEY);
@@ -63,7 +60,6 @@
                 button.dispatchEvent(new MouseEvent('mouseover', {'view': window,'cancelable': true}));
             }
         };
-        if ('serviceworker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/cache.js');})}
     </script>
 </body>
 
