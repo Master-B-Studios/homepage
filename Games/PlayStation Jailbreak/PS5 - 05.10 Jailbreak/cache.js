@@ -1,18 +1,17 @@
 const CACHE_NAME = 'appcache';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/offline.html',
-    '/custom_host_stuff.js',
-    '/int64.js',
-    '/logo_01.jpg',
-    '/main.css',
-    '/main.js',
-    '/payload_map.js',
-    '/rop_slave.js',
-    '/rop.js',
-    '/syscalls.js',
-    '/umtx2.js'
+    'index.html',
+    'offline.html',
+    'custom_host_stuff.js',
+    'int64.js',
+    'logo_01.jpg',
+    'main.css',
+    'main.js',
+    'payload_map.js',
+    'rop_slave.js',
+    'rop.js',
+    'syscalls.js',
+    'umtx2.js'
 ];
 
 // Install service worker and cache assets

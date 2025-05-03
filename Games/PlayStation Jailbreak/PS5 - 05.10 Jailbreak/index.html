@@ -53,7 +53,7 @@
         //registerAppCacheEventHandlers();
         registerL2ButtonHandler();
         function cache_website() {
-            navigator.serviceWorker.register('/cache.js')
+            navigator.serviceWorker.register('cache.js')
             .then(registration => {
                 console.log('Service worker registered:', registration);
             })
