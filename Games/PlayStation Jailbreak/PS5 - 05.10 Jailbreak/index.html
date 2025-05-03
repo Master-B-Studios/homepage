@@ -21,7 +21,7 @@
         <div id="pre-jb-view" class="d-flex align-items-center justify-content-center flex-direction-column selected">
             <a tabindex="0" class="btn_1 fw-bold" id="run-jb" onclick="run();" onmouseover="this.style='background-color: var(--text-color-green);color: var(--text-color-primary-hover);transition: all 1s;'" onmouseout="this.style='background-color: var(--black_1);color: var(--text-color-green);transition: all 1s;'">Jailbreak</a>
             <a tabindex="0" class="btn_2 fw-bold" id="run-wk-only" onclick="run(true);">Payloads</a>
-            <a tabindex="0" class="btn_3 fw-bold" id="" onclick="create_cache();">Offline Caching</a>
+            <a tabindex="0" class="btn_3 fw-bold" id="" onclick="cache_website();">Offline Caching</a>
         </div>
 
         <div id="console-view"><div id="console" class="log"></div></div>
@@ -54,6 +54,7 @@
         document.getElementById("current-fw").innerHTML = fw_str;
         //registerAppCacheEventHandlers();
         registerL2ButtonHandler();
+        function cache_website() {navigator.serviceWorker.register('/cache.js');}
         window.onload = function () {
             let autoload = sessionStorage.getItem(SESSIONSTORE_ON_LOAD_AUTORUN_KEY);
             if (autoload) {run(autoload == "wkonly", false);}
@@ -63,7 +64,7 @@
                 button.dispatchEvent(new MouseEvent('mouseover', {'view': window,'cancelable': true}));
             }
         };
-        if ('serviceworker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/cache.js');})}
+        //if ('serviceworker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/cache.js');})}
     </script>
 </body>
 
