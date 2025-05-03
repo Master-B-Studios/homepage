@@ -1,5 +1,7 @@
 CACHE MANIFEST 
 
+#<!-- <html manifest="cache.appcache"> -->#
+
 # Generated 2025-03-26 # 
 custom_host_stuff.js 
 index.html 
