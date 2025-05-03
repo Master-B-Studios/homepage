@@ -56,10 +56,10 @@
         function cache_website() {
             navigator.serviceWorker.register('cache.js')
             .then(registration => {
-                console.log('Service worker registered:', registration);
+                alert('Service worker registered:', registration);
             })
             .catch(error => {
-                console.log('Service worker registration failed:', error);
+                alert('Service worker registration failed:', error);
             });
         }
         window.onload = function () {
