@@ -7,28 +7,17 @@ async function run(wkonly = false, animate = true) {
     if (exploitStarted) {return;}
     exploitStarted = true;
     await switchPage("console-view", animate);
-
-    // not setting it in the catch since we want to retry both on a handled error and on a browser crash
     sessionStorage.setItem(SESSIONSTORE_ON_LOAD_AUTORUN_KEY, wkonly ? "wkonly" : "kernel");
-
-    try {
-        if (!animate) {
-            // hack but waiting a bit seems to help
-            // this only gets hit when auto-running on page load
-            await new Promise((resolve) => setTimeout(resolve, 100));
-        }
-        await run_psfree(fw_str);
-    }
+    try {if (!animate) {await new Promise((resolve) => setTimeout(resolve, 100));};await run_psfree(fw_str);}
     catch (error) {
-        log("Webkit exploit failed: " + error, LogLevel.ERROR);
-        log("Retrying in 2 seconds...", LogLevel.LOG);
+        log("Exploit Fehlgeschlagen: " + error, LogLevel.ERROR);
+        log("Neuversuch in 2 Sekunden...", LogLevel.LOG);
         await new Promise((resolve) => setTimeout(resolve, 2000));
         window.location.reload();
-        return; // this is necessary
+        return;
     }
     try {await main(window.p, wkonly);}
-    catch (error) {log("Kernel exploit/main() failed: " + error, LogLevel.ERROR);}
-
+    catch (error) {log("Exploit Fehlgeschlagen: " + error, LogLevel.ERROR);}
     log("Neuversuch in 4 Sekunden...", LogLevel.LOG);
     await new Promise((resolve) => setTimeout(resolve, 4000));
     window.location.reload();
@@ -43,7 +32,6 @@ async function switchPage(id, animate = true) {
         if (animate) {
             let oldSelectedElementTransitionEnd = new Promise((resolve) => {
                 oldSelectedElement.addEventListener("transitionend", function handler(event) {
-                    // we get back transitionend for children too but we don't want that
                     if (event.target === oldSelectedElement) {
                         oldSelectedElement.removeEventListener("transitionend", handler);
                         resolve();
@@ -54,7 +42,6 @@ async function switchPage(id, animate = true) {
             await oldSelectedElementTransitionEnd;
         }
         else {
-            // override transition with none for instant switch
             oldSelectedElement.style.setProperty('transition', 'none', 'important');
             oldSelectedElement.offsetHeight;
             oldSelectedElement.classList.remove('selected');
@@ -66,18 +53,13 @@ async function switchPage(id, animate = true) {
     if (animate) {
         let targetElementTransitionEnd = new Promise((resolve) => {
             targetElement.addEventListener("transitionend", function handler(event) {
-                // we get back transitionend for children too but we don't want that
-                if (event.target === targetElement) {
-                    targetElement.removeEventListener("transitionend", handler);
-                    resolve();
-                }
+                if (event.target === targetElement) {targetElement.removeEventListener("transitionend", handler);resolve();}
             });
         });
         targetElement.classList.add('selected');
         await targetElementTransitionEnd;
     }
     else {
-        // override transition with none for instant switch
         targetElement.style.setProperty('transition', 'none', 'important');
         targetElement.offsetHeight;
         targetElement.classList.add('selected');
@@ -127,8 +109,6 @@ function registerL2ButtonHandler() {
         if (event.keyCode === 118) {
             const lastRedirectorValue = localStorage.getItem(LOCALSTORE_REDIRECTOR_LAST_URL_KEY) || "https://";
             const redirectorValue = prompt("🌐 Url Eingeben:", lastRedirectorValue);
-
-            // pressing cancel works as expected, but pressing the back button unfortunately is the same as pressing ok
             if (redirectorValue && redirectorValue !== "https://") {
                 localStorage.setItem(LOCALSTORE_REDIRECTOR_LAST_URL_KEY, redirectorValue);
                 window.location.href = redirectorValue;
@@ -146,8 +126,6 @@ function showToast(message, timeout = 2000) {
     toast.className = 'toast';
     toast.textContent = message;
     toastContainer.appendChild(toast);
-
-    // Trigger reflow to enable animation
     toast.offsetHeight;
     toast.classList.add('show');
     if (timeout > 0) {setTimeout(() => {removeToast(toast);}, timeout);}
@@ -162,7 +140,6 @@ async function removeToast(toast) {
     toast.addEventListener('transitionend', () => {toast.remove();});
 }
 
-
 function populatePayloadsPage(wkOnlyMode = false) {
     const payloadsView = document.getElementById('payloads-view');
     while (payloadsView.firstChild) {payloadsView.removeChild(payloadsView.firstChild);}
@@ -174,24 +151,19 @@ function populatePayloadsPage(wkOnlyMode = false) {
         payloadButton.classList.add("btn");
         payloadButton.classList.add("w-100");
         payloadButton.tabIndex = 0;
-
         const payloadTitle = document.createElement("p");
         payloadTitle.classList.add("payload-btn-title");
         payloadTitle.textContent = payload.displayTitle;
-
         const payloadDescription = document.createElement("p");
         payloadDescription.classList.add("payload-btn-description");
         payloadDescription.textContent = payload.description;
-
         const payloadInfo = document.createElement("p");
         payloadInfo.classList.add("payload-btn-info");
         payloadInfo.innerHTML = `v${payload.version} &centerdot; ${payload.author}`;
-
         payloadButton.appendChild(payloadTitle);
         payloadButton.appendChild(payloadDescription);
         payloadButton.appendChild(payloadInfo);
         payloadButton.addEventListener("click", function () {window.dispatchEvent(new CustomEvent(MAINLOOP_EXECUTE_PAYLOAD_REQUEST, {detail: payload}));});
-
         payloadsView.appendChild(payloadButton);
     }
 }
