@@ -1,3 +1,4 @@
+<html manifest="cache.appcache">
 <head>
     <title> PS-5 UMTX2 Jailbreak by Master Studios </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,7 +51,7 @@
             throw reason;
         });
         document.getElementById("current-fw").innerHTML = fw_str;
-        //registerAppCacheEventHandlers();
+        registerAppCacheEventHandlers();
         registerL2ButtonHandler();
         function cache_website() {
             navigator.serviceWorker.register('cache.js')
