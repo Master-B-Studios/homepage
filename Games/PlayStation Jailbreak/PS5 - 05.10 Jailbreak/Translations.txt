@@ -1,0 +1,158 @@
+----------------------------------------------------------------------------------------------------------------------
+custom_host_stuff.js
+
+log("Webkit exploit failed: " + error, LogLevel.ERROR);
+log("Exploit fehlgeschlagen: " + error, LogLevel.ERROR);
+
+log("Retrying in 2 seconds...", LogLevel.LOG);
+log("Neuversuch in 2 Sekunden...", LogLevel.LOG);
+
+log("Kernel exploit/main() failed: " + error, LogLevel.ERROR);
+log("Exploit fehlgeschlagen: " + error, LogLevel.ERROR);
+
+log("Retrying in 4 seconds...", LogLevel.LOG);
+log("Neuversuch in 4 Sekunden...", LogLevel.LOG);
+
+createOrUpdateAppCacheToast('Offline.', 2000);
+createOrUpdateAppCacheToast('Offline...', 2000);
+
+createOrUpdateAppCacheToast("Checking for updates...");
+createOrUpdateAppCacheToast("Suche nach Updates...");
+
+createOrUpdateAppCacheToast('Finished caching site.', 1500);
+createOrUpdateAppCacheToast('Website geladen....', 1500);
+
+createOrUpdateAppCacheToast('Checking for updates...');
+createOrUpdateAppCacheToast("Suche nach Updates...");
+
+createOrUpdateAppCacheToast('Downloading new cache...');
+createOrUpdateAppCacheToast('Cache Website...');
+
+createOrUpdateAppCacheToast('Error while caching site.', 5000);
+createOrUpdateAppCacheToast('Fehler beim Cachen der Website...', 5000);
+
+createOrUpdateAppCacheToast('Offline.', 2000);
+createOrUpdateAppCacheToast('Offline...', 2000);
+
+createOrUpdateAppCacheToast('Cache is up-to-date.', 1500);
+createOrUpdateAppCacheToast('Cache aktuell...', 1500);
+
+createOrUpdateAppCacheToast('Site is obsolete.');
+createOrUpdateAppCacheToast('Website nicht erreichbar... Cache wird gelöscht...');
+
+createOrUpdateAppCacheToast('Downloading new cache... ' + percentage + '%');
+createOrUpdateAppCacheToast('Cache Website... ' + percentage + '%');
+
+createOrUpdateAppCacheToast("Processing... This may take a minute.");
+createOrUpdateAppCacheToast("Verarbeite... Bitte warten...");
+
+createOrUpdateAppCacheToast('The site was updated. Refresh to switch to updated version');
+createOrUpdateAppCacheToast('Die Website wurde aktualisiert... Bitte neu laden...');
+----------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------
+main.js
+
+alert(`This is a PlayStation 5 Exploit. => ${navigator.userAgent}`);
+alert(`PS5 Exploit => ${navigator.userAgent}`);
+
+alert(`This firmware(${fw_str}) is not supported.`);
+alert(`Die Version ${fw_str} wird nicht unterstützt.`);
+
+let res = confirm("elfldr doesnt seem to be running and in webkit only mode it wont be loaded, continue?");
+let res = confirm("ELF-Loader kann nicht aktiviert werden. Weiter?");
+
+let res = confirm("elfldr seems to be running, would you like to skip the kernel exploit, and switch to sender-only mode?");
+let res = confirm("ELF-Loader aktiv. Exploit überspringen?");
+
+await log("Loading ELF file: " + filename + " ...", LogLevel.LOG);
+await log("Lade ELF-File: " + filename + "...", LogLevel.LOG);
+
+await log("Enabled debug menu", LogLevel.INFO);
+await log("Debug-Menu aktiviert...", LogLevel.INFO);
+
+await log("We root now? uid=0x" + cur_uid, LogLevel.INFO);
+await log("Root-Rechte? uid=0x" + cur_uid, LogLevel.INFO);
+
+await log("Jailbreaking... (in sandbox: " + is_in_sandbox + ")" , LogLevel.INFO);
+await log("Jailbreaking... (in sandbox: " + is_in_sandbox + ")" , LogLevel.INFO);
+
+await log("We escaped now? in sandbox: " + is_in_sandbox, LogLevel.INFO);
+await log("Sandbox verlassen? " + is_in_sandbox, LogLevel.INFO);
+
+await log("Patched PS4 SDK version to 99.99", LogLevel.INFO);
+await log("PS4-Spoof 99.99", LogLevel.INFO);
+
+await log(`elfldr listening on ${ip.ip}:9021`, LogLevel.INFO);
+await log(`ELF-Loader aktiv: ${ip.ip}:9021`, LogLevel.INFO);
+
+await log("elfldr exited with non-zero code, port 9021 will likely not work", LogLevel.ERROR);
+await log("ELF-Loader-Fehler", LogLevel.ERROR);
+
+await log("elf loader listening on port 9020", LogLevel.INFO);
+await log("ELF-Loader aktiv: Port 9020", LogLevel.INFO);
+
+await log(`Deleted appcache files for user with id '${user_id}'`);
+await log(`Appcache für Benutzer-ID '${user_id}' gelöscht...`);
+
+await log(`Deleted appcache files for all ${user_ids.length} users`);
+await log(`Appcache für alle ${user_ids.length} Benutzer gelöscht...`);
+
+document.getElementById('top-bar-text').innerHTML = `Listening on: <span class="fw-bold">${ip.ip}</span> (port: ${ports}) (${ip.name})`;
+document.getElementById('top-bar-text').innerHTML = `<span class="fw-bold">${ip.ip}</span> (port: ${ports}) (${ip.name})`;
+----------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------
+umtx2.js
+
+await log("Triggering race...", LogLevel.LOG);
+await log("Suche Schwachstellen...", LogLevel.LOG);
+
+await log(`Race attempt ${i}-${i2} (mem access fail count: ${checkMemoryAccessFailCount})`, LogLevel.INFO | LogLevel.FLAG_TEMP);
+await log(`Versuch ${i}-${i2} (mem access fail count: ${checkMemoryAccessFailCount})`, LogLevel.INFO | LogLevel.FLAG_TEMP);
+
+await log(`Race attempt ${i}-${i2}`, LogLevel.INFO | LogLevel.FLAG_TEMP);
+await log(`Versuch ${i}-${i2}`, LogLevel.INFO | LogLevel.FLAG_TEMP);
+
+await log(`overlapped shm regions! winner_fd = ${winnerFd}`, LogLevel.LOG);
+await log(`SHM-Bereich-Schwachstelle = ${winnerFd}`, LogLevel.LOG);
+
+if (debug) await log(`Race won after ${count} attempts`, LogLevel.INFO);
+if (debug) await log(`${count} Versuche benötigt...`, LogLevel.INFO);
+
+if (debug) await log("Race max attempts reached, retrying...", LogLevel.INFO);
+if (debug) await log("Maximale Anzahl an Versuchen erreicht. Neustart...", LogLevel.INFO);
+
+if (debug) await log(`Race took ${toHumanReadableTime(afterRaceTime - beforeRaceTime)}`, LogLevel.INFO);
+if (debug) await log(`${toHumanReadableTime(afterRaceTime - beforeRaceTime)} Versuche benötigt...`, LogLevel.INFO);
+
+await log("Failed to mmap kstack", LogLevel.WARN);
+await log("KSTACK-MMAP Zuordungsfehler...", LogLevel.WARN);
+
+await log("Failed to reclaim kstack. Retrying...", LogLevel.WARN);
+await log("KSTACK-Fehler. Neuversuch...", LogLevel.WARN);
+
+await log("kstack can be accessed", LogLevel.SUCCESS);
+await log("KSTACK-Zugriff...", LogLevel.SUCCESS);
+
+await log(`Done! Exploit took:   ${toHumanReadableTime(totalDuration)}`, LogLevel.SUCCESS);
+await log(`Fertig! Exploit hat ${toHumanReadableTime(totalDuration)} gedauert...`, LogLevel.SUCCESS);
+----------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------
+psfree.js
+
+debug_log('PSFree: leak CodeBlock');
+debug_log('PSFree Schwachstellensuche...');
+
+debug_log('PSFree: UaF SSV');
+debug_log('Starte Exploit...');
+
+debug_log('PSFree: get string relative read primitive');
+debug_log('PSFree Abhängigkeiten laden...');
+
+debug_log('PSFree: achieve arbitrary read/write primitive');
+debug_log('PSFree Vollzugriff...');
+
+debug_log('PSFree: done');
+debug_log('PSFree geladen...');

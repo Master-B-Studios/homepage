@@ -166,16 +166,16 @@ a:active, a:focus {outline: 0;border: none;color: #66ff66;}
     color: var(--text-color-green);
     background-color: #000000;
     border: var(--surface-color-primary) 1px solid;
-    border-radius: 5px;
-    padding: 8px;
-    margin: 8px;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 10px;
     box-sizing: border-box;
     overflow-y: auto;
 }
 
-.LOG-DEBUG {color: #bbddbb;}
-.LOG-INFO {color: #bbbbbb;}
-.LOG-LOG {color: #ffffff;}
+.LOG-DEBUG {color: #dbdbdb;}
+.LOG-INFO {color: #dbdbdb;}
+.LOG-LOG {color: #dbdbdb;}
 .LOG-WARN {color: #ffcc00;}
 .LOG-ERROR {color: #ff6666;}
 .LOG-SUCCESS {color: #66ff66;}
