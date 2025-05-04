@@ -59,6 +59,9 @@ alert(`PS5 Exploit => ${navigator.userAgent}`);
 alert(`This firmware(${fw_str}) is not supported.`);
 alert(`Die Version ${fw_str} wird nicht unterstützt.`);
 
+await log("is elfldr running: " + is_elfldr_running, LogLevel.INFO);
+await log("ELF-Loader aktiv: " + is_elfldr_running, LogLevel.INFO);
+
 let res = confirm("elfldr doesnt seem to be running and in webkit only mode it wont be loaded, continue?");
 let res = confirm("ELF-Loader kann nicht aktiviert werden. Weiter?");
 
@@ -72,16 +75,16 @@ await log("Enabled debug menu", LogLevel.INFO);
 await log("Debug-Menu aktiviert...", LogLevel.INFO);
 
 await log("We root now? uid=0x" + cur_uid, LogLevel.INFO);
-await log("Root-Rechte? uid=0x" + cur_uid, LogLevel.INFO);
+await log("Root-Rechte: uid 0x" + cur_uid + "...", LogLevel.INFO);
 
 await log("Jailbreaking... (in sandbox: " + is_in_sandbox + ")" , LogLevel.INFO);
-await log("Jailbreaking... (in sandbox: " + is_in_sandbox + ")" , LogLevel.INFO);
+await log("Jailbreak in Sandbox: " + is_in_sandbox + "...", LogLevel.INFO);
 
 await log("We escaped now? in sandbox: " + is_in_sandbox, LogLevel.INFO);
-await log("Sandbox verlassen? " + is_in_sandbox, LogLevel.INFO);
+await log("Sandbox: " + is_in_sandbox + "...", LogLevel.INFO);
 
 await log("Patched PS4 SDK version to 99.99", LogLevel.INFO);
-await log("PS4-Spoof 99.99", LogLevel.INFO);
+await log("PS4-Spoof-Version: 99.99...", LogLevel.INFO);
 
 await log(`elfldr listening on ${ip.ip}:9021`, LogLevel.INFO);
 await log(`ELF-Loader aktiv: ${ip.ip}:9021`, LogLevel.INFO);
@@ -97,6 +100,18 @@ await log(`Appcache für Benutzer-ID '${user_id}' gelöscht...`);
 
 await log(`Deleted appcache files for all ${user_ids.length} users`);
 await log(`Appcache für alle ${user_ids.length} Benutzer gelöscht...`);
+
+await log("Escalating creds... (current uid=0x" + cur_uid + ")", LogLevel.INFO);
+await log("Attackiere System mit uid 0x" + cur_uid + "...", LogLevel.INFO);
+
+await log("    Executing...", LogLevel.INFO);
+await log("    Starte...", LogLevel.INFO);
+
+await log("    Finished, out = 0x" + res.toString(16), LogLevel.LOG);
+await log("    Fertig...", LogLevel.LOG);
+
+updateToastMessage(toast, `${payload_info.displayTitle}: Sent to port ${payload_info.toPort}`);
+updateToastMessage(toast, ` ${payload_info.displayTitle} wird gestartet...`);
 
 document.getElementById('top-bar-text').innerHTML = `Listening on: <span class="fw-bold">${ip.ip}</span> (port: ${ports}) (${ip.name})`;
 document.getElementById('top-bar-text').innerHTML = `<span class="fw-bold">${ip.ip}</span> (port: ${ports}) (${ip.name})`;
@@ -132,8 +147,32 @@ await log("KSTACK-MMAP Zuordungsfehler...", LogLevel.WARN);
 await log("Failed to reclaim kstack. Retrying...", LogLevel.WARN);
 await log("KSTACK-Fehler. Neuversuch...", LogLevel.WARN);
 
+await log("Failed to access kstack memory. Retrying...", LogLevel.WARN);
+await log("KSTACK-Fehler. Neuversuch...", LogLevel.WARN);
+
 await log("kstack can be accessed", LogLevel.SUCCESS);
 await log("KSTACK-Zugriff...", LogLevel.SUCCESS);
+
+await log(`Successfully reclaimed kstack (kprim_id = ${kprimId})`, LogLevel.SUCCESS);
+await log(`KSTACK-ID = ${kprimId}`, LogLevel.SUCCESS);
+
+await log(`Overlapped ipv6 sockets`, LogLevel.SUCCESS);
+await log(`IPv6-Adressen gepatcht...`, LogLevel.SUCCESS);
+
+await log("Creating fixup chain...", LogLevel.INFO);
+await log("Fix-Patch erstellen...", LogLevel.INFO);
+
+await log("Running fixup...", LogLevel.INFO);
+await log("Fix-Patch ausführen...", LogLevel.INFO);
+
+await log("Fixes applied", LogLevel.SUCCESS);
+await log("Fix-Patch erfolgreich...", LogLevel.SUCCESS);
+
+await log("Looking for allproc...", LogLevel.INFO);
+await log("Allproc suchen...", LogLevel.INFO);
+
+await log("Found allproc", LogLevel.INFO);
+await log("Allproc gefunden...", LogLevel.INFO);
 
 await log(`Done! Exploit took:   ${toHumanReadableTime(totalDuration)}`, LogLevel.SUCCESS);
 await log(`Fertig! Exploit hat ${toHumanReadableTime(totalDuration)} gedauert...`, LogLevel.SUCCESS);
