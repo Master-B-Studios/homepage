@@ -48,6 +48,7 @@
         <table class="table_flipper">
           <tr class="tr_flipper_checkbox">
             <td id="esp32_raw___" class="checkbox" onclick="select_codes(this);">ESP32 Raw</td>
+            <td id="flipper_hex_" class="checkbox" onclick="select_codes(this);">Flipper Hex</td>
             <td id="flipper_raw_" class="checkbox" onclick="select_codes(this);">Flipper Raw</td>
             <td id="lirc_raw____" class="checkbox" onclick="select_codes(this);">Lirc<br>Raw</td>
             <td id="pronto_hex__" class="checkbox" onclick="select_codes(this);">Pronto Hex</td>
@@ -291,6 +292,7 @@
     for (i = 0; i < box.length; i++) {box[i].value = false;box[i].style = 'opacity = 0.5';box[i].style = 'transition: opacity 1s';}
     obj.value = true;obj.style.opacity = '1';
     if (obj.id == 'esp32_raw___') {mode = 'esp32_raw___';}
+    else if (obj.id == 'flipper_hex_') {mode = 'flipper_hex_';}
     else if (obj.id == 'flipper_raw_') {mode = 'flipper_raw_';}
     else if (obj.id == 'lirc_raw____') {mode = 'lirc_raw____';}
     else if (obj.id == 'pronto_hex__') {mode = 'pronto_hex__';}
@@ -346,6 +348,54 @@
       list______ = 'uint16_t rawData[39] = {2668, 894,  440, 892,  440, 448,  440, 448,  440, 892,  884, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  886, 446,  440, 892,  440, 448,  884, 448,  464, 868,  440, 448,  440};';
       text______ = 'uint16_t rawData[41] = {2682, 894,  438, 894,  440, 448,  438, 450,  440, 892,  884, 448,  440, 448,  440, 448,  440, 448,  438, 450,  438, 450,  440, 448,  440, 448,  440, 448,  440, 448,  884, 448,  440, 448,  440, 448,  440, 892,  440, 448,  440};';
     }
+
+    else if (mode == 'flipper_hex_') {
+      power_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x0C';
+      ambilight_ = 'Codec: RC6 - Adress: 0x00 - Command: 0x8F';
+      info______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x0F';
+      alexa_____ = '';
+      source____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x38';
+      up________ = 'Codec: RC6 - Adress: 0x00 - Command: 0x58';
+      right_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x5B';
+      down______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x59';
+      left______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x5A';
+      ok________ = 'Codec: RC6 - Adress: 0x00 - Command: 0x5C';
+      back______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x0A';
+      home______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x54';
+      settings__ = 'Codec: RC6 - Adress: 0x00 - Command: 0x40';
+      rwd_______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x2B';
+      play______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x2B';
+      fwd_______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x28';
+      stop______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x31';
+      pause_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x30';
+      record____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x37';
+      red_______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x6D';
+      green_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x6E';
+      yellow____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x6F';
+      blue______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x70';
+      volumeup__ = 'Codec: RC6 - Adress: 0x00 - Command: 0x10';
+      netflix___ = 'Codec: RC6 - Adress: 0x00 - Command: 0x76';
+      tvup______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x20';
+      mute______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x0D';
+      apps______ = 'Codec: RC6 - Adress: 0x00 - Command: 0xBE';
+      tv________ = 'Codec: RC6 - Adress: 0x00 - Command: 0x9F';
+      volumedown = 'Codec: RC6 - Adress: 0x00 - Command: 0x11';
+      rakuten___ = 'Codec: RC6 - Adress: 0x00 - Command: 0x22';
+      tvdown____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x21';
+      btn_0_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x00';
+      btn_1_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x01';
+      btn_2_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x02';
+      btn_3_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x03';
+      btn_4_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x04';
+      btn_5_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x05';
+      btn_6_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x06';
+      btn_7_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x07';
+      btn_8_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x08';
+      btn_9_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x09';
+      list______ = 'Codec: RC6 - Adress: 0x00 - Command: 0xCC';
+      text______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x3C';
+    }
+
     else if (mode == 'flipper_raw_') {
       power_____ = '2701 893 438 895 438 450 438 449 439 895 882 451 437 450 438 450 438 449 439 450 438 451 437 450 438 450 438 450 438 450 438 449 439 450 883 451 437 896 437 450 438';
       ambilight_ = '2705 893 438 893 440 449 439 450 438 893 885 451 437 450 439 450 438 449 439 450 438 450 438 449 440 449 884 895 438 450 439 450 883 450 438 450 438 450 438 84009 2661 892 439 894 439 450 438 449 440 895 882 451 437 450 439 449 439 449 439 449 439 449 440 449 439 450 883 894 439 450 438 450 883 451 437 451 438 450 439';
