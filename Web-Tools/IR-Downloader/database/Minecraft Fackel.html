@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>TV Philips 70PUS7805-12</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+  <link rel="icon" type="image/x-icon" href="../../../images/MB_Icon_01.png"></link>
+  <link rel="stylesheet" href="../../../assets/css/main.css"></link>
+  <noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
+  <style>
+    .remote_table {width: auto;margin: 1em auto 1em auto;}
+    .remote_table td {text-align: center;vertical-align: middle;}
+    .remote_button_gap {width: 1em;height: auto;}
+    .remote_button {width: 5em;height: 5em;border-radius: 0.4em;cursor: pointer;}
+    .remote_button_4row {width: 3.5em;height: 3.5em;border-radius: 0.4em;cursor: pointer;}
+    .bg_gre {background-color: #333333;}
+    .bg_gre:hover {color: #00ff00;background-color: #222222;}
+    .bg_red {background-color: #ff0000;color: #000000;}
+    .bg_red:hover {color: #00ff00;background-color: #990000;}
+    .bg_blu {background-color: #0000ff;color: #000000;}
+    .bg_blu:hover {color: #00ff00;background-color: #000099;}
+    .bg_lim {background-color: #00ff00;color: #000000;}
+    .bg_lim:hover {color: #00ff00;background-color: #009900;}
+    .bg_yel {background-color: #ffee00;color: #000000;}
+    .bg_yel:hover {color: #00ff00;background-color: #ff9900;}
+    .bg_dar {background-color: #111111;}
+    .bg_dar:hover {color: #00ff00;background-color: #222222;}
+    .bg_cya {background-color: #00ffff;color: #000000;}
+    .bg_cya:hover {color: #00ff00;background-color: #009999;}
+  </style>
+</head>
+<body onload="window.location.href = '#ir_downloader';" class="is-preload">
+  <div id="wrapper">
+    
+    <nav id="nav">
+      <a href="../../../index.html"><img class="mb_icon" src="../../../images/MB_Icon_02.png"></img><span>Home</span></a>
+      <a href="../../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
+      <a href="../../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
+	  <a href="../../../Games/games.html"><img class="mb_icon" src="../../../images/Games_Icon_01.png"></img><span>Games</span></a>
+      <a href="#ir_downloader"><img class="mb_icon" src="../icon_01.png"></img><span>IR Codes</span></a>  
+    </nav>
+
+    
+    <div id="main">
+      <article id="ir_downloader" class="panel">
+        <header><h2>TV Philips 70PUS7805-12</h2></header>
+
+        <table class="table_flipper">
+          <tr class="tr_flipper_checkbox">
+            <td id="esp32_raw___" class="checkbox" onclick="select_codes(this);">ESP32 Raw</td>
+            <td id="flipper_hex_" class="checkbox" onclick="select_codes(this);">Flipper Hex</td>
+            <td id="flipper_raw_" class="checkbox" onclick="select_codes(this);">Flipper Raw</td>
+            <td id="lirc_raw____" class="checkbox" onclick="select_codes(this);">Lirc<br>Raw</td>
+            <td id="pronto_hex__" class="checkbox" onclick="select_codes(this);">Pronto Hex</td>
+            <td id="global_cache" class="checkbox" onclick="select_codes(this);">Global Caché</td>
+            <td id="short_code__" class="checkbox" onclick="select_codes(this);">Short Code</td>
+          </tr>
+          <tr class="tr_flipper"><td class="tr_flipper_gap"></td></tr>
+        </table>
+
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_red" onclick="copy_id_code(power_____);">Power<br>&#9211;</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_blu" onclick="copy_id_code(ambilight_);">Ambilight</td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(info______);">Info</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(alexa_____);">Alexa</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(source____);">Source</td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_dar" onclick="copy_id_code(up________);">&#9651;</td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_dar" onclick="copy_id_code(left______);">&#9665;</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_dar" onclick="copy_id_code(ok________);">&#8858;</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_dar" onclick="copy_id_code(right_____);">&#9655;</td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_dar" onclick="copy_id_code(down______);">&#9661;</td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(back______);">Back</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(home______);">Home</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(settings__);">Settings</td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(rwd_______);">&#x23EE;</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(play______);">&#x23F5;</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(fwd_______);">&#x23ED;</td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(stop______);">&#x23F9;</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(pause_____);">&#x23F8;</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" style="color: #ff0000;" onclick="copy_id_code(record____);">&#x23FA;</td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
+        
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button_4row bg_red" onclick="copy_id_code(red_______);"></td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button_4row bg_lim" onclick="copy_id_code(green_____);"></td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button_4row bg_yel" onclick="copy_id_code(yellow____);"></td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button_4row bg_blu" onclick="copy_id_code(blue______);"></td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(volumeup__);">Volume +</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(netflix___);">Netflix</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(tvup______);">TV +</td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(mute______);">Mute</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(apps______);">Apps</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(tv________);">TV</td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(volumedown);">Volume -</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(rakuten___);">Rakuten</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(tvdown____);">TV -</td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(btn_1_____);">1</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(btn_2_____);">2</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(btn_3_____);">3</td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(btn_4_____);">4</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(btn_5_____);">5</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(btn_6_____);">6</td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(btn_7_____);">7</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(btn_8_____);">8</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(btn_9_____);">9</td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(list______);">List</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(btn_0_____);">0</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(text______);">Text</td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
+        <div></div>
+      </article>
+    </div>
+	
+    <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
+
+  </div>
+</body>
+
+<script>
+  var mode = 'esp32_raw___';
+  function init() {document.getElementById('esp32_raw___').value = true;document.getElementById('esp32_raw___').style.opacity = '1';}
+
+  var power_____ = '';
+  var ambilight_ = '';
+  var info______ = '';
+  var alexa_____ = '';
+  var source____ = '';
+  var up________ = '';
+  var right_____ = '';
+  var down______ = '';
+  var left______ = '';
+  var ok________ = '';
+  var back______ = '';
+  var home______ = '';
+  var settings__ = '';
+  var rwd_______ = '';
+  var play______ = '';
+  var fwd_______ = '';
+  var stop______ = '';
+  var pause_____ = '';
+  var record____ = '';
+  var red_______ = '';
+  var green_____ = '';
+  var yellow____ = '';
+  var blue______ = '';
+  var volumeup__ = '';
+  var netflix___ = '';
+  var tvup______ = '';
+  var mute______ = '';
+  var apps______ = '';
+  var tv________ = '';
+  var volumedown = '';
+  var rakuten___ = '';
+  var tvdown____ = '';
+  var btn_0_____ = '';
+  var btn_1_____ = '';
+  var btn_2_____ = '';
+  var btn_3_____ = '';
+  var btn_4_____ = '';
+  var btn_5_____ = '';
+  var btn_6_____ = '';
+  var btn_7_____ = '';
+  var btn_8_____ = '';
+  var btn_9_____ = '';
+  var list______ = '';
+  var text______ = '';
+
+  function copy_id_code(code) {navigator.clipboard.writeText(code);alert('Code "'+code+'" kopiert!');}
+
+  function select_codes(obj) {
+    var box = document.getElementsByClassName('checkbox');
+    for (i = 0; i < box.length; i++) {box[i].value = false;box[i].style = 'opacity = 0.5';box[i].style = 'transition: opacity 1s';}
+    obj.value = true;obj.style.opacity = '1';
+    if (obj.id == 'esp32_raw___') {mode = 'esp32_raw___';}
+    else if (obj.id == 'flipper_hex_') {mode = 'flipper_hex_';}
+    else if (obj.id == 'flipper_raw_') {mode = 'flipper_raw_';}
+    else if (obj.id == 'lirc_raw____') {mode = 'lirc_raw____';}
+    else if (obj.id == 'pronto_hex__') {mode = 'pronto_hex__';}
+    else if (obj.id == 'global_cache') {mode = 'global_cache';}
+    else if (obj.id == 'short_code__') {mode = 'short_code__';}
+    set_mode();
+  }
+
+  function set_mode() {
+    if (mode == 'esp32_raw___') {
+      power_____ = 'uint16_t rawData[41] = {2702, 892,  440, 892,  440, 448,  440, 448,  440, 894,  884, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  884, 448,  440, 892,  440, 448,  440};';
+      ambilight_ = 'uint16_t rawData[39] = {2732, 862,  444, 888,  442, 444,  444, 444,  444, 888,  890, 444,  444, 444,  444, 444,  444, 444,  444, 444,  444, 444,  446, 442,  444, 444,  890, 888,  448, 440,  444, 444,  888, 444,  470, 418,  446, 442,  444};';
+      info______ = 'uint16_t rawData[41] = {2704, 892,  442, 892,  440, 448,  442, 446,  440, 892,  886, 448,  440, 448,  440, 446,  442, 446,  442, 446,  440, 448,  440, 448,  440, 448,  440, 448,  440, 446,  442, 446,  440, 446,  886, 448,  440, 448,  440, 448,  440};';
+      alexa_____ = '';
+      source____ = 'uint16_t rawData[41] = {2764, 842,  490, 844,  490, 398,  490, 398,  490, 844,  934, 398,  490, 398,  490, 398,  488, 400,  490, 398,  488, 398,  490, 400,  490, 398,  490, 398,  490, 398,  934, 398,  490, 398,  492, 842,  490, 398,  490, 398,  490};';
+      up________ = 'uint16_t rawData[39] = {2714, 882,  450, 882,  474, 416,  512, 376,  510, 820,  866, 466,  448, 442,  480, 408,  478, 410,  476, 412,  454, 434,  474, 416,  450, 436,  452, 434,  892, 886,  888, 446,  420, 912,  422, 466,  444, 444,  442};';
+      right_____ = 'uint16_t rawData[37] = {2686, 892,  440, 894,  464, 424,  440, 448,  440, 892,  884, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 446,  442, 446,  440, 448,  886, 892,  884, 448,  440, 892,  884, 448,  442};';
+      down______ = 'uint16_t rawData[37] = {2774, 850,  482, 850,  484, 404,  482, 406,  484, 850,  926, 406,  484, 404,  484, 404,  482, 406,  484, 404,  484, 404,  484, 404,  484, 404,  484, 404,  928, 848,  928, 404,  484, 848,  484, 402,  930};';
+      left______ = 'uint16_t rawData[37] = {2700, 894,  440, 892,  440, 448,  440, 448,  440, 892,  884, 450,  438, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  438, 450,  884, 894,  884, 448,  440, 894,  884, 892,  440};';
+      ok________ = 'uint16_t rawData[39] = {2772, 826,  512, 820,  516, 400,  492, 396,  492, 812,  924, 410,  518, 372,  514, 374,  514, 372,  514, 374,  514, 374,  514, 372,  516, 374,  514, 374,  922, 854,  916, 416,  512, 376,  512, 820,  478, 410,  510};';
+      back______ = 'uint16_t rawData[39] = {2710, 886,  440, 894,  420, 468,  440, 448,  420, 912,  888, 444,  442, 446,  420, 468,  420, 466,  420, 468,  420, 466,  422, 468,  420, 466,  444, 444,  420, 468,  422, 466,  420, 468,  888, 890,  886, 890,  444};';
+      home______ = 'uint16_t rawData[37] = {2700, 894,  440, 892,  438, 448,  440, 448,  438, 894,  884, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  438, 450,  438, 450,  438, 450,  884, 892,  884, 894,  882, 894,  440, 448,  438};';
+      settings__ = 'uint16_t rawData[41] = {2734, 862,  420, 912,  420, 468,  442, 446,  420, 912,  888, 444,  420, 468,  420, 468,  420, 468,  420, 468,  420, 468,  420, 468,  420, 468,  420, 466,  888, 890,  420, 468,  420, 468,  420, 468,  420, 468,  420, 468,  420};';
+      rwd_______ = 'uint16_t rawData[37] = {2706, 894,  440, 894,  438, 448,  438, 450,  440, 892,  884, 448,  438, 450,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  438, 450,  884, 894,  884, 892,  884, 450,  438};';
+      play______ = 'uint16_t rawData[39] = {2686, 894,  440, 894,  438, 448,  438, 450,  440, 892,  884, 450,  440, 448,  440, 448,  440, 448,  440, 448,  438, 450,  438, 448,  440, 448,  440, 448,  440, 448,  884, 894,  884, 448,  440, 892,  440, 448,  440};';
+      fwd_______ = 'uint16_t rawData[39] = {2688, 892,  440, 892,  440, 448,  440, 448,  440, 894,  884, 448,  440, 448,  440, 448,  440, 448,  442, 448,  440, 448,  438, 448,  464, 424,  440, 448,  440, 448,  884, 892,  884, 894,  438, 448,  440, 448,  440};';
+      stop______ = 'uint16_t rawData[39] = {2708, 890,  468, 864,  442, 446,  468, 420,  468, 864,  916, 416,  444, 444,  444, 446,  468, 420,  444, 444,  442, 446,  470, 418,  470, 418,  444, 444,  468, 420,  914, 418,  468, 866,  472, 414,  468, 420,  914};';
+      pause_____ = 'uint16_t rawData[41] = {2688, 892,  466, 866,  466, 422,  442, 446,  440, 892,  886, 446,  442, 446,  442, 446,  442, 446,  466, 422,  468, 420,  442, 446,  442, 446,  466, 422,  442, 446,  910, 422,  466, 868,  464, 422,  442, 446,  442, 446,  440};';
+      record____ = 'uint16_t rawData[39] = {2712, 886,  422, 912,  422, 468,  450, 438,  422, 910,  888, 446,  420, 468,  446, 442,  444, 444,  446, 440,  446, 442,  448, 440,  448, 440,  446, 442,  474, 414,  890, 442,  444, 888,  888, 444,  446, 444,  444};';
+      red_______ = 'uint16_t rawData[37] = {2714, 886,  448, 884,  450, 440,  484, 404,  484, 848,  866, 466,  448, 440,  478, 410,  478, 408,  456, 434,  480, 408,  476, 412,  474, 412,  476, 412,  892, 440,  446, 886,  888, 444,  444, 888,  896};';
+      green_____ = 'uint16_t rawData[39] = {2702, 892,  440, 892,  440, 448,  440, 448,  440, 892,  884, 448,  440, 448,  438, 448,  440, 448,  440, 448,  440, 448,  440, 448,  438, 450,  440, 448,  884, 448,  438, 894,  884, 448,  440, 448,  440, 892,  440};';
+      yellow____ = 'uint16_t rawData[39] = {2706, 890,  474, 858,  474, 414,  470, 416,  470, 864,  916, 416,  474, 414,  472, 416,  472, 416,  472, 416,  472, 416,  472, 416,  470, 416,  470, 418,  918, 416,  472, 860,  918, 414,  472, 416,  472, 414,  472};';
+      blue______ = 'uint16_t rawData[41] = {2710, 866,  464, 868,  442, 446,  442, 446,  466, 866,  886, 446,  442, 446,  442, 446,  466, 422,  468, 420,  466, 422,  440, 448,  466, 420,  468, 422,  886, 444,  466, 422,  442, 890,  442, 446,  466, 422,  442, 446,  442};';
+      volumeup__ = 'uint16_t rawData[41] = {2734, 860,  444, 888,  444, 444,  444, 444,  444, 888,  912, 420,  444, 444,  444, 444,  442, 444,  444, 446,  442, 444,  444, 444,  442, 444,  444, 444,  444, 444,  442, 446,  888, 888,  444, 444,  442, 446,  442, 444,  444};';
+      netflix___ = 'uint16_t rawData[39] = {2686, 890,  442, 890,  444, 444,  466, 422,  442, 890,  886, 446,  466, 422,  466, 422,  468, 420,  468, 420,  442, 446,  442, 446,  440, 446,  466, 420,  912, 422,  446, 440,  466, 866,  886, 446,  468, 864,  468};';
+      tvup______ = 'uint16_t rawData[41] = {2778, 842,  490, 842,  488, 400,  488, 400,  490, 844,  934, 398,  488, 400,  488, 398,  490, 400,  488, 398,  490, 398,  488, 400,  490, 398,  488, 400,  490, 398,  934, 842,  488, 400,  488, 398,  490, 398,  490, 398,  490};';
+      mute______ = 'uint16_t rawData[39] = {2776, 846,  486, 846,  486, 402,  486, 402,  486, 846,  932, 402,  486, 402,  486, 402,  486, 402,  486, 400,  486, 402,  486, 402,  486, 402,  486, 402,  486, 402,  486, 402,  486, 402,  932, 400,  486, 846,  930};';
+      apps______ = 'uint16_t rawData[39] = {2702, 892,  440, 892,  440, 448,  438, 448,  440, 892,  884, 448,  440, 448,  440, 448,  440, 448,  440, 448,  438, 448,  440, 448,  440, 448,  884, 892,  884, 448,  438, 448,  440, 448,  438, 448,  440, 892,  440};';
+      tv________ = 'uint16_t rawData[39] = {2700, 894,  440, 892,  440, 450,  438, 450,  440, 894,  882, 450,  440, 448,  438, 450,  438, 450,  438, 450,  438, 450,  438, 450,  438, 448,  882, 894,  438, 450,  882, 450,  438, 448,  440, 448,  440, 448,  438};';
+      volumedown = 'uint16_t rawData[39] = {2700, 894,  440, 894,  438, 450,  438, 450,  438, 894,  882, 450,  438, 450,  438, 450,  438, 450,  438, 450,  438, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  884, 894,  438, 450,  438, 450,  882};';
+      rakuten___ = 'uint16_t rawData[39] = {2686, 894,  440, 892,  440, 448,  440, 448,  440, 894,  882, 450,  440, 448,  440, 448,  440, 448,  438, 448,  440, 448,  438, 450,  438, 450,  440, 448,  440, 448,  884, 892,  440, 450,  438, 448,  884, 892,  440};';
+      tvdown____ = 'uint16_t rawData[39] = {2778, 842,  490, 842,  490, 398,  490, 398,  490, 844,  936, 396,  490, 398,  490, 398,  490, 398,  490, 398,  490, 398,  490, 398,  490, 398,  490, 398,  490, 398,  936, 840,  490, 398,  492, 396,  490, 398,  936};';
+      btn_0_____ = 'uint16_t rawData[43] = {2698, 894,  438, 894,  440, 448,  440, 448,  440, 892,  884, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  438, 450,  438, 450,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440};';
+      btn_1_____ = 'uint16_t rawData[41] = {2682, 894,  440, 894,  438, 448,  440, 448,  440, 894,  882, 450,  440, 448,  440, 448,  440, 448,  440, 448,  438, 448,  440, 450,  438, 448,  440, 448,  440, 448,  438, 450,  440, 448,  440, 448,  440, 448,  440, 448,  884};';
+      btn_2_____ = 'uint16_t rawData[41] = {2714, 862,  442, 890,  468, 420,  466, 422,  470, 862,  888, 446,  468, 420,  472, 416,  468, 420,  470, 418,  470, 418,  468, 420,  468, 420,  470, 418,  468, 420,  442, 446,  442, 446,  468, 420,  444, 444,  912, 866,  468};';
+      btn_3_____ = 'uint16_t rawData[41] = {2704, 894,  438, 894,  440, 448,  440, 448,  438, 894,  884, 450,  438, 450,  438, 450,  438, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 450,  438, 450,  440, 448,  438, 448,  884, 450,  438};';
+      btn_4_____ = 'uint16_t rawData[41] = {2682, 890,  442, 892,  442, 446,  466, 422,  440, 892,  886, 448,  440, 446,  442, 446,  442, 446,  442, 446,  442, 446,  442, 446,  442, 446,  442, 446,  442, 446,  442, 446,  442, 446,  442, 446,  886, 892,  442, 446,  440};';
+      btn_5_____ = 'uint16_t rawData[39] = {2706, 894,  440, 892,  440, 448,  438, 448,  440, 894,  884, 448,  440, 448,  440, 448,  440, 448,  438, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  884, 894,  884};';
+      btn_6_____ = 'uint16_t rawData[41] = {2702, 890,  442, 890,  444, 444,  466, 422,  442, 890,  890, 442,  442, 446,  442, 446,  442, 446,  442, 446,  442, 446,  466, 422,  466, 422,  440, 448,  442, 446,  442, 446,  442, 446,  442, 446,  908, 424,  442, 890,  442};';
+      btn_7_____ = 'uint16_t rawData[41] = {2734, 862,  444, 888,  444, 444,  444, 444,  444, 890,  890, 442,  442, 446,  442, 446,  442, 446,  442, 446,  442, 446,  442, 446,  442, 446,  442, 446,  442, 446,  442, 446,  444, 444,  442, 446,  888, 444,  442, 446,  442};';
+      btn_8_____ = 'uint16_t rawData[41] = {2708, 890,  466, 866,  466, 422,  442, 446,  442, 892,  884, 448,  442, 446,  442, 446,  466, 422,  444, 444,  442, 446,  442, 446,  442, 446,  442, 446,  442, 446,  442, 446,  442, 446,  890, 886,  440, 448,  442, 446,  440};';
+      btn_9_____ = 'uint16_t rawData[39] = {2730, 862,  472, 860,  472, 416,  472, 416,  472, 860,  888, 444,  474, 414,  472, 416,  472, 416,  474, 414,  472, 416,  472, 416,  472, 416,  474, 414,  474, 414,  474, 414,  474, 414,  918, 858,  468, 420,  916};';
+      list______ = 'uint16_t rawData[39] = {2668, 894,  440, 892,  440, 448,  440, 448,  440, 892,  884, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  440, 448,  886, 446,  440, 892,  440, 448,  884, 448,  464, 868,  440, 448,  440};';
+      text______ = 'uint16_t rawData[41] = {2682, 894,  438, 894,  440, 448,  438, 450,  440, 892,  884, 448,  440, 448,  440, 448,  440, 448,  438, 450,  438, 450,  440, 448,  440, 448,  440, 448,  440, 448,  884, 448,  440, 448,  440, 448,  440, 892,  440, 448,  440};';
+    }
+
+    else if (mode == 'flipper_hex_') {
+      power_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x0C';
+      ambilight_ = 'Codec: RC6 - Adress: 0x00 - Command: 0x8F';
+      info______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x0F';
+      alexa_____ = '';
+      source____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x38';
+      up________ = 'Codec: RC6 - Adress: 0x00 - Command: 0x58';
+      right_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x5B';
+      down______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x59';
+      left______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x5A';
+      ok________ = 'Codec: RC6 - Adress: 0x00 - Command: 0x5C';
+      back______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x0A';
+      home______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x54';
+      settings__ = 'Codec: RC6 - Adress: 0x00 - Command: 0x40';
+      rwd_______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x2B';
+      play______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x2B';
+      fwd_______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x28';
+      stop______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x31';
+      pause_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x30';
+      record____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x37';
+      red_______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x6D';
+      green_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x6E';
+      yellow____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x6F';
+      blue______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x70';
+      volumeup__ = 'Codec: RC6 - Adress: 0x00 - Command: 0x10';
+      netflix___ = 'Codec: RC6 - Adress: 0x00 - Command: 0x76';
+      tvup______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x20';
+      mute______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x0D';
+      apps______ = 'Codec: RC6 - Adress: 0x00 - Command: 0xBE';
+      tv________ = 'Codec: RC6 - Adress: 0x00 - Command: 0x9F';
+      volumedown = 'Codec: RC6 - Adress: 0x00 - Command: 0x11';
+      rakuten___ = 'Codec: RC6 - Adress: 0x00 - Command: 0x22';
+      tvdown____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x21';
+      btn_0_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x00';
+      btn_1_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x01';
+      btn_2_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x02';
+      btn_3_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x03';
+      btn_4_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x04';
+      btn_5_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x05';
+      btn_6_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x06';
+      btn_7_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x07';
+      btn_8_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x08';
+      btn_9_____ = 'Codec: RC6 - Adress: 0x00 - Command: 0x09';
+      list______ = 'Codec: RC6 - Adress: 0x00 - Command: 0xCC';
+      text______ = 'Codec: RC6 - Adress: 0x00 - Command: 0x3C';
+    }
+
+    else if (mode == 'flipper_raw_') {
+      power_____ = '2701 893 438 895 438 450 438 449 439 895 882 451 437 450 438 450 438 449 439 450 438 451 437 450 438 450 438 450 438 450 438 449 439 450 883 451 437 896 437 450 438';
+      ambilight_ = '2705 893 438 893 440 449 439 450 438 893 885 451 437 450 439 450 438 449 439 450 438 450 438 449 440 449 884 895 438 450 439 450 883 450 438 450 438 450 438 84009 2661 892 439 894 439 450 438 449 440 895 882 451 437 450 439 449 439 449 439 449 439 449 440 449 439 450 883 894 439 450 438 450 883 451 437 451 438 450 439';
+      info______ = '2704 893 438 894 439 449 439 450 438 893 885 450 438 449 439 450 438 449 439 449 440 449 439 449 439 449 439 449 439 450 438 450 438 450 883 451 437 449 439 450 439';
+      alexa_____ = '';
+      source____ = '2688 893 438 893 440 448 440 449 439 894 883 479 409 449 439 449 440 449 439 450 438 449 439 449 439 451 438 448 440 449 884 450 438 449 440 892 441 450 438 449 439';
+      up________ = '2661 892 439 893 440 449 439 450 438 896 881 450 438 450 439 451 437 451 437 450 438 450 438 451 437 450 438 452 881 895 882 451 437 896 437 450 438 451 437';
+      right_____ = '2639 915 440 893 440 448 440 448 440 893 885 478 410 448 441 448 440 447 441 447 442 448 440 448 440 449 439 449 884 893 884 451 437 893 885 449 439';
+      down______ = '2638 915 440 894 439 448 440 448 440 892 886 451 437 449 439 448 441 448 440 449 439 449 439 448 440 448 440 448 885 893 884 450 438 895 438 448 885';
+      left______ = '2640 914 441 893 440 449 439 449 1329 1337 440 449 439 448 441 448 440 447 441 448 440 448 441 448 440 448 885 893 884 451 437 893 885 893 440';
+      ok________ = '';
+      back______ = '2639 915 440 893 440 448 440 449 1329 1339 438 448 440 448 440 449 439 449 439 450 438 450 438 449 439 449 439 449 440 449 439 450 883 892 886 893 440';
+      home______ = '2638 915 440 894 439 448 440 450 438 892 886 450 438 448 441 449 439 449 439 449 439 449 439 450 438 449 439 449 884 892 885 892 885 892 441 449 439';
+      settings__ = '2640 915 440 893 440 449 439 449 1328 1338 439 449 439 449 439 449 439 448 440 448 441 448 440 449 439 450 883 891 442 448 440 448 440 448 440 449 440 448 440';
+      rwd_______ = '2641 916 439 891 442 449 439 447 441 894 884 451 437 448 440 449 440 448 440 448 440 448 441 448 440 449 439 448 440 449 884 893 884 892 885 478 410';
+      play______ = '';
+      fwd_______ = '2639 914 441 893 440 448 440 449 1329 1337 440 447 441 448 440 448 440 448 440 448 440 448 440 449 440 448 440 448 885 892 885 892 441 448 440 449 439';
+      stop______ = '2640 916 439 892 441 449 439 448 1330 1337 440 448 440 448 440 448 440 448 440 448 440 449 439 448 440 448 440 448 885 450 438 892 441 447 441 448 885';
+      pause_____ = '2640 916 439 892 441 451 437 447 1331 1337 440 448 440 447 441 448 440 447 441 448 440 447 441 447 441 448 440 448 885 449 439 891 442 448 440 447 441 448 440';
+      record____ = '2640 914 441 894 439 448 440 448 440 893 884 451 437 449 439 448 440 448 440 448 440 448 440 448 440 449 439 448 441 448 885 478 410 894 884 451 437 449 440';
+      red_______ = '2639 915 440 892 441 448 440 447 441 892 886 450 438 448 441 449 439 448 441 449 439 449 439 448 440 448 441 448 885 450 438 893 885 452 436 894 884';
+      green_____ = '2641 914 441 892 441 448 440 449 1328 1337 440 448 440 448 440 449 439 449 439 447 441 448 440 448 440 448 885 478 410 892 886 478 410 448 441 892 441';
+      yellow____ = '2641 914 441 893 440 448 440 448 1330 1338 439 448 440 449 439 448 441 448 440 449 440 448 440 448 440 448 885 451 437 893 885 450 438 448 441 448 440';
+      blue______ = '2640 914 441 891 442 449 439 449 1329 1337 440 450 438 448 440 448 440 448 440 449 439 447 441 448 440 448 885 451 437 448 441 892 441 448 440 448 440 449 439';
+      volumeup__ = '2641 914 441 894 439 448 440 448 1330 1336 441 449 440 447 441 449 439 449 439 449 439 447 441 448 440 450 438 448 440 448 885 893 440 448 440 448 440 448 440';
+      netflix___ = '2641 914 441 892 441 448 440 449 1329 1337 440 448 440 448 440 448 440 448 440 448 440 448 440 448 440 449 884 478 410 449 440 893 884 478 410 892 441';
+      tvup______ = '2639 915 440 893 440 448 440 448 1330 1336 441 449 440 449 439 449 439 449 439 448 440 448 441 449 439 449 439 448 885 894 439 449 439 449 439 449 439 449 439';
+      mute______ = '2641 916 439 893 440 448 440 448 440 892 886 451 437 448 441 447 441 448 441 448 440 448 440 447 441 448 440 448 441 448 440 449 439 448 885 478 410 892 886';
+      apps______ = '2640 914 441 893 440 447 442 447 441 892 885 478 410 449 440 447 441 448 440 448 440 447 441 447 441 448 885 891 886 478 410 448 441 448 440 448 440 892 441';
+      tv________ = '2638 916 439 890 443 451 437 448 440 891 886 478 410 448 440 448 440 448 440 448 440 449 439 447 441 448 885 893 440 448 885 450 438 448 441 448 440 448 440';
+      volumedown = '2640 915 440 894 439 447 441 450 438 893 885 450 438 448 441 447 441 448 440 448 440 448 440 449 439 448 440 448 440 448 440 448 885 894 439 448 440 448 885';
+      rakuten___ = '2640 916 439 891 442 448 440 448 1329 1337 440 449 439 448 440 448 440 448 440 448 440 448 440 448 440 448 440 448 885 891 442 447 441 448 885 891 442';
+      tvdown____ = '2641 914 441 892 441 447 441 447 441 893 885 477 411 448 441 447 441 450 438 449 439 448 440 449 439 448 440 449 439 449 884 892 441 448 440 449 439 449 884';
+      btn_0_____ = '2638 916 439 892 441 448 440 448 1330 1336 441 448 441 449 439 449 439 448 440 449 439 448 440 449 439 449 439 448 440 448 440 448 440 449 439 448 440 448 440 448 440';
+      btn_1_____ = '2639 913 442 892 441 449 439 449 439 894 884 450 438 448 441 448 440 449 439 449 439 448 440 449 439 449 439 448 440 448 440 449 439 449 439 448 440 448 440 448 885';
+      btn_2_____ = '2642 914 441 891 442 448 440 448 440 892 886 477 411 449 440 448 440 447 441 448 440 447 441 448 440 448 440 448 440 450 438 448 440 448 440 449 439 448 885 892 441';
+      btn_3_____ = '2639 915 440 891 442 447 441 447 441 890 888 477 411 449 440 447 441 448 440 447 441 448 440 449 439 447 441 448 440 447 441 447 441 447 441 448 440 447 886 478 410';
+      btn_4_____ = '2641 915 440 893 440 448 440 449 439 892 885 477 411 449 440 448 441 449 439 449 439 448 440 448 440 449 439 449 439 448 440 449 440 447 441 448 885 892 441 448 440';
+      btn_5_____ = '2640 915 440 892 441 448 440 447 441 892 886 478 410 448 441 447 441 448 441 448 440 447 441 449 440 447 441 449 439 448 440 448 440 448 440 447 886 892 885';
+      btn_6_____ = '2640 915 440 894 439 448 440 448 1330 1337 440 449 439 448 440 448 440 448 440 448 440 449 439 449 439 449 439 448 440 449 439 449 439 448 885 478 410 893 440';
+      btn_7_____ = '2638 916 439 892 441 448 440 449 439 893 885 451 437 448 441 448 440 450 438 448 440 448 440 449 439 448 440 448 441 450 438 449 439 449 439 449 884 478 410 450 439';
+      btn_8_____ = '2639 915 440 892 441 448 440 449 1329 1338 439 448 440 447 441 449 439 448 440 449 440 449 439 448 440 449 439 449 439 448 440 448 885 892 441 448 440 449 439';
+      btn_9_____ = '2639 917 438 893 440 449 439 448 440 892 886 451 437 448 441 448 440 448 440 448 440 448 440 448 440 448 440 449 439 448 440 448 440 449 884 892 441 449 884';
+      list______ = '2639 915 440 892 441 448 440 448 1330 1337 440 448 440 448 440 448 440 448 440 448 440 448 440 448 885 449 439 892 441 449 884 451 437 893 440 449 439';
+      text______ = '2640 916 439 895 438 449 440 449 439 892 886 450 438 449 439 448 440 449 440 448 440 450 438 449 439 449 439 449 439 449 884 451 437 449 440 448 440 893 440 448 440';
+    }
+
+    else if (mode == 'lirc_raw____') {
+      power_____ = '+2702 -890 +444 -890 +444 -444 +444 -444 +444 -890 +890 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +890 -444 +444 -890 +444 -444 +444 -50000';
+      ambilight_ = '+2732 -885 +444 -885 +444 -444 +444 -444 +444 -885 +885 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +885 -885 +444 -444 +444 -444 +885 -444 +444 -444 +444 -444 +444 -50000';
+      info______ = '+2704 -890 +444 -890 +444 -444 +444 -444 +444 -890 +890 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +890 -444 +444 -444 +444 -444 +444 -50000';
+      alexa_____ = '';
+      source____ = '+2764 -873 +447 -873 +447 -447 +447 -447 +447 -873 +873 -447 +447 -447 +447 -447 +447 -447 +447 -447 +447 -447 +447 -447 +447 -447 +447 -447 +447 -447 +873 -447 +447 -447 +447 -873 +447 -447 +447 -447 +447 -50000';
+      up________ = '+2714 -879 +446 -879 +446 -446 +446 -446 +446 -879 +879 -446 +446 -446 +446 -446 +446 -446 +446 -446 +446 -446 +446 -446 +446 -446 +446 -446 +879 -879 +879 -446 +446 -879 +446 -446 +446 -446 +446 -50000';
+      right_____ = '+2686 -889 +444 -889 +444 -444 +444 -444 +444 -889 +889 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +889 -889 +889 -444 +444 -889 +889 -444 +444 -50000';
+      down______ = '+2774 -884 +445 -884 +445 -445 +445 -445 +445 -884 +884 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +884 -884 +884 -445 +445 -884 +445 -445 +884 -50000';
+      left______ = '+2700 -889 +444 -889 +444 -444 +444 -444 +444 -889 +889 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +889 -889 +889 -444 +444 -889 +889 -889 +444 -50000';
+      ok________ = '+2772 -862 +451 -862 +451 -451 +451 -451 +451 -862 +862 -451 +451 -451 +451 -451 +451 -451 +451 -451 +451 -451 +451 -451 +451 -451 +451 -451 +862 -862 +862 -451 +451 -451 +451 -862 +451 -451 +451 -50000';
+      back______ = '+2710 -892 +443 -892 +443 -443 +443 -443 +443 -892 +892 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +892 -892 +892 -892 +443 -50000';
+      home______ = '+2700 -889 +443 -889 +443 -443 +443 -443 +443 -889 +889 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +889 -889 +889 -889 +889 -889 +443 -443 +443 -50000';
+      settings__ = '+2734 -892 +442 -892 +442 -442 +442 -442 +442 -892 +892 -442 +442 -442 +442 -442 +442 -442 +442 -442 +442 -442 +442 -442 +442 -442 +442 -442 +892 -892 +442 -442 +442 -442 +442 -442 +442 -442 +442 -442 +442 -50000';
+      rwd_______ = '+2706 -889 +444 -889 +444 -444 +444 -444 +444 -889 +889 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +889 -889 +889 -889 +889 -444 +444 -50000';
+      play______ = '+2686 -890 +444 -890 +444 -444 +444 -444 +444 -890 +890 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +890 -890 +890 -444 +444 -890 +444 -444 +444 -50000';
+      fwd_______ = '+2688 -890 +444 -890 +444 -444 +444 -444 +444 -890 +890 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +890 -890 +890 -890 +444 -444 +444 -444 +444 -50000';
+      stop______ = '+2708 -890 +445 -890 +445 -445 +445 -445 +445 -890 +890 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +890 -445 +445 -890 +445 -445 +445 -445 +890 -50000';
+      pause_____ = '+2688 -886 +444 -886 +444 -444 +444 -444 +444 -886 +886 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +886 -444 +444 -886 +444 -444 +444 -444 +444 -444 +444 -50000';
+      record____ = '+2712 -895 +443 -895 +443 -443 +443 -443 +443 -895 +895 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +895 -443 +443 -895 +895 -443 +443 -443 +443 -50000';
+      red_______ = '+2714 -882 +446 -882 +446 -446 +446 -446 +446 -882 +882 -446 +446 -446 +446 -446 +446 -446 +446 -446 +446 -446 +446 -446 +446 -446 +446 -446 +882 -446 +446 -882 +882 -446 +446 -882 +882 -50000';
+      green_____ = '+2702 -889 +444 -889 +444 -444 +444 -444 +444 -889 +889 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +889 -444 +444 -889 +889 -444 +444 -444 +444 -889 +444 -50000';
+      yellow____ = '+2706 -889 +445 -889 +445 -445 +445 -445 +445 -889 +889 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +889 -445 +445 -889 +889 -445 +445 -445 +445 -445 +445 -50000';
+      blue______ = '+2710 -877 +445 -877 +445 -445 +445 -445 +445 -877 +877 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +877 -445 +445 -445 +445 -877 +445 -445 +445 -445 +445 -445 +445 -50000';
+      volumeup__ = '+2734 -887 +443 -887 +443 -443 +443 -443 +443 -887 +887 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +887 -887 +443 -443 +443 -443 +443 -443 +443 -50000';
+      netflix___ = '+2686 -886 +445 -886 +445 -445 +445 -445 +445 -886 +886 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +886 -445 +445 -445 +445 -886 +886 -445 +445 -886 +445 -50000';
+      tvup______ = '+2778 -873 +447 -873 +447 -447 +447 -447 +447 -873 +873 -447 +447 -447 +447 -447 +447 -447 +447 -447 +447 -447 +447 -447 +447 -447 +447 -447 +447 -447 +873 -873 +447 -447 +447 -447 +447 -447 +447 -447 +447 -50000';
+      mute______ = '+2776 -883 +445 -883 +445 -445 +445 -445 +445 -883 +883 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +883 -445 +445 -883 +883 -50000';
+      apps______ = '+2702 -889 +443 -889 +443 -443 +443 -443 +443 -889 +889 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +889 -889 +889 -443 +443 -443 +443 -443 +443 -443 +443 -889 +443 -50000';
+      tv________ = '+2700 -889 +444 -889 +444 -444 +444 -444 +444 -889 +889 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +889 -889 +444 -444 +889 -444 +444 -444 +444 -444 +444 -444 +444 -50000';
+      volumedown = '+2700 -889 +444 -889 +444 -444 +444 -444 +444 -889 +889 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +889 -889 +444 -444 +444 -444 +889 -50000';
+      rakuten___ = '+2686 -889 +444 -889 +444 -444 +444 -444 +444 -889 +889 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +889 -889 +444 -444 +444 -444 +889 -889 +444 -50000';
+      tvdown____ = '+2778 -882 +445 -882 +445 -445 +445 -445 +445 -882 +882 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +882 -882 +445 -445 +445 -445 +445 -445 +882 -50000';
+      btn_0_____ = '+2698 -891 +444 -891 +444 -444 +444 -444 +444 -891 +891 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -50000';
+      btn_1_____ = '+2682 -890 +444 -890 +444 -444 +444 -444 +444 -890 +890 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +890 -50000';
+      btn_2_____ = '+2714 -880 +445 -880 +445 -445 +445 -445 +445 -880 +880 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +880 -880 +445 -50000';
+      btn_3_____ = '+2704 -890 +444 -890 +444 -444 +444 -444 +444 -890 +890 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +890 -444 +444 -50000';
+      btn_4_____ = '+2682 -890 +444 -890 +444 -444 +444 -444 +444 -890 +890 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +890 -890 +444 -444 +444 -50000';
+      btn_5_____ = '+2706 -889 +444 -889 +444 -444 +444 -444 +444 -889 +889 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +889 -889 +889 -50000';
+      btn_6_____ = '+2702 -893 +443 -893 +443 -443 +443 -443 +443 -893 +893 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +443 -443 +893 -443 +443 -893 +443 -50000';
+      btn_7_____ = '+2734 -884 +444 -884 +444 -444 +444 -444 +444 -884 +884 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +884 -444 +444 -444 +444 -50000';
+      btn_8_____ = '+2708 -885 +445 -885 +445 -445 +445 -445 +445 -885 +885 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +445 -445 +885 -885 +445 -445 +445 -445 +445 -50000';
+      btn_9_____ = '+2730 -880 +446 -880 +446 -446 +446 -446 +446 -880 +880 -446 +446 -446 +446 -446 +446 -446 +446 -446 +446 -446 +446 -446 +446 -446 +446 -446 +446 -446 +446 -446 +446 -446 +880 -880 +446 -446 +880 -50000';
+      list______ = '+2668 -887 +444 -887 +444 -444 +444 -444 +444 -887 +887 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +887 -444 +444 -887 +444 -444 +887 -444 +444 -887 +444 -444 +444 -50000';
+      text______ = '+2682 -890 +444 -890 +444 -444 +444 -444 +444 -890 +890 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +444 -444 +890 -444 +444 -444 +444 -444 +444 -890 +444 -444 +444 -50000';
+    }
+
+    else if (mode == 'pronto_hex__') {
+      power_____ = '0000 006D 0015 0000 0067 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0011 0011 0022 0011 0011 0011 076C';
+      ambilight_ = '0000 006D 0014 0000 0068 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0022 0011 0011 0011 0011 0011 0011 076C';
+      info______ = '0000 006D 0015 0000 0067 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0011 0011 0011 0011 0011 0011 076C';
+      alexa_____ = '';
+      source____ = '0000 006D 0015 0000 0069 0021 0011 0021 0011 0011 0011 0011 0011 0021 0021 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0021 0011 0011 0011 0011 0021 0011 0011 0011 0011 0011 076C';
+      up________ = '0000 006D 0014 0000 0067 0021 0011 0021 0011 0011 0011 0011 0011 0021 0021 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0021 0021 0021 0011 0011 0021 0011 0011 0011 0011 0011 076C';
+      right_____ = '0000 006D 0013 0000 0066 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0022 0022 0011 0011 0022 0022 0011 0011 076C';
+      down______ = '0000 006D 0013 0000 0069 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0022 0022 0011 0011 0022 0011 0011 0022 076C';
+      left______ = '0000 006D 0013 0000 0067 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0022 0022 0011 0011 0022 0022 0022 0011 076C';
+      ok________ = '0000 006D 0014 0000 0069 0021 0011 0021 0011 0011 0011 0011 0011 0021 0021 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0021 0021 0021 0011 0011 0011 0011 0021 0011 0011 0011 076C';
+      back______ = '0000 006D 0014 0000 0067 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0022 0022 0022 0011 076C';
+      home______ = '0000 006D 0013 0000 0067 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0022 0022 0022 0022 0022 0011 0011 0011 076C';
+      settings__ = '0000 006D 0015 0000 0068 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 076C';
+      rwd_______ = '0000 006D 0013 0000 0067 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0022 0022 0022 0022 0011 0011 076C';
+      play______ = '0000 006D 0014 0000 0066 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0022 0022 0011 0011 0022 0011 0011 0011 076C';
+      fwd_______ = '0000 006D 0014 0000 0066 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0022 0022 0022 0011 0011 0011 0011 0011 076C';
+      stop______ = '0000 006D 0014 0000 0067 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0011 0011 0022 0011 0011 0011 0011 0022 076C';
+      pause_____ = '0000 006D 0015 0000 0066 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0011 0011 0022 0011 0011 0011 0011 0011 0011 0011 076C';
+      record____ = '0000 006D 0014 0000 0067 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0011 0011 0022 0022 0011 0011 0011 0011 076C';
+      red_______ = '0000 006D 0013 0000 0067 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0011 0011 0022 0022 0011 0011 0022 0022 076C';
+      green_____ = '0000 006D 0014 0000 0067 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0011 0011 0022 0022 0011 0011 0011 0011 0022 0011 076C';
+      yellow____ = '0000 006D 0014 0000 0067 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 076C';
+      blue______ = '0000 006D 0015 0000 0067 0021 0011 0021 0011 0011 0011 0011 0011 0021 0021 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0021 0011 0011 0011 0011 0021 0011 0011 0011 0011 0011 0011 0011 076C';
+      volumeup__ = '0000 006D 0015 0000 0068 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 076C';
+      netflix___ = '0000 006D 0014 0000 0066 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0011 0011 0011 0011 0022 0022 0011 0011 0022 0011 076C';
+      tvup______ = '0000 006D 0015 0000 006A 0021 0011 0021 0011 0011 0011 0011 0011 0021 0021 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0021 0021 0011 0011 0011 0011 0011 0011 0011 0011 0011 076C';
+      mute______ = '0000 006D 0014 0000 0069 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0011 0011 0022 0022 076C';
+      apps______ = '0000 006D 0014 0000 0067 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0022 0011 076C';
+      tv________ = '0000 006D 0014 0000 0067 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0022 0011 0011 0022 0011 0011 0011 0011 0011 0011 0011 0011 076C';
+      volumedown = '0000 006D 0014 0000 0067 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0022 076C';
+      rakuten___ = '0000 006D 0014 0000 0066 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0022 0022 0011 076C';
+      tvdown____ = '0000 006D 0014 0000 006A 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0022 076C';
+      btn_0_____ = '0000 006D 0016 0000 0067 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 076C';
+      btn_1_____ = '0000 006D 0015 0000 0066 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 076C';
+      btn_2_____ = '0000 006D 0015 0000 0067 0021 0011 0021 0011 0011 0011 0011 0011 0021 0021 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0021 0021 0011 076C';
+      btn_3_____ = '0000 006D 0015 0000 0067 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0011 0011 076C';
+      btn_4_____ = '0000 006D 0015 0000 0066 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 076C';
+      btn_5_____ = '0000 006D 0014 0000 0067 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0022 0022 076C';
+      btn_6_____ = '0000 006D 0015 0000 0067 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0011 0011 0022 0011 076C';
+      btn_7_____ = '0000 006D 0015 0000 0068 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0011 0011 0011 0011 076C';
+      btn_8_____ = '0000 006D 0015 0000 0067 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 076C';
+      btn_9_____ = '0000 006D 0014 0000 0068 0021 0011 0021 0011 0011 0011 0011 0011 0021 0021 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0021 0021 0011 0011 0021 076C';
+      list______ = '0000 006D 0014 0000 0065 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0011 0011 0022 0011 0011 0022 0011 0011 0022 0011 0011 0011 076C';
+      text______ = '0000 006D 0015 0000 0066 0022 0011 0022 0011 0011 0011 0011 0011 0022 0022 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0022 0011 0011 0011 0011 0011 0011 0022 0011 0011 0011 076C';
+    }
+
+    else if (mode == 'global_cache') {
+      power_____ = 'sendir,1:1,1,38000,1,43,103,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,17,17,34,17,17,17,1900';
+      ambilight_ = 'sendir,1:1,1,38000,1,41,104,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,34,17,17,17,17,34,17,17,17,17,17,17,1900';
+      info______ = 'sendir,1:1,1,38000,1,43,103,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,17,17,17,17,17,17,1900';
+      alexa_____ = '';
+      source____ = 'sendir,1:1,1,38000,1,43,105,33,17,33,17,17,17,17,17,33,33,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,33,17,17,17,17,33,17,17,17,17,17,1900';
+      up________ = 'sendir,1:1,1,38000,1,41,103,33,17,33,17,17,17,17,17,33,33,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,33,33,33,17,17,33,17,17,17,17,17,1900';
+      right_____ = 'sendir,1:1,1,38000,1,39,102,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,34,34,17,17,34,34,17,17,1900';
+      down______ = 'sendir,1:1,1,38000,1,39,105,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,34,34,17,17,34,17,17,34,1900';
+      left______ = 'sendir,1:1,1,38000,1,39,103,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,34,34,17,17,34,34,34,17,1900';
+      ok________ = 'sendir,1:1,1,38000,1,41,105,33,17,33,17,17,17,17,17,33,33,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,33,33,33,17,17,17,17,33,17,17,17,1900';
+      back______ = 'sendir,1:1,1,38000,1,41,103,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,34,34,34,17,1900';
+      home______ = 'sendir,1:1,1,38000,1,39,103,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,34,34,34,34,34,17,17,17,1900';
+      settings__ = 'sendir,1:1,1,38000,1,43,104,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,1900';
+      rwd_______ = 'sendir,1:1,1,38000,1,39,103,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,34,34,34,34,17,17,1900';
+      play______ = 'sendir,1:1,1,38000,1,41,102,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,34,34,17,17,34,17,17,17,1900';
+      fwd_______ = 'sendir,1:1,1,38000,1,41,102,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,34,34,34,17,17,17,17,17,1900';
+      stop______ = 'sendir,1:1,1,38000,1,41,103,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,17,17,34,17,17,17,17,34,1900';
+      pause_____ = 'sendir,1:1,1,38000,1,43,102,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,17,17,34,17,17,17,17,17,17,17,1900';
+      record____ = 'sendir,1:1,1,38000,1,41,103,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,17,17,34,34,17,17,17,17,1900';
+      red_______ = 'sendir,1:1,1,38000,1,39,103,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,17,17,34,34,17,17,34,34,1900';
+      green_____ = 'sendir,1:1,1,38000,1,41,103,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,17,17,34,34,17,17,17,17,34,17,1900';
+      yellow____ = 'sendir,1:1,1,38000,1,41,103,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,17,17,34,34,17,17,17,17,17,17,1900';
+      blue______ = 'sendir,1:1,1,38000,1,43,103,33,17,33,17,17,17,17,17,33,33,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,33,17,17,17,17,33,17,17,17,17,17,17,17,1900';
+      volumeup__ = 'sendir,1:1,1,38000,1,43,104,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,34,17,17,17,17,17,17,17,1900';
+      netflix___ = 'sendir,1:1,1,38000,1,41,102,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,17,17,17,17,34,34,17,17,34,17,1900';
+      tvup______ = 'sendir,1:1,1,38000,1,43,106,33,17,33,17,17,17,17,17,33,33,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,33,33,17,17,17,17,17,17,17,17,17,1900';
+      mute______ = 'sendir,1:1,1,38000,1,41,105,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,17,17,34,34,1900';
+      apps______ = 'sendir,1:1,1,38000,1,41,103,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,34,34,17,17,17,17,17,17,17,17,34,17,1900';
+      tv________ = 'sendir,1:1,1,38000,1,41,103,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,34,17,17,34,17,17,17,17,17,17,17,17,1900';
+      volumedown = 'sendir,1:1,1,38000,1,41,103,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,34,17,17,17,17,34,1900';
+      rakuten___ = 'sendir,1:1,1,38000,1,41,102,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,34,17,17,17,17,34,34,17,1900';
+      tvdown____ = 'sendir,1:1,1,38000,1,41,106,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,34,17,17,17,17,17,17,34,1900';
+      btn_0_____ = 'sendir,1:1,1,38000,1,45,103,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,1900';
+      btn_1_____ = 'sendir,1:1,1,38000,1,43,102,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,1900';
+      btn_2_____ = 'sendir,1:1,1,38000,1,43,103,33,17,33,17,17,17,17,17,33,33,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,33,33,17,1900';
+      btn_3_____ = 'sendir,1:1,1,38000,1,43,103,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,17,17,1900';
+      btn_4_____ = 'sendir,1:1,1,38000,1,43,102,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,34,17,17,17,1900';
+      btn_5_____ = 'sendir,1:1,1,38000,1,41,103,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,34,34,1900';
+      btn_6_____ = 'sendir,1:1,1,38000,1,43,103,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,17,17,34,17,1900';
+      btn_7_____ = 'sendir,1:1,1,38000,1,43,104,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,17,17,17,17,1900';
+      btn_8_____ = 'sendir,1:1,1,38000,1,43,103,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,34,17,17,17,17,17,1900';
+      btn_9_____ = 'sendir,1:1,1,38000,1,41,104,33,17,33,17,17,17,17,17,33,33,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,33,33,17,17,33,1900';
+      list______ = 'sendir,1:1,1,38000,1,41,101,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,17,17,34,17,17,34,17,17,34,17,17,17,1900';
+      text______ = 'sendir,1:1,1,38000,1,43,102,34,17,34,17,17,17,17,17,34,34,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,34,17,17,17,17,17,17,34,17,17,17,1900';
+    }
+
+    else if (mode == 'short_code__') {
+      power_____ = 'Codec: RC6 - Device: 0 - Function: 12';
+      ambilight_ = 'Codec: RC6 - Device: 0 - Function: 143';
+      info______ = 'Codec: RC6 - Device: 0 - Function: 15';
+      alexa_____ = '';
+      source____ = 'Codec: RC6 - Device: 0 - Function: 56';
+      up________ = 'Codec: RC6 - Device: 0 - Function: 88';
+      right_____ = 'Codec: RC6 - Device: 0 - Function: 91';
+      down______ = 'Codec: RC6 - Device: 0 - Function: 89';
+      left______ = 'Codec: RC6 - Device: 0 - Function: 90';
+      ok________ = 'Codec: RC6 - Device: 0 - Function: 92';
+      back______ = 'Codec: RC6 - Device: 0 - Function: 10';
+      home______ = 'Codec: RC6 - Device: 0 - Function: 84';
+      settings__ = 'Codec: RC6 - Device: 0 - Function: 64';
+      rwd_______ = 'Codec: RC6 - Device: 0 - Function: 43';
+      play______ = 'Codec: RC6 - Device: 0 - Function: 44';
+      fwd_______ = 'Codec: RC6 - Device: 0 - Function: 40';
+      stop______ = 'Codec: RC6 - Device: 0 - Function: 49';
+      pause_____ = 'Codec: RC6 - Device: 0 - Function: 48';
+      record____ = 'Codec: RC6 - Device: 0 - Function: 55';
+      red_______ = 'Codec: RC6 - Device: 0 - Function: 109';
+      green_____ = 'Codec: RC6 - Device: 0 - Function: 110';
+      yellow____ = 'Codec: RC6 - Device: 0 - Function: 111';
+      blue______ = 'Codec: RC6 - Device: 0 - Function: 112';
+      volumeup__ = 'Codec: RC6 - Device: 0 - Function: 16';
+      netflix___ = 'Codec: RC6 - Device: 0 - Function: 118';
+      tvup______ = 'Codec: RC6 - Device: 0 - Function: 32';
+      mute______ = 'Codec: RC6 - Device: 0 - Function: 13';
+      apps______ = 'Codec: RC6 - Device: 0 - Function: 190';
+      tv________ = 'Codec: RC6 - Device: 0 - Function: 159';
+      volumedown = 'Codec: RC6 - Device: 0 - Function: 17';
+      rakuten___ = 'Codec: RC6 - Device: 0 - Function: 34';
+      tvdown____ = 'Codec: RC6 - Device: 0 - Function: 33';
+      btn_0_____ = 'Codec: RC6 - Device: 0 - Function: 0';
+      btn_1_____ = 'Codec: RC6 - Device: 0 - Function: 1';
+      btn_2_____ = 'Codec: RC6 - Device: 0 - Function: 2';
+      btn_3_____ = 'Codec: RC6 - Device: 0 - Function: 3';
+      btn_4_____ = 'Codec: RC6 - Device: 0 - Function: 4';
+      btn_5_____ = 'Codec: RC6 - Device: 0 - Function: 5';
+      btn_6_____ = 'Codec: RC6 - Device: 0 - Function: 6';
+      btn_7_____ = 'Codec: RC6 - Device: 0 - Function: 7';
+      btn_8_____ = 'Codec: RC6 - Device: 0 - Function: 8';
+      btn_9_____ = 'Codec: RC6 - Device: 0 - Function: 9';
+      list______ = 'Codec: RC6 - Device: 0 - Function: 204';
+      text______ = 'Codec: RC6 - Device: 0 - Function: 60';
+    }
+  }
+  init();set_mode();
+</script>
+
+<script src="../../../assets/js/jquery.min.js"></script>
+<script src="../../../assets/js/browser.min.js"></script>
+<script src="../../../assets/js/breakpoints.min.js"></script>
+<script src="../../../assets/js/util.js"></script>
+<script src="../../../assets/js/main.js"></script>
+<script src="../main.js"></script>
