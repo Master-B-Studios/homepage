@@ -7,6 +7,35 @@
   <link rel="icon" type="image/x-icon" href="../../../images/MB_Icon_01.png"></link>
   <link rel="stylesheet" href="../../../assets/css/main.css"></link>
   <noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
+  <style>
+    .remote_table {width: auto;margin: 1em auto 1em auto;}
+    .remote_table td {text-align: center;vertical-align: middle;}
+    .remote_button_gap {width: 1em;height: auto;}
+    .remote_button {width: 5em;height: 5em;border-radius: 0.4em;cursor: pointer;}
+    .remote_button_4row {width: 3.5em;height: 3.5em;border-radius: 0.4em;cursor: pointer;}
+    .bg_gre {background-color: #333333;}
+    .bg_gre:hover {color: #00ff00;background-color: #222222;}
+    .bg_red {background-color: #ff0000;color: #000000;}
+    .bg_red:hover {color: #00ff00;background-color: #222222;}
+    .bg_blu {background-color: #0000ff;color: #000000;}
+    .bg_blu:hover {color: #00ff00;background-color: #222222;}
+    .bg_lim {background-color: #00ff00;color: #000000;}
+    .bg_lim:hover {color: #00ff00;background-color: #222222;}
+    .bg_yel {background-color: #ffee00;color: #000000;}
+    .bg_yel:hover {color: #00ff00;background-color: #222222;}
+    .bg_dar {background-color: #111111;}
+    .bg_dar:hover {color: #00ff00;background-color: #222222;}
+    .bg_cya {background-color: #00ffff;color: #000000;}
+    .bg_cya:hover {color: #00ff00;background-color: #222222;}
+    .bg_whi {background-color: #ffffff;color: #000000;}
+    .bg_whi:hover {color: #00ff00;background-color: #222222;}
+    .bg_ora {background-color: #ff9900;color: #000000;}
+    .bg_ora:hover {color: #00ff00;background-color: #222222;}
+    .bg_pur {background-color: #8c00ff;color: #000000;}
+    .bg_pur:hover {color: #00ff00;background-color: #222222;}
+    .bg_ros {background-color: #cd62bf;color: #000000;}
+    .bg_ros:hover {color: #00ff00;background-color: #222222;}
+  </style>
 </head>
 <body onload="window.location.href = '#ir_downloader';" class="is-preload">
   <div id="wrapper">
@@ -24,36 +53,59 @@
       <article id="ir_downloader" class="panel">
         <header><h2>Beleuchtung Decke Bad</h2></header>
 
-        <div class="ir_name">On</div>
-        <div class="ir_raw" onclick="copy_code(this);">8998 4513 577 549 578 549 578 549 578 549 578 549 578 549 578 549 578 548 579 1671 579 1672 578 1673 577 1674 576 549 578 1673 577 1671 579 1673 577 549 578 1671 579 548 579 549 578 549 578 550 577 549 578 549 578 1672 578 548 579 1674 577 1672 578 1671 579 1672 578 1672 578 1672 578 41222 9024 2232 577</div>
+        <table class="table_flipper">
+          <tr class="tr_flipper_checkbox">
+            <td id="esp32_raw___" class="checkbox" onclick="select_codes(this);">ESP32 Raw</td>
+            <td id="flipper_hex_" class="checkbox" onclick="select_codes(this);">Flipper Hex</td>
+            <td id="flipper_raw_" class="checkbox" onclick="select_codes(this);">Flipper Raw</td>
+            <td id="lirc_raw____" class="checkbox" onclick="select_codes(this);">Lirc<br>Raw</td>
+            <td id="pronto_hex__" class="checkbox" onclick="select_codes(this);">Pronto Hex</td>
+            <td id="global_cache" class="checkbox" onclick="select_codes(this);">Global Caché</td>
+            <td id="short_code__" class="checkbox" onclick="select_codes(this);">Short Code</td>
+          </tr>
+          <tr class="tr_flipper"><td class="tr_flipper_gap"></td></tr>
+        </table>
 
-        <div class="ir_name">Off</div>
-        <div class="ir_raw" onclick="copy_code(this);">8999 4515 578 549 578 549 578 548 579 548 579 549 578 549 578 548 579 549 578 1673 577 1673 577 1672 578 1672 578 549 578 1672 578 1672 578 1672 578 1672 578 1674 576 549 578 549 578 549 579 549 578 549 578 548 579 549 578 548 579 1673 578 1672 579 1674 576 1672 579 1673 578 1672 578 41227 9000 2257 577</div>
-
-        <div class="ir_name">Licht +</div>
-        <div class="ir_raw" onclick="copy_code(this);">9001 4514 576 548 579 549 578 549 578 548 579 549 578 548 579 548 579 549 578 1672 578 1672 578 1674 576 1672 578 549 578 1672 578 1670 580 1672 578 1670 580 548 578 549 578 1673 577 549 578 548 579 549 578 549 578 549 578 1674 576 1670 580 549 578 1672 578 1671 579 1673 577 1673 577 41222 9000 2253 578</div>
-
-        <div class="ir_name">Licht -</div>
-        <div class="ir_raw" onclick="copy_code(this);">8999 4513 579 548 579 548 579 548 579 548 579 549 578 548 579 548 579 548 579 1674 576 1671 579 1673 577 1672 578 549 578 1671 580 1670 580 1672 578 1672 578 548 579 549 578 548 579 1672 579 548 579 548 579 549 578 548 579 1671 580 1673 578 1672 579 548 579 1673 578 1673 578 1673 578 41232 9002 2257 577</div>
-
-        <div class="ir_name">RGB Fade</div>
-        <div class="ir_raw" onclick="copy_code(this);">9000 4513 579 549 578 548 579 548 579 548 579 548 579 548 579 548 579 549 578 1671 579 1671 579 1672 578 1670 580 549 578 1671 579 1671 578 1670 580 549 578 548 579 1671 579 1673 577 548 579 548 579 548 579 548 579 1672 578 1672 578 549 578 548 579 1671 579 1672 578 1672 578 1671 579 41219 9001 2254 580</div>
-
-        <div class="ir_name">RGB</div>
-        <div class="ir_raw" onclick="copy_code(this);">9001 4513 578 548 579 548 579 549 578 548 579 548 579 549 578 548 579 548 579 1673 577 1672 578 1671 579 1673 577 549 579 1672 578 1672 578 1670 580 548 579 1672 578 1672 578 1672 578 548 579 548 579 549 578 549 578 1670 580 548 579 548 579 548 579 1670 580 1672 578 1673 578 1672 578 41225 9003 2254 578</div>
-
-        <div class="ir_name">Night</div>
-        <div class="ir_raw" onclick="copy_code(this);">9000 4514 578 549 578 549 578 548 579 549 578 549 578 548 579 549 578 548 579 1671 579 1671 579 1672 578 1673 577 549 578 1671 579 1671 579 1673 577 548 579 549 578 548 579 549 578 548 579 549 578 549 578 548 579 1672 578 1672 578 1672 578 1671 579 1670 580 1671 579 1672 579 1671 579 41223 9001 2255 579</div>
-
-        <div class="ir_name">Day</div>
-        <div class="ir_raw" onclick="copy_code(this);">9000 4513 578 548 579 548 579 548 579 548 579 548 579 549 578 547 580 548 579 1672 578 1673 577 1670 581 1671 579 548 579 1671 579 1671 580 1673 577 549 578 1672 578 1672 578 548 579 1672 579 548 579 548 579 548 579 1671 579 548 579 548 579 1671 579 548 579 1672 578 1671 580 1672 579 41230 9004 2254 579</div>
-
-        <div class="ir_name">Favorite</div>
-        <div class="ir_raw" onclick="copy_code(this);">9000 4513 579 548 579 547 580 548 579 548 579 549 578 548 579 548 579 547 580 1671 579 1671 579 1671 579 1672 578 548 579 1671 579 1670 580 1671 579 548 579 548 579 1672 578 548 579 1672 578 549 578 548 579 548 579 1671 579 1672 578 548 579 1670 580 547 580 1673 577 1672 578 1671 579 41222 9003 2255 578</div>
-
-        <div class="ir_name">60 Seconds</div>
-        <div class="ir_raw" onclick="copy_code(this);">9002 4515 578 549 579 548 579 548 579 548 579 548 579 547 580 548 579 548 579 1671 580 1672 579 1672 579 1670 581 548 580 1672 579 1672 579 1670 580 1673 577 1671 580 1671 579 548 579 1673 578 548 579 548 579 548 579 547 580 548 579 548 579 1671 580 549 578 1673 578 1671 580 1670 580 41233 9006 2254 579</div>
-        
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_lim" onclick="copy_id_code(power_on_______);">&#9211;</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_red" onclick="copy_id_code(power_off______);">&#9211;</td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(rainbow________);">&#127752;</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(day____________);">&#127774;</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(brightness_up__);">&#128262;</td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(r_g_b__________);">R G B</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(night__________);">&#127772;</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(brightness_down);">&#128261;</td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
+        <table class="remote_table">
+          <tr>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(favorite_______);">Favorite</td>
+            <td class="remote_button_gap"></td>
+            <td class="remote_button bg_gre" onclick="copy_id_code(timer_60_s_____);">60 S</td>
+            <td class="remote_button_gap"></td>
+          </tr>
+        </table>
       </article>
     </div>
 	
@@ -61,6 +113,132 @@
 
   </div>
 </body>
+
+<script>
+  var mode = 'esp32_raw___';
+  function init() {document.getElementById('esp32_raw___').value = true;document.getElementById('esp32_raw___').style.opacity = '1';}
+
+  var power_on_______ = '';
+  var power_off______ = '';
+  var rainbow________ = '';
+  var day____________ = '';
+  var brightness_up__ = '';
+  var r_g_b__________ = '';
+  var night__________ = '';
+  var brightness_down = '';
+  var favorite_______ = '';
+  var timer_60_s_____ = '';
+
+  function copy_id_code(code) {navigator.clipboard.writeText(code);alert('Code "'+code+'" kopiert!');}
+
+  function select_codes(obj) {
+    var box = document.getElementsByClassName('checkbox');
+    for (i = 0; i < box.length; i++) {box[i].value = false;box[i].style = 'opacity = 0.5';box[i].style = 'transition: opacity 1s';}
+    obj.value = true;obj.style.opacity = '1';
+    if (obj.id == 'esp32_raw___') {mode = 'esp32_raw___';}
+    else if (obj.id == 'flipper_hex_') {mode = 'flipper_hex_';}
+    else if (obj.id == 'flipper_raw_') {mode = 'flipper_raw_';}
+    else if (obj.id == 'lirc_raw____') {mode = 'lirc_raw____';}
+    else if (obj.id == 'pronto_hex__') {mode = 'pronto_hex__';}
+    else if (obj.id == 'global_cache') {mode = 'global_cache';}
+    else if (obj.id == 'short_code__') {mode = 'short_code__';}
+    set_mode();
+  }
+
+  function set_mode() {
+    if (mode == 'esp32_raw___') {
+      power_on_______ = '';
+      power_off______ = '';
+      rainbow________ = '';
+      day____________ = '';
+      brightness_up__ = '';
+      r_g_b__________ = '';
+      night__________ = '';
+      brightness_down = '';
+      favorite_______ = '';
+      timer_60_s_____ = '';
+    }
+
+    else if (mode == 'flipper_hex_') {
+      power_on_______ = '';
+      power_off______ = '';
+      rainbow________ = '';
+      day____________ = '';
+      brightness_up__ = '';
+      r_g_b__________ = '';
+      night__________ = '';
+      brightness_down = '';
+      favorite_______ = '';
+      timer_60_s_____ = '';
+    }
+
+    else if (mode == 'flipper_raw_') {
+      power_on_______ = '8998 4513 577 549 578 549 578 549 578 549 578 549 578 549 578 549 578 548 579 1671 579 1672 578 1673 577 1674 576 549 578 1673 577 1671 579 1673 577 549 578 1671 579 548 579 549 578 549 578 550 577 549 578 549 578 1672 578 548 579 1674 577 1672 578 1671 579 1672 578 1672 578 1672 578 41222 9024 2232 577';
+      power_off______ = '8999 4515 578 549 578 549 578 548 579 548 579 549 578 549 578 548 579 549 578 1673 577 1673 577 1672 578 1672 578 549 578 1672 578 1672 578 1672 578 1672 578 1674 576 549 578 549 578 549 579 549 578 549 578 548 579 549 578 548 579 1673 578 1672 579 1674 576 1672 579 1673 578 1672 578 41227 9000 2257 577';
+      rainbow________ = '9000 4513 579 549 578 548 579 548 579 548 579 548 579 548 579 548 579 549 578 1671 579 1671 579 1672 578 1670 580 549 578 1671 579 1671 578 1670 580 549 578 548 579 1671 579 1673 577 548 579 548 579 548 579 548 579 1672 578 1672 578 549 578 548 579 1671 579 1672 578 1672 578 1671 579 41219 9001 2254 580';
+      day____________ = '9000 4513 578 548 579 548 579 548 579 548 579 548 579 549 578 547 580 548 579 1672 578 1673 577 1670 581 1671 579 548 579 1671 579 1671 580 1673 577 549 578 1672 578 1672 578 548 579 1672 579 548 579 548 579 548 579 1671 579 548 579 548 579 1671 579 548 579 1672 578 1671 580 1672 579 41230 9004 2254 579';
+      brightness_up__ = '9001 4514 576 548 579 549 578 549 578 548 579 549 578 548 579 548 579 549 578 1672 578 1672 578 1674 576 1672 578 549 578 1672 578 1670 580 1672 578 1670 580 548 578 549 578 1673 577 549 578 548 579 549 578 549 578 549 578 1674 576 1670 580 549 578 1672 578 1671 579 1673 577 1673 577 41222 9000 2253 578';
+      r_g_b__________ = '9001 4513 578 548 579 548 579 549 578 548 579 548 579 549 578 548 579 548 579 1673 577 1672 578 1671 579 1673 577 549 579 1672 578 1672 578 1670 580 548 579 1672 578 1672 578 1672 578 548 579 548 579 549 578 549 578 1670 580 548 579 548 579 548 579 1670 580 1672 578 1673 578 1672 578 41225 9003 2254 578';
+      night__________ = '9000 4514 578 549 578 549 578 548 579 549 578 549 578 548 579 549 578 548 579 1671 579 1671 579 1672 578 1673 577 549 578 1671 579 1671 579 1673 577 548 579 549 578 548 579 549 578 548 579 549 578 549 578 548 579 1672 578 1672 578 1672 578 1671 579 1670 580 1671 579 1672 579 1671 579 41223 9001 2255 579';
+      brightness_down = '8999 4513 579 548 579 548 579 548 579 548 579 549 578 548 579 548 579 548 579 1674 576 1671 579 1673 577 1672 578 549 578 1671 580 1670 580 1672 578 1672 578 548 579 549 578 548 579 1672 579 548 579 548 579 549 578 548 579 1671 580 1673 578 1672 579 548 579 1673 578 1673 578 1673 578 41232 9002 2257 577';
+      favorite_______ = '9000 4513 579 548 579 547 580 548 579 548 579 549 578 548 579 548 579 547 580 1671 579 1671 579 1671 579 1672 578 548 579 1671 579 1670 580 1671 579 548 579 548 579 1672 578 548 579 1672 578 549 578 548 579 548 579 1671 579 1672 578 548 579 1670 580 547 580 1673 577 1672 578 1671 579 41222 9003 2255 578';
+      timer_60_s_____ = '9002 4515 578 549 579 548 579 548 579 548 579 548 579 547 580 548 579 548 579 1671 580 1672 579 1672 579 1670 581 548 580 1672 579 1672 579 1670 580 1673 577 1671 580 1671 579 548 579 1673 578 548 579 548 579 548 579 547 580 548 579 548 579 1671 580 549 578 1673 578 1671 580 1670 580 41233 9006 2254 579';
+    }
+
+    else if (mode == 'lirc_raw____') {
+      power_on_______ = '';
+      power_off______ = '';
+      rainbow________ = '';
+      day____________ = '';
+      brightness_up__ = '';
+      r_g_b__________ = '';
+      night__________ = '';
+      brightness_down = '';
+      favorite_______ = '';
+      timer_60_s_____ = '';
+    }
+
+    else if (mode == 'pronto_hex__') {
+      power_on_______ = '';
+      power_off______ = '';
+      rainbow________ = '';
+      day____________ = '';
+      brightness_up__ = '';
+      r_g_b__________ = '';
+      night__________ = '';
+      brightness_down = '';
+      favorite_______ = '';
+      timer_60_s_____ = '';
+    }
+
+    else if (mode == 'global_cache') {
+      power_on_______ = '';
+      power_off______ = '';
+      rainbow________ = '';
+      day____________ = '';
+      brightness_up__ = '';
+      r_g_b__________ = '';
+      night__________ = '';
+      brightness_down = '';
+      favorite_______ = '';
+      timer_60_s_____ = '';
+    }
+
+    else if (mode == 'short_code__') {
+      power_on_______ = '';
+      power_off______ = '';
+      rainbow________ = '';
+      day____________ = '';
+      brightness_up__ = '';
+      r_g_b__________ = '';
+      night__________ = '';
+      brightness_down = '';
+      favorite_______ = '';
+      timer_60_s_____ = '';
+    }
+  }
+  init();set_mode();
+</script>
 
 <script src="../../../assets/js/jquery.min.js"></script>
 <script src="../../../assets/js/browser.min.js"></script>
