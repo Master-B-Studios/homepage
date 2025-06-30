@@ -241,6 +241,14 @@ input[accept=".episodes"] {display: none;z-index: 100;cursor: pointer;}
 .quest_text {width: 100%;height: auto;margin: 1em auto 1em auto;text-align: justify;font-style: italic;color: #f8c471;cursor: default;}
 .quest_answer {width: 100%;height: auto;margin: auto;text-align: justify;cursor: default;}
 .quest_img {width: 100%;height: auto;margin: 1em auto 1em auto;cursor: default;}
+.quest_table {width: 100%;height: auto;margin: 1em auto 1em auto;cursor: default;}
+.quest_td_1 {width: 2em;}
+.quest_td_2 {width: 2em;}
+.quest_td_3 {width: auto;}
+.quest_item_1 {width: auto;padding: 0.5em;vertical-align: middle;}
+.quest_item_2 {width: auto;padding: 0.5em;vertical-align: middle;}
+.quest_item_3 {width: auto;padding: 0.5em;vertical-align: middle;}
+.quest_item_4 {width: auto;padding: 0.5em;vertical-align: middle;}
 
 .design_table_04 {width: 25%;}
 .design_header_01 {text-align: center;font-weight: bold;font-size: 1.5em;}

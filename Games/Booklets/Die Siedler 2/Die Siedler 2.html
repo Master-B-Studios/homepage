@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Die Siedler 2</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+  <link rel="icon" type="image/x-icon" href="../../../images/MB_Icon_01.png"></link>
+  <link rel="stylesheet" href="../../../assets/css/main.css"></link>
+</head>
+<body onload="window.location.href = '#content';" class="is-preload">
+  <audio id="soundtrack" loop src="audio/Soundtrack.mp3" type="audio/mpeg"></audio>
+  <div id="wrapper">
+    
+    <nav id="nav">
+      <a href="../../../index.html"><img class="mb_icon" src="../../../images/MB_Icon_02.png"></img><span>Home</span></a>
+      <a href="../../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
+      <a href="../../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
+      <a href="../../../Games/games.html"><img class="mb_icon" src="../../../images/Games_Icon_01.png"></img><span>Games</span></a>
+      <a href="../booklets.html"><img class="mb_icon" src="../icon_01.png"></img><span>Booklets</span></a>
+    </nav>
+    
+    <div id="main">
+      <article id="content" class="panel">
+        <header><h2>Die Siedler 2</h2></header>
+        <section>
+          <div class="soundtrack_container">
+            <img class="soundtrack_background" src="cover/Die Siedler 2 - Poster.jpg"></img>
+            <div class="soundtrack_control_container" onclick="bg_music();">
+              <img class="soundtrack_control" src="../../../images/button_play_01.png"></img>
+              <p class="soundtrack_text">Soundtrack Abspielen</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <details class="details_1" style="color: #1fff50;" close>
+            <summary>Cheats</summary>
+            <div class="quest_text">
+              Das Cheatmenü lässt sich mit einem der folgenden Befehle aktivieren:<br><br>
+              Shift + thunder<br>
+              Shift + winter<br>
+              F7: Karte aufdecken<br>
+              Alt + 1 bis 6: Spielgeschwindigkeit<br>
+              Außerdem lässt sich bei aufgedeckter Karte an beliebiger Stelle ein neues Hauptquartier errichten<br><br>
+              Weitere Vorteile bringt das Editieren der Kampagnen-Daten:<br>
+              Hierfür müssen die Karten aus "DATA\MAPS" von .wld zu .swd und wieder zurück benannt werden.
+            </div>
+
+            <details class="details_2" style="color: #aaaaaa;" close>
+              <summary>Bezeichnungen in den Kartendaten</summary>
+              <div class="quest_text">!ADD_WARE "ID" "Menge"</div>
+              <table class="quest_table">
+                <tr><td class="quest_td_1">ID</td><td class="quest_td_2">=</td><td class="quest_td_3">Ware</td></tr>
+                <tr><td style="height: 1em;"></td></tr>
+                <tr><td>0</td><td>=</td><td>Baumstämme</td></tr>
+                <tr><td>1</td><td>=</td><td>Bretter</td></tr>
+                <tr><td>2</td><td>=</td><td>Granit</td></tr>
+                <tr><td>3</td><td>=</td><td>Schweine</td></tr>
+                <tr><td>4</td><td>=</td><td>Weizen</td></tr>
+                <tr><td>5</td><td>=</td><td>Mehl</td></tr>
+                <tr><td>6</td><td>=</td><td>Fisch</td></tr>
+                <tr><td>7</td><td>=</td><td>Fleisch</td></tr>
+                <tr><td>8</td><td>=</td><td>Brot</td></tr>
+                <tr><td>9</td><td>=</td><td>Wasser</td></tr>
+                <tr><td>10</td><td>=</td><td>Bier</td></tr>
+                <tr><td>11</td><td>=</td><td>Kohle</td></tr>
+                <tr><td>12</td><td>=</td><td>Roheisen</td></tr>
+                <tr><td>13</td><td>=</td><td>Rohgold</td></tr>
+                <tr><td>14</td><td>=</td><td>Eisen</td></tr>
+                <tr><td>15</td><td>=</td><td>Münzen</td></tr>
+                <tr><td>16</td><td>=</td><td>Zangen</td></tr>
+                <tr><td>17</td><td>=</td><td>Äxte</td></tr>
+                <tr><td>18</td><td>=</td><td>Sägen</td></tr>
+                <tr><td>19</td><td>=</td><td>Pickel</td></tr>
+                <tr><td>20</td><td>=</td><td>Hämmer</td></tr>
+                <tr><td>21</td><td>=</td><td>Schaufeln</td></tr>
+                <tr><td>22</td><td>=</td><td>Schmelztiegel</td></tr>
+                <tr><td>23</td><td>=</td><td>Angeln</td></tr>
+                <tr><td>24</td><td>=</td><td>Sensen</td></tr>
+                <tr><td>25</td><td>=</td><td>Fleischerbeile</td></tr>
+                <tr><td>26</td><td>=</td><td>Nudelhölzer</td></tr>
+                <tr><td>27</td><td>=</td><td>Bogen</td></tr>
+                <tr><td>28</td><td>=</td><td>Schwerter</td></tr>
+                <tr><td>29</td><td>=</td><td>Schilde</td></tr>
+                <tr><td>30</td><td>=</td><td>Boote</td></tr>
+              </table>
+              <div class="quest_text">&nbsp;</div>
+              <div class="quest_text">!ADD_PEOPLE "ID" "Menge"</div>
+              <table class="quest_item_container">
+                <tr><td class="quest_td_1">ID</td><td class="quest_td_2">=</td><td class="quest_td_3">Siedler-Typ</td></tr>
+                <tr><td style="height: 1em;"></td></tr>
+                <tr><td>0</td><td>=</td><td>Träger</td></tr>
+                <tr><td>1</td><td>=</td><td>Holzfäller</td></tr>
+                <tr><td>2</td><td>=</td><td>Angler</td></tr>
+                <tr><td>3</td><td>=</td><td>Förster</td></tr>
+                <tr><td>4</td><td>=</td><td>Sägemeister</td></tr>
+                <tr><td>5</td><td>=</td><td>Granitmeißler</td></tr>
+                <tr><td>6</td><td>=</td><td>Jäger</td></tr>
+                <tr><td>7</td><td>=</td><td>Bauer</td></tr>
+                <tr><td>8</td><td>=</td><td>Müller</td></tr>
+                <tr><td>9</td><td>=</td><td>Bäcker</td></tr>
+                <tr><td>10</td><td>=</td><td>Fleischer</td></tr>
+                <tr><td>11</td><td>=</td><td>Bergarbeiter</td></tr>
+                <tr><td>12</td><td>=</td><td>Bierbrauer</td></tr>
+                <tr><td>13</td><td>=</td><td>Schweinezüchter</td></tr>
+                <tr><td>14</td><td>=</td><td>Eselszüchter</td></tr>
+                <tr><td>15</td><td>=</td><td>Eisenschmelzer</td></tr>
+                <tr><td>16</td><td>=</td><td>Münzpräger</td></tr>
+                <tr><td>17</td><td>=</td><td>Schlosser</td></tr>
+                <tr><td>18</td><td>=</td><td>Schmied</td></tr>
+                <tr><td>19</td><td>=</td><td>Bauarbeiter</td></tr>
+                <tr><td>20</td><td>=</td><td>Planierer</td></tr>
+                <tr><td>21</td><td>=</td><td>Geologe</td></tr>
+                <tr><td>22</td><td>=</td><td>Soldat</td></tr>
+                <tr><td>23</td><td>=</td><td>Soldat</td></tr>
+                <tr><td>24</td><td>=</td><td>Soldat</td></tr>
+                <tr><td>25</td><td>=</td><td>Soldat</td></tr>
+                <tr><td>26</td><td>=</td><td>Soldat</td></tr>
+                <tr><td>27</td><td>=</td><td>Soldat</td></tr>
+                <tr><td>28</td><td>=</td><td>Scout</td></tr>
+                <tr><td>29</td><td>=</td><td>Schiffsbauer</td></tr>
+                <tr><td>30</td><td>=</td><td>Esel</td></tr>
+            </table>
+            </details>
+
+          </details>
+        </section>
+
+        <section>
+          <details class="details_1" style="color: #1fc0ff;" open>
+            <summary>Die Gebäude</summary>
+            <table class="quest_item_container">
+                <tr><td class="quest_item_1"></td><td class="quest_item_2">Name</td><td class="quest_item_3">Baukosten</td><td class="quest_item_4">Produktion</td></tr>
+                <tr><td class="quest_item_1"></td><td class="quest_item_2"></td><td class="quest_item_3"></td><td class="quest_item_4"></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Hauptquartier.gif"></img></td><td class="quest_item_2">Hauptquartier</td><td class="quest_item_3"></td><td class="quest_item_4"><img src="stuff/Gehilfe.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Lagerhaus.gif"></img></td><td class="quest_item_2">Lagerhaus</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img></td><td class="quest_item_4"><img src="stuff/Gehilfe.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Werft.gif"></img></td><td class="quest_item_2">Werft</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img></td><td class="quest_item_4"><img src="stuff/Schiffsbauer.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Hafen.gif"></img></td><td class="quest_item_2">Hafen</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img></td><td class="quest_item_4"><img src="stuff/Gehilfe.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Forsthütte.gif"></img></td><td class="quest_item_2">Forsthütte</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img></td><td class="quest_item_4"><img src="stuff/Wald.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Holzfällerhütte.gif"></img></td><td class="quest_item_2">Holzfällerhütte</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img></td><td class="quest_item_4"><img src="stuff/Baumstämme.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Sägewerk.gif"></img></td><td class="quest_item_2">Sägewerk</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img></td><td class="quest_item_4"><img src="stuff/Bauholz.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Steinbruch.gif"></img></td><td class="quest_item_2">Steinbruch</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img></td><td class="quest_item_4"><img src="stuff/Bausteine.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Fischerhütte.gif"></img></td><td class="quest_item_2">Fischerhütte</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img></td><td class="quest_item_4"><img src="stuff/Fisch.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Jagdhütte.gif"></img></td><td class="quest_item_2">Jagdhütte</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img></td><td class="quest_item_4"><img src="stuff/Schinken.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Getreidefarm.gif"></img></td><td class="quest_item_2">Getreidefarm</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"><img src="stuff/Bauholz.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img></td><td class="quest_item_4"><img src="stuff/Getreide.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Eselzucht.gif"></img></td><td class="quest_item_2">Eselzucht</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"><img src="stuff/Bauholz.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img></td><td class="quest_item_4"><img src="stuff/Esel.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Brunnen.gif"></img></td><td class="quest_item_2">Brunnen</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img></td><td class="quest_item_4"><img src="stuff/Wasser.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Brauerei.gif"></img></td><td class="quest_item_2">Brauerei</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"><img src="stuff/Bauholz.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img></td><td class="quest_item_4"><img src="stuff/Bier.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Schweinefarm.gif"></img></td><td class="quest_item_2">Schweinefarm</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"><img src="stuff/Bauholz.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img></td><td class="quest_item_4"><img src="stuff/Schwein.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Fleischerei.gif"></img></td><td class="quest_item_2">Fleischerei</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"><img src="stuff/Bauholz.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img></td><td class="quest_item_4"><img src="stuff/Schinken.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Windmühle.gif"></img></td><td class="quest_item_2">Windmühle</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"><img src="stuff/Bauholz.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img></td><td class="quest_item_4"><img src="stuff/Mehl.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Bäckerei.gif"></img></td><td class="quest_item_2">Bäckerei</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"><img src="stuff/Bauholz.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img></td><td class="quest_item_4"><img src="stuff/Brot.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Kohlebergwerk.gif"></img></td><td class="quest_item_2">Kohlebergwerk</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img></td><td class="quest_item_4"><img src="stuff/Kohle.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Eisenbergwerk.gif"></img></td><td class="quest_item_2">Eisenbergwerk</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img></td><td class="quest_item_4"><img src="stuff/Eisen.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Goldbergwerk.gif"></img></td><td class="quest_item_2">Goldbergwerk</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img></td><td class="quest_item_4"><img src="stuff/Golderz.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Granitbergwerk.gif"></img></td><td class="quest_item_2">Granitbergwerk</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img></td><td class="quest_item_4"><img src="stuff/Bausteine.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Eisenschmelze.gif"></img></td><td class="quest_item_2">Eisenschmelze</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"><img src="stuff/Bauholz.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img></td><td class="quest_item_4"><img src="stuff/Eisen.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Münzprägerei.gif"></img></td><td class="quest_item_2">Münzprägerei</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"><img src="stuff/Bauholz.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img></td><td class="quest_item_4"><img src="stuff/Goldmünzen.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Schmiede.gif"></img></td><td class="quest_item_2">Schmiede</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"><img src="stuff/Bauholz.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img></td><td class="quest_item_4"><img src="stuff/Schwert.gif"></img><img src="stuff/Schild.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Schlosser.gif"></img></td><td class="quest_item_2">Schlosser</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"><img src="stuff/Bauholz.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img></td><td class="quest_item_4"><img src="stuff/Angel.gif"></img><img src="stuff/Axt.gif"></img><img src="stuff/Beil.gif"></img><img src="stuff/Bogen.gif"></img><img src="stuff/Hammer.gif"></img><img src="stuff/Picke.gif"></img><br><img src="stuff/Nudelholz.gif"></img><img src="stuff/Säge.gif"></img><img src="stuff/Schaufel.gif"></img><img src="stuff/Schmelzpfanne.gif"></img><img src="stuff/Zange.gif"></img></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Spähturm.gif"></img></td><td class="quest_item_2">Spähturm</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img></td><td class="quest_item_4"></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Barracke.gif"></img></td><td class="quest_item_2">Barracke</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img></td><td class="quest_item_4"></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Wachstube.gif"></img></td><td class="quest_item_2">Wachstube</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img></td><td class="quest_item_4"></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Wachturm.gif"></img></td><td class="quest_item_2">Wachturm</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img></td><td class="quest_item_4"></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Festung.gif"></img></td><td class="quest_item_2">Festung</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img></td><td class="quest_item_4"></td></tr>
+                <tr><td class="quest_item_1"><img src="stuff/Katapult.gif"></img></td><td class="quest_item_2">Katapult</td><td class="quest_item_3"><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><img src="stuff/Bauholz.gif"></img><br><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img><img src="stuff/Bausteine.gif"></img></td><td class="quest_item_4"></td></tr>
+            </table>
+          </details>
+        </section>
+
+        <section>
+          <details class="details_1" style="color: #dbdbdb;" close>
+            <summary>Spiel Herunterladen</summary>
+            <div class="quest_text" style="cursor: pointer;" onclick="download('app');">Hier klicken zum Herunterladen</div>
+          </details>
+        </section>
+
+      </article>
+    </div>
+    
+    <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
+
+  </div>
+</body>
+
+<script src="../../../assets/js/jquery.min.js"></script>
+<script src="../../../assets/js/browser.min.js"></script>
+<script src="../../../assets/js/breakpoints.min.js"></script>
+<script src="../../../assets/js/util.js"></script>
+<script src="../../../assets/js/main.js"></script>
+<script>
+  var bg_playing = 'false';
+  var soundtrack = document.getElementById('soundtrack');
+  var background = soundtrack;
+  var soundtrack_control = document.getElementsByClassName('soundtrack_control');
+  var soundtrack_text = document.getElementsByClassName('soundtrack_text');
+  function bg_music() {
+    if (bg_playing == 'true') {
+      for (let i = 0; i < soundtrack_control.length; i++) {soundtrack_control[i].src = '../../../images/button_play_01.png';}
+      for (let i = 0; i < soundtrack_text.length; i++) {soundtrack_text[i].innerHTML = 'Soundtrack Fortsetzen';}
+      background.pause();bg_playing = 'false';
+    }
+    else if (bg_playing == 'false') {
+      for (let i = 0; i < soundtrack_control.length; i++) {soundtrack_control[i].src = '../../../images/button_pause_01.png';}
+      for (let i = 0; i < soundtrack_text.length; i++) {soundtrack_text[i].innerHTML = 'Soundtrack Pausieren';}
+      background.play();bg_playing = 'true';
+    }
+  }
+
+  function download(obj) {
+    if (obj == 'app') {url = 'game/Die_Siedler_2_1.0_Setup.exe'}
+    var link = document.createElement("a");
+    link.href = url;
+    link.download = url.split('/').pop();
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);}
+</script>
