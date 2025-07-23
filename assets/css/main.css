@@ -246,6 +246,10 @@ input[accept=".episodes"] {display: none;z-index: 100;cursor: pointer;}
 .quest_td_1_1 {width: 5em;}
 .quest_td_2 {width: 1.5em;}
 .quest_td_3 {width: auto;}
+.quest_td_aoe_1_1 {width: auto;}
+.quest_td_aoe_1_2 {width: 1.5em;}
+.quest_td_aoe_1_3 {width: auto;}
+
 .quest_item_1 {width: auto;padding: 0.5em;vertical-align: middle;}
 .quest_item_1 img {width: 3em;}
 .quest_item_2 {width: auto;padding: 0.5em;vertical-align: middle;}
