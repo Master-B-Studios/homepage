@@ -1,0 +1,11 @@
+html {width: 1440px;height: 800px;margin: 0;padding: 0;}
+body {background-color: #000000;width: 100vw;height: 100vh;margin: 0;padding: 0;color: #dbdbdb;}
+.game_container {width: 1440px;height: 800px;background-color: #000000;margin: 0;padding: 0;}
+
+.background____ {width: 1440px;height: 726px;margin: auto;}
+.background_img {width: 100%;height: auto;}
+
+.nav_up________ {width: 1000px;height: 150px;top: -726px;margin: auto;position: relative;background-color: #888888;opacity: 0.4;}
+.nav_right_____ {width: 200px;height: 418px;top: -726px;left: 620px;margin: auto;position: relative;background-color: #888888;opacity: 0.4;}
+.nav_down______ {width: 1000px;height: 150px;top: -726px;margin: auto;position: relative;background-color: #888888;opacity: 0.4;}
+.nav_left______ {width: 200px;height: 418px;top: -1294px;right: 620px;margin: auto;position: relative;background-color: #888888;opacity: 0.4;}
