@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../../../assets/css/main.css"></link>
 </head>
 <body onload="window.location.href = '#content';" class="is-preload">
+  <audio id="soundtrack" loop src="audio/Soundtrack.mp3" type="audio/mpeg"></audio>
   <div id="wrapper">
     
     <nav id="nav">
@@ -23,7 +24,13 @@
       <article id="content" class="panel">
         <header><h2>Assassin's Creed 6.0 - Origins</h2></header>
         <section>
-          <div><img class="quest_img" src="cover/Assassin's Creed 6.0 - Origins - Poster.jpg"></img></div>
+          <div class="soundtrack_container">
+            <img class="soundtrack_background" src="cover/Assassin's Creed 6.0 - Origins - Poster.jpg"></img>
+            <div class="soundtrack_control_container" onclick="bg_music();">
+              <img class="soundtrack_control" src="../../../images/button_play_01.png"></img>
+              <p class="soundtrack_text">Soundtrack Abspielen</p>
+            </div>
+          </div>
         </section>
 
         <section>
@@ -430,3 +437,22 @@
 <script src="../../../assets/js/breakpoints.min.js"></script>
 <script src="../../../assets/js/util.js"></script>
 <script src="../../../assets/js/main.js"></script>
+<script>
+  var bg_playing = 'false';
+  var soundtrack = document.getElementById('soundtrack');
+  var background = soundtrack;
+  var soundtrack_control = document.getElementsByClassName('soundtrack_control');
+  var soundtrack_text = document.getElementsByClassName('soundtrack_text');
+  function bg_music() {
+    if (bg_playing == 'true') {
+      for (let i = 0; i < soundtrack_control.length; i++) {soundtrack_control[i].src = '../../../images/button_play_01.png';}
+      for (let i = 0; i < soundtrack_text.length; i++) {soundtrack_text[i].innerHTML = 'Soundtrack Fortsetzen';}
+      background.pause();bg_playing = 'false';
+    }
+    else if (bg_playing == 'false') {
+      for (let i = 0; i < soundtrack_control.length; i++) {soundtrack_control[i].src = '../../../images/button_pause_01.png';}
+      for (let i = 0; i < soundtrack_text.length; i++) {soundtrack_text[i].innerHTML = 'Soundtrack Pausieren';}
+      background.play();bg_playing = 'true';
+    }
+  }
+</script>
