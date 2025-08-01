@@ -1,0 +1,81 @@
+[2022.12.17 10:07:20][INFO][10][NToolbox.Windows.FirmwareUpdaterWindow.BackgroundWorker_DoWork]
+Reading dataflash... 
+
+[2022.12.17 10:07:20][INFO][10][NToolbox.Windows.FirmwareUpdaterWindow.BackgroundWorker_DoWork]
+Reading dataflash... Done. 
+
+[2022.12.17 10:07:20][INFO][10][NToolbox.Windows.FirmwareUpdaterWindow.BackgroundWorker_DoWork]
+Switching boot mode... 
+
+[2022.12.17 10:07:20][INFO][10][NToolbox.Windows.FirmwareUpdaterWindow.BackgroundWorker_DoWork]
+Writing dataflash... 
+
+[2022.12.17 10:07:20][INFO][10][NToolbox.Windows.FirmwareUpdaterWindow.BackgroundWorker_DoWork]
+Writing dataflash... Done. Waiting 500 msec. 
+
+[2022.12.17 10:07:20][INFO][10][NToolbox.Windows.FirmwareUpdaterWindow.BackgroundWorker_DoWork]
+Restarting device... 
+
+[2022.12.17 10:07:20][INFO][10][NToolbox.Windows.FirmwareUpdaterWindow.BackgroundWorker_DoWork]
+Restarting device... Done. 
+
+[2022.12.17 10:07:20][INFO][10][NToolbox.Windows.FirmwareUpdaterWindow.BackgroundWorker_DoWork]
+Waiting for device after reset... 
+
+[2022.12.17 10:07:21][INFO][10][System.Threading.SpinWait.SpinUntil]
+Device found in the LDROM boot mode. 
+
+[2022.12.17 10:07:21][INFO][10][NToolbox.Windows.FirmwareUpdaterWindow.BackgroundWorker_DoWork]
+Waiting for device after reset... Done. 
+
+[2022.12.17 10:07:21][INFO][10][System.Threading.SpinWait.SpinUntil]
+Uploading firmware... 
+
+[2022.12.17 10:07:26][INFO][10][System.Threading.SpinWait.SpinUntil]
+Uploading firmware... Done. 
+
+[2022.12.19 11:32:37][INFO][6][NToolbox.Windows.FirmwareUpdaterWindow.BackgroundWorker_DoWork]
+Reading dataflash... 
+
+[2022.12.19 11:32:37][INFO][6][NToolbox.Windows.FirmwareUpdaterWindow.BackgroundWorker_DoWork]
+Reading dataflash... Done. 
+
+[2022.12.19 11:32:37][INFO][6][NToolbox.Windows.FirmwareUpdaterWindow.BackgroundWorker_DoWork]
+Switching boot mode... 
+
+[2022.12.19 11:32:37][INFO][6][NToolbox.Windows.FirmwareUpdaterWindow.BackgroundWorker_DoWork]
+Writing dataflash... 
+
+[2022.12.19 11:32:37][INFO][6][NToolbox.Windows.FirmwareUpdaterWindow.BackgroundWorker_DoWork]
+Writing dataflash... Done. Waiting 500 msec. 
+
+[2022.12.19 11:32:38][INFO][6][NToolbox.Windows.FirmwareUpdaterWindow.BackgroundWorker_DoWork]
+Restarting device... 
+
+[2022.12.19 11:32:38][WARN][6][NToolbox.Windows.FirmwareUpdaterWindow.BackgroundWorker_DoWork]
+System.IO.IOException: Operation failed after some time. ---> System.ComponentModel.Win32Exception: Ein an das System angeschlossenes Gerät funktioniert nicht
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei HidSharp.Platform.Windows.NativeMethods.OverlappedOperation(IntPtr ioHandle, IntPtr eventHandle, Int32 eventTimeout, IntPtr closeEventHandle, Boolean overlapResult, NativeOverlapped* overlapped, UInt32& bytesTransferred)
+   bei HidSharp.Platform.Windows.WinHidStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   bei NCore.USB.HidConnector.Write(HidStream stream, Byte[] data, BackgroundWorker worker)
+   bei NCore.USB.HidConnector.RestartDevice()
+   bei NToolbox.Windows.FirmwareUpdaterWindow.UpdateFirmwareAsyncWorker(BackgroundWorker worker, Byte[] firmware) System.IO.IOException: Operation failed after some time. ---> System.ComponentModel.Win32Exception: Ein an das System angeschlossenes Gerät funktioniert nicht
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei HidSharp.Platform.Windows.NativeMethods.OverlappedOperation(IntPtr ioHandle, IntPtr eventHandle, Int32 eventTimeout, IntPtr closeEventHandle, Boolean overlapResult, NativeOverlapped* overlapped, UInt32& bytesTransferred)
+   bei HidSharp.Platform.Windows.WinHidStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   bei NCore.USB.HidConnector.Write(HidStream stream, Byte[] data, BackgroundWorker worker)
+   bei NCore.USB.HidConnector.RestartDevice()
+   bei NToolbox.Windows.FirmwareUpdaterWindow.UpdateFirmwareAsyncWorker(BackgroundWorker worker, Byte[] firmware)
+
+[2022.12.19 11:32:46][INFO][6][NToolbox.Windows.FirmwareUpdaterWindow.BackgroundWorker_DoWork]
+Reading dataflash... 
+
+[2022.12.19 11:32:46][INFO][6][NToolbox.Windows.FirmwareUpdaterWindow.BackgroundWorker_DoWork]
+Reading dataflash... Done. 
+
+[2022.12.19 11:32:46][INFO][6][System.Threading.SpinWait.SpinUntil]
+Uploading firmware... 
+
+[2022.12.19 11:32:50][INFO][6][System.Threading.SpinWait.SpinUntil]
+Uploading firmware... Done. 
+

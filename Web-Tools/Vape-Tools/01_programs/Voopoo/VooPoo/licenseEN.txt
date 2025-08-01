@@ -1,0 +1,18 @@
+This product is VooPoo which produced by KunShan XW-TEC company.
+
+VooPoo software as part of the electronic cigarette products, mainly used for equipment information view, program upgrade, user defined and so on.
+
+VooPoo software will be distributed to customers with the electronic cigarette, usually do not sell separately.
+The specific situation, please visit the company's home page.
+
+In the process of using this product, if the damage to your equipment or personal computer, 
+this product does not bear the corresponding responsibility, please pay attention to the user.
+
+The software uses a part of the open source project, the copyright of these projects to the original author.
+
+DO NOT COMPILE, MODIFY, DISTRIBUTE THE PROGRAM, OR NEED TO BEAR THE CORRESPONDING LEGAL RESPONSIBILITY.
+
+In addition to the open source project referenced, the rest of all copyright reserved by XW-TEC KunShan company.
+---------------------------------------------------------------------------------
+VooPoo development team
+2016.05.31

@@ -1,0 +1,10 @@
+﻿<DeviceMonitorConfiguration>
+  <Language>DE</Language>
+  <OpenArcticFoxConfigurationWhenDeviceIsConnected>false</OpenArcticFoxConfigurationWhenDeviceIsConnected>
+  <CloseArcticFoxConfigurationWhenDeviceIsDisconnected>false</CloseArcticFoxConfigurationWhenDeviceIsDisconnected>
+  <SynchronizeTimeWhenDeviceIsConnected>false</SynchronizeTimeWhenDeviceIsConnected>
+  <TakeScreenshotBeforeSave>false</TakeScreenshotBeforeSave>
+  <PixelSizeMultiplier>0</PixelSizeMultiplier>
+  <ShowPuffsBoundaries>true</ShowPuffsBoundaries>
+  <ActiveSeries />
+</DeviceMonitorConfiguration>

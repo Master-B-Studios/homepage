@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <appSettings>
+    <add key="LanguageShortName" value="eng" />
+    <add key="FrmMain_ViewNavigator" value="True" />
+    <add key="FrmMain_ViewLog" value="True" />
+    <add key="FrmMain_ViewToolbar" value="True" />
+    <add key="FrmMain_ViewStatusbar" value="True" />
+    <add key="LastDeviceGuid" value="ddf2803f-2200-4685-875e-638b9bf22c75" />
+    <add key="FirstRun" value="false" />
+  </appSettings>
+</configuration>
