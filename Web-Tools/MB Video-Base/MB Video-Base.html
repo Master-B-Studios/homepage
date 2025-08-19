@@ -81,7 +81,7 @@
     for (let i = 0; i < keys.length; i++) {
       const th = document.createElement('th');
       th.textContent = keys[i];
-      if (i == 5) {td.className = 'table_content';}
+      if (i == 5) {th.className = 'table_content';}
       th.addEventListener('click', () => sortiereNachSpalte(keys[i]));
       headerRow.appendChild(th);
     }
@@ -104,11 +104,6 @@
         else if (i == 5) {td.className = 'table_content';td.id = movie_id+'_content';}
         tr.appendChild(td);
       }
-      //keys.forEach(key => {
-        //const td = document.createElement('td');
-        //td.textContent = row[key] ?? '';
-        //tr.appendChild(td);
-      //});
       tbody.appendChild(tr);
     });
     
