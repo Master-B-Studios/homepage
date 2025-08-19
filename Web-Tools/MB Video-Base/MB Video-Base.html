@@ -9,10 +9,7 @@
   <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
   <script src="Scripts/xlsx.full.min.js"></script>
   <style>
-    .liquid_table {width: 100%;height: auto;margin: auto;text-align: center;}
-    .inputs {border-color: #000000;outline-color: #000000;background: #333333;border-radius: 10px;cursor: pointer;}
-    .liquid_row_1 {width: 3em;text-align: center;}
-    .liquid_row_2 {width: 3em;text-align: center;}
+    .table_fsk {width: 4em;height: auto;margin: auto;text-align: center;color: #ff00ff;}
   </style>
 </head>
 <body onload="window.location.href = '#mb_video_base';load_base_a_z();" class="is-preload">
@@ -79,7 +76,6 @@
     keys.forEach(key => {
       const th = document.createElement('th');
       th.textContent = key;
-      if (th.textContent == 'Name') {th.style.textAlign = 'left'};
       th.addEventListener('click', () => sortiereNachSpalte(key));
       headerRow.appendChild(th);
     });
@@ -93,6 +89,12 @@
       keys.forEach(key => {
         const td = document.createElement('td');
         td.textContent = row[key] ?? '';
+        if (key == key[0]) {td.style.textAlign = 'right'};
+        if (key == key[1]) {td.style.textAlign = 'left'};
+        if (key == key[2]) {td.style.textAlign = 'center'};
+        if (key == key[3]) {td.style.textAlign = 'center'};
+        if (key == key[4]) {td.className = 'table_fsk'};
+        if (key == key[5]) {td.style.textAlign = 'left'};
         tr.appendChild(td);
       });
       tbody.appendChild(tr);
