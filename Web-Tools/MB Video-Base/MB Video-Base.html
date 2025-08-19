@@ -14,7 +14,7 @@
     .table_year___ {width: 4em;height: auto;margin: auto;text-align: center;color: #ff00ff;}
     .table_runtime {width: 4em;height: auto;margin: auto;text-align: center;color: #ff00ff;}
     .table_fsk____ {width: 4em;height: auto;margin: auto;text-align: center;color: #ff00ff;}
-    .table_content {width: 4em;height: auto;margin: auto;text-align: center;color: #ff00ff;}
+    .table_content {display: none;}
   </style>
 </head>
 <body onload="window.location.href = '#mb_video_base';load_base_a_z();" class="is-preload">
@@ -94,12 +94,12 @@
       keys.forEach(key => {
         const td = document.createElement('td');
         td.textContent = row[key] ?? '';
-        if (key == key[0]) {td.className = 'table_number_';};
-        if (key == key[1]) {td.style.textAlign = 'left';};
-        if (key == key[2]) {td.style.textAlign = 'center';};
-        if (key == key[3]) {td.style.textAlign = 'center';};
-        if (key == key[4]) {td.style.textAlign = 'right';};
-        if (key == key[5]) {td.style.textAlign = 'left';};
+        if (key == key[0]) {td.className = 'table_number_';td.id = td.textContent;}
+        else if (key == key[1]) {td.className = 'table_name___';td.id = td.textContent+'name';}
+        else if (key == key[2]) {td.className = 'table_year___';td.id = td.textContent+'year';}
+        else if (key == key[3]) {td.className = 'table_runtime';td.id = td.textContent+'runtime';}
+        else if (key == key[4]) {td.className = 'table_fsk____';td.id = td.textContent+'fsk';}
+        else if (key == key[5]) {td.className = 'table_content';td.id = td.textContent+'content';}
         tr.appendChild(td);
       });
       tbody.appendChild(tr);
