@@ -94,7 +94,7 @@
       for (let i = 0; i < keys.length; i++) {
         const td = document.createElement('td');
         var movie_id = '';
-        td.textContent = row[key] ?? '';
+        td.textContent = row[keys[i]] ?? '';
         if (i == 0) {td.className = 'table_number_';td.id = td.textContent;movie_id = td.id;}
         else if (i == 1) {td.className = 'table_name___';td.id = movie_id+'_name___';}
         else if (i == 2) {td.className = 'table_year___';td.id = movie_id+'_year___';}
