@@ -7,6 +7,7 @@
   <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
   <link rel="stylesheet" href="../../assets/css/main.css"></link>
   <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+  <script src="Scripts/xlsx.full.min.js"></script>
   <style>
     .liquid_table {width: 100%;height: auto;margin: auto;text-align: center;}
     .inputs {border-color: #000000;outline-color: #000000;background: #333333;border-radius: 10px;cursor: pointer;}
@@ -14,7 +15,7 @@
     .liquid_row_2 {width: 3em;text-align: center;}
   </style>
 </head>
-<body onload="window.location.href = '#mb_video_base'" class="is-preload">
+<body onload="window.location.href = '#mb_video_base';load_base_a_z();" class="is-preload">
   <div id="wrapper">
     
     <nav id="nav">
@@ -27,20 +28,10 @@
     </nav>
     
     <div id="main">
-      <article id="vape_tools" class="panel">
+      <article id="mb_video_base" class="panel">
         <header><h2>MB Video-Base</h2></header>
         
-        <table class="liquid_table">Liquid-Rechner
-          <tr><td colspan="5">Liquid-Mengen</td><td>Liquid-Art</td><td>Nikotin mg/ml</td></tr>
-          <tr><td>-</td></tr>
-          <tr><td><input id="shot_percent" type="number" class="liquid_row_1 inputs" onchange="shot_percent_in();" onkeypress="check_enter(event,this);"></input></td><td>%</td><td>=</td><td><input id="shot_amount" type="number" class="table_row_1_4 position table_text_white inputs" onchange="amount_in();" onkeypress="check_enter(event,this);"></input></td><td>ml</td><td>Nikotin-Shot</td><td><input id="shot_nicotine" type="number" class="table_row_1_7 position table_text_red inputs" onchange="nicotine_in();" onkeypress="check_enter(event,this);"></input></td></tr>
-          <tr><td><input id="base_percent" type="number" class="liquid_row_1 inputs" onchange="base_percent_in();" onkeypress="check_enter(event,this);"></input></td><td>%</td><td>=</td><td><input id="base_amount" type="number" class="table_row_2_4 position table_text_white inputs" onchange="amount_in();" onkeypress="check_enter(event,this);"></input></td><td>ml</td><td>Base</td></tr>
-          <tr><td colspan="4"><input id="summary_amount" type="number" class="liquid_row_1 inputs" onchange="summary_change();" onkeypress="check_enter(event,this);"></input></td><td>ml</td><td>Basis</td><td id="summary_nicotine" type="number" class="table_row_3_7 position table_text_red">x</td></tr>
-          <tr><td>-</td></tr>
-          <tr><td><input id="aroma_percent" type="number" class="liquid_row_1 inputs" onchange="aroma_percent_in();" onkeypress="check_enter(event,this);"></input></td><td>%</td><td>=</td><td><input id="aroma_amount" type="number" class="table_row_4_4 position table_text_white inputs" onchange="aroma_amount_in();" onkeypress="check_enter(event,this);"></input></td><td>ml</td><td>Aroma</td></tr>
-          <tr><td>-</td></tr>
-          <tr><td colspan="4" id="whole_amount" type="number" class="liquid_row_1"></td><td>ml</td><td>Gesamt</td><td id="whole_nicotine" type="number" class="table_row_5_7 position table_text_red">x</td></tr>
-        </table>
+        <div id="output"></div>
 
       </article>
     </div>
@@ -56,4 +47,54 @@
 <script src="../../assets/js/util.js"></script>
 <script src="../../assets/js/main.js"></script>
 <script>
+  async function load_base_a_z() {
+      try {
+        const response = await fetch('MB Video-Base.xlsx');
+        if (!response.ok) throw new Error('Datei konnte nicht geladen werden');
+
+        const arrayBuffer = await response.arrayBuffer();
+        const data = new Uint8Array(arrayBuffer);
+        const workbook = XLSX.read(data, { type: 'array' });
+
+        const sheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[sheetName];
+        const json = XLSX.utils.sheet_to_json(worksheet);
+
+        const output = document.getElementById('output');
+        output.innerHTML = '';
+
+        if (json.length === 0) {
+          output.textContent = 'Keine Daten gefunden.';
+          return;
+        }
+
+        const table = document.createElement('table');
+        table.border = 1;
+
+        // Header
+        const headerRow = document.createElement('tr');
+        Object.keys(json[0]).forEach(key => {
+          const th = document.createElement('th');
+          th.textContent = key;
+          headerRow.appendChild(th);
+        });
+        table.appendChild(headerRow);
+
+        // Rows
+        json.forEach(row => {
+          const tr = document.createElement('tr');
+          Object.values(row).forEach(value => {
+            const td = document.createElement('td');
+            td.textContent = value;
+            tr.appendChild(td);
+          });
+          table.appendChild(tr);
+        });
+
+        output.appendChild(table);
+
+      } catch (err) {
+        document.getElementById('output').textContent = 'Fehler beim Laden: ' + err.message;
+      }
+    }
 </script>
