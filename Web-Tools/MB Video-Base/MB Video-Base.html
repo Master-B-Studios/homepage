@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>Vape-Tools</title>
+  <title>MB Video-Base</title>
   <meta charset="utf-8"></meta>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
   <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
@@ -14,7 +14,7 @@
     .liquid_row_2 {width: 3em;text-align: center;}
   </style>
 </head>
-<body onload="window.location.href = '#vape_tools';write_values();" class="is-preload">
+<body onload="window.location.href = '#mb_video_base'" class="is-preload">
   <div id="wrapper">
     
     <nav id="nav">
@@ -22,13 +22,13 @@
       <a href="../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
       <a href="../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
 	  <a href="../../Games/games.html"><img class="mb_icon" src="../../images/Games_Icon_01.png"></img><span>Games</span></a>
-      <a href="#vape_tools"><img class="mb_icon" src="icon_01.png"></img><span>Vape-Tools</span></a>
+      <a href="#mb_video_base"><img class="mb_icon" src="icon_01.png"></img><span>MB Video-Base</span></a>
       
     </nav>
     
     <div id="main">
       <article id="vape_tools" class="panel">
-        <header><h2>Vape-Tools</h2></header>
+        <header><h2>MB Video-Base</h2></header>
         
         <table class="liquid_table">Liquid-Rechner
           <tr><td colspan="5">Liquid-Mengen</td><td>Liquid-Art</td><td>Nikotin mg/ml</td></tr>
@@ -56,100 +56,4 @@
 <script src="../../assets/js/util.js"></script>
 <script src="../../assets/js/main.js"></script>
 <script>
-
-// Calculator
-var shot_amount = 20;
-var shot_nicotine = 20;
-var base_amount = 60;
-var aroma_percent = 5;
-
-function write_values() {
-    document.getElementById('shot_amount').value = shot_amount;
-    document.getElementById('base_amount').value = base_amount;
-    document.getElementById('shot_nicotine').value = shot_nicotine;
-    document.getElementById('aroma_percent').value = aroma_percent;
-    amount_in();
-}
-function shot_percent_in() {
-    shot_percent = parseInt(document.getElementById('shot_percent').value);
-    base_percent = 100 - shot_percent;
-    shot_amount = (shot_percent / 100) * summary_amount |0;
-    base_amount = (base_percent / 100) * summary_amount |0;
-    document.getElementById('base_percent').value = base_percent;
-    document.getElementById('shot_amount').value = shot_amount;
-    document.getElementById('base_amount').value = base_amount;
-    aroma_percent_in();
-}
-function base_percent_in() {
-    base_percent = parseInt(document.getElementById('base_percent').value);
-    shot_percent = 100 - base_percent;
-    shot_amount = (shot_percent / 100) * summary_amount |0;
-    base_amount = (base_percent / 100) * summary_amount |0;
-    document.getElementById('shot_percent').value = shot_percent;
-    document.getElementById('shot_amount').value = shot_amount;
-    document.getElementById('base_amount').value = base_amount;
-    aroma_percent_in();
-}
-function amount_in() {
-    shot_amount = parseInt(document.getElementById('shot_amount').value);
-    base_amount = parseInt(document.getElementById('base_amount').value);
-    summary_amount = shot_amount + base_amount;
-    shot_percent = (shot_amount / summary_amount) * 100 |0;
-    base_percent = (base_amount / summary_amount) * 100 |0;
-    document.getElementById('shot_percent').value = shot_percent;
-    document.getElementById('base_percent').value = base_percent;
-    document.getElementById('summary_amount').value = summary_amount;
-    aroma_percent_in();
-}
-function summary_change() {
-    summary_amount = parseInt(document.getElementById('summary_amount').value);
-    shot_amount = (shot_percent / 100) * summary_amount |0;
-    base_amount = (base_percent / 100) * summary_amount |0;
-    document.getElementById('shot_amount').value = shot_amount;
-    document.getElementById('base_amount').value = base_amount;
-    aroma_percent_in();
-}
-function aroma_percent_in() {
-    aroma_percent = parseInt(document.getElementById('aroma_percent').value);
-    aroma_amount = (aroma_percent / 100) * summary_amount;
-    whole_amount = summary_amount + aroma_amount |0;
-    var aroma_amount_fixed = parseFloat(aroma_amount).toFixed(1);
-    document.getElementById('aroma_percent').value = aroma_percent;
-    document.getElementById('aroma_amount').value = aroma_amount_fixed;
-    document.getElementById('whole_amount').innerHTML = whole_amount;
-    nicotine_in();
-}
-function aroma_amount_in() {
-    aroma_amount = parseInt(document.getElementById('aroma_amount').value);
-    aroma_percent = (aroma_amount / summary_amount) * 100 |0;
-    whole_amount = summary_amount + aroma_amount |0;
-    document.getElementById('aroma_percent').value = aroma_percent;
-    document.getElementById('aroma_amount').value = aroma_amount;
-    document.getElementById('whole_amount').innerHTML = whole_amount;
-    nicotine_in();
-}
-function nicotine_in() {
-    shot_nicotine = parseInt(document.getElementById('shot_nicotine').value);
-    var summary_nicotine = (shot_amount * shot_nicotine) / summary_amount;
-    var whole_nicotine = (shot_amount * shot_nicotine) / whole_amount;
-    var summary_nicotine_fix = parseFloat(summary_nicotine).toFixed(2);
-    var whole_nicotine_fix = parseFloat(whole_nicotine).toFixed(2);
-    document.getElementById('summary_nicotine').innerHTML = summary_nicotine_fix;
-    document.getElementById('whole_nicotine').innerHTML = whole_nicotine_fix;
-}
-
-// Key Listener
-function check_enter(e,obj) {
-    var functionname = obj.id;
-    if (e.keyCode === 13) {
-        if (functionname == 'shot_percent') {shot_percent_in();}
-        else if (functionname == 'shot_amount') {amount_in();}
-        else if (functionname == 'shot_nicotine') {nicotine_in();}
-        else if (functionname == 'base_percent') {base_percent_in();}
-        else if (functionname == 'base_amount') {amount_in();}
-        else if (functionname == 'summary_amount') {summary_change();}
-        else if (functionname == 'aroma_percent') {aroma_percent_in();}
-        else if (functionname == 'aroma_amount') {aroma_amount_in();}
-    }
-}
 </script>
