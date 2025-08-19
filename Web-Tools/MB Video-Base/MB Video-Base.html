@@ -78,12 +78,13 @@
     const headerRow = document.createElement('tr');
     
     const keys = Object.keys(daten[0]);
-    keys.forEach(key => {
+    for (let i = 0; i < keys.length; i++) {
       const th = document.createElement('th');
-      th.textContent = key;
-      th.addEventListener('click', () => sortiereNachSpalte(key));
+      th.textContent = keys[i];
+      if (i == 5) {td.className = 'table_content';}
+      th.addEventListener('click', () => sortiereNachSpalte(keys[i]));
       headerRow.appendChild(th);
-    });
+    }
     
     thead.appendChild(headerRow);
     table.appendChild(thead);
