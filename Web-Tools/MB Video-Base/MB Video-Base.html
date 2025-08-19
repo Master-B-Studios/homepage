@@ -47,7 +47,10 @@
 <script src="../../assets/js/util.js"></script>
 <script src="../../assets/js/main.js"></script>
 <script>
-  async function load_base_a_z() {
+  let aktuelleDaten = [];
+    let aktuelleSortierung = {};
+
+    async function load_base_a_z() {
       try {
         const response = await fetch('MB Video-Base.xlsx');
         if (!response.ok) throw new Error('Datei konnte nicht geladen werden');
@@ -60,41 +63,63 @@
         const worksheet = workbook.Sheets[sheetName];
         const json = XLSX.utils.sheet_to_json(worksheet);
 
-        const output = document.getElementById('output');
-        output.innerHTML = '';
-
-        if (json.length === 0) {
-          output.textContent = 'Keine Daten gefunden.';
-          return;
-        }
-
-        const table = document.createElement('table');
-        table.border = 1;
-
-        // Header
-        const headerRow = document.createElement('tr');
-        Object.keys(json[0]).forEach(key => {
-          const th = document.createElement('th');
-          th.textContent = key;
-          headerRow.appendChild(th);
-        });
-        table.appendChild(headerRow);
-
-        // Rows
-        json.forEach(row => {
-          const tr = document.createElement('tr');
-          Object.values(row).forEach(value => {
-            const td = document.createElement('td');
-            td.textContent = value;
-            tr.appendChild(td);
-          });
-          table.appendChild(tr);
-        });
-
-        output.appendChild(table);
-
+        aktuelleDaten = json;
+        renderTabelle(json);
       } catch (err) {
         document.getElementById('output').textContent = 'Fehler beim Laden: ' + err.message;
       }
+    }
+
+    function renderTabelle(daten) {
+      const output = document.getElementById('output');
+      output.innerHTML = '';
+
+      if (daten.length === 0) {
+        output.textContent = 'Keine Daten gefunden.';
+        return;
+      }
+
+      const table = document.createElement('table');
+      const thead = document.createElement('thead');
+      const headerRow = document.createElement('tr');
+
+      const keys = Object.keys(daten[0]);
+      keys.forEach(key => {
+        const th = document.createElement('th');
+        th.textContent = key;
+        th.addEventListener('click', () => sortiereNachSpalte(key));
+        headerRow.appendChild(th);
+      });
+
+      thead.appendChild(headerRow);
+      table.appendChild(thead);
+
+      const tbody = document.createElement('tbody');
+      daten.forEach(row => {
+        const tr = document.createElement('tr');
+        keys.forEach(key => {
+          const td = document.createElement('td');
+          td.textContent = row[key] ?? '';
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+
+      table.appendChild(tbody);
+      output.appendChild(table);
+    }
+
+    function sortiereNachSpalte(spalte) {
+      const richtung = aktuelleSortierung[spalte] === 'asc' ? 'desc' : 'asc';
+      aktuelleDaten.sort((a, b) => {
+        const valA = a[spalte] ?? '';
+        const valB = b[spalte] ?? '';
+        return richtung === 'asc'
+          ? valA.toString().localeCompare(valB.toString(), 'de', { numeric: true })
+          : valB.toString().localeCompare(valA.toString(), 'de', { numeric: true });
+      });
+
+      aktuelleSortierung = { [spalte]: richtung };
+      renderTabelle(aktuelleDaten);
     }
 </script>
