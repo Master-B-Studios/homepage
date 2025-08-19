@@ -91,16 +91,19 @@
     const tbody = document.createElement('tbody');
     daten.forEach(row => {
       const tr = document.createElement('tr');
+      for (let i = 0; i < keys.length; i++) {
+        alert(key+i)
+      }
       keys.forEach(key => {
         const td = document.createElement('td');
         var movie_id = '';
         td.textContent = row[key] ?? '';
         if (key == key[0]) {td.className = 'table_number_';td.id = td.textContent;movie_id = td.id;}
-        else if (key == key[1]) {td.className = 'table_name___';td.id = movie_id+'_name___';}
-        else if (key == key[2]) {td.className = 'table_year___';td.id = movie_id+'_year___';}
-        else if (key == key[3]) {td.className = 'table_runtime';td.id = movie_id+'_runtime';}
-        else if (key == key[4]) {td.className = 'table_fsk____';td.id = movie_id+'_fsk____';}
-        else if (key == key[5]) {td.className = 'table_content';td.id = movie_id+'_content';}
+        if (key == key[1]) {td.className = 'table_name___';td.id = movie_id+'_name___';}
+        if (key == key[2]) {td.className = 'table_year___';td.id = movie_id+'_year___';}
+        if (key == key[3]) {td.className = 'table_runtime';td.id = movie_id+'_runtime';}
+        if (key == key[4]) {td.className = 'table_fsk____';td.id = movie_id+'_fsk____';}
+        if (key == key[5]) {td.className = 'table_content';td.id = movie_id+'_content';}
         tr.appendChild(td);
       });
       tbody.appendChild(tr);
