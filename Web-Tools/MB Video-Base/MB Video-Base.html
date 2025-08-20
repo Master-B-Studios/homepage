@@ -96,10 +96,11 @@
     
     const keys = Object.keys(daten[0]);
     for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
       const th = document.createElement('th');
-      th.textContent = keys[i];
+      th.textContent = key;
       if (i == 5) {th.className = 'table_content';}
-      th.addEventListener('click', () => sortiereNachSpalte(keys[i]));
+      th.addEventListener('click', () => sortiereNachSpalte(key));
       headerRow.appendChild(th);
     }
     
@@ -108,11 +109,13 @@
     
     const tbody = document.createElement('tbody');
     for (let i = 0; i < daten.length; i++) {
+      const row = daten[i];
       const tr = document.createElement('tr');
       for (let j = 0; j < keys.length; j++) {
+        const key = keys[j];
         const td = document.createElement('td');
         var movie_id = '';
-        td.textContent = row[keys[j]] ?? '';
+        td.textContent = row[key] ?? '';
         if (j == 0) {td.className = 'table_number_';td.id = td.textContent;movie_id = td.id;tr.appendChild(td);}
         else if (j == 1) {td.className = 'table_name___';td.id = movie_id+'_name___';td.colSpan = 4;tr.appendChild(td);tbody.appendChild(tr);}
         else if (j == 2) {td.className = 'table_year___';td.id = movie_id+'_year___';tr.appendChild(td);}
