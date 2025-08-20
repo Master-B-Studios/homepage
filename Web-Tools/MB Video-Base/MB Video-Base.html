@@ -11,8 +11,9 @@
   <style>
     tbody {width: 100%;height: auto;}
     tr {width: 100%;height: auto;}
+    th {width: 20%;}
     .table_number_ {width: 20%;height: 4em;text-align: center;vertical-align: middle;background-color: #222222;}
-    .table_name___ {width: 80%;height: 3em;padding: 2%;text-align: left;font-size: larger;vertical-align: middle;background-color: #222222;}
+    .table_name___ {width: 20%;height: 3em;padding: 2%;text-align: left;font-size: larger;vertical-align: middle;background-color: #222222;}
     .table_year___ {width: 20%;height: 4em;text-align: center;vertical-align: middle;}
     .table_runtime {width: 20%;height: 4em;text-align: center;vertical-align: middle;}
     .table_fsk____ {width: 20%;height: auto;text-align: center;vertical-align: middle;}
@@ -38,18 +39,6 @@
       <article id="mb_video_base" class="panel">
         <header><h2>MB Video-Base</h2></header>
         
-        <table>
-          <tbody>
-            <tr><td class="table_number_"># 0001</td><td colspan="4" class="table_name___">Hulk</td></tr>
-            <tr>
-              <td class="table_year___">2003</td>
-              <td class="table_runtime">120 Min</td>
-              <td class="table_fsk____"><img src="Scripts/16.png"></td>
-              <td class="table_poster_"><img src="Cover/0001.jpg"></td>
-            </tr>
-          </tbody>
-          
-        </table>
         <div id="output"></div>
 
       </article>
@@ -100,7 +89,7 @@
       const key = keys[i];
       const th = document.createElement('th');
       th.textContent = key;
-      if (i == 5) {th.className = 'table_content';}
+      if (i == 5) {th.className = 'table_poster_';th.textContent = 'Cover';}
       th.addEventListener('click', () => sortiereNachSpalte(key));
       headerRow.appendChild(th);
     }
