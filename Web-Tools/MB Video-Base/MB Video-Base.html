@@ -133,6 +133,7 @@
           td.className = 'table_name___';
           td.id = movie_id+'_name___';
           td.value = td.innerHTML;
+          alert(td.value);
           td.colSpan = 5;
           tr1.appendChild(td);
         }
@@ -192,6 +193,7 @@
   }
 
   function download_nfo(obj) {
+    alert(obj);
     var title_movie__ = document.getElementById(obj+'_name___').value;
     var number_movie_ = document.getElementById(obj+'_number_').value;
     var runtime_movie = document.getElementById(obj+'_runtime').value;
