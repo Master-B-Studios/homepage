@@ -11,7 +11,12 @@
   <style>
     tbody {width: 100%;height: auto;}
     tr {width: 100%;height: auto;}
-    th {width: 20%;}
+    .header_number_ {width: 16%;}
+    .header_name___ {width: 16%;}
+    .header_year___ {width: 16%;}
+    .header_runtime {width: 16%;}
+    .header_fsk____ {width: 16%;}
+    .header_cover__ {width: 20%;}
     .table_number_ {width: 16%;height: auto;text-align: center;vertical-align: middle;background-color: #222222;}
     .table_name___ {width: 16%;height: auto;padding: 2%;text-align: left;font-size: larger;vertical-align: middle;background-color: #222222;}
     .table_year___ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
@@ -88,8 +93,13 @@
     for (let i = 0; i < keys.length; i++) {
       const key = keys[i];
       const th = document.createElement('th');
-      th.textContent = key;
-      if (i == 5) {th.className = 'table_poster_';th.textContent = 'Cover';}
+      th.innerHTML = key;
+      if (i == 0) {th.className = 'header_number_';}
+      else if (i == 1) {th.className = 'header_name___';}
+      else if (i == 2) {th.className = 'header_year___';}
+      else if (i == 3) {th.className = 'header_runtime';}
+      else if (i == 4) {th.className = 'header_fsk____';}
+      else if (i == 5) {th.className = 'header_cover__';th.innerHTML = '';}
       th.addEventListener('click', () => sortiereNachSpalte(key));
       headerRow.appendChild(th);
     }
@@ -140,7 +150,7 @@
           td.innerHTML = '<img src="Scripts/'+td.value+'.png">';
           td.className = 'table_fsk____';td.id = movie_id+'_fsk____';tr2.appendChild(td);
         }
-        else if (j == 5) {td.className = 'table_poster_';td.id = movie_id+'table_content';td.value = td.innerHTML;td.innerHTML = '<img src="Cover/'+movie_id+'.jpg">';tr2.appendChild(td);}
+        else if (j == 5) {td.className = 'table_poster_';td.id = movie_id+'_table_content';td.value = td.innerHTML;td.innerHTML = '<img src="Cover/'+movie_id+'.jpg">';tr2.appendChild(td);}
       }
       
       tbody.appendChild(tr1);
