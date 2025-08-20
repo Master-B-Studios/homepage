@@ -113,8 +113,8 @@
 
         if (j == 0) {td.className = 'table_number_';td.id = td.innerHTML;movie_id = td.innerHTML;tr1.appendChild(td);}
         else if (j == 1) {td.className = 'table_name___';td.id = movie_id+'_name___';td.colSpan = 5;tr1.appendChild(td);}
-        else if (j == 2) {td.className = 'table_year___';td.id = movie_id+'_year___';tr2.appendChild(td);}
-        else if (j == 3) {td.className = 'table_runtime';td.id = movie_id+'_runtime';tr2.appendChild(td);}
+        else if (j == 2) {td.className = 'table_year___';td.id = movie_id+'_year___';td.colSpan = 2;tr2.appendChild(td);}
+        else if (j == 3) {td.className = 'table_runtime';td.id = movie_id+'_runtime';td.colSpan = 2;tr2.appendChild(td);}
         else if (j == 4) {
           td.value = td.innerHTML;
           td.innerHTML = '<img src="Scripts/'+td.value+'.png">';
