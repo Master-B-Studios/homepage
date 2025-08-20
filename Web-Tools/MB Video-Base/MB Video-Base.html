@@ -9,12 +9,17 @@
   <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
   <script src="Scripts/xlsx.full.min.js"></script>
   <style>
-    .table_number_ {width: 2em;height: auto;margin: 0.2em;text-align: center;}
-    .table_name___ {width: auto;height: auto;margin: 0.2em;text-align: left;}
-    .table_year___ {width: 3em;height: auto;margin: 0.2em;text-align: center;}
-    .table_runtime {width: 3em;height: auto;margin: 0.2em;text-align: center;}
-    .table_fsk____ {width: 3em;height: auto;margin: 0.2em;text-align: center;}
-    .table_content {width: 0;display: none;}
+    tbody {width: 100%;height: auto;}
+    tr {width: 100%;height: auto;}
+    .table_number_ {width: 20%;height: 4em;text-align: center;vertical-align: middle;background-color: #222222;}
+    .table_name___ {width: 80%;height: 3em;padding: 2%;text-align: left;font-size: larger;vertical-align: middle;background-color: #222222;}
+    .table_year___ {width: 20%;height: 4em;text-align: center;vertical-align: middle;}
+    .table_runtime {width: 20%;height: 4em;text-align: center;vertical-align: middle;}
+    .table_fsk____ {width: 20%;height: auto;text-align: center;vertical-align: middle;}
+    .table_fsk____ img {width: 100%;height: auto;padding: 1em;}
+    .table_content {width: 20%;height: auto;text-align: justify;overflow: hidden;text-overflow: ellipsis;}
+    .table_poster_ {width: 40%;height: auto;}
+    .table_poster_ img {width: 100%;height: 100%;}
   </style>
 </head>
 <body onload="window.location.href = '#mb_video_base';load_base_a_z();" class="is-preload">
@@ -33,6 +38,18 @@
       <article id="mb_video_base" class="panel">
         <header><h2>MB Video-Base</h2></header>
         
+        <table>
+          <tbody>
+            <tr><td class="table_number_"># 0001</td><td colspan="4" class="table_name___">Hulk</td></tr>
+            <tr>
+              <td class="table_year___">2003</td>
+              <td class="table_runtime">120 Min</td>
+              <td class="table_fsk____"><img src="Scripts/16.png"></td>
+              <td class="table_poster_"><img src="Cover/0001.jpg"></td>
+            </tr>
+          </tbody>
+          
+        </table>
         <div id="output"></div>
 
       </article>
@@ -90,22 +107,21 @@
     table.appendChild(thead);
     
     const tbody = document.createElement('tbody');
-    daten.forEach(row => {
+    for (let i = 0; i < daten.length; i++) {
       const tr = document.createElement('tr');
-      for (let i = 0; i < keys.length; i++) {
+      for (let j = 0; j < keys.length; j++) {
         const td = document.createElement('td');
         var movie_id = '';
-        td.textContent = row[keys[i]] ?? '';
-        if (i == 0) {td.className = 'table_number_';td.id = td.textContent;movie_id = td.id;}
-        else if (i == 1) {td.className = 'table_name___';td.id = movie_id+'_name___';}
-        else if (i == 2) {td.className = 'table_year___';td.id = movie_id+'_year___';}
-        else if (i == 3) {td.className = 'table_runtime';td.id = movie_id+'_runtime';}
-        else if (i == 4) {td.className = 'table_fsk____';td.id = movie_id+'_fsk____';}
-        else if (i == 5) {td.className = 'table_content';td.id = movie_id+'_content';}
-        tr.appendChild(td);
+        td.textContent = row[keys[j]] ?? '';
+        if (j == 0) {td.className = 'table_number_';td.id = td.textContent;movie_id = td.id;tr.appendChild(td);}
+        else if (j == 1) {td.className = 'table_name___';td.id = movie_id+'_name___';td.colSpan = 4;tr.appendChild(td);tbody.appendChild(tr);}
+        else if (j == 2) {td.className = 'table_year___';td.id = movie_id+'_year___';tr.appendChild(td);}
+        else if (j == 3) {td.className = 'table_runtime';td.id = movie_id+'_runtime';tr.appendChild(td);}
+        else if (j == 4) {td.className = 'table_fsk____';td.id = movie_id+'_fsk____';tr.appendChild(td);}
+        else if (j == 5) {td.className = 'table_content';td.id = movie_id+'_content';tr.appendChild(td);}
       }
       tbody.appendChild(tr);
-    });
+    }
     
     table.appendChild(tbody);
     output.appendChild(table);
