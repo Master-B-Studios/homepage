@@ -164,8 +164,8 @@
           td.id = movie_id;
           td.value = td.innerHTML;
           td.innerHTML = '<img src="Cover/'+movie_id+'.jpg">';
-          //td.onclick = 'download_nfo(this);'
-          td.addEventListener('click', () => download_nfo(this.id));
+          td.onclick = download_nfo(this);
+          //td.addEventListener('click', () => download_nfo(this.id));
           tr2.appendChild(td);
         }
       }
@@ -193,7 +193,7 @@
   }
 
   function download_nfo(obj) {
-    var parsing_id = obj;
+    var parsing_id = obj;alert(obj);
     var title_movie__ = document.getElementById(parsing_id+'_name___').value;
     var number_movie_ = document.getElementById(parsing_id+'_number_').value;
     var runtime_movie = document.getElementById(parsing_id+'_runtime').value;
