@@ -125,18 +125,21 @@
         if (j == 0) {
           movie_id = td.innerHTML;
           td.className = 'table_number_';
-          td.id = movie_id;
+          td.id = movie_id+'_number_';
+          td.value = td.innerHTML;
           tr1.appendChild(td);
         }
         else if (j == 1) {
           td.className = 'table_name___';
           td.id = movie_id+'_name___';
+          td.value = td.innerHTML;
           td.colSpan = 5;
           tr1.appendChild(td);
         }
         else if (j == 2) {
           td.className = 'table_year___';
           td.id = movie_id+'_year___';
+          td.value = td.innerHTML;
           td.colSpan = 2;
           td.innerHTML = 'Jahr:<br>'+td.innerHTML;
           tr2.appendChild(td);
@@ -144,16 +147,26 @@
         else if (j == 3) {
           td.className = 'table_runtime';
           td.id = movie_id+'_runtime';
+          td.value = td.innerHTML;
           td.colSpan = 2;
           td.innerHTML = td.innerHTML+'<br>Minuten';
           tr2.appendChild(td);
         }
         else if (j == 4) {
+          td.className = 'table_fsk____';
+          td.id = movie_id+'_fsk____';
           td.value = td.innerHTML;
           td.innerHTML = '<img src="Scripts/'+td.value+'.png">';
-          td.className = 'table_fsk____';td.id = movie_id+'_fsk____';tr2.appendChild(td);
+          tr2.appendChild(td);
         }
-        else if (j == 5) {td.className = 'table_poster_';td.id = movie_id+'_table_content';td.value = td.innerHTML;td.innerHTML = '<img src="Cover/'+movie_id+'.jpg">';tr2.appendChild(td);}
+        else if (j == 5) {
+          td.className = 'table_poster_';
+          td.id = movie_id;
+          td.value = td.innerHTML;
+          td.innerHTML = '<img src="Cover/'+movie_id+'.jpg">';
+          th.addEventListener('click', () => download_nfo(this));
+          tr2.appendChild(td);
+        }
       }
       
       tbody.appendChild(tr1);
@@ -177,6 +190,33 @@
     aktuelleSortierung = { [spalte]: richtung };
     renderTabelle(aktuelleDaten);
   }
+
+  function download_nfo(obj) {
+    var title_movie__ = document.getElementById(obj+'_name___').value;
+    var number_movie_ = document.getElementById(obj+'_number_').value;
+    var runtime_movie = document.getElementById(obj+'_runtime').value;
+    var year_movie___ = document.getElementById(obj+'_year___').value;
+    var age_movie____ = document.getElementById(obj+'_fsk____').value;
+    var content_movie = document.getElementById(obj).value;
+    //if (number_movie <= 9) {number_movie = '000'+number_movie;} else if (number_movie >= 10 && number_movie <= 99) {number_movie = '00'+number_movie;} else if (number_movie >= 100 && number_movie <= 999) {number_movie = '0'+number_movie;}
+
+    var link = document.createElement("A");var filename = title_movie+'.nfo';
+
+    var save_content = 
+    '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>\n'+
+    '<movie>\n'+
+    '   <title>'+title_movie+'</title>\n'+
+    '   <originaltitle>'+title_movie+'</originaltitle>\n'+
+    '   <plot>'+content_movie+'</plot>\n'+
+    '   <runtime>'+runtime_movie+'</runtime>\n'+
+    '   <mpaa>'+age_movie+'</mpaa>\n'+
+    '   <id>'+number_movie+'</id>\n'+
+    '   <uniqueid type="mbdb">'+number_movie+'</uniqueid>\n'+
+    '   <year>'+year_movie+'</year>\n'+
+    '</movie>\n';
+
+    link.setAttribute("href","data:text/xml,"+save_content);link.setAttribute("style","display:none");link.setAttribute("download",filename);document.body.appendChild(link);console.log(link.outerHTML);link.click();document.body.removeChild(link);
+}
 </script>
 
 <script>
