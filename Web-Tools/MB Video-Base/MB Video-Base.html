@@ -165,7 +165,7 @@
           td.value = td.innerHTML;
           td.innerHTML = '<img src="Cover/'+movie_id+'.jpg">';
           //td.onclick = 'download_nfo(this);'
-          td.addEventListener('click', () => download_nfo(movie_id));
+          td.addEventListener('click', () => download_nfo(this.id));
           tr2.appendChild(td);
         }
       }
