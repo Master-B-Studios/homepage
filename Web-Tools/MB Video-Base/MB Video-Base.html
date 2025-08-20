@@ -11,14 +11,15 @@
   <style>
     tbody {width: 100%;height: auto;}
     tr {width: 100%;height: auto;}
-    .header_number_ {width: 16%;}
-    .header_name___ {width: 16%;}
-    .header_year___ {width: 16%;}
-    .header_runtime {width: 16%;}
-    .header_fsk____ {width: 16%;}
-    .header_cover__ {width: 20%;}
+    .header_number_ {width: 16%;height: 4em;}
+    .header_name___ {width: 16%;height: 4em;}
+    .header_year___ {width: 16%;height: 4em;}
+    .header_runtime {width: 16%;height: 4em;}
+    .header_fsk____ {width: 16%;height: 4em;}
+    .header_cover__ {width: 20%;height: 4em;}
+
     .table_number_ {width: 16%;height: auto;text-align: center;vertical-align: middle;background-color: #222222;}
-    .table_name___ {width: 16%;height: auto;padding: 2%;text-align: left;font-size: larger;vertical-align: middle;background-color: #222222;}
+    .table_name___ {width: 16%;height: auto;text-align: left;vertical-align: middle;background-color: #222222;padding: 2%;}
     .table_year___ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
     .table_runtime {width: 16%;height: auto;text-align: center;vertical-align: middle;}
     .table_fsk____ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
@@ -144,7 +145,9 @@
           td.className = 'table_runtime';
           td.id = movie_id+'_runtime';
           td.colSpan = 2;
-          tr2.appendChild(td);}
+          td.innerHTML = td.innerHTML+'<br>Minuten';
+          tr2.appendChild(td);
+        }
         else if (j == 4) {
           td.value = td.innerHTML;
           td.innerHTML = '<img src="Scripts/'+td.value+'.png">';
