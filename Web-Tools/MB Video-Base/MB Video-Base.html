@@ -116,6 +116,8 @@
         else if (j == 2) {td.className = 'table_year___';td.id = movie_id+'_year___';tr2.appendChild(td);}
         else if (j == 3) {td.className = 'table_runtime';td.id = movie_id+'_runtime';tr2.appendChild(td);}
         else if (j == 4) {
+          td.value = td.innerHTML;
+          td.innerHTML = '<img src="Scripts/'+td.value+'.png">';
           td.className = 'table_fsk____';td.id = movie_id+'_fsk____';tr2.appendChild(td);
         }
         else if (j == 5) {td.className = 'table_poster_';td.id = movie_id+'table_content';td.value = td.innerHTML;td.innerHTML = '<img src="Cover/'+movie_id+'.jpg">';tr2.appendChild(td);}
