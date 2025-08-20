@@ -99,31 +99,32 @@
     
     // Datenzeilen
     for (let i = 0; i < daten.length; i++) {
-    const row = daten[i];
-
-    const tr1 = document.createElement('tr'); // Erste Zeile: Spalte 0–1
-    const tr2 = document.createElement('tr'); // Zweite Zeile: Spalte 2–5
-
-    for (let j = 0; j < keys.length; j++) {
-      const key = keys[j];
-      const td = document.createElement('td');
-      td.textContent = row[key] ?? '';
+      const row = daten[i];
+      
+      const tr1 = document.createElement('tr'); // Erste Zeile: Spalte 0–1
+      const tr2 = document.createElement('tr'); // Zweite Zeile: Spalte 2–5
 
       var movie_id = '';
-      if (j == 0) {td.className = 'table_number_';td.id = td.textContent;movie_id = td.textContent;tr1.appendChild(td);}
-      else if (j == 1) {td.className = 'table_name___';td.id = movie_id+'_name___';td.colSpan = 5;tr1.appendChild(td);}
-      else if (j == 2) {td.className = 'table_year___';td.id = movie_id+'_year___';tr2.appendChild(td);}
-      else if (j == 3) {td.className = 'table_runtime';td.id = movie_id+'_runtime';tr2.appendChild(td);}
-      else if (j == 4) {
-        td.className = 'table_fsk____';td.id = movie_id+'_fsk____';tr2.appendChild(td);
-        td.className = 'table_poster_';td.id = movie_id+'table_poster_';td.innerHTML = '<img src="Cover/'+movie_id+'.jpg">';tr2.appendChild(td);
-      }
-      else if (j == 5) {td.className = 'table_content';td.id = movie_id+'_content';tr2.appendChild(td);}
-    }
+      for (let j = 0; j < keys.length; j++) {
+        const key = keys[j];
+        const td = document.createElement('td');
+        td.innerHTML = row[key] ?? '';
+        //td.textContent = row[key] ?? '';
 
-    tbody.appendChild(tr1);
-    tbody.appendChild(tr2);
-  }
+        if (j == 0) {td.className = 'table_number_';td.id = td.innerHTML;movie_id = td.innerHTML;tr1.appendChild(td);}
+        else if (j == 1) {td.className = 'table_name___';td.id = movie_id+'_name___';td.colSpan = 5;tr1.appendChild(td);}
+        else if (j == 2) {td.className = 'table_year___';td.id = movie_id+'_year___';tr2.appendChild(td);}
+        else if (j == 3) {td.className = 'table_runtime';td.id = movie_id+'_runtime';tr2.appendChild(td);}
+        else if (j == 4) {
+          td.className = 'table_fsk____';td.id = movie_id+'_fsk____';tr2.appendChild(td);
+          td.className = 'table_poster_';td.id = movie_id+'table_poster_';td.innerHTML = '<img src="Cover/'+movie_id+'.jpg">';tr2.appendChild(td);
+        }
+        else if (j == 5) {td.className = 'table_content';td.id = movie_id+'_content';tr2.appendChild(td);}
+      }
+      
+      tbody.appendChild(tr1);
+      tbody.appendChild(tr2);
+    }
     
     table.appendChild(tbody);
     output.appendChild(table);
