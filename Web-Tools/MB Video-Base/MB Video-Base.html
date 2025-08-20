@@ -133,7 +133,6 @@
           td.className = 'table_name___';
           td.id = movie_id+'_name___';
           td.value = td.innerHTML;
-          alert(td.value);
           td.colSpan = 5;
           tr1.appendChild(td);
         }
@@ -193,13 +192,14 @@
   }
 
   function download_nfo(obj) {
-    alert(obj);
-    var title_movie__ = document.getElementById(obj+'_name___').value;
-    var number_movie_ = document.getElementById(obj+'_number_').value;
-    var runtime_movie = document.getElementById(obj+'_runtime').value;
-    var year_movie___ = document.getElementById(obj+'_year___').value;
-    var age_movie____ = document.getElementById(obj+'_fsk____').value;
-    var content_movie = document.getElementById(obj).value;
+    alert(obj.id);
+    var parsing_id = obj.id;
+    var title_movie__ = document.getElementById(parsing_id+'_name___').value;
+    var number_movie_ = document.getElementById(parsing_id+'_number_').value;
+    var runtime_movie = document.getElementById(parsing_id+'_runtime').value;
+    var year_movie___ = document.getElementById(parsing_id+'_year___').value;
+    var age_movie____ = document.getElementById(parsing_id+'_fsk____').value;
+    var content_movie = document.getElementById(parsing_id).value;
     //if (number_movie <= 9) {number_movie = '000'+number_movie;} else if (number_movie >= 10 && number_movie <= 99) {number_movie = '00'+number_movie;} else if (number_movie >= 100 && number_movie <= 999) {number_movie = '0'+number_movie;}
 
     var link = document.createElement("A");var filename = title_movie+'.nfo';
