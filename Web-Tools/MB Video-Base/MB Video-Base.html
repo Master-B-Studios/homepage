@@ -12,15 +12,15 @@
     tbody {width: 100%;height: auto;}
     tr {width: 100%;height: auto;}
     th {width: 20%;}
-    .table_number_ {width: 20%;height: 4em;text-align: center;vertical-align: middle;background-color: #222222;}
-    .table_name___ {width: 20%;height: 3em;padding: 2%;text-align: left;font-size: larger;vertical-align: middle;background-color: #222222;}
-    .table_year___ {width: 20%;height: 4em;text-align: center;vertical-align: middle;}
-    .table_runtime {width: 20%;height: 4em;text-align: center;vertical-align: middle;}
-    .table_fsk____ {width: 20%;height: auto;text-align: center;vertical-align: middle;}
-    .table_fsk____ img {width: 100%;height: auto;padding: 1em;}
-    .table_content {width: 20%;height: auto;text-align: justify;overflow: hidden;text-overflow: ellipsis;display: none;}
-    .table_poster_ {width: 40%;height: auto;}
-    .table_poster_ img {width: 100%;height: 100%;}
+    .table_number_ {width: 16%;height: auto;text-align: center;vertical-align: middle;background-color: #222222;}
+    .table_name___ {width: 16%;height: auto;padding: 2%;text-align: left;font-size: larger;vertical-align: middle;background-color: #222222;}
+    .table_year___ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
+    .table_runtime {width: 16%;height: auto;text-align: center;vertical-align: middle;}
+    .table_fsk____ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
+    .table_fsk____ img {width: 100%;height: auto;}
+    .table_content {width: 16%;height: auto;text-align: justify;overflow: hidden;text-overflow: ellipsis;display: none;}
+    .table_poster_ {width: 20%;height: auto;}
+    .table_poster_ img {width: 100%;height: auto;}
   </style>
 </head>
 <body onload="window.location.href = '#mb_video_base';load_base_a_z();" class="is-preload">
@@ -111,7 +111,12 @@
         td.innerHTML = row[key] ?? '';
         //td.textContent = row[key] ?? '';
 
-        if (j == 0) {td.className = 'table_number_';td.id = td.innerHTML;movie_id = td.innerHTML;tr1.appendChild(td);}
+        if (j == 0) {
+          movie_id = td.innerHTML;
+          td.className = 'table_number_';
+          td.id = movie_id;
+          tr1.appendChild(td);
+        }
         else if (j == 1) {td.className = 'table_name___';td.id = movie_id+'_name___';td.colSpan = 5;tr1.appendChild(td);}
         else if (j == 2) {td.className = 'table_year___';td.id = movie_id+'_year___';td.colSpan = 2;tr2.appendChild(td);}
         else if (j == 3) {td.className = 'table_runtime';td.id = movie_id+'_runtime';td.colSpan = 2;tr2.appendChild(td);}
