@@ -111,10 +111,10 @@
 
       var movie_id = '';
       if (j == 0) {td.className = 'table_number_';td.id = td.textContent;movie_id = td.id;tr1.appendChild(td);}
-      else if (j == 1) {td.className = 'table_name___';td.id = movie_id+'_name___';td.colSpan = 4;tr1.appendChild(td);}
+      else if (j == 1) {td.className = 'table_name___';td.id = movie_id+'_name___';td.colSpan = 5;tr1.appendChild(td);}
       else if (j == 2) {td.className = 'table_year___';td.id = movie_id+'_year___';tr2.appendChild(td);}
       else if (j == 3) {td.className = 'table_runtime';td.id = movie_id+'_runtime';tr2.appendChild(td);}
-      else if (j == 4) {td.className = 'table_fsk____';td.id = movie_id+'_fsk____';tr2.appendChild(td);td.className = 'table_poster_';td.id = movie_id+'table_poster_';tr2.appendChild(td);}
+      else if (j == 4) {td.className = 'table_fsk____';td.id = movie_id+'_fsk____';tr2.appendChild(td);td.className = 'table_poster_';td.id = movie_id+'table_poster_';td.innerHTML = '<img src="'+id+'.jpg">';tr2.appendChild(td);}
       else if (j == 5) {td.className = 'table_content';td.id = movie_id+'_content';tr2.appendChild(td);}
     }
 
