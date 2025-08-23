@@ -65,7 +65,7 @@
 <script>
   let aktuelleDaten = [];
   let aktuelleSortierung = {};
-  let aktuelleGruppe = 'Alle';
+  let aktuelleGruppe = 'Name';
 
   async function load_base_a_z() {
     try {
@@ -89,7 +89,7 @@
     const navContainer = document.createElement('nav');
     navContainer.id = 'pagination-nav';
     
-    const zeichen = ['Nummer', 'Alle', '0-9', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''), 'Zufall'];
+    const zeichen = ['Nummer', 'Name', '0-9', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''), 'Zufall'];
     
     zeichen.forEach(z => {
       const btn = document.createElement('button');
@@ -98,7 +98,7 @@
         if (z === 'Zufall') {
           const gemischt = shuffleArray([...aktuelleDaten]);
           renderTabelleGruppiert(gemischt);
-          zeigeGruppe('Alle'); // Zufall zeigt alle, aber neu gemischt
+          zeigeGruppe('Name'); // Zufall zeigt alle, aber neu gemischt
         } else if (z === 'Nummer') {
           aktuelleDaten.sort((a, b) => {
             const numA = parseInt(a[Object.keys(a)[0]]) || 0;
@@ -106,7 +106,7 @@
             return numA - numB;
           });
           renderTabelleGruppiert(aktuelleDaten);
-          zeigeGruppe('Alle'); // Nummer zeigt auch alle, aber sortiert
+          zeigeGruppe('Name'); // Nummer zeigt auch alle, aber sortiert
         } else {
           zeigeGruppe(z);
         }
@@ -123,7 +123,7 @@
     container.innerHTML = '';
 
     const gruppen = {
-      'Alle': [],
+      'Name': [],
       '0-9': [],
       'A': [], 'B': [], 'C': [], 'D': [], 'E': [], 'F': [], 'G': [], 'H': [],
       'I': [], 'J': [], 'K': [], 'L': [], 'M': [], 'N': [], 'O': [], 'P': [],
@@ -134,7 +134,7 @@
     for (const eintrag of daten) {
       const name = eintrag[Object.keys(eintrag)[1]] ?? '';
       const ersterBuchstabe = name.charAt(0).toUpperCase();
-      gruppen['Alle'].push(eintrag);
+      gruppen['Name'].push(eintrag);
 
       if (/[0-9]/.test(ersterBuchstabe)) {
         gruppen['0-9'].push(eintrag);
@@ -147,7 +147,7 @@
       const groupDiv = document.createElement('div');
       groupDiv.id = 'gruppe_' + gruppe;
       groupDiv.className = 'eintrags-gruppe';
-      if (gruppe === 'ALL') groupDiv.classList.add('aktiv');
+      if (gruppe === 'Name') groupDiv.classList.add('aktiv');
       let daten = gruppen[gruppe];
       
       // Nur für 0-9: Sortiere nach erster Ziffer als Zeichen
