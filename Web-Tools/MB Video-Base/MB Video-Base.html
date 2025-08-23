@@ -27,6 +27,9 @@
     .table_content {width: 16%;height: auto;text-align: justify;overflow: hidden;text-overflow: ellipsis;display: none;}
     .table_poster_ {width: 20%;height: auto;}
     .table_poster_ img {width: 100%;height: auto;}
+
+    .eintrags-gruppe {display: none;}
+    .eintrags-gruppe.aktiv {display: block;}
   </style>
 </head>
 <body onload="window.location.href = '#mb_video_base';load_base_a_z();" class="is-preload">
@@ -44,8 +47,19 @@
     <div id="main">
       <article id="mb_video_base" class="panel">
         <header><h2>MB Video-Base</h2></header>
-        
-        <div id="output"></div>
+        <nav id="pagination-nav">
+          <button onclick="zeigeGruppe('ALL')">Alle</button>
+          <button onclick="zeigeGruppe('0-9')">0-9</button>
+          <button onclick="zeigeGruppe('A')">A</button>
+          <button onclick="zeigeGruppe('B')">B</button>
+          <button onclick="zeigeGruppe('Z')">Z</button>
+        </nav>
+
+        <div id="gruppe_ALL" class="eintrags-gruppe"></div>
+        <div id="gruppe_0-9" class="eintrags-gruppe" style="display:none;"></div>
+        <div id="gruppe_A" class="eintrags-gruppe" style="display:none;"></div>
+        <div id="gruppe_B" class="eintrags-gruppe" style="display:none;"></div>
+        <div id="gruppe_Z" class="eintrags-gruppe" style="display:none;"></div>
 
       </article>
     </div>
@@ -63,158 +77,225 @@
 <script>
   let aktuelleDaten = [];
   let aktuelleSortierung = {};
-  
+
   async function load_base_a_z() {
     try {
       const response = await fetch('MB Video-Base.xlsx');
       if (!response.ok) throw new Error('Datei konnte nicht geladen werden');
       const arrayBuffer = await response.arrayBuffer();
       const data = new Uint8Array(arrayBuffer);
-      const workbook = XLSX.read(data, {type: 'array'});
+      const workbook = XLSX.read(data, { type: 'array' });
       const sheetName = workbook.SheetNames[0];
       const worksheet = workbook.Sheets[sheetName];
       const json = XLSX.utils.sheet_to_json(worksheet);
       aktuelleDaten = json;
-      renderTabelle(json);
+      renderNavigation();
+      renderTabelleGruppiert(json);
+    } catch (err) {
+      document.getElementById('output').textContent = 'Fehler beim Laden: ' + err.message;
     }
-    catch (err) {document.getElementById('output').textContent = 'Fehler beim Laden: ' + err.message;}
   }
-  
-  function renderTabelle(daten) {
-    const output = document.getElementById('output');
-    output.innerHTML = '';
-    if (daten.length === 0) {output.textContent = 'Keine Daten gefunden.';return;}
-    
+
+  function renderNavigation() {
+    const navContainer = document.createElement('nav');
+    navContainer.id = 'pagination-nav';
+
+    const zeichen = ['ALL', '0-9', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')];
+    zeichen.forEach(z => {
+      const btn = document.createElement('button');
+      btn.textContent = z;
+      btn.onclick = () => zeigeGruppe(z);
+      navContainer.appendChild(btn);
+    });
+
+    const article = document.querySelector('article#mb_video_base');
+    article.insertBefore(navContainer, document.getElementById('output'));
+  }
+
+  function renderTabelleGruppiert(daten) {
+    const container = document.getElementById('output');
+    container.innerHTML = '';
+
+    const gruppen = {
+      'ALL': [],
+      '0-9': [],
+      'A': [], 'B': [], 'C': [], 'D': [], 'E': [], 'F': [], 'G': [], 'H': [],
+      'I': [], 'J': [], 'K': [], 'L': [], 'M': [], 'N': [], 'O': [], 'P': [],
+      'Q': [], 'R': [], 'S': [], 'T': [], 'U': [], 'V': [], 'W': [], 'X': [],
+      'Y': [], 'Z': []
+    };
+
+    for (const eintrag of daten) {
+      const name = eintrag[Object.keys(eintrag)[1]] ?? '';
+      const ersterBuchstabe = name.charAt(0).toUpperCase();
+      gruppen['ALL'].push(eintrag);
+
+      if (/[0-9]/.test(ersterBuchstabe)) {
+        gruppen['0-9'].push(eintrag);
+      } else if (gruppen[ersterBuchstabe]) {
+        gruppen[ersterBuchstabe].push(eintrag);
+      }
+    }
+
+    for (const gruppe in gruppen) {
+      const groupDiv = document.createElement('div');
+      groupDiv.id = 'gruppe_' + gruppe;
+      groupDiv.className = 'eintrags-gruppe';
+      if (gruppe === 'ALL') groupDiv.classList.add('aktiv');
+
+      const daten = gruppen[gruppe];
+      if (daten.length > 0) {
+        const table = generiereTabelle(daten);
+        groupDiv.appendChild(table);
+      } else {
+        groupDiv.innerHTML = '<p>Keine Einträge in dieser Gruppe.</p>';
+      }
+      container.appendChild(groupDiv);
+    }
+  }
+
+  function zeigeGruppe(gruppe) {
+    document.querySelectorAll('.eintrags-gruppe').forEach(div => {
+      div.classList.remove('aktiv');
+    });
+    const aktiv = document.getElementById('gruppe_' + gruppe);
+    if (aktiv) aktiv.classList.add('aktiv');
+  }
+
+  function generiereTabelle(daten) {
     const table = document.createElement('table');
     const tbody = document.createElement('tbody');
     const thead = document.createElement('thead');
     const headerRow = document.createElement('tr');
-    
+
     const keys = Object.keys(daten[0]);
     for (let i = 0; i < keys.length; i++) {
       const key = keys[i];
       const th = document.createElement('th');
       th.innerHTML = key;
-      if (i == 0) {th.className = 'header_number_';}
-      else if (i == 1) {th.className = 'header_name___';}
-      else if (i == 2) {th.className = 'header_year___';}
-      else if (i == 3) {th.className = 'header_runtime';}
-      else if (i == 4) {th.className = 'header_fsk____';}
-      else if (i == 5) {th.className = 'header_cover__';th.innerHTML = '';}
+      if (i == 0) { th.className = 'header_number_'; }
+      else if (i == 1) { th.className = 'header_name___'; }
+      else if (i == 2) { th.className = 'header_year___'; }
+      else if (i == 3) { th.className = 'header_runtime'; }
+      else if (i == 4) { th.className = 'header_fsk____'; }
+      else if (i == 5) { th.className = 'header_cover__'; th.innerHTML = ''; }
       th.addEventListener('click', () => sortiereNachSpalte(key));
       headerRow.appendChild(th);
     }
-    
+
     thead.appendChild(headerRow);
     table.appendChild(thead);
-    
-    // Datenzeilen
+
     for (let i = 0; i < daten.length; i++) {
       const row = daten[i];
-      
-      const tr1 = document.createElement('tr'); // Erste Zeile: Spalte 0–1
-      const tr2 = document.createElement('tr'); // Zweite Zeile: Spalte 2–5
+      const tr1 = document.createElement('tr');
+      const tr2 = document.createElement('tr');
+      let movie_id = '';
 
-      var movie_id = '';
       for (let j = 0; j < keys.length; j++) {
         const key = keys[j];
         const td = document.createElement('td');
         td.innerHTML = row[key] ?? '';
-        //td.textContent = row[key] ?? '';
 
         if (j == 0) {
           movie_id = td.innerHTML;
           td.className = 'table_number_';
-          td.id = movie_id+'_number_';
+          td.id = movie_id + '_number_';
           td.value = td.innerHTML;
-          td.innerHTML = '# '+td.innerHTML;
+          td.innerHTML = '# ' + td.innerHTML;
           tr1.appendChild(td);
         }
         else if (j == 1) {
           td.className = 'table_name___';
-          td.id = movie_id+'_name___';
+          td.id = movie_id + '_name___';
           td.value = td.innerHTML;
           td.colSpan = 5;
           tr1.appendChild(td);
         }
         else if (j == 2) {
           td.className = 'table_year___';
-          td.id = movie_id+'_year___';
+          td.id = movie_id + '_year___';
           td.value = td.innerHTML;
           td.colSpan = 2;
-          td.innerHTML = 'Jahr:<br>'+td.innerHTML;
+          td.innerHTML = 'Jahr:<br>' + td.innerHTML;
           tr2.appendChild(td);
         }
         else if (j == 3) {
           td.className = 'table_runtime';
-          td.id = movie_id+'_runtime';
+          td.id = movie_id + '_runtime';
           td.value = td.innerHTML;
           td.colSpan = 2;
-          td.innerHTML = td.innerHTML+'<br>Minuten';
+          td.innerHTML = td.innerHTML + '<br>Minuten';
           tr2.appendChild(td);
         }
         else if (j == 4) {
           td.className = 'table_fsk____';
-          td.id = movie_id+'_fsk____';
+          td.id = movie_id + '_fsk____';
           td.value = td.innerHTML;
-          td.innerHTML = '<img src="Scripts/'+td.value+'.png">';
+          td.innerHTML = '<img src="Scripts/' + td.value + '.png">';
           tr2.appendChild(td);
         }
         else if (j == 5) {
           td.className = 'table_poster_';
           td.id = movie_id;
           td.value = td.innerHTML;
-          td.innerHTML = '<img src="Cover/'+movie_id+'.jpg">';
-          td.addEventListener('click', function() {download_nfo(this);});
+          td.innerHTML = '<img src="Cover/' + movie_id + '.jpg">';
+          td.addEventListener('click', function () { download_nfo(this); });
           tr2.appendChild(td);
         }
       }
       tbody.appendChild(tr1);
       tbody.appendChild(tr2);
     }
+
     table.appendChild(tbody);
-    output.appendChild(table);
+    return table;
   }
-  
+
   function sortiereNachSpalte(spalte) {
     const richtung = aktuelleSortierung[spalte] === 'asc' ? 'desc' : 'asc';
     aktuelleDaten.sort((a, b) => {
       const valA = a[spalte] ?? '';
       const valB = b[spalte] ?? '';
       return richtung === 'asc'
-      ? valA.toString().localeCompare(valB.toString(), 'de', { numeric: true })
-      : valB.toString().localeCompare(valA.toString(), 'de', { numeric: true });
+        ? valA.toString().localeCompare(valB.toString(), 'de', { numeric: true })
+        : valB.toString().localeCompare(valA.toString(), 'de', { numeric: true });
     });
-    
+
     aktuelleSortierung = { [spalte]: richtung };
-    renderTabelle(aktuelleDaten);
+    renderTabelleGruppiert(aktuelleDaten);
   }
 
   function download_nfo(obj) {
     var parsing_id = obj.id;
-    var title_movie__ = document.getElementById(parsing_id+'_name___').value;
-    var number_movie_ = document.getElementById(parsing_id+'_number_').value;
-    var runtime_movie = document.getElementById(parsing_id+'_runtime').value;
-    var year_movie___ = document.getElementById(parsing_id+'_year___').value;
-    var age_movie____ = document.getElementById(parsing_id+'_fsk____').value;
+    var title_movie__ = document.getElementById(parsing_id + '_name___').value;
+    var number_movie_ = document.getElementById(parsing_id + '_number_').value;
+    var runtime_movie = document.getElementById(parsing_id + '_runtime').value;
+    var year_movie___ = document.getElementById(parsing_id + '_year___').value;
+    var age_movie____ = document.getElementById(parsing_id + '_fsk____').value;
     var content_movie = document.getElementById(parsing_id).value;
-    //if (number_movie <= 9) {number_movie = '000'+number_movie;} else if (number_movie >= 10 && number_movie <= 99) {number_movie = '00'+number_movie;} else if (number_movie >= 100 && number_movie <= 999) {number_movie = '0'+number_movie;}
 
-    var link = document.createElement("A");var filename = title_movie__+'.nfo';
+    var link = document.createElement("A");
+    var filename = title_movie__ + '.nfo';
 
-    var save_content = 
-    '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>\n'+
-    '<movie>\n'+
-    '   <title>'+title_movie__+'</title>\n'+
-    '   <originaltitle>'+title_movie__+'</originaltitle>\n'+
-    '   <plot>'+content_movie+'</plot>\n'+
-    '   <runtime>'+runtime_movie+'</runtime>\n'+
-    '   <mpaa>'+age_movie____+'</mpaa>\n'+
-    '   <id>'+number_movie_+'</id>\n'+
-    '   <uniqueid type="mbdb">'+number_movie_+'</uniqueid>\n'+
-    '   <year>'+year_movie___+'</year>\n'+
-    '</movie>\n';
+    var save_content =
+      '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>\n' +
+      '<movie>\n' +
+      '   <title>' + title_movie__ + '</title>\n' +
+      '   <originaltitle>' + title_movie__ + '</originaltitle>\n' +
+      '   <plot>' + content_movie + '</plot>\n' +
+      '   <runtime>' + runtime_movie + '</runtime>\n' +
+      '   <mpaa>' + age_movie____ + '</mpaa>\n' +
+      '   <id>' + number_movie_ + '</id>\n' +
+      '   <uniqueid type="mbdb">' + number_movie_ + '</uniqueid>\n' +
+      '   <year>' + year_movie___ + '</year>\n' +
+      '</movie>\n';
 
-    link.setAttribute("href","data:text/xml,"+save_content);link.setAttribute("style","display:none");link.setAttribute("download",filename);document.body.appendChild(link);console.log(link.outerHTML);link.click();document.body.removeChild(link);
-    }
+    link.setAttribute("href", "data:text/xml," + save_content);
+    link.setAttribute("style", "display:none");
+    link.setAttribute("download", filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 </script>
