@@ -101,80 +101,74 @@
       aktuelleDaten = json;
       renderNavigation();
       renderTabelleGruppiert(json);
-    } catch (err) {
-      document.getElementById('output').textContent = 'Fehler beim Laden: ' + err.message;
     }
+    catch (err) {document.getElementById('output').textContent = 'Fehler beim Laden: ' + err.message;}
   }
 
   function renderNavigation() {
-  const navContainer = document.createElement('nav');
-  navContainer.id = 'pagination-nav';
+    const navContainer = document.createElement('nav');
+    navContainer.id = 'pagination-nav';
+    const zeichen = ['Nummer', 'Name', '0-9', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''), 'Zufall'];
+    zeichen.forEach(z => {
+      const btn = document.createElement('button');
 
-  const zeichen = ['Nummer', 'Name', '0-9', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''), 'Zufall'];
+      const pfeil = document.createElement('span'); // Pfeil-Platzhalter (standardmäßig leer)
+      pfeil.className = 'sort-arrow';
+      pfeil.textContent = ' '; // Platzhalter, wird später aktualisiert
 
-  zeichen.forEach(z => {
-    const btn = document.createElement('button');
-    
-    // Pfeil-Platzhalter (standardmäßig leer)
-    const pfeil = document.createElement('span');
-    pfeil.className = 'sort-arrow';
-    pfeil.textContent = ' '; // Platzhalter, wird später aktualisiert
-    
-    // Button-Text
-    const textSpan = document.createElement('span');
-    textSpan.className = 'button-text';
-    textSpan.textContent = z;
-
-    btn.appendChild(textSpan);
-    btn.appendChild(pfeil);
-
-    btn.onclick = () => {
-      const istSelbeGruppe = aktuelleGruppe === z;
-
-      if (z === 'Zufall') {
-        const gemischt = shuffleArray([...aktuelleDaten]);
-        renderTabelleGruppiert(gemischt);
-        aktuelleGruppe = 'Zufall';
-        aktuelleRichtung = 'asc';
-        zeigeGruppe('Name');
-        aktualisiereButtonMarkierung();
-      } else if (z === 'Nummer') {
-        aktuelleGruppe = 'Nummer';
-        aktuelleRichtung = 'asc';
-        aktuelleDaten.sort((a, b) => {
-          const numA = parseInt(a[Object.keys(a)[0]]) || 0;
-          const numB = parseInt(b[Object.keys(b)[0]]) || 0;
-          return numA - numB;
-        });
-        renderTabelleGruppiert(aktuelleDaten);
-        zeigeGruppe('Nummer');
-        aktualisiereButtonMarkierung();
-      } else {
-        if (istSelbeGruppe) {
-          aktuelleDaten.reverse();
-          aktuelleRichtung = aktuelleRichtung === 'asc' ? 'desc' : 'asc';
-        } else {
-          aktuelleGruppe = z;
+      // Button-Text
+      const textSpan = document.createElement('span');
+      textSpan.className = 'button-text';
+      textSpan.textContent = z;
+      
+      btn.appendChild(textSpan);
+      btn.appendChild(pfeil);
+      
+      btn.onclick = () => {
+        const istSelbeGruppe = aktuelleGruppe === z;
+        
+        if (z === 'Zufall') {
+          const gemischt = shuffleArray([...aktuelleDaten]);
+          renderTabelleGruppiert(gemischt);
+          aktuelleGruppe = 'Zufall';
+          aktuelleRichtung = 'asc';
+          zeigeGruppe('Name');
+          aktualisiereButtonMarkierung();
+        } else if (z === 'Nummer') {
+          aktuelleGruppe = 'Nummer';
           aktuelleRichtung = 'asc';
           aktuelleDaten.sort((a, b) => {
-            const nameA = String(a[Object.keys(a)[1]] ?? '');
-            const nameB = String(b[Object.keys(b)[1]] ?? '');
-            return nameA.localeCompare(nameB, 'de');
+            const numA = parseInt(a[Object.keys(a)[0]]) || 0;
+            const numB = parseInt(b[Object.keys(b)[0]]) || 0;
+            return numA - numB;
           });
+          renderTabelleGruppiert(aktuelleDaten);
+          zeigeGruppe('Nummer');
+          aktualisiereButtonMarkierung();
+        } else {
+          if (istSelbeGruppe) {
+            aktuelleDaten.reverse();
+            aktuelleRichtung = aktuelleRichtung === 'asc' ? 'desc' : 'asc';
+          } else {
+            aktuelleGruppe = z;
+            aktuelleRichtung = 'asc';
+            aktuelleDaten.sort((a, b) => {
+              const nameA = String(a[Object.keys(a)[1]] ?? '');
+              const nameB = String(b[Object.keys(b)[1]] ?? '');
+              return nameA.localeCompare(nameB, 'de');
+            });
+          }
+          renderTabelleGruppiert(aktuelleDaten);
+          zeigeGruppe(z);
+          aktualisiereButtonMarkierung();
         }
-        renderTabelleGruppiert(aktuelleDaten);
-        zeigeGruppe(z);
-        aktualisiereButtonMarkierung();
-      }
-    };
-
-    navContainer.appendChild(btn);
-  });
-
-  const article = document.querySelector('article#mb_video_base');
-  article.insertBefore(navContainer, document.getElementById('output'));
-
-  
+      };
+      navContainer.appendChild(btn);
+    });
+    
+    const article = document.querySelector('article#mb_video_base');
+    article.insertBefore(navContainer, document.getElementById('output'));
+    
     // Button-Größe anpassen
     setTimeout(() => {
       const buttons = document.querySelectorAll('#pagination-nav button');
