@@ -148,7 +148,8 @@
           const gemischt = shuffleArray([...aktuelleDaten]);
           aktuelleGruppe = 'Zufall';
           aktuelleRichtung = 'asc';
-          renderTabelleGruppiert(gemischt, 'Name');
+          renderTabelleGruppiert(gemischt, 'Zufall'); // <-- wichtig!
+          zeigeGruppe('Zufall');                     // <-- damit "Zufall" auch aktiv wird
           aktualisiereButtonMarkierung();
         } else {
           if (istSelbeGruppe) {
