@@ -144,6 +144,20 @@
 
     const article = document.querySelector('article#mb_video_base');
     article.insertBefore(navContainer, document.getElementById('output'));
+
+    setTimeout(() => {
+      const buttons = document.querySelectorAll('#pagination-nav button');
+      let maxWidth = 0;
+      
+      buttons.forEach(btn => {
+        const width = btn.offsetWidth;
+        if (width > maxWidth) maxWidth = width;
+      });
+      
+      buttons.forEach(btn => {
+        btn.style.width = maxWidth + 'px';
+      });
+    }, 0);
   }
 
   function renderTabelleGruppiert(daten, extraGruppe = null) {
