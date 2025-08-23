@@ -32,19 +32,20 @@
     .eintrags-gruppe {display: none;}
     .eintrags-gruppe.aktiv {display: block;}
 
-    #pagination-nav {width: 100%;height: auto;margin: auto;}
+    #pagination-nav {width: 100%;height: auto;margin: auto;justify-content: center;align-items: center;}
     #pagination-nav button {
       padding: 1em 1em;
-      margin: 0.5em;
+      margin: 0.2em;
       background-color: #222222;
       color: #dbdbdb;
       border: none;
       cursor: pointer;
       transition: background-color 0.2s;
       
-      /*display: flex;*/
+      /*display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: center;*/
+      text-align: center;
       gap: 4px;
       white-space: nowrap;
       
@@ -57,7 +58,7 @@
     #pagination-nav button.active-group {background-color: #00ff00;color: #000000;font-weight: bold;}
 
     #such-container {text-align: center;}
-    #such-container input {font-size: 1em;outline-color: none;background-color: #222222;color: #dbdbdb;}
+    #such-container input {font-size: 1em;outline-color: none;background-color: #222222;color: #dbdbdb;border: none;}
     #such-container input:focus {outline: none;box-shadow: none;}
 </style>
 </head>
