@@ -218,27 +218,3 @@
     link.setAttribute("href","data:text/xml,"+save_content);link.setAttribute("style","display:none");link.setAttribute("download",filename);document.body.appendChild(link);console.log(link.outerHTML);link.click();document.body.removeChild(link);
     }
 </script>
-
-<script>
-  function old() {
-
-    const tbody = document.createElement('tbody');
-    for (let i = 0; i < daten.length; i++) {
-      const row = daten[i];
-      const tr = document.createElement('tr');
-      for (let j = 0; j < keys.length; j++) {
-        const key = keys[j];
-        const td = document.createElement('td');
-        var movie_id = '';
-        td.textContent = row[key] ?? '';
-        if (j == 0) {td.className = 'table_number_';td.id = td.textContent;movie_id = td.id;tr.appendChild(td);}
-        else if (j == 1) {td.className = 'table_name___';td.id = movie_id+'_name___';td.colSpan = 4;tr.appendChild(td);tbody.appendChild(tr);}
-        else if (j == 2) {td.className = 'table_year___';td.id = movie_id+'_year___';tr.appendChild(td);}
-        else if (j == 3) {td.className = 'table_runtime';td.id = movie_id+'_runtime';tr.appendChild(td);}
-        else if (j == 4) {td.className = 'table_fsk____';td.id = movie_id+'_fsk____';tr.appendChild(td);td.className = 'table_poster_';td.id = movie_id+'table_poster_';tr.appendChild(td);}
-        else if (j == 5) {td.className = 'table_content';td.id = movie_id+'_content';tr.appendChild(td);tbody.appendChild(tr);}
-      }
-    }
-  }
- 
-</script>
