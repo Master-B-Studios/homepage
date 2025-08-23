@@ -32,13 +32,12 @@
     .eintrags-gruppe {display: none;}
     .eintrags-gruppe.aktiv {display: block;}
 
-    #pagination-nav button {padding: 0.4em 1em;
-      margin: 0.2em;
+    #pagination-nav button {padding: 1em 1em;
+      margin: auto;
       background-color: #444;
       color: white;
       border: none;
       cursor: pointer;
-      border-radius: 4px;
       transition: background-color 0.2s;
     }
     
@@ -115,30 +114,39 @@
       const btn = document.createElement('button');
       btn.textContent = z;
       btn.onclick = () => {
-        if (z === 'Zufall') {
-          const gemischt = shuffleArray([...aktuelleDaten]);
-          renderTabelleGruppiert(gemischt, 'Zufall');
-          zeigeGruppe('Zufall');
-        } else if (z === 'Nummer') {
-          const sortiert = [...aktuelleDaten].sort((a, b) => {
-            const numA = parseInt(a[Object.keys(a)[0]]) || 0;
-            const numB = parseInt(b[Object.keys(b)[0]]) || 0;
-            return numA - numB;
-          });
-          renderTabelleGruppiert(sortiert, 'Nummer');
-          zeigeGruppe('Nummer');
-        } else if (z === 'Name') {
-          const sortiert = [...aktuelleDaten].sort((a, b) => {
-            const nameA = String(a[Object.keys(a)[1]] ?? '');
-            const nameB = String(b[Object.keys(b)[1]] ?? '');
-            return nameA.localeCompare(nameB, 'de');
-          });
-          renderTabelleGruppiert(sortiert, 'Name');
-          zeigeGruppe('Name');
-        } else {
-          zeigeGruppe(z);
-        }
-      };
+  const istSelbeGruppe = aktuelleGruppe === z;
+  
+  if (z === 'Zufall') {
+    const gemischt = shuffleArray([...aktuelleDaten]);
+    renderTabelleGruppiert(gemischt);
+    zeigeGruppe('Name');
+  } else if (z === 'Nummer') {
+    aktuelleDaten.sort((a, b) => {
+      const numA = parseInt(a[Object.keys(a)[0]]) || 0;
+      const numB = parseInt(b[Object.keys(b)[0]]) || 0;
+      return numA - numB;
+    });
+    renderTabelleGruppiert(aktuelleDaten);
+    zeigeGruppe('Nummer');
+  } else {
+    if (istSelbeGruppe) {
+      // Richtung umkehren
+      aktuelleDaten.reverse();
+      renderTabelleGruppiert(aktuelleDaten);
+      zeigeGruppe(z);
+    } else {
+      // Neue Gruppe → aufsteigend sortieren
+      aktuelleDaten.sort((a, b) => {
+        const nameA = String(a[Object.keys(a)[1]] ?? '');
+        const nameB = String(b[Object.keys(b)[1]] ?? '');
+        return nameA.localeCompare(nameB, 'de');
+      });
+      renderTabelleGruppiert(aktuelleDaten);
+      zeigeGruppe(z);
+    }
+  }
+};
+
       navContainer.appendChild(btn);
     });
 
