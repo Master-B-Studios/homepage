@@ -32,28 +32,26 @@
     .eintrags-gruppe {display: none;}
     .eintrags-gruppe.aktiv {display: block;}
 
-    #pagination-nav button {
-  padding: 0.4em 1em;
-  margin: 0.2em;
-  background-color: #444;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-}
-
-#pagination-nav button:hover {
-  background-color: #666;
-}
-
-#pagination-nav button.active-group {
-  background-color: #00bfff; /* z. B. hellblau für aktive Gruppe */
-  color: black;
-  font-weight: bold;
-}
-
-  </style>
+    #pagination-nav button {padding: 0.4em 1em;
+      margin: 0.2em;
+      background-color: #444;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+    
+    #pagination-nav button:hover {
+      background-color: #666;
+    }
+    
+    #pagination-nav button.active-group {
+      background-color: #00bfff; /* z. B. hellblau für aktive Gruppe */
+      color: black;
+      font-weight: bold;
+    }
+</style>
 </head>
 <body onload="window.location.href = '#mb_video_base';load_base_a_z();" class="is-preload">
   <div id="wrapper">
@@ -119,33 +117,43 @@
       btn.onclick = () => {
         if (z === 'Zufall') {
           const gemischt = shuffleArray([...aktuelleDaten]);
-          renderTabelleGruppiert(gemischt);
-          zeigeGruppe('Name'); // Zufall zeigt alle, aber neu gemischt
+          renderTabelleGruppiert(gemischt, 'Zufall');
+          zeigeGruppe('Zufall');
         } else if (z === 'Nummer') {
-          aktuelleDaten.sort((a, b) => {
+          const sortiert = [...aktuelleDaten].sort((a, b) => {
             const numA = parseInt(a[Object.keys(a)[0]]) || 0;
             const numB = parseInt(b[Object.keys(b)[0]]) || 0;
             return numA - numB;
           });
-          renderTabelleGruppiert(aktuelleDaten);
-          zeigeGruppe('Name'); // Nummer zeigt auch alle, aber sortiert
+          renderTabelleGruppiert(sortiert, 'Nummer');
+          zeigeGruppe('Nummer');
+        } else if (z === 'Name') {
+          const sortiert = [...aktuelleDaten].sort((a, b) => {
+            const nameA = String(a[Object.keys(a)[1]] ?? '');
+            const nameB = String(b[Object.keys(b)[1]] ?? '');
+            return nameA.localeCompare(nameB, 'de');
+          });
+          renderTabelleGruppiert(sortiert, 'Name');
+          zeigeGruppe('Name');
         } else {
           zeigeGruppe(z);
         }
       };
       navContainer.appendChild(btn);
     });
-    
+
     const article = document.querySelector('article#mb_video_base');
     article.insertBefore(navContainer, document.getElementById('output'));
   }
 
-  function renderTabelleGruppiert(daten) {
+  function renderTabelleGruppiert(daten, extraGruppe = null) {
     const container = document.getElementById('output');
     container.innerHTML = '';
 
     const gruppen = {
+      'Nummer': [],
       'Name': [],
+      'Zufall': [],
       '0-9': [],
       'A': [], 'B': [], 'C': [], 'D': [], 'E': [], 'F': [], 'G': [], 'H': [],
       'I': [], 'J': [], 'K': [], 'L': [], 'M': [], 'N': [], 'O': [], 'P': [],
@@ -156,7 +164,10 @@
     for (const eintrag of daten) {
       const name = eintrag[Object.keys(eintrag)[1]] ?? '';
       const ersterBuchstabe = name.charAt(0).toUpperCase();
+
       gruppen['Name'].push(eintrag);
+      gruppen['Zufall'].push(eintrag);
+      gruppen['Nummer'].push(eintrag); // Wichtig!
 
       if (/[0-9]/.test(ersterBuchstabe)) {
         gruppen['0-9'].push(eintrag);
@@ -169,54 +180,51 @@
       const groupDiv = document.createElement('div');
       groupDiv.id = 'gruppe_' + gruppe;
       groupDiv.className = 'eintrags-gruppe';
-      if (gruppe === 'Name') groupDiv.classList.add('aktiv');
-      
+      if (gruppe === (extraGruppe || 'Name')) groupDiv.classList.add('aktiv');
+
       let daten = gruppen[gruppe];
+
       if (gruppe === 'Nummer') {
-        // Nur Gruppe "Nummer" wird nach der ersten Spalte sortiert (Nummer)
         daten.sort((a, b) => {
           const numA = parseInt(a[Object.keys(a)[0]]) || 0;
           const numB = parseInt(b[Object.keys(b)[0]]) || 0;
           return numA - numB;
         });
-      } else {
-        // Alle anderen Gruppen (auch 0-9) werden nach dem Namen (zweite Spalte) sortiert
+      } else if (gruppe !== 'Zufall') {
         daten.sort((a, b) => {
           const nameA = String(a[Object.keys(a)[1]] ?? '');
           const nameB = String(b[Object.keys(b)[1]] ?? '');
           return nameA.localeCompare(nameB, 'de');
         });
       }
-      
+
       if (daten.length > 0) {
         const table = generiereTabelle(daten);
         groupDiv.appendChild(table);
       } else {
         groupDiv.innerHTML = '<p>Keine Einträge in dieser Gruppe.</p>';
       }
-      document.getElementById('output').appendChild(groupDiv);
+
+      container.appendChild(groupDiv);
     }
   }
 
   function zeigeGruppe(gruppe) {
-  aktuelleGruppe = gruppe;
+    aktuelleGruppe = gruppe;
 
-  // Gruppenbereiche anzeigen/verstecken
-  document.querySelectorAll('.eintrags-gruppe').forEach(div => {
-    div.classList.remove('aktiv');
-  });
-  const aktiv = document.getElementById('gruppe_' + gruppe);
-  if (aktiv) aktiv.classList.add('aktiv');
+    document.querySelectorAll('.eintrags-gruppe').forEach(div => {
+      div.classList.remove('aktiv');
+    });
+    const aktiv = document.getElementById('gruppe_' + gruppe);
+    if (aktiv) aktiv.classList.add('aktiv');
 
-  // Button-Markierung aktualisieren
-  document.querySelectorAll('#pagination-nav button').forEach(btn => {
-    btn.classList.remove('active-group');
-    if (btn.textContent === gruppe) {
-      btn.classList.add('active-group');
-    }
-  });
-}
-
+    document.querySelectorAll('#pagination-nav button').forEach(btn => {
+      btn.classList.remove('active-group');
+      if (btn.textContent === gruppe) {
+        btn.classList.add('active-group');
+      }
+    });
+  }
 
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -225,7 +233,6 @@
     }
     return array;
   }
-
 
   function generiereTabelle(daten) {
     const table = document.createElement('table');
