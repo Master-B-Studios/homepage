@@ -87,7 +87,6 @@
   let aktuelleGruppe = 'Name';
   let aktuelleRichtung = 'asc';
 
-
   async function load_base_a_z() {
     try {
       const response = await fetch('MB Video-Base.xlsx');
@@ -101,49 +100,38 @@
       aktuelleDaten = json;
       renderNavigation();
       renderTabelleGruppiert(json);
+    } catch (err) {
+      document.getElementById('output').textContent = 'Fehler beim Laden: ' + err.message;
     }
-    catch (err) {document.getElementById('output').textContent = 'Fehler beim Laden: ' + err.message;}
   }
 
   function renderNavigation() {
     const navContainer = document.createElement('nav');
     navContainer.id = 'pagination-nav';
     const zeichen = ['Nummer', 'Name', '0-9', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''), 'Zufall'];
+
     zeichen.forEach(z => {
       const btn = document.createElement('button');
 
-      const pfeil = document.createElement('span'); // Pfeil-Platzhalter (standardmäßig leer)
-      pfeil.className = 'sort-arrow';
-      pfeil.textContent = ' '; // Platzhalter, wird später aktualisiert
-
-      // Button-Text
       const textSpan = document.createElement('span');
       textSpan.className = 'button-text';
       textSpan.textContent = z;
-      
+
+      const pfeil = document.createElement('span');
+      pfeil.className = 'sort-arrow';
+      pfeil.textContent = ' ';
+
       btn.appendChild(textSpan);
       btn.appendChild(pfeil);
-      
+
       btn.onclick = () => {
         const istSelbeGruppe = aktuelleGruppe === z;
-        
+
         if (z === 'Zufall') {
           const gemischt = shuffleArray([...aktuelleDaten]);
-          renderTabelleGruppiert(gemischt);
           aktuelleGruppe = 'Zufall';
           aktuelleRichtung = 'asc';
-          zeigeGruppe('Name');
-          aktualisiereButtonMarkierung();
-        } else if (z === 'Nummer') {
-          aktuelleGruppe = 'Nummer';
-          aktuelleRichtung = 'asc';
-          aktuelleDaten.sort((a, b) => {
-            const numA = parseInt(a[Object.keys(a)[0]]) || 0;
-            const numB = parseInt(b[Object.keys(b)[0]]) || 0;
-            return numA - numB;
-          });
-          renderTabelleGruppiert(aktuelleDaten);
-          zeigeGruppe('Nummer');
+          renderTabelleGruppiert(gemischt, 'Name');
           aktualisiereButtonMarkierung();
         } else {
           if (istSelbeGruppe) {
@@ -153,32 +141,36 @@
             aktuelleGruppe = z;
             aktuelleRichtung = 'asc';
             aktuelleDaten.sort((a, b) => {
-              const nameA = String(a[Object.keys(a)[1]] ?? '');
-              const nameB = String(b[Object.keys(b)[1]] ?? '');
-              return nameA.localeCompare(nameB, 'de');
+              if (z === 'Nummer') {
+                const numA = parseInt(a[Object.keys(a)[0]]) || 0;
+                const numB = parseInt(b[Object.keys(b)[0]]) || 0;
+                return numA - numB;
+              } else {
+                const nameA = String(a[Object.keys(a)[1]] ?? '');
+                const nameB = String(b[Object.keys(b)[1]] ?? '');
+                return nameA.localeCompare(nameB, 'de');
+              }
             });
           }
-          renderTabelleGruppiert(aktuelleDaten);
-          zeigeGruppe(z);
+          renderTabelleGruppiert(aktuelleDaten, z);
           aktualisiereButtonMarkierung();
         }
       };
+
       navContainer.appendChild(btn);
     });
-    
+
     const article = document.querySelector('article#mb_video_base');
     article.insertBefore(navContainer, document.getElementById('output'));
 
-    // Button-Größe anpassen
+    // Einheitliche Buttonbreite nach dem Rendern
     setTimeout(() => {
       const buttons = document.querySelectorAll('#pagination-nav button');
       let maxWidth = 0;
-      
       buttons.forEach(btn => {
         const width = btn.offsetWidth;
         if (width > maxWidth) maxWidth = width;
       });
-      
       buttons.forEach(btn => {
         btn.style.width = maxWidth + 'px';
       });
@@ -190,14 +182,8 @@
     container.innerHTML = '';
 
     const gruppen = {
-      'Nummer': [],
-      'Name': [],
-      'Zufall': [],
-      '0-9': [],
-      'A': [], 'B': [], 'C': [], 'D': [], 'E': [], 'F': [], 'G': [], 'H': [],
-      'I': [], 'J': [], 'K': [], 'L': [], 'M': [], 'N': [], 'O': [], 'P': [],
-      'Q': [], 'R': [], 'S': [], 'T': [], 'U': [], 'V': [], 'W': [], 'X': [],
-      'Y': [], 'Z': []
+      'Nummer': [], 'Name': [], 'Zufall': [], '0-9': [],
+      ...Object.fromEntries('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(c => [c, []]))
     };
 
     for (const eintrag of daten) {
@@ -206,7 +192,7 @@
 
       gruppen['Name'].push(eintrag);
       gruppen['Zufall'].push(eintrag);
-      gruppen['Nummer'].push(eintrag); // Wichtig!
+      gruppen['Nummer'].push(eintrag);
 
       if (/[0-9]/.test(ersterBuchstabe)) {
         gruppen['0-9'].push(eintrag);
@@ -227,13 +213,15 @@
         daten.sort((a, b) => {
           const numA = parseInt(a[Object.keys(a)[0]]) || 0;
           const numB = parseInt(b[Object.keys(b)[0]]) || 0;
-          return numA - numB;
+          return aktuelleRichtung === 'asc' ? numA - numB : numB - numA;
         });
       } else if (gruppe !== 'Zufall') {
         daten.sort((a, b) => {
           const nameA = String(a[Object.keys(a)[1]] ?? '');
           const nameB = String(b[Object.keys(b)[1]] ?? '');
-          return nameA.localeCompare(nameB, 'de');
+          return aktuelleRichtung === 'asc'
+            ? nameA.localeCompare(nameB, 'de')
+            : nameB.localeCompare(nameA, 'de');
         });
       }
 
@@ -248,21 +236,30 @@
     }
   }
 
+  function aktualisiereButtonMarkierung() {
+    document.querySelectorAll('#pagination-nav button').forEach(btn => {
+      const textSpan = btn.querySelector('.button-text');
+      const pfeilSpan = btn.querySelector('.sort-arrow');
+      const text = textSpan.textContent;
+
+      btn.classList.remove('active-group');
+      if (text === aktuelleGruppe) {
+        btn.classList.add('active-group');
+        pfeilSpan.textContent = aktuelleRichtung === 'asc' ? ' ▲' : ' ▼';
+      } else {
+        pfeilSpan.textContent = ' ';
+      }
+    });
+  }
+
   function zeigeGruppe(gruppe) {
     aktuelleGruppe = gruppe;
-
     document.querySelectorAll('.eintrags-gruppe').forEach(div => {
       div.classList.remove('aktiv');
     });
     const aktiv = document.getElementById('gruppe_' + gruppe);
     if (aktiv) aktiv.classList.add('aktiv');
-
-    document.querySelectorAll('#pagination-nav button').forEach(btn => {
-      btn.classList.remove('active-group');
-      if (btn.textContent === gruppe) {
-        btn.classList.add('active-group');
-      }
-    });
+    aktualisiereButtonMarkierung();
   }
 
   function shuffleArray(array) {
@@ -284,21 +281,22 @@
       const key = keys[i];
       const th = document.createElement('th');
       th.innerHTML = key;
-      if (i == 0) { th.className = 'header_number_'; }
-      else if (i == 1) { th.className = 'header_name___'; }
-      else if (i == 2) { th.className = 'header_year___'; }
-      else if (i == 3) { th.className = 'header_runtime'; }
-      else if (i == 4) { th.className = 'header_fsk____'; }
-      else if (i == 5) { th.className = 'header_cover__'; th.innerHTML = ''; }
-      // th.addEventListener('click', () => sortiereNachSpalte(key));
+      if (i == 0) th.className = 'header_number_';
+      else if (i == 1) th.className = 'header_name___';
+      else if (i == 2) th.className = 'header_year___';
+      else if (i == 3) th.className = 'header_runtime';
+      else if (i == 4) th.className = 'header_fsk____';
+      else if (i == 5) {
+        th.className = 'header_cover__';
+        th.innerHTML = '';
+      }
       headerRow.appendChild(th);
     }
 
     thead.appendChild(headerRow);
     table.appendChild(thead);
 
-    for (let i = 0; i < daten.length; i++) {
-      const row = daten[i];
+    for (const row of daten) {
       const tr1 = document.createElement('tr');
       const tr2 = document.createElement('tr');
       let movie_id = '';
@@ -315,53 +313,47 @@
           td.value = td.innerHTML;
           td.innerHTML = '# ' + td.innerHTML;
           tr1.appendChild(td);
-        }
-        else if (j == 1) {
+        } else if (j == 1) {
           td.className = 'table_name___';
           td.id = movie_id + '_name___';
           td.value = td.innerHTML;
           td.colSpan = 5;
           tr1.appendChild(td);
-        }
-        else if (j == 2) {
+        } else if (j == 2) {
           td.className = 'table_year___';
           td.id = movie_id + '_year___';
           td.value = td.innerHTML;
           td.colSpan = 2;
           td.innerHTML = 'Jahr:<br>' + td.innerHTML;
           tr2.appendChild(td);
-        }
-        else if (j == 3) {
+        } else if (j == 3) {
           td.className = 'table_runtime';
           td.id = movie_id + '_runtime';
           td.value = td.innerHTML;
           td.colSpan = 2;
           td.innerHTML = td.innerHTML + '<br>Minuten';
           tr2.appendChild(td);
-        }
-        else if (j == 4) {
+        } else if (j == 4) {
           td.className = 'table_fsk____';
           td.id = movie_id + '_fsk____';
           td.value = td.innerHTML;
-
           const erlaubteFSK = ['0', '6', '12', '16', '18'];
           if (erlaubteFSK.includes(td.value)) {
             td.innerHTML = '<img src="Scripts/' + td.value + '.png">';
-          } else {
-            td.innerHTML = td.value;
           }
-
           tr2.appendChild(td);
-        }
-        else if (j == 5) {
+        } else if (j == 5) {
           td.className = 'table_poster_';
           td.id = movie_id;
           td.value = td.innerHTML;
           td.innerHTML = '<img src="Cover/' + movie_id + '.jpg">';
-          td.addEventListener('click', function () { download_nfo(this); });
+          td.addEventListener('click', function () {
+            download_nfo(this);
+          });
           tr2.appendChild(td);
         }
       }
+
       tbody.appendChild(tr1);
       tbody.appendChild(tr2);
     }
@@ -370,51 +362,19 @@
     return table;
   }
 
-  function sortiereNachSpalte(spalte) {
-    const richtung = aktuelleSortierung[spalte] === 'asc' ? 'desc' : 'asc';
-    aktuelleDaten.sort((a, b) => {
-      const valA = a[spalte] ?? '';
-      const valB = b[spalte] ?? '';
-      return richtung === 'asc'
-        ? valA.toString().localeCompare(valB.toString(), 'de', { numeric: true })
-        : valB.toString().localeCompare(valA.toString(), 'de', { numeric: true });
-    });
-
-    aktuelleSortierung = { [spalte]: richtung };
-    renderTabelleGruppiert(aktuelleDaten);
-    zeigeGruppe(aktuelleGruppe); // ← Zeige wieder die richtige Gruppe an
-  }
-
-  function aktualisiereButtonMarkierung() {
-    document.querySelectorAll('#pagination-nav button').forEach(btn => {
-      const textSpan = btn.querySelector('.button-text');
-      const pfeilSpan = btn.querySelector('.sort-arrow');
-      const text = textSpan.textContent;
-      
-      btn.classList.remove('active-group');
-      
-      if (text === aktuelleGruppe) {
-        btn.classList.add('active-group');
-        pfeilSpan.textContent = aktuelleRichtung === 'asc' ? ' ▲' : ' ▼';
-      } else {
-        pfeilSpan.textContent = ' '; // leerer Platzhalter
-      }
-    });
-  }
-
   function download_nfo(obj) {
-    var parsing_id = obj.id;
-    var title_movie__ = document.getElementById(parsing_id + '_name___').value;
-    var number_movie_ = document.getElementById(parsing_id + '_number_').value;
-    var runtime_movie = document.getElementById(parsing_id + '_runtime').value;
-    var year_movie___ = document.getElementById(parsing_id + '_year___').value;
-    var age_movie____ = document.getElementById(parsing_id + '_fsk____').value;
-    var content_movie = document.getElementById(parsing_id).value;
+    const parsing_id = obj.id;
+    const title_movie__ = document.getElementById(parsing_id + '_name___').value;
+    const number_movie_ = document.getElementById(parsing_id + '_number_').value;
+    const runtime_movie = document.getElementById(parsing_id + '_runtime').value;
+    const year_movie___ = document.getElementById(parsing_id + '_year___').value;
+    const age_movie____ = document.getElementById(parsing_id + '_fsk____').value;
+    const content_movie = document.getElementById(parsing_id).value;
 
-    var link = document.createElement("A");
-    var filename = title_movie__ + '.nfo';
+    const link = document.createElement("A");
+    const filename = title_movie__ + '.nfo';
 
-    var save_content =
+    const save_content =
       '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>\n' +
       '<movie>\n' +
       '   <title>' + title_movie__ + '</title>\n' +
@@ -427,7 +387,7 @@
       '   <year>' + year_movie___ + '</year>\n' +
       '</movie>\n';
 
-    link.setAttribute("href", "data:text/xml," + save_content);
+    link.setAttribute("href", "data:text/xml," + encodeURIComponent(save_content));
     link.setAttribute("style", "display:none");
     link.setAttribute("download", filename);
     document.body.appendChild(link);
