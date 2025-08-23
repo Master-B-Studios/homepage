@@ -144,39 +144,39 @@
     }
 
     for (const gruppe in gruppen) {
-      const groupDiv = document.createElement('div');
-      groupDiv.id = 'gruppe_' + gruppe;
-      groupDiv.className = 'eintrags-gruppe';
-      if (gruppe === 'Name') groupDiv.classList.add('aktiv');
-      let daten = gruppen[gruppe];
-      
-      // Nur für 0-9: Sortiere nach erster Ziffer als Zeichen
-      if (gruppe === '0-9') {
-        daten.sort((a, b) => {
-          const keyNumber = Object.keys(a)[0];
-          const keyName = Object.keys(a)[1];
-          const ersteA = String(a[keyNumber] ?? '').charAt(0);
-          const ersteB = String(b[keyNumber] ?? '').charAt(0);
-          
-          if (ersteA === ersteB) {
-            const nameA = String(a[keyName] ?? '');
-            const nameB = String(b[keyName] ?? '');
-            return nameA.localeCompare(nameB, 'de');
-          } else {
-            return ersteA.localeCompare(ersteB);
-          }
-        });
-      }
-      
-      if (daten.length > 0) {
-        const table = generiereTabelle(daten);
-        groupDiv.appendChild(table);
-      } else {
-        groupDiv.innerHTML = '<p>Keine Einträge in dieser Gruppe.</p>';
-      }
-      
-      document.getElementById('output').appendChild(groupDiv);
-    }
+  const groupDiv = document.createElement('div');
+  groupDiv.id = 'gruppe_' + gruppe;
+  groupDiv.className = 'eintrags-gruppe';
+  if (gruppe === 'Name') groupDiv.classList.add('aktiv');
+
+  let daten = gruppen[gruppe];
+
+  if (gruppe === 'Nummer') {
+    // Nur Gruppe "Nummer" wird nach der ersten Spalte sortiert (Nummer)
+    daten.sort((a, b) => {
+      const numA = parseInt(a[Object.keys(a)[0]]) || 0;
+      const numB = parseInt(b[Object.keys(b)[0]]) || 0;
+      return numA - numB;
+    });
+  } else {
+    // Alle anderen Gruppen (auch 0-9) werden nach dem Namen (zweite Spalte) sortiert
+    daten.sort((a, b) => {
+      const nameA = String(a[Object.keys(a)[1]] ?? '');
+      const nameB = String(b[Object.keys(b)[1]] ?? '');
+      return nameA.localeCompare(nameB, 'de');
+    });
+  }
+
+  if (daten.length > 0) {
+    const table = generiereTabelle(daten);
+    groupDiv.appendChild(table);
+  } else {
+    groupDiv.innerHTML = '<p>Keine Einträge in dieser Gruppe.</p>';
+  }
+
+  document.getElementById('output').appendChild(groupDiv);
+}
+
   }
 
   function zeigeGruppe(gruppe) {
