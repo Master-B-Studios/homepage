@@ -64,6 +64,7 @@
 <script>
   let aktuelleDaten = [];
   let aktuelleSortierung = {};
+  let aktuelleGruppe = 'ALL';
 
   async function load_base_a_z() {
     try {
@@ -142,6 +143,7 @@
   }
 
   function zeigeGruppe(gruppe) {
+    aktuelleGruppe = gruppe;
     document.querySelectorAll('.eintrags-gruppe').forEach(div => {
       div.classList.remove('aktiv');
     });
@@ -219,7 +221,14 @@
           td.className = 'table_fsk____';
           td.id = movie_id + '_fsk____';
           td.value = td.innerHTML;
-          td.innerHTML = '<img src="Scripts/' + td.value + '.png">';
+
+          const erlaubteFSK = ['0', '6', '12', '16', '18'];
+          if (erlaubteFSK.includes(td.value)) {
+            td.innerHTML = '<img src="Scripts/' + td.value + '.png">';
+          } else {
+            td.innerHTML = td.value;
+          }
+
           tr2.appendChild(td);
         }
         else if (j == 5) {
@@ -251,6 +260,7 @@
 
     aktuelleSortierung = { [spalte]: richtung };
     renderTabelleGruppiert(aktuelleDaten);
+    zeigeGruppe(aktuelleGruppe); // ← Zeige wieder die richtige Gruppe an
   }
 
   function download_nfo(obj) {
