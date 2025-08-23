@@ -168,7 +168,7 @@
     
     const article = document.querySelector('article#mb_video_base');
     article.insertBefore(navContainer, document.getElementById('output'));
-    
+
     // Button-Größe anpassen
     setTimeout(() => {
       const buttons = document.querySelectorAll('#pagination-nav button');
@@ -386,23 +386,21 @@
   }
 
   function aktualisiereButtonMarkierung() {
-  document.querySelectorAll('#pagination-nav button').forEach(btn => {
-    const textSpan = btn.querySelector('.button-text');
-    const pfeilSpan = btn.querySelector('.sort-arrow');
-    const text = textSpan.textContent;
-
-    btn.classList.remove('active-group');
-    
-    if (text === aktuelleGruppe) {
-      btn.classList.add('active-group');
-      pfeilSpan.textContent = aktuelleRichtung === 'asc' ? ' ▲' : ' ▼';
-    } else {
-      pfeilSpan.textContent = ' '; // leerer Platzhalter
-    }
-  });
-}
-
-
+    document.querySelectorAll('#pagination-nav button').forEach(btn => {
+      const textSpan = btn.querySelector('.button-text');
+      const pfeilSpan = btn.querySelector('.sort-arrow');
+      const text = textSpan.textContent;
+      
+      btn.classList.remove('active-group');
+      
+      if (text === aktuelleGruppe) {
+        btn.classList.add('active-group');
+        pfeilSpan.textContent = aktuelleRichtung === 'asc' ? ' ▲' : ' ▼';
+      } else {
+        pfeilSpan.textContent = ' '; // leerer Platzhalter
+      }
+    });
+  }
 
   function download_nfo(obj) {
     var parsing_id = obj.id;
