@@ -85,6 +85,8 @@
   let aktuelleDaten = [];
   let aktuelleSortierung = {};
   let aktuelleGruppe = 'Name';
+  let aktuelleRichtung = 'asc';
+
 
   async function load_base_a_z() {
     try {
@@ -115,12 +117,17 @@
       btn.textContent = z;
       btn.onclick = () => {
   const istSelbeGruppe = aktuelleGruppe === z;
-  
+
   if (z === 'Zufall') {
     const gemischt = shuffleArray([...aktuelleDaten]);
     renderTabelleGruppiert(gemischt);
+    aktuelleGruppe = 'Zufall';
+    aktuelleRichtung = 'asc';
     zeigeGruppe('Name');
+    aktualisiereButtonMarkierung();
   } else if (z === 'Nummer') {
+    aktuelleGruppe = 'Nummer';
+    aktuelleRichtung = 'asc';
     aktuelleDaten.sort((a, b) => {
       const numA = parseInt(a[Object.keys(a)[0]]) || 0;
       const numB = parseInt(b[Object.keys(b)[0]]) || 0;
@@ -128,24 +135,28 @@
     });
     renderTabelleGruppiert(aktuelleDaten);
     zeigeGruppe('Nummer');
+    aktualisiereButtonMarkierung();
   } else {
     if (istSelbeGruppe) {
       // Richtung umkehren
       aktuelleDaten.reverse();
-      renderTabelleGruppiert(aktuelleDaten);
-      zeigeGruppe(z);
+      aktuelleRichtung = aktuelleRichtung === 'asc' ? 'desc' : 'asc';
     } else {
-      // Neue Gruppe → aufsteigend sortieren
+      // Neue Gruppe → sortieren nach Name (aufsteigend)
+      aktuelleGruppe = z;
+      aktuelleRichtung = 'asc';
       aktuelleDaten.sort((a, b) => {
         const nameA = String(a[Object.keys(a)[1]] ?? '');
         const nameB = String(b[Object.keys(b)[1]] ?? '');
         return nameA.localeCompare(nameB, 'de');
       });
-      renderTabelleGruppiert(aktuelleDaten);
-      zeigeGruppe(z);
     }
+    renderTabelleGruppiert(aktuelleDaten);
+    zeigeGruppe(z);
+    aktualisiereButtonMarkierung();
   }
 };
+
 
       navContainer.appendChild(btn);
     });
@@ -367,6 +378,22 @@
     renderTabelleGruppiert(aktuelleDaten);
     zeigeGruppe(aktuelleGruppe); // ← Zeige wieder die richtige Gruppe an
   }
+
+  function aktualisiereButtonMarkierung() {
+  document.querySelectorAll('#pagination-nav button').forEach(btn => {
+    const text = btn.textContent.replace(/[▲▼]/g, '').trim();
+    btn.classList.remove('active-group');
+
+    if (text === aktuelleGruppe) {
+      btn.classList.add('active-group');
+      const pfeil = aktuelleRichtung === 'asc' ? ' ▲' : ' ▼';
+      btn.textContent = text + pfeil;
+    } else {
+      btn.textContent = text;
+    }
+  });
+}
+
 
   function download_nfo(obj) {
     var parsing_id = obj.id;
