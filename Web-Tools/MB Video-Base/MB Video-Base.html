@@ -35,19 +35,29 @@
     #pagination-nav button {
       padding: 1em 1em;
       margin: auto;
-      background-color: #444;
-      color: white;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.2s;
+  background-color: #444;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 4px;
-      white-space: nowrap;
-    }
-    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+
+  /* feste Breite fixieren */
+  width: 120px; /* Beispiel, passe an */
+}
+
+#pagination-nav .sort-arrow {
+  font-size: 0.8em;
+  width: 1.2em; /* feste Breite */
+  text-align: center;
+  /* Pfeil zentrieren */
+}
+
     #pagination-nav button:hover {
       background-color: #666;
     }
@@ -57,10 +67,6 @@
       color: black;
       font-weight: bold;
     }
-    
-    #pagination-nav .sort-arrow {
-      font-size: 0.8em;
-      }
 </style>
 </head>
 <body onload="window.location.href = '#mb_video_base';load_base_a_z();" class="is-preload">
@@ -248,20 +254,25 @@
   }
 
   function aktualisiereButtonMarkierung() {
-    document.querySelectorAll('#pagination-nav button').forEach(btn => {
-      const textSpan = btn.querySelector('.button-text');
-      const pfeilSpan = btn.querySelector('.sort-arrow');
-      const text = textSpan.textContent;
+  document.querySelectorAll('#pagination-nav button').forEach(btn => {
+    const textSpan = btn.querySelector('.button-text');
+    const pfeilSpan = btn.querySelector('.sort-arrow');
+    const text = textSpan.textContent;
 
-      btn.classList.remove('active-group');
-      if (text === aktuelleGruppe) {
-        btn.classList.add('active-group');
-        pfeilSpan.textContent = aktuelleRichtung === 'asc' ? ' ▲' : ' ▼';
-      } else {
-        pfeilSpan.textContent = ' ';
-      }
-    });
-  }
+    btn.classList.remove('active-group');
+
+    if (text === 'Zufall') {
+      // Pfeil komplett ausblenden bei Zufall
+      pfeilSpan.textContent = '';
+    } else if (text === aktuelleGruppe) {
+      btn.classList.add('active-group');
+      pfeilSpan.textContent = aktuelleRichtung === 'asc' ? '▲' : '▼';
+    } else {
+      pfeilSpan.textContent = ' '; // Leerzeichen für gleiche Breite
+    }
+  });
+}
+
 
   function zeigeGruppe(gruppe) {
     aktuelleGruppe = gruppe;
