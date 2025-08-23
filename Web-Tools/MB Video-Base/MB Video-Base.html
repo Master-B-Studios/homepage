@@ -11,6 +11,7 @@
   <style>
     tbody {width: 100%;height: auto;}
     tr {width: 100%;height: auto;}
+    thead {display: none;} /* Verstecke den ursprünglichen Sortierungs-Header */
     .header_number_ {width: 16%;height: 4em;}
     .header_name___ {width: 16%;height: 4em;}
     .header_year___ {width: 16%;height: 4em;}
@@ -87,15 +88,32 @@
   function renderNavigation() {
     const navContainer = document.createElement('nav');
     navContainer.id = 'pagination-nav';
-
-    const zeichen = ['Alle', '0-9', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')];
+    
+    const zeichen = ['Nummer', 'Alle', '0-9', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''), 'Zufall'];
+    
     zeichen.forEach(z => {
       const btn = document.createElement('button');
       btn.textContent = z;
-      btn.onclick = () => zeigeGruppe(z);
+      btn.onclick = () => {
+        if (z === 'Zufall') {
+          const gemischt = shuffleArray([...aktuelleDaten]);
+          renderTabelleGruppiert(gemischt);
+          zeigeGruppe('Alle'); // Zufall zeigt alle, aber neu gemischt
+        } else if (z === 'Nummer') {
+          aktuelleDaten.sort((a, b) => {
+            const numA = parseInt(a[Object.keys(a)[0]]) || 0;
+            const numB = parseInt(b[Object.keys(b)[0]]) || 0;
+            return numA - numB;
+          });
+          renderTabelleGruppiert(aktuelleDaten);
+          zeigeGruppe('Alle'); // Nummer zeigt auch alle, aber sortiert
+        } else {
+          zeigeGruppe(z);
+        }
+      };
       navContainer.appendChild(btn);
     });
-
+    
     const article = document.querySelector('article#mb_video_base');
     article.insertBefore(navContainer, document.getElementById('output'));
   }
@@ -151,6 +169,15 @@
     if (aktiv) aktiv.classList.add('aktiv');
   }
 
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+
   function generiereTabelle(daten) {
     const table = document.createElement('table');
     const tbody = document.createElement('tbody');
@@ -168,7 +195,7 @@
       else if (i == 3) { th.className = 'header_runtime'; }
       else if (i == 4) { th.className = 'header_fsk____'; }
       else if (i == 5) { th.className = 'header_cover__'; th.innerHTML = ''; }
-      th.addEventListener('click', () => sortiereNachSpalte(key));
+      // th.addEventListener('click', () => sortiereNachSpalte(key));
       headerRow.appendChild(th);
     }
 
