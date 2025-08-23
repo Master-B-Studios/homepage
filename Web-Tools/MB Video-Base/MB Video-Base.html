@@ -194,6 +194,24 @@
         btn.style.width = maxWidth + 'px';
       });
     }, 0);
+
+    // Suchleiste einfügen
+    const suchContainer = document.createElement('div');
+    suchContainer.id = 'such-container';
+    suchContainer.style.margin = '1em 0';
+    const suchEingabe = document.createElement('input');
+    suchEingabe.type = 'text';
+    suchEingabe.placeholder = 'Suche nach Titel...';
+    suchEingabe.id = 'suchEingabe';
+    suchEingabe.style.padding = '0.5em';
+    suchEingabe.style.width = '100%';
+    suchEingabe.style.maxWidth = '400px';
+    suchEingabe.addEventListener('input', function () {
+      sucheInTabelle(this.value);
+    });
+    
+    suchContainer.appendChild(suchEingabe);
+    article.insertBefore(suchContainer, document.getElementById('output'));
   }
 
   function renderTabelleGruppiert(daten, extraGruppe = null) {
@@ -384,6 +402,29 @@
 
     table.appendChild(tbody);
     return table;
+  }
+
+  function sucheInTabelle(suchbegriff) {
+    const gruppe = aktuelleGruppe;
+    const divs = document.querySelectorAll('.eintrags-gruppe');
+
+    // Alle Gruppen verstecken
+    divs.forEach(div => div.classList.remove('aktiv'));
+    const gruppeDiv = document.getElementById('gruppe_' + gruppe);
+    if (!gruppeDiv) return;
+    gruppeDiv.classList.add('aktiv');
+    const zeilen = gruppeDiv.querySelectorAll('tbody tr');
+    const begriff = suchbegriff.toLowerCase();
+    
+    // Zeilen paarweise (2 pro Eintrag) behandeln
+    for (let i = 0; i < zeilen.length; i += 2) {
+      const zeile1 = zeilen[i];
+      const zeile2 = zeilen[i + 1];
+      const inhalt = zeile1.textContent.toLowerCase() + zeile2.textContent.toLowerCase();
+      const sichtbar = begriff === '' || inhalt.includes(begriff);
+      zeile1.style.display = sichtbar ? '' : 'none';
+      zeile2.style.display = sichtbar ? '' : 'none';
+    }
   }
 
   function download_nfo(obj) {
