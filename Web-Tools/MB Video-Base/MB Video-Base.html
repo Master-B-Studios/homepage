@@ -30,7 +30,29 @@
     .table_poster_ img {width: 100%;height: auto;}
 
     .eintrags-gruppe {display: none;}
-    .eintrags-gruppe.aktiv {display: block;color: #00ff00;}
+    .eintrags-gruppe.aktiv {display: block;}
+
+    #pagination-nav button {
+  padding: 0.4em 1em;
+  margin: 0.2em;
+  background-color: #444;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+#pagination-nav button:hover {
+  background-color: #666;
+}
+
+#pagination-nav button.active-group {
+  background-color: #00bfff; /* z. B. hellblau für aktive Gruppe */
+  color: black;
+  font-weight: bold;
+}
+
   </style>
 </head>
 <body onload="window.location.href = '#mb_video_base';load_base_a_z();" class="is-preload">
@@ -177,13 +199,24 @@
   }
 
   function zeigeGruppe(gruppe) {
-    aktuelleGruppe = gruppe;
-    document.querySelectorAll('.eintrags-gruppe').forEach(div => {
-      div.classList.remove('aktiv');
-    });
-    const aktiv = document.getElementById('gruppe_' + gruppe);
-    if (aktiv) aktiv.classList.add('aktiv');
-  }
+  aktuelleGruppe = gruppe;
+
+  // Gruppenbereiche anzeigen/verstecken
+  document.querySelectorAll('.eintrags-gruppe').forEach(div => {
+    div.classList.remove('aktiv');
+  });
+  const aktiv = document.getElementById('gruppe_' + gruppe);
+  if (aktiv) aktiv.classList.add('aktiv');
+
+  // Button-Markierung aktualisieren
+  document.querySelectorAll('#pagination-nav button').forEach(btn => {
+    btn.classList.remove('active-group');
+    if (btn.textContent === gruppe) {
+      btn.classList.add('active-group');
+    }
+  });
+}
+
 
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
