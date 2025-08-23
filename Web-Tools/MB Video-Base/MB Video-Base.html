@@ -64,7 +64,7 @@
 <script>
   let aktuelleDaten = [];
   let aktuelleSortierung = {};
-  let aktuelleGruppe = 'ALL';
+  let aktuelleGruppe = 'Alle';
 
   async function load_base_a_z() {
     try {
@@ -88,7 +88,7 @@
     const navContainer = document.createElement('nav');
     navContainer.id = 'pagination-nav';
 
-    const zeichen = ['ALL', '0-9', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')];
+    const zeichen = ['Alle', '0-9', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')];
     zeichen.forEach(z => {
       const btn = document.createElement('button');
       btn.textContent = z;
@@ -105,7 +105,7 @@
     container.innerHTML = '';
 
     const gruppen = {
-      'ALL': [],
+      'Alle': [],
       '0-9': [],
       'A': [], 'B': [], 'C': [], 'D': [], 'E': [], 'F': [], 'G': [], 'H': [],
       'I': [], 'J': [], 'K': [], 'L': [], 'M': [], 'N': [], 'O': [], 'P': [],
@@ -116,7 +116,7 @@
     for (const eintrag of daten) {
       const name = eintrag[Object.keys(eintrag)[1]] ?? '';
       const ersterBuchstabe = name.charAt(0).toUpperCase();
-      gruppen['ALL'].push(eintrag);
+      gruppen['Alle'].push(eintrag);
 
       if (/[0-9]/.test(ersterBuchstabe)) {
         gruppen['0-9'].push(eintrag);
@@ -129,7 +129,7 @@
       const groupDiv = document.createElement('div');
       groupDiv.id = 'gruppe_' + gruppe;
       groupDiv.className = 'eintrags-gruppe';
-      if (gruppe === 'ALL') groupDiv.classList.add('aktiv');
+      if (gruppe === 'Alle') groupDiv.classList.add('aktiv');
 
       const daten = gruppen[gruppe];
       if (daten.length > 0) {
