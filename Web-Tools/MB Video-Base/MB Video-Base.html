@@ -153,10 +153,18 @@
       // Nur für 0-9: Sortiere nach erster Ziffer als Zeichen
       if (gruppe === '0-9') {
         daten.sort((a, b) => {
-          const key = Object.keys(a)[0];
-          const ersteA = (a[key] + '').charAt(0);
-          const ersteB = (b[key] + '').charAt(0);
-          return ersteA.localeCompare(ersteB);
+          const keyNumber = Object.keys(a)[0];
+          const keyName = Object.keys(a)[1];
+          const ersteA = String(a[keyNumber] ?? '').charAt(0);
+          const ersteB = String(b[keyNumber] ?? '').charAt(0);
+          
+          if (ersteA === ersteB) {
+            const nameA = String(a[keyName] ?? '');
+            const nameB = String(b[keyName] ?? '');
+            return nameA.localeCompare(nameB, 'de');
+          } else {
+            return ersteA.localeCompare(ersteB);
+          }
         });
       }
       
