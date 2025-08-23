@@ -147,16 +147,27 @@
       const groupDiv = document.createElement('div');
       groupDiv.id = 'gruppe_' + gruppe;
       groupDiv.className = 'eintrags-gruppe';
-      if (gruppe === 'Alle') groupDiv.classList.add('aktiv');
-
-      const daten = gruppen[gruppe];
+      if (gruppe === 'ALL') groupDiv.classList.add('aktiv');
+      let daten = gruppen[gruppe];
+      
+      // Nur für 0-9: Sortiere nach erster Ziffer als Zeichen
+      if (gruppe === '0-9') {
+        daten.sort((a, b) => {
+          const key = Object.keys(a)[0];
+          const ersteA = (a[key] + '').charAt(0);
+          const ersteB = (b[key] + '').charAt(0);
+          return ersteA.localeCompare(ersteB);
+        });
+      }
+      
       if (daten.length > 0) {
         const table = generiereTabelle(daten);
         groupDiv.appendChild(table);
       } else {
         groupDiv.innerHTML = '<p>Keine Einträge in dieser Gruppe.</p>';
       }
-      container.appendChild(groupDiv);
+      
+      document.getElementById('output').appendChild(groupDiv);
     }
   }
 
