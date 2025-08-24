@@ -26,8 +26,8 @@
     .table_poster_ {width: 20%;height: auto;}
     .table_poster_ img {width: 100%;height: auto;}
 
-    .eintrags-gruppe {display: none;}
-    .eintrags-gruppe.aktiv {display: block;}
+    .group_button {display: none;}
+    .group_button.aktiv {display: block;}
 
     #pagination-nav {width: 100%;height: auto;margin: auto;display: flex;flex-wrap: wrap;justify-content: space-between;align-items: center;}
     #pagination-nav button {padding: 1em 1em;margin: 0.2em;background-color: #222222;color: #dbdbdb;border: none;cursor: pointer;transition: background-color 0.2s;text-align: center;gap: 4px;white-space: nowrap;width: auto;}
@@ -215,7 +215,7 @@
     for (const gruppe in gruppen) {
       const groupDiv = document.createElement('div');
       groupDiv.id = 'gruppe_' + gruppe;
-      groupDiv.className = 'eintrags-gruppe';
+      groupDiv.className = 'group_button';
       if (gruppe === (extraGruppe || 'Name')) groupDiv.classList.add('aktiv');
 
       let daten = gruppen[gruppe];
@@ -266,7 +266,7 @@
 
   function zeigeGruppe(gruppe) {
     aktuelleGruppe = gruppe;
-    document.querySelectorAll('.eintrags-gruppe').forEach(div => {
+    document.querySelectorAll('.group_button').forEach(div => {
       div.classList.remove('aktiv');
     });
     const aktiv = document.getElementById('gruppe_' + gruppe);
@@ -375,7 +375,7 @@
 
   function sucheInTabelle(suchbegriff) {
     const gruppe = aktuelleGruppe;
-    const divs = document.querySelectorAll('.eintrags-gruppe');
+    const divs = document.querySelectorAll('.group_button');
 
     // Alle Gruppen verstecken
     divs.forEach(div => div.classList.remove('aktiv'));
