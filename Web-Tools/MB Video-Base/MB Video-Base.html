@@ -375,11 +375,9 @@
           td.className = 'table_fsk____';
           td.id = movie_id + '_fsk____';
           td.value = td.innerHTML;
-          td.colSpan = 4;
+          td.colSpan = 3;
           const erlaubteFSK = ['0', '6', '12', '16', '18'];
-          if (erlaubteFSK.includes(td.value)) {
-            td.innerHTML = '<img src="Scripts/' + td.value + '.png">';
-          }
+          if (erlaubteFSK.includes(td.value)) {td.innerHTML = '<img src="Scripts/' + td.value + '.png">';}
           tr2.appendChild(td);
         } else if (j == 5) {
           td.className = 'table_poster_';
