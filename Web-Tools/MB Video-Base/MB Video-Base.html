@@ -192,16 +192,11 @@
     for (const eintrag of daten) {
       const name = eintrag[Object.keys(eintrag)[1]] ?? '';
       const ersterBuchstabe = name.charAt(0).toUpperCase();
-
       gruppen['Name'].push(eintrag);
       gruppen['Zufall'].push(eintrag);
       gruppen['Nummer'].push(eintrag);
-
-      if (/[0-9]/.test(ersterBuchstabe)) {
-        gruppen['0-9'].push(eintrag);
-      } else if (gruppen[ersterBuchstabe]) {
-        gruppen[ersterBuchstabe].push(eintrag);
-      }
+      if (/[0-9]/.test(ersterBuchstabe)) {gruppen['0-9'].push(eintrag);}
+      else if (gruppen[ersterBuchstabe]) {gruppen[ersterBuchstabe].push(eintrag);}
     }
 
     for (const gruppe in gruppen) {
@@ -209,16 +204,15 @@
       groupDiv.id = 'gruppe_' + gruppe;
       groupDiv.className = 'group_button';
       if (gruppe === (extraGruppe || 'Name')) groupDiv.classList.add('aktiv');
-
       let daten = gruppen[gruppe];
-
       if (gruppe === 'Nummer') {
         daten.sort((a, b) => {
           const numA = parseInt(a[Object.keys(a)[0]]) || 0;
           const numB = parseInt(b[Object.keys(b)[0]]) || 0;
           return aktuelleRichtung === 'asc' ? numA - numB : numB - numA;
         });
-      } else if (gruppe !== 'Zufall') {
+      }
+      else if (gruppe !== 'Zufall') {
         daten.sort((a, b) => {
           const nameA = String(a[Object.keys(a)[1]] ?? '');
           const nameB = String(b[Object.keys(b)[1]] ?? '');
@@ -227,10 +221,8 @@
             : nameB.localeCompare(nameA, 'de');
         });
       }
-
       if (daten.length > 0) {const table = generiereTabelle(daten);groupDiv.appendChild(table);}
       else {groupDiv.innerHTML = '<p>Keine Einträge gefunden...</p>';}
-
       container.appendChild(groupDiv);
     }
   }
@@ -241,12 +233,8 @@
       const pfeilSpan = btn.querySelector('.sort-arrow');
       const text = textSpan.textContent;
       btn.classList.remove('active-group');
-      if (text === aktuelleGruppe) {
-        btn.classList.add('active-group');
-        pfeilSpan.textContent = (text === 'Zufall') ? '' : (aktuelleRichtung === 'asc' ? '▼' : '▲');
-      } else {
-        pfeilSpan.textContent = ' '; // Platzhalter
-      }
+      if (text === aktuelleGruppe) {btn.classList.add('active-group');pfeilSpan.textContent = (text === 'Zufall') ? '' : (aktuelleRichtung === 'asc' ? '▼' : '▲');}
+      else {pfeilSpan.textContent = '  ';}
     });
   }
 
@@ -287,66 +275,19 @@
     table.appendChild(thead);
 
     for (const row of daten) {
-      const tr1 = document.createElement('tr');
-      const tr2 = document.createElement('tr');
-      let movie_id = '';
-
+      const tr1 = document.createElement('tr');const tr2 = document.createElement('tr');let movie_id = '';
       for (let j = 0; j < keys.length; j++) {
-        const key = keys[j];
-        const td = document.createElement('td');
-        td.innerHTML = row[key] ?? '';
-
-        if (j == 0) {
-          movie_id = td.innerHTML;
-          td.className = 'table_number_';
-          td.id = movie_id + '_number_';
-          td.value = td.innerHTML;
-          td.innerHTML = 'Nummer:<br>' + td.innerHTML;
-          tr2.appendChild(td);
-        } else if (j == 1) {
-          td.className = 'table_name___';
-          td.id = movie_id + '_name___';
-          td.value = td.innerHTML;
-          td.colSpan = 5;
-          tr1.appendChild(td);
-        } else if (j == 2) {
-          td.className = 'table_year___';
-          td.id = movie_id + '_year___';
-          td.value = td.innerHTML;
-          //td.colSpan = 2;
-          td.innerHTML = td.innerHTML;
-          tr1.appendChild(td);
-        } else if (j == 3) {
-          td.className = 'table_runtime';
-          td.id = movie_id + '_runtime';
-          td.value = td.innerHTML;
-          //td.colSpan = 2;
-          td.innerHTML = td.innerHTML + '<br>Minuten';
-          tr2.appendChild(td);
-        } else if (j == 4) {
-          td.className = 'table_fsk____';
-          td.id = movie_id + '_fsk____';
-          td.value = td.innerHTML;
-          td.colSpan = 3;
-          const erlaubteFSK = ['0', '6', '12', '16', '18'];
-          if (erlaubteFSK.includes(td.value)) {td.innerHTML = '<img src="Scripts/' + td.value + '.png">';}
-          tr2.appendChild(td);
-        } else if (j == 5) {
-          td.className = 'table_poster_';
-          td.id = movie_id;
-          td.value = td.innerHTML;
-          td.innerHTML = '<img src="Cover/' + movie_id + '.jpg">';
-          td.addEventListener('click', function () {download_nfo(this);});
-          tr2.appendChild(td);
-        }
+        const key = keys[j];const td = document.createElement('td');td.innerHTML = row[key] ?? '';
+        if (j == 0) {movie_id = td.innerHTML;td.className = 'table_number_';td.id = movie_id + '_number_';td.value = td.innerHTML;td.innerHTML = 'Nummer:<br>' + td.innerHTML;tr2.appendChild(td);}
+        else if (j == 1) {td.className = 'table_name___';td.id = movie_id + '_name___';td.value = td.innerHTML;td.colSpan = 5;tr1.appendChild(td);}
+        else if (j == 2) {td.className = 'table_year___';td.id = movie_id + '_year___';td.value = td.innerHTML;td.innerHTML = td.innerHTML;tr1.appendChild(td);}
+        else if (j == 3) {td.className = 'table_runtime';td.id = movie_id + '_runtime';td.value = td.innerHTML;td.innerHTML = td.innerHTML + '<br>Minuten';tr2.appendChild(td);}
+        else if (j == 4) {td.className = 'table_fsk____';td.id = movie_id + '_fsk____';td.value = td.innerHTML;td.colSpan = 3;td.innerHTML = '<img src="Scripts/' + td.value + '.png">';tr2.appendChild(td);}
+        else if (j == 5) {td.className = 'table_poster_';td.id = movie_id;td.value = td.innerHTML;td.innerHTML = '<img src="Cover/' + movie_id + '.jpg">';td.addEventListener('click', function () {download_nfo(this);});tr2.appendChild(td);}
       }
-
-      tbody.appendChild(tr1);
-      tbody.appendChild(tr2);
+      tbody.appendChild(tr1);tbody.appendChild(tr2);
     }
-
-    table.appendChild(tbody);
-    return table;
+    table.appendChild(tbody);return table;
   }
 
   function sucheInTabelle(suchbegriff) {
