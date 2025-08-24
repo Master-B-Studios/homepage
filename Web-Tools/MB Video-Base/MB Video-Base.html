@@ -236,24 +236,19 @@
   }
 
   function aktualisiereButtonMarkierung() {
-  document.querySelectorAll('#group_button_container button').forEach(btn => {
-    const textSpan = btn.querySelector('.button-text');
-    const pfeilSpan = btn.querySelector('.sort-arrow');
-    const text = textSpan.textContent;
-
-    btn.classList.remove('active-group');
-
-    if (text === 'Zufall') {
-      btn.classList.add('active-group');
-      pfeilSpan.textContent = ''; // Pfeil komplett ausblenden bei Zufall
-    } else if (text === aktuelleGruppe) {
-      btn.classList.add('active-group');
-      pfeilSpan.textContent = aktuelleRichtung === 'asc' ? '▼' : '▲';
-    } else {
-      pfeilSpan.textContent = ' '; // Leerzeichen für gleiche Breite
-    }
-  });
-}
+    document.querySelectorAll('#group_button_container button').forEach(btn => {
+      const textSpan = btn.querySelector('.button-text');
+      const pfeilSpan = btn.querySelector('.sort-arrow');
+      const text = textSpan.textContent;
+      btn.classList.remove('active-group');
+      if (text === aktuelleGruppe) {
+        btn.classList.add('active-group');
+        pfeilSpan.textContent = (text === 'Zufall') ? '' : (aktuelleRichtung === 'asc' ? '▼' : '▲');
+      } else {
+        pfeilSpan.textContent = ' '; // Platzhalter
+      }
+    });
+  }
 
 
   function zeigeGruppe(gruppe) {
