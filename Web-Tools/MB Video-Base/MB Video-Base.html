@@ -69,10 +69,10 @@
 <script src="../../assets/js/util.js"></script>
 <script src="../../assets/js/main.js"></script>
 <script>
-  let aktuelleDaten = [];
-  let aktuelleSortierung = {};
-  let aktuelleGruppe = 'Name';
-  let aktuelleRichtung = 'asc';
+  let current_data = [];
+  let current_sort = {};
+  let current_group = 'Name';
+  let current_sort_direction = 'asc';
 
   async function load_moviebase() {
     try {
@@ -84,7 +84,7 @@
       const sheetName = workbook.SheetNames[0];
       const worksheet = workbook.Sheets[sheetName];
       const json = XLSX.utils.sheet_to_json(worksheet);
-      aktuelleDaten = json;
+      current_data = json;
       renderNavigation();
       renderTabelleGruppiert(json);
     }
@@ -111,24 +111,24 @@
       btn.appendChild(pfeil);
 
       btn.onclick = () => {
-        const istSelbeGruppe = aktuelleGruppe === z;
+        const istSelbeGruppe = current_group === z;
 
         if (z === 'Zufall') {
-          //const gemischt = shuffleArray([...aktuelleDaten]);aktuelleGruppe = 'Zufall';aktuelleRichtung = 'asc';renderTabelleGruppiert(gemischt, 'Zufall');zeigeGruppe('Zufall');aktualisiereButtonMarkierung();
-          const zufallsFilm = [aktuelleDaten[Math.floor(Math.random() * aktuelleDaten.length)]];
-          aktuelleGruppe = 'Zufall';
-          aktuelleRichtung = 'asc';
+          //const gemischt = shuffleArray([...current_data]);current_group = 'Zufall';current_sort_direction = 'asc';renderTabelleGruppiert(gemischt, 'Zufall');zeigeGruppe('Zufall');aktualisiereButtonMarkierung();
+          const zufallsFilm = [current_data[Math.floor(Math.random() * current_data.length)]];
+          current_group = 'Zufall';
+          current_sort_direction = 'asc';
           renderTabelleGruppiert(zufallsFilm, 'Zufall');
           zeigeGruppe('Zufall');
           aktualisiereButtonMarkierung();
         } else {
           if (istSelbeGruppe) {
-            aktuelleDaten.reverse();
-            aktuelleRichtung = aktuelleRichtung === 'asc' ? 'desc' : 'asc';
+            current_data.reverse();
+            current_sort_direction = current_sort_direction === 'asc' ? 'desc' : 'asc';
           } else {
-            aktuelleGruppe = z;
-            aktuelleRichtung = 'asc';
-            aktuelleDaten.sort((a, b) => {
+            current_group = z;
+            current_sort_direction = 'asc';
+            current_data.sort((a, b) => {
               if (z === 'Nummer') {
                 const numA = parseInt(a[Object.keys(a)[0]]) || 0;
                 const numB = parseInt(b[Object.keys(b)[0]]) || 0;
@@ -140,7 +140,7 @@
               }
             });
           }
-          renderTabelleGruppiert(aktuelleDaten, z);
+          renderTabelleGruppiert(current_data, z);
           aktualisiereButtonMarkierung();
         }
       };
@@ -209,14 +209,14 @@
         daten.sort((a, b) => {
           const numA = parseInt(a[Object.keys(a)[0]]) || 0;
           const numB = parseInt(b[Object.keys(b)[0]]) || 0;
-          return aktuelleRichtung === 'asc' ? numA - numB : numB - numA;
+          return current_sort_direction === 'asc' ? numA - numB : numB - numA;
         });
       }
       else if (gruppe !== 'Zufall') {
         daten.sort((a, b) => {
           const nameA = String(a[Object.keys(a)[1]] ?? '');
           const nameB = String(b[Object.keys(b)[1]] ?? '');
-          return aktuelleRichtung === 'asc'
+          return current_sort_direction === 'asc'
             ? nameA.localeCompare(nameB, 'de')
             : nameB.localeCompare(nameA, 'de');
         });
@@ -233,14 +233,14 @@
       const pfeilSpan = btn.querySelector('.sort-arrow');
       const text = textSpan.textContent;
       btn.classList.remove('active-group');
-      if (text === aktuelleGruppe) {btn.classList.add('active-group');pfeilSpan.textContent = (text === 'Zufall') ? '' : (aktuelleRichtung === 'asc' ? '▼' : '▲');}
+      if (text === current_group) {btn.classList.add('active-group');pfeilSpan.textContent = (text === 'Zufall') ? '' : (current_sort_direction === 'asc' ? '▼' : '▲');}
       else {pfeilSpan.textContent = '  ';}
     });
   }
 
 
   function zeigeGruppe(gruppe) {
-    aktuelleGruppe = gruppe;
+    current_group = gruppe;
     document.querySelectorAll('.group_button').forEach(div => {
       div.classList.remove('aktiv');
     });
@@ -291,7 +291,7 @@
   }
 
   function sucheInTabelle(suchbegriff) {
-    const gruppe = aktuelleGruppe;
+    const gruppe = current_group;
     const divs = document.querySelectorAll('.group_button');
 
     // Alle Gruppen verstecken
