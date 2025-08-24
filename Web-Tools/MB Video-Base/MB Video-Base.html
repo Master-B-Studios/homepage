@@ -261,12 +261,8 @@
         });
       }
 
-      if (daten.length > 0) {
-        const table = generiereTabelle(daten);
-        groupDiv.appendChild(table);
-      } else {
-        groupDiv.innerHTML = '<p>Keine Einträge in dieser Gruppe.</p>';
-      }
+      if (daten.length > 0) {const table = generiereTabelle(daten);groupDiv.appendChild(table);}
+      else {groupDiv.innerHTML = '<p>Keine Einträge gefunden...</p>';}
 
       container.appendChild(groupDiv);
     }
@@ -365,20 +361,21 @@
           td.className = 'table_year___';
           td.id = movie_id + '_year___';
           td.value = td.innerHTML;
-          td.colSpan = 2;
+          //td.colSpan = 2;
           td.innerHTML = 'Jahr:<br>' + td.innerHTML;
           tr2.appendChild(td);
         } else if (j == 3) {
           td.className = 'table_runtime';
           td.id = movie_id + '_runtime';
           td.value = td.innerHTML;
-          td.colSpan = 2;
+          //td.colSpan = 2;
           td.innerHTML = td.innerHTML + '<br>Minuten';
           tr2.appendChild(td);
         } else if (j == 4) {
           td.className = 'table_fsk____';
           td.id = movie_id + '_fsk____';
           td.value = td.innerHTML;
+          td.colSpan = 4;
           const erlaubteFSK = ['0', '6', '12', '16', '18'];
           if (erlaubteFSK.includes(td.value)) {
             td.innerHTML = '<img src="Scripts/' + td.value + '.png">';
