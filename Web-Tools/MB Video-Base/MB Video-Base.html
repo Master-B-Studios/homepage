@@ -204,11 +204,8 @@
     suchEingabe.id = 'suchEingabe';
     suchEingabe.style.padding = '0.5em';
     suchEingabe.style.width = '100%';
-    suchEingabe.style.maxWidth = '400px';
-    suchEingabe.addEventListener('input', function () {
-      sucheInTabelle(this.value);
-    });
-    
+    suchEingabe.style.maxWidth = '100%';
+    suchEingabe.addEventListener('input', function () {sucheInTabelle(this.value);});
     suchContainer.appendChild(suchEingabe);
     article.insertBefore(suchContainer, document.getElementById('output'));
   }
