@@ -322,44 +322,52 @@
   const age_movie____ = document.getElementById(parsing_id + '_fsk____').value;
   const content_movie = document.getElementById(parsing_id).value;
 
-  // NFO-Datei generieren
-  const link_nfo = document.createElement("A");
-  const filename_nfo = title_movie__ + '.nfo';
+  // Bestätigungs-Dialog
+  const downloadConfirmed = confirm("Möchtest du die NFO-Datei und das Cover herunterladen?");
 
-  const save_content =
-    '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>\n' +
-    '<movie>\n' +
-    '   <title>' + title_movie__ + '</title>\n' +
-    '   <originaltitle>' + title_movie__ + '</originaltitle>\n' +
-    '   <plot>' + content_movie + '</plot>\n' +
-    '   <runtime>' + runtime_movie + '</runtime>\n' +
-    '   <mpaa>' + age_movie____ + '</mpaa>\n' +
-    '   <id>' + number_movie_ + '</id>\n' +
-    '   <uniqueid type="mbdb">' + number_movie_ + '</uniqueid>\n' +
-    '   <year>' + year_movie___ + '</year>\n' +
-    '</movie>\n';
+  if (downloadConfirmed) {
+    // NFO-Datei generieren
+    const link_nfo = document.createElement("A");
+    const filename_nfo = title_movie__ + '.nfo';
 
-  link_nfo.setAttribute("href", "data:text/xml," + encodeURIComponent(save_content));
-  link_nfo.setAttribute("style", "display:none");
-  link_nfo.setAttribute("download", filename_nfo);
-  document.body.appendChild(link_nfo);
-  link_nfo.click();
-  document.body.removeChild(link_nfo);
+    const save_content =
+      '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>\n' +
+      '<movie>\n' +
+      '   <title>' + title_movie__ + '</title>\n' +
+      '   <originaltitle>' + title_movie__ + '</originaltitle>\n' +
+      '   <plot>' + content_movie + '</plot>\n' +
+      '   <runtime>' + runtime_movie + '</runtime>\n' +
+      '   <mpaa>' + age_movie____ + '</mpaa>\n' +
+      '   <id>' + number_movie_ + '</id>\n' +
+      '   <uniqueid type="mbdb">' + number_movie_ + '</uniqueid>\n' +
+      '   <year>' + year_movie___ + '</year>\n' +
+      '</movie>\n';
 
-  // Cover-Datei generieren und herunterladen (falls vorhanden)
-  const coverImage = document.getElementById(parsing_id).querySelector('img');
-  if (coverImage && coverImage.src) {
-    const coverUrl = coverImage.src;  // z.B. 'Cover/0005.jpg'
-    const coverFileName = title_movie__ + '-poster.jpg';  // Neuer Dateiname
+    link_nfo.setAttribute("href", "data:text/xml," + encodeURIComponent(save_content));
+    link_nfo.setAttribute("style", "display:none");
+    link_nfo.setAttribute("download", filename_nfo);
+    document.body.appendChild(link_nfo);
+    link_nfo.click();
+    document.body.removeChild(link_nfo);
 
-    const link_cover = document.createElement("A");
-    link_cover.setAttribute("href", coverUrl);
-    link_cover.setAttribute("download", coverFileName);
-    link_cover.setAttribute("style", "display:none");
-    document.body.appendChild(link_cover);
-    link_cover.click();
-    document.body.removeChild(link_cover);
+    // Cover-Datei generieren und herunterladen (falls vorhanden)
+    const coverImage = document.getElementById(parsing_id).querySelector('img');
+    if (coverImage && coverImage.src) {
+      const coverUrl = coverImage.src;  // z.B. 'Cover/0005.jpg'
+      const coverFileName = title_movie__ + '-poster.jpg';  // Neuer Dateiname
+
+      const link_cover = document.createElement("A");
+      link_cover.setAttribute("href", coverUrl);
+      link_cover.setAttribute("download", coverFileName);
+      link_cover.setAttribute("style", "display:none");
+      document.body.appendChild(link_cover);
+      link_cover.click();
+      document.body.removeChild(link_cover);
+    }
+  } else {
+    alert("Download abgebrochen.");
   }
 }
+
 
 </script>
