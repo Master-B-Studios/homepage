@@ -85,63 +85,41 @@
       const worksheet = workbook.Sheets[sheetName];
       const json = XLSX.utils.sheet_to_json(worksheet);
       current_data = json;
-      renderNavigation();
-      renderTabelleGruppiert(json);
+      load_navigation();
+      load_table_data(json);
     }
     catch (err) {document.getElementById('output').textContent = 'Fehler beim Laden: ' + err.message;}
   }
 
-  function renderNavigation() {
+  function load_navigation() {
     const groups_container = document.createElement('nav');
     groups_container.id = 'group_button_container';
     const group_description = ['Nummer', 'Name', '0-9', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''), 'Zufall'];
-
     group_description.forEach(z => {
       const btn = document.createElement('button');
-
       const group_button_text = document.createElement('span');
       group_button_text.className = 'button_text';
       group_button_text.textContent = z;
-
       const sort_arrow_symbol = document.createElement('span');
       sort_arrow_symbol.className = 'sort_arrow';
       sort_arrow_symbol.textContent = '  ';
-
       btn.appendChild(group_button_text);
       btn.appendChild(sort_arrow_symbol);
-
       btn.onclick = () => {
-        const istSelbeGruppe = current_group === z;
-
+        const same_group = current_group === z;
         if (z === 'Zufall') {
-          //const gemischt = shuffleArray([...current_data]);current_group = 'Zufall';current_sort_direction = 'asc';renderTabelleGruppiert(gemischt, 'Zufall');zeigeGruppe('Zufall');aktualisiereButtonMarkierung();
-          const zufallsFilm = [current_data[Math.floor(Math.random() * current_data.length)]];
-          current_group = 'Zufall';
-          current_sort_direction = 'asc';
-          renderTabelleGruppiert(zufallsFilm, 'Zufall');
-          zeigeGruppe('Zufall');
-          aktualisiereButtonMarkierung();
-        } else {
-          if (istSelbeGruppe) {
-            current_data.reverse();
-            current_sort_direction = current_sort_direction === 'asc' ? 'desc' : 'asc';
-          } else {
-            current_group = z;
-            current_sort_direction = 'asc';
+          const random_movie = [current_data[Math.floor(Math.random() * current_data.length)]];
+          current_group = 'Zufall';current_sort_direction = 'asc';load_table_data(random_movie, 'Zufall');show_group('Zufall');set_group_active();
+        }
+        else {
+          if (same_group) {current_data.reverse();current_sort_direction = current_sort_direction === 'asc' ? 'desc' : 'asc';}
+          else {current_group = z;current_sort_direction = 'asc';
             current_data.sort((a, b) => {
-              if (z === 'Nummer') {
-                const numA = parseInt(a[Object.keys(a)[0]]) || 0;
-                const numB = parseInt(b[Object.keys(b)[0]]) || 0;
-                return numA - numB;
-              } else {
-                const nameA = String(a[Object.keys(a)[1]] ?? '');
-                const nameB = String(b[Object.keys(b)[1]] ?? '');
-                return nameA.localeCompare(nameB, 'de');
-              }
+              if (z === 'Nummer') {const numA = parseInt(a[Object.keys(a)[0]]) || 0;const numB = parseInt(b[Object.keys(b)[0]]) || 0;return numA - numB;}
+              else {const nameA = String(a[Object.keys(a)[1]] ?? '');const nameB = String(b[Object.keys(b)[1]] ?? '');return nameA.localeCompare(nameB, 'de');}
             });
           }
-          renderTabelleGruppiert(current_data, z);
-          aktualisiereButtonMarkierung();
+          load_table_data(current_data, z);set_group_active();
         }
       };
       groups_container.appendChild(btn);
@@ -154,40 +132,32 @@
     setTimeout(() => {
       const buttons = document.querySelectorAll('#group_button_container button');
       let maxWidth = 0;
-      buttons.forEach(btn => {
-        const width = btn.offsetWidth;
-        if (width > maxWidth) maxWidth = width;
-      });
-      buttons.forEach(btn => {
-        btn.style.width = maxWidth + 'px';
-      });
+      buttons.forEach(btn => {const width = btn.offsetWidth;if (width > maxWidth) maxWidth = width;});
+      buttons.forEach(btn => {btn.style.width = maxWidth + 'px';});
     }, 0);
 
     // Suchleiste einfügen
-    const suchContainer = document.createElement('div');
-    suchContainer.id = 'search_container';
-    suchContainer.style.margin = '1em 0';
-    const suchEingabe = document.createElement('input');
-    suchEingabe.type = 'text';
-    suchEingabe.placeholder = 'Suche nach Titel...';
-    suchEingabe.id = 'suchEingabe';
-    suchEingabe.style.padding = '0.5em';
-    suchEingabe.style.width = '100%';
-    suchEingabe.style.maxWidth = '100%';
-    suchEingabe.addEventListener('input', function () {sucheInTabelle(this.value);});
-    suchContainer.appendChild(suchEingabe);
-    article.insertBefore(suchContainer, document.getElementById('output'));
+    const search_container_object = document.createElement('div');
+    search_container_object.id = 'search_container';
+    search_container_object.style.margin = '1em 0';
+    const search_input = document.createElement('input');
+    search_input.type = 'text';
+    search_input.placeholder = 'Suche nach Titel...';
+    search_input.id = 'search_input';
+    search_input.style.padding = '0.5em';
+    search_input.style.width = '100%';
+    search_input.style.maxWidth = '100%';
+    search_input.addEventListener('input', function () {search_in_table_data(this.value);});
+    search_container_object.appendChild(search_input);
+    article.insertBefore(search_container_object, document.getElementById('output'));
   }
 
-  function renderTabelleGruppiert(daten, extraGruppe = null) {
-    const container = document.getElementById('output');
-    container.innerHTML = '';
-
+  function load_table_data(daten, extraGruppe = null) {
+    const container = document.getElementById('output');container.innerHTML = '';
     const gruppen = {
       'Nummer': [], 'Name': [], 'Zufall': [], '0-9': [],
       ...Object.fromEntries('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(c => [c, []]))
     };
-
     for (const eintrag of daten) {
       const name = eintrag[Object.keys(eintrag)[1]] ?? '';
       const ersterBuchstabe = name.charAt(0).toUpperCase();
@@ -226,7 +196,7 @@
     }
   }
 
-  function aktualisiereButtonMarkierung() {
+  function set_group_active() {
     document.querySelectorAll('#group_button_container button').forEach(btn => {
       const group_button_text = btn.querySelector('.button_text');
       const sort_arrow_symbol_span = btn.querySelector('.sort_arrow');
@@ -238,14 +208,14 @@
   }
 
 
-  function zeigeGruppe(gruppe) {
+  function show_group(gruppe) {
     current_group = gruppe;
     document.querySelectorAll('.group_button').forEach(div => {
       div.classList.remove('aktiv');
     });
     const aktiv = document.getElementById('gruppe_' + gruppe);
     if (aktiv) aktiv.classList.add('aktiv');
-    aktualisiereButtonMarkierung();
+    set_group_active();
   }
 
   function shuffleArray(array) {for (let i = array.length - 1; i > 0; i--) {const j = Math.floor(Math.random() * (i + 1));[array[i], array[j]] = [array[j], array[i]];}return array;}
@@ -289,7 +259,7 @@
     table.appendChild(tbody);return table;
   }
 
-  function sucheInTabelle(suchbegriff) {
+  function search_in_table_data(suchbegriff) {
     const gruppe = current_group;
     const divs = document.querySelectorAll('.group_button');
 
