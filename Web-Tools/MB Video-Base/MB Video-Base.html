@@ -31,7 +31,7 @@
 
     #group_button_container {width: 100%;height: auto;margin: auto;display: flex;flex-wrap: wrap;justify-content: space-around;align-items: center;}
     #group_button_container button {padding: 1em;margin: 0.2em;background-color: #222222;color: #dbdbdb;border: none;cursor: pointer;transition: background-color 0.2s;text-align: center;gap: 4px;white-space: nowrap;width: auto;}
-    #group_button_container .sort-arrow {font-size: 0.8em;width: 1.2em;text-align: center;}
+    #group_button_container .sort_arrow {font-size: 0.8em;width: 1.2em;text-align: center;}
     #group_button_container button:hover {background-color: #444444;}
     #group_button_container button.active-group {background-color: #00ff00;color: #000000;font-weight: bold;}
 
@@ -92,23 +92,23 @@
   }
 
   function renderNavigation() {
-    const navContainer = document.createElement('nav');
-    navContainer.id = 'group_button_container';
-    const zeichen = ['Nummer', 'Name', '0-9', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''), 'Zufall'];
+    const groups_container = document.createElement('nav');
+    groups_container.id = 'group_button_container';
+    const group_description = ['Nummer', 'Name', '0-9', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''), 'Zufall'];
 
-    zeichen.forEach(z => {
+    group_description.forEach(z => {
       const btn = document.createElement('button');
 
-      const textSpan = document.createElement('span');
-      textSpan.className = 'button-text';
-      textSpan.textContent = z;
+      const group_button_text = document.createElement('span');
+      group_button_text.className = 'button_text';
+      group_button_text.textContent = z;
 
-      const pfeil = document.createElement('span');
-      pfeil.className = 'sort-arrow';
-      pfeil.textContent = ' ';
+      const sort_arrow_symbol = document.createElement('span');
+      sort_arrow_symbol.className = 'sort_arrow';
+      sort_arrow_symbol.textContent = '  ';
 
-      btn.appendChild(textSpan);
-      btn.appendChild(pfeil);
+      btn.appendChild(group_button_text);
+      btn.appendChild(sort_arrow_symbol);
 
       btn.onclick = () => {
         const istSelbeGruppe = current_group === z;
@@ -144,12 +144,11 @@
           aktualisiereButtonMarkierung();
         }
       };
-
-      navContainer.appendChild(btn);
+      groups_container.appendChild(btn);
     });
 
     const article = document.querySelector('article#mb_video_base');
-    article.insertBefore(navContainer, document.getElementById('output'));
+    article.insertBefore(groups_container, document.getElementById('output'));
 
     // Einheitliche Buttonbreite nach dem Rendern
     setTimeout(() => {
@@ -229,12 +228,12 @@
 
   function aktualisiereButtonMarkierung() {
     document.querySelectorAll('#group_button_container button').forEach(btn => {
-      const textSpan = btn.querySelector('.button-text');
-      const pfeilSpan = btn.querySelector('.sort-arrow');
-      const text = textSpan.textContent;
+      const group_button_text = btn.querySelector('.button_text');
+      const sort_arrow_symbol_span = btn.querySelector('.sort_arrow');
+      const text = group_button_text.textContent;
       btn.classList.remove('active-group');
-      if (text === current_group) {btn.classList.add('active-group');pfeilSpan.textContent = (text === 'Zufall') ? '' : (current_sort_direction === 'asc' ? '▼' : '▲');}
-      else {pfeilSpan.textContent = '  ';}
+      if (text === current_group) {btn.classList.add('active-group');sort_arrow_symbol_span.textContent = (text === 'Zufall') ? '' : (current_sort_direction === 'asc' ? '▼' : '▲');}
+      else {sort_arrow_symbol_span.textContent = '  ';}
     });
   }
 
