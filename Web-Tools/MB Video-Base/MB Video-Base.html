@@ -16,9 +16,9 @@
     .header_number_, .header_name___, .header_year___, .header_runtime, .header_fsk____ {width: 16%;height: 4em;}
     .header_cover__ {width: 20%;height: 4em;}
 
-    .table_number_ {width: 16%;height: auto;text-align: center;vertical-align: middle;background-color: #222222;}
     .table_name___ {width: 16%;height: auto;text-align: left;vertical-align: middle;background-color: #222222;padding: 1em;}
-    .table_year___ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
+    .table_year___ {width: 16%;height: auto;text-align: center;vertical-align: middle;background-color: #222222;}
+    .table_number_ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
     .table_runtime {width: 16%;height: auto;text-align: center;vertical-align: middle;}
     .table_fsk____ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
     .table_fsk____ img {width: 100%;height: auto;}
@@ -301,7 +301,7 @@
           td.className = 'table_number_';
           td.id = movie_id + '_number_';
           td.value = td.innerHTML;
-          td.innerHTML = '# ' + td.innerHTML;
+          td.innerHTML = 'Jahr:<br>' + td.innerHTML;
           tr2.appendChild(td);
         } else if (j == 1) {
           td.className = 'table_name___';
@@ -314,7 +314,7 @@
           td.id = movie_id + '_year___';
           td.value = td.innerHTML;
           //td.colSpan = 2;
-          td.innerHTML = 'Jahr:<br>' + td.innerHTML;
+          td.innerHTML = td.innerHTML;
           tr1.appendChild(td);
         } else if (j == 3) {
           td.className = 'table_runtime';
