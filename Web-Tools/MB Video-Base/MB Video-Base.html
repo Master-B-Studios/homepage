@@ -138,11 +138,17 @@
         const istSelbeGruppe = aktuelleGruppe === z;
 
         if (z === 'Zufall') {
-          const gemischt = shuffleArray([...aktuelleDaten]);
+          //const gemischt = shuffleArray([...aktuelleDaten]);
+          //aktuelleGruppe = 'Zufall';
+          //aktuelleRichtung = 'asc';
+          //renderTabelleGruppiert(gemischt, 'Zufall');
+          //zeigeGruppe('Zufall');
+          //aktualisiereButtonMarkierung();
+
+          const zufallsFilm = [aktuelleDaten[Math.floor(Math.random() * aktuelleDaten.length)]];
           aktuelleGruppe = 'Zufall';
           aktuelleRichtung = 'asc';
-          renderTabelleGruppiert(gemischt, 'Zufall'); // <-- wichtig!
-          zeigeGruppe('Zufall');                     // <-- damit "Zufall" auch aktiv wird
+          renderTabelleGruppiert(zufallsFilm, 'Zufall');
           aktualisiereButtonMarkierung();
         } else {
           if (istSelbeGruppe) {
