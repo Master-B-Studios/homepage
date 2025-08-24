@@ -281,11 +281,12 @@
     btn.classList.remove('active-group');
 
     if (text === 'Zufall') {
+      btn.classList.add('active-group');
       // Pfeil komplett ausblenden bei Zufall
       pfeilSpan.textContent = '';
     } else if (text === aktuelleGruppe) {
       btn.classList.add('active-group');
-      pfeilSpan.textContent = aktuelleRichtung === 'asc' ? '▲' : '▼';
+      pfeilSpan.textContent = aktuelleRichtung === 'asc' ? '▼' : '▲';
     } else {
       pfeilSpan.textContent = ' '; // Leerzeichen für gleiche Breite
     }
