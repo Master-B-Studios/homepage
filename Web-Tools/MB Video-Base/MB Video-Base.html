@@ -274,15 +274,12 @@
       const key = keys[i];
       const th = document.createElement('th');
       th.innerHTML = key;
-      if (i == 0) th.className = 'header_number_';
-      else if (i == 1) th.className = 'header_name___';
-      else if (i == 2) th.className = 'header_year___';
-      else if (i == 3) th.className = 'header_runtime';
-      else if (i == 4) th.className = 'header_fsk____';
-      else if (i == 5) {
-        th.className = 'header_cover__';
-        th.innerHTML = '';
-      }
+      if (i == 0) {th.className = 'header_number_';}
+      else if (i == 1) {th.className = 'header_name___';}
+      else if (i == 2) {th.className = 'header_year___';}
+      else if (i == 3) {th.className = 'header_runtime';}
+      else if (i == 4) {th.className = 'header_fsk____';}
+      else if (i == 5) {th.className = 'header_cover__';th.innerHTML = '';}
       headerRow.appendChild(th);
     }
 
@@ -300,12 +297,12 @@
         td.innerHTML = row[key] ?? '';
 
         if (j == 0) {
-          movie_id = td.innerHTML;
-          td.className = 'table_number_';
-          td.id = movie_id + '_number_';
+          td.className = 'table_year___';
+          td.id = movie_id + '_year___';
           td.value = td.innerHTML;
-          td.innerHTML = '# ' + td.innerHTML;
-          tr1.appendChild(td);
+          //td.colSpan = 2;
+          td.innerHTML = td.innerHTML;
+          tr2.appendChild(td);
         } else if (j == 1) {
           td.className = 'table_name___';
           td.id = movie_id + '_name___';
@@ -313,12 +310,12 @@
           td.colSpan = 5;
           tr1.appendChild(td);
         } else if (j == 2) {
-          td.className = 'table_year___';
-          td.id = movie_id + '_year___';
+          movie_id = td.innerHTML;
+          td.className = 'table_number_';
+          td.id = movie_id + '_number_';
           td.value = td.innerHTML;
-          //td.colSpan = 2;
-          td.innerHTML = 'Jahr:<br>' + td.innerHTML;
-          tr2.appendChild(td);
+          td.innerHTML = 'Nummer:<br>' + td.innerHTML;
+          tr1.appendChild(td);
         } else if (j == 3) {
           td.className = 'table_runtime';
           td.id = movie_id + '_runtime';
