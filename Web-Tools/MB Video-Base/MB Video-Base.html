@@ -35,9 +35,9 @@
     #group_button_container button:hover {background-color: #444444;}
     #group_button_container button.active-group {background-color: #00ff00;color: #000000;font-weight: bold;}
 
-    #such-container {text-align: center;}
-    #such-container input {font-size: 1em;outline-color: none;background-color: #222222;color: #dbdbdb;border: none;}
-    #such-container input:focus {outline: none;box-shadow: none;}
+    #search_container {text-align: center;}
+    #search_container input {font-size: 1em;outline-color: none;background-color: #222222;color: #dbdbdb;border: none;}
+    #search_container input:focus {outline: none;box-shadow: none;}
 </style>
 </head>
 <body onload="window.location.href = '#mb_video_base';load_moviebase();" class="is-preload">
@@ -166,7 +166,7 @@
 
     // Suchleiste einfügen
     const suchContainer = document.createElement('div');
-    suchContainer.id = 'such-container';
+    suchContainer.id = 'search_container';
     suchContainer.style.margin = '1em 0';
     const suchEingabe = document.createElement('input');
     suchEingabe.type = 'text';
