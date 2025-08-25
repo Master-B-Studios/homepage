@@ -131,7 +131,6 @@
     const article = document.querySelector('article#mb_movie_base');
     article.insertBefore(groups_container, document.getElementById('output'));
 
-    // Einheitliche Buttonbreite nach dem Rendern
     setTimeout(() => {
       const buttons = document.querySelectorAll('#group_button_container button');
       let maxWidth = 0;
@@ -139,7 +138,6 @@
       buttons.forEach(btn => {btn.style.width = maxWidth + 'px';});
     }, 0);
 
-    // Suchleiste einfügen
     const search_container_object = document.createElement('div');
     search_container_object.id = 'search_container';
     search_container_object.style.margin = '1em 0';
@@ -155,37 +153,37 @@
     article.insertBefore(search_container_object, document.getElementById('output'));
   }
 
-  function load_table_data(daten, extraGruppe = null) {
+  function load_table_data(data, group_extra = null) {
     const container = document.getElementById('output');container.innerHTML = '';
-    const gruppen = {
+    const groups = {
       'Nummer': [], 'Name': [], 'Zufall': [], '0-9': [],
       ...Object.fromEntries('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(c => [c, []]))
     };
-    for (const eintrag of daten) {
-      const name = eintrag[Object.keys(eintrag)[1]] ?? '';
-      const ersterBuchstabe = name.charAt(0).toUpperCase();
-      gruppen['Name'].push(eintrag);
-      gruppen['Zufall'].push(eintrag);
-      gruppen['Nummer'].push(eintrag);
-      if (/[0-9]/.test(ersterBuchstabe)) {gruppen['0-9'].push(eintrag);}
-      else if (gruppen[ersterBuchstabe]) {gruppen[ersterBuchstabe].push(eintrag);}
+    for (const entry of data) {
+      const name = entry[Object.keys(entry)[1]] ?? '';
+      const letter_1 = name.charAt(0).toUpperCase();
+      groups['Name'].push(entry);
+      groups['Zufall'].push(entry);
+      groups['Nummer'].push(entry);
+      if (/[0-9]/.test(letter_1)) {groups['0-9'].push(entry);}
+      else if (groups[letter_1]) {groups[letter_1].push(entry);}
     }
 
-    for (const gruppe in gruppen) {
+    for (const group_single in groups) {
       const groupDiv = document.createElement('div');
-      groupDiv.id = 'gruppe_' + gruppe;
+      groupDiv.id = 'group_single_' + group_single;
       groupDiv.className = 'group_button';
-      if (gruppe === (extraGruppe || 'Name')) groupDiv.classList.add('aktiv');
-      let daten = gruppen[gruppe];
-      if (gruppe === 'Nummer') {
-        daten.sort((a, b) => {
+      if (group_single === (group_extra || 'Name')) groupDiv.classList.add('aktiv');
+      let data = groups[group_single];
+      if (group_single === 'Nummer') {
+        data.sort((a, b) => {
           const numA = parseInt(a[Object.keys(a)[0]]) || 0;
           const numB = parseInt(b[Object.keys(b)[0]]) || 0;
           return current_sort_direction === 'asc' ? numA - numB : numB - numA;
         });
       }
-      else if (gruppe !== 'Zufall') {
-        daten.sort((a, b) => {
+      else if (group_single !== 'Zufall') {
+        data.sort((a, b) => {
           const nameA = String(a[Object.keys(a)[1]] ?? '');
           const nameB = String(b[Object.keys(b)[1]] ?? '');
           return current_sort_direction === 'asc'
@@ -193,7 +191,7 @@
             : nameB.localeCompare(nameA, 'de');
         });
       }
-      if (daten.length > 0) {const table = generiereTabelle(daten);groupDiv.appendChild(table);}
+      if (data.length > 0) {const table = generiereTabelle(data);groupDiv.appendChild(table);}
       else {groupDiv.innerHTML = '<p>Keine Einträge gefunden...</p>';}
       container.appendChild(groupDiv);
     }
@@ -210,214 +208,123 @@
     });
   }
 
-
-  function show_group(gruppe) {
-    current_group = gruppe;
-    document.querySelectorAll('.group_button').forEach(div => {
-      div.classList.remove('aktiv');
-    });
-    const aktiv = document.getElementById('gruppe_' + gruppe);
+  function show_group(group_single) {
+    current_group = group_single;
+    document.querySelectorAll('.group_button').forEach(div => {div.classList.remove('aktiv');});
+    const aktiv = document.getElementById('group_single_' + group_single);
     if (aktiv) aktiv.classList.add('aktiv');
     set_group_active();
   }
 
   function shuffleArray(array) {for (let i = array.length - 1; i > 0; i--) {const j = Math.floor(Math.random() * (i + 1));[array[i], array[j]] = [array[j], array[i]];}return array;}
 
-  function generiereTabelle(daten) {
-  const table = document.createElement('table');
-  const thead = document.createElement('thead');
-  const headerRow = document.createElement('tr');
-
-  const keys = Object.keys(daten[0]);
-
-  for (let i = 0; i < keys.length; i++) {
-    const key = keys[i];
-    const th = document.createElement('th');
-    th.innerHTML = key;
-    if (i == 0) th.className = 'header_number_';
-    else if (i == 1) th.className = 'header_name___';
-    else if (i == 2) th.className = 'header_year___';
-    else if (i == 3) th.className = 'header_runtime';
-    else if (i == 4) th.className = 'header_fsk____';
-    else if (i == 5) {
-      th.className = 'header_cover__';
-      th.innerHTML = '';
+  function generiereTabelle(data) {
+    const table = document.createElement('table');
+    const thead = document.createElement('thead');
+    const headerRow = document.createElement('tr');
+    const keys = Object.keys(data[0]);
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];const th = document.createElement('th');th.innerHTML = key;
+      if (i == 0) {th.className = 'header_number_';}
+      else if (i == 1) {th.className = 'header_name___';}
+      else if (i == 2) {th.className = 'header_year___';}
+      else if (i == 3) {th.className = 'header_runtime';}
+      else if (i == 4) {th.className = 'header_fsk____';}
+      else if (i == 5) {th.className = 'header_cover__';th.innerHTML = '';}
+      headerRow.appendChild(th);
     }
-    headerRow.appendChild(th);
+    thead.appendChild(headerRow);table.appendChild(thead);
+    for (let i = 0; i < data.length; i++) {
+      const row = data[i];
+      const wrapper = document.createElement('tbody');wrapper.className = 'movie_entry_wrapper';
+      const tr1 = document.createElement('tr');tr1.className = 'movie_row_1';
+      const tr2 = document.createElement('tr');tr2.className = 'movie_row_2';
+      let movie_id = '';
+      for (let j = 0; j < keys.length; j++) {
+        const key = keys[j];const td = document.createElement('td');td.innerHTML = row[key] ?? '';
+        if (j == 0) {movie_id = td.innerHTML;td.className = 'table_number_';td.id = movie_id + '_number_';td.value = td.innerHTML;td.innerHTML = 'Nummer:<br>' + td.innerHTML;tr2.appendChild(td);}
+        else if (j == 1) {td.className = 'table_name___';td.id = movie_id + '_name___';td.value = td.innerHTML;td.colSpan = 5;tr1.appendChild(td);}
+        else if (j == 2) {td.className = 'table_year___';td.id = movie_id + '_year___';td.value = td.innerHTML;tr1.appendChild(td);}
+        else if (j == 3) {td.className = 'table_runtime';td.id = movie_id + '_runtime';td.value = td.innerHTML;td.innerHTML += '<br>Minuten';tr2.appendChild(td);}
+        else if (j == 4) {td.className = 'table_fsk____';td.id = movie_id + '_fsk____';td.value = td.innerHTML;td.colSpan = 3;td.innerHTML = '<img src="Scripts/' + td.value + '.png" loading="lazy">';tr2.appendChild(td);}
+        else if (j == 5) {td.className = 'table_poster_';td.id = movie_id;td.value = td.innerHTML;td.innerHTML = '<img src="Cover/' + movie_id + '.jpg" loading="lazy">';td.addEventListener('click', function () {download_nfo(this);});tr2.appendChild(td);}
+      }
+      wrapper.appendChild(tr1);wrapper.appendChild(tr2);
+      if (i < data.length - 1) {
+        const spacer = document.createElement('tr');
+        const spacerCell = document.createElement('td');
+        spacerCell.colSpan = keys.length;
+        spacerCell.style.height = '1em';
+        spacerCell.style.padding = '0';
+        spacerCell.style.border = 'none';
+        spacer.appendChild(spacerCell);
+        wrapper.appendChild(spacer);
+      }
+      table.appendChild(wrapper);
+    }
+    return table;
   }
-
-  thead.appendChild(headerRow);
-  table.appendChild(thead);
-
-  for (let i = 0; i < daten.length; i++) {
-    const row = daten[i];
-
-    // Neuen Wrapper für diesen Filmeintrag erstellen
-    const wrapper = document.createElement('tbody');
-    wrapper.className = 'movie_entry_wrapper';
-
-    const tr1 = document.createElement('tr');
-    tr1.className = 'movie_row_1';
-    const tr2 = document.createElement('tr');
-    tr2.className = 'movie_row_2';
-
-    let movie_id = '';
-
-    for (let j = 0; j < keys.length; j++) {
-      const key = keys[j];
-      const td = document.createElement('td');
-      td.innerHTML = row[key] ?? '';
-
-      if (j == 0) {
-        movie_id = td.innerHTML;
-        td.className = 'table_number_';
-        td.id = movie_id + '_number_';
-        td.value = td.innerHTML;
-        td.innerHTML = 'Nummer:<br>' + td.innerHTML;
-        tr2.appendChild(td);
-      }
-      else if (j == 1) {
-        td.className = 'table_name___';
-        td.id = movie_id + '_name___';
-        td.value = td.innerHTML;
-        td.colSpan = 5;
-        tr1.appendChild(td);
-      }
-      else if (j == 2) {
-        td.className = 'table_year___';
-        td.id = movie_id + '_year___';
-        td.value = td.innerHTML;
-        tr1.appendChild(td);
-      }
-      else if (j == 3) {
-        td.className = 'table_runtime';
-        td.id = movie_id + '_runtime';
-        td.value = td.innerHTML;
-        td.innerHTML += '<br>Minuten';
-        tr2.appendChild(td);
-      }
-      else if (j == 4) {
-        td.className = 'table_fsk____';
-        td.id = movie_id + '_fsk____';
-        td.value = td.innerHTML;
-        td.colSpan = 3;
-        td.innerHTML = '<img src="Scripts/' + td.value + '.png" loading="lazy">';
-        tr2.appendChild(td);
-      }
-      else if (j == 5) {
-        td.className = 'table_poster_';
-        td.id = movie_id;
-        td.value = td.innerHTML;
-        td.innerHTML = '<img src="Cover/' + movie_id + '.jpg" loading="lazy">';
-        td.addEventListener('click', function () {
-          download_nfo(this);
-        });
-        tr2.appendChild(td);
-      }
-    }
-
-    // Beide Zeilen dem Wrapper hinzufügen
-    wrapper.appendChild(tr1);
-    wrapper.appendChild(tr2);
-
-    // Abstand nach jedem Eintrag (außer dem letzten)
-    if (i < daten.length - 1) {
-      const spacer = document.createElement('tr');
-      const spacerCell = document.createElement('td');
-      spacerCell.colSpan = keys.length;
-      spacerCell.style.height = '1em';
-      spacerCell.style.padding = '0';
-      spacerCell.style.border = 'none';
-      spacer.appendChild(spacerCell);
-      wrapper.appendChild(spacer);
-    }
-
-    // Wrapper zum Table hinzufügen
-    table.appendChild(wrapper);
-  }
-
-  return table;
-}
 
   function search_in_table_data(suchbegriff) {
-  const gruppe = current_group;
-  const divs = document.querySelectorAll('.group_button');
-
-  // Alle Gruppen inaktiv setzen
-  divs.forEach(div => div.classList.remove('aktiv'));
-
-  const gruppeDiv = document.getElementById('gruppe_' + gruppe);
-  if (!gruppeDiv) return;
-
-  gruppeDiv.classList.add('aktiv');
-
-  // Alle movie_entry_wrapper durchgehen
-  const eintraege = gruppeDiv.querySelectorAll('tbody.movie_entry_wrapper');
-  const begriff = suchbegriff.toLowerCase();
-
-  eintraege.forEach(wrapper => {
-    const inhalt = wrapper.textContent.toLowerCase();
-    const sichtbar = begriff === '' || inhalt.includes(begriff);
-    wrapper.style.display = sichtbar ? '' : 'none';
-  });
-}
-
+    const group_single = current_group;
+    const divs = document.querySelectorAll('.group_button');
+    divs.forEach(div => div.classList.remove('aktiv'));
+    const group_div = document.getElementById('group_single_' + group_single);
+    if (!group_div) return;
+    group_div.classList.add('aktiv');
+    const eintraege = group_div.querySelectorAll('tbody.movie_entry_wrapper');
+    const begriff = suchbegriff.toLowerCase();
+    eintraege.forEach(wrapper => {
+      const inhalt = wrapper.textContent.toLowerCase();
+      const sichtbar = begriff === '' || inhalt.includes(begriff);
+      wrapper.style.display = sichtbar ? '' : 'none';
+    });
+  }
 
   function download_nfo(obj) {
-  const parsing_id = obj.id;
-  const title_movie__ = document.getElementById(parsing_id + '_name___').value;
-  const number_movie_ = document.getElementById(parsing_id + '_number_').value;
-  const runtime_movie = document.getElementById(parsing_id + '_runtime').value;
-  const year_movie___ = document.getElementById(parsing_id + '_year___').value;
-  const age_movie____ = document.getElementById(parsing_id + '_fsk____').value;
-  const content_movie = document.getElementById(parsing_id).value;
-
-  // Bestätigungs-Dialog
-  const downloadConfirmed = confirm("Möchtest du die NFO-Datei und das Cover herunterladen?");
-
-  if (downloadConfirmed) {
-    // NFO-Datei generieren
-    const link_nfo = document.createElement("A");
-    const filename_nfo = title_movie__ + '.nfo';
-
-    const save_content =
-      '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>\n' +
-      '<movie>\n' +
-      '   <title>' + title_movie__ + '</title>\n' +
-      '   <originaltitle>' + title_movie__ + '</originaltitle>\n' +
-      '   <plot>' + content_movie + '</plot>\n' +
-      '   <runtime>' + runtime_movie + '</runtime>\n' +
-      '   <mpaa>' + age_movie____ + '</mpaa>\n' +
-      '   <id>' + number_movie_ + '</id>\n' +
-      '   <uniqueid type="mbdb">' + number_movie_ + '</uniqueid>\n' +
-      '   <year>' + year_movie___ + '</year>\n' +
-      '</movie>\n';
-
-    link_nfo.setAttribute("href", "data:text/xml," + encodeURIComponent(save_content));
-    link_nfo.setAttribute("style", "display:none");
-    link_nfo.setAttribute("download", filename_nfo);
-    document.body.appendChild(link_nfo);
-    link_nfo.click();
-    document.body.removeChild(link_nfo);
-
-    // Cover-Datei generieren und herunterladen (falls vorhanden)
-    const coverImage = document.getElementById(parsing_id).querySelector('img');
-    if (coverImage && coverImage.src) {
-      const coverUrl = coverImage.src;  // z.B. 'Cover/0005.jpg'
-      const coverFileName = title_movie__ + '-poster.jpg';  // Neuer Dateiname
-
-      const link_cover = document.createElement("A");
-      link_cover.setAttribute("href", coverUrl);
-      link_cover.setAttribute("download", coverFileName);
-      link_cover.setAttribute("style", "display:none");
-      document.body.appendChild(link_cover);
-      link_cover.click();
-      document.body.removeChild(link_cover);
-    }
-  } else {
-    alert("Download abgebrochen.");
+    const parsing_id = obj.id;
+    const title_movie__ = document.getElementById(parsing_id + '_name___').value;
+    const number_movie_ = document.getElementById(parsing_id + '_number_').value;
+    const runtime_movie = document.getElementById(parsing_id + '_runtime').value;
+    const year_movie___ = document.getElementById(parsing_id + '_year___').value;
+    const age_movie____ = document.getElementById(parsing_id + '_fsk____').value;
+    const content_movie = document.getElementById(parsing_id).value;
+    const downloadConfirmed = confirm("Möchtest du die NFO-Datei und das Cover herunterladen?");
+    if (downloadConfirmed) {
+      const link_nfo = document.createElement("A");
+      const filename_nfo = title_movie__ + '.nfo';
+      const save_content =
+        '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>\n' +
+        '<movie>\n' +
+        '   <title>' + title_movie__ + '</title>\n' +
+        '   <originaltitle>' + title_movie__ + '</originaltitle>\n' +
+        '   <plot>' + content_movie + '</plot>\n' +
+        '   <runtime>' + runtime_movie + '</runtime>\n' +
+        '   <mpaa>' + age_movie____ + '</mpaa>\n' +
+        '   <id>' + number_movie_ + '</id>\n' +
+        '   <uniqueid type="mbdb">' + number_movie_ + '</uniqueid>\n' +
+        '   <year>' + year_movie___ + '</year>\n' +
+        '</movie>\n';
+        
+      link_nfo.setAttribute("href", "data:text/xml," + encodeURIComponent(save_content));
+      link_nfo.setAttribute("style", "display:none");
+      link_nfo.setAttribute("download", filename_nfo);
+      document.body.appendChild(link_nfo);
+      link_nfo.click();
+      document.body.removeChild(link_nfo);
+      
+      const coverImage = document.getElementById(parsing_id).querySelector('img');
+      if (coverImage && coverImage.src) {
+        const coverUrl = coverImage.src;
+        const coverFileName = title_movie__ + '-poster.jpg';
+        const link_cover = document.createElement("A");
+        link_cover.setAttribute("href", coverUrl);
+        link_cover.setAttribute("download", coverFileName);
+        link_cover.setAttribute("style", "display:none");
+        document.body.appendChild(link_cover);
+        link_cover.click();
+        document.body.removeChild(link_cover);
+      }
+    } else {alert("Download abgebrochen.");}
   }
-}
-
-
 </script>

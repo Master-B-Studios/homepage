@@ -16,8 +16,8 @@
     .header_number_, .header_name___, .header_year___, .header_runtime, .header_fsk____ {width: 16%;height: 4em;}
     .header_cover__ {width: 20%;height: 4em;}
 
-    .movie_row_1 {background-color: #222222;border: 2px solid #222222;}
-    .movie_row_2 {border: 2px solid #222222;margin-bottom: 1em;}
+    .movie_row_1 {background-color: #222222;border: 4px solid #222222;}
+    .movie_row_2 {border: 4px solid #222222;}
 
     .table_name___ {width: 16%;height: auto;text-align: left;vertical-align: middle;padding: 1em;}
     .table_year___ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
@@ -26,8 +26,8 @@
     .table_fsk____ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
     .table_fsk____ img {width: 100%;height: auto;}
     .table_content {width: 16%;height: auto;text-align: justify;overflow: hidden;text-overflow: ellipsis;display: none;}
-    .table_poster_ {width: 20%;height: auto;}
-    .table_poster_ img {width: 100%;height: auto;}
+    .table_poster_ {width: 20%;height: 100%;vertical-align: middle;}
+    .table_poster_ img {display: block;width: 100%;height: 100%;object-fit: contain;padding: 4px;}
 
     .group_button {display: none;}
     .group_button.aktiv {display: block;}
@@ -131,7 +131,6 @@
     const article = document.querySelector('article#mb_movie_base');
     article.insertBefore(groups_container, document.getElementById('output'));
 
-    // Einheitliche Buttonbreite nach dem Rendern
     setTimeout(() => {
       const buttons = document.querySelectorAll('#group_button_container button');
       let maxWidth = 0;
@@ -139,7 +138,6 @@
       buttons.forEach(btn => {btn.style.width = maxWidth + 'px';});
     }, 0);
 
-    // Suchleiste einfügen
     const search_container_object = document.createElement('div');
     search_container_object.id = 'search_container';
     search_container_object.style.margin = '1em 0';
@@ -210,12 +208,9 @@
     });
   }
 
-
   function show_group(gruppe) {
     current_group = gruppe;
-    document.querySelectorAll('.group_button').forEach(div => {
-      div.classList.remove('aktiv');
-    });
+    document.querySelectorAll('.group_button').forEach(div => {div.classList.remove('aktiv');});
     const aktiv = document.getElementById('gruppe_' + gruppe);
     if (aktiv) aktiv.classList.add('aktiv');
     set_group_active();
@@ -225,15 +220,11 @@
 
   function generiereTabelle(daten) {
     const table = document.createElement('table');
-    const tbody = document.createElement('tbody');
     const thead = document.createElement('thead');
     const headerRow = document.createElement('tr');
-
     const keys = Object.keys(daten[0]);
     for (let i = 0; i < keys.length; i++) {
-      const key = keys[i];
-      const th = document.createElement('th');
-      th.innerHTML = key;
+      const key = keys[i];const th = document.createElement('th');th.innerHTML = key;
       if (i == 0) {th.className = 'header_number_';}
       else if (i == 1) {th.className = 'header_name___';}
       else if (i == 2) {th.className = 'header_year___';}
@@ -242,11 +233,10 @@
       else if (i == 5) {th.className = 'header_cover__';th.innerHTML = '';}
       headerRow.appendChild(th);
     }
-
-    thead.appendChild(headerRow);
-    table.appendChild(thead);
-
-    for (const row of daten) {
+    thead.appendChild(headerRow);table.appendChild(thead);
+    for (let i = 0; i < daten.length; i++) {
+      const row = daten[i];
+      const wrapper = document.createElement('tbody');wrapper.className = 'movie_entry_wrapper';
       const tr1 = document.createElement('tr');tr1.className = 'movie_row_1';
       const tr2 = document.createElement('tr');tr2.className = 'movie_row_2';
       let movie_id = '';
@@ -254,94 +244,87 @@
         const key = keys[j];const td = document.createElement('td');td.innerHTML = row[key] ?? '';
         if (j == 0) {movie_id = td.innerHTML;td.className = 'table_number_';td.id = movie_id + '_number_';td.value = td.innerHTML;td.innerHTML = 'Nummer:<br>' + td.innerHTML;tr2.appendChild(td);}
         else if (j == 1) {td.className = 'table_name___';td.id = movie_id + '_name___';td.value = td.innerHTML;td.colSpan = 5;tr1.appendChild(td);}
-        else if (j == 2) {td.className = 'table_year___';td.id = movie_id + '_year___';td.value = td.innerHTML;td.innerHTML = td.innerHTML;tr1.appendChild(td);}
-        else if (j == 3) {td.className = 'table_runtime';td.id = movie_id + '_runtime';td.value = td.innerHTML;td.innerHTML = td.innerHTML + '<br>Minuten';tr2.appendChild(td);}
-        else if (j == 4) {td.className = 'table_fsk____';td.id = movie_id + '_fsk____';td.value = td.innerHTML;td.colSpan = 3;td.innerHTML = '<img src="Scripts/' + td.value + '.png">';tr2.appendChild(td);}
-        else if (j == 5) {td.className = 'table_poster_';td.id = movie_id;td.value = td.innerHTML;td.innerHTML = '<img src="Cover/' + movie_id + '.jpg">';td.addEventListener('click', function () {download_nfo(this);});tr2.appendChild(td);}
+        else if (j == 2) {td.className = 'table_year___';td.id = movie_id + '_year___';td.value = td.innerHTML;tr1.appendChild(td);}
+        else if (j == 3) {td.className = 'table_runtime';td.id = movie_id + '_runtime';td.value = td.innerHTML;td.innerHTML += '<br>Minuten';tr2.appendChild(td);}
+        else if (j == 4) {td.className = 'table_fsk____';td.id = movie_id + '_fsk____';td.value = td.innerHTML;td.colSpan = 3;td.innerHTML = '<img src="Scripts/' + td.value + '.png" loading="lazy">';tr2.appendChild(td);}
+        else if (j == 5) {td.className = 'table_poster_';td.id = movie_id;td.value = td.innerHTML;td.innerHTML = '<img src="Cover/' + movie_id + '.jpg" loading="lazy">';td.addEventListener('click', function () {download_nfo(this);});tr2.appendChild(td);}
       }
-      tbody.appendChild(tr1);tbody.appendChild(tr2);
+      wrapper.appendChild(tr1);wrapper.appendChild(tr2);
+      if (i < daten.length - 1) {
+        const spacer = document.createElement('tr');
+        const spacerCell = document.createElement('td');
+        spacerCell.colSpan = keys.length;
+        spacerCell.style.height = '1em';
+        spacerCell.style.padding = '0';
+        spacerCell.style.border = 'none';
+        spacer.appendChild(spacerCell);
+        wrapper.appendChild(spacer);
+      }
+      table.appendChild(wrapper);
     }
-    table.appendChild(tbody);return table;
+    return table;
   }
 
   function search_in_table_data(suchbegriff) {
     const gruppe = current_group;
     const divs = document.querySelectorAll('.group_button');
-
-    // Alle Gruppen verstecken
     divs.forEach(div => div.classList.remove('aktiv'));
     const gruppeDiv = document.getElementById('gruppe_' + gruppe);
     if (!gruppeDiv) return;
     gruppeDiv.classList.add('aktiv');
-    const zeilen = gruppeDiv.querySelectorAll('tbody tr');
+    const eintraege = gruppeDiv.querySelectorAll('tbody.movie_entry_wrapper');
     const begriff = suchbegriff.toLowerCase();
-    
-    // Zeilen paarweise (2 pro Eintrag) behandeln
-    for (let i = 0; i < zeilen.length; i += 2) {
-      const zeile1 = zeilen[i];
-      const zeile2 = zeilen[i + 1];
-      const inhalt = zeile1.textContent.toLowerCase() + zeile2.textContent.toLowerCase();
+    eintraege.forEach(wrapper => {
+      const inhalt = wrapper.textContent.toLowerCase();
       const sichtbar = begriff === '' || inhalt.includes(begriff);
-      zeile1.style.display = sichtbar ? '' : 'none';
-      zeile2.style.display = sichtbar ? '' : 'none';
-    }
+      wrapper.style.display = sichtbar ? '' : 'none';
+    });
   }
 
   function download_nfo(obj) {
-  const parsing_id = obj.id;
-  const title_movie__ = document.getElementById(parsing_id + '_name___').value;
-  const number_movie_ = document.getElementById(parsing_id + '_number_').value;
-  const runtime_movie = document.getElementById(parsing_id + '_runtime').value;
-  const year_movie___ = document.getElementById(parsing_id + '_year___').value;
-  const age_movie____ = document.getElementById(parsing_id + '_fsk____').value;
-  const content_movie = document.getElementById(parsing_id).value;
-
-  // Bestätigungs-Dialog
-  const downloadConfirmed = confirm("Möchtest du die NFO-Datei und das Cover herunterladen?");
-
-  if (downloadConfirmed) {
-    // NFO-Datei generieren
-    const link_nfo = document.createElement("A");
-    const filename_nfo = title_movie__ + '.nfo';
-
-    const save_content =
-      '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>\n' +
-      '<movie>\n' +
-      '   <title>' + title_movie__ + '</title>\n' +
-      '   <originaltitle>' + title_movie__ + '</originaltitle>\n' +
-      '   <plot>' + content_movie + '</plot>\n' +
-      '   <runtime>' + runtime_movie + '</runtime>\n' +
-      '   <mpaa>' + age_movie____ + '</mpaa>\n' +
-      '   <id>' + number_movie_ + '</id>\n' +
-      '   <uniqueid type="mbdb">' + number_movie_ + '</uniqueid>\n' +
-      '   <year>' + year_movie___ + '</year>\n' +
-      '</movie>\n';
-
-    link_nfo.setAttribute("href", "data:text/xml," + encodeURIComponent(save_content));
-    link_nfo.setAttribute("style", "display:none");
-    link_nfo.setAttribute("download", filename_nfo);
-    document.body.appendChild(link_nfo);
-    link_nfo.click();
-    document.body.removeChild(link_nfo);
-
-    // Cover-Datei generieren und herunterladen (falls vorhanden)
-    const coverImage = document.getElementById(parsing_id).querySelector('img');
-    if (coverImage && coverImage.src) {
-      const coverUrl = coverImage.src;  // z.B. 'Cover/0005.jpg'
-      const coverFileName = title_movie__ + '-poster.jpg';  // Neuer Dateiname
-
-      const link_cover = document.createElement("A");
-      link_cover.setAttribute("href", coverUrl);
-      link_cover.setAttribute("download", coverFileName);
-      link_cover.setAttribute("style", "display:none");
-      document.body.appendChild(link_cover);
-      link_cover.click();
-      document.body.removeChild(link_cover);
-    }
-  } else {
-    alert("Download abgebrochen.");
+    const parsing_id = obj.id;
+    const title_movie__ = document.getElementById(parsing_id + '_name___').value;
+    const number_movie_ = document.getElementById(parsing_id + '_number_').value;
+    const runtime_movie = document.getElementById(parsing_id + '_runtime').value;
+    const year_movie___ = document.getElementById(parsing_id + '_year___').value;
+    const age_movie____ = document.getElementById(parsing_id + '_fsk____').value;
+    const content_movie = document.getElementById(parsing_id).value;
+    const downloadConfirmed = confirm("Möchtest du die NFO-Datei und das Cover herunterladen?");
+    if (downloadConfirmed) {
+      const link_nfo = document.createElement("A");
+      const filename_nfo = title_movie__ + '.nfo';
+      const save_content =
+        '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>\n' +
+        '<movie>\n' +
+        '   <title>' + title_movie__ + '</title>\n' +
+        '   <originaltitle>' + title_movie__ + '</originaltitle>\n' +
+        '   <plot>' + content_movie + '</plot>\n' +
+        '   <runtime>' + runtime_movie + '</runtime>\n' +
+        '   <mpaa>' + age_movie____ + '</mpaa>\n' +
+        '   <id>' + number_movie_ + '</id>\n' +
+        '   <uniqueid type="mbdb">' + number_movie_ + '</uniqueid>\n' +
+        '   <year>' + year_movie___ + '</year>\n' +
+        '</movie>\n';
+        
+      link_nfo.setAttribute("href", "data:text/xml," + encodeURIComponent(save_content));
+      link_nfo.setAttribute("style", "display:none");
+      link_nfo.setAttribute("download", filename_nfo);
+      document.body.appendChild(link_nfo);
+      link_nfo.click();
+      document.body.removeChild(link_nfo);
+      
+      const coverImage = document.getElementById(parsing_id).querySelector('img');
+      if (coverImage && coverImage.src) {
+        const coverUrl = coverImage.src;
+        const coverFileName = title_movie__ + '-poster.jpg';
+        const link_cover = document.createElement("A");
+        link_cover.setAttribute("href", coverUrl);
+        link_cover.setAttribute("download", coverFileName);
+        link_cover.setAttribute("style", "display:none");
+        document.body.appendChild(link_cover);
+        link_cover.click();
+        document.body.removeChild(link_cover);
+      }
+    } else {alert("Download abgebrochen.");}
   }
-}
-
-
 </script>
