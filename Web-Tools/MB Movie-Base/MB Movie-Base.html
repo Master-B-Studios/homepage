@@ -16,14 +16,17 @@
     .header_number_, .header_name___, .header_year___, .header_runtime, .header_fsk____ {width: 16%;height: 4em;}
     .header_cover__ {width: 20%;height: 4em;}
 
-    .table_name___ {width: 16%;height: auto;text-align: left;vertical-align: middle;background-color: #222222;padding: 1em;}
-    .table_year___ {width: 16%;height: auto;text-align: center;vertical-align: middle;background-color: #222222;}
-    .table_number_ {width: 16%;height: auto;text-align: center;vertical-align: middle;border: 0 0 2px 2px solid #222222;}
-    .table_runtime {width: 16%;height: auto;text-align: center;vertical-align: middle;border: 0 0 2px 0 solid #222222;}
-    .table_fsk____ {width: 16%;height: auto;text-align: center;vertical-align: middle;border: 0 0 2px 0 solid #222222;}
+    .movie_row_1 {background-color: #222222;}
+    .movie_row_2 {border: 0 2px 2px 2px solid #222222;}
+
+    .table_name___ {width: 16%;height: auto;text-align: left;vertical-align: middle;padding: 1em;}
+    .table_year___ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
+    .table_number_ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
+    .table_runtime {width: 16%;height: auto;text-align: center;vertical-align: middle;}
+    .table_fsk____ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
     .table_fsk____ img {width: 100%;height: auto;}
     .table_content {width: 16%;height: auto;text-align: justify;overflow: hidden;text-overflow: ellipsis;display: none;}
-    .table_poster_ {width: 20%;height: auto;border: 0 2px 2px 0 solid #222222;}
+    .table_poster_ {width: 20%;height: auto;}
     .table_poster_ img {width: 100%;height: auto;}
 
     .group_button {display: none;}
@@ -244,7 +247,9 @@
     table.appendChild(thead);
 
     for (const row of daten) {
-      const tr1 = document.createElement('tr');const tr2 = document.createElement('tr');let movie_id = '';
+      const tr1 = document.createElement('tr');tr1.className = 'movie_row_1';
+      const tr2 = document.createElement('tr');tr2.className = 'movie_row_2';
+      let movie_id = '';
       for (let j = 0; j < keys.length; j++) {
         const key = keys[j];const td = document.createElement('td');td.innerHTML = row[key] ?? '';
         if (j == 0) {movie_id = td.innerHTML;td.className = 'table_number_';td.id = movie_id + '_number_';td.value = td.innerHTML;td.innerHTML = 'Nummer:<br>' + td.innerHTML;tr2.appendChild(td);}
