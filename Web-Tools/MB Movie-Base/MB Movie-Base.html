@@ -296,14 +296,14 @@
         td.id = movie_id + '_fsk____';
         td.value = td.innerHTML;
         td.colSpan = 3;
-        td.innerHTML = '<img src="Scripts/' + td.value + '.png">';
+        td.innerHTML = '<img src="Scripts/' + td.value + '.png" loading="lazy">';
         tr2.appendChild(td);
       }
       else if (j == 5) {
         td.className = 'table_poster_';
         td.id = movie_id;
         td.value = td.innerHTML;
-        td.innerHTML = '<img src="Cover/' + movie_id + '.jpg">';
+        td.innerHTML = '<img src="Cover/' + movie_id + '.jpg" loading="lazy">';
         td.addEventListener('click', function () {
           download_nfo(this);
         });
