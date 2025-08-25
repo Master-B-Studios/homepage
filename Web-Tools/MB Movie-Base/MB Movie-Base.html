@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>MB Video-Base</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+  <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
+  <link rel="stylesheet" href="../../assets/css/main.css"></link>
+  <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+  <script src="Scripts/xlsx.full.min.js"></script>
+  <style>
+    tbody {width: 100%;height: auto;}
+    tr {width: 100%;height: auto;}
+    thead {display: none;} /* Verstecke den ursprünglichen Sortierungs-Header */
+
+    .header_number_, .header_name___, .header_year___, .header_runtime, .header_fsk____ {width: 16%;height: 4em;}
+    .header_cover__ {width: 20%;height: 4em;}
+
+    .table_name___ {width: 16%;height: auto;text-align: left;vertical-align: middle;background-color: #222222;padding: 1em;}
+    .table_year___ {width: 16%;height: auto;text-align: center;vertical-align: middle;background-color: #222222;}
+    .table_number_ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
+    .table_runtime {width: 16%;height: auto;text-align: center;vertical-align: middle;}
+    .table_fsk____ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
+    .table_fsk____ img {width: 100%;height: auto;}
+    .table_content {width: 16%;height: auto;text-align: justify;overflow: hidden;text-overflow: ellipsis;display: none;}
+    .table_poster_ {width: 20%;height: auto;}
+    .table_poster_ img {width: 100%;height: auto;}
+
+    .group_button {display: none;}
+    .group_button.aktiv {display: block;}
+
+    #group_button_container {width: 100%;height: auto;margin: auto;display: flex;flex-wrap: wrap;justify-content: space-around;align-items: center;}
+    #group_button_container button {padding: 1em;margin: 0.2em;background-color: #222222;color: #dbdbdb;border: none;cursor: pointer;transition: background-color 0.2s;text-align: center;gap: 4px;white-space: nowrap;width: auto;}
+    #group_button_container .sort_arrow {font-size: 0.8em;width: 1.2em;text-align: center;}
+    #group_button_container button:hover {background-color: #444444;}
+    #group_button_container button.active-group {background-color: #00ff00;color: #000000;font-weight: bold;}
+
+    #search_container {text-align: center;}
+    #search_container input {font-size: 1em;outline-color: none;background-color: #222222;color: #dbdbdb;border: none;}
+    #search_container input:focus {outline: none;box-shadow: none;}
+</style>
+</head>
+<body onload="window.location.href = '#mb_video_base';load_moviebase();" class="is-preload">
+  <div id="wrapper">
+    
+    <nav id="nav">
+      <a href="../../index.html"><img class="mb_icon" src="../../images/MB_Icon_02.png"></img><span>Home</span></a>
+      <a href="../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
+      <a href="../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
+	  <a href="../../Games/games.html"><img class="mb_icon" src="../../images/Games_Icon_01.png"></img><span>Games</span></a>
+      <a href="#mb_video_base"><img class="mb_icon" src="icon_01.png"></img><span>MB Video-Base</span></a>
+    </nav>
+    
+    <div id="main">
+      <article id="mb_video_base" class="panel">
+        <header><h2>MB Video-Base</h2></header>
+        <div id="output"></div>
+      </article>
+    </div>
+
+    <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
+
+  </div>
+</body>
+
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/browser.min.js"></script>
+<script src="../../assets/js/breakpoints.min.js"></script>
+<script src="../../assets/js/util.js"></script>
+<script src="../../assets/js/main.js"></script>
+<script>
+  let current_data = [];
+  let current_sort = {};
+  let current_group = 'Name';
+  let current_sort_direction = 'asc';
+
+  async function load_moviebase() {
+    try {
+      const response = await fetch('MB Video-Base.xlsx');
+      if (!response.ok) throw new Error('Datei konnte nicht geladen werden');
+      const arrayBuffer = await response.arrayBuffer();
+      const data = new Uint8Array(arrayBuffer);
+      const workbook = XLSX.read(data, { type: 'array' });
+      const sheetName = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[sheetName];
+      const json = XLSX.utils.sheet_to_json(worksheet);
+      current_data = json;
+      load_navigation();
+      load_table_data(json);
+    }
+    catch (err) {document.getElementById('output').textContent = 'Fehler beim Laden: ' + err.message;}
+  }
+
+  function load_navigation() {
+    const groups_container = document.createElement('nav');
+    groups_container.id = 'group_button_container';
+    const group_description = ['Nummer', 'Name', '0-9', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''), 'Zufall'];
+    group_description.forEach(z => {
+      const btn = document.createElement('button');
+      const group_button_text = document.createElement('span');
+      group_button_text.className = 'button_text';
+      group_button_text.textContent = z;
+      const sort_arrow_symbol = document.createElement('span');
+      sort_arrow_symbol.className = 'sort_arrow';
+      sort_arrow_symbol.textContent = '  ';
+      btn.appendChild(group_button_text);
+      btn.appendChild(sort_arrow_symbol);
+      btn.onclick = () => {
+        const same_group = current_group === z;
+        if (z === 'Zufall') {
+          const random_movie = [current_data[Math.floor(Math.random() * current_data.length)]];
+          current_group = 'Zufall';current_sort_direction = 'asc';load_table_data(random_movie, 'Zufall');show_group('Zufall');set_group_active();
+        }
+        else {
+          if (same_group) {current_data.reverse();current_sort_direction = current_sort_direction === 'asc' ? 'desc' : 'asc';}
+          else {current_group = z;current_sort_direction = 'asc';
+            current_data.sort((a, b) => {
+              if (z === 'Nummer') {const numA = parseInt(a[Object.keys(a)[0]]) || 0;const numB = parseInt(b[Object.keys(b)[0]]) || 0;return numA - numB;}
+              else {const nameA = String(a[Object.keys(a)[1]] ?? '');const nameB = String(b[Object.keys(b)[1]] ?? '');return nameA.localeCompare(nameB, 'de');}
+            });
+          }
+          load_table_data(current_data, z);set_group_active();
+        }
+      };
+      groups_container.appendChild(btn);
+    });
+
+    const article = document.querySelector('article#mb_video_base');
+    article.insertBefore(groups_container, document.getElementById('output'));
+
+    // Einheitliche Buttonbreite nach dem Rendern
+    setTimeout(() => {
+      const buttons = document.querySelectorAll('#group_button_container button');
+      let maxWidth = 0;
+      buttons.forEach(btn => {const width = btn.offsetWidth;if (width > maxWidth) maxWidth = width;});
+      buttons.forEach(btn => {btn.style.width = maxWidth + 'px';});
+    }, 0);
+
+    // Suchleiste einfügen
+    const search_container_object = document.createElement('div');
+    search_container_object.id = 'search_container';
+    search_container_object.style.margin = '1em 0';
+    const search_input = document.createElement('input');
+    search_input.type = 'text';
+    search_input.placeholder = 'Suche nach Titel...';
+    search_input.id = 'search_input';
+    search_input.style.padding = '0.5em';
+    search_input.style.width = '100%';
+    search_input.style.maxWidth = '100%';
+    search_input.addEventListener('input', function () {search_in_table_data(this.value);});
+    search_container_object.appendChild(search_input);
+    article.insertBefore(search_container_object, document.getElementById('output'));
+  }
+
+  function load_table_data(daten, extraGruppe = null) {
+    const container = document.getElementById('output');container.innerHTML = '';
+    const gruppen = {
+      'Nummer': [], 'Name': [], 'Zufall': [], '0-9': [],
+      ...Object.fromEntries('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(c => [c, []]))
+    };
+    for (const eintrag of daten) {
+      const name = eintrag[Object.keys(eintrag)[1]] ?? '';
+      const ersterBuchstabe = name.charAt(0).toUpperCase();
+      gruppen['Name'].push(eintrag);
+      gruppen['Zufall'].push(eintrag);
+      gruppen['Nummer'].push(eintrag);
+      if (/[0-9]/.test(ersterBuchstabe)) {gruppen['0-9'].push(eintrag);}
+      else if (gruppen[ersterBuchstabe]) {gruppen[ersterBuchstabe].push(eintrag);}
+    }
+
+    for (const gruppe in gruppen) {
+      const groupDiv = document.createElement('div');
+      groupDiv.id = 'gruppe_' + gruppe;
+      groupDiv.className = 'group_button';
+      if (gruppe === (extraGruppe || 'Name')) groupDiv.classList.add('aktiv');
+      let daten = gruppen[gruppe];
+      if (gruppe === 'Nummer') {
+        daten.sort((a, b) => {
+          const numA = parseInt(a[Object.keys(a)[0]]) || 0;
+          const numB = parseInt(b[Object.keys(b)[0]]) || 0;
+          return current_sort_direction === 'asc' ? numA - numB : numB - numA;
+        });
+      }
+      else if (gruppe !== 'Zufall') {
+        daten.sort((a, b) => {
+          const nameA = String(a[Object.keys(a)[1]] ?? '');
+          const nameB = String(b[Object.keys(b)[1]] ?? '');
+          return current_sort_direction === 'asc'
+            ? nameA.localeCompare(nameB, 'de')
+            : nameB.localeCompare(nameA, 'de');
+        });
+      }
+      if (daten.length > 0) {const table = generiereTabelle(daten);groupDiv.appendChild(table);}
+      else {groupDiv.innerHTML = '<p>Keine Einträge gefunden...</p>';}
+      container.appendChild(groupDiv);
+    }
+  }
+
+  function set_group_active() {
+    document.querySelectorAll('#group_button_container button').forEach(btn => {
+      const group_button_text = btn.querySelector('.button_text');
+      const sort_arrow_symbol_span = btn.querySelector('.sort_arrow');
+      const text = group_button_text.textContent;
+      btn.classList.remove('active-group');
+      if (text === current_group) {btn.classList.add('active-group');sort_arrow_symbol_span.textContent = (text === 'Zufall') ? '' : (current_sort_direction === 'asc' ? '▼' : '▲');}
+      else {sort_arrow_symbol_span.textContent = '  ';}
+    });
+  }
+
+
+  function show_group(gruppe) {
+    current_group = gruppe;
+    document.querySelectorAll('.group_button').forEach(div => {
+      div.classList.remove('aktiv');
+    });
+    const aktiv = document.getElementById('gruppe_' + gruppe);
+    if (aktiv) aktiv.classList.add('aktiv');
+    set_group_active();
+  }
+
+  function shuffleArray(array) {for (let i = array.length - 1; i > 0; i--) {const j = Math.floor(Math.random() * (i + 1));[array[i], array[j]] = [array[j], array[i]];}return array;}
+
+  function generiereTabelle(daten) {
+    const table = document.createElement('table');
+    const tbody = document.createElement('tbody');
+    const thead = document.createElement('thead');
+    const headerRow = document.createElement('tr');
+
+    const keys = Object.keys(daten[0]);
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      const th = document.createElement('th');
+      th.innerHTML = key;
+      if (i == 0) {th.className = 'header_number_';}
+      else if (i == 1) {th.className = 'header_name___';}
+      else if (i == 2) {th.className = 'header_year___';}
+      else if (i == 3) {th.className = 'header_runtime';}
+      else if (i == 4) {th.className = 'header_fsk____';}
+      else if (i == 5) {th.className = 'header_cover__';th.innerHTML = '';}
+      headerRow.appendChild(th);
+    }
+
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    for (const row of daten) {
+      const tr1 = document.createElement('tr');const tr2 = document.createElement('tr');let movie_id = '';
+      for (let j = 0; j < keys.length; j++) {
+        const key = keys[j];const td = document.createElement('td');td.innerHTML = row[key] ?? '';
+        if (j == 0) {movie_id = td.innerHTML;td.className = 'table_number_';td.id = movie_id + '_number_';td.value = td.innerHTML;td.innerHTML = 'Nummer:<br>' + td.innerHTML;tr2.appendChild(td);}
+        else if (j == 1) {td.className = 'table_name___';td.id = movie_id + '_name___';td.value = td.innerHTML;td.colSpan = 5;tr1.appendChild(td);}
+        else if (j == 2) {td.className = 'table_year___';td.id = movie_id + '_year___';td.value = td.innerHTML;td.innerHTML = td.innerHTML;tr1.appendChild(td);}
+        else if (j == 3) {td.className = 'table_runtime';td.id = movie_id + '_runtime';td.value = td.innerHTML;td.innerHTML = td.innerHTML + '<br>Minuten';tr2.appendChild(td);}
+        else if (j == 4) {td.className = 'table_fsk____';td.id = movie_id + '_fsk____';td.value = td.innerHTML;td.colSpan = 3;td.innerHTML = '<img src="Scripts/' + td.value + '.png">';tr2.appendChild(td);}
+        else if (j == 5) {td.className = 'table_poster_';td.id = movie_id;td.value = td.innerHTML;td.innerHTML = '<img src="Cover/' + movie_id + '.jpg">';td.addEventListener('click', function () {download_nfo(this);});tr2.appendChild(td);}
+      }
+      tbody.appendChild(tr1);tbody.appendChild(tr2);
+    }
+    table.appendChild(tbody);return table;
+  }
+
+  function search_in_table_data(suchbegriff) {
+    const gruppe = current_group;
+    const divs = document.querySelectorAll('.group_button');
+
+    // Alle Gruppen verstecken
+    divs.forEach(div => div.classList.remove('aktiv'));
+    const gruppeDiv = document.getElementById('gruppe_' + gruppe);
+    if (!gruppeDiv) return;
+    gruppeDiv.classList.add('aktiv');
+    const zeilen = gruppeDiv.querySelectorAll('tbody tr');
+    const begriff = suchbegriff.toLowerCase();
+    
+    // Zeilen paarweise (2 pro Eintrag) behandeln
+    for (let i = 0; i < zeilen.length; i += 2) {
+      const zeile1 = zeilen[i];
+      const zeile2 = zeilen[i + 1];
+      const inhalt = zeile1.textContent.toLowerCase() + zeile2.textContent.toLowerCase();
+      const sichtbar = begriff === '' || inhalt.includes(begriff);
+      zeile1.style.display = sichtbar ? '' : 'none';
+      zeile2.style.display = sichtbar ? '' : 'none';
+    }
+  }
+
+  function download_nfo(obj) {
+  const parsing_id = obj.id;
+  const title_movie__ = document.getElementById(parsing_id + '_name___').value;
+  const number_movie_ = document.getElementById(parsing_id + '_number_').value;
+  const runtime_movie = document.getElementById(parsing_id + '_runtime').value;
+  const year_movie___ = document.getElementById(parsing_id + '_year___').value;
+  const age_movie____ = document.getElementById(parsing_id + '_fsk____').value;
+  const content_movie = document.getElementById(parsing_id).value;
+
+  // Bestätigungs-Dialog
+  const downloadConfirmed = confirm("Möchtest du die NFO-Datei und das Cover herunterladen?");
+
+  if (downloadConfirmed) {
+    // NFO-Datei generieren
+    const link_nfo = document.createElement("A");
+    const filename_nfo = title_movie__ + '.nfo';
+
+    const save_content =
+      '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>\n' +
+      '<movie>\n' +
+      '   <title>' + title_movie__ + '</title>\n' +
+      '   <originaltitle>' + title_movie__ + '</originaltitle>\n' +
+      '   <plot>' + content_movie + '</plot>\n' +
+      '   <runtime>' + runtime_movie + '</runtime>\n' +
+      '   <mpaa>' + age_movie____ + '</mpaa>\n' +
+      '   <id>' + number_movie_ + '</id>\n' +
+      '   <uniqueid type="mbdb">' + number_movie_ + '</uniqueid>\n' +
+      '   <year>' + year_movie___ + '</year>\n' +
+      '</movie>\n';
+
+    link_nfo.setAttribute("href", "data:text/xml," + encodeURIComponent(save_content));
+    link_nfo.setAttribute("style", "display:none");
+    link_nfo.setAttribute("download", filename_nfo);
+    document.body.appendChild(link_nfo);
+    link_nfo.click();
+    document.body.removeChild(link_nfo);
+
+    // Cover-Datei generieren und herunterladen (falls vorhanden)
+    const coverImage = document.getElementById(parsing_id).querySelector('img');
+    if (coverImage && coverImage.src) {
+      const coverUrl = coverImage.src;  // z.B. 'Cover/0005.jpg'
+      const coverFileName = title_movie__ + '-poster.jpg';  // Neuer Dateiname
+
+      const link_cover = document.createElement("A");
+      link_cover.setAttribute("href", coverUrl);
+      link_cover.setAttribute("download", coverFileName);
+      link_cover.setAttribute("style", "display:none");
+      document.body.appendChild(link_cover);
+      link_cover.click();
+      document.body.removeChild(link_cover);
+    }
+  } else {
+    alert("Download abgebrochen.");
+  }
+}
+
+
+</script>
