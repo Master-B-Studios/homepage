@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>MB Video-Base</title>
+  <title>MB Movie-Base</title>
   <meta charset="utf-8"></meta>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
   <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
@@ -16,8 +16,11 @@
     .header_number_, .header_name___, .header_year___, .header_runtime, .header_fsk____ {width: 16%;height: 4em;}
     .header_cover__ {width: 20%;height: 4em;}
 
-    .table_name___ {width: 16%;height: auto;text-align: left;vertical-align: middle;background-color: #222222;padding: 1em;}
-    .table_year___ {width: 16%;height: auto;text-align: center;vertical-align: middle;background-color: #222222;}
+    .movie_row_1 {background-color: #222222;border: 2px solid #222222;}
+    .movie_row_2 {border: 2px solid #222222;margin-bottom: 1em;}
+
+    .table_name___ {width: 16%;height: auto;text-align: left;vertical-align: middle;padding: 1em;}
+    .table_year___ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
     .table_number_ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
     .table_runtime {width: 16%;height: auto;text-align: center;vertical-align: middle;}
     .table_fsk____ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
@@ -40,7 +43,7 @@
     #search_container input:focus {outline: none;box-shadow: none;}
 </style>
 </head>
-<body onload="window.location.href = '#mb_video_base';load_moviebase();" class="is-preload">
+<body onload="window.location.href = '#mb_movie_base';load_moviebase();" class="is-preload">
   <div id="wrapper">
     
     <nav id="nav">
@@ -48,12 +51,12 @@
       <a href="../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
       <a href="../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
 	  <a href="../../Games/games.html"><img class="mb_icon" src="../../images/Games_Icon_01.png"></img><span>Games</span></a>
-      <a href="#mb_video_base"><img class="mb_icon" src="icon_01.png"></img><span>MB Video-Base</span></a>
+      <a href="#mb_movie_base"><img class="mb_icon" src="icon_01.png"></img><span>MB Video-Base</span></a>
     </nav>
     
     <div id="main">
-      <article id="mb_video_base" class="panel">
-        <header><h2>MB Video-Base</h2></header>
+      <article id="mb_movie_base" class="panel">
+        <header><h2>MB Movie-Base</h2></header>
         <div id="output"></div>
       </article>
     </div>
@@ -125,7 +128,7 @@
       groups_container.appendChild(btn);
     });
 
-    const article = document.querySelector('article#mb_video_base');
+    const article = document.querySelector('article#mb_movie_base');
     article.insertBefore(groups_container, document.getElementById('output'));
 
     // Einheitliche Buttonbreite nach dem Rendern
@@ -244,7 +247,9 @@
     table.appendChild(thead);
 
     for (const row of daten) {
-      const tr1 = document.createElement('tr');const tr2 = document.createElement('tr');let movie_id = '';
+      const tr1 = document.createElement('tr');tr1.className = 'movie_row_1';
+      const tr2 = document.createElement('tr');tr2.className = 'movie_row_2';
+      let movie_id = '';
       for (let j = 0; j < keys.length; j++) {
         const key = keys[j];const td = document.createElement('td');td.innerHTML = row[key] ?? '';
         if (j == 0) {movie_id = td.innerHTML;td.className = 'table_number_';td.id = movie_id + '_number_';td.value = td.innerHTML;td.innerHTML = 'Nummer:<br>' + td.innerHTML;tr2.appendChild(td);}

@@ -260,6 +260,14 @@
         else if (j == 5) {td.className = 'table_poster_';td.id = movie_id;td.value = td.innerHTML;td.innerHTML = '<img src="Cover/' + movie_id + '.jpg">';td.addEventListener('click', function () {download_nfo(this);});tr2.appendChild(td);}
       }
       tbody.appendChild(tr1);tbody.appendChild(tr2);
+      if (i < daten.length - 1) {
+      const spacer = document.createElement('tr');
+      const spacerCell = document.createElement('td');
+      spacerCell.colSpan = keys.length;
+      spacerCell.style.height = '1em';
+      spacer.appendChild(spacerCell);
+      tbody.appendChild(spacer);
+      }
     }
     table.appendChild(tbody);return table;
   }
