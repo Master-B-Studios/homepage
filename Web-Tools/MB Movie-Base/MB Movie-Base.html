@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>MB Video-Base</title>
+  <title>MB Movie-Base</title>
   <meta charset="utf-8"></meta>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
   <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
@@ -40,7 +40,7 @@
     #search_container input:focus {outline: none;box-shadow: none;}
 </style>
 </head>
-<body onload="window.location.href = '#mb_video_base';load_moviebase();" class="is-preload">
+<body onload="window.location.href = '#mb_movie_base';load_moviebase();" class="is-preload">
   <div id="wrapper">
     
     <nav id="nav">
@@ -48,12 +48,12 @@
       <a href="../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
       <a href="../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
 	  <a href="../../Games/games.html"><img class="mb_icon" src="../../images/Games_Icon_01.png"></img><span>Games</span></a>
-      <a href="#mb_video_base"><img class="mb_icon" src="icon_01.png"></img><span>MB Video-Base</span></a>
+      <a href="#mb_movie_base"><img class="mb_icon" src="icon_01.png"></img><span>MB Video-Base</span></a>
     </nav>
     
     <div id="main">
-      <article id="mb_video_base" class="panel">
-        <header><h2>MB Video-Base</h2></header>
+      <article id="mb_movie_base" class="panel">
+        <header><h2>MB Movie-Base</h2></header>
         <div id="output"></div>
       </article>
     </div>
@@ -125,7 +125,7 @@
       groups_container.appendChild(btn);
     });
 
-    const article = document.querySelector('article#mb_video_base');
+    const article = document.querySelector('article#mb_movie_base');
     article.insertBefore(groups_container, document.getElementById('output'));
 
     // Einheitliche Buttonbreite nach dem Rendern
