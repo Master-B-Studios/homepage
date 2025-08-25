@@ -51,7 +51,7 @@
       <a href="../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
       <a href="../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
 	  <a href="../../Games/games.html"><img class="mb_icon" src="../../images/Games_Icon_01.png"></img><span>Games</span></a>
-      <a href="#mb_movie_base"><img class="mb_icon" src="icon_01.png"></img><span>MB Video-Base</span></a>
+      <a href="#mb_movie_base"><img class="mb_icon" src="icon_01.png"></img><span>Movie-Base</span></a>
     </nav>
     
     <div id="main">
@@ -173,7 +173,7 @@
       const groupDiv = document.createElement('div');
       groupDiv.id = 'group_single_' + group_single;
       groupDiv.className = 'group_button';
-      if (group_single === (group_extra || 'Name')) groupDiv.classList.add('aktiv');
+      if (group_single === (group_extra || 'Name')) {groupDiv.classList.add('aktiv');}
       let data = groups[group_single];
       if (group_single === 'Nummer') {
         data.sort((a, b) => {
@@ -252,12 +252,12 @@
       wrapper.appendChild(tr1);wrapper.appendChild(tr2);
       if (i < data.length - 1) {
         const spacer = document.createElement('tr');
-        const spacerCell = document.createElement('td');
-        spacerCell.colSpan = keys.length;
-        spacerCell.style.height = '1em';
-        spacerCell.style.padding = '0';
-        spacerCell.style.border = 'none';
-        spacer.appendChild(spacerCell);
+        const spacer_cell = document.createElement('td');
+        spacer_cell.colSpan = keys.length;
+        spacer_cell.style.height = '1em';
+        spacer_cell.style.padding = '0';
+        spacer_cell.style.border = 'none';
+        spacer.appendChild(spacer_cell);
         wrapper.appendChild(spacer);
       }
       table.appendChild(wrapper);
@@ -265,18 +265,18 @@
     return table;
   }
 
-  function search_in_table_data(suchbegriff) {
+  function search_in_table_data(search_index) {
     const group_single = current_group;
     const divs = document.querySelectorAll('.group_button');
     divs.forEach(div => div.classList.remove('aktiv'));
     const group_div = document.getElementById('group_single_' + group_single);
     if (!group_div) return;
     group_div.classList.add('aktiv');
-    const eintraege = group_div.querySelectorAll('tbody.movie_entry_wrapper');
-    const begriff = suchbegriff.toLowerCase();
-    eintraege.forEach(wrapper => {
+    const entrys = group_div.querySelectorAll('tbody.movie_entry_wrapper');
+    const search_word = search_index.toLowerCase();
+    entrys.forEach(wrapper => {
       const inhalt = wrapper.textContent.toLowerCase();
-      const sichtbar = begriff === '' || inhalt.includes(begriff);
+      const sichtbar = search_word === '' || inhalt.includes(search_word);
       wrapper.style.display = sichtbar ? '' : 'none';
     });
   }
@@ -289,7 +289,7 @@
     const year_movie___ = document.getElementById(parsing_id + '_year___').value;
     const age_movie____ = document.getElementById(parsing_id + '_fsk____').value;
     const content_movie = document.getElementById(parsing_id).value;
-    const downloadConfirmed = confirm("Möchtest du die NFO-Datei und das Cover herunterladen?");
+    const downloadConfirmed = confirm("NFO-Datei und Cover herunterladen?");
     if (downloadConfirmed) {
       const link_nfo = document.createElement("A");
       const filename_nfo = title_movie__ + '.nfo';
@@ -313,18 +313,19 @@
       link_nfo.click();
       document.body.removeChild(link_nfo);
       
-      const coverImage = document.getElementById(parsing_id).querySelector('img');
-      if (coverImage && coverImage.src) {
-        const coverUrl = coverImage.src;
-        const coverFileName = title_movie__ + '-poster.jpg';
+      const cover_image = document.getElementById(parsing_id).querySelector('img');
+      if (cover_image && cover_image.src) {
+        const cover_url = cover_image.src;
+        const cover_filename = title_movie__ + '-poster.jpg';
         const link_cover = document.createElement("A");
-        link_cover.setAttribute("href", coverUrl);
-        link_cover.setAttribute("download", coverFileName);
+        link_cover.setAttribute("href", cover_url);
+        link_cover.setAttribute("download", cover_filename);
         link_cover.setAttribute("style", "display:none");
         document.body.appendChild(link_cover);
         link_cover.click();
         document.body.removeChild(link_cover);
       }
-    } else {alert("Download abgebrochen.");}
+    }
+    // else {alert("Download abgebrochen...");}
   }
 </script>
