@@ -225,11 +225,11 @@
 
   function generiereTabelle(daten) {
   const table = document.createElement('table');
-  const tbody = document.createElement('tbody');
   const thead = document.createElement('thead');
   const headerRow = document.createElement('tr');
 
   const keys = Object.keys(daten[0]);
+
   for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
     const th = document.createElement('th');
@@ -251,6 +251,11 @@
 
   for (let i = 0; i < daten.length; i++) {
     const row = daten[i];
+
+    // Neuen Wrapper für diesen Filmeintrag erstellen
+    const wrapper = document.createElement('tbody');
+    wrapper.className = 'movie_entry_wrapper';
+
     const tr1 = document.createElement('tr');
     tr1.className = 'movie_row_1';
     const tr2 = document.createElement('tr');
@@ -311,10 +316,11 @@
       }
     }
 
-    tbody.appendChild(tr1);
-    tbody.appendChild(tr2);
+    // Beide Zeilen dem Wrapper hinzufügen
+    wrapper.appendChild(tr1);
+    wrapper.appendChild(tr2);
 
-    // Abstand nach jedem Eintrag außer dem letzten
+    // Abstand nach jedem Eintrag (außer dem letzten)
     if (i < daten.length - 1) {
       const spacer = document.createElement('tr');
       const spacerCell = document.createElement('td');
@@ -323,37 +329,39 @@
       spacerCell.style.padding = '0';
       spacerCell.style.border = 'none';
       spacer.appendChild(spacerCell);
-      tbody.appendChild(spacer);
+      wrapper.appendChild(spacer);
     }
+
+    // Wrapper zum Table hinzufügen
+    table.appendChild(wrapper);
   }
 
-  table.appendChild(tbody);
   return table;
 }
 
-
   function search_in_table_data(suchbegriff) {
-    const gruppe = current_group;
-    const divs = document.querySelectorAll('.group_button');
+  const gruppe = current_group;
+  const divs = document.querySelectorAll('.group_button');
 
-    // Alle Gruppen verstecken
-    divs.forEach(div => div.classList.remove('aktiv'));
-    const gruppeDiv = document.getElementById('gruppe_' + gruppe);
-    if (!gruppeDiv) return;
-    gruppeDiv.classList.add('aktiv');
-    const zeilen = gruppeDiv.querySelectorAll('tbody tr');
-    const begriff = suchbegriff.toLowerCase();
-    
-    // Zeilen paarweise (2 pro Eintrag) behandeln
-    for (let i = 0; i < zeilen.length; i += 2) {
-      const zeile1 = zeilen[i];
-      const zeile2 = zeilen[i + 1];
-      const inhalt = zeile1.textContent.toLowerCase() + zeile2.textContent.toLowerCase();
-      const sichtbar = begriff === '' || inhalt.includes(begriff);
-      zeile1.style.display = sichtbar ? '' : 'none';
-      zeile2.style.display = sichtbar ? '' : 'none';
-    }
-  }
+  // Alle Gruppen inaktiv setzen
+  divs.forEach(div => div.classList.remove('aktiv'));
+
+  const gruppeDiv = document.getElementById('gruppe_' + gruppe);
+  if (!gruppeDiv) return;
+
+  gruppeDiv.classList.add('aktiv');
+
+  // Alle movie_entry_wrapper durchgehen
+  const eintraege = gruppeDiv.querySelectorAll('tbody.movie_entry_wrapper');
+  const begriff = suchbegriff.toLowerCase();
+
+  eintraege.forEach(wrapper => {
+    const inhalt = wrapper.textContent.toLowerCase();
+    const sichtbar = begriff === '' || inhalt.includes(begriff);
+    wrapper.style.display = sichtbar ? '' : 'none';
+  });
+}
+
 
   function download_nfo(obj) {
   const parsing_id = obj.id;
