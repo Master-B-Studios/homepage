@@ -79,7 +79,7 @@
 
   async function load_moviebase() {
     try {
-      const response = await fetch('MB Video-Base.xlsx');
+      const response = await fetch('MB Movie-Base.xlsx');
       if (!response.ok) throw new Error('Datei konnte nicht geladen werden');
       const arrayBuffer = await response.arrayBuffer();
       const data = new Uint8Array(arrayBuffer);
