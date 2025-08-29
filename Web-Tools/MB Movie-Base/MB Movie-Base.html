@@ -282,14 +282,14 @@
   }
 
   function download_nfo(obj) {
-    const parsing_id = obj.id;
-    const title_movie__ = document.getElementById(parsing_id + '_name___').value;
-    const number_movie_ = document.getElementById(parsing_id + '_number_').value;
-    const runtime_movie = document.getElementById(parsing_id + '_runtime').value;
-    const year_movie___ = document.getElementById(parsing_id + '_year___').value;
-    const age_movie____ = document.getElementById(parsing_id + '_fsk____').value;
-    const content_movie = document.getElementById(parsing_id).value;
-    const downloadConfirmed = confirm("NFO-Datei und Cover herunterladen?");
+    let parsing_id = obj.id;
+    let title_movie__ = document.getElementById(parsing_id + '_name___').value;
+    let number_movie_ = document.getElementById(parsing_id + '_number_').value;
+    let runtime_movie = document.getElementById(parsing_id + '_runtime').value;
+    let year_movie___ = document.getElementById(parsing_id + '_year___').value;
+    let age_movie____ = document.getElementById(parsing_id + '_fsk____').value;
+    let content_movie = document.getElementById(parsing_id).value;
+    let downloadConfirmed = confirm("NFO-Datei und Cover herunterladen?");
     if (downloadConfirmed) {
       content_movie = content_movie.replace(/&amp;/gi, '&');
       title_movie__ = title_movie.replace(/&amp;/gi, '&');
