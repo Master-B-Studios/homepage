@@ -292,7 +292,7 @@
     let downloadConfirmed = confirm("NFO-Datei und Cover herunterladen?");
     if (downloadConfirmed) {
       content_movie = content_movie.replace(/&amp;/gi, '&');
-      title_movie__ = title_movie.replace(/&amp;/gi, '&');
+      title_movie__ = title_movie__.replace(/&amp;/gi, '&');
       const link_nfo = document.createElement("A");
       const filename_nfo = title_movie__ + '.nfo';
       const save_content =
