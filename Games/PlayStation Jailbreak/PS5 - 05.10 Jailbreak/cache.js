@@ -45,6 +45,7 @@ const urlsToCache = [
     'payloads/elfldr.elf',
     'payloads/etaHEN_2.1.bin',
     'payloads/etaHEN_2.2B.bin',
+    'payloads/etaHEN_2.3B.bin',
     'payloads/ftpsrv.elf',
     'payloads/gdbsrv.elf',
     'payloads/klogsrv.elf',
