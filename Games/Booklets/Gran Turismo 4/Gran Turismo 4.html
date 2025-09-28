@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Wing Over</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+  <link rel="icon" type="image/x-icon" href="../../../images/MB_Icon_01.png"></link>
+  <link rel="stylesheet" href="../../../assets/css/main.css"></link>
+</head>
+<body onload="window.location.href = '#content';" class="is-preload">
+  <audio id="soundtrack" loop src="audio/Soundtrack.mp3" type="audio/mpeg"></audio>
+  <div id="wrapper">
+    
+    <nav id="nav">
+      <a href="../../../index.html"><img class="mb_icon" src="../../../images/MB_Icon_02.png"></img><span>Home</span></a>
+      <a href="../../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
+      <a href="../../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
+      <a href="../../../Games/games.html"><img class="mb_icon" src="../../../images/Games_Icon_01.png"></img><span>Games</span></a>
+      <a href="../booklets.html"><img class="mb_icon" src="../icon_01.png"></img><span>Booklets</span></a>
+    </nav>
+    
+    <div id="main">
+      <article id="content" class="panel">
+        <header><h2>Wing Over</h2></header>
+        <section>
+          <div class="soundtrack_container">
+            <img class="soundtrack_background" src="cover/Wing Over - Poster.jpg"></img>
+            <div class="soundtrack_control_container" onclick="bg_music();">
+              <img class="soundtrack_control" src="../../../images/button_play_01.png"></img>
+              <p class="soundtrack_text">Soundtrack Abspielen</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <details class="details_1" style="color: #1fff50;" close>
+            <summary>Cheats</summary>
+            <div class="quest_text">Cheats im Hauptbildschirm eingeben</div>
+
+            <details class="details_2" style="color: #aaaaaa;" close>
+              <summary>Alle Waffen</summary>
+              <div class="quest_text"></div>
+              <div class="quest_answer"></div>
+              <div class="cheat_list">
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Up.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Up.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Down.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Down.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Left.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Right.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Left.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Right.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Down.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Button_Triangle.png"></img>
+            </div>
+            </details>
+
+            <details class="details_2" style="color: #aaaaaa;" close>
+              <summary>Alle Gegenstände & Munition</summary>
+              <div class="quest_text"></div>
+              <div class="quest_answer"></div>
+              <div class="cheat_list">
+                <img class="cheat_button" src="../../../assets/ps_buttons/Button_Triangle.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Down.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Right.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Left.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Right.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Left.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Up.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Down.png"></img>
+                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Up.png"></img>
+            </div>
+            </details>
+
+          </details>
+        </section>
+
+      </article>
+    </div>
+    
+    <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
+
+  </div>
+</body>
+
+<script src="../../../assets/js/jquery.min.js"></script>
+<script src="../../../assets/js/browser.min.js"></script>
+<script src="../../../assets/js/breakpoints.min.js"></script>
+<script src="../../../assets/js/util.js"></script>
+<script src="../../../assets/js/main.js"></script>
+<script>
+  var bg_playing = 'false';
+  var soundtrack = document.getElementById('soundtrack');
+  var background = soundtrack;
+  var soundtrack_control = document.getElementsByClassName('soundtrack_control');
+  var soundtrack_text = document.getElementsByClassName('soundtrack_text');
+  function bg_music() {
+    if (bg_playing == 'true') {
+      for (let i = 0; i < soundtrack_control.length; i++) {soundtrack_control[i].src = '../../../images/button_play_01.png';}
+      for (let i = 0; i < soundtrack_text.length; i++) {soundtrack_text[i].innerHTML = 'Soundtrack Fortsetzen';}
+      background.pause();bg_playing = 'false';
+    }
+    else if (bg_playing == 'false') {
+      for (let i = 0; i < soundtrack_control.length; i++) {soundtrack_control[i].src = '../../../images/button_pause_01.png';}
+      for (let i = 0; i < soundtrack_text.length; i++) {soundtrack_text[i].innerHTML = 'Soundtrack Pausieren';}
+      background.play();bg_playing = 'true';
+    }
+  }
+</script>
