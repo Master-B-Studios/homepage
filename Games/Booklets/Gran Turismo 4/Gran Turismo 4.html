@@ -1,137 +1,166 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>Gran Turismo 4</title>
-  <meta charset="utf-8"></meta>
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
-  <link rel="icon" type="image/x-icon" href="../../../images/MB_Icon_01.png"></link>
-  <link rel="stylesheet" href="../../../assets/css/main.css"></link>
-</head>
-<body onload="window.location.href = '#content';" class="is-preload">
-  <audio id="soundtrack" loop src="audio/Soundtrack.mp3" type="audio/mpeg"></audio>
-  <div id="wrapper">
-    
-    <nav id="nav">
-      <a href="../../../index.html"><img class="mb_icon" src="../../../images/MB_Icon_02.png"></img><span>Home</span></a>
-      <a href="../../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
-      <a href="../../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
-      <a href="../../../Games/games.html"><img class="mb_icon" src="../../../images/Games_Icon_01.png"></img><span>Games</span></a>
-      <a href="../booklets.html"><img class="mb_icon" src="../icon_01.png"></img><span>Booklets</span></a>
-    </nav>
-    
-    <div id="main">
-      <article id="content" class="panel">
-        <header><h2>Gran Turismo 4</h2></header>
-        <section>
-          <div class="soundtrack_container">
-            <img class="soundtrack_background" src="cover/Gran Turismo 4 - Poster.jpg"></img>
-            <div class="soundtrack_control_container" onclick="bg_music();">
-              <img class="soundtrack_control" src="../../../images/button_play_01.png"></img>
-              <p class="soundtrack_text">Soundtrack Abspielen</p>
+    <title>Gran Turismo 4</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="icon" type="image/x-icon" href="../../../images/MB_Icon_01.png">
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <style>
+      .showroom_header {width: 100%;text-align: center;font-size: 2em;font-weight: bold;}
+      .showroom {display: grid;grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));gap: 1em;justify-items: center;align-items: center;margin: 1em 0;}
+      .showroom img {max-width: 100px;cursor: pointer;transition: transform 0.2s, border 0.2s;border: 2px solid transparent;border-radius: 8px;padding: 8px;}
+      .showroom img:hover {transform: scale(1.1);}
+      .showroom img.active {border: 2px solid #00ff22;border-radius: 8px;padding: 8px;}
+      .showroom-videos {margin-top: 0;text-align: center;width: 100%;}
+
+      .slider-video-wrapper {position: relative;width: 100%;}
+      .slider-video {width: 100%;border-radius: 10px;box-shadow: 0 0 10px rgba(0,0,0,0.3);}
+
+      .slider-btn {position: absolute;top: 50%;transform: translateY(-50%);width: 2.5em;height: 2.5em;cursor: pointer;user-select: none;z-index: 10;transition: transform 0.2s}
+      .slider-btn svg {width: 100%;height: 100%;filter: drop-shadow(0 0 6px rgba(0,0,0,0.8))}
+      .slider-btn.left {left: 10px}
+      .slider-btn.right {right: 10px}
+      .slider-btn:hover {transform: translateY(-50%) scale(1.2)}
+      .slider-details {margin: 0;width: 100%;background: rgba(255,255,255,0.05);padding: 1em;border-radius: 10px;font-size: 1em;box-sizing: border-box;text-align: left;}
+
+      .car_info_table {width: 100%;}
+      .car_info_1 {width: 10%;text-align: left;padding: 0.2em 1em 0.2em 1em;}
+      .car_info_2 {width: 90%;}
+    </style>
+  </head>
+  <body onload="window.location.href = '#content';" class="is-preload">
+    <audio id="soundtrack" loop src="audio/Soundtrack.mp3" type="audio/mpeg"></audio>
+    <div id="wrapper">
+
+      <nav id="nav">
+        <a href="../../../index.html"><img class="mb_icon" src="../../../images/MB_Icon_02.png"><span>Home</span></a>
+        <a href="../../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../../images/Web_Icon_01.png"><span>Web-Tools</span></a>
+        <a href="../../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../../images/CMD_Icon_01.png"><span>Local-Tools</span></a>
+        <a href="../../../Games/games.html"><img class="mb_icon" src="../../../images/Games_Icon_01.png"><span>Games</span></a>
+        <a href="../booklets.html"><img class="mb_icon" src="../icon_01.png"><span>Booklets</span></a>
+      </nav>
+
+      <div id="main">
+        <article id="content" class="panel">
+          <header><h2>Gran Turismo 4</h2></header>
+          <!-- ... deine vorherigen Sections (Cheats, Tipps etc.) ... -->
+
+          <div class="showroom_header">Showroom</div>
+          <!-- Logo-Galerie -->
+          <div class="showroom">
+            <img src="Logos/AC_Cars_Logo.png" alt="AC Cars" data-brand="ac_cars">
+            <img src="Logos/Acura_Logo.png" alt="Acura" data-brand="acura">
+            <img src="Logos/Alfa_Romeo_Logo.png" alt="Alfa Romeo" data-brand="alfa_romeo">
+          </div>
+
+          <!-- Video-Bereich -->
+          <div id="showroom_videos" class="showroom-videos">
+            <p>Wähle eine Marke, um die Fahrzeuge anzuzeigen.</p>
+          </div>
+        </article>
+      </div>
+
+      <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
+    </div>
+
+    <script src="../../../assets/js/jquery.min.js"></script>
+    <script src="../../../assets/js/browser.min.js"></script>
+    <script src="../../../assets/js/breakpoints.min.js"></script>
+    <script src="../../../assets/js/util.js"></script>
+    <script src="../../../assets/js/main.js"></script>
+    <script>
+      var bg_playing = 'false';
+      var soundtrack = document.getElementById('soundtrack');
+      var background = soundtrack;
+      var soundtrack_control = document.getElementsByClassName('soundtrack_control');
+      var soundtrack_text = document.getElementsByClassName('soundtrack_text');
+      function bg_music() {
+        if (bg_playing == 'true') {
+          for (let i = 0; i < soundtrack_control.length; i++) {soundtrack_control[i].src = '../../../images/button_play_01.png';}
+          for (let i = 0; i < soundtrack_text.length; i++) {soundtrack_text[i].innerHTML = 'Soundtrack Fortsetzen';}
+          background.pause();bg_playing = 'false';
+        }
+        else if (bg_playing == 'false') {
+          for (let i = 0; i < soundtrack_control.length; i++) {soundtrack_control[i].src = '../../../images/button_pause_01.png';}
+          for (let i = 0; i < soundtrack_text.length; i++) {soundtrack_text[i].innerHTML = 'Soundtrack Pausieren';}
+          background.play();bg_playing = 'true';
+        }
+      }
+    </script>
+    <script>
+      const showroomVideos = {
+        ac_cars: [
+          { name: "427 SC", src: "Cars/AC_Cars_427_SC_1966.mp4", data: { country: "Grossbritannien", production_year: "1966", drive: "FR", power: "485"+" PS", weight: "1311"+" kg", length: "3962"+" cm", worth: "423.200"+" Credits" } }
+        ],
+        acura: [
+          { name: "3.2 CL Type S", src: "Cars/Acura_CL_2001_3.2_Type-S.mp4", data: { country: "Japan", production_year: "2001", drive: "FF", power: "264"+" PS", weight: "1592"+" kg", length: "4875"+" cm", worth: "~27.000"+" Credits" } },
+          { name: "3.2 CL Type S", src: "Cars/Acura_CL_2003_3.2_Type-S.mp4", data: { country: "Japan", production_year: "2003", drive: "FF", power: "264"+" PS", weight: "1563"+" kg", length: "4875"+" cm", worth: "32.420"+" Credits" } },
+          { name: "____", src: "Cars/____", data: { country: "____", production_year: "____", drive: "____", power: "____"+" PS", weight: "____"+" kg", length: "____"+" cm", worth: "____"+" Credits" } }
+        ],
+        alfa_romeo: [
+          { name: "Alfa Romeo 147 2002 2.0 Twinspark", src: "Cars/Alfa_Romeo_147_2002_2.0_Twinspark.mp4", data: { baujahr: 2002, leistung: "150 PS", gewicht: "1280 kg" } },
+          { name: "Alfa Romeo 147 2002 GTA", src: "Cars/Alfa_Romeo_147_2002_GTA.mp4", data: { baujahr: 2002, leistung: "250 PS", gewicht: "1320 kg" } }
+        ]
+      };
+
+      const logos = document.querySelectorAll(".showroom img");
+      const videoContainer = document.getElementById("showroom_videos");
+
+      let currentIndex = 0;
+      let currentBrand = null;
+
+      logos.forEach(logo => {
+        logo.addEventListener("click", () => {
+          logos.forEach(l => l.classList.remove("active"));
+          logo.classList.add("active");
+          currentBrand = logo.getAttribute("data-brand");
+          const cars = showroomVideos[currentBrand] || [];
+          if (cars.length > 0) {cars.sort((a, b) => a.name.localeCompare(b.name));currentIndex = 0;renderSlider();}
+          else {videoContainer.innerHTML = "<p>Für diese Marke sind noch keine Fahrzeuge verfügbar.</p>";}
+        });
+      });
+
+      function renderSlider() {
+        const cars = showroomVideos[currentBrand];
+        const car = cars[currentIndex];
+        
+        videoContainer.innerHTML = `
+          <div class="slider-container">
+            <div class="slider-video-wrapper">
+              ${cars.length > 1 ? `
+              <div class="slider-btn left" onclick="prevCar()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M15 18l-6-6 6-6" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              ` : ""}
+              <video class="slider-video" loop autoplay muted><source src="${car.src}" type="video/mp4">Dein Browser unterstützt kein HTML5 Video.</video>
+              ${cars.length > 1 ? `
+              <div class="slider-btn right" onclick="nextCar()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M9 6l6 6-6 6" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              ` : ""}
+            </div>
+            <div class="slider-details">
+              <table class="car_info_table">
+                <tr><td class="car_info_1">Land:</td><td class="car_info_2">${car.data.country}</td></tr>
+                <tr><td class="car_info_1">Baujahr:</td><td class="car_info_2">${car.data.production_year}</td></tr>
+                <tr><td class="car_info_1">Antrieb:</td><td class="car_info_2">${car.data.drive}</td></tr>
+                <tr><td class="car_info_1">Leistung:</td><td class="car_info_2">${car.data.power}</td></tr>
+                <tr><td class="car_info_1">Gewicht:</td><td class="car_info_2">${car.data.weight}</td></tr>
+                <tr><td class="car_info_1">Länge:</td><td class="car_info_2">${car.data.length}</td></tr>
+                <tr><td class="car_info_1">Preis:</td><td class="car_info_2">${car.data.worth}</td></tr>
+              </table>
             </div>
           </div>
-        </section>
+        `;
+      }
 
-        <section>
-          <details class="details_1" style="color: #1fff50;" close>
-            <summary>Cheats</summary>
-            <div class="quest_text">Die Eingabe der Cheats ist erst nach 365 Tagen Spielzeit möglich.</div>
-            <div class="quest_text">- 1 Event = 1 Tag -</div>
-
-            <details class="details_2" style="color: #aaaaaa;" close>
-              <summary>10.000 Credits</summary>
-              <div class="quest_text"></div>
-              <div class="quest_answer"></div>
-              <div class="cheat_list">
-                <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_Select.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Left.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Right.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Right.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Down.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Up.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Up.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Left.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Down.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Up.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Right.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Left.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Down.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_L1.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_R1.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_Select.png"></img>
-            </div>
-            </details>
-
-            <details class="details_2" style="color: #aaaaaa;" close>
-              <summary>Gold Für Aktuelle Lizenz (Lizenzauswahl)</summary>
-              <div class="quest_text"></div>
-              <div class="quest_answer"></div>
-              <div class="cheat_list">
-                <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_Select.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_Select.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_R1.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_R2.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_L2.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_L2.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_Select.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_L1.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_R1.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_Select.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_R2.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_L1.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_Select.png"></img>
-            </div>
-            </details>
-
-          </details>
-        </section>
-
-        <section>
-          <details class="details_1" style="color: #1fc0ff;" close>
-            <summary>Allgemeine Spieltipps</summary>
-            <div class="quest_text">Zu Beginn lohnt sich in Spezialbedingungen die Costa Di Amalfi auf der Stufe Leicht. Das Preisauto ist 250.000 Credits wert.</div>
-            <div class="quest_text">Später ist dann in der europäischen Liga die DTM-Meisterschaft interessant. Die Preisgelder sind hoch und final gewinnt man das CLK Touring Car. Wert: ca. 800.000 Credits. Um ein Konkurrenzfähiges Auto zu erhalten die Schwarzwald-Liga B abschliessen -> E190 Evo I. Mit diesem voll getunt das Event "Legende des Silberpfeils" gewinnen -> CLK DTM Touring Car.</div>
-            <div class="quest_text">Von Tag 694 - 700 gibt es vier Rennwagen beim Gebrauchtwagen-Händler in tiefschwarz zu kaufen. Dieser Turnus wiederholt sich dann 700 Tage später erneut. Also Tag 1394 - 1400. Achtung! Pro Fahrzeugkauf vergeht 1 Tag!</div>
-        </section>
-
-        <div>Showroom</div>
-        <div>
-          <table>
-            <tr>
-              <td><img src="Logos/AC_Cars_Logo.png"></td>
-            </tr>
-          </table>
-        </div>
-
-      </article>
-    </div>
-    
-    <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
-
-  </div>
-</body>
-
-<script src="../../../assets/js/jquery.min.js"></script>
-<script src="../../../assets/js/browser.min.js"></script>
-<script src="../../../assets/js/breakpoints.min.js"></script>
-<script src="../../../assets/js/util.js"></script>
-<script src="../../../assets/js/main.js"></script>
-<script>
-  var bg_playing = 'false';
-  var soundtrack = document.getElementById('soundtrack');
-  var background = soundtrack;
-  var soundtrack_control = document.getElementsByClassName('soundtrack_control');
-  var soundtrack_text = document.getElementsByClassName('soundtrack_text');
-  function bg_music() {
-    if (bg_playing == 'true') {
-      for (let i = 0; i < soundtrack_control.length; i++) {soundtrack_control[i].src = '../../../images/button_play_01.png';}
-      for (let i = 0; i < soundtrack_text.length; i++) {soundtrack_text[i].innerHTML = 'Soundtrack Fortsetzen';}
-      background.pause();bg_playing = 'false';
-    }
-    else if (bg_playing == 'false') {
-      for (let i = 0; i < soundtrack_control.length; i++) {soundtrack_control[i].src = '../../../images/button_pause_01.png';}
-      for (let i = 0; i < soundtrack_text.length; i++) {soundtrack_text[i].innerHTML = 'Soundtrack Pausieren';}
-      background.play();bg_playing = 'true';
-    }
-  }
-</script>
+      function prevCar() {const cars = showroomVideos[currentBrand];currentIndex = (currentIndex - 1 + cars.length) % cars.length;renderSlider();}
+      function nextCar() {const cars = showroomVideos[currentBrand];currentIndex = (currentIndex + 1) % cars.length;renderSlider();}
+    </script>
+  </body>
+</html>
