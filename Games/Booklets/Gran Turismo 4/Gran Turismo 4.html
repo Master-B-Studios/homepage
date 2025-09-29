@@ -7,11 +7,18 @@
     <link rel="icon" type="image/x-icon" href="../../../images/MB_Icon_01.png">
     <link rel="stylesheet" href="../../../assets/css/main.css">
     <style>
-      .showroom_header {width: 100%;text-align: center;font-size: 2em;font-weight: bold;}
-      .showroom {display: grid;grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));gap: 1em;justify-items: center;align-items: center;margin: 1em 0;}
-      .showroom img {max-width: 100px;cursor: pointer;transition: transform 0.2s, border 0.2s;border: 2px solid transparent;border-radius: 8px;padding: 8px;}
-      .showroom img:hover {transform: scale(1.1);}
-      .showroom img.active {border: 2px solid #00ff22;border-radius: 8px;padding: 8px;}
+      .showroom-header-wrapper {display: flex;align-items: center;justify-content: center;gap: 1em;margin-bottom: 0.5em;position: relative;}
+      .showroom_header {font-size: 1.5em;font-weight: bold;text-align: center;}
+      .showroom-header-wrapper .slider-btn {position: static;transform: none;transition: transform 0.2s ease;margin: 0 2em;}
+      .showroom-header-wrapper .slider-btn:hover {transform: scale(1.6);}
+      .showroom-wrapper {position: relative;width: 100%;}
+      
+      .showroom {display: flex;overflow-x: auto;overflow-y: visible;gap: 0.6em;padding: 1em;scrollbar-width: none;width: calc(100% - 1em);}
+      .showroom::-webkit-scrollbar { display: none; }
+      .showroom img {max-height: 80px;flex: 0 0 auto;cursor: pointer;border: 2px solid transparent;border-radius: 12px;background: #111111;padding: 6px;transition: transform 0.2s, border 0.2s, background 0.2s;}
+      .showroom img:hover {transform: scale(1.4);z-index: 10;}
+      .showroom img.active {border: 2px solid #1fff50;transform: scale(1.4);z-index: 10;}
+
       .showroom-videos {margin-top: 0;text-align: center;width: 100%;}
 
       .slider-video-wrapper {position: relative;width: 100%;}
@@ -21,7 +28,7 @@
       .slider-btn svg {width: 100%;height: 100%;filter: drop-shadow(0 0 6px rgba(0,0,0,0.8))}
       .slider-btn.left {left: 10px}
       .slider-btn.right {right: 10px}
-      .slider-btn:hover {transform: translateY(-50%) scale(1.2)}
+      .slider-btn:hover {transform: translateY(-50%) scale(1.6)}
       .slider-details {margin: 0;width: 100%;background: rgba(255,255,255,0.05);padding: 1em;border-radius: 10px;font-size: 1em;box-sizing: border-box;text-align: left;}
 
       .car_info_table {width: 100%;}
@@ -44,14 +51,187 @@
       <div id="main">
         <article id="content" class="panel">
           <header><h2>Gran Turismo 4</h2></header>
-          <!-- ... deine vorherigen Sections (Cheats, Tipps etc.) ... -->
-
-          <div class="showroom_header">Showroom</div>
-          <!-- Logo-Galerie -->
-          <div class="showroom">
-            <img src="Logos/AC_Cars_Logo.png" alt="AC Cars" data-brand="ac_cars">
-            <img src="Logos/Acura_Logo.png" alt="Acura" data-brand="acura">
-            <img src="Logos/Alfa_Romeo_Logo.png" alt="Alfa Romeo" data-brand="alfa_romeo">
+          <section>
+            <div class="soundtrack_container">
+              <img class="soundtrack_background" src="cover/Gran Turismo 4 - Poster.jpg">
+              <div class="soundtrack_control_container" onclick="bg_music();">
+                <img class="soundtrack_control" src="../../../images/button_play_01.png">
+                <p class="soundtrack_text">Soundtrack Abspielen</p>
+              </div>
+            </div>
+          </section>
+          
+          <section>
+            <details class="details_1" style="color: #1fff50;" close="">
+              <summary>Cheats</summary>
+              <div class="quest_text">Die Eingabe der Cheats ist erst nach 365 Tagen Spielzeit möglich.</div>
+              <div class="quest_text">- 1 Event = 1 Tag -</div>
+              
+              <details class="details_2" style="color: #aaaaaa;" close="">
+                <summary>10.000 Credits</summary>
+                <div class="quest_text"></div>
+                <div class="quest_answer"></div>
+                <div class="cheat_list">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_Select.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Left.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Right.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Right.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Down.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Up.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Up.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Left.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Down.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Up.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Right.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Left.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Down.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_L1.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_R1.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_Select.png">
+                </div>
+              </details>
+              
+              <details class="details_2" style="color: #aaaaaa;" close="">
+                <summary>Gold Für Aktuelle Lizenz (Lizenzauswahl)</summary>
+                <div class="quest_text"></div>
+                <div class="quest_answer"></div>
+                <div class="cheat_list">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_Select.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_Select.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_R1.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_R2.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_L2.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_L2.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_Select.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_L1.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_R1.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_Select.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_R2.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_L1.png">
+                  <img class="cheat_button" src="../../../assets/ps_buttons/Trigger_Select.png">
+                </div>
+              </details>
+            
+            </details>
+          </section>
+          
+          <section>
+            <details class="details_1" style="color: #1fc0ff;" close="">
+              <summary>Allgemeine Spieltipps</summary>
+              <div class="quest_text"></div>
+              <div class="quest_answer">Zu Beginn lohnt sich in Spezialbedingungen die Costa Di Amalfi auf der Stufe Leicht. Das Preisauto ist 250.000 Credits wert.</div>
+              <div class="quest_answer">Später ist dann in der europäischen Liga die DTM-Meisterschaft interessant. Die Preisgelder sind hoch und final gewinnt man das CLK Touring Car. Wert: ca. 800.000 Credits. Um ein Konkurrenzfähiges Auto zu erhalten die Schwarzwald-Liga B abschliessen -> E190 Evo I. Mit diesem voll getunt das Event "Legende des Silberpfeils" gewinnen -> CLK DTM Touring Car.</div>
+              <div class="quest_answer">Von Tag 694 - 700 gibt es vier Rennwagen beim Gebrauchtwagen-Händler in tiefschwarz zu kaufen. Dieser Turnus wiederholt sich dann 700 Tage später erneut. Also Tag 1394 - 1400. Achtung! Pro Fahrzeugkauf vergeht 1 Tag!</div>
+            </details>
+          </section>
+          
+          <div class="showroom-header-wrapper">
+            <div class="slider-btn left" onclick="scrollShowroom(-1)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M15 18l-6-6 6-6" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="showroom_header">Showroom</div>
+            
+            
+            <div class="slider-btn right" onclick="scrollShowroom(1)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M9 6l6 6-6 6" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          
+          <div class="showroom" id="showroom">
+            <img src="Logos/AC_Cars_Logo.png" data-brand="ac_cars">
+            <img src="Logos/Acura_Logo.png" data-brand="acura">
+            <img src="Logos/Alfa_Romeo_Logo.png" data-brand="alfa_romeo">
+            <img src="Logos/Alpine_Logo.png" data-brand="alpine">
+            <img src="Logos/Amuse_Logo.png" data-brand="amuse">
+            <img src="Logos/Aston_Martin_Logo.png" data-brand="aston_martin">
+            <img src="Logos/Audi_Logo.png" data-brand="audi">
+            <img src="Logos/Autobacs_Logo.png" data-brand="autobacs">
+            <img src="Logos/Autobianchi_Logo.png" data-brand="autobianchi">
+            <img src="Logos/Bentley_Logo.png" data-brand="bentley">
+            <img src="Logos/Blitz_Logo.png" data-brand="blitz">
+            <img src="Logos/BMW_Logo.png" data-brand="bmw">
+            <img src="Logos/Buick_Logo.png" data-brand="buick">
+            <img src="Logos/Cadillac-Logo.png" data-brand="cadillac">
+            <img src="Logos/Callaway_Logo.png" data-brand="callaway">
+            <img src="Logos/Caterham_Logo.png" data-brand="caterham">
+            <img src="Logos/Chaparral_Logo.png" data-brand="chapparal">
+            <img src="Logos/Chevrolet_Logo.png" data-brand="chevrolet">
+            <img src="Logos/Chrysler_Logo.png" data-brand="chrysler">
+            <img src="Logos/Citroen_Logo.png" data-brand="citroen">
+            <img src="Logos/Cizeta_Logo.png" data-brand="cizeta">
+            <img src="Logos/Daihatsu_Logo.png" data-brand="daihatsu">
+            <img src="Logos/DMC_Logo.png" data-brand="dmc">
+            <img src="Logos/Dodge_Logo.png" data-brand="dodge">
+            <img src="Logos/Dome_Logo.png" data-brand="dome">
+            <img src="Logos/Eagle_Logo.png" data-brand="eagle">
+            <img src="Logos/Fiat_Logo.png" data-brand="fiat">
+            <img src="Logos/Ford_Logo.png" data-brand="ford">
+            <img src="Logos/FPV_Logo.png" data-brand="fpv">
+            <img src="Logos/Gillet_Logo.png" data-brand="gillet">
+            <img src="Logos/Ginetta_Logo.png" data-brand="ginetta">
+            <img src="Logos/HKS_Logo.png" data-brand="hks">
+            <img src="Logos/Holden_Logo.png" data-brand="holden">
+            <img src="Logos/Hommell_Logo.png" data-brand="hommell">
+            <img src="Logos/Honda_Logo.png" data-brand="honda">
+            <img src="Logos/HPA_Logo.png" data-brand="hpa">
+            <img src="Logos/Hyundai_Logo.png" data-brand="hyundai">
+            <img src="Logos/Infiniti_Logo.png" data-brand="infiniti">
+            <img src="Logos/Isuzu_Logo.png" data-brand="isuzu">
+            <img src="Logos/Jaguar_Logo.png" data-brand="jaguar">
+            <img src="Logos/Jay_Leno_Logo.png" data-brand="jay_leno">
+            <img src="Logos/Jensen_Logo.png" data-brand="jensen">
+            <img src="Logos/Lancia_Logo.png" data-brand="lancia">
+            <img src="Logos/Land_Rover_Logo.png" data-brand="land_rover">
+            <img src="Logos/Lexus_Logo.png" data-brand="lexus">
+            <img src="Logos/Lister_Logo.png" data-brand="lster">
+            <img src="Logos/Lotus_Logo.png" data-brand="lotus">
+            <img src="Logos/Marcos_Logo.png" data-brand="marcos">
+            <img src="Logos/Mazda_Logo.png" data-brand="mazda">
+            <img src="Logos/Mercedes-Benz-Logo.png" data-brand="mercedes_benz">
+            <img src="Logos/Mercury_Logo.png" data-brand="mercury">
+            <img src="Logos/MG_Logo.png" data-brand="mg">
+            <img src="Logos/Mines_Logo.png" data-brand="mines">
+            <img src="Logos/Mini_Logo.png" data-brand="mini">
+            <img src="Logos/Mitsubishi_Logo.png" data-brand="mitsubishi">
+            <img src="Logos/Mugen_Logo.png" data-brand="mugen">
+            <img src="Logos/Nike_Logo.png" data-brand="nike">
+            <img src="Logos/Nismo_Logo.png" data-brand="nismo">
+            <img src="Logos/Nissan_Logo.png" data-brand="nissan">
+            <img src="Logos/Opel_Logo.png" data-brand="opel">
+            <img src="Logos/Opera_Logo.png" data-brand="opera">
+            <img src="Logos/Pagani_Logo.png" data-brand="pagani">
+            <img src="Logos/Panoz_Logo.png" data-brand="panoz">
+            <img src="Logos/Pescarolo_Sport_Logo.png" data-brand="pescarolo_sport">
+            <img src="Logos/Peugeot_Logo.png" data-brand="peugeot">
+            <img src="Logos/Plymouth_Logo.png" data-brand="plymouth">
+            <img src="Logos/Polyphony_Digital_Logo.png" data-brand="polyphony_digital">
+            <img src="Logos/Pontiac_Logo.png" data-brand="pontiac">
+            <img src="Logos/Proto_Motors_Logo.png" data-brand="proto_motors">
+            <img src="Logos/RE_Amemiya_Logo.png" data-brand="RE_AMemiya">
+            <img src="Logos/Renault_Logo.png" data-brand="renault">
+            <img src="Logos/RUF_Logo.png" data-brand="ruf">
+            <img src="Logos/Saleen_Logo.png" data-brand="saleen">
+            <img src="Logos/Seat_Logo.png" data-brand="seat">
+            <img src="Logos/Shelby_Logo.png" data-brand="shelby">
+            <img src="Logos/Spoon_Logo.png" data-brand="spoon">
+            <img src="Logos/Spyker_Logo.png" data-brand="spyker">
+            <img src="Logos/Subaru_Logo.png" data-brand="subaru">
+            <img src="Logos/Suzuki_Logo.png" data-brand="suzuki">
+            <img src="Logos/Tommy_Kaira_Logo.png" data-brand="tommy_kaira">
+            <img src="Logos/Toms_Logo.png" data-brand="toms">
+            <img src="Logos/Toyota_Logo.png" data-brand="toyota">
+            <img src="Logos/TRD_Logo.png" data-brand="trd">
+            <img src="Logos/Trial_Logo.png" data-brand="trial">
+            <img src="Logos/Triumph_Logo.png" data-brand="triumoh">
+            <img src="Logos/TVR_Logo.png" data-brand="tvr">
+            <img src="Logos/Vauxhall_Logo.png" data-brand="vauxhall">
+            <img src="Logos/Volkswagen_Logo.png" data-brand="volkswagen">
+            <img src="Logos/Volvo_Logo.png" data-brand="volvo">
+            </div>
           </div>
 
           <!-- Video-Bereich -->
@@ -91,17 +271,102 @@
     <script>
       const showroomVideos = {
         ac_cars: [
-          { name: "427 SC", src: "Cars/AC_Cars_427_SC_1966.mp4", data: { country: "Grossbritannien", production_year: "1966", drive: "FR", power: "485"+" PS", weight: "1311"+" kg", length: "3962"+" cm", worth: "423.200"+" Credits" } }
+          { name: "427 SC", src: "Cars/AC_Cars_427_SC_1966.mp4", data: { country: "Grossbritannien", production_year: "1966", drive: "FR", power: "485", weight: "1311", length: "3962", worth: "423.200" } }
         ],
         acura: [
-          { name: "3.2 CL Type S", src: "Cars/Acura_CL_2001_3.2_Type-S.mp4", data: { country: "Japan", production_year: "2001", drive: "FF", power: "264"+" PS", weight: "1592"+" kg", length: "4875"+" cm", worth: "~27.000"+" Credits" } },
-          { name: "3.2 CL Type S", src: "Cars/Acura_CL_2003_3.2_Type-S.mp4", data: { country: "Japan", production_year: "2003", drive: "FF", power: "264"+" PS", weight: "1563"+" kg", length: "4875"+" cm", worth: "32.420"+" Credits" } },
-          { name: "____", src: "Cars/____", data: { country: "____", production_year: "____", drive: "____", power: "____"+" PS", weight: "____"+" kg", length: "____"+" cm", worth: "____"+" Credits" } }
+          { name: "3.2 CL Type S", src: "Cars/Acura_CL_2001_3.2_Type-S.mp4", data: { country: "Japan", production_year: "2001", drive: "FF", power: "264", weight: "1592", length: "4875", worth: "~27.000" } },
+          { name: "3.2 CL Type S", src: "Cars/Acura_CL_2003_3.2_Type-S.mp4", data: { country: "Japan", production_year: "2003", drive: "FF", power: "264", weight: "1563", length: "4875", worth: "32.420" } },
+          { name: "Integra Type R", src: "Cars/Acura_Integra_2001_Type_R.mp4", data: { country: "Japan", production_year: "2001", drive: "FF", power: "180", weight: "1197", length: "4379", worth: "~19.000" } },
+          { name: "NSX", src: "Cars/Acura_NSX_1991.mp4", data: { country: "Japan", production_year: "1991", drive: "MR", power: "244", weight: "1365", length: "4405", worth: "~28.000" } },
+          { name: "NSX Coupe", src: "Cars/Acura_NSX_1997_Coupe.mp4", data: { country: "Japan", production_year: "1997", drive: "MR", power: "294", weight: "1435", length: "4425", worth: "~35.000" } },
+          { name: "NSX", src: "Cars/Acura_NSX_2004.mp4", data: { country: "Japan", production_year: "2004", drive: "MR", power: "294", weight: "1430", length: "4425", worth: "94.440" } },
+          { name: "RSX Type S", src: "Cars/Acura_RSX_2004_Type-S.mp4", data: { country: "Japan", production_year: "2004", drive: "FF", power: "203", weight: "1255", length: "4374", worth: "24.740" } }
         ],
         alfa_romeo: [
-          { name: "Alfa Romeo 147 2002 2.0 Twinspark", src: "Cars/Alfa_Romeo_147_2002_2.0_Twinspark.mp4", data: { baujahr: 2002, leistung: "150 PS", gewicht: "1280 kg" } },
-          { name: "Alfa Romeo 147 2002 GTA", src: "Cars/Alfa_Romeo_147_2002_GTA.mp4", data: { baujahr: 2002, leistung: "250 PS", gewicht: "1320 kg" } }
-        ]
+          { name: "147 2.0 Twinspark", src: "Cars/Alfa_Romeo_147_2002_2.0_Twinspark.mp4", data: { country: "Italien", production_year: "2002", drive: "FF", power: "150", weight: "1280", length: "4166", worth: "30.590" } },
+          { name: "147 GTA", src: "Cars/Alfa_Romeo_147_2002_GTA.mp4", data: { country: "Italien", production_year: "2002", drive: "FF", power: "246", weight: "1360", length: "4191", worth: "48.040" } },
+          { name: "155 2.5 V6 TI", src: "Cars/Alfa_Romeo_155_1993_2.5_V6_TI.mp4", data: { country: "Italien", production_year: "1993", drive: "4x4", power: "413", weight: "1010", length: "4572", worth: "La Festa Italiano" } },
+          { name: "156 2.5 V6 24V", src: "Cars/Alfa_Romeo_156_1998_2.5_V6_24V.mp4", data: { country: "Italien", production_year: "1998", drive: "FF", power: "190", weight: "1320", length: "4420", worth: "~27.000" } },
+          { name: "166 2.5 V6 24V Sportronic", src: "Cars/Alfa_Romeo_166_1998_2.5_V6_24V_Sportronic.mp4", data: { country: "Italien", production_year: "1998", drive: "FF", power: "193", weight: "1520", length: "4699", worth: "~27.000" } },
+          { name: "Giulia Sprint Speciale", src: "Cars/Alfa_Romeo_Giulia_1963_Sprint_Speciale.mp4", data: { country: "Italien", production_year: "1963", drive: "FR", power: "115", weight: "950", length: "4115", worth: "1000 Meilen" } },
+          { name: "Giulia Sprint GTA", src: "Cars/Alfa_Romeo_Giulia_1965_Sprint_GTA.mp4", data: { country: "Italien", production_year: "1965", drive: "FR", power: "115", weight: "745", length: "4064", worth: "GTA Cup" } },
+          { name: "GT 3.2 V6 24V", src: "Cars/Alfa_Romeo_GT_2004_3.2_V6_24V.mp4", data: { country: "Italien", production_year: "2004", drive: "FF", power: "226", weight: "1347", length: "4470", worth: "39.010" } },
+          { name: "GTV 3.0 V6 24V", src: "Cars/Alfa_Romeo_GTV_2001_3.0_V6_24V.mp4", data: { country: "Italien", production_year: "2001", drive: "FF", power: "216", weight: "1416", length: "4267", worth: "49.060" } },
+          { name: "Spider Duetto", src: "Cars/Alfa_Romeo_Spider_1966_Duetto.mp4", data: { country: "Italien", production_year: "1966", drive: "FR", power: "110", weight: "960", length: "4242", worth: "35.300" } },
+          { name: "Spider 3.0i V6 24V", src: "Cars/Alfa_Romeo_Spider_2001_3.0i_V6_24V.mp4", data: { country: "Italien", production_year: "2001", drive: "FF", power: "216", weight: "1450", length: "4267", worth: "51.190" } }
+        ],
+        alpine: [
+          { name: "A110 1600 S", src: "Cars/Alpine_A110_1973_1600_S.mp4", data: { country: "Frankreich", production_year: "1973", drive: "RR", power: "138", weight: "715", length: "3850", worth: "Renault Alpine Cup" } },
+          { name: "A310 1600 VE", src: "Cars/Alpine_A310_1973_1600_VE.mp4", data: { country: "Frankreich", production_year: "1973", drive: "RR", power: "130", weight: "930", length: "4166", worth: "George V Rallye - Leicht" } }
+        ],
+        amuse: [
+          { name: "Carbon R", src: "Cars/Amuse_Carbon_2004_R.mp4", data: { country: "Japan", production_year: "2004", drive: "FR", power: "600", weight: "1123", length: "4730", worth: "250.000" } },
+          { name: "S2000 Street Version", src: "Cars/Amuse_S2000_2004_Street_Version.mp4", data: { country: "Japan", production_year: "2004", drive: "FR", power: "254", weight: "1189", length: "4154", worth: "50.000" } },
+          { name: "S2000 R1", src: "Cars/Amuse_S2000_2004_R1.mp4", data: { country: "Japan", production_year: "2004", drive: "FR", power: "260", weight: "1120", length: "4154", worth: "150.000" } },
+          { name: "S2000 GT1", src: "Cars/Amuse_S2000_2004_GT1.mp4", data: { country: "Japan", production_year: "2004", drive: "FR", power: "510", weight: "1179", length: "4730", worth: "250.000" } }
+        ],
+        aston_martin: [
+          { name: "DB7 Vantage Coupe", src: "Cars/Aston_Martin_DB7_2000_Vantage_Coupe.mp4", data: { country: "Grossbritannien", production_year: "2000", drive: "FR", power: "419", weight: "1775", length: "4674", worth: "164.260" } },
+          { name: "DB9 Coupe", src: "Cars/Aston_Martin_DB9_2003_Coupe.mp4", data: { country: "Grossbritannien", production_year: "2003", drive: "FR", power: "449", weight: "1710", length: "4699", worth: "164.470 | Aston Martin Carnival" } },
+          { name: "V8 Vantage", src: "Cars/Aston_Martin_V8_1999_Vantage.mp4", data: { country: "Grossbritannien", production_year: "1999", drive: "FR", power: "550", weight: "1970", length: "4724", worth: "~291.199" } },
+          { name: "Vanquish", src: "Cars/Aston_Martin_Vanquish_2004.mp4", data: { country: "Grossbritannien", production_year: "2004", drive: "FR", power: "459", weight: "1835", length: "4648", worth: "238.750" } }
+        ],
+        audi: [
+          { name: "A2 1.4", src: "Cars/Audi_A2_2002_1.4.mp4", data: { country: "Deutschland", production_year: "2002", drive: "FF", power: "72", weight: "920", length: "3826", worth: "22.400" } },
+          { name: "S3", src: "Cars/Audi_A3_2002_S.mp4", data: { country: "Deutschland", production_year: "2002", drive: "4x4", power: "222", weight: "1420", length: "4159", worth: "41.070" } },
+          { name: "A3 3.2 Quattro", src: "Cars/Audi_A3_2003_3.2_Quattro.mp4", data: { country: "Deutschland", production_year: "2003", drive: "4x4", power: "246", weight: "1495", length: "4203", worth: "42.490" } },
+          { name: "S4", src: "Cars/Audi_A4_1998_S.mp4", data: { country: "Deutschland", production_year: "1998", drive: "4x4", power: "269", weight: "1510", length: "4483", worth: "~46.000" } },
+          { name: "RS4 Avant", src: "Cars/Audi_A4_2001_RS_Avant.mp4", data: { country: "Deutschland", production_year: "2001", drive: "4x4", power: "378", weight: "1619", length: "4525", worth: "41.380" } },
+          { name: "S4", src: "Cars/Audi_A4_2003_S.mp4", data: { country: "Deutschland", production_year: "2003", drive: "4x4", power: "340", weight: "1599", length: "4575", worth: "55.430" } },
+          { name: "A4 Touring Car", src: "Cars/Audi_A4_2004_Touring_Car.mp4", data: { country: "Deutschland", production_year: "2004", drive: "FR", power: "460", weight: "1080", length: "4344", worth: "450.000" } },
+          { name: "RS6", src: "Cars/Audi_A6_2002_RS.mp4", data: { country: "Deutschland", production_year: "2002", drive: "4x4", power: "453", weight: "1839", length: "4858", worth: "117.060" } },
+          { name: "RS6 Avant", src: "Cars/Audi_A6_2002_RS_Avant.mp4", data: { country: "Deutschland", production_year: "2002", drive: "4x4", power: "453", weight: "1880", length: "4852", worth: "117.060" } },
+          { name: "Auto Union V16 Type C Streamline", src: "Cars/Audi_Auto_Union_V16_1937_Type_C_Streamline.mp4", data: { country: "Deutschland", production_year: "1937", drive: "MR", power: "520", weight: "1000", length: "5000", worth: "500.000 | Grand Valley 300 km" } },
+          { name: "Le Mans Quattro", src: "Cars/Audi_Le_Mans_2003_Quattro.mp4", data: { country: "Deutschland", production_year: "2003", drive: "4x4", power: "641", weight: "1531", length: "4370", worth: "Tourist Trophy" } },
+          { name: "Nuvolari Quattro", src: "Cars/Audi_Nuvolari_2003_Quattro.mp4", data: { country: "Deutschland", production_year: "2003", drive: "4x4", power: "608", weight: "1549", length: "4370", worth: "25% Spielfortschritt" } },
+          { name: "Pikes Peak Quattro", src: "Cars/Audi_Pikes_Peak_2003_Quattro.mp4", data: { country: "Deutschland", production_year: "2003", drive: "4x4", power: "508", weight: "1901", length: "5000", worth: "A3 Cup" } },
+          { name: "Quattro", src: "Cars/Audi_Quattro_1982.mp4", data: { country: "Deutschland", production_year: "1982", drive: "4x4", power: "200", weight: "1290", length: "4000", worth: "90.360" } },
+          { name: "R8 Race Car", src: "Cars/Audi_R8_2001_Race_Car.mp4", data: { country: "Deutschland", production_year: "2001", drive: "MR", power: "795", weight: "899", length: "4000", worth: "4.500.000 | Circuit De La Sarthe I 24h" } },
+          { name: "TT Coupe 1.8T Quattro", src: "Cars/Audi_TT_2000_Coupe_1.8T_Quattro.mp4", data: { country: "Deutschland", production_year: "2000", drive: "4x4", power: "219", weight: "1395", length: "4041", worth: "47.700" } },
+          { name: "TT Coupe 3.2 Quattro", src: "Cars/Audi_TT_2003_Coupe_3.2_Quattro.mp4", data: { country: "Deutschland", production_year: "2003", drive: "4x4", power: "239", weight: "1520", length: "4041", worth: "57.740" } },
+          { name: "TT-R Touring Car", src: "Cars/Audi_TT_2002_R_Touring_Car.mp4", data: { country: "Deutschland", production_year: "2002", drive: "FR", power: "470", weight: "1080", length: "4600", worth: "550.000 | Nürburgring 4h" } }
+        ],
+        autobacs: [
+          { name: "Garaiya", src: "Cars/Autobacs_Garaiya_2002.mp4", data: { country: "Japan", production_year: "2002", drive: "MR", power: "200", weight: "799", length: "3775", worth: "65.000" } },
+          { name: "Garaiya ARTA JGTC", src: "Cars/Autobacs_Garaiya_2002_ARTA_JGTC.mp4", data: { country: "Japan", production_year: "2003", drive: "MR", power: "323", weight: "1125", length: "3775", worth: "500.000" } }
+        ],
+        autobianchi: [
+          { name: "A112 Abarth", src: "Cars/Autobianchi_A112_1979_Abarth.mp4", data: { country: "Italien", production_year: "1979", drive: "FF", power: "70", weight: "700", length: "3270", worth: "Sunday Cup" } }
+        ],
+        bentley: [
+          { name: "Speed 8", src: "Cars/Bentley_Speed_8_2003.mp4", data: { country: "Grossbritannien", production_year: "2003", drive: "MR", power: "795", weight: "900", length: "4645", worth: "Circuit De La Sarthe II 24h" } }
+        ],
+        blitz: [
+          { name: "ER34 D1 Spec", src: "Cars/Blitz_ER34_2004_D1_Spec.mp4", data: { country: "Japan", production_year: "2004", drive: "FR", power: "475", weight: "1179", length: "4444", worth: "200.000" } }
+        ],
+        bmw: [
+          { name: "120d", src: "Cars/BMW_1_2004_20d.mp4", data: { country: "Deutschland", production_year: "2004", drive: "FR", power: "161", weight: "1415", length: "4227", worth: "33.020" } },
+          { name: "120i", src: "Cars/BMW_1_2004_20i.mp4", data: { country: "Deutschland", production_year: "2004", drive: "FR", power: "148", weight: "1335", length: "4227", worth: "31.940" } },
+          { name: "M3 GTR Race Car", src: "Cars/BMW_3_2001_M_GTR_Race_Car.mp4", data: { country: "Deutschland", production_year: "2001", drive: "FR", power: "444", weight: "1120", length: "4617", worth: "Schwarzwald Liga A" } },
+          { name: "320i Touring Car", src: "Cars/BMW_3_2003_20i_Touring_Car.mp4", data: { country: "Deutschland", production_year: "2003", drive: "FR", power: "260", weight: "1141", length: "4000", worth: "450.000" } },
+          { name: "M3 CSL", src: "Cars/BMW_3_2003_M_CSL.mp4", data: { country: "Deutschland", production_year: "2003", drive: "FR", power: "354", weight: "1386", length: "4617", worth: "113.610" } },
+          { name: "M3 GTR", src: "Cars/BMW_3_2003_M_GTR.mp4", data: { country: "Deutschland", production_year: "2003", drive: "FR", power: "380", weight: "1349", length: "4617", worth: "Club \"M\"" } },
+          { name: "M3", src: "Cars/BMW_3_2004_M.mp4", data: { country: "Deutschland", production_year: "2004", drive: "FR", power: "339", weight: "1569", length: "4617", worth: "74.560" } },
+          { name: "330i", src: "Cars/BMW_3_2005_30i.mp4", data: { country: "Deutschland", production_year: "2005", drive: "FR", power: "254", weight: "1525", length: "4520", worth: "48.040" } },
+          { name: "M5", src: "Cars/BMW_5_2005_M.mp4", data: { country: "Deutschland", production_year: "2005", drive: "FR", power: "500", weight: "1715", length: "4855", worth: "116.650" } },
+          { name: "2002 Turbo", src: "Cars/BMW_2002_1973_Turbo.mp4", data: { country: "Deutschland", production_year: "1973", drive: "FR", power: "167", weight: "1080", length: "4220", worth: "BMW 1-Serie Pokal" } },
+          { name: "McLaren F1 GTR Race Car", src: "Cars/BMW_McLaren_F1_1997_GTR_Race_Car.mp4", data: { country: "Deutschland", production_year: "1997", drive: "MR", power: "602", weight: "950", length: "4924", worth: "Gran Turismo All-Stars" } },
+          { name: "V12 LMR", src: "Cars/BMW_V12_1999_LMR_Race_Car.mp4", data: { country: "Deutschland", production_year: "1999", drive: "MR", power: "799", weight: "900", length: "4924", worth: "4.500.000" } },
+          { name: "M Coupe", src: "Cars/BMW_Z3_1998_M_Coupe.mp4", data: { country: "Deutschland", production_year: "1998", drive: "FR", power: "316", weight: "1465", length: "4025", worth: "~51.000" } },
+          { name: "Z4", src: "Cars/BMW_Z4_2003.mp4", data: { country: "Deutschland", production_year: "2003", drive: "FR", power: "227", weight: "1365", length: "4000", worth: "75.610" } }
+        ],
+        buick: [
+          { name: "GNX", src: "Cars/Buick_GNX_1987.mp4", data: { country: "Amerika", production_year: "1987", drive: "FR", power: "280", weight: "1601", length: "5092", worth: "31.080" } },
+          { name: "Special", src: "Cars/Buick_Special_1962.mp4", data: { country: "Amerika", production_year: "1962", drive: "FR", power: "586", weight: "1364", length: "4724", worth: "58.000" } }
+        ],
+        cadillac: [
+          { name: "Cien Concept", src: "Cars/Cadillac_CIEN_2002_Concept.mp4", data: { country: "Amerika", production_year: "2002", drive: "MR", power: "760", weight: "1500", length: "4000", worth: "Rallye d'Umbria Leicht" } }
+        ],
       };
 
       const logos = document.querySelectorAll(".showroom img");
@@ -149,10 +414,10 @@
                 <tr><td class="car_info_1">Land:</td><td class="car_info_2">${car.data.country}</td></tr>
                 <tr><td class="car_info_1">Baujahr:</td><td class="car_info_2">${car.data.production_year}</td></tr>
                 <tr><td class="car_info_1">Antrieb:</td><td class="car_info_2">${car.data.drive}</td></tr>
-                <tr><td class="car_info_1">Leistung:</td><td class="car_info_2">${car.data.power}</td></tr>
-                <tr><td class="car_info_1">Gewicht:</td><td class="car_info_2">${car.data.weight}</td></tr>
-                <tr><td class="car_info_1">Länge:</td><td class="car_info_2">${car.data.length}</td></tr>
-                <tr><td class="car_info_1">Preis:</td><td class="car_info_2">${car.data.worth}</td></tr>
+                <tr><td class="car_info_1">Leistung:</td><td class="car_info_2">${car.data.power} PS</td></tr>
+                <tr><td class="car_info_1">Gewicht:</td><td class="car_info_2">${car.data.weight} kg</td></tr>
+                <tr><td class="car_info_1">Länge:</td><td class="car_info_2">${car.data.length} mm</td></tr>
+                <tr><td class="car_info_1">Preis:</td><td class="car_info_2">${car.data.worth} Credits</td></tr>
               </table>
             </div>
           </div>
@@ -161,6 +426,13 @@
 
       function prevCar() {const cars = showroomVideos[currentBrand];currentIndex = (currentIndex - 1 + cars.length) % cars.length;renderSlider();}
       function nextCar() {const cars = showroomVideos[currentBrand];currentIndex = (currentIndex + 1) % cars.length;renderSlider();}
+
+      function scrollShowroom(direction) {
+        const showroom = document.getElementById("showroom");
+        const scrollAmount = 200;
+        showroom.scrollBy({ left: direction * scrollAmount, behavior: "smooth" });
+      }
+
     </script>
   </body>
 </html>
