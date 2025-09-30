@@ -858,7 +858,10 @@ logos.forEach(logo => {
         logo.classList.add('active');
         currentBrand = logo.getAttribute('data-brand');
         const cars = showroomVideos[currentBrand] || [];
-        if (cars.length > 0) {cars.sort((a, b) => a.name.localeCompare(b.name));currentIndex = 0;renderSlider();}
+        if (cars.length > 0) {
+            //cars.sort((a, b) => a.name.localeCompare(b.name));
+            currentIndex = 0;renderSlider();
+        }
         else {videoContainer.innerHTML = '<p>Für diese Marke sind noch keine Fahrzeuge verfügbar.</p>';}
     });
 });
