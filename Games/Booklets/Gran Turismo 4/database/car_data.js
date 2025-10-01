@@ -596,7 +596,7 @@ const showroomVideos = {
         { name: 'Tigra 1.6i', src: 'cars/Opel_Tigra_1999_1.6i.mp4', data: { country: 'Deutschland', production_year: '1999', drive: 'FF', power: '104', weight: '1032', length: '3922', worth: '~19.000' } },
         { name: 'Vectra 3.2 V6', src: 'cars/Opel_Vectra_2003_3.2_V6.mp4', data: { country: 'Deutschland', production_year: '2003', drive: 'FF', power: '211', weight: '1510', length: '4400', worth: '36.530' } }
     ],
-    opera_performance: [
+    opera: [
         { name: '350 Z', src: 'cars/Opera_Performance_350_Z_2004.mp4', data: { country: 'Japan', production_year: '2004', drive: 'FR', power: '350', weight: '1340', length: '4000', worth: '70.000' } },
         { name: 'S2000', src: 'cars/Opera_Performance_S2000_2004.mp4', data: { country: 'Japan', production_year: '2004', drive: 'FR', power: '274', weight: '930', length: '4000', worth: '150.000' } }
     ],
