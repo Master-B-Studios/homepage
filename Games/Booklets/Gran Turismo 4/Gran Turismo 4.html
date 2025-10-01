@@ -20,7 +20,7 @@
       .showroom img.active {border: 2px solid #1fff50;transform: scale(1.4);z-index: 10;}
 
       .showroom-videos {margin-top: 0;text-align: center;width: 100%;}
-      .car_index {width: 100%;background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,1));font-size: 1em;color: #aaaaaa;font-weight: bold;}
+      .car_index {width: 100%;background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,1));font-size: 1.5em;color: #aaaaaa;font-weight: bold;margin-top: 1em;}
 
       .slider-video-wrapper {position: relative;width: 100%;background: rgba(0,0,0,1);}
       .slider-video {width: 100%;}
@@ -129,10 +129,21 @@
 
           <section>
             <div class="showroom-header-wrapper">
-              <div class="slider-btn left" onclick="scrollShowroom(-1)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" fill="none" stroke="#000000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 18l-6-6 6-6" fill="none" stroke="#aaaaaa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="slider-btn left" onclick="scrollShowroom(-1)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M15 18l-6-6 6-6" fill="none" stroke="#000000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M15 18l-6-6 6-6" fill="none" stroke="#aaaaaa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
               <div class="showroom_header">Showroom</div>
-              <div class="slider-btn right" onclick="scrollShowroom(1)"></div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="#000000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 6l6 6-6 6" fill="none" stroke="#aaaaaa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="slider-btn right" onclick="scrollShowroom(1)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M9 6l6 6-6 6" fill="none" stroke="#000000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9 6l6 6-6 6" fill="none" stroke="#aaaaaa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
             </div>
+
             <div class="showroom" id="showroom">
               <img src="manufacturers/AC_Cars_Logo.png" data-brand="ac_cars">
               <img src="manufacturers/Acura_Logo.png" data-brand="acura">
@@ -218,23 +229,18 @@
               <img src="manufacturers/Toyota_Logo.png" data-brand="toyota">
               <img src="manufacturers/TRD_Logo.png" data-brand="trd">
               <img src="manufacturers/Trial_Logo.png" data-brand="trial">
-              <img src="manufacturers/Triumph_Logo.png" data-brand="triumoh">
+              <img src="manufacturers/Triumph_Logo.png" data-brand="triumph">
               <img src="manufacturers/TVR_Logo.png" data-brand="tvr">
               <img src="manufacturers/Vauxhall_Logo.png" data-brand="vauxhall">
               <img src="manufacturers/Volkswagen_Logo.png" data-brand="volkswagen">
               <img src="manufacturers/Volvo_Logo.png" data-brand="volvo">
             </div>
-          </div>
+            <!-- Video-Bereich -->
+             <div id="showroom_videos" class="showroom-videos">
+              <p>Wähle eine Marke, um die Fahrzeuge anzuzeigen.</p>
+            </div>
           </section>
-            
-              
-          
-          
 
-          <!-- Video-Bereich -->
-          <div id="showroom_videos" class="showroom-videos">
-            <p>Wähle eine Marke, um die Fahrzeuge anzuzeigen.</p>
-          </div>
         </article>
       </div>
 
