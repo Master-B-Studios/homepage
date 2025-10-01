@@ -851,6 +851,8 @@ const logos = document.querySelectorAll('.showroom img');
 const videoContainer = document.getElementById('showroom_videos');
 let currentIndex = 0;
 let currentBrand = null;
+let carSelect = 1;
+let carAmount = 0;
 
 logos.forEach(logo => {
     logo.addEventListener('click', () => {
@@ -858,9 +860,11 @@ logos.forEach(logo => {
         logo.classList.add('active');
         currentBrand = logo.getAttribute('data-brand');
         const cars = showroomVideos[currentBrand] || [];
+        carAmount = cars.length;
         if (cars.length > 0) {
             //cars.sort((a, b) => a.name.localeCompare(b.name));
-            currentIndex = 0;renderSlider();
+            currentIndex = 0;
+            renderSlider();
         }
         else {videoContainer.innerHTML = '<p>Für diese Marke sind noch keine Fahrzeuge verfügbar.</p>';}
     });
@@ -876,7 +880,8 @@ function renderSlider() {
             ${cars.length > 1 ? `
                 <div class='slider-btn left' onclick='prevCar()'>
                     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
-                        <path d='M15 18l-6-6 6-6' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/>
+                        <path d='M15 18l-6-6 6-6' fill='none' stroke='#000000' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/>
+                        <path d='M15 18l-6-6 6-6' fill='none' stroke='#aaaaaa' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/>
                     </svg>
                 </div>
             ` : ''}
@@ -884,10 +889,12 @@ function renderSlider() {
             ${cars.length > 1 ? `
                 <div class='slider-btn right' onclick='nextCar()'>
                     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
-                        <path d='M9 6l6 6-6 6' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/>
+                        <path d='M9 6l6 6-6 6' fill='none' stroke='#000000' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/>
+                        <path d='M9 6l6 6-6 6' fill='none' stroke='#aaaaaa' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/>
                     </svg>
                 </div>
             ` : ''}
+            <div class='car_index'>${carSelect} / ${carAmount}</div>
         </div>
         <div class='slider-details'>
             <table class='car_info_table'>
@@ -904,6 +911,6 @@ function renderSlider() {
     `;
 }
 
-function prevCar() {const cars = showroomVideos[currentBrand];currentIndex = (currentIndex - 1 + cars.length) % cars.length;renderSlider();}
-function nextCar() {const cars = showroomVideos[currentBrand];currentIndex = (currentIndex + 1) % cars.length;renderSlider();}
+function prevCar() {const cars = showroomVideos[currentBrand];currentIndex = (currentIndex - 1 + cars.length) % cars.length;carSelect = currentIndex+1;renderSlider();}
+function nextCar() {const cars = showroomVideos[currentBrand];currentIndex = (currentIndex + 1) % cars.length;carSelect = currentIndex + 1;renderSlider();}
 function scrollShowroom(direction) {const showroom = document.getElementById('showroom');const scrollAmount = 200;showroom.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });}
