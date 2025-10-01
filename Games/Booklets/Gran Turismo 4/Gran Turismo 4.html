@@ -20,17 +20,19 @@
       .showroom img.active {border: 2px solid #1fff50;transform: scale(1.4);z-index: 10;}
 
       .showroom-videos {margin-top: 0;text-align: center;width: 100%;}
+      .car_index {width: 100%;background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,1));font-size: 1em;color: #aaaaaa;font-weight: bold;}
 
-      .slider-video-wrapper {position: relative;width: 100%;}
-      .slider-video {width: 100%;border-radius: 10px;box-shadow: 0 0 10px rgba(0,0,0,0.3);}
+      .slider-video-wrapper {position: relative;width: 100%;background: rgba(0,0,0,1);}
+      .slider-video {width: 100%;}
 
       .slider-btn {position: absolute;top: 50%;transform: translateY(-50%);width: 2.5em;height: 2.5em;cursor: pointer;user-select: none;z-index: 10;transition: transform 0.2s;}
       .slider-btn svg {width: 100%;height: 100%;filter: drop-shadow(0 0 6px rgba(0,0,0,0.8));}
       .slider-btn.left {left: 10px}
       .slider-btn.right {right: 10px}
       .slider-btn:hover {transform: translateY(-50%) scale(1.6)}
-      .slider-details {margin: 0;width: 100%;background: rgba(255,255,255,0.05);padding: 1em;border-radius: 10px;font-size: 1em;box-sizing: border-box;text-align: left;}
+      .slider-details {margin: 0;width: 100%;background: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0.8));padding: 0 1em 1em 0;font-size: 1em;box-sizing: border-box;text-align: left;}
 
+      
       .car_info_table {width: 100%;}
       .car_info_1 {width: 10%;text-align: left;padding: 0.2em 1em 0.2em 1em;}
       .car_info_2 {width: 90%;}
@@ -124,26 +126,14 @@
               <div class="quest_answer">Von Tag 694 - 700 gibt es vier Rennwagen beim Gebrauchtwagen-Händler in tiefschwarz zu kaufen. Dieser Turnus wiederholt sich dann 700 Tage später erneut. Also Tag 1394 - 1400. Achtung! Pro Fahrzeugkauf vergeht 1 Tag!</div>
             </details>
           </section>
-          
-          <div class="showroom-header-wrapper">
-            <div class="slider-btn left" onclick="scrollShowroom(-1)">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M15 18l-6-6 6-6" fill="none" stroke="#000000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M15 18l-6-6 6-6" fill="none" stroke="#aaaaaa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+
+          <section>
+            <div class="showroom-header-wrapper">
+              <div class="slider-btn left" onclick="scrollShowroom(-1)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" fill="none" stroke="#000000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 18l-6-6 6-6" fill="none" stroke="#aaaaaa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="showroom_header">Showroom</div>
+              <div class="slider-btn right" onclick="scrollShowroom(1)"></div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="#000000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 6l6 6-6 6" fill="none" stroke="#aaaaaa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             </div>
-            <div class="showroom_header">Showroom</div>
-            
-            
-            <div class="slider-btn right" onclick="scrollShowroom(1)">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M9 6l6 6-6 6" fill="none" stroke="#000000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M9 6l6 6-6 6" fill="none" stroke="#aaaaaa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-          </div>
-          
-          <div class="showroom" id="showroom">
+            <div class="showroom" id="showroom">
             <img src="manufacturers/AC_Cars_Logo.png" data-brand="ac_cars">
             <img src="manufacturers/Acura_Logo.png" data-brand="acura">
             <img src="manufacturers/Alfa_Romeo_Logo.png" data-brand="alfa_romeo">
@@ -235,6 +225,11 @@
             <img src="manufacturers/Volvo_Logo.png" data-brand="volvo">
             </div>
           </div>
+          </section>
+            
+              
+          
+          
 
           <!-- Video-Bereich -->
           <div id="showroom_videos" class="showroom-videos">

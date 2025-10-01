@@ -876,6 +876,7 @@ function renderSlider() {
 
     videoContainer.innerHTML = `
     <div class='slider-container'>
+        <div class='car_index'>${carSelect} / ${carAmount}</div>
         <div class='slider-video-wrapper'>
             ${cars.length > 1 ? `
                 <div class='slider-btn left' onclick='prevCar()'>
@@ -894,7 +895,6 @@ function renderSlider() {
                     </svg>
                 </div>
             ` : ''}
-            <div class='car_index'>${carSelect} / ${carAmount}</div>
         </div>
         <div class='slider-details'>
             <table class='car_info_table'>
