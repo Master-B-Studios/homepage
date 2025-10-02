@@ -22,6 +22,22 @@
       .showroom-videos {margin-top: 0;text-align: center;width: 100%;}
       .car_index {width: 100%;background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,1));font-size: 1.5em;color: #aaaaaa;font-weight: bold;margin-top: 1em;}
 
+      .event-header-wrapper {display: flex;align-items: center;justify-content: center;gap: 1em;margin-bottom: 0.5em;position: relative;}
+      .event_header {font-size: 1.5em;font-weight: bold;text-align: center;}
+      .event-header-wrapper .slider-btn {position: static;transform: none;transition: transform 0.2s ease;margin: 0 2em;}
+      .event-header-wrapper .slider-btn:hover {transform: scale(1.6);}
+      .event-wrapper {position: relative;width: 100%;}
+      
+      .event {display: flex;overflow-x: auto;overflow-y: visible;gap: 0.6em;padding: 1em;scrollbar-width: none;width: calc(100% - 1em);}
+      .event::-webkit-scrollbar { display: none; }
+      .event img {max-height: 80px;flex: 0 0 auto;cursor: pointer;border: 2px solid transparent;border-radius: 12px;background: #111111;padding: 6px;transition: transform 0.2s, border 0.2s, background 0.2s;}
+      .event img:hover {transform: scale(1.4);z-index: 10;}
+      .event img.active {border: 2px solid #1fff50;transform: scale(1.4);z-index: 10;}
+
+      .event-videos {margin-top: 0;text-align: center;width: 100%;}
+
+      
+
       .slider-video-wrapper {position: relative;width: 100%;background: rgba(0,0,0,1);}
       .slider-video {width: 100%;}
 
@@ -235,9 +251,37 @@
               <img src="manufacturers/Volkswagen_Logo.png" data-brand="volkswagen">
               <img src="manufacturers/Volvo_Logo.png" data-brand="volvo">
             </div>
-            <!-- Video-Bereich -->
-             <div id="showroom_videos" class="showroom-videos">
+            <div id="showroom_videos" class="showroom-videos">
               <p>Wähle eine Marke, um die Fahrzeuge anzuzeigen.</p>
+            </div>
+          </section>
+
+          <section>
+            <div class="event-header-wrapper">
+              <div class="slider-btn left" onclick="scrollEvents(-1)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M15 18l-6-6 6-6" fill="none" stroke="#000000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M15 18l-6-6 6-6" fill="none" stroke="#aaaaaa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="event_header">Events</div>
+              <div class="slider-btn right" onclick="scrollEvents(1)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M9 6l6 6-6 6" fill="none" stroke="#000000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9 6l6 6-6 6" fill="none" stroke="#aaaaaa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="event" id="events">
+              <img src="events/1_Series_Trophy.jpg" data-brand="one_series_trophy">
+              <img src="events/1000_Meilen.jpg" data-brand="onethousand_miles">
+              <img src="events/206_Cup.jpg" data-brand="two_zero_six_cup">
+              <img src="events/2HP-2CV_Classics.jpg" data-brand="two_hp_two_cv_classics">
+              <img src="events/4WD_Challenge.jpg" data-brand="four_wheel_drive_challenge">
+            </div>
+            <div id="event_data" class="event-videos">
+              <p>Wähle ein Event, um siegfähige Fahrzeuge und Belohnungen anzuzeigen.</p>
             </div>
           </section>
 
@@ -255,23 +299,23 @@
 <script src="../../../assets/js/util.js"></script>
 <script src="../../../assets/js/main.js"></script>
 <script src="database/car_data.js"></script>
+<script src="database/event_data.js"></script>
 <script>
 var bg_playing = 'false';
 var soundtrack = document.getElementById('soundtrack');
-      var background = soundtrack;
-      var soundtrack_control = document.getElementsByClassName('soundtrack_control');
-      var soundtrack_text = document.getElementsByClassName('soundtrack_text');
-      function bg_music() {
-        if (bg_playing == 'true') {
-          for (let i = 0; i < soundtrack_control.length; i++) {soundtrack_control[i].src = '../../../images/button_play_01.png';}
-          for (let i = 0; i < soundtrack_text.length; i++) {soundtrack_text[i].innerHTML = 'Soundtrack Fortsetzen';}
-          background.pause();bg_playing = 'false';
-        }
-        else if (bg_playing == 'false') {
-          for (let i = 0; i < soundtrack_control.length; i++) {soundtrack_control[i].src = '../../../images/button_pause_01.png';}
-          for (let i = 0; i < soundtrack_text.length; i++) {soundtrack_text[i].innerHTML = 'Soundtrack Pausieren';}
-          background.play();bg_playing = 'true';
-        }
-      }
-    </script>
-  
+var background = soundtrack;
+var soundtrack_control = document.getElementsByClassName('soundtrack_control');
+var soundtrack_text = document.getElementsByClassName('soundtrack_text');
+function bg_music() {
+  if (bg_playing == 'true') {
+    for (let i = 0; i < soundtrack_control.length; i++) {soundtrack_control[i].src = '../../../images/button_play_01.png';}
+    for (let i = 0; i < soundtrack_text.length; i++) {soundtrack_text[i].innerHTML = 'Soundtrack Fortsetzen';}
+    background.pause();bg_playing = 'false';
+  }
+  else if (bg_playing == 'false') {
+    for (let i = 0; i < soundtrack_control.length; i++) {soundtrack_control[i].src = '../../../images/button_pause_01.png';}
+    for (let i = 0; i < soundtrack_text.length; i++) {soundtrack_text[i].innerHTML = 'Soundtrack Pausieren';}
+    background.play();bg_playing = 'true';
+  }
+}
+</script>
