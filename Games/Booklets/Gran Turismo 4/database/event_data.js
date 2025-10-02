@@ -6,6 +6,8 @@ const eventData = {
     four_wheel_drive_challenge: [{ name: '4WD Challenge', data: { vehicles: 'Peugeot 205 Turbo 16 1985', prize: '1.500 Credits', gift: 'Toyota Motor Triathlon Race Car 2004' } }],
     a3_cup: [{ name: 'A3 Cup', data: { vehicles: 'Audi A3 3.2 Quattro 2003', prize: '2.000 Credits', gift: 'Audi Pikes Peak quattro 2003' } }],
     all_japan_gt_championship: [{ name: 'All Japan GT Championship', data: { vehicles: 'Toyota 88C-V Minolta Race Car 1989<br>Suzuki Escudo Dirt Trial Car 1998', prize: '15.000 Credits', gift: 'Nissan Motul Pitwork Z 2004' } }],
+    altezza_race: [{ name: 'Altezza Race', data: { vehicles: 'Alpine A310 1600 VE', prize: '7.500 Credits', gift: 'Alpine A110 1600 S' } }],
+    club_m: [{ name: 'Club M', data: { vehicles: 'Alpine A310 1600 VE', prize: '7.500 Credits', gift: 'Alpine A110 1600 S' } }],
     renault_alpine_cup: [{ name: 'Renault Alpine Cup', data: { vehicles: 'Alpine A310 1600 VE', prize: '7.500 Credits', gift: 'Alpine A110 1600 S' } }],
 };
 
