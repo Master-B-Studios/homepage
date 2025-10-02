@@ -716,7 +716,7 @@ const showroomVideos = {
         { name: 'Legacy Touring Wagon 2.0 GT Spec B', src: 'cars/Subaru_Legacy_2003_Touring_Wagon_2.0_GT_Spec_B.mp4', data: { country: 'Japan', production_year: '2003', drive: '4WD', power: '269', weight: '1450', length: '4000', worth: '30.300 Credits' } },
         { name: 'Legacy Touring Wagon 3.0 R', src: 'cars/Subaru_Legacy_2003_Touring_Wagon_3.0_R.mp4', data: { country: 'Japan', production_year: '2003', drive: '4WD', power: '238', weight: '1480', length: '4000', worth: '30.000 Credits' } }
     ],
-    spoon: [
+    suzuki: [
         { name: 'Alto Works Limited', src: 'cars/Suzuki_Alto_1997_Works_Limited.mp4', data: { country: 'Japan', production_year: '1997', drive: '4WD', power: '63', weight: '710', length: '3295', worth: '~5.000 Credits' } },
         { name: 'Alto Works RS-Z', src: 'cars/Suzuki_Alto_1997_Works_RS-Z.mp4', data: { country: 'Japan', production_year: '1997', drive: '4WD', power: '61', weight: '710', length: '3295', worth: '~6.000 Credits' } },
         { name: 'Alto Lapin Turbo', src: 'cars/Suzuki_Alto_2002_Lapin_Turbo.mp4', data: { country: 'Japan', production_year: '2002', drive: '4WD', power: '57', weight: '840', length: '3395', worth: '12.400 Credits' } },
@@ -858,6 +858,7 @@ logos.forEach(logo => {
     logo.addEventListener('click', () => {
         logos.forEach(l => l.classList.remove('active'));
         logo.classList.add('active');
+        carSelect = 1;
         currentBrand = logo.getAttribute('data-brand');
         const cars = showroomVideos[currentBrand] || [];
         carAmount = cars.length;
