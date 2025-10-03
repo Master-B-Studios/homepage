@@ -517,6 +517,7 @@ const showroomVideos = {
         { name: '350 Z', src: 'cars/Nissan_350_Z_2003.mp4', data: { country: 'Japan', production_year: '2003', drive: 'FR', power: '276', weight: '1440', length: '4310', worth: '33.000 Credits' } },
         { name: '350 Z Roadster', src: 'cars/Nissan_350_Z_2003_Roadster.mp4', data: { country: 'Japan', production_year: '2003', drive: 'FR', power: '276', weight: '1550', length: '4310', worth: '36.000 Credits' } },
         { name: '350 Z Motul Pitwork', src: 'cars/Nissan_350_Z_2004_Motul_Pitwork.mp4', data: { country: 'Japan', production_year: '2004', drive: 'FR', power: '485', weight: '1080', length: '4350', worth: '1.350.000 Credits | Japanische GT-Meisterschaft' } },
+        { name: '350 Z Option Stream', src: 'cars/Nissan_350_Z_2004_Motul_Pitwork.mp4', data: { country: 'Japan', production_year: '2004', drive: 'FR', power: '769', weight: '1440', length: '4350', worth: 'Tuning-Grand-Prix' } },
         { name: '350 Z Limited Edition', src: 'cars/Nissan_350_Z_2005_Limited_Edition.mp4', data: { country: 'Japan', production_year: '2005', drive: 'FR', power: '286', weight: '1440', length: '4310', worth: '36.000 Credits' } },
         { name: '2000', src: 'cars/Nissan_2000_1968.mp4', data: { country: 'Japan', production_year: '1968', drive: 'FR', power: '137', weight: '930', length: '3910', worth: '~19.000 Credits' } },
         { name: 'Be-1', src: 'cars/Nissan_Be-1_1987.mp4', data: { country: 'Japan', production_year: '1987', drive: 'FF', power: '51', weight: '670', length: '4000', worth: '~5.000 Credits' } },

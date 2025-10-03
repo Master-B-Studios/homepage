@@ -33,8 +33,8 @@
       .event_item {position: relative;flex: 0 0 auto;border-radius: 10px;cursor: pointer;border: 2px solid #111111;background-color: #111111;transition: transform 1s, border 1s, background 1s;}
       .event_item:hover {transform: scale(1.1);z-index: 10;}
       .event_item.active {border: 2px solid #1fff50;transform: scale(1.1);z-index: -20;}
-      .event_item img {max-height: 80px;display: block;border-radius: 10px;background: #111111;}
-      .event_text {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);padding: 4px 8px;font-size: 1em;font-weight: bold;color: #dbdbdb;text-align: center;border-radius: 10px;white-space: nowrap;text-shadow:0 0 1px #000,0 0 2px #000,0 0 3px #000,0 0 4px #000,0 0 5px #000,0 0 6px #000,0 0 7px #000;}
+      .event_item img {max-height: 80px;display: block;border-radius: 10px 10px 0 0;background: #111111;}
+      .event_text {position: relative;top: 0%;left: 0%;padding: 4px 8px;font-size: 1em;font-weight: bold;color: #dbdbdb;text-align: center;border-radius: 10px;white-space: nowrap;text-shadow:0 0 1px #000,0 0 2px #000,0 0 3px #000,0 0 4px #000,0 0 5px #000,0 0 6px #000,0 0 7px #000;}
 
       .event-videos {margin-top: 0;text-align: center;width: 100%;}
 
@@ -230,7 +230,7 @@
               <img src="manufacturers/Polyphony_Digital_Logo.png" data-brand="polyphony_digital">
               <img src="manufacturers/Pontiac_Logo.png" data-brand="pontiac">
               <img src="manufacturers/Proto_Motors_Logo.png" data-brand="proto_motors">
-              <img src="manufacturers/RE_Amemiya_Logo.png" data-brand="RE_AMemiya">
+              <img src="manufacturers/RE_Amemiya_Logo.png" data-brand="re_amemiya">
               <img src="manufacturers/Renault_Logo.png" data-brand="renault">
               <img src="manufacturers/RUF_Logo.png" data-brand="ruf">
               <img src="manufacturers/Saleen_Logo.png" data-brand="saleen">
@@ -276,14 +276,71 @@
             <div class="event" id="events">
               <div class="event_item"><img src="events/car_bmw_1.png" data-brand="one_series_trophy"><div class="event_text">1er-Trophy</div></div>
               <div class="event_item"><img src="events/event_europe.png" data-brand="onethousand_miles"><div class="event_text">1000 Meilen</div></div>
-              <div class="event_item"><img src="events/car_peugeot_206.png" data-brand="two_zero_six_cup"><div class="event_text">206-Pokal</div></div>
               <div class="event_item"><img src="events/car_citroen_2cv.png" data-brand="two_hp_two_cv_classics"><div class="event_text">2-PS-2-Zylinder-Klassiker</div></div>
-              <div class="event_item"><img src="events/beginner_4wd.png" data-brand="four_wheel_drive_challenge"><div class="event_text"></div></div>
-              <div class="event_item"><img src="events/car_audi_a3_0.png" data-brand="a3_cup"><div class="event_text">A3-Pokal</div></div>
+              <div class="event_item"><img src="events/car_peugeot_206.png" data-brand="two_zero_six_cup"><div class="event_text">206-Pokal</div></div>
+              <div class="event_item"><img src="events/league_01_beginner_4wd.png" data-brand="four_wheel_drive_challenge"><div class="event_text">4x4 Herausforderung</div></div>
+              <div class="event_item"><img src="events/car_audi_a3.png" data-brand="a3_cup"><div class="event_text">A3-Pokal</div></div>
               <div class="event_item"><img src="events/car_toyota_altezza.png" data-brand="altezza_race"><div class="event_text">Altezza-Rennen</div></div>
+              <div class="event_item"><img src="events/car_aston.png" data-brand="aston_martin_carnival"><div class="event_text">Aston-Martin-Festival</div></div>
+              <div class="event_item"><img src="events/car_vw_beetle.png" data-brand="beetle_cup"><div class="event_text">Beetle-Pokal</div></div>
+              <div class="event_item"><img src="events/car_tvr.png" data-brand="blackpool_racers"><div class="event_text">Blackpool Racers</div></div>
+              <div class="event_item"><img src="events/league_02_professional_boxer.png" data-brand="boxer_spirit"><div class="event_text">Boxer Spirit</div></div>
+              <div class="event_item"><img src="events/event_europe.png" data-brand="british_gt_series"><div class="event_text">Britische GT-Serie</div></div>
+              <div class="event_item"><img src="events/event_europe.png" data-brand="british_lightweight_series"><div class="event_text">Britische Leichtgewicht-Serie</div></div>
+              <div class="event_item"><img src="events/car_chev_camaro.png" data-brand="camaro_meeting"><div class="event_text">Camaro-Meeting</div></div>
+              <div class="event_item"><img src="events/car_honda_civic.png" data-brand="civic_race"><div class="event_text">Civic-Rennen</div></div>
+              <div class="event_item"><img src="events/car_renault_clio.png" data-brand="clio_trophy"><div class="event_text">Clio-Trophy</div></div>
               <div class="event_item"><img src="events/car_bmw_m.png" data-brand="club_m"><div class="event_text">Club "M"</div></div>
+              <div class="event_item"><img src="events/car_nissan_z.png" data-brand="club_z"><div class="event_text">Club "Z"</div></div>
+              <div class="event_item"><img src="events/league_01_beginner_ff.png" data-brand="ff_challenge"><div class="event_text">FF-Herausforderung</div></div>
+              <div class="event_item"><img src="events/league_01_beginner_fr.png" data-brand="fr_challenge"><div class="event_text">FH-Herausforderung</div></div>
               <div class="event_item"><img src="events/event_japan.png" data-brand="all_japan_gt_championship"><div class="event_text">Japanische GT-Meisterschaft</div></div>
+              <div class="event_item"><img src="events/league_01_beginner_kcar.png" data-brand="lightweight_k_cup"><div class="event_text">Leichtgewicht-K-Car-Pokal</div></div>
+              <div class="event_item"><img src="events/league_01_beginner_mr.png" data-brand="mr_challenge"><div class="event_text">MH-Herausforderung</div></div>
+              <div class="event_item"><img src="events/league_01_beginner_pickup.png" data-brand="pickup"><div class="event_text">Pickup-Rennen</div></div>
               <div class="event_item"><img src="events/car_renault_alpine.png" data-brand="renault_alpine_cup"><div class="event_text">Renault-Alpine-Pokal</div></div>
+              <div class="event_item"><img src="events/league_01_beginner_sunday.png" data-brand="sunday_cup"><div class="event_text">Sonntagspokal</div></div>
+              <div class="event_item"><img src="events/league_01_beginner_spider.png" data-brand="spider_roadster"><div class="event_text">Spider & Roadster</div></div>
+              <div class="event_item"><img src="events/car_mazda_rotary.png" data-brand="club_re"><div class="event_text">Wankelmotor-Club</div></div>
+              
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
+              <div class="event_item"><img src="events/placeholder.png" data-brand="placeholder"><div class="event_text">placeholder</div></div>
             </div>
             <div id="event_data" class="event-videos">
               <p>Wähle ein Event, um siegfähige Fahrzeuge und Belohnungen anzuzeigen.</p>
