@@ -6,21 +6,28 @@ const eventData = {
     four_wheel_drive_challenge: [{ name: '4WD Challenge', data: { vehicles: 'Peugeot 205 Turbo 16 1985', prize: '1.500 Credits', gift: 'Toyota Motor Triathlon Race Car 2004' } }],
     a3_cup: [{ name: 'A3 Cup', data: { vehicles: 'Audi A3 3.2 Quattro 2003', prize: '2.000 Credits', gift: 'Audi Pikes Peak quattro 2003' } }],
     all_japan_gt_championship: [{ name: 'All Japan GT Championship', data: { vehicles: 'Toyota 88C-V Minolta Race Car 1989<br>Suzuki Escudo Dirt Trial Car 1998', prize: '15.000 Credits', gift: 'Nissan Motul Pitwork Z 2004' } }],
-    altezza_race: [{ name: 'Altezza Race', data: { vehicles: 'Alpine A310 1600 VE', prize: '7.500 Credits', gift: 'Alpine A110 1600 S' } }],
-    club_m: [{ name: 'Club M', data: { vehicles: 'Alpine A310 1600 VE', prize: '7.500 Credits', gift: 'Alpine A110 1600 S' } }],
+    altezza_race: [{ name: 'Altezza Race', data: { vehicles: 'Lexus IS 200 J 1998', prize: '2.000 Credits', gift: 'Toyota Altezza Touring Car 2001' } }],
+    club_m: [{ name: 'Club M', data: { vehicles: 'BMW M Coupe 1998', prize: '45.000 Credits', gift: 'BMW M3 GTR 2003' } }],
     renault_alpine_cup: [{ name: 'Renault Alpine Cup', data: { vehicles: 'Alpine A310 1600 VE', prize: '7.500 Credits', gift: 'Alpine A110 1600 S' } }],
 };
 
-const event_logos = document.querySelectorAll('.event img');
+const event_items = document.querySelectorAll('.event_item');
 const eventContainer = document.getElementById('event_data');
 let event_currentBrand = null;
 let event_currentIndex = 0;
 
-event_logos.forEach(logo => {
-    logo.addEventListener('click', () => {
-        event_logos.forEach(l => l.classList.remove('active'));
-        logo.classList.add('active');
+event_items.forEach(item => {
+    item.addEventListener('click', () => {
+        // Alle anderen deaktivieren
+        event_items.forEach(i => i.classList.remove('active'));
+
+        // Aktuelles markieren
+        item.classList.add('active');
+
+        // Brand vom IMG im aktuellen Item holen
+        const logo = item.querySelector('img');
         event_currentBrand = logo.getAttribute('data-brand');
+
         renderSliderEvent();
     });
 });

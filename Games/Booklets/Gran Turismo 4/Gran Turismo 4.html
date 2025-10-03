@@ -9,39 +9,39 @@
     <style>
       .showroom-header-wrapper {display: flex;align-items: center;justify-content: center;gap: 1em;margin-bottom: 0.5em;position: relative;}
       .showroom_header {font-size: 1.5em;font-weight: bold;text-align: center;}
-      .showroom-header-wrapper .slider-btn {position: static;transform: none;transition: transform 0.2s ease;margin: 0 2em;}
+      .showroom-header-wrapper .slider-btn {position: static;transform: none;transition: transform 1s ease;margin: 0 2em;}
       .showroom-header-wrapper .slider-btn:hover {transform: scale(1.6);}
       .showroom-wrapper {position: relative;width: 100%;}
       
-      .showroom {display: flex;overflow-x: auto;overflow-y: visible;gap: 0.6em;padding: 1em;scrollbar-width: none;width: calc(100% - 1em);}
+      .showroom {display: flex;overflow-x: auto;overflow-y: visible;gap: 1em;padding: 1em;scrollbar-width: none;width: calc(100% - 1em);}
       .showroom::-webkit-scrollbar { display: none; }
-      .showroom img {max-height: 80px;flex: 0 0 auto;cursor: pointer;border: 2px solid transparent;border-radius: 12px;background: #111111;padding: 6px;transition: transform 0.2s, border 0.2s, background 0.2s;}
+      .showroom img {max-height: 80px;flex: 0 0 auto;cursor: pointer;border: 2px solid transparent;border-radius: 12px;background: #111111;padding: 6px;transition: transform 1s, border 1s, background 1s;}
       .showroom img:hover {transform: scale(1.4);z-index: 10;}
-      .showroom img.active {border: 2px solid #1fff50;transform: scale(1.4);z-index: 10;}
+      .showroom img.active {border: 2px solid #1fff50;transform: scale(1.4);z-index: -20;}
 
       .showroom-videos {margin-top: 0;text-align: center;width: 100%;}
       .car_index {width: 100%;background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,1));font-size: 1.5em;color: #aaaaaa;font-weight: bold;margin-top: 1em;}
 
       .event-header-wrapper {display: flex;align-items: center;justify-content: center;gap: 1em;margin-bottom: 0.5em;position: relative;}
       .event_header {font-size: 1.5em;font-weight: bold;text-align: center;}
-      .event-header-wrapper .slider-btn {position: static;transform: none;transition: transform 0.2s ease;margin: 0 2em;}
+      .event-header-wrapper .slider-btn {position: static;transform: none;transition: transform 1s ease;margin: 0 2em;}
       .event-header-wrapper .slider-btn:hover {transform: scale(1.6);}
       .event-wrapper {position: relative;width: 100%;}
       
-      .event {display: flex;overflow-x: auto;overflow-y: visible;gap: 0.6em;padding: 1em;scrollbar-width: none;width: calc(100% - 1em);}
-      .event::-webkit-scrollbar { display: none; }
-      .event img {max-height: 80px;flex: 0 0 auto;cursor: pointer;border: 2px solid transparent;border-radius: 12px;background: #111111;padding: 6px;transition: transform 0.2s, border 0.2s, background 0.2s;}
-      .event img:hover {transform: scale(1.1);z-index: 10;}
-      .event img.active {border: 2px solid #1fff50;transform: scale(1.1);z-index: 10;}
+      .event {display: flex;overflow-x: auto;overflow-y: visible;gap: 1em;padding: 1em;scrollbar-width: none;width: calc(100% - 1em);}
+      .event::-webkit-scrollbar {display: none;}
+      .event_item {position: relative;flex: 0 0 auto;border-radius: 10px;cursor: pointer;border: 2px solid #111111;background-color: #111111;transition: transform 1s, border 1s, background 1s;}
+      .event_item:hover {transform: scale(1.1);z-index: 10;}
+      .event_item.active {border: 2px solid #1fff50;transform: scale(1.1);z-index: -20;}
+      .event_item img {max-height: 80px;display: block;border-radius: 10px;background: #111111;}
+      .event_text {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);padding: 4px 8px;font-size: 1em;font-weight: bold;color: #dbdbdb;text-align: center;border-radius: 10px;white-space: nowrap;text-shadow:0 0 1px #000,0 0 2px #000,0 0 3px #000,0 0 4px #000,0 0 5px #000,0 0 6px #000,0 0 7px #000;}
 
       .event-videos {margin-top: 0;text-align: center;width: 100%;}
-
-      
 
       .slider-video-wrapper {position: relative;width: 100%;background: rgba(0,0,0,1);}
       .slider-video {width: 100%;}
 
-      .slider-btn {position: absolute;top: 50%;transform: translateY(-50%);width: 2.5em;height: 2.5em;cursor: pointer;user-select: none;z-index: 10;transition: transform 0.2s;}
+      .slider-btn {position: absolute;top: 50%;transform: translateY(-50%);width: 2.5em;height: 2.5em;cursor: pointer;user-select: none;z-index: 10;transition: transform 1s;}
       .slider-btn svg {width: 100%;height: 100%;filter: drop-shadow(0 0 6px rgba(0,0,0,0.8));}
       .slider-btn.left {left: 10px}
       .slider-btn.right {right: 10px}
@@ -274,16 +274,16 @@
             </div>
 
             <div class="event" id="events">
-              <img src="events/1er-Trophy.jpg" data-brand="one_series_trophy">
-              <img src="events/1000_Meilen.jpg" data-brand="onethousand_miles">
-              <img src="events/206-Pokal.jpg" data-brand="two_zero_six_cup">
-              <img src="events/2-PS-2-Zylinder-Klassiker.jpg" data-brand="two_hp_two_cv_classics">
-              <img src="events/4WD_Challenge.jpg" data-brand="four_wheel_drive_challenge">
-              <img src="events/A3-Pokal.jpg" data-brand="a3_cup">
-              <img src="events/Altezza-Race.jpg" data-brand="altezza_race">
-              <img src="events/Club_M.jpg" data-brand="club_m">
-              <img src="events/Japanische GT-Meisterschaft.jpg" data-brand="all_japan_gt_championship">
-              <img src="events/Renault-Alpine-Pokal.jpg" data-brand="renault_alpine_cup">
+              <div class="event_item"><img src="events/car_bmw_1.png" data-brand="one_series_trophy"><div class="event_text">1er-Trophy</div></div>
+              <div class="event_item"><img src="events/event_europe.png" data-brand="onethousand_miles"><div class="event_text">1000 Meilen</div></div>
+              <div class="event_item"><img src="events/car_peugeot_206.png" data-brand="two_zero_six_cup"><div class="event_text">206-Pokal</div></div>
+              <div class="event_item"><img src="events/car_citroen_2cv.png" data-brand="two_hp_two_cv_classics"><div class="event_text">2-PS-2-Zylinder-Klassiker</div></div>
+              <div class="event_item"><img src="events/beginner_4wd.png" data-brand="four_wheel_drive_challenge"><div class="event_text"></div></div>
+              <div class="event_item"><img src="events/car_audi_a3_0.png" data-brand="a3_cup"><div class="event_text">A3-Pokal</div></div>
+              <div class="event_item"><img src="events/car_toyota_altezza.png" data-brand="altezza_race"><div class="event_text">Altezza-Rennen</div></div>
+              <div class="event_item"><img src="events/car_bmw_m.png" data-brand="club_m"><div class="event_text">Club "M"</div></div>
+              <div class="event_item"><img src="events/event_japan.png" data-brand="all_japan_gt_championship"><div class="event_text">Japanische GT-Meisterschaft</div></div>
+              <div class="event_item"><img src="events/car_renault_alpine.png" data-brand="renault_alpine_cup"><div class="event_text">Renault-Alpine-Pokal</div></div>
             </div>
             <div id="event_data" class="event-videos">
               <p>Wähle ein Event, um siegfähige Fahrzeuge und Belohnungen anzuzeigen.</p>
