@@ -22,6 +22,23 @@
       .showroom-videos {margin-top: 0;text-align: center;width: 100%;}
       .car_index {width: 100%;background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,1));font-size: 1.5em;color: #aaaaaa;font-weight: bold;margin: 1em 0 1em 0;}
 
+      .slider-video-wrapper {position: relative;width: 100%;background: rgba(0,0,0,1);}
+      .slider-video {width: 100%;}
+
+      .video-overlay {position: absolute;width: 100%;height: 100%;top: 0%;background-color: #000000;opacity: 0;pointer-events: none;transition: opacity 1s linear;}
+      .video-overlay.active {opacity: 1;transition: opacity 1s ease;}
+
+      .slider-btn {position: absolute;top: 50%;transform: translateY(-50%);width: 2.5em;height: 2.5em;cursor: pointer;user-select: none;z-index: 10;transition: transform 1s;}
+      .slider-btn svg {width: 100%;height: 100%;filter: drop-shadow(0 0 6px rgba(0,0,0,0.8));}
+      .slider-btn.left {left: 10px}
+      .slider-btn.right {right: 10px}
+      .slider-btn:hover {transform: translateY(-50%) scale(1.6)}
+      .slider-details {margin: 0;width: 100%;background: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0.8));padding: 0 1em 1em 0;font-size: 1em;box-sizing: border-box;text-align: left;}
+
+      .car_info_table {width: 100%;}
+      .car_info_1 {width: 10%;text-align: left;padding: 0.2em 1em 0.2em 1em;}
+      .car_info_2 {width: 90%;}
+
       .event-header-wrapper {display: flex;align-items: center;justify-content: center;gap: 1em;margin-bottom: 0.5em;position: relative;}
       .event_header {font-size: 1.5em;font-weight: bold;text-align: center;}
       .event-header-wrapper .slider-btn {position: static;transform: none;transition: transform 1s ease;margin: 0 2em;}
@@ -37,21 +54,6 @@
       .event_text {position: relative;top: 0%;left: 0%;padding: 4px 8px;font-size: 1em;font-weight: bold;color: #dbdbdb;text-align: center;border-radius: 10px;white-space: nowrap;text-shadow:0 0 1px #000,0 0 2px #000,0 0 3px #000,0 0 4px #000,0 0 5px #000,0 0 6px #000,0 0 7px #000;}
 
       .event-videos {margin-top: 0;text-align: center;width: 100%;}
-
-      .slider-video-wrapper {position: relative;width: 100%;background: rgba(0,0,0,1);}
-      .slider-video {width: 100%;}
-
-      .slider-btn {position: absolute;top: 50%;transform: translateY(-50%);width: 2.5em;height: 2.5em;cursor: pointer;user-select: none;z-index: 10;transition: transform 1s;}
-      .slider-btn svg {width: 100%;height: 100%;filter: drop-shadow(0 0 6px rgba(0,0,0,0.8));}
-      .slider-btn.left {left: 10px}
-      .slider-btn.right {right: 10px}
-      .slider-btn:hover {transform: translateY(-50%) scale(1.6)}
-      .slider-details {margin: 0;width: 100%;background: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0.8));padding: 0 1em 1em 0;font-size: 1em;box-sizing: border-box;text-align: left;}
-
-      
-      .car_info_table {width: 100%;}
-      .car_info_1 {width: 10%;text-align: left;padding: 0.2em 1em 0.2em 1em;}
-      .car_info_2 {width: 90%;}
     </style>
   </head>
   <body onload="window.location.href = '#content';" class="is-preload">
@@ -168,7 +170,7 @@
               <img src="manufacturers/Amuse_Logo.png" data-brand="amuse">
               <img src="manufacturers/Aston_Martin_Logo.png" data-brand="aston_martin">
               <img src="manufacturers/Audi_Logo.png" data-brand="audi">
-              <img src="manufacturers/Autobacs_Logo.png" data-brand="autobacs">
+              <img src="manufacturers/ASL_Logo.png" data-brand="asl">
               <img src="manufacturers/Autobianchi_Logo.png" data-brand="autobianchi">
               <img src="manufacturers/Bentley_Logo.png" data-brand="bentley">
               <img src="manufacturers/Blitz_Logo.png" data-brand="blitz">

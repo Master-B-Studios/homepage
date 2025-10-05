@@ -25,86 +25,86 @@ const showroomVideos = {
         { name: 'Spider 3.0i V6 24V', src: 'cars/Alfa_Romeo/Spider_2001_3.0i_V6_24V.mp4', data: { country: 'Italien', production_year: '2001', drive: 'FF', power: '219', weight: '1450', length: '4267', worth: '51.190 Credits' } }
     ],
     alpine: [
-        { name: 'A110 1600 S', src: 'cars/Alpine_A110_1973_1600_S.mp4', data: { country: 'Frankreich', production_year: '1973', drive: 'RR', power: '138', weight: '715', length: '3850', worth: 'Renault Alpine Cup' } },
-        { name: 'A310 1600 VE', src: 'cars/Alpine_A310_1973_1600_VE.mp4', data: { country: 'Frankreich', production_year: '1973', drive: 'RR', power: '130', weight: '930', length: '4166', worth: 'George V Rallye - Leicht' } }
+        { name: 'A110 1600 S', src: 'cars/Alpine/A110_1973_1600_S.mp4', data: { country: 'Frankreich', production_year: '1973', drive: 'RR', power: '141', weight: '715', length: '3850', worth: 'Renault Alpine Cup' } },
+        { name: 'A310 1600 VE', src: 'cars/Alpine/A310_1973_1600_VE.mp4', data: { country: 'Frankreich', production_year: '1973', drive: 'RR', power: '125', weight: '930', length: '4166', worth: 'George V Rallye - Leicht' } }
     ],
     amuse: [
-        { name: 'Carbon R', src: 'cars/Amuse_Carbon_2004_R.mp4', data: { country: 'Japan', production_year: '2004', drive: 'FR', power: '600', weight: '1123', length: '4730', worth: '250.000 Credits' } },
-        { name: 'S2000 Street Version', src: 'cars/Amuse_S2000_2004_Street_Version.mp4', data: { country: 'Japan', production_year: '2004', drive: 'FR', power: '254', weight: '1189', length: '4154', worth: '50.000 Credits' } },
-        { name: 'S2000 R1', src: 'cars/Amuse_S2000_2004_R1.mp4', data: { country: 'Japan', production_year: '2004', drive: 'FR', power: '260', weight: '1120', length: '4154', worth: '150.000 Credits' } },
-        { name: 'S2000 GT1', src: 'cars/Amuse_S2000_2004_GT1.mp4', data: { country: 'Japan', production_year: '2004', drive: 'FR', power: '510', weight: '1179', length: '4730', worth: '250.000 Credits' } }
+        { name: 'Carbon R', src: 'cars/Amuse/Carbon_2004_R.mp4', data: { country: 'Japan', production_year: '2004', drive: 'FR', power: '603', weight: '1123', length: '4730', worth: '250.000 Credits' } },
+        { name: 'S2000 Street Version', src: 'cars/Amuse/S2000_2004_Street_Version.mp4', data: { country: 'Japan', production_year: '2004', drive: 'FR', power: '254', weight: '1189', length: '4154', worth: '50.000 Credits' } },
+        { name: 'S2000 R1', src: 'cars/Amuse/S2000_2004_R1.mp4', data: { country: 'Japan', production_year: '2004', drive: 'FR', power: '263', weight: '1120', length: '4154', worth: '150.000 Credits' } },
+        { name: 'S2000 GT1', src: 'cars/Amuse/S2000_2004_GT1.mp4', data: { country: 'Japan', production_year: '2004', drive: 'FR', power: '510', weight: '1179', length: '4730', worth: '250.000 Credits' } }
     ],
     aston_martin: [
-        { name: 'DB7 Vantage Coupe', src: 'cars/Aston_Martin_DB7_2000_Vantage_Coupe.mp4', data: { country: 'Grossbritannien', production_year: '2000', drive: 'FR', power: '419', weight: '1775', length: '4674', worth: '164.260 Credits' } },
-        { name: 'DB9 Coupe', src: 'cars/Aston_Martin_DB9_2003_Coupe.mp4', data: { country: 'Grossbritannien', production_year: '2003', drive: 'FR', power: '449', weight: '1710', length: '4699', worth: '164.470 Credits | Aston Martin Carnival' } },
-        { name: 'V8 Vantage', src: 'cars/Aston_Martin_V8_1999_Vantage.mp4', data: { country: 'Grossbritannien', production_year: '1999', drive: 'FR', power: '550', weight: '1970', length: '4724', worth: '~291.199 Credits' } },
-        { name: 'Vanquish', src: 'cars/Aston_Martin_Vanquish_2004.mp4', data: { country: 'Grossbritannien', production_year: '2004', drive: 'FR', power: '459', weight: '1835', length: '4648', worth: '238.750 Credits' } }
+        { name: 'DB7 Vantage Coupe', src: 'cars/Aston_Martin/DB7_2000_Vantage_Coupe.mp4', data: { country: 'Grossbritannien', production_year: '2000', drive: 'FR', power: '426', weight: '1775', length: '4674', worth: '164.260 Credits' } },
+        { name: 'DB9 Coupe', src: 'cars/Aston_Martin/DB9_2003_Coupe.mp4', data: { country: 'Grossbritannien', production_year: '2003', drive: 'FR', power: '456', weight: '1710', length: '4699', worth: '164.470 Credits | Aston Martin Carnival' } },
+        { name: 'V8 Vantage', src: 'cars/Aston_Martin/V8_1999_Vantage.mp4', data: { country: 'Grossbritannien', production_year: '1999', drive: 'FR', power: '567', weight: '1970', length: '4724', worth: '~291.199 Credits' } },
+        { name: 'Vanquish', src: 'cars/Aston_Martin/Vanquish_2004.mp4', data: { country: 'Grossbritannien', production_year: '2004', drive: 'FR', power: '466', weight: '1835', length: '4648', worth: '238.750 Credits' } }
     ],
     audi: [
-        { name: 'A2 1.4', src: 'cars/Audi_A2_2002_1.4.mp4', data: { country: 'Deutschland', production_year: '2002', drive: 'FF', power: '72', weight: '920', length: '3826', worth: '22.400 Credits' } },
-        { name: 'S3', src: 'cars/Audi_A3_2002_S.mp4', data: { country: 'Deutschland', production_year: '2002', drive: '4WD', power: '222', weight: '1420', length: '4159', worth: '41.070 Credits' } },
-        { name: 'A3 3.2 Quattro', src: 'cars/Audi_A3_2003_3.2_Quattro.mp4', data: { country: 'Deutschland', production_year: '2003', drive: '4WD', power: '246', weight: '1495', length: '4203', worth: '42.490 Credits' } },
-        { name: 'S4', src: 'cars/Audi_A4_1998_S.mp4', data: { country: 'Deutschland', production_year: '1998', drive: '4WD', power: '269', weight: '1510', length: '4483', worth: '~46.000 Credits' } },
-        { name: 'RS4 Avant', src: 'cars/Audi_A4_2001_RS_Avant.mp4', data: { country: 'Deutschland', production_year: '2001', drive: '4WD', power: '378', weight: '1619', length: '4525', worth: '41.380 Credits' } },
-        { name: 'S4', src: 'cars/Audi_A4_2003_S.mp4', data: { country: 'Deutschland', production_year: '2003', drive: '4WD', power: '340', weight: '1599', length: '4575', worth: '55.430 Credits' } },
-        { name: 'A4 Touring Car', src: 'cars/Audi_A4_2004_Touring_Car.mp4', data: { country: 'Deutschland', production_year: '2004', drive: 'FR', power: '460', weight: '1080', length: '4344', worth: '450.000 Credits' } },
-        { name: 'RS6', src: 'cars/Audi_A6_2002_RS.mp4', data: { country: 'Deutschland', production_year: '2002', drive: '4WD', power: '453', weight: '1839', length: '4858', worth: '117.060 Credits' } },
-        { name: 'RS6 Avant', src: 'cars/Audi_A6_2002_RS_Avant.mp4', data: { country: 'Deutschland', production_year: '2002', drive: '4WD', power: '453', weight: '1880', length: '4852', worth: '117.060 Credits' } },
-        { name: 'Auto Union V16 Type C Streamline', src: 'cars/Audi_Auto_Union_V16_1937_Type_C_Streamline.mp4', data: { country: 'Deutschland', production_year: '1937', drive: 'MR', power: '520', weight: '1000', length: '5000', worth: '500.000 Credits | Grand Valley 300 km' } },
-        { name: 'Le Mans Quattro', src: 'cars/Audi_Le_Mans_2003_Quattro.mp4', data: { country: 'Deutschland', production_year: '2003', drive: '4WD', power: '641', weight: '1531', length: '4370', worth: 'Tourist Trophy' } },
-        { name: 'Nuvolari Quattro', src: 'cars/Audi_Nuvolari_2003_Quattro.mp4', data: { country: 'Deutschland', production_year: '2003', drive: '4WD', power: '608', weight: '1549', length: '4370', worth: '25% Spielfortschritt' } },
-        { name: 'Pikes Peak Quattro', src: 'cars/Audi_Pikes_Peak_2003_Quattro.mp4', data: { country: 'Deutschland', production_year: '2003', drive: '4WD', power: '508', weight: '1901', length: '5000', worth: 'A3 Cup' } },
-        { name: 'Quattro', src: 'cars/Audi_Quattro_1982.mp4#t=3', data: { country: 'Deutschland', production_year: '1982', drive: '4WD', power: '200', weight: '1290', length: '4000', worth: '90.360 Credits' } },
-        { name: 'R8 Race Car', src: 'cars/Audi_R8_2001_Race_Car.mp4', data: { country: 'Deutschland', production_year: '2001', drive: 'MR', power: '795', weight: '899', length: '4000', worth: '4.500.000 Credits | Circuit De La Sarthe I 24h' } },
-        { name: 'TT Coupe 1.8T Quattro', src: 'cars/Audi_TT_2000_Coupe_1.8T_Quattro.mp4', data: { country: 'Deutschland', production_year: '2000', drive: '4WD', power: '219', weight: '1395', length: '4041', worth: '47.700 Credits' } },
-        { name: 'TT Coupe 3.2 Quattro', src: 'cars/Audi_TT_2003_Coupe_3.2_Quattro.mp4', data: { country: 'Deutschland', production_year: '2003', drive: '4WD', power: '239', weight: '1520', length: '4041', worth: '57.740 Credits' } },
-        { name: 'TT-R Touring Car', src: 'cars/Audi_TT_2002_R_Touring_Car.mp4', data: { country: 'Deutschland', production_year: '2002', drive: 'FR', power: '470', weight: '1080', length: '4600', worth: '550.000 Credits | Nürburgring 4h' } }
+        { name: 'A2 1.4', src: 'cars/Audi/A2_2002_1.4.mp4', data: { country: 'Deutschland', production_year: '2002', drive: 'FF', power: '75', weight: '920', length: '3826', worth: '22.400 Credits' } },
+        { name: 'S3', src: 'cars/Audi/A3_2002_S.mp4', data: { country: 'Deutschland', production_year: '2002', drive: '4WD', power: '213', weight: '1420', length: '4159', worth: '41.070 Credits' } },
+        { name: 'A3 3.2 Quattro', src: 'cars/Audi/A3_2003_3.2_Quattro.mp4', data: { country: 'Deutschland', production_year: '2003', drive: '4WD', power: '250', weight: '1495', length: '4203', worth: '42.490 Credits' } },
+        { name: 'S4', src: 'cars/Audi/A4_1998_S.mp4', data: { country: 'Deutschland', production_year: '1998', drive: '4WD', power: '265', weight: '1510', length: '4483', worth: '~46.000 Credits' } },
+        { name: 'RS4 Avant', src: 'cars/Audi/A4_2001_RS_Avant.mp4', data: { country: 'Deutschland', production_year: '2001', drive: '4WD', power: '385', weight: '1619', length: '4525', worth: '41.380 Credits' } },
+        { name: 'S4', src: 'cars/Audi/A4_2003_S.mp4', data: { country: 'Deutschland', production_year: '2003', drive: '4WD', power: '346', weight: '1599', length: '4575', worth: '55.430 Credits' } },
+        { name: 'A4 Touring Car', src: 'cars/Audi/A4_2004_Touring_Car.mp4', data: { country: 'Deutschland', production_year: '2004', drive: 'FR', power: '461', weight: '1080', length: '4344', worth: '450.000 Credits' } },
+        { name: 'RS6', src: 'cars/Audi/A6_2002_RS.mp4', data: { country: 'Deutschland', production_year: '2002', drive: '4WD', power: '453', weight: '1839', length: '4858', worth: '117.060 Credits' } },
+        { name: 'RS6 Avant', src: 'cars/Audi/A6_2002_RS_Avant.mp4', data: { country: 'Deutschland', production_year: '2002', drive: '4WD', power: '453', weight: '1880', length: '4852', worth: '117.060 Credits' } },
+        { name: 'Auto Union V16 Type C Streamline', src: 'cars/Audi/Auto_Union_V16_1937_Type_C_Streamline.mp4', data: { country: 'Deutschland', production_year: '1937', drive: 'MR', power: '520', weight: '1000', length: '5000', worth: '500.000 Credits | Grand Valley 300 km' } },
+        { name: 'Le Mans Quattro', src: 'cars/Audi/Le_Mans_2003_Quattro.mp4', data: { country: 'Deutschland', production_year: '2003', drive: '4WD', power: '641', weight: '1531', length: '4370', worth: 'Tourist Trophy' } },
+        { name: 'Nuvolari Quattro', src: 'cars/Audi/Nuvolari_2003_Quattro.mp4', data: { country: 'Deutschland', production_year: '2003', drive: '4WD', power: '608', weight: '1549', length: '4370', worth: '25% Spielfortschritt' } },
+        { name: 'Pikes Peak Quattro', src: 'cars/Audi/Pikes_Peak_2003_Quattro.mp4', data: { country: 'Deutschland', production_year: '2003', drive: '4WD', power: '507', weight: '1901', length: '5000', worth: 'A3 Cup' } },
+        { name: 'Quattro', src: 'cars/Audi/Quattro_1982.mp4#t=3', data: { country: 'Deutschland', production_year: '1982', drive: '4WD', power: '203', weight: '1290', length: '4000', worth: '90.360 Credits' } },
+        { name: 'R8 Race Car', src: 'cars/Audi/R8_2001_Race_Car.mp4', data: { country: 'Deutschland', production_year: '2001', drive: 'MR', power: '795', weight: '899', length: '4000', worth: '4.500.000 Credits | Circuit De La Sarthe I 24h' } },
+        { name: 'TT Coupe 1.8T Quattro', src: 'cars/Audi/TT_2000_Coupe_1.8T_Quattro.mp4', data: { country: 'Deutschland', production_year: '2000', drive: '4WD', power: '225', weight: '1395', length: '4041', worth: '47.700 Credits' } },
+        { name: 'TT Coupe 3.2 Quattro', src: 'cars/Audi/TT_2003_Coupe_3.2_Quattro.mp4', data: { country: 'Deutschland', production_year: '2003', drive: '4WD', power: '244', weight: '1520', length: '4041', worth: '57.740 Credits' } },
+        { name: 'TT-R Touring Car', src: 'cars/Audi/TT_2002_R_Touring_Car.mp4', data: { country: 'Deutschland', production_year: '2002', drive: 'FR', power: '470', weight: '1080', length: '4600', worth: '550.000 Credits | Nürburgring 4h' } }
     ],
-    autobacs: [
-        { name: 'Garaiya', src: 'cars/Autobacs_Garaiya_2002.mp4', data: { country: 'Japan', production_year: '2002', drive: 'MR', power: '200', weight: '799', length: '3775', worth: '65.000 Credits' } },
-        { name: 'Garaiya ARTA JGTC', src: 'cars/Autobacs_Garaiya_2002_ARTA_JGTC.mp4', data: { country: 'Japan', production_year: '2003', drive: 'MR', power: '323', weight: '1125', length: '3775', worth: '500.000 Credits' } }
+    asl: [
+        { name: 'Garaiya', src: 'cars/ASL/Garaiya_2002.mp4', data: { country: 'Japan', production_year: '2002', drive: 'MR', power: '201', weight: '799', length: '3775', worth: '65.000 Credits' } },
+        { name: 'Garaiya ARTA JGTC', src: 'cars/ASL/Garaiya_2002_ARTA_JGTC.mp4', data: { country: 'Japan', production_year: '2003', drive: 'MR', power: '323', weight: '1125', length: '3775', worth: '500.000 Credits' } }
     ],
     autobianchi: [
-        { name: 'A112 Abarth', src: 'cars/Autobianchi_A112_1979_Abarth.mp4', data: { country: 'Italien', production_year: '1979', drive: 'FF', power: '70', weight: '700', length: '3270', worth: 'Sunday Cup' } }
+        { name: 'A112 Abarth', src: 'cars/Autobianchi/A112_1979_Abarth.mp4', data: { country: 'Italien', production_year: '1979', drive: 'FF', power: '71', weight: '700', length: '3270', worth: 'Sunday Cup' } }
     ],
     bentley: [
-        { name: 'Speed 8', src: 'cars/Bentley_Speed_8_2003.mp4', data: { country: 'Grossbritannien', production_year: '2003', drive: 'MR', power: '795', weight: '900', length: '4645', worth: 'Circuit De La Sarthe II 24h' } }
+        { name: 'Speed 8', src: 'cars/Bentley/Speed_8_2003.mp4', data: { country: 'Grossbritannien', production_year: '2003', drive: 'MR', power: '797', weight: '900', length: '4645', worth: 'Circuit De La Sarthe II 24h' } }
     ],
     blitz: [
-        { name: 'ER34 D1 Spec', src: 'cars/Blitz_ER34_2004_D1_Spec.mp4', data: { country: 'Japan', production_year: '2004', drive: 'FR', power: '475', weight: '1179', length: '4444', worth: '200.000 Credits' } }
+        { name: 'ER34 D1 Spec', src: 'cars/Blitz/ER34_2004_D1_Spec.mp4', data: { country: 'Japan', production_year: '2004', drive: 'FR', power: '475', weight: '1179', length: '4444', worth: '200.000 Credits' } }
     ],
     bmw: [
-        { name: '120d', src: 'cars/BMW_1_2004_20d.mp4', data: { country: 'Deutschland', production_year: '2004', drive: 'FR', power: '161', weight: '1415', length: '4227', worth: '33.020 Credits' } },
-        { name: '120i', src: 'cars/BMW_1_2004_20i.mp4', data: { country: 'Deutschland', production_year: '2004', drive: 'FR', power: '148', weight: '1335', length: '4227', worth: '31.940 Credits' } },
-        { name: 'M3 GTR Race Car', src: 'cars/BMW_3_2001_M_GTR_Race_Car.mp4', data: { country: 'Deutschland', production_year: '2001', drive: 'FR', power: '444', weight: '1120', length: '4617', worth: 'Schwarzwald Liga A' } },
-        { name: '320i Touring Car', src: 'cars/BMW_3_2003_20i_Touring_Car.mp4', data: { country: 'Deutschland', production_year: '2003', drive: 'FR', power: '260', weight: '1141', length: '4000', worth: '450.000 Credits' } },
-        { name: 'M3 CSL', src: 'cars/BMW_3_2003_M_CSL.mp4', data: { country: 'Deutschland', production_year: '2003', drive: 'FR', power: '354', weight: '1386', length: '4617', worth: '113.610 Credits' } },
-        { name: 'M3 GTR', src: 'cars/BMW_3_2003_M_GTR.mp4', data: { country: 'Deutschland', production_year: '2003', drive: 'FR', power: '380', weight: '1349', length: '4617', worth: 'Club "M"' } },
-        { name: 'M3', src: 'cars/BMW_3_2004_M.mp4', data: { country: 'Deutschland', production_year: '2004', drive: 'FR', power: '339', weight: '1569', length: '4617', worth: '74.560 Credits' } },
-        { name: '330i', src: 'cars/BMW_3_2005_30i.mp4', data: { country: 'Deutschland', production_year: '2005', drive: 'FR', power: '254', weight: '1525', length: '4520', worth: '48.040 Credits' } },
-        { name: 'M5', src: 'cars/BMW_5_2005_M.mp4', data: { country: 'Deutschland', production_year: '2005', drive: 'FR', power: '500', weight: '1715', length: '4855', worth: '116.650 Credits' } },
-        { name: '2002 Turbo', src: 'cars/BMW_2002_1973_Turbo.mp4', data: { country: 'Deutschland', production_year: '1973', drive: 'FR', power: '167', weight: '1080', length: '4220', worth: 'BMW 1-Serie Pokal' } },
-        { name: 'McLaren F1 GTR Race Car', src: 'cars/BMW_McLaren_F1_1997_GTR_Race_Car.mp4', data: { country: 'Deutschland', production_year: '1997', drive: 'MR', power: '602', weight: '950', length: '4924', worth: 'Gran Turismo All-Stars' } },
-        { name: 'V12 LMR', src: 'cars/BMW_V12_1999_LMR_Race_Car.mp4', data: { country: 'Deutschland', production_year: '1999', drive: 'MR', power: '799', weight: '900', length: '4924', worth: '4.500.000 Credits' } },
-        { name: 'M Coupe', src: 'cars/BMW_Z3_1998_M_Coupe.mp4', data: { country: 'Deutschland', production_year: '1998', drive: 'FR', power: '316', weight: '1465', length: '4025', worth: '~51.000 Credits' } },
-        { name: 'Z4', src: 'cars/BMW_Z4_2003.mp4', data: { country: 'Deutschland', production_year: '2003', drive: 'FR', power: '227', weight: '1365', length: '4000', worth: '75.610 Credits' } }
+        { name: '120d', src: 'cars/BMW/1_2004_20d.mp4', data: { country: 'Deutschland', production_year: '2004', drive: 'FR', power: '164', weight: '1415', length: '4227', worth: '33.020 Credits' } },
+        { name: '120i', src: 'cars/BMW/1_2004_20i.mp4', data: { country: 'Deutschland', production_year: '2004', drive: 'FR', power: '152', weight: '1335', length: '4227', worth: '31.940 Credits' } },
+        { name: 'M3 GTR Race Car', src: 'cars/BMW/3_2001_M_GTR_Race_Car.mp4', data: { country: 'Deutschland', production_year: '2001', drive: 'FR', power: '450', weight: '1120', length: '4617', worth: 'Schwarzwald Liga A' } },
+        { name: '320i Touring Car', src: 'cars/BMW/3_2003_20i_Touring_Car.mp4', data: { country: 'Deutschland', production_year: '2003', drive: 'FR', power: '261', weight: '1141', length: '4000', worth: '450.000 Credits' } },
+        { name: 'M3 CSL', src: 'cars/BMW/3_2003_M_CSL.mp4', data: { country: 'Deutschland', production_year: '2003', drive: 'FR', power: '360', weight: '1386', length: '4617', worth: '113.610 Credits' } },
+        { name: 'M3 GTR', src: 'cars/BMW/3_2003_M_GTR.mp4', data: { country: 'Deutschland', production_year: '2003', drive: 'FR', power: '380', weight: '1349', length: '4617', worth: 'Club "M"' } },
+        { name: 'M3', src: 'cars/BMW/3_2004_M.mp4', data: { country: 'Deutschland', production_year: '2004', drive: 'FR', power: '344', weight: '1569', length: '4617', worth: '74.560 Credits' } },
+        { name: '330i', src: 'cars/BMW/3_2005_30i.mp4', data: { country: 'Deutschland', production_year: '2005', drive: 'FR', power: '259', weight: '1525', length: '4520', worth: '48.040 Credits' } },
+        { name: 'M5', src: 'cars/BMW/5_2005_M.mp4', data: { country: 'Deutschland', production_year: '2005', drive: 'FR', power: '508', weight: '1715', length: '4855', worth: '116.650 Credits' } },
+        { name: '2002 Turbo', src: 'cars/BMW/2002_1973_Turbo.mp4', data: { country: 'Deutschland', production_year: '1973', drive: 'FR', power: '171', weight: '1080', length: '4220', worth: 'BMW 1-Serie Pokal' } },
+        { name: 'McLaren F1 GTR Race Car', src: 'cars/BMW/McLaren_F1_1997_GTR_Race_Car.mp4', data: { country: 'Deutschland', production_year: '1997', drive: 'MR', power: '612', weight: '950', length: '4924', worth: 'Gran Turismo All-Stars' } },
+        { name: 'V12 LMR', src: 'cars/BMW/V12_1999_LMR_Race_Car.mp4', data: { country: 'Deutschland', production_year: '1999', drive: 'MR', power: '799', weight: '900', length: '4924', worth: '4.500.000 Credits' } },
+        { name: 'Z3 M Coupe', src: 'cars/BMW/Z3_1998_M_Coupe.mp4', data: { country: 'Deutschland', production_year: '1998', drive: 'FR', power: '321', weight: '1465', length: '4025', worth: '~51.000 Credits' } },
+        { name: 'Z4', src: 'cars/BMW/Z4_2003.mp4', data: { country: 'Deutschland', production_year: '2003', drive: 'FR', power: '231', weight: '1365', length: '4000', worth: '75.610 Credits' } }
     ],
     buick: [
-        { name: 'GNX', src: 'cars/Buick_GNX_1987.mp4', data: { country: 'Amerika', production_year: '1987', drive: 'FR', power: '280', weight: '1601', length: '5092', worth: '31.080 Credits' } },
-        { name: 'Special', src: 'cars/Buick_Special_1962.mp4', data: { country: 'Amerika', production_year: '1962', drive: 'FR', power: '586', weight: '1364', length: '4724', worth: '58.000 Credits' } }
+        { name: 'GNX', src: 'cars/Buick/GNX_1987.mp4', data: { country: 'Amerika', production_year: '1987', drive: 'FR', power: '280', weight: '1601', length: '5092', worth: '31.080 Credits' } },
+        { name: 'Special', src: 'cars/Buick/Special_1962.mp4', data: { country: 'Amerika', production_year: '1962', drive: 'FR', power: '586', weight: '1364', length: '4724', worth: '58.000 Credits' } }
     ],
     cadillac: [
-        { name: 'Cien Concept', src: 'cars/Cadillac_CIEN_2002_Concept.mp4', data: { country: 'Amerika', production_year: '2002', drive: 'MR', power: '760', weight: '1500', length: '4000', worth: "Rallye d'Umbria Leicht" } }
+        { name: 'Cien Concept', src: 'cars/Cadillac/CIEN_2002_Concept.mp4', data: { country: 'Amerika', production_year: '2002', drive: 'MR', power: '760', weight: '1500', length: '4000', worth: "Rallye d'Umbria Leicht" } }
     ],
     callaway: [
-        { name: 'C12', src: 'cars/Callaway_C12_2003.mp4', data: { country: 'Amerika', production_year: '2003', drive: 'FR', power: '439', weight: '1481', length: '4852', worth: '175.880 Credits' } }
+        { name: 'C12', src: 'cars/Callaway/C12_2003.mp4', data: { country: 'Amerika', production_year: '2003', drive: 'FR', power: '439', weight: '1481', length: '4852', worth: '175.880 Credits' } }
     ],
     caterham: [
-        { name: 'Seven Fireblade', src: 'cars/Caterham_Seven_2002_Fireblade.mp4', data: { country: 'Grossbritannien', production_year: '2002', drive: 'FR', power: '157', weight: '369', length: '3100', worth: '60.000 Credits' } }
+        { name: 'Seven Fireblade', src: 'cars/Caterham/Seven_2002_Fireblade.mp4', data: { country: 'Grossbritannien', production_year: '2002', drive: 'FR', power: '160', weight: '369', length: '3100', worth: '60.000 Credits' } }
     ],
     chapparal: [
-        { name: '2D', src: 'cars/Chaparral_2D_1967.mp4', data: { country: 'Amerika', production_year: '1967', drive: 'MR', power: '426', weight: '771', length: '4000', worth: '1.100.000 Credits | Nürburgring 4h' } },
-        { name: '2J', src: 'cars/Chaparral_2J_1970.mp4', data: { country: 'Amerika', production_year: '1970', drive: 'MR', power: '683', weight: '821', length: '4000', worth: '1.200.000 Credits' } }
+        { name: '2D', src: 'cars/Chaparral/2D_1967.mp4', data: { country: 'Amerika', production_year: '1967', drive: 'MR', power: '426', weight: '771', length: '4000', worth: '1.100.000 Credits | Nürburgring 4h' } },
+        { name: '2J', src: 'cars/Chaparral/2J_1970.mp4', data: { country: 'Amerika', production_year: '1970', drive: 'MR', power: '694', weight: '821', length: '4000', worth: '1.200.000 Credits' } }
     ],
     chevrolet: [
         { name: 'Camaro SS', src: 'cars/Chevrolet_Camaro_1969_SS.mp4', data: { country: 'Amerika', production_year: '1969', drive: 'FR', power: '298', weight: '1401', length: '4724', worth: '60.000 Credits' } },
@@ -848,7 +848,6 @@ const showroomVideos = {
         { name: 'S60 T5 Sport', src: 'cars/Volvo_S60_2003_T5_Sport.mp4', data: { country: 'Schweden', production_year: '2003', drive: 'FF', power: '230', weight: '1550', length: '4575', worth: '35.580 Credits' } }
     ],
 };
-
 const logos = document.querySelectorAll('.showroom img');
 const videoContainer = document.getElementById('showroom_videos');
 let currentIndex = 0;
@@ -865,11 +864,11 @@ logos.forEach(logo => {
         const cars = showroomVideos[currentBrand] || [];
         carAmount = cars.length;
         if (cars.length > 0) {
-            //cars.sort((a, b) => a.name.localeCompare(b.name));
             currentIndex = 0;
             renderSlider();
+        } else {
+            videoContainer.innerHTML = '<p>Für diese Marke sind noch keine Fahrzeuge verfügbar.</p>';
         }
-        else {videoContainer.innerHTML = '<p>Für diese Marke sind noch keine Fahrzeuge verfügbar.</p>';}
     });
 });
 
@@ -879,8 +878,13 @@ function renderSlider() {
 
     videoContainer.innerHTML = `
     <div class='slider-container'>
-        <div class='car_index'>${carSelect} / ${carAmount}</div>
+        <div class='car_index' id='carCounter'>${carSelect} / ${carAmount}</div>
         <div class='slider-video-wrapper'>
+            <video id="slider_video" class='slider-video' loop autoplay muted>
+                <source id="slider_video_src" src='${car.src}' type='video/mp4'>
+                Dein Browser unterstützt kein HTML5 Video.
+            </video>
+            <div class='video-overlay active' id='video_overlay'></div>
             ${cars.length > 1 ? `
                 <div class='slider-btn left' onclick='prevCar()'>
                     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
@@ -888,9 +892,6 @@ function renderSlider() {
                         <path d='M15 18l-6-6 6-6' fill='none' stroke='#aaaaaa' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/>
                     </svg>
                 </div>
-            ` : ''}
-            <video class='slider-video' loop autoplay muted><source src='${car.src}' type='video/mp4'>Dein Browser unterstützt kein HTML5 Video.</video>
-            ${cars.length > 1 ? `
                 <div class='slider-btn right' onclick='nextCar()'>
                     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
                         <path d='M9 6l6 6-6 6' fill='none' stroke='#000000' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/>
@@ -899,21 +900,72 @@ function renderSlider() {
                 </div>
             ` : ''}
         </div>
-        <div class='slider-details'>
-            <table class='car_info_table'>
-                <tr><td class='car_info_1'>Land:</td><td class='car_info_2'>${car.data.country}</td></tr>
-                <tr><td class='car_info_1'>Baujahr:</td><td class='car_info_2'>${car.data.production_year}</td></tr>
-                <tr><td class='car_info_1'>Antrieb:</td><td class='car_info_2'>${car.data.drive}</td></tr>
-                <tr><td class='car_info_1'>Leistung:</td><td class='car_info_2'>${car.data.power} PS</td></tr>
-                <tr><td class='car_info_1'>Gewicht:</td><td class='car_info_2'>${car.data.weight} kg</td></tr>
-                <tr><td class='car_info_1'>Länge:</td><td class='car_info_2'>${car.data.length} mm</td></tr>
-                <tr><td class='car_info_1'>Preis:</td><td class='car_info_2'>${car.data.worth}</td></tr>
-            </table>
-        </div>
+        <div class='slider-details' id="car_details"></div>
     </div>
+    `;
+
+    updateDetails(car);
+
+    // Beim ersten Rendern: Overlay nach kurzer Zeit ausblenden (Fade-In)
+    const videoOverlay = document.getElementById('video_overlay');
+    setTimeout(() => {
+        videoOverlay.classList.remove('active');
+    }, 100); // kleiner Delay, damit CSS-Transition greift
+}
+
+function updateDetails(car) {
+    const details = document.getElementById("car_details");
+    details.innerHTML = `
+        <table class='car_info_table'>
+            <tr><td class='car_info_1'>Land:</td><td class='car_info_2'>${car.data.country}</td></tr>
+            <tr><td class='car_info_1'>Baujahr:</td><td class='car_info_2'>${car.data.production_year}</td></tr>
+            <tr><td class='car_info_1'>Antrieb:</td><td class='car_info_2'>${car.data.drive}</td></tr>
+            <tr><td class='car_info_1'>Leistung:</td><td class='car_info_2'>${car.data.power} PS</td></tr>
+            <tr><td class='car_info_1'>Gewicht:</td><td class='car_info_2'>${car.data.weight} kg</td></tr>
+            <tr><td class='car_info_1'>Länge:</td><td class='car_info_2'>${car.data.length} mm</td></tr>
+            <tr><td class='car_info_1'>Preis:</td><td class='car_info_2'>${car.data.worth}</td></tr>
+        </table>
     `;
 }
 
-function prevCar() {const cars = showroomVideos[currentBrand];currentIndex = (currentIndex - 1 + cars.length) % cars.length;carSelect = currentIndex+1;renderSlider();}
-function nextCar() {const cars = showroomVideos[currentBrand];currentIndex = (currentIndex + 1) % cars.length;carSelect = currentIndex + 1;renderSlider();}
+function switch_video() {
+    const cars = showroomVideos[currentBrand];
+    const car = cars[currentIndex];
+
+    const videoOverlay = document.getElementById("video_overlay");
+    const video = document.getElementById("slider_video");
+    const videoSrc = document.getElementById("slider_video_src");
+
+    // Overlay einblenden (Fade-Out)
+    videoOverlay.classList.add("active");
+
+    setTimeout(() => {
+        // Videoquelle und Details wechseln
+        videoSrc.src = car.src;
+        video.load();
+        video.play();
+        updateDetails(car);
+
+        // Overlay ausblenden (Fade-In)
+        setTimeout(() => {
+            videoOverlay.classList.remove("active");document.getElementById('carCounter').innerHTML = carSelect + ' / ' +cars.length;
+        }, 0); 
+        
+    }, 1000); // Dauer entspricht CSS transition
+}
+
+function prevCar() {
+    const cars = showroomVideos[currentBrand];
+    currentIndex = (currentIndex - 1 + cars.length) % cars.length;
+    carSelect = currentIndex + 1;
+    switch_video();
+}
+
+function nextCar() {
+    const cars = showroomVideos[currentBrand];
+    currentIndex = (currentIndex + 1) % cars.length;
+    carSelect = currentIndex + 1;
+    switch_video();
+}
+
 function scrollShowroom(direction) {const showroom = document.getElementById('showroom');const scrollAmount = 200;showroom.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });}
