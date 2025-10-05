@@ -1,28 +1,28 @@
 const showroomVideos = {
     ac_cars: [
-        { name: '427 S/C', src: 'cars/AC_Cars_427_SC_1966.mp4', data: { country: 'Grossbritannien', production_year: '1966', drive: 'FR', power: '485', weight: '1311', length: '3962', worth: '423.200 Credits' } }
+        { name: '427 S/C', src: 'cars/AC_Cars/427_SC_1966.mp4', data: { country: 'Grossbritannien', production_year: '1966', drive: 'FR', power: '486', weight: '1311', length: '3962', worth: '423.200 Credits' } }
     ],
     acura: [
-        { name: '3.2 CL Type S', src: 'cars/Acura_CL_2001_3.2_Type-S.mp4', data: { country: 'Japan', production_year: '2001', drive: 'FF', power: '264', weight: '1592', length: '4875', worth: '~27.000 Credits' } },
-        { name: '3.2 CL Type S', src: 'cars/Acura_CL_2003_3.2_Type-S.mp4', data: { country: 'Japan', production_year: '2003', drive: 'FF', power: '264', weight: '1563', length: '4875', worth: '32.420 Credits' } },
-        { name: 'Integra Type R', src: 'cars/Acura_Integra_2001_Type_R.mp4', data: { country: 'Japan', production_year: '2001', drive: 'FF', power: '180', weight: '1197', length: '4379', worth: '~19.000 Credits' } },
-        { name: 'NSX', src: 'cars/Acura_NSX_1991.mp4', data: { country: 'Japan', production_year: '1991', drive: 'MR', power: '244', weight: '1365', length: '4405', worth: '~28.000 Credits' } },
-        { name: 'NSX Coupe', src: 'cars/Acura_NSX_1997_Coupe.mp4', data: { country: 'Japan', production_year: '1997', drive: 'MR', power: '294', weight: '1435', length: '4425', worth: '~35.000 Credits' } },
-        { name: 'NSX', src: 'cars/Acura_NSX_2004.mp4', data: { country: 'Japan', production_year: '2004', drive: 'MR', power: '294', weight: '1430', length: '4425', worth: '94.440 Credits' } },
-        { name: 'RSX Type S', src: 'cars/Acura_RSX_2004_Type-S.mp4', data: { country: 'Japan', production_year: '2004', drive: 'FF', power: '203', weight: '1255', length: '4374', worth: '24.740 Credits' } }
+        { name: '3.2 CL Type S', src: 'cars/Acura/CL_2001_3.2_Type-S.mp4', data: { country: 'Japan', production_year: '2001', drive: 'FF', power: '264', weight: '1592', length: '4875', worth: '~27.000 Credits' } },
+        { name: '3.2 CL Type S', src: 'cars/Acura/CL_2003_3.2_Type-S.mp4', data: { country: 'Japan', production_year: '2003', drive: 'FF', power: '266', weight: '1563', length: '4875', worth: '32.420 Credits' } },
+        { name: 'Integra Type R', src: 'cars/Acura/Integra_2001_Type_R.mp4', data: { country: 'Japan', production_year: '2001', drive: 'FF', power: '200', weight: '1197', length: '4379', worth: '~19.000 Credits' } },
+        { name: 'NSX', src: 'cars/Acura/NSX_1991.mp4', data: { country: 'Japan', production_year: '1991', drive: 'MR', power: '271', weight: '1365', length: '4405', worth: '~28.000 Credits' } },
+        { name: 'NSX Coupe', src: 'cars/Acura/NSX_1997_Coupe.mp4', data: { country: 'Japan', production_year: '1997', drive: 'MR', power: '294', weight: '1435', length: '4425', worth: '~35.000 Credits' } },
+        { name: 'NSX', src: 'cars/Acura/NSX_2004.mp4', data: { country: 'Japan', production_year: '2004', drive: 'MR', power: '285', weight: '1430', length: '4425', worth: '94.440 Credits' } },
+        { name: 'RSX Type S', src: 'cars/Acura/RSX_2004_Type-S.mp4', data: { country: 'Japan', production_year: '2004', drive: 'FF', power: '202', weight: '1255', length: '4374', worth: '24.740 Credits' } }
     ],
     alfa_romeo: [
-        { name: '147 2.0 Twinspark', src: 'cars/Alfa_Romeo_147_2002_2.0_Twinspark.mp4', data: { country: 'Italien', production_year: '2002', drive: 'FF', power: '150', weight: '1280', length: '4166', worth: '30.590 Credits' } },
-        { name: '147 GTA', src: 'cars/Alfa_Romeo_147_2002_GTA.mp4', data: { country: 'Italien', production_year: '2002', drive: 'FF', power: '246', weight: '1360', length: '4191', worth: '48.040 Credits' } },
-        { name: '155 2.5 V6 TI', src: 'cars/Alfa_Romeo_155_1993_2.5_V6_TI.mp4', data: { country: 'Italien', production_year: '1993', drive: '4WD', power: '413', weight: '1010', length: '4572', worth: 'La Festa Italiano' } },
-        { name: '156 2.5 V6 24V', src: 'cars/Alfa_Romeo_156_1998_2.5_V6_24V.mp4', data: { country: 'Italien', production_year: '1998', drive: 'FF', power: '190', weight: '1320', length: '4420', worth: '~27.000 Credits' } },
-        { name: '166 2.5 V6 24V Sportronic', src: 'cars/Alfa_Romeo_166_1998_2.5_V6_24V_Sportronic.mp4', data: { country: 'Italien', production_year: '1998', drive: 'FF', power: '193', weight: '1520', length: '4699', worth: '~27.000 Credits' } },
-        { name: 'Giulia Sprint Speciale', src: 'cars/Alfa_Romeo_Giulia_1963_Sprint_Speciale.mp4', data: { country: 'Italien', production_year: '1963', drive: 'FR', power: '115', weight: '950', length: '4115', worth: '1000 Meilen' } },
-        { name: 'Giulia Sprint GTA', src: 'cars/Alfa_Romeo_Giulia_1965_Sprint_GTA.mp4', data: { country: 'Italien', production_year: '1965', drive: 'FR', power: '115', weight: '745', length: '4064', worth: 'GTA Cup' } },
-        { name: 'GT 3.2 V6 24V', src: 'cars/Alfa_Romeo_GT_2004_3.2_V6_24V.mp4', data: { country: 'Italien', production_year: '2004', drive: 'FF', power: '226', weight: '1347', length: '4470', worth: '39.010 Credits' } },
-        { name: 'GTV 3.0 V6 24V', src: 'cars/Alfa_Romeo_GTV_2001_3.0_V6_24V.mp4', data: { country: 'Italien', production_year: '2001', drive: 'FF', power: '216', weight: '1416', length: '4267', worth: '49.060 Credits' } },
-        { name: 'Spider Duetto', src: 'cars/Alfa_Romeo_Spider_1966_Duetto.mp4', data: { country: 'Italien', production_year: '1966', drive: 'FR', power: '110', weight: '960', length: '4242', worth: '35.300 Credits' } },
-        { name: 'Spider 3.0i V6 24V', src: 'cars/Alfa_Romeo_Spider_2001_3.0i_V6_24V.mp4', data: { country: 'Italien', production_year: '2001', drive: 'FF', power: '216', weight: '1450', length: '4267', worth: '51.190 Credits' } }
+        { name: '147 2.0 Twinspark', src: 'cars/Alfa_Romeo/147_2002_2.0_Twinspark.mp4', data: { country: 'Italien', production_year: '2002', drive: 'FF', power: '150', weight: '1280', length: '4166', worth: '30.590 Credits' } },
+        { name: '147 GTA', src: 'cars/Alfa_Romeo/147_2002_GTA.mp4', data: { country: 'Italien', production_year: '2002', drive: 'FF', power: '250', weight: '1360', length: '4191', worth: '48.040 Credits' } },
+        { name: '155 2.5 V6 TI', src: 'cars/Alfa_Romeo/155_1993_2.5_V6_TI.mp4', data: { country: 'Italien', production_year: '1993', drive: '4WD', power: '420', weight: '1010', length: '4572', worth: 'La Festa Italiano' } },
+        { name: '156 2.5 V6 24V', src: 'cars/Alfa_Romeo/156_1998_2.5_V6_24V.mp4', data: { country: 'Italien', production_year: '1998', drive: 'FF', power: '193', weight: '1320', length: '4420', worth: '~27.000 Credits' } },
+        { name: '166 2.5 V6 24V Sportronic', src: 'cars/Alfa_Romeo/166_1998_2.5_V6_24V_Sportronic.mp4', data: { country: 'Italien', production_year: '1998', drive: 'FF', power: '193', weight: '1520', length: '4699', worth: '~27.000 Credits' } },
+        { name: 'Giulia Sprint Speciale', src: 'cars/Alfa_Romeo/Giulia_1963_Sprint_Speciale.mp4', data: { country: 'Italien', production_year: '1963', drive: 'FR', power: '114', weight: '950', length: '4115', worth: '1000 Meilen' } },
+        { name: 'Giulia Sprint GTA', src: 'cars/Alfa_Romeo/Giulia_1965_Sprint_GTA.mp4', data: { country: 'Italien', production_year: '1965', drive: 'FR', power: '115', weight: '745', length: '4064', worth: 'GTA Cup' } },
+        { name: 'GT 3.2 V6 24V', src: 'cars/Alfa_Romeo/GT_2004_3.2_V6_24V.mp4', data: { country: 'Italien', production_year: '2004', drive: 'FF', power: '232', weight: '1347', length: '4470', worth: '39.010 Credits' } },
+        { name: 'GTV 3.0 V6 24V', src: 'cars/Alfa_Romeo/GTV_2001_3.0_V6_24V.mp4', data: { country: 'Italien', production_year: '2001', drive: 'FF', power: '219', weight: '1416', length: '4267', worth: '49.060 Credits' } },
+        { name: 'Spider Duetto', src: 'cars/Alfa_Romeo/Spider_1966_Duetto.mp4', data: { country: 'Italien', production_year: '1966', drive: 'FR', power: '110', weight: '960', length: '4242', worth: '35.300 Credits' } },
+        { name: 'Spider 3.0i V6 24V', src: 'cars/Alfa_Romeo/Spider_2001_3.0i_V6_24V.mp4', data: { country: 'Italien', production_year: '2001', drive: 'FF', power: '219', weight: '1450', length: '4267', worth: '51.190 Credits' } }
     ],
     alpine: [
         { name: 'A110 1600 S', src: 'cars/Alpine_A110_1973_1600_S.mp4', data: { country: 'Frankreich', production_year: '1973', drive: 'RR', power: '138', weight: '715', length: '3850', worth: 'Renault Alpine Cup' } },
@@ -538,7 +538,7 @@ const showroomVideos = {
         { name: 'R92CP Race Car Black Edition', src: 'cars/Nissan_R92CP_1992_Race_Car_Black_Edition.mp4', data: { country: 'Japan', production_year: '1992', drive: 'MR', power: '788', weight: '900', length: '4800', worth: '~3.500.000 Credits' } },
         { name: 'R 390 GT1 Road Car', src: 'cars/Nissan_R390_1998_GT1.mp4', data: { country: 'Japan', production_year: '1998', drive: 'MR', power: '345', weight: '1179', length: '4720', worth: '1.000.000 Credits' } },
         { name: 'R 390 GT1 Race Car', src: 'cars/Nissan_R390_1998_GT1_Race_Car.mp4', data: { country: 'Japan', production_year: '1998', drive: 'MR', power: '800', weight: '1000', length: '4720', worth: '4.500.000 Credits' } },
-        { name: 'R 390 GT1 Race Car Black Edition', src: 'cars/Nissan_R390_1998_GT1_Race_Car_Black_Edition.mp4', data: { country: 'Japan', production_year: '1998', drive: 'MR', power: '800', weight: '1000', length: '4720', worth: '~4.500.000 Credits' } },
+        { name: 'R 390 GT1 Race Car Black Edition', src: 'cars/Nissan_R390_1998_GT1_Race_Car_Black_Edition.mp4', data: { country: 'Japan', production_year: '1998', drive: 'MR', power: '800', weight: '1000', length: '4720', worth: '~3.500.000 Credits' } },
         { name: 'Sileighty', src: 'cars/Nissan_Sileighty_1998.mp4', data: { country: 'Japan', production_year: '1998', drive: 'FR', power: '203', weight: '1170', length: '4470', worth: '~12.000 Credits | Silvia Sisters' } },
         { name: 'Silvia', src: 'cars/Nissan_Silvia_1965.mp4', data: { country: 'Japan', production_year: '1965', drive: 'FR', power: '88', weight: '980', length: '4000', worth: '~16.000 Credits' } },
         { name: "Silvia Q's 1800", src: 'cars/Nissan_Silvia_1988_Q_1800.mp4', data: { country: 'Japan', production_year: '1988', drive: 'FR', power: '132', weight: '1090', length: '4470', worth: '5.400 Credits' } },
