@@ -489,7 +489,7 @@ const showroomVideos = {
         { name: 'Starion 4WD Rally Car', src: 'cars/Mitsubishi_Starion_1984_4WD_Rally_Car.mp4', data: { country: 'Japan', production_year: '1984', drive: '4WD', power: '360', weight: '1250', length: '4000', worth: 'Grand Canyon Schwer' } }
     ],
     mugen: [
-        { name: 'Lancer Evo 6', src: 'cars/Mines_Lancer_2000_Evo_6.mp4', data: { country: 'Japan', production_year: '2000', drive: '4WD', power: '400', weight: '1210', length: '4350', worth: '150.000 Credits' } }
+        { name: 'S 2000', src: 'cars/Mugen_S2000_2000.mp4', data: { country: 'Japan', production_year: '2000', drive: 'FR', power: '247', weight: '1240', length: '4178', worth: '75.000 Credits' } }
     ],
     nike: [
         { name: 'One', src: 'cars/Nike_One_2022.mp4', data: { country: 'Amerika', production_year: '2022', drive: '4WD', power: '259', weight: '760', length: '4000', worth: 'Internationale B-Lizenz | Saleen S7 Club' } }
