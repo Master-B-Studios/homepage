@@ -164,7 +164,7 @@ const showroomVideos = {
             { name: 'Camaro Z28', src: 'cars/Chevrolet/Camaro_1969_Z28.mp4', data: { production_year: '1969', drive: 'FR', power: '289', weight: '1415', length: '4724', worth: '65.000 Credits' } },
             { name: 'Camaro Z-IROC Concept', src: 'cars/Chevrolet/Camaro_1988_Z-IROC_Concept.mp4', data: { production_year: '1988', drive: 'FR', power: '233', weight: '1467', length: '4877', worth: 'Camaro Meeting' } },
             { name: 'Camaro Z28 Coupe', src: 'cars/Chevrolet/Camaro_1997_Z28_Coupe.mp4', data: { production_year: '1997', drive: 'FR', power: '285', weight: '1561', length: '4907', worth: '~12.000 Credits' } },
-            { name: 'Camaro LM Race Car', src: 'cars/Chevrolet/Camaro_2000_LM_Race_Car.mp4', data: { production_year: '2000', drive: 'FR', power: '601', weight: '1160', length: '4915', worth: 'Stars & Stripes' } },
+            { name: 'Camaro LM Race Car', src: 'cars/Chevrolet/Camaro_2001_LM_Race_Car.mp4', data: { production_year: '2001', drive: 'FR', power: '601', weight: '1160', length: '4915', worth: 'Stars & Stripes' } },
             { name: 'Camaro SS', src: 'cars/Chevrolet/Camaro_2000_SS.mp4', data: { production_year: '2000', drive: 'FR', power: '331', weight: '1560', length: '4910', worth: '22.150 Credits' } },
             { name: 'Chevelle SS 454', src: 'cars/Chevrolet/Chevelle_1970_SS.mp4', data: { production_year: '1970', drive: 'FR', power: '449', weight: '1762', length: '5121', worth: 'Hot Rod Competition' } },
             { name: 'Corvette C1 Convertible', src: 'cars/Chevrolet/Corvette_1954_C1_Convertible.mp4', data: { production_year: '1954', drive: 'FR', power: '150', weight: '1309', length: '4250', worth: 'All-American Championship' } },
