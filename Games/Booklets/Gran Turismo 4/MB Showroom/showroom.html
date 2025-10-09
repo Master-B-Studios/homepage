@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gran Turismo Showroom</title>
+  <style>
+    html,body {margin:0;height:100%;overflow:hidden;background:#0a0a0a;}
+    #loading {
+      position:absolute;top:10px;left:10px;
+      color:#ddd;font-family:sans-serif;
+      background:rgba(0,0,0,0.5);
+      padding:6px 10px;border-radius:6px;
+    }
+    canvas {width:100%;height:100%;display:block;}
+  </style>
+</head>
+<body>
+  <div id="loading">Lade Modell...</div>
+  <canvas id="canvas"></canvas>
+
+  <script type="module">
+    import * as THREE from './libs/ThreeModule.js';
+    import { OrbitControls } from './libs/OrbitControls.js';
+    import { GLTFLoader } from './libs/GLTFLoader.js';
+
+    // === Szene & Renderer ===
+    const canvas = document.querySelector('#canvas');
+    const renderer = new THREE.WebGLRenderer({antialias:true,canvas});
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x0a0a0a);
+
+    const camera = new THREE.PerspectiveCamera(100, window.innerWidth/window.innerHeight, 0.1, 100);
+    camera.position.set(0, 1, 0);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.enablePan = false;
+    controls.target.set(0, 0, 0);
+
+    // === Licht ===
+    const hemi = new THREE.HemisphereLight(0xffffff, 0x202020, 0.7);
+    scene.add(hemi);
+
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1.1);
+    dirLight.position.set(3, 5, 2);
+    dirLight.castShadow = true;
+    scene.add(dirLight);
+
+    const floor = new THREE.Mesh(
+      new THREE.PlaneGeometry(10, 10),
+      new THREE.MeshStandardMaterial({color:0x111111, roughness:0.8, metalness:0.2})
+    );
+    floor.rotation.x = -Math.PI/2;
+    floor.receiveShadow = true;
+    //scene.add(floor);
+
+    // === Laden des GLB ===
+    const loading = document.getElementById('loading');
+    const loader = new GLTFLoader();
+
+    loader.load('./Alfa Romeo/155/155.glb', (gltf) => {
+      const car = gltf.scene;
+      car.traverse(o => {
+        if (o.isMesh) {
+          o.castShadow = true;
+          o.receiveShadow = true;
+        }
+      });
+
+      // Zentrieren
+      const box = new THREE.Box3().setFromObject(car);
+      const center = new THREE.Vector3();
+      box.getCenter(center);
+      car.position.sub(center);
+      car.position.y -= box.min.y;
+
+      scene.add(car);
+      loading.remove();
+
+      // === Automatische Kamerafahrt ===
+      let angle = 0;
+      function animate() {
+        requestAnimationFrame(animate);
+        angle += 0.003;
+        camera.position.x = Math.sin(angle) * 3.5;
+        camera.position.z = Math.cos(angle) * 3.5;
+        camera.lookAt(0, 0, 0);
+        controls.update();
+        renderer.render(scene, camera);
+      }
+      animate();
+    }, (xhr) => {
+      loading.textContent = `Lade: ${(xhr.loaded / xhr.total * 100).toFixed(0)}%`;
+    }, (err) => {
+      console.error('Fehler beim Laden:', err);
+      loading.textContent = 'Fehler beim Laden 😕';
+    });
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth/window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>
