@@ -103,7 +103,7 @@ pmremGenerator.dispose();
     const loadingDiv = document.getElementById('loading');
     let car;
 
-    loader.load('.model.glb', (gltf) => {
+    loader.load('./model.glb', (gltf) => {
       car = gltf.scene;
       car.traverse(o => {
         if (o.isMesh) {
