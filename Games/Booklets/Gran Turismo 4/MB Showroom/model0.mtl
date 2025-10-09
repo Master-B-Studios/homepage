@@ -1,0 +1,687 @@
+newmtl Mat0_Tex3
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.3.png
+map_Ka Textures/0.3.png
+map_Ks Textures/0.3.png
+
+newmtl Mat0_Tex4
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.4.png
+map_Ka Textures/0.4.png
+map_Ks Textures/0.4.png
+
+newmtl Mat0_Tex5
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.5.png
+map_Ka Textures/0.5.png
+map_Ks Textures/0.5.png
+
+newmtl Mat-1_Tex0
+map_Kd Textures/0.0.png
+map_Ka Textures/0.0.png
+map_Ks Textures/0.0.png
+
+newmtl Mat4_Tex6
+Ka 1 1 1 1
+Kd 1 1 1 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.6.png
+map_Ka Textures/0.6.png
+map_Ks Textures/0.6.png
+
+newmtl Mat0_Tex8
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.8.png
+map_Ka Textures/0.8.png
+map_Ks Textures/0.8.png
+
+newmtl Mat4_Tex7
+Ka 1 1 1 1
+Kd 1 1 1 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.7.png
+map_Ka Textures/0.7.png
+map_Ks Textures/0.7.png
+
+newmtl Mat0_Tex9
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.9.png
+map_Ka Textures/0.9.png
+map_Ks Textures/0.9.png
+
+newmtl Mat0_Tex10
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.10.png
+map_Ka Textures/0.10.png
+map_Ks Textures/0.10.png
+
+newmtl Mat0_Tex11
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.11.png
+map_Ka Textures/0.11.png
+map_Ks Textures/0.11.png
+
+newmtl Mat0_Tex12
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.12.png
+map_Ka Textures/0.12.png
+map_Ks Textures/0.12.png
+
+newmtl Mat0_Tex4
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.4.png
+map_Ka Textures/0.4.png
+map_Ks Textures/0.4.png
+
+newmtl Mat0_Tex5
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.5.png
+map_Ka Textures/0.5.png
+map_Ks Textures/0.5.png
+
+newmtl Mat0_Tex8
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.8.png
+map_Ka Textures/0.8.png
+map_Ks Textures/0.8.png
+
+newmtl Mat0_Tex9
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.9.png
+map_Ka Textures/0.9.png
+map_Ks Textures/0.9.png
+
+newmtl Mat0_Tex13
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.13.png
+map_Ka Textures/0.13.png
+map_Ks Textures/0.13.png
+
+newmtl Mat0_Tex15
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.15.png
+map_Ka Textures/0.15.png
+map_Ks Textures/0.15.png
+
+newmtl Mat0_Tex17
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.17.png
+map_Ka Textures/0.17.png
+map_Ks Textures/0.17.png
+
+newmtl Mat0_Tex18
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.18.png
+map_Ka Textures/0.18.png
+map_Ks Textures/0.18.png
+
+newmtl Mat0_Tex19
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.19.png
+map_Ka Textures/0.19.png
+map_Ks Textures/0.19.png
+
+newmtl Mat0_Tex20
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.20.png
+map_Ka Textures/0.20.png
+map_Ks Textures/0.20.png
+
+newmtl Mat0_Tex21
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.21.png
+map_Ka Textures/0.21.png
+map_Ks Textures/0.21.png
+
+newmtl Mat0_Tex22
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.22.png
+map_Ka Textures/0.22.png
+map_Ks Textures/0.22.png
+
+newmtl Mat0_Tex23
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.23.png
+map_Ka Textures/0.23.png
+map_Ks Textures/0.23.png
+
+newmtl Mat0_Tex24
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.24.png
+map_Ka Textures/0.24.png
+map_Ks Textures/0.24.png
+
+newmtl Mat0_Tex25
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.25.png
+map_Ka Textures/0.25.png
+map_Ks Textures/0.25.png
+
+newmtl Mat0_Tex26
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.26.png
+map_Ka Textures/0.26.png
+map_Ks Textures/0.26.png
+
+newmtl Mat0_Tex32
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.32.png
+map_Ka Textures/0.32.png
+map_Ks Textures/0.32.png
+
+newmtl Mat0_Tex33
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.33.png
+map_Ka Textures/0.33.png
+map_Ks Textures/0.33.png
+
+newmtl Mat0_Tex34
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.34.png
+map_Ka Textures/0.34.png
+map_Ks Textures/0.34.png
+
+newmtl Mat0_Tex35
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.35.png
+map_Ka Textures/0.35.png
+map_Ks Textures/0.35.png
+
+newmtl Mat0_Tex36
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.36.png
+map_Ka Textures/0.36.png
+map_Ks Textures/0.36.png
+
+newmtl Mat0_Tex37
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.37.png
+map_Ka Textures/0.37.png
+map_Ks Textures/0.37.png
+
+newmtl Mat0_Tex38
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.38.png
+map_Ka Textures/0.38.png
+map_Ks Textures/0.38.png
+
+newmtl Mat0_Tex39
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.39.png
+map_Ka Textures/0.39.png
+map_Ks Textures/0.39.png
+
+newmtl Mat0_Tex40
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.40.png
+map_Ka Textures/0.40.png
+map_Ks Textures/0.40.png
+
+newmtl Mat0_Tex41
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.41.png
+map_Ka Textures/0.41.png
+map_Ks Textures/0.41.png
+
+newmtl Mat0_Tex42
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.42.png
+map_Ka Textures/0.42.png
+map_Ks Textures/0.42.png
+
+newmtl Mat0_Tex43
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.43.png
+map_Ka Textures/0.43.png
+map_Ks Textures/0.43.png
+
+newmtl Mat0_Tex44
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.44.png
+map_Ka Textures/0.44.png
+map_Ks Textures/0.44.png
+
+newmtl Mat0_Tex45
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.45.png
+map_Ka Textures/0.45.png
+map_Ks Textures/0.45.png
+
+newmtl Mat0_Tex46
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.46.png
+map_Ka Textures/0.46.png
+map_Ks Textures/0.46.png
+
+newmtl Mat0_Tex47
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.47.png
+map_Ka Textures/0.47.png
+map_Ks Textures/0.47.png
+
+newmtl Mat0_Tex48
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.48.png
+map_Ka Textures/0.48.png
+map_Ks Textures/0.48.png
+
+newmtl Mat0_Tex49
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.49.png
+map_Ka Textures/0.49.png
+map_Ks Textures/0.49.png
+
+newmtl Mat0_Tex51
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.51.png
+map_Ka Textures/0.51.png
+map_Ks Textures/0.51.png
+
+newmtl Mat0_Tex16
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.16.png
+map_Ka Textures/0.16.png
+map_Ks Textures/0.16.png
+
+newmtl Mat0_Tex13
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.13.png
+map_Ka Textures/0.13.png
+map_Ks Textures/0.13.png
+
+newmtl Mat0_Tex27
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.27.png
+map_Ka Textures/0.27.png
+map_Ks Textures/0.27.png
+
+newmtl Mat0_Tex30
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.30.png
+map_Ka Textures/0.30.png
+map_Ks Textures/0.30.png
+
+newmtl Mat0_Tex53
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.53.png
+map_Ka Textures/0.53.png
+map_Ks Textures/0.53.png
+
+newmtl Mat0_Tex54
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.54.png
+map_Ka Textures/0.54.png
+map_Ks Textures/0.54.png
+
+newmtl Mat0_Tex55
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.55.png
+map_Ka Textures/0.55.png
+map_Ks Textures/0.55.png
+
+newmtl Mat0_Tex56
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.56.png
+map_Ka Textures/0.56.png
+map_Ks Textures/0.56.png
+
+newmtl Mat0_Tex57
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.57.png
+map_Ka Textures/0.57.png
+map_Ks Textures/0.57.png
+
+newmtl Mat0_Tex58
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.58.png
+map_Ka Textures/0.58.png
+map_Ks Textures/0.58.png
+
+newmtl Mat0_Tex59
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.59.png
+map_Ka Textures/0.59.png
+map_Ks Textures/0.59.png
+
+newmtl Mat0_Tex60
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.60.png
+map_Ka Textures/0.60.png
+map_Ks Textures/0.60.png
+
+newmtl Mat0_Tex61
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.61.png
+map_Ka Textures/0.61.png
+map_Ks Textures/0.61.png
+
+newmtl Mat0_Tex62
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.62.png
+map_Ka Textures/0.62.png
+map_Ks Textures/0.62.png
+
+newmtl Mat0_Tex63
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.63.png
+map_Ka Textures/0.63.png
+map_Ks Textures/0.63.png
+
+newmtl Mat0_Tex64
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.64.png
+map_Ka Textures/0.64.png
+map_Ks Textures/0.64.png
+
+newmtl Mat0_Tex65
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.65.png
+map_Ka Textures/0.65.png
+map_Ks Textures/0.65.png
+
+newmtl Mat-1_Tex28
+map_Kd Textures/0.28.png
+map_Ka Textures/0.28.png
+map_Ks Textures/0.28.png
+
+newmtl Mat-1_Tex29
+map_Kd Textures/0.29.png
+map_Ka Textures/0.29.png
+map_Ks Textures/0.29.png
+
+newmtl Mat-1_Tex31
+map_Kd Textures/0.31.png
+map_Ka Textures/0.31.png
+map_Ks Textures/0.31.png
+
+newmtl Mat-1_Tex0
+map_Kd Textures/0.0.png
+map_Ka Textures/0.0.png
+map_Ks Textures/0.0.png
+
+newmtl Mat-1_Tex0
+map_Kd Textures/0.0.png
+map_Ka Textures/0.0.png
+map_Ks Textures/0.0.png
+
+newmtl Mat0_Tex12
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.12.png
+map_Ka Textures/0.12.png
+map_Ks Textures/0.12.png
+
+newmtl Mat0_Tex14
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.14.png
+map_Ka Textures/0.14.png
+map_Ks Textures/0.14.png
+
+newmtl Mat0_Tex32
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.32.png
+map_Ka Textures/0.32.png
+map_Ks Textures/0.32.png
+
+newmtl Mat0_Tex50
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.50.png
+map_Ka Textures/0.50.png
+map_Ks Textures/0.50.png
+
+newmtl Mat0_Tex52
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.52.png
+map_Ka Textures/0.52.png
+map_Ks Textures/0.52.png
+
+newmtl Mat0_Tex73
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.73.png
+map_Ka Textures/0.73.png
+map_Ks Textures/0.73.png
+
+newmtl Mat0_Tex74
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.74.png
+map_Ka Textures/0.74.png
+map_Ks Textures/0.74.png
+
+newmtl Mat0_Tex75
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.75.png
+map_Ka Textures/0.75.png
+map_Ks Textures/0.75.png
+
+newmtl Mat0_Tex76
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.76.png
+map_Ka Textures/0.76.png
+map_Ks Textures/0.76.png
+
+newmtl Mat0_Tex77
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.77.png
+map_Ka Textures/0.77.png
+map_Ks Textures/0.77.png
+
+newmtl Mat0_Tex78
+Ka 1 1 1 1
+Kd 0,75 0,75 0,75 1
+Ks 0 0 0 0
+Ke 0 0 0 0
+map_Kd Textures/0.78.png
+map_Ka Textures/0.78.png
+map_Ks Textures/0.78.png
+
