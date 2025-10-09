@@ -49,9 +49,12 @@
 
     // === Szene + Umgebung ===
     const scene = new THREE.Scene();
-    const env = new RoomEnvironment(renderer);
-    const pmrem = new THREE.PMREMGenerator(renderer);
-    scene.environment = pmrem.fromScene(env).texture;
+    const pmremGenerator = new THREE.PMREMGenerator(renderer);
+const env = new RoomEnvironment();
+const envMap = pmremGenerator.fromScene(env).texture;
+scene.environment = envMap;
+pmremGenerator.dispose();
+
     scene.background = new THREE.Color(0x090a0b);
 
     // === Kamera & Steuerung ===
@@ -100,7 +103,7 @@
     const loadingDiv = document.getElementById('loading');
     let car;
 
-    loader.load('./model.glb', (gltf) => {
+    loader.load('.model.glb', (gltf) => {
       car = gltf.scene;
       car.traverse(o => {
         if (o.isMesh) {
