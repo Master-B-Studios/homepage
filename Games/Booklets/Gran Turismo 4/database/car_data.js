@@ -1,12 +1,12 @@
 const showroomVideos = {
     ac_cars: {
-        manufacturer: 'AC Cars', country: 'Grossbritannien',
+        manufacturer: 'AC Cars', country: 'Grossbritannien',            // 1
         cars: [
             { name: '427 S/C',                                          src: 'cars/AC_Cars/427_SC_1966.mp4',                                            data: { production_year: '1966', drive: 'FR',  power: '486', weight: '1311', length: '3962', worth: '423.200 Credits' } },
         ],
     },
     acura: {
-        manufacturer: 'Acura', country: 'Japan',
+        manufacturer: 'Acura', country: 'Japan',                        // 7
         cars: [
             { name: '3.2 CL Type S',                                    src: 'cars/Acura/CL_2001_3.2_Type-S.mp4',                                       data: { production_year: '2001', drive: 'FF',  power: '264', weight: '1592', length: '4875', worth: '~27.000 Credits' } },
             { name: '3.2 CL Type S',                                    src: 'cars/Acura/CL_2003_3.2_Type-S.mp4',                                       data: { production_year: '2003', drive: 'FF',  power: '266', weight: '1563', length: '4875', worth: '32.420 Credits' } },
@@ -18,7 +18,7 @@ const showroomVideos = {
         ],
     },
     alfa_romeo: {
-        manufacturer: 'Alfa Romeo', country: 'Italien',
+        manufacturer: 'Alfa Romeo', country: 'Italien',                 // 11
         cars: [
             { name: '147 2.0 Twinspark',                                src: 'cars/Alfa_Romeo/147_2002_2.0_Twinspark.mp4',                              data: { production_year: '2002', drive: 'FF',  power: '150', weight: '1280', length: '4166', worth: '30.590 Credits' } },
             { name: '147 GTA',                                          src: 'cars/Alfa_Romeo/147_2002_GTA.mp4',                                        data: { production_year: '2002', drive: 'FF',  power: '250', weight: '1360', length: '4191', worth: '48.040 Credits' } },
@@ -34,14 +34,14 @@ const showroomVideos = {
         ],
     },
     alpine: {
-        manufacturer: 'Alpine', country: 'Frankreich',
+        manufacturer: 'Alpine', country: 'Frankreich',                  // 2
         cars: [
             { name: 'A110 1600 S',                                      src: 'cars/Alpine/A110_1973_1600_S.mp4',                                        data: { production_year: '1973', drive: 'RR',  power: '141', weight: '715',  length: '3850', worth: 'Renault Alpine Cup' } },
             { name: 'A310 1600 VE',                                     src: 'cars/Alpine/A310_1973_1600_VE.mp4',                                       data: { production_year: '1973', drive: 'RR',  power: '125', weight: '930',  length: '4166', worth: 'George V Rallye - Leicht' } },
         ],
     },
     amuse: {
-        manufacturer: 'Amuse', country: 'Japan',
+        manufacturer: 'Amuse', country: 'Japan',                        // 4
         cars: [
             { name: 'Carbon R',                                         src: 'cars/Amuse/Carbon_2004_R.mp4',                                            data: { production_year: '2004', drive: 'FR',  power: '603', weight: '1123', length: '4730', worth: '250.000 Credits' } },
             { name: 'S2000 Street Version',                             src: 'cars/Amuse/S2000_2004_Street_Version.mp4',                                data: { production_year: '2004', drive: 'FR',  power: '254', weight: '1189', length: '4154', worth: '50.000 Credits' } },
@@ -50,7 +50,7 @@ const showroomVideos = {
         ],
     },
     aston_martin: {
-        manufacturer: 'Aston Martin', country: 'Grossbritannien',
+        manufacturer: 'Aston Martin', country: 'Grossbritannien',       // 4
         cars: [
             { name: 'DB7 Vantage Coupe',                                src: 'cars/Aston_Martin/DB7_2000_Vantage_Coupe.mp4',                            data: { production_year: '2000', drive: 'FR',  power: '426', weight: '1775', length: '4674', worth: '164.260 Credits' } },
             { name: 'DB9 Coupe',                                        src: 'cars/Aston_Martin/DB9_2003_Coupe.mp4',                                    data: { production_year: '2003', drive: 'FR',  power: '456', weight: '1710', length: '4699', worth: '164.470 Credits | Aston Martin Carnival' } },
@@ -59,7 +59,7 @@ const showroomVideos = {
         ],
     },
     audi: {
-        manufacturer: 'Audi', country: 'Deutschland',
+        manufacturer: 'Audi', country: 'Deutschland',                   // 18
         cars: [
             { name: 'A2 1.4',                                           src: 'cars/Audi/A2_2002_1.4.mp4',                                               data: { production_year: '2002', drive: 'FF',  power: '75', weight: '920',  length: '3826', worth: '22.400 Credits' } },
             { name: 'S3',                                               src: 'cars/Audi/A3_2002_S.mp4',                                                 data: { production_year: '2002', drive: '4WD', power: '213', weight: '1420', length: '4159', worth: '41.070 Credits' } },
@@ -82,32 +82,32 @@ const showroomVideos = {
         ],
     },
     asl: {
-        manufacturer: 'ASL', country: 'Japan',
+        manufacturer: 'ASL', country: 'Japan',                          // 2
         cars: [
             { name: 'Garaiya',                                          src: 'cars/ASL/Garaiya_2002.mp4',                                               data: { production_year: '2002', drive: 'MR',  power: '201', weight: '799',  length: '3775', worth: '65.000 Credits' } },
             { name: 'Garaiya ARTA JGTC',                                src: 'cars/ASL/Garaiya_2002_ARTA_JGTC.mp4',                                     data: { production_year: '2003', drive: 'MR',  power: '323', weight: '1125', length: '3775', worth: '500.000 Credits' } },
         ],
     },
     autobianchi: {
-        manufacturer: 'Autobianchi', country: 'Italien',
+        manufacturer: 'Autobianchi', country: 'Italien',                // 1
         cars: [
             { name: 'A112 Abarth',                                      src: 'cars/Autobianchi/A112_1979_Abarth.mp4',                                   data: { production_year: '1979', drive: 'FF',  power: '71', weight: '700',  length: '3270', worth: 'Sunday Cup' } },
         ],
     },
     bentley: {
-        manufacturer: 'Bentley', country: 'Grossbritannien',
+        manufacturer: 'Bentley', country: 'Grossbritannien',            // 1
         cars: [
             { name: 'Speed 8',                                          src: 'cars/Bentley/Speed_8_2003.mp4',                                           data: { production_year: '2003', drive: 'MR',  power: '797', weight: '900',  length: '4645', worth: 'Circuit De La Sarthe II 24h' } },
         ],
     },
     blitz: {
-        manufacturer: 'Blitz', country: 'Japan',
+        manufacturer: 'Blitz', country: 'Japan',                        // 1
         cars: [
             { name: 'ER34 D1 Spec',                                     src: 'cars/Blitz/ER34_2004_D1_Spec.mp4',                                        data: { production_year: '2004', drive: 'FR',  power: '475', weight: '1179', length: '4444', worth: '200.000 Credits' } },
         ],
     },
     bmw: {
-        manufacturer: 'BMW', country: 'Deutschland',
+        manufacturer: 'BMW', country: 'Deutschland',                    // 14
         cars: [
             { name: '120d',                                             src: 'cars/BMW/1_2004_20d.mp4',                                                 data: { production_year: '2004', drive: 'FR',  power: '164', weight: '1415', length: '4227', worth: '33.020 Credits' } },
             { name: '120i',                                             src: 'cars/BMW/1_2004_20i.mp4',                                                 data: { production_year: '2004', drive: 'FR',  power: '152', weight: '1335', length: '4227', worth: '31.940 Credits' } },
@@ -126,39 +126,39 @@ const showroomVideos = {
         ],
     },
     buick: {
-        manufacturer: 'Buick', country: 'Amerika',
+        manufacturer: 'Buick', country: 'Amerika',                      // 2
         cars: [
             { name: 'GNX',                                              src: 'cars/Buick/GNX_1987.mp4',                                                 data: { production_year: '1987', drive: 'FR',  power: '280', weight: '1601', length: '5092', worth: '31.080 Credits' } },
             { name: 'Special',                                          src: 'cars/Buick/Special_1962.mp4',                                             data: { production_year: '1962', drive: 'FR',  power: '586', weight: '1364', length: '4724', worth: '58.000 Credits' } },
         ],
     },
     cadillac: {
-        manufacturer: 'Cadillac', country: 'Amerika',
+        manufacturer: 'Cadillac', country: 'Amerika',                   // 1
         cars: [
             { name: 'Cien Concept',                                     src: 'cars/Cadillac/CIEN_2002_Concept.mp4',                                     data: { production_year: '2002', drive: 'MR',  power: '760', weight: '1500', length: '4000', worth: "Rallye d'Umbria Leicht" } },
         ],
     },
     callaway: {
-        manufacturer: 'Callaway', country: 'Amerika',
+        manufacturer: 'Callaway', country: 'Amerika',                   // 1
         cars: [
             { name: 'C12',                                              src: 'cars/Callaway/C12_2003.mp4',                                              data: { production_year: '2003', drive: 'FR',  power: '439', weight: '1481', length: '4852', worth: '175.880 Credits' } },
         ],
     },
     caterham: {
-        manufacturer: 'Caterham', country: 'Grossbritannien',
+        manufacturer: 'Caterham', country: 'Grossbritannien',           // 1
         cars: [
             { name: 'Seven Fireblade',                                  src: 'cars/Caterham/Seven_2002_Fireblade.mp4',                                  data: { production_year: '2002', drive: 'FR',  power: '160', weight: '369',  length: '3100', worth: '60.000 Credits' } },
         ],
     },
     chapparal: {
-        manufacturer: 'Chapparal', country: 'Amerika',
+        manufacturer: 'Chapparal', country: 'Amerika',                  // 2
         cars: [
             { name: '2D',                                               src: 'cars/Chaparral/2D_1967.mp4',                                              data: { production_year: '1967', drive: 'MR',  power: '426', weight: '771',  length: '4000', worth: '1.100.000 Credits | Nürburgring 4h' } },
             { name: '2J',                                               src: 'cars/Chaparral/2J_1970.mp4',                                              data: { production_year: '1970', drive: 'MR',  power: '694', weight: '821',  length: '4000', worth: '1.200.000 Credits' } },
         ],
     },
     chevrolet: {
-        manufacturer: 'Chevrolet', country: 'Amerika',
+        manufacturer: 'Chevrolet', country: 'Amerika',                  // 17
         cars: [
             { name: 'Camaro SS',                                        src: 'cars/Chevrolet/Camaro_1969_SS.mp4',                                       data: { production_year: '1969', drive: 'FR',  power: '304', weight: '1401', length: '4724', worth: '60.000 Credits' } },
             { name: 'Camaro Z28',                                       src: 'cars/Chevrolet/Camaro_1969_Z28.mp4',                                      data: { production_year: '1969', drive: 'FR',  power: '294', weight: '1415', length: '4724', worth: '65.000 Credits' } },
@@ -180,7 +180,7 @@ const showroomVideos = {
         ],
     },
     chrysler: {
-        manufacturer: 'Chrysler', country: 'Amerika',
+        manufacturer: 'Chrysler', country: 'Amerika',                   // 4
         cars: [
             { name: '300C',                                             src: 'cars/Chrysler/300C_2005.mp4',                                             data: { production_year: '2005', drive: 'FR',  power: '345', weight: '1878', length: '4999', worth: '34.780 Credits' } },
             { name: 'Crossfire',                                        src: 'cars/Chrysler/Crossfire_2004.mp4',                                        data: { production_year: '2004', drive: 'FR',  power: '218', weight: '1361', length: '4059', worth: '35.670 Credits' } },
@@ -189,428 +189,442 @@ const showroomVideos = {
         ],
     },
     citroen: {
-        manufacturer: 'Citroën', country: 'Frankreich',
+        manufacturer: 'Citroën', country: 'Frankreich',                 // 6
         cars: [
             { name: '2CV Type A',                                       src: 'cars/Citroen/2CV_1954_Type_A.mp4',                                        data: { production_year: '1954', drive: 'FF',  power: '15',  weight: '494',  length: '3780', worth: 'Tous France Championnat | 2HP-2CV Classics' } },
             { name: 'C3 1.6',                                           src: 'cars/Citroen/C3_2002_1.6.mp4',                                            data: { production_year: '2002', drive: 'FF',  power: '110', weight: '1063', length: '3850', worth: '18.130 Credits' } },
-            { name: 'C5 V6 Exclusive',                                  src: 'cars/Citroen/C5_2003_V6_Exclusive.mp4',                                   data: { production_year: '2003', drive: 'FF',  power: '207', weight: '1540', length: '4620', worth: '42.830 Credits' } },
-            { name: 'Xantia 3.0i V6 Exclusive',                         src: 'cars/Citroen/Xantia_2000_3.0i_V6_Exclusive.mp4',                          data: { production_year: '2000', drive: 'FF',  power: '193', weight: '1496', length: '4524', worth: '39.230 Credits' } },
+            { name: 'C5 V6 Exclusive',                                  src: 'cars/Citroen/C5_2003_V6_Exclusive.mp4',                                   data: { production_year: '2003', drive: 'FF',  power: '210', weight: '1540', length: '4620', worth: '42.830 Credits' } },
+            { name: 'Xantia 3.0i V6 Exclusive',                         src: 'cars/Citroen/Xantia_2000_3.0i_V6_Exclusive.mp4',                          data: { production_year: '2000', drive: 'FF',  power: '197', weight: '1496', length: '4524', worth: '39.230 Credits' } },
             { name: 'Xsara Rally Car',                                  src: 'cars/Citroen/Xsara_1999_Rally_Car.mp4',                                   data: { production_year: '1999', drive: 'FF',  power: '299', weight: '960',  length: '4167', worth: '750.000 Credits' } },
             { name: 'Xsara VTR',                                        src: 'cars/Citroen/Xsara_2003_VTR.mp4',                                         data: { production_year: '2003', drive: 'FF',  power: '108', weight: '1180', length: '4190', worth: '21.850 Credits' } },
         ],
     },
     cizeta: {
-        manufacturer: 'Cizeta', country: 'Italien',
+        manufacturer: 'Cizeta', country: 'Italien',                     // 1
         cars: [
             { name: 'V16T',                                             src: 'cars/Cizeta/V16T_1994.mp4',                                               data: { production_year: '1994', drive: 'MR',  power: '589', weight: '1640', length: '4442', worth: 'Supercar Festival' } },
         ],
     },
     daihatsu: {
-        manufacturer: 'Daihatsu', country: 'Japan',
+        manufacturer: 'Daihatsu', country: 'Japan',                     // 12
         cars: [
-            { name: 'Copen Active Top',                                 src: 'cars/Daihatsu/Copen_2002_Active_Top.mp4',                                 data: { production_year: '2002', drive: 'FF',  power: '62',  weight: '830',  length: '3395', worth: '14.980 Credits' } },
-            { name: 'Copen Detachable Top',                             src: 'cars/Daihatsu/Copen_2002_Detachable_Top.mp4',                             data: { production_year: '2002', drive: 'FF',  power: '62',  weight: '800',  length: '3395', worth: '14.980 Credits' } },
-            { name: 'Cuore TR-XX Avanzato R',                           src: 'cars/Daihatsu/Cuore_1997_TR-XX_Avanzato_R.mp4',                           data: { production_year: '1997', drive: 'FF',  power: '63',  weight: '700',  length: '3410', worth: '~5.000 Credits' } },
+            { name: 'Copen Active Top',                                 src: 'cars/Daihatsu/Copen_2002_Active_Top.mp4',                                 data: { production_year: '2002', drive: 'FF',  power: '63',  weight: '830',  length: '3395', worth: '14.980 Credits' } },
+            { name: 'Copen Detachable Top',                             src: 'cars/Daihatsu/Copen_2002_Detachable_Top.mp4',                             data: { production_year: '2002', drive: 'FF',  power: '63',  weight: '800',  length: '3395', worth: '14.980 Credits' } },
+            { name: 'Cuore TR-XX Avanzato R',                           src: 'cars/Daihatsu/Cuore_1997_TR-XX_Avanzato_R.mp4',                           data: { production_year: '1997', drive: 'FF',  power: '64',  weight: '700',  length: '3410', worth: '~5.000 Credits' } },
             { name: 'Midget',                                           src: 'cars/Daihatsu/Midget_1963.mp4',                                           data: { production_year: '1963', drive: 'MR',  power: '12',  weight: '299',  length: '2970', worth: 'Midget II Race' } },
-            { name: 'Midget II D-Type',                                 src: 'cars/Daihatsu/Midget_1998_II_D-Type.mp4',                                 data: { production_year: '1998', drive: 'FR',  power: '33',  weight: '569',  length: '2790', worth: '~3.300 Credits' } },
-            { name: 'Move CX',                                          src: 'cars/Daihatsu/Move_1995_CX.mp4',                                          data: { production_year: '1995', drive: 'FF',  power: '53',  weight: '739',  length: '3395', worth: '~4.000 Credits' } },
-            { name: 'Move SR-XX 2WD',                                   src: 'cars/Daihatsu/Move_1997_SR-XX_2WD.mp4',                                   data: { production_year: '1997', drive: 'FF',  power: '60',  weight: '760',  length: '3395', worth: '~4.000 Credits' } },
-            { name: 'Move SR-XX 4WD',                                   src: 'cars/Daihatsu/Move_1997_SR-XX_4WD.mp4',                                   data: { production_year: '1997', drive: '4WD', power: '60',  weight: '811',  length: '3395', worth: '~6.000 Credits' } },
-            { name: 'Move Custom RS Limited',                           src: 'cars/Daihatsu/Move_2002_Custom_RS_Limited.mp4',                           data: { production_year: '2002', drive: '4WD', power: '63',  weight: '921',  length: '3395', worth: '15.720 Credits' } },
-            { name: 'Sirion CX 2WD',                                    src: 'cars/Daihatsu/Sirion_1998_CX_2WD.mp4',                                    data: { production_year: '1998', drive: 'FF',  power: '57',  weight: '840',  length: '3660', worth: '~7.000 Credits' } },
-            { name: 'Sirion CX 4WD',                                    src: 'cars/Daihatsu/Sirion_1998_CX_4WD.mp4',                                    data: { production_year: '1998', drive: '4WD', power: '57',  weight: '890',  length: '3660', worth: '~7.000 Credits' } },
-            { name: 'Sirion X4',                                        src: 'cars/Daihatsu/Sirion_2000_X4.mp4',                                        data: { production_year: '2000', drive: '4WD', power: '118', weight: '840',  length: '3660', worth: '~10.000 Credits | Copen Race' } },
+            { name: 'Midget II D-Type',                                 src: 'cars/Daihatsu/Midget_1998_II_D-Type.mp4',                                 data: { production_year: '1998', drive: 'FR',  power: '34',  weight: '569',  length: '2790', worth: '~3.300 Credits' } },
+            { name: 'Move CX',                                          src: 'cars/Daihatsu/Move_1995_CX.mp4',                                          data: { production_year: '1995', drive: 'FF',  power: '55',  weight: '739',  length: '3395', worth: '~4.000 Credits' } },
+            { name: 'Move SR-XX 2WD',                                   src: 'cars/Daihatsu/Move_1997_SR-XX_2WD.mp4',                                   data: { production_year: '1997', drive: 'FF',  power: '64',  weight: '760',  length: '3395', worth: '~4.000 Credits' } },
+            { name: 'Move SR-XX 4WD',                                   src: 'cars/Daihatsu/Move_1997_SR-XX_4WD.mp4',                                   data: { production_year: '1997', drive: '4WD', power: '64',  weight: '811',  length: '3395', worth: '~6.000 Credits' } },
+            { name: 'Move Custom RS Limited',                           src: 'cars/Daihatsu/Move_2002_Custom_RS_Limited.mp4',                           data: { production_year: '2002', drive: '4WD', power: '64',  weight: '921',  length: '3395', worth: '15.720 Credits' } },
+            { name: 'Sirion CX 2WD',                                    src: 'cars/Daihatsu/Sirion_1998_CX_2WD.mp4',                                    data: { production_year: '1998', drive: 'FF',  power: '58',  weight: '840',  length: '3660', worth: '~7.000 Credits' } },
+            { name: 'Sirion CX 4WD',                                    src: 'cars/Daihatsu/Sirion_1998_CX_4WD.mp4',                                    data: { production_year: '1998', drive: '4WD', power: '58',  weight: '890',  length: '3660', worth: '~7.000 Credits' } },
+            { name: 'Sirion X4',                                        src: 'cars/Daihatsu/Sirion_2000_X4.mp4',                                        data: { production_year: '2000', drive: '4WD', power: '120', weight: '840',  length: '3660', worth: '~10.000 Credits | Copen Race' } },
         ],
     },
     dmc: {
-        manufacturer: 'DMC', country: 'Amerika',
+        manufacturer: 'DMC', country: 'Amerika',                        // 1
         cars: [
-            { name: 'DeLorean S2',                                      src: 'cars/DMC/DeLorean_2004_S2.mp4',                                           data: { production_year: '2004', drive: 'RR',  power: '197', weight: '1288', length: '4267', worth: 'Fahrmission "The Pass"' } },
+            { name: 'DeLorean S2',                                      src: 'cars/DMC/DeLorean_2004_S2.mp4',                                           data: { production_year: '2004', drive: 'RR',  power: '200', weight: '1288', length: '4267', worth: 'Fahrmission "The Pass"' } },
         ],
     },
     dodge: {
-        manufacturer: 'Dodge', country: 'Amerika',
+        manufacturer: 'Dodge', country: 'Amerika',                      // 8
         cars: [
             { name: 'Charger 440 R/T',                                  src: 'cars/Dodge/Charger_1970_440_RT.mp4',                                      data: { production_year: '1970', drive: 'FR',  power: '380', weight: '1650', length: '4000', worth: '75.500 Credits' } },
-            { name: 'Charger Super Bee 426 Hemi',                       src: 'cars/Dodge/Charger_1971_Super_Bee_426_Hemi.mp4',                          data: { production_year: '1971', drive: 'FR',  power: '425', weight: '1841', length: '4000', worth: 'New York 200 Meilen' } },
-            { name: 'RAM 1500 Laramie Hemi Quad Cab',                   src: 'cars/Dodge/RAM_2004_1500_Laramie_Hemi_Quad_Cab.mp4',                      data: { production_year: '2004', drive: '4WD', power: '340', weight: '2390', length: '5784', worth: '37.930 Credits' } },
-            { name: 'SRT-4',                                            src: 'cars/Dodge/SRT-4_2003.mp4',                                               data: { production_year: '2003', drive: 'FF',  power: '221', weight: '1349', length: '4000', worth: '20.640 Credits' } },
+            { name: 'Charger Super Bee 426 Hemi',                       src: 'cars/Dodge/Charger_1971_Super_Bee_426_Hemi.mp4',                          data: { production_year: '1971', drive: 'FR',  power: '431', weight: '1841', length: '4000', worth: 'New York 200 Meilen' } },
+            { name: 'RAM 1500 Laramie Hemi Quad Cab',                   src: 'cars/Dodge/RAM_2004_1500_Laramie_Hemi_Quad_Cab.mp4',                      data: { production_year: '2004', drive: '4WD', power: '346', weight: '2390', length: '5784', worth: '37.930 Credits' } },
+            { name: 'SRT-4',                                            src: 'cars/Dodge/SRT-4_2003.mp4',                                               data: { production_year: '2003', drive: 'FF',  power: '233', weight: '1349', length: '4000', worth: '20.640 Credits' } },
             { name: 'Viper GTS',                                        src: 'cars/Dodge/Viper_1999_GTS.mp4',                                           data: { production_year: '1999', drive: 'FR',  power: '456', weight: '1569', length: '4488', worth: '78.000 Credits' } },
             { name: 'Viper GTS-R Concept',                              src: 'cars/Dodge/Viper_2000_GTS-R_Concept.mp4',                                 data: { production_year: '2000', drive: 'FR',  power: '505', weight: '1475', length: '4902', worth: 'Chrysler Crossfire Trophy' } },
             { name: 'Viper GTS-R Team Oreca',                           src: 'cars/Dodge/Viper_2000_GTS-R_Team_Oreca.mp4',                              data: { production_year: '2000', drive: 'FR',  power: '597', weight: '1150', length: '4548', worth: '1.000.000 Credits' } },
-            { name: 'Viper SRT-10',                                     src: 'cars/Dodge/Viper_2003_SRT-10.mp4',                                        data: { production_year: '2003', drive: 'FR',  power: '500', weight: '1533', length: '4458', worth: '84.880 Credits | 450 km/h' } },
+            { name: 'Viper SRT-10',                                     src: 'cars/Dodge/Viper_2003_SRT-10.mp4',                                        data: { production_year: '2003', drive: 'FR',  power: '507', weight: '1533', length: '4458', worth: '84.880 Credits | 450 km/h' } },
         ],
     },
     dome: {
-        manufacturer: 'Dome', country: 'Japan',
+        manufacturer: 'Dome', country: 'Japan',                         // 1
         cars: [
-            { name: 'Zero Concept',                                     src: 'cars/Dome/0_1978.mp4',                                                    data: { production_year: '1978', drive: 'MR',  power: '157', weight: '919',  length: '4000', worth: 'Internationale A-Lizenz Gold' } },
+            { name: 'Zero Concept',                                     src: 'cars/Dome/0_1978.mp4',                                                    data: { production_year: '1978', drive: 'MR',  power: '165', weight: '919',  length: '4000', worth: 'Internationale A-Lizenz Gold' } },
         ],
     },
     eagle: {
-        manufacturer: 'Eagle', country: 'Amerika',
+        manufacturer: 'Eagle', country: 'Amerika',                      // 1
         cars: [
-            { name: 'Talon ESI',                                        src: 'cars/Eagle/Talon_1997_ESI.mp4',                                           data: { production_year: '1997', drive: 'FR',  power: '138', weight: '1252', length: '4000', worth: '15.740 Credits' } },
+            { name: 'Talon ESI',                                        src: 'cars/Eagle/Talon_1997_ESI.mp4',                                           data: { production_year: '1997', drive: 'FR',  power: '141', weight: '1252', length: '4000', worth: '15.740 Credits' } },
         ],
     },
     fiat: {
-        manufacturer: 'Fiat', country: 'Italien',
+        manufacturer: 'Fiat', country: 'Italien',                       // 7
         cars: [
-            { name: '500 F',                                            src: 'cars/Fiat/500_1965_F.mp4',                                                data: { production_year: '1965', drive: 'RR',  power: '16',  weight: '520',  length: '2970', worth: '~7.000 Credits' } },
-            { name: '500 L',                                            src: 'cars/Fiat/500_1969_L.mp4',                                                data: { production_year: '1969', drive: 'RR',  power: '16',  weight: '530',  length: '2970', worth: '~6.000 Credits' } },
-            { name: '500 R',                                            src: 'cars/Fiat/500_1972_R.mp4',                                                data: { production_year: '1972', drive: 'RR',  power: '17',  weight: '594',  length: '3070', worth: '~6.000 Credits' } },
-            { name: 'Barchetta Giovane Due',                            src: 'cars/Fiat/Barchetta_2000_Giovane_Due.mp4',                                data: { production_year: '2000', drive: 'FF',  power: '128', weight: '1090', length: '3916', worth: '24.060 Credits' } },
-            { name: 'Coupe Turbo Plus',                                 src: 'cars/Fiat/Coupe_2000_Turbo_Plus.mp4',                                     data: { production_year: '2000', drive: 'FF',  power: '219', weight: '1310', length: '4250', worth: '48.110 Credits' } },
-            { name: 'Panda Super i.E.',                                 src: 'cars/Fiat/Panda_1990_Super_i.e..mp4',                                     data: { production_year: '1990', drive: 'FF',  power: '44',  weight: '730',  length: '3405', worth: '~5.100 Credits' } },
-            { name: 'Punto HGT Abarth',                                 src: 'cars/Fiat/Punto_2000_HGT_Abarth.mp4',                                     data: { production_year: '2000', drive: 'FF',  power: '128', weight: '1100', length: '3820', worth: '30.030 Credits' } },
+            { name: '500 F',                                            src: 'cars/Fiat/500_1965_F.mp4',                                                data: { production_year: '1965', drive: 'RR',  power: '18',  weight: '520',  length: '2970', worth: '~7.000 Credits' } },
+            { name: '500 L',                                            src: 'cars/Fiat/500_1969_L.mp4',                                                data: { production_year: '1969', drive: 'RR',  power: '18',  weight: '530',  length: '2970', worth: '~6.000 Credits' } },
+            { name: '500 R',                                            src: 'cars/Fiat/500_1972_R.mp4',                                                data: { production_year: '1972', drive: 'RR',  power: '19',  weight: '594',  length: '3070', worth: '~6.000 Credits' } },
+            { name: 'Barchetta Giovane Due',                            src: 'cars/Fiat/Barchetta_2000_Giovane_Due.mp4',                                data: { production_year: '2000', drive: 'FF',  power: '130', weight: '1090', length: '3916', worth: '24.060 Credits' } },
+            { name: 'Coupe Turbo Plus',                                 src: 'cars/Fiat/Coupe_2000_Turbo_Plus.mp4',                                     data: { production_year: '2000', drive: 'FF',  power: '216', weight: '1310', length: '4250', worth: '48.110 Credits' } },
+            { name: 'Panda Super i.E.',                                 src: 'cars/Fiat/Panda_1990_Super_i.e..mp4',                                     data: { production_year: '1990', drive: 'FF',  power: '45',  weight: '730',  length: '3405', worth: '~5.100 Credits' } },
+            { name: 'Punto HGT Abarth',                                 src: 'cars/Fiat/Punto_2000_HGT_Abarth.mp4',                                     data: { production_year: '2000', drive: 'FF',  power: '131', weight: '1100', length: '3820', worth: '30.030 Credits' } },
         ],
     },
     ford: {
-        manufacturer: 'Ford', country: 'Amerika',
+        manufacturer: 'Ford', country: 'Amerika',                       // 18
         cars: [
             { name: 'Escort Rally Car',                                 src: 'cars/Ford/Escort_1998_Rally_Car.mp4',                                     data: { production_year: '1998', drive: '4WD', power: '304', weight: '1230', length: '4221', worth: 'Tahiti - Normal' } },
-            { name: 'Falcon XR8',                                       src: 'cars/Ford/Falcon_2000_XR8.mp4',                                           data: { production_year: '2000', drive: 'FR',  power: '600', weight: '1349', length: '4970', worth: '450.000 Credits' } },
+            { name: 'Falcon XR8',                                       src: 'cars/Ford/Falcon_2000_XR8.mp4',                                           data: { production_year: '2000', drive: 'FR',  power: '608', weight: '1349', length: '4970', worth: '450.000 Credits' } },
             { name: 'Focus Rally Car',                                  src: 'cars/Ford/Focus_1999_Rally_Car.mp4',                                      data: { production_year: '1999', drive: '4WD', power: '304', weight: '1230', length: '4152', worth: '#7 Driving School' } },
-            { name: 'Focus RS',                                         src: 'cars/Ford/Focus_2002_RS.mp4',                                             data: { production_year: '2002', drive: 'FF',  power: '216', weight: '1051', length: '4602', worth: '41.410 Credits' } },
-            { name: 'Focus ST',                                         src: 'cars/Ford/Focus_2003_ST_170.mp4',                                         data: { production_year: '2003', drive: 'FF',  power: '170', weight: '1241', length: '4602', worth: '32.750 Credits' } },
+            { name: 'Focus RS',                                         src: 'cars/Ford/Focus_2002_RS.mp4',                                             data: { production_year: '2002', drive: 'FF',  power: '220', weight: '1051', length: '4602', worth: '41.410 Credits' } },
+            { name: 'Focus ST',                                         src: 'cars/Ford/Focus_2003_ST_170.mp4',                                         data: { production_year: '2003', drive: 'FF',  power: '173', weight: '1241', length: '4602', worth: '32.750 Credits' } },
             { name: 'GT40 Race Car',                                    src: 'cars/Ford/GT_1969_40_Race_Car.mp4',                                       data: { production_year: '1969', drive: 'MR',  power: '500', weight: '998',  length: '4602', worth: 'Laguna Seca 200 Meilen' } },
             { name: 'GT Concept',                                       src: 'cars/Ford/GT_2002.mp4',                                                   data: { production_year: '2002', drive: 'MR',  power: '507', weight: '1451', length: '4602', worth: 'Tsukuba - Schwer' } },
-            { name: 'GT Concept LM Race Car',                           src: 'cars/Ford/GT_2002_LM_Race_Car.mp4',                                       data: { production_year: '2002', drive: 'MR',  power: '592', weight: '1139', length: '4602', worth: 'Infineon Ausdauer-Rennen' } },
-            { name: 'GT LM Race Car Spec II',                           src: 'cars/Ford/GT_2004_LM_Race_Car_Spec_II.mp4',                               data: { production_year: '2004', drive: 'MR',  power: '606', weight: '1130', length: '4613', worth: 'GT World Championship' } },
+            { name: 'GT Concept LM Race Car',                           src: 'cars/Ford/GT_2002_LM_Race_Car.mp4',                                       data: { production_year: '2002', drive: 'MR',  power: '615', weight: '1139', length: '4602', worth: 'Infineon Ausdauer-Rennen' } },
+            { name: 'GT LM Race Car Spec II',                           src: 'cars/Ford/GT_2004_LM_Race_Car_Spec_II.mp4',                               data: { production_year: '2004', drive: 'MR',  power: '615', weight: '1130', length: '4613', worth: 'GT World Championship' } },
             { name: 'GT',                                               src: 'cars/Ford/GT_2005.mp4',                                                   data: { production_year: '2005', drive: 'MR',  power: '558', weight: '1451', length: '4643', worth: '149.880 Credits' } },
-            { name: 'Ka',                                               src: 'cars/Ford/Ka_2001.mp4',                                                   data: { production_year: '2001', drive: 'FF',  power: '59',  weight: '965',  length: '3620', worth: '12.920 Credits' } },
+            { name: 'Ka',                                               src: 'cars/Ford/Ka_2001.mp4',                                                   data: { production_year: '2001', drive: 'FF',  power: '62',  weight: '965',  length: '3620', worth: '12.920 Credits' } },
             { name: 'Model T Tourer',                                   src: 'cars/Ford/Model_T_1915_Tourer.mp4',                                       data: { production_year: '1915', drive: 'FR',  power: '20',  weight: '635',  length: '4000', worth: 'Alle Lizenzen in Gold' } },
             { name: 'Mustang SVT Cobra R',                              src: 'cars/Ford/Mustang_2000_SVT_Cobra_R.mp4',                                  data: { production_year: '2000', drive: 'FR',  power: '372', weight: '1628', length: '4000', worth: '~44.000 Credits' } },
-            { name: 'Mustang GT',                                       src: 'cars/Ford/Mustang_2005_GT.mp4',                                           data: { production_year: '2005', drive: 'FR',  power: '294', weight: '1569', length: '4765', worth: '25.950 Credits' } },
-            { name: 'RS 200',                                           src: 'cars/Ford/RS_1984_200.mp4',                                               data: { production_year: '1984', drive: '4WD', power: '246', weight: '1179', length: '4152', worth: 'Grand Canyon - Leicht' } },
+            { name: 'Mustang GT',                                       src: 'cars/Ford/Mustang_2005_GT.mp4',                                           data: { production_year: '2005', drive: 'FR',  power: '300', weight: '1569', length: '4765', worth: '25.950 Credits' } },
+            { name: 'RS 200',                                           src: 'cars/Ford/RS_1984_200.mp4',                                               data: { production_year: '1984', drive: '4WD', power: '250', weight: '1179', length: '4152', worth: 'Grand Canyon - Leicht' } },
             { name: 'RS 200 Rally Car',                                 src: 'cars/Ford/RS_1985_200_Rally_Car.mp4',                                     data: { production_year: '1985', drive: '4WD', power: '427', weight: '980',  length: '4152', worth: 'Capri Rally - Schwer' } },
-            { name: 'SVT F-150 Lightning',                              src: 'cars/Ford/SVT_2003_F-150_Lightning.mp4',                                  data: { production_year: '2003', drive: 'FR',  power: '380', weight: '2132', length: '5283', worth: '35.050 Credits' } },
-            { name: 'Taurus SHO',                                       src: 'cars/Ford/Taurus_1998_SHO.mp4',                                           data: { production_year: '1998', drive: 'FF',  power: '234', weight: '1509', length: '5039', worth: '~17.000 Credits' } },
+            { name: 'SVT F-150 Lightning',                              src: 'cars/Ford/SVT_2003_F-150_Lightning.mp4',                                  data: { production_year: '2003', drive: 'FR',  power: '385', weight: '2132', length: '5283', worth: '35.050 Credits' } },
+            { name: 'Taurus SHO',                                       src: 'cars/Ford/Taurus_1998_SHO.mp4',                                           data: { production_year: '1998', drive: 'FF',  power: '238', weight: '1509', length: '5039', worth: '~17.000 Credits' } },
         ],
     },
     fpv: {
-        manufacturer: 'FPV', country: 'Australien',
+        manufacturer: 'FPV', country: 'Australien',                     // 2
         cars: [
-            { name: 'F6 Typhoon',                                       src: 'cars/FPV/F6_2004_Typhoon.mp4',                                            data: { production_year: '2004', drive: 'FR',  power: '362', weight: '1776', length: '4954', worth: '46.740 Credits' } },
-            { name: 'GT',                                               src: 'cars/FPV/GT_2004.mp4',                                                    data: { production_year: '2004', drive: 'FR',  power: '389', weight: '1826', length: '4954', worth: '48.640 Credits' } },
+            { name: 'F6 Typhoon',                                       src: 'cars/FPV/F6_2004_Typhoon.mp4',                                            data: { production_year: '2004', drive: 'FR',  power: '367', weight: '1776', length: '4954', worth: '46.740 Credits' } },
+            { name: 'GT',                                               src: 'cars/FPV/GT_2004.mp4',                                                    data: { production_year: '2004', drive: 'FR',  power: '394', weight: '1826', length: '4954', worth: '48.640 Credits' } },
         ],
     },
     gillet: {
-        manufacturer: 'Gillet', country: 'Belgien',
+        manufacturer: 'Gillet', country: 'Belgien',                     // 1
         cars: [
-            { name: 'Vertigo Race Car',                                 src: 'cars/Gillet/Vertigo_2004_Race_Car.mp4',                                   data: { production_year: '2004', drive: 'FR',  power: '900', weight: '780',  length: '3980', worth: '1.000.000 Credits' } },
+            { name: 'Vertigo Race Car',                                 src: 'cars/Gillet/Vertigo_2004_Race_Car.mp4',                                   data: { production_year: '2004', drive: 'FR',  power: '901', weight: '780',  length: '3980', worth: '1.000.000 Credits' } },
         ],
     },
     ginetta: {
-        manufacturer: 'Ginetta', country: 'Grossbritannien',
+        manufacturer: 'Ginetta', country: 'Grossbritannien',            // 1
         cars: [
             { name: 'G4',                                               src: 'cars/Ginetta/G4_1964.mp4',                                                data: { production_year: '1964', drive: 'FR',  power: '91',  weight: '454',  length: '3353', worth: 'Leichtgewicht K-Cup' } },
         ],
     },
     hks: {
-        manufacturer: 'HKS', country: 'Japan',
+        manufacturer: 'HKS', country: 'Japan',                          // 1
         cars: [
             { name: 'Genki Hyper Silvia',                               src: 'cars/HKS/Silvia_2004_Genki_Hyper_RS2.mp4',                                data: { production_year: '2004', drive: 'FR',  power: '483', weight: '1130', length: '4000', worth: '200.000 Credits' } },
         ],
     },
     holden: {
-        manufacturer: 'Holden', country: 'Australien',
+        manufacturer: 'Holden', country: 'Australien',                  // 2
         cars: [
-            { name: 'Commodore SS',                                     src: 'cars/Holden/Commodore_2004_SS.mp4',                                       data: { production_year: '2004', drive: 'FR',  power: '327', weight: '1658', length: '4868', worth: '40.430 Credits' } },
-            { name: 'Monaro CV8',                                       src: 'cars/Holden/Monaro_2004_CV8.mp4',                                         data: { production_year: '2004', drive: 'FR',  power: '327', weight: '1658', length: '4868', worth: '47.960 Credits' } },
+            { name: 'Commodore SS',                                     src: 'cars/Holden/Commodore_2004_SS.mp4',                                       data: { production_year: '2004', drive: 'FR',  power: '333', weight: '1658', length: '4868', worth: '40.430 Credits' } },
+            { name: 'Monaro CV8',                                       src: 'cars/Holden/Monaro_2004_CV8.mp4',                                         data: { production_year: '2004', drive: 'FR',  power: '333', weight: '1658', length: '4868', worth: '47.960 Credits' } },
         ],
     },
     hommell: {
-        manufacturer: 'Hommell', country: 'Frankreich',
+        manufacturer: 'Hommell', country: 'Frankreich',                 // 1
         cars: [
             { name: 'Berlinette R/S Coupe',                             src: 'cars/Hommel/Berlinette_1999_RS_Coupe.mp4',                                data: { production_year: '1999', drive: 'MR',  power: '167', weight: '950',  length: '4120', worth: '47.360 Credits' } },
         ],
     },
     honda: {
-        manufacturer: 'Honda', country: 'Japan',
+        manufacturer: 'Honda', country: 'Japan',                        // 62
         cars: [
-            { name: '1300 Coupe 9 S',                                   src: 'cars/Honda/1300_1970_Coupe_9_S.mp4',                                      data: { production_year: '1970', drive: 'FF',  power: '107', weight: '900',  length: '4140', worth: '~12.800 Credits' } },
-            { name: 'Accord Coupe',                                     src: 'cars/Honda/Accord_1988_Coupe.mp4',                                        data: { production_year: '1988', drive: 'FF',  power: '118', weight: '1219', length: '4565', worth: '~9.000 Credits' } },
-            { name: 'Accord Euro R',                                    src: 'cars/Honda/Accord_2000_Euro_R.mp4',                                       data: { production_year: '2000', drive: 'FF',  power: '215', weight: '1330', length: '4680', worth: '~16.000 Credits' } },
-            { name: 'Accord Euro R',                                    src: 'cars/Honda/Accord_2002_Euro_R.mp4',                                       data: { production_year: '2002', drive: 'FF',  power: '215', weight: '1390', length: '4680', worth: '25.300 Credits' } },
-            { name: 'Accord Coupe',                                     src: 'cars/Honda/Accord_2003_Coupe.mp4',                                        data: { production_year: '2003', drive: 'FF',  power: '239', weight: '1481', length: '4765', worth: '27.480 Credits' } },
-            { name: 'Beat',                                             src: 'cars/Honda/Beat_1991.mp4',                                                data: { production_year: '1991', drive: 'MR',  power: '63',  weight: '760',  length: '3295', worth: '~5.000 Credits' } },
-            { name: 'Beat Version F',                                   src: 'cars/Honda/Beat_1992_Version_F.mp4',                                      data: { production_year: '1992', drive: 'MR',  power: '63',  weight: '760',  length: '3295', worth: '~5.000 Credits' } },
-            { name: 'Beat Version Z',                                   src: 'cars/Honda/Beat_1993_Version_Z.mp4',                                      data: { production_year: '1993', drive: 'MR',  power: '63',  weight: '760',  length: '3295', worth: '~7.000 Credits' } },
-            { name: 'City Turbo II',                                    src: 'cars/Honda/City_1983_Turbo_II.mp4',                                       data: { production_year: '1983', drive: 'FF',  power: '108', weight: '735',  length: '3380', worth: '~4.000 Credits' } },
-            { name: 'Civic CX',                                         src: 'cars/Honda/Civic_1979.mp4',                                               data: { production_year: '1979', drive: 'FF',  power: '79',  weight: '780',  length: '3870', worth: '9.570 Credits' } },
-            { name: 'Civic 25i',                                        src: 'cars/Honda/Civic_1983.mp4',                                               data: { production_year: '1983', drive: 'FF',  power: '98',  weight: '815',  length: '3810', worth: '~4.000 Credits' } },
+            { name: '1300 Coupe 9 S',                                   src: 'cars/Honda/1300_1970_Coupe_9_S.mp4',                                      data: { production_year: '1970', drive: 'FF',  power: '110', weight: '900',  length: '4140', worth: '~12.800 Credits' } },
+            { name: 'Accord Coupe Import Edition',                      src: 'cars/Honda/Accord_1988_Coupe_Import_Edition.mp4',                         data: { production_year: '1988', drive: 'FF',  power: '120', weight: '1219', length: '4565', worth: '~9.000 Credits' } },
+            { name: 'Accord Euro R',                                    src: 'cars/Honda/Accord_2000_Euro_R.mp4',                                       data: { production_year: '2000', drive: 'FF',  power: '220', weight: '1330', length: '4680', worth: '~16.000 Credits' } },
+            { name: 'Accord Euro R',                                    src: 'cars/Honda/Accord_2002_Euro_R.mp4',                                       data: { production_year: '2002', drive: 'FF',  power: '220', weight: '1390', length: '4680', worth: '25.300 Credits' } },
+            { name: 'Accord Coupe Import Edition',                      src: 'cars/Honda/Accord_2003_Coupe_Import_Edition.mp4',                         data: { production_year: '2003', drive: 'FF',  power: '243', weight: '1481', length: '4765', worth: '27.480 Credits' } },
+            { name: 'Beat',                                             src: 'cars/Honda/Beat_1991.mp4',                                                data: { production_year: '1991', drive: 'MR',  power: '64',  weight: '760',  length: '3295', worth: '~5.000 Credits' } },
+            { name: 'Beat Version F',                                   src: 'cars/Honda/Beat_1992_Version_F.mp4',                                      data: { production_year: '1992', drive: 'MR',  power: '64',  weight: '760',  length: '3295', worth: '~5.000 Credits' } },
+            { name: 'Beat Version Z',                                   src: 'cars/Honda/Beat_1993_Version_Z.mp4',                                      data: { production_year: '1993', drive: 'MR',  power: '64',  weight: '760',  length: '3295', worth: '~7.000 Credits' } },
+            { name: 'City Turbo II',                                    src: 'cars/Honda/City_1983_Turbo_II.mp4',                                       data: { production_year: '1983', drive: 'FF',  power: '110', weight: '735',  length: '3380', worth: '~4.000 Credits' } },
+            { name: 'Civic CX',                                         src: 'cars/Honda/Civic_1979.mp4',                                               data: { production_year: '1979', drive: 'FF',  power: '85',  weight: '780',  length: '3870', worth: '9.570 Credits' } },
+            { name: 'Civic 25i',                                        src: 'cars/Honda/Civic_1983.mp4',                                               data: { production_year: '1983', drive: 'FF',  power: '100',  weight: '815',  length: '3810', worth: '~4.000 Credits' } },
             { name: 'Civic Motul Race Car',                             src: 'cars/Honda/Civic_1987_Motul_Race_Car.mp4',                                data: { production_year: '1987', drive: 'FF',  power: '225', weight: '890',  length: '4000', worth: 'Civic Race' } },
-            { name: 'Civic SiR II',                                     src: 'cars/Honda/Civic_1991_Sir_II.mp4',                                        data: { production_year: '1991', drive: 'FF',  power: '167', weight: '1040', length: '4069', worth: '~6.000 Credits' } },
-            { name: 'Civic Type R',                                     src: 'cars/Honda/Civic_1997_Type_R.mp4',                                        data: { production_year: '1997', drive: 'FF',  power: '176', weight: '1050', length: '4180', worth: '~10.000 Credits' } },
+            { name: 'Civic SiR II',                                     src: 'cars/Honda/Civic_1991_SIR_II.mp4',                                        data: { production_year: '1991', drive: 'FF',  power: '166', weight: '1040', length: '4069', worth: '~6.000 Credits' } },
+            { name: 'Civic SiR II',                                     src: 'cars/Honda/Civic_1992_SIR_II.mp4',                                        data: { production_year: '1992', drive: 'FF',  power: '167', weight: '1040', length: '4069', worth: '~6.000 Credits' } },
+            { name: 'Civic SiR II',                                     src: 'cars/Honda/Civic_1993_SIR_II.mp4',                                        data: { production_year: '1993', drive: 'FF',  power: '167', weight: '1040', length: '4069', worth: '~6.000 Credits' } },
+            { name: 'Civic SiR II',                                     src: 'cars/Honda/Civic_1995_SIR_II.mp4',                                        data: { production_year: '1995', drive: 'FF',  power: '169', weight: '1040', length: '4069', worth: '~6.000 Credits' } },
+            { name: 'Civic Type R',                                     src: 'cars/Honda/Civic_1997_Type_R.mp4',                                        data: { production_year: '1997', drive: 'FF',  power: '180', weight: '1050', length: '4180', worth: '~10.000 Credits' } },
             { name: 'Civic Gathers Race Car',                           src: 'cars/Honda/Civic_1998_Gathers_Race_Car.mp4',                              data: { production_year: '1998', drive: 'FF',  power: '185', weight: '930',  length: '4180', worth: '450.000 Credits' } },
-            { name: 'Civic Type R',                                     src: 'cars/Honda/Civic_2001_Type_R.mp4',                                        data: { production_year: '2001', drive: 'FF',  power: '197', weight: '1191', length: '4135', worth: '~15.000 Credits' } },
-            { name: 'Civic Type R',                                     src: 'cars/Honda/Civic_2004_Type_R.mp4',                                        data: { production_year: '2004', drive: 'FF',  power: '212', weight: '1191', length: '4135', worth: '23.310 Credits' } },
-            { name: 'CR-X Ballade Sports 1.5i',                         src: 'cars/Honda/CR-X_1983_1.5.mp4',                                            data: { production_year: '1983', drive: 'FF',  power: '108', weight: '815',  length: '4000', worth: '~4.000 Credits' } },
-            { name: 'CR-X SiR',                                         src: 'cars/Honda/CR-X_1990_SIR.mp4',                                            data: { production_year: '1990', drive: 'FF',  power: '157', weight: '986',  length: '4000', worth: '~5.000 Credits' } },
-            { name: 'CR-X Del Sol',                                     src: 'cars/Honda/CR-X_1992_Del_Sol.mp4',                                        data: { production_year: '1992', drive: 'FF',  power: '164', weight: '1100', length: '3995', worth: '~6.000 Credits' } },
+            { name: 'Civic Type R',                                     src: 'cars/Honda/Civic_1998_Type_R.mp4',                                        data: { production_year: '1998', drive: 'FF',  power: '183', weight: '1050', length: '4180', worth: '~10.000 Credits' } },
+            { name: 'Civic Type R',                                     src: 'cars/Honda/Civic_2001_Type_R.mp4',                                        data: { production_year: '2001', drive: 'FF',  power: '201', weight: '1191', length: '4135', worth: '~15.000 Credits' } },
+            { name: 'Civic Type R',                                     src: 'cars/Honda/Civic_2004_Type_R.mp4',                                        data: { production_year: '2004', drive: 'FF',  power: '218', weight: '1191', length: '4135', worth: '23.310 Credits' } },
+            { name: 'CR-X Ballade Sports 1.5i',                         src: 'cars/Honda/CR-X_1983_1.5i.mp4',                                           data: { production_year: '1983', drive: 'FF',  power: '110', weight: '815',  length: '4000', worth: '~4.000 Credits' } },
+            { name: 'CR-X SiR',                                         src: 'cars/Honda/CR-X_1990_SIR.mp4',                                            data: { production_year: '1990', drive: 'FF',  power: '160', weight: '986',  length: '4000', worth: '~5.000 Credits' } },
+            { name: 'CR-X Del Sol SiR',                                 src: 'cars/Honda/CR-X_1992_Del_Sol_SIR.mp4',                                    data: { production_year: '1992', drive: 'FF',  power: '169', weight: '1100', length: '3995', worth: '~6.000 Credits' } },
             { name: 'Dualnote',                                         src: 'cars/Honda/Dualnote_2001.mp4',                                            data: { production_year: '2001', drive: '4WD', power: '395', weight: '1399', length: '4400', worth: 'Silber Internationale A-Lizenz' } },
-            { name: 'Element',                                          src: 'cars/Honda/Element_2003.mp4',                                             data: { production_year: '2003', drive: '4WD', power: '157', weight: '1560', length: '4300', worth: '25.900 Credits' } },
+            { name: 'Element',                                          src: 'cars/Honda/Element_2003.mp4',                                             data: { production_year: '2003', drive: '4WD', power: '161', weight: '1560', length: '4300', worth: '25.900 Credits' } },
             { name: 'HSC',                                              src: 'cars/Honda/HSC_2003.mp4',                                                 data: { production_year: '2003', drive: 'MR',  power: '330', weight: '1149', length: '4240', worth: 'Type-R Treffen' } },
-            { name: 'Insight',                                          src: 'cars/Honda/Insight_1999.mp4',                                             data: { production_year: '1999', drive: 'FF',  power: '82',  weight: '820',  length: '3940', worth: '21.000 Credits' } },
-            { name: 'Integra Type R',                                   src: 'cars/Honda/Integra_1995_Type_R.mp4',                                      data: { production_year: '1995', drive: 'FF',  power: '197', weight: '1059', length: '4380', worth: '~11.000 Credits' } },
+            { name: 'Insight',                                          src: 'cars/Honda/Insight_1999.mp4',                                             data: { production_year: '1999', drive: 'FF',  power: '83',  weight: '820',  length: '3940', worth: '21.000 Credits' } },
+            { name: 'Integra Type R',                                   src: 'cars/Honda/Integra_1995_Type_R.mp4',                                      data: { production_year: '1995', drive: 'FF',  power: '200', weight: '1059', length: '4380', worth: '~11.000 Credits' } },
+            { name: 'Integra Type R',                                   src: 'cars/Honda/Integra_1998_Type_R.mp4',                                      data: { production_year: '1998', drive: 'FF',  power: '202', weight: '1059', length: '4380', worth: '~11.000 Credits' } },
+            { name: 'Integra Type R',                                   src: 'cars/Honda/Integra_1999_Type_R.mp4',                                      data: { production_year: '1999', drive: 'FF',  power: '203', weight: '1059', length: '4380', worth: '~11.000 Credits' } },
             { name: 'Integra Type R Touring Car',                       src: 'cars/Honda/Integra_2002_Type_R_Touring_Car.mp4',                          data: { production_year: '2002', drive: 'FF',  power: '310', weight: '1050', length: '4385', worth: '450.000 Credits' } },
-            { name: 'Integra Type R',                                   src: 'cars/Honda/Integra_2003_Type_R.mp4',                                      data: { production_year: '2003', drive: 'FF',  power: '212', weight: '1170', length: '4380', worth: '25.900 Credits' } },
-            { name: 'Jazz 1.4 DSi SE',                                  src: 'cars/Honda/Jazz_2001_1.4_DSI_SE_Sport.mp4',                               data: { production_year: '2001', drive: 'FF',  power: '98',  weight: '990',  length: '3828', worth: '12.600 Credits' } },
-            { name: 'Life Step Van',                                    src: 'cars/Honda/Life_1972_Step_Van.mp4',                                       data: { production_year: '1972', drive: 'FF',  power: '28',  weight: '606',  length: '2995', worth: 'Japapnische Kompaktwagen-Meisterschaft' } },
-            { name: 'N 360',                                            src: 'cars/Honda/N_1967_360.mp4',                                               data: { production_year: '1967', drive: 'FF',  power: '30',  weight: '474',  length: '2995', worth: '~12.000 Credits' } },
-            { name: 'NSX',                                              src: 'cars/Honda/NSX_1990.mp4',                                                 data: { production_year: '1990', drive: 'MR',  power: '270', weight: '1350', length: '4430', worth: '~28.000 Credits' } },
-            { name: 'NSX Type R',                                       src: 'cars/Honda/NSX_1992_R.mp4',                                               data: { production_year: '1992', drive: 'MR',  power: '284', weight: '1230', length: '4430', worth: '~42.000 Credits' } },
-            { name: 'NSX Type S',                                       src: 'cars/Honda/NSX_1997_S.mp4',                                               data: { production_year: '1997', drive: 'MR',  power: '276', weight: '1320', length: '4430', worth: '~48.000 Credits' } },
-            { name: 'NSX Type S Zero',                                  src: 'cars/Honda/NSX_1997_S_Zero.mp4',                                          data: { production_year: '1997', drive: 'MR',  power: '284', weight: '1270', length: '4430', worth: '~35.000 Credits' } },
+            { name: 'Integra Type R',                                   src: 'cars/Honda/Integra_2003_Type_R.mp4',                                      data: { production_year: '2003', drive: 'FF',  power: '225', weight: '1170', length: '4380', worth: '25.900 Credits' } },
+            { name: 'Jazz 1.4 DSi SE',                                  src: 'cars/Honda/Jazz_2001_1.4_DSI_SE_Sport.mp4',                               data: { production_year: '2001', drive: 'FF',  power: '100', weight: '990',  length: '3828', worth: '12.600 Credits' } },
+            { name: 'Life Step Van',                                    src: 'cars/Honda/Life_1972_Step_Van.mp4',                                       data: { production_year: '1972', drive: 'FF',  power: '31',  weight: '606',  length: '2995', worth: 'Japanische Kompaktwagen-Meisterschaft' } },
+            { name: 'N 360',                                            src: 'cars/Honda/N_1967_360.mp4',                                               data: { production_year: '1967', drive: 'FF',  power: '31',  weight: '474',  length: '2995', worth: '~12.000 Credits' } },
+            { name: 'NSX',                                              src: 'cars/Honda/NSX_1990.mp4',                                                 data: { production_year: '1990', drive: 'MR',  power: '278', weight: '1350', length: '4430', worth: '~28.000 Credits' } },
+            { name: 'NSX Type R',                                       src: 'cars/Honda/NSX_1992_R.mp4',                                               data: { production_year: '1992', drive: 'MR',  power: '288', weight: '1230', length: '4430', worth: '~42.000 Credits' } },
+            { name: 'NSX',                                              src: 'cars/Honda/NSX_1993.mp4',                                                 data: { production_year: '1993', drive: 'MR',  power: '278', weight: '1350', length: '4430', worth: '~28.000 Credits' } },
+            { name: 'NSX',                                              src: 'cars/Honda/NSX_1995.mp4',                                                 data: { production_year: '1995', drive: 'MR',  power: '278', weight: '1350', length: '4430', worth: '~28.000 Credits' } },
+            { name: 'NSX',                                              src: 'cars/Honda/NSX_1997.mp4',                                                 data: { production_year: '1997', drive: 'MR',  power: '281', weight: '1350', length: '4430', worth: '~28.000 Credits' } },
+            { name: 'NSX Type S',                                       src: 'cars/Honda/NSX_1997_S.mp4',                                               data: { production_year: '1997', drive: 'MR',  power: '281', weight: '1320', length: '4430', worth: '~48.000 Credits' } },
+            { name: 'NSX Type S Zero',                                  src: 'cars/Honda/NSX_1997_S_Zero.mp4',                                          data: { production_year: '1997', drive: 'MR',  power: '289', weight: '1270', length: '4430', worth: '~35.000 Credits' } },
+            { name: 'NSX',                                              src: 'cars/Honda/NSX_1999.mp4',                                                 data: { production_year: '1999', drive: 'MR',  power: '281', weight: '1350', length: '4430', worth: '~28.000 Credits' } },
+            { name: 'NSX Type S',                                       src: 'cars/Honda/NSX_1999_S.mp4',                                               data: { production_year: '1999', drive: 'MR',  power: '281', weight: '1320', length: '4430', worth: '~48.000 Credits' } },
+            { name: 'NSX Type S Zero',                                  src: 'cars/Honda/NSX_1999_S_Zero.mp4',                                          data: { production_year: '1999', drive: 'MR',  power: '289', weight: '1270', length: '4430', worth: '~35.000 Credits' } },
             { name: 'NSX Arta',                                         src: 'cars/Honda/NSX_2000_Arta.mp4',                                            data: { production_year: '2000', drive: 'MR',  power: '489', weight: '1150', length: '4430', worth: '1.350.000 Credits' } },
             { name: 'NSX Castrol',                                      src: 'cars/Honda/NSX_2000_Castrol.mp4',                                         data: { production_year: '2000', drive: 'MR',  power: '489', weight: '1150', length: '4430', worth: '1.350.000 Credits' } },
             { name: 'NSX Raybrig',                                      src: 'cars/Honda/NSX_2000_Raybrig.mp4',                                         data: { production_year: '2000', drive: 'MR',  power: '489', weight: '1150', length: '4430', worth: '1.350.000 Credits' } },
-            { name: 'NSX',                                              src: 'cars/Honda/NSX_2001.mp4',                                                 data: { production_year: '2001', drive: 'MR',  power: '276', weight: '1340', length: '4430', worth: '92.070 Credits' } },
+            { name: 'NSX',                                              src: 'cars/Honda/NSX_2001.mp4',                                                 data: { production_year: '2001', drive: 'MR',  power: '281', weight: '1340', length: '4430', worth: '92.070 Credits' } },
             { name: 'NSX Loctite',                                      src: 'cars/Honda/NSX_2001_Loctite.mp4',                                         data: { production_year: '2001', drive: 'MR',  power: '492', weight: '1150', length: '4430', worth: '1.350.000 Credits' } },
             { name: 'NSX Mobil 1',                                      src: 'cars/Honda/NSX_2001_Mobil_1.mp4',                                         data: { production_year: '2001', drive: 'MR',  power: '492', weight: '1150', length: '4430', worth: '1.350.000 Credits' } },
-            { name: 'NSX Type R Concept',                               src: 'cars/Honda/NSX_2001_R_Concept.mp4',                                       data: { production_year: '2001', drive: 'MR',  power: '285', weight: '1269', length: '4430', worth: 'NA Meisterschaft' } },
-            { name: 'NSX Type S',                                       src: 'cars/Honda/NSX_2001_S.mp4',                                               data: { production_year: '2001', drive: 'MR',  power: '276', weight: '1320', length: '4430', worth: '103.570 Credits' } },
+            { name: 'NSX Type R Concept',                               src: 'cars/Honda/NSX_2001_R_Concept.mp4',                                       data: { production_year: '2001', drive: 'MR',  power: '290', weight: '1269', length: '4430', worth: 'NA Meisterschaft' } },
+            { name: 'NSX Type S',                                       src: 'cars/Honda/NSX_2001_S.mp4',                                               data: { production_year: '2001', drive: 'MR',  power: '281', weight: '1320', length: '4430', worth: '103.570 Credits' } },
             { name: 'NSX Type R',                                       src: 'cars/Honda/NSX_2002_R.mp4',                                               data: { production_year: '2002', drive: 'MR',  power: '295', weight: '1270', length: '4430', worth: '119.570 Credits' } },
             { name: 'NSX Type R Race Car',                              src: 'cars/Honda/NSX_2002_R_LM_Race_Car.mp4',                                   data: { production_year: '2002', drive: 'MR',  power: '519', weight: '1121', length: '4430', worth: '150 Meilen Super Speedway' } },
-            { name: 'NSX Type R Road Car',                              src: 'cars/Honda/NSX_2002_R_LM_Road_Car.mp4',                                   data: { production_year: '2002', drive: 'MR',  power: '550', weight: '1229', length: '4430', worth: '8 Stunden Motegi' } },
-            { name: 'NSX Takata',                                       src: 'cars/Honda/NSX_2003_Takata.mp4',                                          data: { production_year: '2003', drive: 'MR',  power: '492', weight: '1170', length: '4430', worth: '1.350.000 Credits' } },
-            { name: 'Odyssey',                                          src: 'cars/Honda/Odyssey_2003.mp4',                                             data: { production_year: '2003', drive: '4WD', power: '157', weight: '1701', length: '4765', worth: '28.650 Credits' } },
-            { name: 'Prelude Si VTEC',                                  src: 'cars/Honda/Prelude_1991_SI_VTEC.mp4',                                     data: { production_year: '1991', drive: 'FF',  power: '197', weight: '1280', length: '4440', worth: '~8.000 Credits' } },
-            { name: 'Prelude SiR',                                      src: 'cars/Honda/Prelude_1996_SIR.mp4',                                         data: { production_year: '1996', drive: 'FF',  power: '192', weight: '1261', length: '4520', worth: '~8.000 Credits' } },
-            { name: 'Prelude Type S',                                   src: 'cars/Honda/Prelude_1996_Type_S.mp4',                                      data: { production_year: '1996', drive: 'FF',  power: '216', weight: '1310', length: '4520', worth: '~13.000 Credits' } },
-            { name: 'Prelude SiR S SPEC',                               src: 'cars/Honda/Prelude_1998_SIR_S_SPEC.mp4',                                  data: { production_year: '1998', drive: 'FF',  power: '216', weight: '1270', length: '4520', worth: '~11.000 Credits' } },
+            { name: 'NSX Type R Road Car',                              src: 'cars/Honda/NSX_2002_R_LM_Road_Car.mp4',                                   data: { production_year: '2002', drive: 'MR',  power: '553', weight: '1229', length: '4430', worth: '8 Stunden Motegi' } },
+            { name: 'NSX Takata',                                       src: 'cars/Honda/NSX_2003_Takata.mp4',                                          data: { production_year: '2003', drive: 'MR',  power: '494', weight: '1170', length: '4430', worth: '1.350.000 Credits' } },
+            { name: 'Odyssey',                                          src: 'cars/Honda/Odyssey_2003.mp4',                                             data: { production_year: '2003', drive: '4WD', power: '160', weight: '1701', length: '4765', worth: '28.650 Credits' } },
+            { name: 'Prelude Si VTEC',                                  src: 'cars/Honda/Prelude_1991_SI_VTEC.mp4',                                     data: { production_year: '1991', drive: 'FF',  power: '215', weight: '1280', length: '4440', worth: '~8.000 Credits' } },
+            { name: 'Prelude SiR',                                      src: 'cars/Honda/Prelude_1996_SIR.mp4',                                         data: { production_year: '1996', drive: 'FF',  power: '196', weight: '1261', length: '4520', worth: '~8.000 Credits' } },
+            { name: 'Prelude Type S',                                   src: 'cars/Honda/Prelude_1996_Type_S.mp4',                                      data: { production_year: '1996', drive: 'FF',  power: '217', weight: '1310', length: '4520', worth: '~13.000 Credits' } },
+            { name: 'Prelude SiR S SPEC',                               src: 'cars/Honda/Prelude_1998_SIR_S_SPEC.mp4',                                  data: { production_year: '1998', drive: 'FF',  power: '217', weight: '1270', length: '4520', worth: '~11.000 Credits' } },
+            { name: 'Prelude Type S',                                   src: 'cars/Honda/Prelude_1998_Type_S.mp4',                                      data: { production_year: '1998', drive: 'FF',  power: '217', weight: '1310', length: '4520', worth: '~13.000 Credits' } },
             { name: 'S 500',                                            src: 'cars/Honda/S500_1963.mp4',                                                data: { production_year: '1963', drive: 'FR',  power: '44',  weight: '674',  length: '3300', worth: '~20.000 Credits | Gold Nationale B-Lizenz' } },
-            { name: 'S 600',                                            src: 'cars/Honda/S600_1964.mp4',                                                data: { production_year: '1964', drive: 'FR',  power: '56',  weight: '714',  length: '3300', worth: '~21.000 Credits' } },
-            { name: 'S 800',                                            src: 'cars/Honda/S800_1966.mp4',                                                data: { production_year: '1966', drive: 'FR',  power: '68',  weight: '720',  length: '3335', worth: '~20.000 Credits' } },
+            { name: 'S 600',                                            src: 'cars/Honda/S600_1964.mp4',                                                data: { production_year: '1964', drive: 'FR',  power: '57',  weight: '714',  length: '3300', worth: '~21.000 Credits' } },
+            { name: 'S 800',                                            src: 'cars/Honda/S800_1966.mp4',                                                data: { production_year: '1966', drive: 'FR',  power: '70',  weight: '720',  length: '3335', worth: '~20.000 Credits' } },
             { name: 'S 800 RSC Race Car',                               src: 'cars/Honda/S800_1968_RSC_Race_Car.mp4',                                   data: { production_year: '1968', drive: 'FR',  power: '100', weight: '660',  length: '3355', worth: 'Kompaktwagen-Weltmeisterschaft' } },
-            { name: 'S 2000',                                           src: 'cars/Honda/S2000_1999.mp4',                                               data: { production_year: '1999', drive: 'FR',  power: '242', weight: '1240', length: '4135', worth: '~23.000 Credits' } },
-            { name: 'S 2000 Type V',                                    src: 'cars/Honda/S2000_2000_Type_V.mp4',                                        data: { production_year: '2000', drive: 'FR',  power: '242', weight: '1260', length: '4135', worth: '~20.000 Credits' } },
+            { name: 'S 2000',                                           src: 'cars/Honda/S2000_1999.mp4',                                               data: { production_year: '1999', drive: 'FR',  power: '247', weight: '1240', length: '4135', worth: '~23.000 Credits' } },
+            { name: 'S 2000 Type V',                                    src: 'cars/Honda/S2000_2000_Type_V.mp4',                                        data: { production_year: '2000', drive: 'FR',  power: '247', weight: '1260', length: '4135', worth: '~20.000 Credits' } },
+            { name: 'S 2000',                                           src: 'cars/Honda/S2000_2001.mp4',                                               data: { production_year: '2001', drive: 'FR',  power: '247', weight: '1240', length: '4135', worth: '35.000 Credits' } },
             { name: 'S 2000 LM Race Car',                               src: 'cars/Honda/S2000_2001_LM_Race_Car.mp4',                                   data: { production_year: '2001', drive: 'FR',  power: '320', weight: '1050', length: '4285', worth: '450.000 Credits' } },
-            { name: 'S 2000',                                           src: 'cars/Honda/S2000_2003.mp4',                                               data: { production_year: '2003', drive: 'FR',  power: '241', weight: '1240', length: '4135', worth: '35.000 Credits' } },
-            { name: 'S 2000 Type V',                                    src: 'cars/Honda/S2000_2003_Type_V.mp4',                                        data: { production_year: '2003', drive: 'FR',  power: '242', weight: '1270', length: '4135', worth: '37.000 Credits' } },
-            { name: 'Today G',                                          src: 'cars/Honda/Today_1985_G.mp4',                                             data: { production_year: '1985', drive: 'FF',  power: '30',  weight: '550',  length: '3195', worth: '~2.000 Credits' } },
-            { name: 'Z Act',                                            src: 'cars/Honda/Z_1970_Act.mp4',                                               data: { production_year: '1970', drive: 'FF',  power: '29',  weight: '595',  length: '3125', worth: '~5.000 Credits' } },
+            { name: 'S 2000 Type V',                                    src: 'cars/Honda/S2000_2001_Type_V.mp4',                                        data: { production_year: '2001', drive: 'FR',  power: '247', weight: '1260', length: '4135', worth: '~20.000 Credits' } },
+            { name: 'S 2000',                                           src: 'cars/Honda/S2000_2003.mp4',                                               data: { production_year: '2003', drive: 'FR',  power: '247', weight: '1240', length: '4135', worth: '35.000 Credits' } },
+            { name: 'S 2000 Type V',                                    src: 'cars/Honda/S2000_2003_Type_V.mp4',                                        data: { production_year: '2003', drive: 'FR',  power: '245', weight: '1270', length: '4135', worth: '37.000 Credits' } },
+            { name: 'Today G',                                          src: 'cars/Honda/Today_1985_G.mp4',                                             data: { production_year: '1985', drive: 'FF',  power: '31',  weight: '550',  length: '3195', worth: '~2.000 Credits' } },
+            { name: 'Z Act',                                            src: 'cars/Honda/Z_1970_Act.mp4',                                               data: { production_year: '1970', drive: 'FF',  power: '31',  weight: '595',  length: '3125', worth: '~5.000 Credits' } },
         ],
     },
     hpa: {
-        manufacturer: 'HPA', country: 'Kanada',
+        manufacturer: 'HPA', country: 'Kanada',                         // 1
         cars: [
-            { name: 'Stage II R32',                                     src: 'cars/HPA/Stage_II_R32_2004.mp4',                                          data: { production_year: '2004', drive: '4WD', power: '552', weight: '1484', length: '4189', worth: '31.870 Credits' } },
+            { name: 'Stage II R32',                                     src: 'cars/HPA/Stage_II_R32_2004.mp4',                                          data: { production_year: '2004', drive: '4WD', power: '530', weight: '1484', length: '4189', worth: '31.870 Credits' } },
         ],
     },
     hyundai: {
-        manufacturer: 'Hyundai', country: 'Südkorea',
+        manufacturer: 'Hyundai', country: 'Südkorea',                   // 4
         cars: [
-            { name: 'Accent Rally Car',                                 src: 'cars/Hyundai/Accent_2001_Rally_Car.mp4',                                  data: { production_year: '2001', drive: '4WD', power: '295', weight: '1031', length: '4200', worth: '750.000 Credits' } },
+            { name: 'Accent Rally Car',                                 src: 'cars/Hyundai/Accent_2001_Rally_Car.mp4',                                  data: { production_year: '2001', drive: '4WD', power: '304', weight: '1031', length: '4200', worth: '750.000 Credits' } },
             { name: 'Clix',                                             src: 'cars/Hyundai/Clix_2001.mp4',                                              data: { production_year: '2001', drive: '4WD', power: '305', weight: '1320', length: '3959', worth: 'Hyundai Sport Festival' } },
-            { name: 'Coupe FX',                                         src: 'cars/Hyundai/Coupe_2001.mp4',                                             data: { production_year: '2001', drive: 'FF',  power: '172', weight: '1341', length: '4395', worth: '33.020 Credits' } },
-            { name: 'HCD6 Concept',                                     src: 'cars/Hyundai/HCD6_2001.mp4',                                              data: { production_year: '2001', drive: 'MR',  power: '214', weight: '1500', length: '4039', worth: 'Yosemite-Rallye II - Leicht' } },
+            { name: 'Coupe FX',                                         src: 'cars/Hyundai/Coupe_2001.mp4',                                             data: { production_year: '2001', drive: 'FF',  power: '176', weight: '1341', length: '4395', worth: '33.020 Credits' } },
+            { name: 'HCD6 Concept',                                     src: 'cars/Hyundai/HCD6_2001.mp4',                                              data: { production_year: '2001', drive: 'MR',  power: '219', weight: '1500', length: '4039', worth: 'Yosemite-Rallye II - Leicht' } },
         ],
     },
     infiniti: {
-        manufacturer: 'Infiniti', country: 'Amerika',
+        manufacturer: 'Infiniti', country: 'Amerika',                   // 2
         cars: [
-            { name: 'FX45 Concept',                                     src: 'cars/Infiniti/FX45_2002_Concept.mp4',                                     data: { production_year: '2002', drive: '4WD', power: '340', weight: '1499', length: '4788', worth: 'Charmonix-Rally - Leicht' } },
-            { name: 'G35',                                              src: 'cars/Infiniti/G35_2003_Sedan.mp4',                                        data: { production_year: '2003', drive: 'FR',  power: '268', weight: '1513', length: '4737', worth: '30.720 Credits' } },
+            { name: 'FX45 Concept',                                     src: 'cars/Infiniti/FX45_2002_Concept.mp4',                                     data: { production_year: '2002', drive: '4WD', power: '345', weight: '1499', length: '4788', worth: 'Charmonix-Rally - Leicht' } },
+            { name: 'G35',                                              src: 'cars/Infiniti/G35_2003_Sedan.mp4',                                        data: { production_year: '2003', drive: 'FR',  power: '262', weight: '1513', length: '4737', worth: '30.720 Credits' } },
         ],
     },
     isuzu: {
-        manufacturer: 'Isuzu', country: 'Japan',
+        manufacturer: 'Isuzu', country: 'Japan',                        // 3
         cars: [
-            { name: 'Bellet 1600 GT-R',                                 src: 'cars/Isuzu/Bellett_1969_1600_GT-R.mp4',                                   data: { production_year: '1969', drive: 'FR',  power: '118', weight: '970',  length: '4015', worth: '~15.000 Credits' } },
-            { name: '117 Coupe',                                        src: 'cars/Isuzu/117_1968_Coupe.mp4',                                           data: { production_year: '1968', drive: 'FR',  power: '118', weight: '1050', length: '4280', worth: '~13.000 Credits | Isuzu Sport Classics' } },
-            { name: 'Piazza XE',                                        src: 'cars/Isuzu/Piazza_1981_XE.mp4',                                           data: { production_year: '1981', drive: 'FR',  power: '133', weight: '1189', length: '4310', worth: '~9.000 Credits' } },
+            { name: 'Bellet 1600 GT-R',                                 src: 'cars/Isuzu/Bellett_1969_1600_GT-R.mp4',                                   data: { production_year: '1969', drive: 'FR',  power: '120', weight: '970',  length: '4015', worth: '~15.000 Credits' } },
+            { name: '117 Coupe',                                        src: 'cars/Isuzu/117_1968_Coupe.mp4',                                           data: { production_year: '1968', drive: 'FR',  power: '120', weight: '1050', length: '4280', worth: '~13.000 Credits | Isuzu Sport Classics' } },
+            { name: 'Piazza XE',                                        src: 'cars/Isuzu/Piazza_1981_XE.mp4',                                           data: { production_year: '1981', drive: 'FR',  power: '135', weight: '1189', length: '4310', worth: '~9.000 Credits' } },
         ],
     },
     jaguar: {
-        manufacturer: 'Jaguar', country: 'Grossbritannien',
+        manufacturer: 'Jaguar', country: 'Grossbritannien',             // 7
         cars: [
-            { name: 'E-Type Coupe',                                     src: 'cars/Jaguar/E-Type_1961_Coupe.mp4',                                       data: { production_year: '1961', drive: 'FR',  power: '264', weight: '1300', length: '4440', worth: 'Britische GT-Serie' } },
-            { name: 'S-Type R',                                         src: 'cars/Jaguar/S-Type_2002_R.mp4',                                           data: { production_year: '2002', drive: 'FR',  power: '389', weight: '1798', length: '4877', worth: '92.130 Credits' } },
-            { name: 'XJ220',                                            src: 'cars/Jaguar/XJ220_1992.mp4',                                              data: { production_year: '1992', drive: 'MR',  power: '515', weight: '1372', length: '4860', worth: '749.140 Credits' } },
-            { name: 'XJ220 LM Race Car',                                src: 'cars/Jaguar/XJ220_2001_LM_Race_Car.mp4',                                  data: { production_year: '2001', drive: 'MR',  power: '542', weight: '1375', length: '4860', worth: 'Paneuropäische Meisterschaft' } },
-            { name: 'XJR-9 Race Car',                                   src: 'cars/Jaguar/XJR_1988_9_Race_Car.mp4',                                     data: { production_year: '1988', drive: 'MR',  power: '749', weight: '894',  length: '4800', worth: '3.500.000 Credits | 50% Spielfortschritt' } },
-            { name: 'XKR',                                              src: 'cars/Jaguar/XKR_1999_Coupe.mp4',                                          data: { production_year: '1999', drive: 'FR',  power: '369', weight: '1640', length: '4760', worth: '~64.000 Credits' } },
-            { name: 'XKR R',                                            src: 'cars/Jaguar/XKR_2002_R-Performance.mp4',                                  data: { production_year: '2002', drive: 'FR',  power: '400', weight: '1735', length: '4760', worth: '118.450 Credits' } },
+            { name: 'E-Type Coupe',                                     src: 'cars/Jaguar/E-Type_1961_Coupe.mp4',                                       data: { production_year: '1961', drive: 'FR',  power: '269', weight: '1300', length: '4440', worth: 'Britische GT-Serie' } },
+            { name: 'S-Type R',                                         src: 'cars/Jaguar/S-Type_2002_R.mp4',                                           data: { production_year: '2002', drive: 'FR',  power: '405', weight: '1798', length: '4877', worth: '92.130 Credits' } },
+            { name: 'XJ220',                                            src: 'cars/Jaguar/XJ220_1992.mp4',                                              data: { production_year: '1992', drive: 'MR',  power: '524', weight: '1372', length: '4860', worth: '749.140 Credits' } },
+            { name: 'XJ220 LM Race Car',                                src: 'cars/Jaguar/XJ220_2001_LM_Race_Car.mp4',                                  data: { production_year: '2001', drive: 'MR',  power: '550', weight: '1375', length: '4860', worth: 'Paneuropäische Meisterschaft' } },
+            { name: 'XJR-9 Race Car',                                   src: 'cars/Jaguar/XJR_1988_9_Race_Car.mp4',                                     data: { production_year: '1988', drive: 'MR',  power: '928', weight: '894',  length: '4800', worth: '3.500.000 Credits | 50% Spielfortschritt' } },
+            { name: 'XKR',                                              src: 'cars/Jaguar/XKR_1999_Coupe.mp4',                                          data: { production_year: '1999', drive: 'FR',  power: '385', weight: '1640', length: '4760', worth: '~64.000 Credits' } },
+            { name: 'XKR R',                                            src: 'cars/Jaguar/XKR_2002_R-Performance.mp4',                                  data: { production_year: '2002', drive: 'FR',  power: '395', weight: '1735', length: '4760', worth: '118.450 Credits' } },
         ],
     },
     jay_leno: {
-        manufacturer: 'Jay Leno', country: 'Amerika',
+        manufacturer: 'Jay Leno', country: 'Amerika',                   // 1
         cars: [
-            { name: 'Tank Car',                                         src: 'cars/Jay_Leno/Tank_Car_2003.mp4',                                         data: { production_year: '2003', drive: 'FR',  power: '810', weight: '4309', length: '6400', worth: 'Fahrmissionen 11-20' } },
+            { name: 'Tank Car',                                         src: 'cars/Jay_Leno/Tank_Car_2003.mp4',                                         data: { production_year: '2003', drive: 'FR',  power: '901', weight: '4309', length: '6400', worth: 'Fahrmissionen 11-20' } },
         ],
     },
     jensen_healey: {
-        manufacturer: 'Jensen Healey', country: 'Grossbritannien',
+        manufacturer: 'Jensen Healey', country: 'Grossbritannien',      // 1
         cars: [
             { name: 'Interceptor III',                                  src: 'cars/Jensen_Healey/Interceptor_1974_III.mp4',                             data: { production_year: '1974', drive: 'FR',  power: '390', weight: '1814', length: '4724', worth: '~30.000 Credits | Gold Internationale B-Lizenz' } },
         ],
     },
     lancia: {
-        manufacturer: 'Lancia', country: 'Italien',
+        manufacturer: 'Lancia', country: 'Italien',                     // 5
         cars: [
             { name: 'Lancia Delta HF Integrale',                        src: 'cars/Lancia/Delta_HF_1991_Integrale_Evoluzione.mp4',                      data: { production_year: '1991', drive: '4WD', power: '213', weight: '1350', length: '3900', worth: '~23.000 Credits' } },
             { name: 'Lancia Delta HF Integrale Rally Car',              src: 'cars/Lancia/Delta_HF_1992_Integrale_Rally_Car.mp4',                       data: { production_year: '1992', drive: '4WD', power: '300', weight: '1120', length: '3900', worth: 'Umbria Rally Mittel' } },
             { name: 'Delta S4 Rally Car',                               src: 'cars/Lancia/Delta_S4_1985_Rally_Car.mp4',                                 data: { production_year: '1985', drive: '4WD', power: '456', weight: '890',  length: '4000', worth: 'Umbria Rally Schwer' } },
-            { name: 'Stratos',                                          src: 'cars/Lancia/Stratos_1973.mp4',                                            data: { production_year: '1973', drive: 'MR',  power: '185', weight: '980',  length: '3710', worth: '133.970 Credits' } },
+            { name: 'Stratos',                                          src: 'cars/Lancia/Stratos_1973.mp4',                                            data: { production_year: '1973', drive: 'MR',  power: '189', weight: '980',  length: '3710', worth: '133.970 Credits' } },
             { name: 'Stratos Rally Car',                                src: 'cars/Lancia/Stratos_1977_Rally_Car.mp4',                                  data: { production_year: '1977', drive: 'MR',  power: '277', weight: '880',  length: '4000', worth: 'Charmonix Rally Schwer' } },
         ],
     },
     land_rover: {
-        manufacturer: 'Land Rover', country: 'Grossbritannien',
+        manufacturer: 'Land Rover', country: 'Grossbritannien',         // 1
         cars: [
-            { name: 'Range Stormer Concept',                            src: 'cars/Land_Rover/Range_Stormer_2004_Concept.mp4',                          data: { production_year: '2004', drive: '4WD', power: '334', weight: '2500', length: '4725', worth: 'Yosemite Rally I Leicht' } },
+            { name: 'Range Stormer Concept',                            src: 'cars/Land_Rover/Range_Stormer_2004_Concept.mp4',                          data: { production_year: '2004', drive: '4WD', power: '350', weight: '2500', length: '4725', worth: 'Yosemite Rally I Leicht' } },
         ],
     },
     lexus: {
-        manufacturer: 'Lexus', country: 'Japan',
+        manufacturer: 'Lexus', country: 'Japan',                        // 8
         cars: [
-            { name: 'GS 300',                                           src: 'cars/Lexus/GS_300_1991.mp4',                                              data: { production_year: '1991', drive: 'FR',  power: '276', weight: '1679', length: '4865', worth: '~16.000 Credits' } },
-            { name: 'GS 300',                                           src: 'cars/Lexus/GS_300_2000.mp4',                                              data: { production_year: '2000', drive: 'FR',  power: '276', weight: '1679', length: '4805', worth: '44.200 Credits' } },
-            { name: 'GS 300 Vertex Edition',                            src: 'cars/Lexus/GS_300_2000_Vertex_Edition.mp4',                               data: { production_year: '2000', drive: 'FR',  power: '276', weight: '1679', length: '4805', worth: '45.500 Credits' } },
-            { name: 'IS 200',                                           src: 'cars/Lexus/IS_200_1998.mp4',                                              data: { production_year: '1998', drive: 'FR',  power: '152', weight: '1310', length: '4400', worth: '20.700 Credits' } },
-            { name: 'IS 200 J',                                         src: 'cars/Lexus/IS_200_1998_J.mp4',                                            data: { production_year: '1998', drive: 'FR',  power: '207', weight: '1340', length: '4000', worth: '24.000 Credits' } },
-            { name: 'IS 300',                                           src: 'cars/Lexus/IS_300_2001_Sport_Cross.mp4',                                  data: { production_year: '2001', drive: 'FR',  power: '217', weight: '1471', length: '4415', worth: '27.600 Credits' } },
-            { name: 'SC 300',                                           src: 'cars/Lexus/SC_300_1997.mp4',                                              data: { production_year: '1997', drive: 'FR',  power: '276', weight: '1560', length: '4900', worth: '~17.000 Credits' } },
-            { name: 'SC 430',                                           src: 'cars/Lexus/SC_430_2001.mp4',                                              data: { production_year: '2001', drive: 'FR',  power: '276', weight: '1730', length: '4516', worth: '60.000 Credits' } },
+            { name: 'GS 300',                                           src: 'cars/Lexus/GS_300_1991.mp4',                                              data: { production_year: '1991', drive: 'FR',  power: '292', weight: '1679', length: '4865', worth: '~16.000 Credits' } },
+            { name: 'GS 300',                                           src: 'cars/Lexus/GS_300_2000.mp4',                                              data: { production_year: '2000', drive: 'FR',  power: '290', weight: '1679', length: '4805', worth: '44.200 Credits' } },
+            { name: 'GS 300 Vertex Edition',                            src: 'cars/Lexus/GS_300_2000_Vertex_Edition.mp4',                               data: { production_year: '2000', drive: 'FR',  power: '290', weight: '1679', length: '4805', worth: '45.500 Credits' } },
+            { name: 'IS 200',                                           src: 'cars/Lexus/IS_200_1998.mp4',                                              data: { production_year: '1998', drive: 'FR',  power: '160', weight: '1310', length: '4400', worth: '20.700 Credits' } },
+            { name: 'IS 200 J',                                         src: 'cars/Lexus/IS_200_1998_J.mp4',                                            data: { production_year: '1998', drive: 'FR',  power: '209', weight: '1340', length: '4000', worth: '24.000 Credits' } },
+            { name: 'IS 300',                                           src: 'cars/Lexus/IS_300_2001_Sport_Cross.mp4',                                  data: { production_year: '2001', drive: 'FR',  power: '220', weight: '1471', length: '4415', worth: '27.600 Credits' } },
+            { name: 'SC 300',                                           src: 'cars/Lexus/SC_300_1997.mp4',                                              data: { production_year: '1997', drive: 'FR',  power: '280', weight: '1560', length: '4900', worth: '~17.000 Credits' } },
+            { name: 'SC 430',                                           src: 'cars/Lexus/SC_430_2001.mp4',                                              data: { production_year: '2001', drive: 'FR',  power: '279', weight: '1730', length: '4516', worth: '60.000 Credits' } },
         ],
     },
     lister: {
-        manufacturer: 'Lister', country: 'Grossbritannien',
+        manufacturer: 'Lister', country: 'Grossbritannien',             // 1
         cars: [
             { name: 'Storm V12 Race Car',                               src: 'cars/Lister/Storm_V12_1999_Race_Car.mp4',                                 data: { production_year: '1999', drive: 'FR',  power: '602', weight: '1438', length: '4547', worth: '1000 km Suzuka' } },
         ],
     },
     lotus: {
-        manufacturer: 'Lotus', country: 'Grossbritannien',
+        manufacturer: 'Lotus', country: 'Grossbritannien',              // 14
         cars: [
-            { name: 'Carlton',                                          src: 'cars/Lotus/Carlton_1990.mp4',                                             data: { production_year: '1990', drive: 'FR',  power: '372', weight: '1654', length: '4763', worth: '~29.000 Credits' } },
-            { name: 'Elan S1',                                          src: 'cars/Lotus/Elan_1962_S1.mp4',                                             data: { production_year: '1962', drive: 'FR',  power: '105', weight: '639',  length: '3683', worth: 'Lotus Classics' } },
-            { name: 'Elise Sport 190',                                  src: 'cars/Lotus/Elise_1998_Sport_190.mp4',                                     data: { production_year: '1998', drive: 'MR',  power: '181', weight: '670',  length: '3726', worth: '~42.000 Credits' } },
+            { name: 'Carlton',                                          src: 'cars/Lotus/Carlton_1990.mp4',                                             data: { production_year: '1990', drive: 'FR',  power: '382', weight: '1654', length: '4763', worth: '~29.000 Credits' } },
+            { name: 'Elan S1',                                          src: 'cars/Lotus/Elan_1962_S1.mp4',                                             data: { production_year: '1962', drive: 'FR',  power: '106', weight: '639',  length: '3683', worth: 'Lotus Classics' } },
+            { name: 'Elise Sport 190',                                  src: 'cars/Lotus/Elise_1998_Sport_190.mp4',                                     data: { production_year: '1998', drive: 'MR',  power: '190', weight: '670',  length: '3726', worth: '~42.000 Credits' } },
             { name: 'Motor Sport Elise',                                src: 'cars/Lotus/Elise_1999_Motor_Sport.mp4',                                   data: { production_year: '1999', drive: 'MR',  power: '204', weight: '700',  length: '4000', worth: '97.180 Credits' } },
-            { name: 'Elise',                                            src: 'cars/Lotus/Elise_2000.mp4',                                               data: { production_year: '2000', drive: 'MR',  power: '118', weight: '714',  length: '3785', worth: '41.060 Credits' } },
+            { name: 'Elise',                                            src: 'cars/Lotus/Elise_2000.mp4',                                               data: { production_year: '2000', drive: 'MR',  power: '122', weight: '714',  length: '3785', worth: '41.060 Credits' } },
             { name: 'Elise Type 72',                                    src: 'cars/Lotus/Elise_2001_Type_72.mp4',                                       data: { production_year: '2001', drive: 'MR',  power: '122', weight: '756',  length: '3785', worth: 'Elise-Trophy' } },
-            { name: 'Elise 111S',                                       src: 'cars/Lotus/Elise_2003_111S.mp4',                                          data: { production_year: '2003', drive: 'MR',  power: '155', weight: '806',  length: '3785', worth: '51.680 Credits' } },
-            { name: 'Elise 111R',                                       src: 'cars/Lotus/Elise_2004_111R.mp4',                                          data: { production_year: '2004', drive: 'MR',  power: '180', weight: '860',  length: '3785', worth: '54.410 Credits' } },
-            { name: 'Esprit Turbo HC',                                  src: 'cars/Lotus/Esprit_1987_Turbo_HC.mp4',                                     data: { production_year: '1987', drive: 'MR',  power: '208', weight: '1145', length: '4191', worth: 'MR Challenge' } },
-            { name: 'Esprit V8 GT',                                     src: 'cars/Lotus/Esprit_1998_V8_GT.mp4',                                        data: { production_year: '1998', drive: 'MR',  power: '342', weight: '1324', length: '4369', worth: '~63.000 Credits' } },
-            { name: 'Esprit V8 SE',                                     src: 'cars/Lotus/Esprit_1998_V8_SE.mp4',                                        data: { production_year: '1998', drive: 'MR',  power: '342', weight: '1380', length: '4369', worth: '~66.000 Credits' } },
+            { name: 'Elise 111S',                                       src: 'cars/Lotus/Elise_2003_111S.mp4',                                          data: { production_year: '2003', drive: 'MR',  power: '156', weight: '806',  length: '3785', worth: '51.680 Credits' } },
+            { name: 'Elise 111R',                                       src: 'cars/Lotus/Elise_2004_111R.mp4',                                          data: { production_year: '2004', drive: 'MR',  power: '192', weight: '860',  length: '3785', worth: '54.410 Credits' } },
+            { name: 'Esprit Turbo HC',                                  src: 'cars/Lotus/Esprit_1987_Turbo_HC.mp4',                                     data: { production_year: '1987', drive: 'MR',  power: '218', weight: '1145', length: '4191', worth: 'MR Challenge' } },
+            { name: 'Esprit V8 GT',                                     src: 'cars/Lotus/Esprit_1998_V8_GT.mp4',                                        data: { production_year: '1998', drive: 'MR',  power: '358', weight: '1324', length: '4369', worth: '~63.000 Credits' } },
+            { name: 'Esprit V8 SE',                                     src: 'cars/Lotus/Esprit_1998_V8_SE.mp4',                                        data: { production_year: '1998', drive: 'MR',  power: '358', weight: '1380', length: '4369', worth: '~66.000 Credits' } },
             { name: 'Esprit Sport 350',                                 src: 'cars/Lotus/Esprit_2000_Sport_350.mp4',                                    data: { production_year: '2000', drive: 'MR',  power: '358', weight: '1300', length: '4369', worth: '126.240 Credits' } },
-            { name: 'Esprit V8',                                        src: 'cars/Lotus/Esprit_2002_V8.mp4',                                           data: { production_year: '2002', drive: 'MR',  power: '342', weight: '1379', length: '4369', worth: '116.520 Credits' } },
-            { name: 'Europa Special',                                   src: 'cars/Lotus/Europa_Special_1971.mp4',                                      data: { production_year: '1971', drive: 'MR',  power: '126', weight: '730',  length: '4064', worth: 'Britische Leichtgewicht-Serie' } },
+            { name: 'Esprit V8',                                        src: 'cars/Lotus/Esprit_2002_V8.mp4',                                           data: { production_year: '2002', drive: 'MR',  power: '358', weight: '1379', length: '4369', worth: '116.520 Credits' } },
+            { name: 'Europa Special',                                   src: 'cars/Lotus/Europa_Special_1971.mp4',                                      data: { production_year: '1971', drive: 'MR',  power: '128', weight: '730',  length: '4064', worth: 'Britische Leichtgewicht-Serie' } },
         ],
     },
     marcos: {
-        manufacturer: 'Marcos', country: 'Grossbritannien',
+        manufacturer: 'Marcos', country: 'Grossbritannien',             // 1
         cars: [
-            { name: 'Mini GT',                                          src: 'cars/Marcos/Mini_1970_GT.mp4',                                            data: { production_year: '1970', drive: 'FF',  power: '74',  weight: '559',  length: '3470', worth: 'Mini Sports Meeting' } },
+            { name: 'Mini GT',                                          src: 'cars/Marcos/Mini_1970_GT.mp4',                                            data: { production_year: '1970', drive: 'FF',  power: '77',  weight: '559',  length: '3470', worth: 'Mini Sports Meeting' } },
         ],
     },
     mazda: {
-        manufacturer: 'Mazda', country: 'Japan',
+        manufacturer: 'Mazda', country: 'Japan',                        // 44
         cars: [
-            { name: '110 S L10 A',                                      src: 'cars/Mazda/110_1967_S_L10A.mp4',                                          data: { production_year: '1967', drive: 'FR',  power: '105', weight: '940',  length: '4140', worth: 'Club "RE"' } },
-            { name: '110 S L10 B',                                      src: 'cars/Mazda/110_1968_S_L10B.mp4',                                          data: { production_year: '1968', drive: 'FR',  power: '122', weight: '959',  length: '4140', worth: '~25.000 Credits' } },
-            { name: '2',                                                src: 'cars/Mazda/2_2003.mp4',                                                   data: { production_year: '2003', drive: 'FF',  power: '108', weight: '1080', length: '3925', worth: '14.500 Credits' } },
-            { name: '323 F',                                            src: 'cars/Mazda/323_1993_F.mp4',                                               data: { production_year: '1993', drive: 'FF',  power: '167', weight: '1241', length: '4245', worth: '~7.000 Credits' } },
-            { name: '6 Concept',                                        src: 'cars/Mazda/6_2001_Concept.mp4',                                           data: { production_year: '2001', drive: 'FF',  power: '172', weight: '1300', length: '4670', worth: 'FF Herausforderung' } },
-            { name: '6 Touring Car',                                    src: 'cars/Mazda/6_2002_Touring_Car.mp4',                                       data: { production_year: '2002', drive: '4WD', power: '295', weight: '1070', length: '4670', worth: 'Tsukuba Regen-Rennen Normal' } },
-            { name: '6',                                                src: 'cars/Mazda/6_2003.mp4',                                                   data: { production_year: '2003', drive: 'FF',  power: '172', weight: '1390', length: '4670', worth: '23.500 Credits' } },
-            { name: '6 MPS',                                            src: 'cars/Mazda/6_2005_MPS.mp4',                                               data: { production_year: '2005', drive: '4WD', power: '259', weight: '1500', length: '4690', worth: 'Clubman Cup' } },
+            { name: '110 S L10 A',                                      src: 'cars/Mazda/110_1967_S_L10A.mp4',                                          data: { production_year: '1967', drive: 'FR',  power: '111', weight: '940',  length: '4140', worth: 'Club "RE"' } },
+            { name: '110 S L10 B',                                      src: 'cars/Mazda/110_1968_S_L10B.mp4',                                          data: { production_year: '1968', drive: 'FR',  power: '128', weight: '959',  length: '4140', worth: '~25.000 Credits' } },
+            { name: '2',                                                src: 'cars/Mazda/2_2003.mp4',                                                   data: { production_year: '2003', drive: 'FF',  power: '113', weight: '1080', length: '3925', worth: '14.500 Credits' } },
+            { name: '323 F',                                            src: 'cars/Mazda/323_1993_F.mp4',                                               data: { production_year: '1993', drive: 'FF',  power: '176', weight: '1241', length: '4245', worth: '~7.000 Credits' } },
+            { name: '6 Concept',                                        src: 'cars/Mazda/6_2001_Concept.mp4',                                           data: { production_year: '2001', drive: 'FF',  power: '178', weight: '1300', length: '4670', worth: 'FF Herausforderung' } },
+            { name: '6 Touring Car',                                    src: 'cars/Mazda/6_2002_Touring_Car.mp4',                                       data: { production_year: '2002', drive: '4WD', power: '310', weight: '1070', length: '4670', worth: 'Tsukuba Regen-Rennen Normal' } },
+            { name: '6',                                                src: 'cars/Mazda/6_2003.mp4',                                                   data: { production_year: '2003', drive: 'FF',  power: '178', weight: '1390', length: '4670', worth: '23.500 Credits' } },
+            { name: '6 MPS',                                            src: 'cars/Mazda/6_2005_MPS.mp4',                                               data: { production_year: '2005', drive: '4WD', power: '272', weight: '1500', length: '4690', worth: 'Clubman Cup' } },
             { name: '787 B Race Car',                                   src: 'cars/Mazda/787_1991_B_Race_Car.mp4',                                      data: { production_year: '1991', drive: 'MR',  power: '803', weight: '830',  length: '4782', worth: '3.500.000 Credits' } },
             { name: '787 B Race Car Black Edition',                     src: 'cars/Mazda/787_1991_B_Race_Car_Black_Edition.mp4',                        data: { production_year: '1991', drive: 'MR',  power: '803', weight: '830',  length: '4782', worth: '~1.500.000 Credits' } },
-            { name: 'Autozam AZ-1',                                     src: 'cars/Mazda/Autozam_1992_AZ-1.mp4',                                        data: { production_year: '1992', drive: 'MR',  power: '61',  weight: '720',  length: '3295', worth: '~8.000 Credits' } },
-            { name: 'Carol 360 Deluxe',                                 src: 'cars/Mazda/Carol_1962_360_Deluxe.mp4',                                    data: { production_year: '1962', drive: 'RR',  power: '19',  weight: '560',  length: '2990', worth: '~13.000 Credits' } },
-            { name: 'Demio',                                            src: 'cars/Mazda/Demio_1999.mp4',                                               data: { production_year: '1999', drive: 'FF',  power: '98',  weight: '960',  length: '3800', worth: '~8.000 Credits' } },
-            { name: 'Familia Sport 20',                                 src: 'cars/Mazda/Familia_2002_Sport_20.mp4',                                    data: { production_year: '2002', drive: 'FF',  power: '167', weight: '1170', length: '4380', worth: '18.980 Credits' } },
-            { name: 'Kusabi',                                           src: 'cars/Mazda/Kusabi_2003.mp4',                                              data: { production_year: '2003', drive: 'FF',  power: '148', weight: '900',  length: '3800', worth: 'Silber Nationale B-Lizenz' } },
+            { name: 'Autozam AZ-1',                                     src: 'cars/Mazda/Autozam_1992_AZ-1.mp4',                                        data: { production_year: '1992', drive: 'MR',  power: '64',  weight: '720',  length: '3295', worth: '~8.000 Credits' } },
+            { name: 'Carol 360 Deluxe',                                 src: 'cars/Mazda/Carol_1962_360_Deluxe.mp4',                                    data: { production_year: '1962', drive: 'RR',  power: '20',  weight: '560',  length: '2990', worth: '~13.000 Credits' } },
+            { name: 'Demio',                                            src: 'cars/Mazda/Demio_1999.mp4',                                               data: { production_year: '1999', drive: 'FF',  power: '100', weight: '960',  length: '3800', worth: '~8.000 Credits' } },
+            { name: 'Familia Sport 20',                                 src: 'cars/Mazda/Familia_2002_Sport_20.mp4',                                    data: { production_year: '2002', drive: 'FF',  power: '165', weight: '1170', length: '4380', worth: '18.980 Credits' } },
+            { name: 'Kusabi',                                           src: 'cars/Mazda/Kusabi_2003.mp4',                                              data: { production_year: '2003', drive: 'FF',  power: '150', weight: '900',  length: '3800', worth: 'Silber Nationale B-Lizenz' } },
             { name: 'MX-Crossport Concept',                             src: 'cars/Mazda/MX_Crossport_2005_Concept.mp4',                                data: { production_year: '2005', drive: '4WD', power: '260', weight: '1600', length: '4630', worth: 'NR-A Roadster Cup' } },
-            { name: 'MX-5',                                             src: 'cars/Mazda/MX-5_1989.mp4',                                                data: { production_year: '1989', drive: 'FR',  power: '117', weight: '940',  length: '3970', worth: '~9.000 Credits' } },
+            { name: 'MX-5',                                             src: 'cars/Mazda/MX-5_1989.mp4',                                                data: { production_year: '1989', drive: 'FR',  power: '120', weight: '940',  length: '3970', worth: '~9.000 Credits' } },
             { name: 'MX-5 J-Limited I',                                 src: 'cars/Mazda/MX-5_1991_J-Limited_I.mp4',                                    data: { production_year: '1991', drive: 'FR',  power: '120', weight: '950',  length: '3970', worth: '~9.000 Credits' } },
-            { name: 'MX-5 J-Limited II',                                src: 'cars/Mazda/MX-5_1993_J-Limited_II.mp4',                                   data: { production_year: '1993', drive: 'FR',  power: '130', weight: '990',  length: '3950', worth: '~7.000 Credits' } },
-            { name: 'MX-5 V-Special II',                                src: 'cars/Mazda/MX-5_1993_V-Special_Type_II.mp4',                              data: { production_year: '1993', drive: 'FR',  power: '130', weight: '1000', length: '3950', worth: '~9.000 Credits' } },
-            { name: 'MX-5 S-Special I',                                 src: 'cars/Mazda/MX-5_1995_S-Special_Type_I.mp4',                               data: { production_year: '1995', drive: 'FR',  power: '130', weight: '990',  length: '3950', worth: '~10.000 Credits' } },
-            { name: 'MX-5 VR-Limited',                                  src: 'cars/Mazda/MX-5_1995_VR-Limited.mp4',                                     data: { production_year: '1995', drive: 'FR',  power: '130', weight: '990',  length: '3950', worth: '~10.000 Credits' } },
-            { name: 'MX-5 SR-Limited',                                  src: 'cars/Mazda/MX-5_1997_SR-Limited.mp4',                                     data: { production_year: '1997', drive: 'FR',  power: '130', weight: '1000', length: '3950', worth: '~12.000 Credits' } },
-            { name: 'MX-5 1.8 RS',                                      src: 'cars/Mazda/MX-5_1998_1.8_RS.mp4',                                         data: { production_year: '1998', drive: 'FR',  power: '142', weight: '1030', length: '3955', worth: '~12.000 Credits' } },
-            { name: 'MX-5 1800 RS',                                     src: 'cars/Mazda/MX-5_2000_1800_RS.mp4',                                        data: { production_year: '2000', drive: 'FR',  power: '160', weight: '1070', length: '3955', worth: '~12.000 Credits' } },
-            { name: 'MX-5 1800 RS',                                     src: 'cars/Mazda/MX-5_2004_1800_RS.mp4',                                        data: { production_year: '2004', drive: 'FR',  power: '158', weight: '1080', length: '3955', worth: '23.500 Credits' } },
-            { name: 'MX-5',                                             src: 'cars/Mazda/MX-5_2005.mp4',                                                data: { production_year: '2005', drive: 'FR',  power: '170', weight: '1123', length: '4000', worth: 'Demoversion' } },
-            { name: 'RX-7 GT-Limited',                                  src: 'cars/Mazda/RX-7_1985_GT-Limited.mp4',                                     data: { production_year: '1985', drive: 'FR',  power: '182', weight: '1280', length: '4290', worth: '~6.000 Credits' } },
-            { name: 'RX-7 GT-X',                                        src: 'cars/Mazda/RX-7_1990_GT-X.mp4',                                           data: { production_year: '1990', drive: 'FR',  power: '202', weight: '1251', length: '4335', worth: '~8.000 Credits' } },
+            { name: 'MX-5 J-Limited II',                                src: 'cars/Mazda/MX-5_1993_J-Limited_II.mp4',                                   data: { production_year: '1993', drive: 'FR',  power: '132', weight: '990',  length: '3950', worth: '~7.000 Credits' } },
+            { name: 'MX-5 V-Special II',                                src: 'cars/Mazda/MX-5_1993_V-Special_Type_II.mp4',                              data: { production_year: '1993', drive: 'FR',  power: '132', weight: '1000', length: '3950', worth: '~9.000 Credits' } },
+            { name: 'MX-5 S-Special I',                                 src: 'cars/Mazda/MX-5_1995_S-Special_Type_I.mp4',                               data: { production_year: '1995', drive: 'FR',  power: '132', weight: '990',  length: '3950', worth: '~10.000 Credits' } },
+            { name: 'MX-5 VR-Limited',                                  src: 'cars/Mazda/MX-5_1995_VR-Limited.mp4',                                     data: { production_year: '1995', drive: 'FR',  power: '132', weight: '990',  length: '3950', worth: '~10.000 Credits' } },
+            { name: 'MX-5 SR-Limited',                                  src: 'cars/Mazda/MX-5_1997_SR-Limited.mp4',                                     data: { production_year: '1997', drive: 'FR',  power: '132', weight: '1000', length: '3950', worth: '~12.000 Credits' } },
+            { name: 'MX-5 1.8 RS',                                      src: 'cars/Mazda/MX-5_1998_1.8_RS.mp4',                                         data: { production_year: '1998', drive: 'FR',  power: '145', weight: '1030', length: '3955', worth: '~12.000 Credits' } },
+            { name: 'MX-5 1800 RS',                                     src: 'cars/Mazda/MX-5_2000_1800_RS.mp4',                                        data: { production_year: '2000', drive: 'FR',  power: '163', weight: '1070', length: '3955', worth: '~12.000 Credits' } },
+            { name: 'MX-5 1800 RS',                                     src: 'cars/Mazda/MX-5_2004_1800_RS.mp4',                                        data: { production_year: '2004', drive: 'FR',  power: '163', weight: '1080', length: '3955', worth: '23.500 Credits' } },
+            { name: 'RX-7 GT-Limited',                                  src: 'cars/Mazda/RX-7_1985_GT-Limited.mp4',                                     data: { production_year: '1985', drive: 'FR',  power: '185', weight: '1280', length: '4290', worth: '~6.000 Credits' } },
+            { name: 'RX-7 GT-X',                                        src: 'cars/Mazda/RX-7_1990_GT-X.mp4',                                           data: { production_year: '1990', drive: 'FR',  power: '207', weight: '1251', length: '4335', worth: '~8.000 Credits' } },
             { name: 'RX-7 Infini III',                                  src: 'cars/Mazda/RX-7_1990_Infini_III.mp4',                                     data: { production_year: '1990', drive: 'FR',  power: '212', weight: '1230', length: '4335', worth: '~10.000 Credits' } },
-            { name: 'RX-7 Type R',                                      src: 'cars/Mazda/RX-7_1991_Type_R.mp4',                                         data: { production_year: '1991', drive: 'FR',  power: '251', weight: '1260', length: '4280', worth: '~14.000 Credits' } },
-            { name: 'RX-7 Type RZ',                                     src: 'cars/Mazda/RX-7_1992_Type_RZ.mp4',                                        data: { production_year: '1992', drive: 'FR',  power: '251', weight: '1230', length: '4280', worth: '~14.000 Credits' } },
-            { name: 'RX-7 Type R-S',                                    src: 'cars/Mazda/RX-7_1995_Type_R-S.mp4',                                       data: { production_year: '1995', drive: 'FR',  power: '251', weight: '1260', length: '4280', worth: '~19.000 Credits' } },
-            { name: 'RX-7 Type RS',                                     src: 'cars/Mazda/RX-7_1996_Type_RS.mp4',                                        data: { production_year: '1996', drive: 'FR',  power: '261', weight: '1280', length: '4280', worth: '~18.000 Credits' } },
-            { name: 'RX-7 Type RS-R',                                   src: 'cars/Mazda/RX-7_1997_Type_RS-R.mp4',                                      data: { production_year: '1997', drive: 'FR',  power: '259', weight: '1280', length: '4285', worth: '~18.000 Credits' } },
+            { name: 'RX-7 Type R',                                      src: 'cars/Mazda/RX-7_1991_Type_R.mp4',                                         data: { production_year: '1991', drive: 'FR',  power: '256', weight: '1260', length: '4280', worth: '~14.000 Credits' } },
+            { name: 'RX-7 Type RZ',                                     src: 'cars/Mazda/RX-7_1992_Type_RZ.mp4',                                        data: { production_year: '1992', drive: 'FR',  power: '256', weight: '1230', length: '4280', worth: '~14.000 Credits' } },
+            { name: 'RX-7 Type R-S',                                    src: 'cars/Mazda/RX-7_1995_Type_R-S.mp4',                                       data: { production_year: '1995', drive: 'FR',  power: '256', weight: '1260', length: '4280', worth: '~19.000 Credits' } },
+            { name: 'RX-7 Type RS',                                     src: 'cars/Mazda/RX-7_1996_Type_RS.mp4',                                        data: { production_year: '1996', drive: 'FR',  power: '266', weight: '1280', length: '4280', worth: '~18.000 Credits' } },
+            { name: 'RX-7 Type RS-R',                                   src: 'cars/Mazda/RX-7_1997_Type_RS-R.mp4',                                      data: { production_year: '1997', drive: 'FR',  power: '266', weight: '1280', length: '4285', worth: '~18.000 Credits' } },
             { name: 'RX-7 LM Race Car',                                 src: 'cars/Mazda/RX-7_2001_LM_Race_Car.mp4',                                    data: { production_year: '2001', drive: 'FR',  power: '508', weight: '1080', length: '4000', worth: '4 Stunden Roadster Langstrecke' } },
-            { name: 'RX-7 Type R Bathurst R',                           src: 'cars/Mazda/RX-7_2001_Type_R_Bathurst_R.mp4',                              data: { production_year: '2001', drive: 'FR',  power: '276', weight: '1260', length: '4285', worth: '~25.000 Credits' } },
-            { name: 'RX-7 Spirit R Type A',                             src: 'cars/Mazda/RX-7_2002_Spirit_R_Type_A.mp4',                                data: { production_year: '2002', drive: 'FR',  power: '292', weight: '1270', length: '4285', worth: '39.980 Credits' } },
+            { name: 'RX-7 Type R Bathurst R',                           src: 'cars/Mazda/RX-7_2001_Type_R_Bathurst_R.mp4',                              data: { production_year: '2001', drive: 'FR',  power: '294', weight: '1260', length: '4285', worth: '~25.000 Credits' } },
+            { name: 'RX-7 Spirit R Type A',                             src: 'cars/Mazda/RX-7_2002_Spirit_R_Type_A.mp4',                                data: { production_year: '2002', drive: 'FR',  power: '297', weight: '1270', length: '4285', worth: '39.980 Credits' } },
             { name: 'RX-7 BP Falken',                                   src: 'cars/Mazda/RX-7_2003_BP_Falken.mp4',                                      data: { production_year: '2003', drive: 'FR',  power: '410', weight: '1229', length: '4335', worth: '200.000 Credits' } },
-            { name: 'RX-8 Concept',                                     src: 'cars/Mazda/RX-8_2001_Concept_I.mp4',                                      data: { production_year: '2001', drive: 'FR',  power: '247', weight: '1200', length: '4326', worth: 'Tsukuba Regen-Rennen Leicht' } },
-            { name: 'RX-8 Concept LM Race Car',                         src: 'cars/Mazda/RX-8_2001_Concept_LM_Race_Car.mp4',                            data: { production_year: '2001', drive: 'FR',  power: '493', weight: '1100', length: '4000', worth: 'RX-8 Cup' } },
-            { name: 'RX-8',                                             src: 'cars/Mazda/RX-8_2003.mp4',                                                data: { production_year: '2003', drive: 'FR',  power: '207', weight: '1310', length: '4425', worth: '24.000 Credits' } },
-            { name: 'RX-8 Type E',                                      src: 'cars/Mazda/RX-8_2003_Type_E.mp4',                                         data: { production_year: '2003', drive: 'FR',  power: '207', weight: '1330', length: '4425', worth: '27.500 Credits' } },
-            { name: 'RX-8 Type S',                                      src: 'cars/Mazda/RX-8_2003_Type_S.mp4',                                         data: { production_year: '2003', drive: 'FR',  power: '246', weight: '1310', length: '4425', worth: '27.500 Credits' } },
+            { name: 'RX-8 Concept',                                     src: 'cars/Mazda/RX-8_2001_Concept_I.mp4',                                      data: { production_year: '2001', drive: 'FR',  power: '285', weight: '1200', length: '4326', worth: 'Tsukuba Regen-Rennen Leicht' } },
+            { name: 'RX-8 Concept LM Race Car',                         src: 'cars/Mazda/RX-8_2001_Concept_LM_Race_Car.mp4',                            data: { production_year: '2001', drive: 'FR',  power: '508', weight: '1100', length: '4000', worth: 'RX-8 Cup' } },
+            { name: 'RX-8',                                             src: 'cars/Mazda/RX-8_2003.mp4',                                                data: { production_year: '2003', drive: 'FR',  power: '210', weight: '1310', length: '4425', worth: '24.000 Credits' } },
+            { name: 'RX-8 Type E',                                      src: 'cars/Mazda/RX-8_2003_Type_E.mp4',                                         data: { production_year: '2003', drive: 'FR',  power: '210', weight: '1330', length: '4425', worth: '27.500 Credits' } },
+            { name: 'RX-8 Type S',                                      src: 'cars/Mazda/RX-8_2003_Type_S.mp4',                                         data: { production_year: '2003', drive: 'FR',  power: '285', weight: '1310', length: '4425', worth: '27.500 Credits' } },
         ],
     },
     mercedes_benz: {
-        manufacturer: 'Mercedes-Benz', country: 'Deutschland',
+        manufacturer: 'Mercedes-Benz', country: 'Deutschland',          // 20
         cars: [
-            { name: 'A 160 Avantgarde',                                 src: 'cars/Mercedes-Benz/A_1998_160_Avantgarde.mp4',                            data: { production_year: '1998', drive: 'FF',  power: '100', weight: '1114', length: '3575', worth: '~16.000 Credits' } },
-            { name: 'C9 Sauber Race Car',                               src: 'cars/Mercedes-Benz/C_1989_9_Race_Car.mp4',                                data: { production_year: '1989', drive: 'MR',  power: '710', weight: '893',  length: '4700', worth: 'Formula GT Weltmeisterschaft | 300 km Grand Valley' } },
-            { name: 'CL 600',                                           src: 'cars/Mercedes-Benz/CL_2000_600.mp4',                                      data: { production_year: '2000', drive: 'FR',  power: '362', weight: '1955', length: '4000', worth: '177.850 Credits' } },
-            { name: 'CLK GTR Race Car',                                 src: 'cars/Mercedes-Benz/CLK_1998_GTR_Race_Car.mp4',                            data: { production_year: '1998', drive: 'MR',  power: '599', weight: '939',  length: '4900', worth: 'Deutsche Tourenwagen Meisterschaft' } },
-            { name: 'CLK 55 AMG',                                       src: 'cars/Mercedes-Benz/CLK_2000_55.mp4',                                      data: { production_year: '2000', drive: 'FR',  power: '347', weight: '1620', length: '4000', worth: '147.770 Credits' } },
-            { name: 'CLK DTM Touring Car',                              src: 'cars/Mercedes-Benz/CLK_2000_Touring_Car.mp4',                             data: { production_year: '2000', drive: 'FR',  power: '444', weight: '1000', length: '4655', worth: 'Legende der Silberpfeile' } },
-            { name: 'E 190 2.5 Evolution II',                           src: 'cars/Mercedes-Benz/E_190_1991_2.5_16_Evolution_II.mp4',                   data: { production_year: '1991', drive: 'FR',  power: '231', weight: '1340', length: '4544', worth: '67.910 Credits' } },
+            { name: 'A 160 Avantgarde',                                 src: 'cars/Mercedes-Benz/A_1998_160_Avantgarde.mp4',                            data: { production_year: '1998', drive: 'FF',  power: '102', weight: '1114', length: '3575', worth: '~16.000 Credits' } },
+            { name: 'C9 Sauber Race Car',                               src: 'cars/Mercedes-Benz/C_1989_9_Race_Car.mp4',                                data: { production_year: '1989', drive: 'MR',  power: '940', weight: '893',  length: '4700', worth: 'Formula GT Weltmeisterschaft | 300 km Grand Valley' } },
+            { name: 'CL 600',                                           src: 'cars/Mercedes-Benz/CL_2000_600.mp4',                                      data: { production_year: '2000', drive: 'FR',  power: '367', weight: '1955', length: '4000', worth: '177.850 Credits' } },
+            { name: 'CLK GTR Race Car',                                 src: 'cars/Mercedes-Benz/CLK_1998_GTR_Race_Car.mp4',                            data: { production_year: '1998', drive: 'MR',  power: '797', weight: '939',  length: '4900', worth: 'Deutsche Tourenwagen Meisterschaft' } },
+            { name: 'CLK 55 AMG',                                       src: 'cars/Mercedes-Benz/CLK_2000_55.mp4',                                      data: { production_year: '2000', drive: 'FR',  power: '352', weight: '1620', length: '4000', worth: '147.770 Credits' } },
+            { name: 'CLK DTM Touring Car',                              src: 'cars/Mercedes-Benz/CLK_2000_Touring_Car.mp4',                             data: { production_year: '2000', drive: 'FR',  power: '450', weight: '1000', length: '4655', worth: 'Legende der Silberpfeile' } },
+            { name: 'E 190 2.5 Evolution II',                           src: 'cars/Mercedes-Benz/E_190_1991_2.5_16_Evolution_II.mp4',                   data: { production_year: '1991', drive: 'FR',  power: '235', weight: '1340', length: '4544', worth: '67.910 Credits' } },
             { name: 'E 190 2.5 Evolution II Touring Car',               src: 'cars/Mercedes-Benz/E_190_1992_2.5_16_Evolution_II_Touring_Car.mp4',       data: { production_year: '1992', drive: 'FR',  power: '382', weight: '979',  length: '4544', worth: 'Schwarzwald Liga B' } },
-            { name: 'E 55 AMG',                                         src: 'cars/Mercedes-Benz/E_2002_55.mp4',                                        data: { production_year: '2002', drive: 'FR',  power: '469', weight: '1910', length: '4834', worth: '105.330 Credits' } },
+            { name: 'E 55 AMG',                                         src: 'cars/Mercedes-Benz/E_2002_55.mp4',                                        data: { production_year: '2002', drive: 'FR',  power: '476', weight: '1910', length: '4834', worth: '105.330 Credits' } },
             { name: 'Motor Carriage',                                   src: 'cars/Mercedes-Benz/Motor_Carriage_1886.mp4',                              data: { production_year: '1886', drive: 'MR',  power: '1',   weight: '290',  length: '2530', worth: 'Welt-Klassik-Meisterschaft' } },
             { name: 'Motor Wagen',                                      src: 'cars/Mercedes-Benz/Motor_Wagen_1886.mp4',                                 data: { production_year: '1886', drive: 'RR',  power: '1',   weight: '265',  length: '4000', worth: 'Europa-Klassik-Meisterschaft' } },
-            { name: 'SL 300 Coupe',                                     src: 'cars/Mercedes-Benz/SL_1954_300_Coupe.mp4',                                data: { production_year: '1954', drive: 'FR',  power: '212', weight: '1295', length: '4520', worth: 'SL Herausforderung' } },
-            { name: 'SL 500',                                           src: 'cars/Mercedes-Benz/SL_1998_500.mp4',                                      data: { production_year: '1998', drive: 'FR',  power: '302', weight: '1799', length: '4500', worth: '~110.000 Credits' } },
-            { name: 'SL 600',                                           src: 'cars/Mercedes-Benz/SL_1998_600.mp4',                                      data: { production_year: '1998', drive: 'FR',  power: '389', weight: '2029', length: '4499', worth: '~136.000 Credits' } },
-            { name: 'SL 500',                                           src: 'cars/Mercedes-Benz/SL_2002_500.mp4',                                      data: { production_year: '2002', drive: 'FR',  power: '302', weight: '1839', length: '4535', worth: '127.620 Credits' } },
-            { name: 'SL 55 AMG',                                        src: 'cars/Mercedes-Benz/SL_2002_550.mp4',                                      data: { production_year: '2002', drive: 'FR',  power: '493', weight: '1970', length: '4535', worth: '168.120 Credits' } },
-            { name: 'SL 600',                                           src: 'cars/Mercedes-Benz/SL_2004_600.mp4',                                      data: { production_year: '2004', drive: 'FR',  power: '493', weight: '2025', length: '4535', worth: '177.700 Credits' } },
-            { name: 'SL 65 AMG',                                        src: 'cars/Mercedes-Benz/SL_2004_650.mp4',                                      data: { production_year: '2004', drive: 'FR',  power: '604', weight: '2028', length: '4535', worth: '190.700 Credits' } },
+            { name: 'SL 300 Coupe',                                     src: 'cars/Mercedes-Benz/SL_1954_300_Coupe.mp4',                                data: { production_year: '1954', drive: 'FR',  power: '215', weight: '1295', length: '4520', worth: 'SL Herausforderung' } },
+            { name: 'SL 500',                                           src: 'cars/Mercedes-Benz/SL_1998_500.mp4',                                      data: { production_year: '1998', drive: 'FR',  power: '306', weight: '1799', length: '4500', worth: '~110.000 Credits' } },
+            { name: 'SL 600',                                           src: 'cars/Mercedes-Benz/SL_1998_600.mp4',                                      data: { production_year: '1998', drive: 'FR',  power: '394', weight: '2029', length: '4499', worth: '~136.000 Credits' } },
+            { name: 'SL 500',                                           src: 'cars/Mercedes-Benz/SL_2002_500.mp4',                                      data: { production_year: '2002', drive: 'FR',  power: '306', weight: '1839', length: '4535', worth: '127.620 Credits' } },
+            { name: 'SL 55 AMG',                                        src: 'cars/Mercedes-Benz/SL_2002_550.mp4',                                      data: { production_year: '2002', drive: 'FR',  power: '500', weight: '1970', length: '4535', worth: '168.120 Credits' } },
+            { name: 'SL 600',                                           src: 'cars/Mercedes-Benz/SL_2004_600.mp4',                                      data: { production_year: '2004', drive: 'FR',  power: '500', weight: '2025', length: '4535', worth: '177.700 Credits' } },
+            { name: 'SL 65 AMG',                                        src: 'cars/Mercedes-Benz/SL_2004_650.mp4',                                      data: { production_year: '2004', drive: 'FR',  power: '613', weight: '2028', length: '4535', worth: '190.700 Credits' } },
             { name: 'SLK 230 Kompressor',                               src: 'cars/Mercedes-Benz/SLK_1998_230_Kompressor.mp4',                          data: { production_year: '1998', drive: 'FR',  power: '195', weight: '1325', length: '3995', worth: '~27.000 Credits' } },
-            { name: 'SLR McLaren',                                      src: 'cars/Mercedes-Benz/SLR_2003_McLaren.mp4',                                 data: { production_year: '2003', drive: 'FR',  power: '617', weight: '1768', length: '4656', worth: '610.000 Credits' } },
+            { name: 'SLR McLaren',                                      src: 'cars/Mercedes-Benz/SLR_2003_McLaren.mp4',                                 data: { production_year: '2003', drive: 'FR',  power: '625', weight: '1768', length: '4656', worth: '610.000 Credits' } },
         ],
     },
     mercury: {
-        manufacturer: 'Mercury', country: 'Amerika',
+        manufacturer: 'Mercury', country: 'Amerika',                    // 1
         cars: [
             { name: 'Cougar XR-7',                                      src: 'cars/Mercury/Cougar_1967_XR-7.mp4',                                       data: { production_year: '1976', drive: 'FR',  power: '325', weight: '1598', length: '4824', worth: '~30.000 Credits | Bronze S-Lizenz' } },
         ],
     },
     mg: {
-        manufacturer: 'MG', country: 'Grossbritannien',
+        manufacturer: 'MG', country: 'Grossbritannien',                 // 2
         cars: [
-            { name: 'MGF',                                              src: 'cars/MG/MGF_1997.mp4',                                                    data: { production_year: '1997', drive: 'MR',  power: '142', weight: '1070', length: '3909', worth: '~21.000 Credits | MG-Festival' } },
-            { name: 'TF 160',                                           src: 'cars/MG/TF_2003_160.mp4',                                                 data: { production_year: '2003', drive: 'MR',  power: '158', weight: '1150', length: '3962', worth: '38.860 Credits' } },
+            { name: 'MGF',                                              src: 'cars/MG/MGF_1997.mp4',                                                    data: { production_year: '1997', drive: 'MR',  power: '146', weight: '1070', length: '3909', worth: '~21.000 Credits | MG-Festival' } },
+            { name: 'TF 160',                                           src: 'cars/MG/TF_2003_160.mp4',                                                 data: { production_year: '2003', drive: 'MR',  power: '161', weight: '1150', length: '3962', worth: '38.860 Credits' } },
         ],
     },
     mines: {
-        manufacturer: "Mine's", country: 'Japan',
+        manufacturer: "Mine's", country: 'Japan',                       // 2
         cars: [
             { name: 'Lancer Evo 6',                                     src: 'cars/Mines/Lancer_2000_Evo_6.mp4',                                        data: { production_year: '2000', drive: '4WD', power: '400', weight: '1210', length: '4350', worth: '150.000 Credits' } },
         { name: 'Skyline GT-R N1 V-Spec',                               src: 'cars/Mines/Skyline_2000_GT-R_N1_V-Spec.mp4',                              data: { production_year: '2000', drive: '4WD', power: '600', weight: '1540', length: '4600', worth: '200.000 Credits' } },
         ],
     },
     mini: {
-        manufacturer: 'Mini', country: 'Grossbritannien',
+        manufacturer: 'Mini', country: 'Grossbritannien',               // 3
         cars: [
-            { name: 'Mini One',                                         src: 'cars/Mini/One_2002.mp4',                                                  data: { production_year: '2002', drive: 'FF',  power: '89',  weight: '1125', length: '3626', worth: '19.620 Credits' } },
-            { name: 'Mini One Cooper',                                  src: 'cars/Mini/One_2002_Cooper.mp4',                                           data: { production_year: '2002', drive: 'FF',  power: '108', weight: '1115', length: '3626', worth: '22.190 Credits' } },
-            { name: 'Mini One Cooper S',                                src: 'cars/Mini/One_2002_Cooper_S.mp4',                                         data: { production_year: '2002', drive: 'FF',  power: '160', weight: '1120', length: '3626', worth: '26.760 Credits' } },
+            { name: 'Mini One',                                         src: 'cars/Mini/One_2002.mp4',                                                  data: { production_year: '2002', drive: 'FF',  power: '90',  weight: '1125', length: '3626', worth: '19.620 Credits' } },
+            { name: 'Mini One Cooper',                                  src: 'cars/Mini/One_2002_Cooper.mp4',                                           data: { production_year: '2002', drive: 'FF',  power: '115', weight: '1115', length: '3626', worth: '22.190 Credits' } },
+            { name: 'Mini One Cooper S',                                src: 'cars/Mini/One_2002_Cooper_S.mp4',                                         data: { production_year: '2002', drive: 'FF',  power: '163', weight: '1120', length: '3626', worth: '26.760 Credits' } },
         ],
     },
     mitsubishi: {
-        manufacturer: 'Mitsubishi', country: 'Japan',
+        manufacturer: 'Mitsubishi', country: 'Japan',                   // 40
         cars: [
             { name: '3000GT MR',                                        src: 'cars/Mitsubishi/3000GT_1995_MR.mp4',                                      data: { production_year: '1995', drive: '4WD', power: '295', weight: '1680', length: '4600', worth: '~20.000 Credits' } },
             { name: '3000GT SR',                                        src: 'cars/Mitsubishi/3000GT_1995_SR.mp4',                                      data: { production_year: '1995', drive: '4WD', power: '221', weight: '1610', length: '4575', worth: '~15.000 Credits' } },
@@ -655,19 +669,19 @@ const showroomVideos = {
         ],
     },
     mugen: {
-        manufacturer: 'Mugen', country: 'Japan',
+        manufacturer: 'Mugen', country: 'Japan',                        // 1
         cars: [
             { name: 'S 2000',                                           src: 'cars/Mugen/S2000_2000.mp4',                                               data: { production_year: '2000', drive: 'FR',  power: '247', weight: '1240', length: '4178', worth: '75.000 Credits' } },
         ],
     },
     nike: {
-        manufacturer: 'Nike', country: 'Amerika',
+        manufacturer: 'Nike', country: 'Amerika',                       // 1
         cars: [
             { name: 'One',                                              src: 'cars/Nike/One_2022.mp4',                                                  data: { production_year: '2022', drive: '4WD', power: '259', weight: '760',  length: '4000', worth: 'Internationale B-Lizenz | Saleen S7 Club' } },
         ],
     },
     nismo: {
-        manufacturer: 'Nismo', country: 'Japan',
+        manufacturer: 'Nismo', country: 'Japan',                        // 7
         cars: [
             { name: '350 Z S-Tune',                                     src: 'cars/Nismo/350_Z_2002_S-Tune.mp4',                                        data: { production_year: '2002', drive: 'FR',  power: '278', weight: '1320', length: '4000', worth: '55.000 Credits' } },
             { name: '350 Z Z-Tune',                                     src: 'cars/Nismo/350_Z_2003_Z-Tune.mp4',                                        data: { production_year: '2003', drive: 'FR',  power: '390', weight: '1250', length: '4000', worth: '150.000 Credits' } },
@@ -679,7 +693,7 @@ const showroomVideos = {
         ],
     },
     nissan: {
-        manufacturer: 'Nissan', country: 'Japan',
+        manufacturer: 'Nissan', country: 'Japan',                       // 84
         cars: [
             { name: '200 SX',                                           src: 'cars/Nissan/200_SX_1996.mp4',                                             data: { production_year: '1996', drive: 'FR',  power: '203', weight: '1220', length: '4520', worth: '12.500 Credits' } },
             { name: '200 SX S14',                                       src: 'cars/Nissan/200_SX_S14_1996.mp4',                                         data: { production_year: '1996', drive: 'FR',  power: '216', weight: '1250', length: '4520', worth: '~12.000 Credits' } },
@@ -768,7 +782,7 @@ const showroomVideos = {
         ],
     },
     opel: {
-        manufacturer: 'Opel', country: 'Deutschland',
+        manufacturer: 'Opel', country: 'Deutschland',                   // 7
         cars: [
             { name: 'Astra Touring Car',                                src: 'cars/Opel/Astra_2000_Touring_Car.mp4',                                    data: { production_year: '2000', drive: 'FR',  power: '460', weight: '1000', length: '4400', worth: '550.000 Credits' } },
             { name: 'Calibra Touring Car',                              src: 'cars/Opel/Calibra_1994_Touring_Car.mp4',                                  data: { production_year: '1994', drive: '4WD', power: '427', weight: '1059', length: '4400', worth: 'Speedster Trophy' } },
@@ -780,14 +794,14 @@ const showroomVideos = {
         ],
     },
     opera_performance: {
-        manufacturer: 'Opera Performance', country: 'Japan',
+        manufacturer: 'Opera Performance', country: 'Japan',            // 2
         cars: [
             { name: '350 Z',                                            src: 'cars/Opera_Performance/350_Z_2004.mp4',                                   data: { production_year: '2004', drive: 'FR',  power: '350', weight: '1340', length: '4000', worth: '70.000 Credits' } },
             { name: 'S2000',                                            src: 'cars/Opera_Performance/S2000_2004.mp4',                                   data: { production_year: '2004', drive: 'FR',  power: '274', weight: '930',  length: '4000', worth: '150.000 Credits' } },
         ],
     },
     pagani: {
-        manufacturer: 'Pagani', country: 'Italien',
+        manufacturer: 'Pagani', country: 'Italien',                     // 4
         cars: [
             { name: 'Zonda C12',                                        src: 'cars/Pagani/Zonda_2000_C12.mp4',                                          data: { production_year: '2000', drive: 'MR',  power: '394', weight: '1251', length: '4345', worth: '388.720 Credits' } },
             { name: 'Zonda C12S',                                       src: 'cars/Pagani/Zonda_2000_C12S.mp4',                                         data: { production_year: '2000', drive: 'MR',  power: '550', weight: '1351', length: '4395', worth: '450.040 Credits' } },
@@ -796,20 +810,20 @@ const showroomVideos = {
         ],
     },
     panoz: {
-        manufacturer: 'Panoz', country: 'Amerika',
+        manufacturer: 'Panoz', country: 'Amerika',                      // 1
         cars: [
             { name: 'Esperante GTR-1 Race Car',                         src: 'cars/Panoz/Esperante_1998_GTR-1_Race_Car.mp4',                            data: { production_year: '1998', drive: 'FR',  power: '750', weight: '1149', length: '4000', worth: '4.500.000 Credits' } },
         ],
     },
     pescarolo_sport: {
-        manufacturer: 'Pescarolo Sport', country: 'Frankreich',
+        manufacturer: 'Pescarolo Sport', country: 'Frankreich',         // 2
         cars: [
             { name: 'C60 Courage Race Car',                             src: 'cars/Pescarolo/C60_2003_Courage_Race_Car.mp4',                            data: { production_year: '2003', drive: 'MR',  power: '800', weight: '900',  length: '4000', worth: '4.500.000 Credits' } },
             { name: 'C60 PlayStation Race Car',                         src: 'cars/Pescarolo/C60_2004_PlayStation_Race_Car.mp4',                        data: { production_year: '2004', drive: 'MR',  power: '805', weight: '900',  length: '4000', worth: '4.500.000 Credits' } },
         ],
     },
     peugeot: {
-        manufacturer: 'Peugeot', country: 'Frankreich',
+        manufacturer: 'Peugeot', country: 'Frankreich',                 // 12
         cars: [
             { name: '106 Rallye',                                       src: 'cars/Peugeot/106_2003_Rallye.mp4',                                        data: { production_year: '2003', drive: 'FF',  power: '98',  weight: '890',  length: '4000', worth: '12.630 Credits' } },
             { name: '106 S16',                                          src: 'cars/Peugeot/106_2003_S16.mp4',                                           data: { production_year: '2003', drive: 'FF',  power: '116', weight: '960',  length: '4000', worth: '18.810 Credits' } },
@@ -826,21 +840,21 @@ const showroomVideos = {
         ],
     },
     plymouth: {
-        manufacturer: 'Plymouth', country: 'Amerika',
+        manufacturer: 'Plymouth', country: 'Amerika',                   // 2
         cars: [
             { name: 'Cuda 440 Six-Pack',                                src: 'cars/Plymouth/Cuda_1971_440_Six_Pack.mp4',                                data: { production_year: '1971', drive: 'FR',  power: '390', weight: '1576', length: '4740', worth: '58.360 Credits' } },
             { name: 'Super Bird',                                       src: 'cars/Plymouth/Super_Bird_1970.mp4',                                       data: { production_year: '1970', drive: 'FR',  power: '425', weight: '1755', length: '5588', worth: 'Muscle-Car Wettkampf' } },
         ],
     },
     polyphony_digital: {
-        manufacturer: 'Polyphony Digital', country: 'Japan',
+        manufacturer: 'Polyphony Digital', country: 'Japan',            // 2
         cars: [
             { name: 'Formula Gran Turismo',                             src: 'cars/Polyphony_Digital/Formula_Gran_Turismo_2004.mp4',                    data: { production_year: '2004', drive: 'MR',  power: '904', weight: '550',  length: '4000', worth: 'Nürburgring 24 Stunden' } },
             { name: 'Formula Gran Turismo Black Edition',               src: 'cars/Polyphony_Digital/Formula_Gran_Turismo_2004_Black_Edition.mp4',      data: { production_year: '2004', drive: 'MR',  power: '904', weight: '550',  length: '4000', worth: '100% Spielfortschritt' } },
         ],
     },
     pontiac: {
-        manufacturer: 'Pontiac', country: 'Amerika',
+        manufacturer: 'Pontiac', country: 'Amerika',                    // 5
         cars: [
             { name: 'GTO Tempest Le Mans',                              src: 'cars/Pontiac/GTO_1964_Tempest_Le_Mans.mp4',                               data: { production_year: '1964', drive: 'FR',  power: '332', weight: '1420', length: '4000', worth: '52.600 Credits' } },
             { name: 'GTO 5.7 Coupe',                                    src: 'cars/Pontiac/GTO_2004_5.7_Coupe.mp4',                                     data: { production_year: '2004', drive: 'FR',  power: '357', weight: '1690', length: '4000', worth: '34.490 Credits' } },
@@ -850,19 +864,19 @@ const showroomVideos = {
         ],
     },
     proto_motors: {
-        manufacturer: 'Proto Motors', country: 'Südkorea',
+        manufacturer: 'Proto Motors', country: 'Südkorea',              // 1
         cars: [
             { name: 'Spirra 4.6 V8',                                    src: 'cars/Proto_Motors/Spirra_2004_4.6_V8.mp4',                                data: { production_year: '2004', drive: 'MR',  power: '324', weight: '1205', length: '4318', worth: '80.000 Credits' } },
         ],
     },
     re_amemiya: {
-        manufacturer: 'RE Amemiya', country: 'Japan',
+        manufacturer: 'RE Amemiya', country: 'Japan',                   // 1
         cars: [
             { name: 'RX-7 Asparadrink',                                 src: 'cars/RE_Amemiya/RX-7_2004_Asparadrink.mp4',                               data: { production_year: '2004', drive: 'FR',  power: '324', weight: '1100', length: '4000', worth: '500.000 Credits' } },
         ],
     },
     renault: {
-        manufacturer: 'Renault', country: 'Frankreich',
+        manufacturer: 'Renault', country: 'Frankreich',                 // 9
         cars: [
             { name: '5 Turbo',                                          src: 'cars/Renault/5_1980_Turbo.mp4',                                           data: { production_year: '1980', drive: 'MR',  power: '159', weight: '970',  length: '3665', worth: '74.500 Credits | Tahiti Tour Leicht' } },
             { name: '5 Maxi Turbo Rally Car',                           src: 'cars/Renault/5_1985_Maxi_Turbo_Rally_Car.mp4',                            data: { production_year: '1985', drive: 'MR',  power: '355', weight: '905',  length: '3600', worth: 'George V Rally Mittel' } },
@@ -876,7 +890,7 @@ const showroomVideos = {
         ],
     },
     ruf: {
-        manufacturer: 'RUF', country: 'Deutschland',
+        manufacturer: 'RUF', country: 'Deutschland',                    // 5
         cars: [
             { name: '3400 S',                                           src: 'cars/Ruf/3400_2000_S.mp4',                                                data: { production_year: '2000', drive: 'MR',  power: '310', weight: '1300', length: '4000', worth: '76.740 Credits | Deutsche Tourenwagenmeisterschaft' } },
             { name: 'BTR',                                              src: 'cars/Ruf/BTR_1986.mp4',                                                   data: { production_year: '1986', drive: 'RR',  power: '375', weight: '1180', length: '4000', worth: '112.480 Credits' } },
@@ -886,19 +900,19 @@ const showroomVideos = {
         ],
     },
     saleen: {
-        manufacturer: 'Saleen', country: 'Amerika',
+        manufacturer: 'Saleen', country: 'Amerika',                     // 1
         cars: [
             { name: 'S7',                                               src: 'cars/Saleen/S7_2002.mp4',                                                 data: { production_year: '2002', drive: 'MR',  power: '558', weight: '1250', length: '4774', worth: '419.130 Credits' } },
         ],
     },
     seat: {
-        manufacturer: 'Seat', country: 'Spanien',
+        manufacturer: 'Seat', country: 'Spanien',                       // 1
         cars: [
             { name: 'Ibiza Cupra',                                      src: 'cars/Seat/Ibiza_2004_Cupra.mp4',                                          data: { production_year: '2004', drive: 'FF',  power: '169', weight: '1177', length: '3953', worth: '24.980 Credits' } },
         ],
     },
     shelby: {
-        manufacturer: 'Shelby', country: 'Amerika',
+        manufacturer: 'Shelby', country: 'Amerika',                     // 3
         cars: [
             { name: 'Cobra 427',                                        src: 'cars/Shelby/Cobra_1967_427.mp4',                                          data: { production_year: '1967', drive: 'FR',  power: '484', weight: '1068', length: '3962', worth: '530.550 Credits' } },
             { name: 'Mustang GT 350R',                                  src: 'cars/Shelby/Mustang_1965_GT_350R.mp4',                                    data: { production_year: '1965', drive: 'FR',  power: '311', weight: '1268', length: '4613', worth: 'Shelby Cobra Cup' } },
@@ -906,7 +920,7 @@ const showroomVideos = {
         ],
     },
     spoon: {
-        manufacturer: 'Spoon', country: 'Japan',
+        manufacturer: 'Spoon', country: 'Japan',                        // 5
         cars: [
             { name: 'Civic Type R',                                     src: 'cars/Spoon/Civic_2000_Type_R.mp4',                                        data: { production_year: '2000', drive: 'FF',  power: '217', weight: '820',  length: '4185', worth: '75.000 Credits' } },
             { name: 'Fit Race Car',                                     src: 'cars/Spoon/Fit_2003_Race_Car.mp4',                                        data: { production_year: '2003', drive: 'FF',  power: '124', weight: '990',  length: '3830', worth: '50.000 Credits' } },
@@ -916,13 +930,13 @@ const showroomVideos = {
         ],
     },
     spyker: {
-        manufacturer: 'Spyker', country: 'Niederlande',
+        manufacturer: 'Spyker', country: 'Niederlande',                 // 1
         cars: [
             { name: 'C8 Laviolette',                                    src: 'cars/Spyker/C8_2002_Laviolette.mp4',                                      data: { production_year: '2002', drive: 'MR',  power: '456', weight: '1070', length: '4000', worth: '254.660 Credits' } },
         ],
     },
     subaru: {
-        manufacturer: 'Subaru', country: 'Japan',
+        manufacturer: 'Subaru', country: 'Japan',                       // 27
         cars: [
             { name: '360',                                              src: 'cars/Subaru/360_1958.mp4',                                                data: { production_year: '1958', drive: 'RR',  power: '16',  weight: '385',  length: '2990', worth: '36.000 Credits | 360 Rennen' } },
             { name: 'Impreza Sedan WRX STi',                            src: 'cars/Subaru/Impreza_1994_Sedan_WRX_STi.mp4',                              data: { production_year: '1994', drive: '4WD', power: '258', weight: '1230', length: '4340', worth: '~14.000 Credits' } },
@@ -954,7 +968,7 @@ const showroomVideos = {
         ],
     },
     suzuki: {
-        manufacturer: 'Suzuki', country: 'Japan',
+        manufacturer: 'Suzuki', country: 'Japan',                       // 11
         cars: [
             { name: 'Alto Works Limited',                               src: 'cars/Suzuki/Alto_1997_Works_Limited.mp4',                                 data: { production_year: '1997', drive: '4WD', power: '63',  weight: '710',  length: '3295', worth: '~5.000 Credits' } },
             { name: 'Alto Works RS-Z',                                  src: 'cars/Suzuki/Alto_1997_Works_RS-Z.mp4',                                    data: { production_year: '1997', drive: '4WD', power: '61',  weight: '710',  length: '3295', worth: '~6.000 Credits' } },
@@ -970,20 +984,20 @@ const showroomVideos = {
         ],
     },
     toms: {
-        manufacturer: "Tom's", country: 'Japan',
+        manufacturer: "Tom's", country: 'Japan',                        // 1
         cars: [
             { name: 'X540 Chaser',                                      src: 'cars/Toms/X540_2000_Chaser.mp4',                                          data: { production_year: '2000', drive: 'FR',  power: '320', weight: '1491', length: '4000', worth: '50.000 Credits' } },
         ],
     },
     tommy_kaira: {
-        manufacturer: 'Tommy Kaira', country: 'Japan',
+        manufacturer: 'Tommy Kaira', country: 'Japan',                  // 2
         cars: [
             { name: 'ZZ-S',                                             src: 'cars/Tommy_Kaira/ZZ-S_2000.mp4',                                          data: { production_year: '2000', drive: 'MR',  power: '192', weight: '689',  length: '3630', worth: '59.500 Credits' } },
             { name: 'ZZII',                                             src: 'cars/Tommy_Kaira/ZZII_2000.mp4',                                          data: { production_year: '2000', drive: '4WD', power: '542', weight: '999',  length: '4300', worth: '500.000 Credits' } },
         ],
     },
     toyota: {
-        manufacturer: 'Toyota', country: 'Japan',
+        manufacturer: 'Toyota', country: 'Japan',                       // 58
         cars: [
             { name: '7 Race Car',                                       src: 'cars/Toyota/7_1970_Race_Car.mp4',                                         data: { production_year: '1970', drive: 'MR',  power: '800', weight: '620',  length: '3750', worth: 'Fahrmissionen 25-29' } },
             { name: '88C-V Minolta Race Car',                           src: 'cars/Toyota/88C-V_1989_Minolta_Race_Car.mp4',                             data: { production_year: '1989', drive: 'MR',  power: '919', weight: '850',  length: '4000', worth: 'El Capitan 200 Meilen' } },
@@ -1046,25 +1060,25 @@ const showroomVideos = {
         ],
     },
     trd: {
-        manufacturer: 'TRD', country: 'Japan',
+        manufacturer: 'TRD', country: 'Japan',                          // 1
         cars: [
             { name: 'Celica Modellista Sports M',                       src: 'cars/TRD/Celica_2000_Modellista_Sports_M.mp4',                            data: { production_year: '2000', drive: 'FF',  power: '200', weight: '1141', length: '4335', worth: '25.500 Credits' } },
         ],
     },
     trial: {
-        manufacturer: 'Trial', country: 'Japan',
+        manufacturer: 'Trial', country: 'Japan',                        // 1
         cars: [
             { name: 'Celica SS-II',                                     src: 'cars/Trial/Celica_2003_SS-II.mp4',                                        data: { production_year: '2003', drive: 'FF',  power: '285', weight: '1140', length: '4335', worth: '100.000 Credits' } },
         ],
     },
     triumph: {
-        manufacturer: 'Triumph', country: 'Grossbritannien',
+        manufacturer: 'Triumph', country: 'Grossbritannien',            // 1
         cars: [
             { name: 'Spitfire 1500',                                    src: 'cars/Triumph/Spitfire_1974_1500.mp4',                                     data: { production_year: '1974', drive: 'FR',  power: '72',  weight: '809',  length: '3780', worth: '17.200 Credits' } },
         ],
     },
     tvr: {
-        manufacturer: 'TVR', country: 'Grossbritannien',
+        manufacturer: 'TVR', country: 'Grossbritannien',                // 7
         cars: [
             { name: 'Cerbera Speed 6',                                  src: 'cars/TVR/Cerbera_1997_Speed_6.mp4',                                       data: { production_year: '1997', drive: 'FR',  power: '355', weight: '1130', length: '4000', worth: '~40.000 Credits' } },
             { name: 'Cerbera Speed 12',                                 src: 'cars/TVR/Cerbera_2000_Speed_12.mp4',                                      data: { production_year: '2000', drive: 'FR',  power: '809', weight: '1021', length: '4620', worth: '259.970 Credits' } },
@@ -1076,7 +1090,7 @@ const showroomVideos = {
         ],
     },
     vauxhall: {
-        manufacturer: 'Vauxhall', country: 'Grossbritannien',
+        manufacturer: 'Vauxhall', country: 'Grossbritannien',           // 7
         cars: [
             { name: 'Astra Touring Car',                                src: 'cars/Vauxhall/Astra_2000_Touring_Car.mp4',                                data: { production_year: '2000', drive: 'FR',  power: '460', weight: '1000', length: '4000', worth: '550.000 Credits' } },
             { name: 'Calibra Touring Car',                              src: 'cars/Vauxhall/Calibra_1994_Touring_Car.mp4',                              data: { production_year: '1994', drive: '4WD', power: '427', weight: '1059', length: '4000', worth: '1.750.000 Credits' } },
@@ -1088,7 +1102,7 @@ const showroomVideos = {
         ],
     },
     volkswagen: {
-        manufacturer: 'Volkswagen', country: 'Deutschland',
+        manufacturer: 'Volkswagen', country: 'Deutschland',             // 16
         cars: [
             { name: 'Beetle 1100',                                      src: 'cars/Volkswagen/Beetle_1949_1100.mp4',                                    data: { production_year: '1949', drive: 'RR',  power: '25',  weight: '720',  length: '4070', worth: 'Beetle Cup' } },
             { name: 'Beetle 2.0',                                       src: 'cars/Volkswagen/Beetle_2000_2.0.mp4',                                     data: { production_year: '2000', drive: 'FF',  power: '115', weight: '1228', length: '4081', worth: '25.980 Credits' } },
@@ -1109,7 +1123,7 @@ const showroomVideos = {
         ],
     },
     volvo: {
-        manufacturer: 'Volvo', country: 'Schweden',
+        manufacturer: 'Volvo', country: 'Schweden',                     // 2
         cars: [
             { name: '240 GLT Estate',                                   src: 'cars/Volvo/240_1988_GLT_Estate.mp4',                                      data: { production_year: '1988', drive: 'FR',  power: '118', weight: '1890', length: '4790', worth: '~6.000 Credits | Euro Hot Hatch Liga' } },
             { name: 'S60 T5 Sport',                                     src: 'cars/Volvo/S60_2003_T5_Sport.mp4',                                        data: { production_year: '2003', drive: 'FF',  power: '230', weight: '1550', length: '4575', worth: '35.580 Credits' } },
@@ -1180,13 +1194,14 @@ function renderSlider() {
 }
 
 function updateDetails(car) {
+    const psofkg = (car.data.power / car.data.weight).toFixed(2);
     const details = document.getElementById("car_details");
     details.innerHTML = `
         <table class='car_info_table'>
             <tr><td class='car_info_1'>Land:</td><td class='car_info_2'>${showroomVideos[currentBrand].country}</td></tr>
             <tr><td class='car_info_1'>Baujahr:</td><td class='car_info_2'>${car.data.production_year}</td></tr>
             <tr><td class='car_info_1'>Antrieb:</td><td class='car_info_2'>${car.data.drive}</td></tr>
-            <tr><td class='car_info_1'>Leistung:</td><td class='car_info_2'>${car.data.power} PS - ${(car.data.power / car.data.weight).toFixed(2)} PS pro Kg</td></tr>
+            <tr><td class='car_info_1'>Leistung:</td><td class='car_info_2'>${car.data.power} PS - ${psofkg} PS pro Kg</td></tr>
             <tr><td class='car_info_1'>Gewicht:</td><td class='car_info_2'>${car.data.weight} kg</td></tr>
             <tr><td class='car_info_1'>Länge:</td><td class='car_info_2'>${car.data.length} mm</td></tr>
             <tr><td class='car_info_1'>Preis:</td><td class='car_info_2'>${car.data.worth}</td></tr>
