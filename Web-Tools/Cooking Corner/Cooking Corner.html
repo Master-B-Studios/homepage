@@ -7,8 +7,18 @@
   <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
   <link rel="stylesheet" href="../../assets/css/main.css"></link>
   <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+  <style>
+  .food_header {width: 100%;height: auto;margin: auto;cursor: pointer;}
+  .food_header summary {text-align: left;font-size: 1.4em;color: #dbdbdb;}
+  .food_ingredients {width: 100%;height: auto;margin: 0.6em auto;cursor: pointer;}
+  .food_ingredients summary {text-align: left;font-size: 1em;color: #ed8127;}
+  .food_recipe {width: 100%;height: auto;margin: 0.6em auto;cursor: pointer;}
+  .food_recipe summary {text-align: left;font-size: 1em;color: #8dec5a;}
+  .food_container {width: 100%;height: auto;margin: 1em auto;}
+  .food_background {width: 100%;height: auto;margin: auto;}
+  </style>
 </head>
-<body onload="window.location.href = '#cooking_corner';generate_pw();" class="is-preload">
+<body onload="window.location.href = '#cooking_corner';" class="is-preload">
   <div id="wrapper">
     
     <nav id="nav">
@@ -22,6 +32,7 @@
     <div id="main">
       <article id="cooking_corner" class="panel">
         <header><h2>Cooking Corner</h2></header>
+
         <section>
           <details class="food_header" close>
             <div class="food_container"><img class="food_background" src="pics/Pizza_01.jpg"></img></div>
@@ -44,6 +55,57 @@
               </div>
             </details>
         </section>
+
+        <section>
+          <details class="food_header" close>
+            <div class="food_container"><img class="food_background" src="pics/Quiche_01.jpg"></img></div>
+            <summary>Quiche</summary>
+            <details class="food_ingredients" close>
+              <summary>Zutaten</summary>
+              <div class="quest_answer">
+                Teig:<br>
+                200g Mehl<br>
+                3 EL Wasser<br>
+                1/2 TL Salz<br>
+                150g Butter<br>
+                etwas Semmelbrösel<br>
+                <br>
+                Belag:<br>
+                2-3 Zwiebeln<br>
+                2 Frühlingszwiebeln<br>
+                Petersilie<br>
+                3 Eier<br>
+                200g Schmand<br>
+                gewürfelter Schinken<br>
+                ger. Käse (z.b. Gratinkäse)<br>
+                Salz / Pfeffer<br>
+                2 EL Maisstärke<br>
+              </div>
+            </details>
+            <details class="food_recipe" close>
+              <summary>Zubereitung</summary>
+              <div class="quest_answer">
+                Teig:<br>
+                Mehl mit 3 EL Wasser und Salz mischen. Butter in Flöckchen oben drauf legen. Mit den Knethaken zu einem Mürbteig kneten. Bei Bedarf noch etwas Mehl hinzufügen. Ca. 1h im Kühlschrank ruhen lassen.<br>
+                <br>
+                Solange Zwiebeln/Frühlingszwiebeln schneiden oder hacken. Den Schinken in der Pfanne anbraten, Zwiebelmischung dazu geben. Etwas salzen. Wenn es glasig ist abkühlen lassen.<br>
+                <br>
+                In einer Schüssel 3 Eier mit Schmand, Salz, Pfeffer mixen. Dann die klein gehackte Petersilie, etwas ger. Käse und 2 EL Maisstärke dazu geben. (evtl. abschmecken mit etwas Salz.)<br>
+                <br>
+                Eine Springform fetten und mit Paniermehl bestreuen.<br>
+                <br>
+                Den Teig mit hilfen von Frischhaltefolie ausrollen (zu einem etwas größeren Kreis als die Springform ist). Teig in die gefettete Form legen. Den Rand etwas höher seitlich andrücken. Den Boden mit einer Gabel etwas einstechen und nochmal 1 EL Semmelbrösel auf dem Boden verteilen.<br>
+                <br>
+                Die abgekühlten Zwiebeln zur Ei Masse geben und etwas unterrühren.<br>
+                <br>
+                Alles auf dem Teigboden verteilen und glatt streichen.<br>
+                <br>
+                Nochmal etwas ger. Käse darüber verteilen.<br>
+                <br>
+                Im vorgeheizten Ofen bei Umluft 175 Grad ca. 40 - 45 Minuten backen.
+              </div>
+            </details>
+        </section>
         
       </article>
     </div>
@@ -52,20 +114,27 @@
 
   </div>
 </body>
-<article>
-  <tr class="tr_pw"><td class="tr_pw_gap"></td></tr>
-  <tr class="tr_pw">
-    <td class="td_pw_01-01">Keine Wiederholungen</td>
-    <td class="td_pw_02"></td>
-    <td class="td_pw_03" rowspan="2"><div class="td_pw_03-01" onclick="switch_change(this);">On</div></td>
-  </tr>
-  <tr class="tr_pw"><td class="td_pw_01-02"></td></tr>
-</article>
-
 
 <script src="../../assets/js/jquery.min.js"></script>
 <script src="../../assets/js/browser.min.js"></script>
 <script src="../../assets/js/breakpoints.min.js"></script>
 <script src="../../assets/js/util.js"></script>
 <script src="../../assets/js/main.js"></script>
-<script src="main.js"></script>
+
+        <section>
+          <details class="food_header" close>
+            <div class="food_container"><img class="food_background" src="pics/Platzhalter"></img></div>
+            <summary>Platzhalter</summary>
+            <details class="food_ingredients" close>
+              <summary>Zutaten</summary>
+              <div class="quest_answer">
+                Platzhalter
+              </div>
+            </details>
+            <details class="food_recipe" close>
+              <summary>Zubereitung</summary>
+              <div class="quest_answer">
+                Platzhalter
+              </div>
+            </details>
+        </section>
