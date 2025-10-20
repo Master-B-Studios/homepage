@@ -10,8 +10,8 @@
   <script src="scripts/xlsx.full.min.js"></script>
   <style>
   header {text-align: center;margin-bottom: 1em;}
-  .category_filter {width: 100%;margin-bottom: 1em;outline: none;}
-  select, input {width: 100%;background: #222222;color: #dbdbdb;border: none;padding: 0.5em;border-radius: 1em;margin-bottom: 1.5em;cursor: pointer;outline: none;}
+  .category_filter {width: 100%;margin-bottom: 1em;outline: none;text-align: center;}
+  select, input {width: 100%;background: #222222;color: #dbdbdb;border: none;padding: 0.5em;border-radius: 1em;margin-bottom: 1.5em;cursor: pointer;outline: none;text-align: center;}
   input::placeholder {color: #dbdbdb;}
 
   #recipe_container {display: grid;grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));gap: 1em;}
@@ -42,7 +42,7 @@
     <div id="main">
       <article id="cooking_corner" class="panel">
         <header><h2>Cooking Corner</h2></header>
-        <select id="category_filter" class="category_filter" onchange="filter_recipes()"><option value="alle">Alle</option></select>
+        <select id="category_filter" class="category_filter" onchange="filter_recipes()"><option value="alle">Alle Rezepte</option></select>
         
         <input type="text" id="search_input" placeholder="Rezept-Suche..." oninput="filter_recipes()">
 
@@ -88,6 +88,7 @@ function populate_categories(recipes) {
 }
 
 function display_recipes(recipes) {
+  recipes.sort((a, b) => (a.Name || '').localeCompare(b.Name || '', 'de', { sensitivity: 'base' }));
   const container = document.getElementById('recipe_container');
   container.innerHTML = '';
   if (recipes.length === 0) {container.innerHTML = '<p>Keine Rezepte gefunden.</p>';return;}
@@ -99,6 +100,7 @@ function display_recipes(recipes) {
     const img = document.createElement('img');
     img.src = `pics/${r.ID}.jpg`;
     img.alt = r.Name;
+    img.loading = 'lazy';
 
     const details = document.createElement('details');
     const summary = document.createElement('summary');
