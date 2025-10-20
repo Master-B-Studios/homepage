@@ -7,140 +7,140 @@
   <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
   <link rel="stylesheet" href="../../assets/css/main.css"></link>
   <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+  <script src="scripts/xlsx.full.min.js"></script>
   <style>
-  .food_header {width: 100%;height: auto;margin: auto;cursor: pointer;}
-  .food_header summary {text-align: left;font-size: 1.4em;color: #dbdbdb;}
-  .food_ingredients {width: 100%;height: auto;margin: 0.6em auto;cursor: pointer;}
-  .food_ingredients summary {text-align: left;font-size: 1em;color: #ed8127;}
-  .food_recipe {width: 100%;height: auto;margin: 0.6em auto;cursor: pointer;}
-  .food_recipe summary {text-align: left;font-size: 1em;color: #8dec5a;}
-  .food_container {width: 100%;height: auto;margin: 1em auto;}
-  .food_background {width: 100%;height: auto;margin: auto;}
-  </style>
+
+    header {
+      text-align: center;
+      margin-bottom: 1em;
+    }
+
+    #controls {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1em;
+      margin-bottom: 1em;
+    }
+
+    select, input {
+      background: #222222;
+      color: #ffffff;
+      border: none;
+      padding: 0.5em 1em;
+      border-radius: 8px;
+    }
+
+    input::placeholder {
+      color: #ffffff;
+    }
+
+    #recipe_container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1em;
+    }
+
+    .recipe_card {
+      background: #222222;
+      border-radius: 12px;
+      padding: 1em;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      transition: transform 0.2s;
+    }
+
+    .recipe_card:hover {
+      transform: scale(1.02);
+    }
+
+    .recipe_card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.5em;
+    }
+
+    .recipe_name {
+      font-size: 1.2em;
+      color: #ffffff;
+      margin-bottom: 0.3em;
+    }
+
+    .recipe_category {
+      font-size: 0.9em;
+      color: #ffffff;
+      margin-bottom: 0.8em;
+    }
+
+    .recipe_ingredients, .recipe_preparation {
+      font-size: 0.9em;
+      line-height: 1.4;
+    }
+    
+    /* Entfernt den Standard-Marker in allen Browsern */
+summary::-webkit-details-marker {
+  display: none !important;
+}
+summary::marker {
+  content: "";
+  display: none !important;
+}
+
+/* Alternativtrick: Summary als flex-Container, Marker wird so „überlagert“ */
+summary {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-left: 0.5em;
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+/* Optional: eigenes Icon (z. B. Plus/Minus) einfügen */
+summary::before {
+  content: "+";
+  color: #0f0;
+  font-weight: bold;
+  margin-right: 0.5em;
+  transition: transform 0.2s ease;
+}
+
+/* Wenn geöffnet → wechsle das Symbol */
+details[open] summary::before {
+  content: "–";
+  color: #f33;
+}
+
+
+</style>
 </head>
-<body onload="window.location.href = '#cooking_corner';" class="is-preload">
+<body onload="window.location.href = '#cooking_corner';load_recipes();" class="is-preload">
   <div id="wrapper">
     
     <nav id="nav">
       <a href="../../index.html"><img class="mb_icon" src="../../images/MB_Icon_02.png"></img><span>Home</span></a>
       <a href="../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
       <a href="../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
-      <a href="../../Games/games.html"><img class="mb_icon" src="../../images/Games_Icon_01.png"></img><span>Games</span></a>
+	  <a href="../../Games/games.html"><img class="mb_icon" src="../../images/Games_Icon_01.png"></img><span>Games</span></a>
       <a href="#cooking_corner"><img class="mb_icon" src="icon_01.png"></img><span>Cooking Corner</span></a>
     </nav>
     
     <div id="main">
       <article id="cooking_corner" class="panel">
         <header><h2>Cooking Corner</h2></header>
+        <select id="category_filter" onchange="filter_recipes()">
+      <option value="alle">Alle Kategorien</option>
+    </select>
+    <input type="text" id="search_input" placeholder="Suche nach Rezept..." oninput="filter_recipes()">
 
-        <section>
-          <details class="food_header" close>
-            <div class="food_container"><img class="food_background" src="pics/American_Pancakes_01.jpg"></img></div>
-            <summary>American Pancakes</summary>
-            <details class="food_ingredients" close>
-              <summary>Zutaten</summary>
-              <div class="quest_answer">
-                (Die Hälfte von diesem Rezept reicht auch gut!!)<br>
-                400g Mehl<br>
-                500ml Milch<br>
-                100g Zucker<br>
-                4 Eier<br>
-                1 Pg. Backpulver<br>
-              </div>
-            </details>
-            <details class="food_recipe" close>
-              <summary>Zubereitung</summary>
-              <div class="quest_answer">
-                - Eier trennen<br>
-                - Eiweiß steif schlagen<br>
-                - Eigelb mit Zucker schaumig rühren<br>
-                - Mehl mit Backpulver mischen und sieben<br>
-                - Milch nach und nach zum Eigelb gießen<br>
-                - Trockene und nasse Zutaten mischen<br>
-                - Geschlagenes Eiweiß vorsichtig unterheben<br>
-                - Pfanne maximal erhitzen, dann auf mittlere Hitze runter regeln<br>
-                - Mit einer Kelle bis zu 4 Pfannkuchen in der Pfanne braten<br>
-              </div>
-            </details>
-        </section>
-
-        <section>
-          <details class="food_header" close>
-            <div class="food_container"><img class="food_background" src="pics/Pizza_01.jpg"></img></div>
-            <summary>Pizza-Teig</summary>
-            <details class="food_ingredients" close>
-              <summary>Zutaten</summary>
-              <div class="quest_answer">
-                500g Mehl Typ 00<br>650ml Wasser (Raumtemperatur)<br>2g Trockenhefe<br>1 Esslöffel Salz (gehäuft)<br>2 Esslöffel Olivenöl
-              </div>
-            </details>
-            <details class="food_recipe" close>
-              <summary>Zubereitung</summary>
-              <div class="quest_answer">
-                Hefe im Wasser auflösen und langsam im Mehl einkneten.<br>
-                Wenn der Teig geschmeidig ist Salz und Öl für ca. 15 Minuten einkneten.<br>
-                Anschließend abgedeckt 1 Stunde gehen lassen.<br>
-                Danach für 24 Stunden im Kühlschrank gehen lassen und 1 Mal falten.<br>
-                Weitere 24 Stunden im Kühlschrank gehen lassen und Teiglinge formen.<br>
-                Wieder gehen lassen und belegen. Mit der Hand vorsichtig die Pizzen formen - nicht ausrollen!
-              </div>
-            </details>
-        </section>
-
-        <section>
-          <details class="food_header" close>
-            <div class="food_container"><img class="food_background" src="pics/Quiche_01.jpg"></img></div>
-            <summary>Quiche</summary>
-            <details class="food_ingredients" close>
-              <summary>Zutaten</summary>
-              <div class="quest_answer">
-                Teig:<br>
-                200g Mehl<br>
-                3 EL Wasser<br>
-                1/2 TL Salz<br>
-                150g Butter<br>
-                etwas Semmelbrösel<br>
-                <br>
-                Belag:<br>
-                2-3 Zwiebeln<br>
-                2 Frühlingszwiebeln<br>
-                Petersilie<br>
-                3 Eier<br>
-                200g Schmand<br>
-                gewürfelter Schinken<br>
-                ger. Käse (z.b. Gratinkäse)<br>
-                Salz / Pfeffer<br>
-                2 EL Maisstärke<br>
-              </div>
-            </details>
-            <details class="food_recipe" close>
-              <summary>Zubereitung</summary>
-              <div class="quest_answer">
-                Teig:<br>
-                Mehl mit 3 EL Wasser und Salz mischen. Butter in Flöckchen oben drauf legen. Mit den Knethaken zu einem Mürbteig kneten. Bei Bedarf noch etwas Mehl hinzufügen. Ca. 1h im Kühlschrank ruhen lassen.<br>
-                <br>
-                Solange Zwiebeln/Frühlingszwiebeln schneiden oder hacken. Den Schinken in der Pfanne anbraten, Zwiebelmischung dazu geben. Etwas salzen. Wenn es glasig ist abkühlen lassen.<br>
-                <br>
-                In einer Schüssel 3 Eier mit Schmand, Salz, Pfeffer mixen. Dann die klein gehackte Petersilie, etwas ger. Käse und 2 EL Maisstärke dazu geben. (evtl. abschmecken mit etwas Salz.)<br>
-                <br>
-                Eine Springform fetten und mit Paniermehl bestreuen.<br>
-                <br>
-                Den Teig mit hilfen von Frischhaltefolie ausrollen (zu einem etwas größeren Kreis als die Springform ist). Teig in die gefettete Form legen. Den Rand etwas höher seitlich andrücken. Den Boden mit einer Gabel etwas einstechen und nochmal 1 EL Semmelbrösel auf dem Boden verteilen.<br>
-                <br>
-                Die abgekühlten Zwiebeln zur Ei Masse geben und etwas unterrühren.<br>
-                <br>
-                Alles auf dem Teigboden verteilen und glatt streichen.<br>
-                <br>
-                Nochmal etwas ger. Käse darüber verteilen.<br>
-                <br>
-                Im vorgeheizten Ofen bei Umluft 175 Grad ca. 40 - 45 Minuten backen.
-              </div>
-            </details>
-        </section>
-        
+        <div id="recipe_container"></div>
       </article>
     </div>
-    
+
     <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
 
   </div>
@@ -151,21 +151,102 @@
 <script src="../../assets/js/breakpoints.min.js"></script>
 <script src="../../assets/js/util.js"></script>
 <script src="../../assets/js/main.js"></script>
+<script>
+  let all_recipes = [];
 
-        <section>
-          <details class="food_header" close>
-            <div class="food_container"><img class="food_background" src="pics/Platzhalter"></img></div>
-            <summary>Platzhalter</summary>
-            <details class="food_ingredients" close>
-              <summary>Zutaten</summary>
-              <div class="quest_answer">
-                Platzhalter
-              </div>
-            </details>
-            <details class="food_recipe" close>
-              <summary>Zubereitung</summary>
-              <div class="quest_answer">
-                Platzhalter
-              </div>
-            </details>
-        </section>
+    async function load_recipes() {
+      try {
+        const response = await fetch('Rezepte.xlsx');
+        if (!response.ok) throw new Error('Excel-Datei konnte nicht geladen werden.');
+        const arrayBuffer = await response.arrayBuffer();
+        const data = new Uint8Array(arrayBuffer);
+        const workbook = XLSX.read(data, { type: 'array' });
+        const sheet = workbook.Sheets[workbook.SheetNames[0]];
+        const json = XLSX.utils.sheet_to_json(sheet);
+        const filtered = json.filter(r => r.ID && r.ID !== 'ID' && r.Name && r.Name !== 'Name');
+        json.forEach(r => {
+          // Falls ID numerisch ist, wieder mit führenden Nullen auffüllen
+          if (r.ID !== undefined) {r.ID = r.ID.toString().padStart(4, '0');}
+        });
+        all_recipes = json;
+        populate_categories(json);console.log(json.map(r => r.ID));
+
+        display_recipes(json);
+      } catch (err) {
+        document.getElementById('recipe_container').textContent = 'Fehler: ' + err.message;
+      }
+    }
+
+    function populate_categories(recipes) {
+      const select = document.getElementById('category_filter');
+      const categories = [...new Set(recipes.map(r => r.Kategorie))].sort();
+      categories.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat;
+        option.textContent = cat;
+        select.appendChild(option);
+      });
+    }
+
+    function display_recipes(recipes) {
+  const container = document.getElementById('recipe_container');
+  container.innerHTML = '';
+
+  if (recipes.length === 0) {
+    container.innerHTML = '<p>Keine Rezepte gefunden.</p>';
+    return;
+  }
+
+  recipes.forEach(r => {
+    const card = document.createElement('div');
+    card.className = 'recipe_card';
+
+    // Bild
+    const img = document.createElement('img');
+    img.src = `pics/${r.ID}.jpg`;
+    img.alt = r.Name;
+
+    // Name (Summary)
+    const details = document.createElement('details');
+    const summary = document.createElement('summary');
+    summary.textContent = r.Name;
+    summary.className = 'recipe_name';
+
+    // Inhalt im aufklappbaren Bereich
+    const content = document.createElement('div');
+    content.className = 'recipe_details';
+
+    const cat = document.createElement('div');
+    cat.className = 'recipe_category';
+    cat.innerHTML = `<strong>Kategorie:</strong> ${r.Kategorie}`;
+
+    const ing = document.createElement('div');
+    ing.className = 'recipe_ingredients';
+    ing.innerHTML = `<strong>Zutaten:</strong><br>${r.Zutaten ?? ''}`;
+
+    const prep = document.createElement('div');
+    prep.className = 'recipe_preparation';
+    prep.innerHTML = `<strong>Zubereitung:</strong><br>${r.Zubereitung ?? ''}`;
+
+    content.append(cat, ing, prep);
+    details.append(summary, content);
+
+    card.append(img, details);
+    container.appendChild(card);
+  });
+}
+
+
+    function filter_recipes() {
+      const catValue = document.getElementById('category_filter').value.toLowerCase();
+      const searchValue = document.getElementById('search_input').value.toLowerCase();
+
+      const filtered = all_recipes.filter(r => {
+        const matchesCat = catValue === 'alle' || (r.Kategorie ?? '').toLowerCase() === catValue;
+        const matchesSearch = (r.Name ?? '').toLowerCase().includes(searchValue);
+        return matchesCat && matchesSearch;
+      });
+
+      display_recipes(filtered);
+    }
+  </script>
