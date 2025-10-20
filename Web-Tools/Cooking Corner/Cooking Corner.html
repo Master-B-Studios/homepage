@@ -63,81 +63,66 @@
 <script src="../../assets/js/util.js"></script>
 <script src="../../assets/js/main.js"></script>
 <script>
-  let all_recipes = [];
+let all_recipes = [];
 
-    async function load_recipes() {
-      try {
-        const response = await fetch('Rezepte.xlsx');
-        if (!response.ok) throw new Error('Excel-Datei konnte nicht geladen werden.');
-        const arrayBuffer = await response.arrayBuffer();
-        const data = new Uint8Array(arrayBuffer);
-        const workbook = XLSX.read(data, { type: 'array' });
-        const sheet = workbook.Sheets[workbook.SheetNames[0]];
-        const json = XLSX.utils.sheet_to_json(sheet);
-        const filtered = json.filter(r => r.ID && r.ID !== 'ID' && r.Name && r.Name !== 'Name');
-        json.forEach(r => {
-          // Falls ID numerisch ist, wieder mit führenden Nullen auffüllen
-          if (r.ID !== undefined) {r.ID = r.ID.toString().padStart(4, '0');}
-        });
-        all_recipes = json;
-        populate_categories(json);console.log(json.map(r => r.ID));
+async function load_recipes() {
+  try {
+    const response = await fetch('Rezepte.xlsx');
+    if (!response.ok) throw new Error('Excel-Datei konnte nicht geladen werden.');
+    const arrayBuffer = await response.arrayBuffer();
+    const data = new Uint8Array(arrayBuffer);
+    const workbook = XLSX.read(data, { type: 'array' });
+    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+    const json = XLSX.utils.sheet_to_json(sheet);
+    const filtered = json.filter(r => r.ID && r.ID !== 'ID' && r.Name && r.Name !== 'Name');
+    json.forEach(r => {if (r.ID !== undefined) {r.ID = r.ID.toString().padStart(4, '0');}});
+    all_recipes = json;
+    populate_categories(json);console.log(json.map(r => r.ID));
+    display_recipes(json);
+  }
+  catch (err) {document.getElementById('recipe_container').textContent = 'Fehler: ' + err.message;}
+}
 
-        display_recipes(json);
-      } catch (err) {
-        document.getElementById('recipe_container').textContent = 'Fehler: ' + err.message;
-      }
-    }
+function populate_categories(recipes) {
+  const select = document.getElementById('category_filter');
+  const categories = [...new Set(recipes.map(r => r.Kategorie))].sort();
+  categories.forEach(cat => {const option = document.createElement('option');option.value = cat;option.textContent = cat;select.appendChild(option);});
+}
 
-    function populate_categories(recipes) {
-      const select = document.getElementById('category_filter');
-      const categories = [...new Set(recipes.map(r => r.Kategorie))].sort();
-      categories.forEach(cat => {
-        const option = document.createElement('option');
-        option.value = cat;
-        option.textContent = cat;
-        select.appendChild(option);
-      });
-    }
-
-    function display_recipes(recipes) {
+function display_recipes(recipes) {
   const container = document.getElementById('recipe_container');
   container.innerHTML = '';
-
-  if (recipes.length === 0) {
-    container.innerHTML = '<p>Keine Rezepte gefunden.</p>';
-    return;
-  }
+  if (recipes.length === 0) {container.innerHTML = '<p>Keine Rezepte gefunden.</p>';return;}
 
   recipes.forEach(r => {
     const card = document.createElement('div');
     card.className = 'recipe_card';
 
-    // Bild
     const img = document.createElement('img');
     img.src = `pics/${r.ID}.jpg`;
     img.alt = r.Name;
 
-    // Name (Summary)
     const details = document.createElement('details');
     const summary = document.createElement('summary');
     summary.textContent = r.Name;
     summary.className = 'recipe_name';
 
-    // Inhalt im aufklappbaren Bereich
     const content = document.createElement('div');
     content.className = 'recipe_details';
 
     const cat = document.createElement('div');
     cat.className = 'recipe_category';
-    cat.innerHTML = `<strong>Kategorie:</strong><br>${r.Kategorie}`;
+    cat.innerHTML = `<strong>Kategorie:</strong>&nbsp;&nbsp;&nbsp;${r.Kategorie}`;
 
     const ing = document.createElement('div');
     ing.className = 'recipe_ingredients';
-    ing.innerHTML = `<strong>Zutaten:</strong><br>${r.Zutaten ?? ''}`;
+    const zutatenText = (r.Zutaten ?? '').replace(/(\r\n|\n|\r)/g, '<br>');
+    ing.innerHTML = `<strong>Zutaten:</strong><br>${zutatenText}`;
 
     const prep = document.createElement('div');
     prep.className = 'recipe_preparation';
-    prep.innerHTML = `<strong>Zubereitung:</strong><br>${r.Zubereitung ?? ''}`;
+    const zubereitungText = (r.Zubereitung ?? '').replace(/(\r\n|\n|\r)/g, '<br>');
+    prep.innerHTML = `<strong>Zubereitung:</strong><br>${zubereitungText}`;
 
     content.append(cat, ing, prep);
     details.append(summary, content);
@@ -148,18 +133,14 @@
   });
 }
 
-
-    function filter_recipes() {
-      const catValue = document.getElementById('category_filter').value.toLowerCase();
-      const searchValue = document.getElementById('search_input').value.toLowerCase();
-
-      const filtered = all_recipes.filter(r => {
-        const matchesCat = catValue === 'alle' || (r.Kategorie ?? '').toLowerCase() === catValue;
-        const matchesSearch = (r.Name ?? '').toLowerCase().includes(searchValue);
-        return matchesCat && matchesSearch;
-      });
-
-      display_recipes(filtered);
-    }
-
-  </script>
+function filter_recipes() {
+  const catValue = document.getElementById('category_filter').value.toLowerCase();
+  const searchValue = document.getElementById('search_input').value.toLowerCase();
+  const filtered = all_recipes.filter(r => {
+    const matchesCat = catValue === 'alle' || (r.Kategorie ?? '').toLowerCase() === catValue;
+    const matchesSearch = (r.Name ?? '').toLowerCase().includes(searchValue);
+    return matchesCat && matchesSearch;
+  });
+  display_recipes(filtered);
+}
+</script>
