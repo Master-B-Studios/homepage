@@ -10,15 +10,13 @@
   <script src="scripts/xlsx.full.min.js"></script>
   <style>
   header {text-align: center;margin-bottom: 1em;}
-  .category_filter {width: 100%;margin-bottom: 1em;}
-  #controls {display: flex;justify-content: center;flex-wrap: wrap;gap: 1em;margin-bottom: 1em;cursor: pointer;}
-  select, input {width: 100%;background: #222222;color: #dbdbdb;border: none;padding: 0.5em 1em;border-radius: 8px;margin-bottom: 1em;cursor: pointer;}
+  .category_filter {width: 100%;margin-bottom: 1em;outline: none;}
+  select, input {width: 100%;background: #222222;color: #dbdbdb;border: none;padding: 0.5em;border-radius: 1em;margin-bottom: 1.5em;cursor: pointer;outline: none;}
   input::placeholder {color: #dbdbdb;}
 
   #recipe_container {display: grid;grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));gap: 1em;}
-  .recipe_card {background: #222222;border-radius: 12px;padding: 1em;box-shadow: 0 0 10px rgba(0,0,0,0.4);transition: transform 0.2s;cursor: pointer;}
-  .recipe_card:hover {transform: scale(1.08);}
-  .recipe_card img {width: 100%;height: 200px;object-fit: cover;border-radius: 8px;margin-bottom: 0.5em;}
+  .recipe_card {background: #222222;border-radius: 1em;padding: 1em;box-shadow: 0 0 10px rgba(0,0,0,0.4);transition: transform 0.2s;cursor: pointer;}
+  .recipe_card img {width: 100%;height: 200px;object-fit: cover;border-radius: 0.6em;margin-bottom: 0.5em;}
   .recipe_name {font-size: 1.2em;color: #dbdbdb;margin-bottom: 0.3em;}
   .recipe_ingredients, .recipe_preparation, .recipe_category {font-size: 0.9em;line-height: 1.4;color: #dbdbdb;margin-bottom: 0.5em;}
   .recipe_ingredients strong, .recipe_preparation strong, .recipe_category strong {color: #ffcc66;}
@@ -46,7 +44,7 @@
         <header><h2>Cooking Corner</h2></header>
         <select id="category_filter" class="category_filter" onchange="filter_recipes()"><option value="alle">Alle</option></select>
         
-        <input type="text" id="search_input" placeholder="Suche nach Rezept..." oninput="filter_recipes()">
+        <input type="text" id="search_input" placeholder="Rezept-Suche..." oninput="filter_recipes()">
 
         <div id="recipe_container"></div>
       </article>
