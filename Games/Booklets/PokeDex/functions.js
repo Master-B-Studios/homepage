@@ -88,47 +88,12 @@ function select_cover() {
 
 function clean(clean_foldername) {var list_folders = new Enumerator(access.GetFolder(clean_foldername).Subfolders);var list_files = new Enumerator(access.GetFolder(clean_foldername).Files);while(!list_folders.atEnd()) {foldername = list_folders.item().Name;access.DeleteFolder(clean_foldername+foldername);list_folders.moveNext();}while(!list_files.atEnd()) {filename = list_files.item().Name;access.DeleteFile(clean_foldername+filename);list_files.moveNext();}autoparse();}
 
-// Program Info
-function get_program_info() {
-    var createcmd = access.CreateTextFile('get_title.cmd',1,0);
-    createcmd.WriteLine('@echo off');
-    createcmd.WriteLine('chcp 65001');
-    createcmd.WriteLine('setlocal EnableDelayedExpansion');
-    createcmd.WriteLine('for %%i in ('+root_folder+'"*.html") do echo.%%~ni>title');
-    createcmd.WriteLine('for %%i in ('+root_folder+'"*.ver") do echo.%%~ni>version');
-    createcmd.WriteLine('exit');
-    createcmd.Close();
-    execute.Run('get_title.cmd',0,1);
-    access.DeleteFile('get_title.cmd');
-}
-function read_program_info() {
-    get_program_info();
-    var read_title = access.OpenTextFile('title',1,1);
-    var read_version = access.OpenTextFile('version',1,1);
-    title_id.innerHTML = '';
-    credits_header.innerHTML = '';
-    while(!read_title.AtEndOfStream) {
-        titlename = read_title.ReadLine();
-        title_id.innerHTML += titlename + ' - ';
-        credits_header.innerHTML += titlename+'<br>__________________________________<br>';
-    }
-    read_title.Close();
-    while(!read_version.AtEndOfStream) {
-        versionname = read_version.ReadLine();
-        title_id.innerHTML += 'Version ' + versionname;
-    }
-    read_version.Close();
-}
-
-// Changes
-    // Game.selectedIndex - Game.value;
-    // TGender.selectedIndex - TGender.value
-
 // Key Listener
 function check_enter(e) {if (e.keyCode === 13) {NewPoke();select_cover();codeout(-1);}}
 function check_back(e) {if (e.keyCode === 8) {jump_page_home_site();}}
 
-// Poke-Section
+// Poke-Section Variables
+var pokemon_shiny = document.getElementById('pokemon_shiny');
 
 // Poke-Section
 function NewPoke() {
@@ -150,7 +115,6 @@ function NewPoke() {
     input_nickname=pokemon_select.options[pokemon_select.selectedIndex].value;input_pokedex=PokeDex(input_nickname);nickname=FI(input_pokedex,"~",3);pokemon_name.value=nickname;
     //read_pokedex_entry(pgn);
 }
-function switch_shiny() {if (pokemon_shiny.checked) {pokemon_shiny_text.innerHTML= 'Shiny'} else {pokemon_shiny_text.innerHTML= 'Normal'}}
 function read_pokedex_entry(number) {pokemon_description.innerHTML = '';var read_entry = access.OpenTextFile(pokedex_folder+number+'.txt',1,1); while (!read_entry.AtEndOfStream) {poke_text = read_entry.ReadLine();} read_entry.Close();pokemon_description.innerHTML = poke_text;}
 
 function SetUnown() {

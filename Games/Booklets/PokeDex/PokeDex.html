@@ -498,110 +498,130 @@
                         <input id="pokedex_number" class="pokedex_number border_knob" value="# 1" type="text" onchange="NewPoke();" disabled></input>
                     </div>
                 </div>
-                
             </div>
             
-            <div class="pokedex_container border_3d">
-                
-                
-                <select id="type_1" class="position type_1 text_normal text_white_small_shadow" onchange="NewPoke();" disabled>
-                    <option value="0">Typ 1: Kampf</option>
-                    <option value="1">Typ 1: Flug</option>
-                    <option value="2">Typ 1: Gift</option>
-                    <option value="3">Typ 1: Boden</option>
-                    <option value="4">Typ 1: Stein</option>
-                    <option value="5">Typ 1: Käfer</option>
-                    <option value="6">Typ 1: Geist</option>
-                    <option value="7">Typ 1: Stahl</option>
-                    <option value="8">Typ 1: Feuer</option>
-                    <option value="9">Typ 1: Wasser</option>
-                    <option value="10">Typ 1: Pflanze</option>
-                    <option value="11">Typ 1: Elektro</option>
-                    <option value="12">Typ 1: Psycho</option>
-                    <option value="13">Typ 1: Eis</option>
-                    <option value="14">Typ 1: Drachen</option>
-                    <option value="15">Typ 1: Dunkel</option>
-                    <option value="16">Typ 1: Normal</option>
-                    <option value="17" selected>Typ 1:</option>
-                </select>
-                <select id="type_2" class="position type_2 text_normal text_white_small_shadow" onchange="NewPoke();" disabled>
-                    <option value="0">Typ 2: Kampf</option>
-                    <option value="1">Typ 2: Flug</option>
-                    <option value="2">Typ 2: Gift</option>
-                    <option value="3">Typ 2: Boden</option>
-                    <option value="4">Typ 2: Stein</option>
-                    <option value="5">Typ 2: Käfer</option>
-                    <option value="6">Typ 2: Geist</option>
-                    <option value="7">Typ 2: Stahl</option>
-                    <option value="8">Typ 2: Feuer</option>
-                    <option value="9">Typ 2: Wasser</option>
-                    <option value="10">Typ 2: Pflanze</option>
-                    <option value="11">Typ 2: Elektro</option>
-                    <option value="12">Typ 2: Psycho</option>
-                    <option value="13">Typ 2: Eis</option>
-                    <option value="14">Typ 2: Drachen</option>
-                    <option value="15">Typ 2: Dunkel</option>
-                    <option value="16">Typ 2: Normal</option>
-                    <option value="17" selected>Typ 2:</option>
-                </select>
-                <input id="pokemon_name" class="pokemon_name" value="" type=text placeholder="Spitzname"></input>
+            <div class="stats_container border_3d">
+                <div class="stats_table">
+                    <div class="stats_table_1">Typ 1:</div>
+                    <div class="stats_table_2">
+                        <select id="type_1" class="stats_type border_knob" onchange="NewPoke();" disabled>
+                            <option value="0">Kampf</option>
+                            <option value="1">Flug</option>
+                            <option value="2">Gift</option>
+                            <option value="3">Boden</option>
+                            <option value="4">Stein</option>
+                            <option value="5">Käfer</option>
+                            <option value="6">Geist</option>
+                            <option value="7">Stahl</option>
+                            <option value="8">Feuer</option>
+                            <option value="9">Wasser</option>
+                            <option value="10">Pflanze</option>
+                            <option value="11">Elektro</option>
+                            <option value="12">Psycho</option>
+                            <option value="13">Eis</option>
+                            <option value="14">Drachen</option>
+                            <option value="15">Dunkel</option>
+                            <option value="16">Normal</option>
+                            <option value="17" selected></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="stats_table">
+                    <div class="stats_table_1">Typ 2:</div>
+                    <div class="stats_table_2">
+                        <select id="type_2" class="stats_type border_knob" onchange="NewPoke();" disabled>
+                            <option value="0">Kampf</option>
+                            <option value="1">Flug</option>
+                            <option value="2">Gift</option>
+                            <option value="3">Boden</option>
+                            <option value="4">Stein</option>
+                            <option value="5">Käfer</option>
+                            <option value="6">Geist</option>
+                            <option value="7">Stahl</option>
+                            <option value="8">Feuer</option>
+                            <option value="9">Wasser</option>
+                            <option value="10">Pflanze</option>
+                            <option value="11">Elektro</option>
+                            <option value="12">Psycho</option>
+                            <option value="13">Eis</option>
+                            <option value="14">Drachen</option>
+                            <option value="15">Dunkel</option>
+                            <option value="16">Normal</option>
+                            <option value="17" selected></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="pokemon_name_table">
+                    <div class="pokemon_name_table_1">Spitzname:</div>
+                    <div class="pokemon_name_table_2">
+                        <input id="pokemon_name" class="pokemon_name border_knob" value="" type=text placeholder=""></input>
+                    </div>
+                </div>
+                <div class="pokemon_box_table">
+                    <div class="pokemon_box_table_1">Box:</div>
+                    <div class="pokemon_box_table_2">
+                        <select id="pokemon_box" class="pokemon_box border_knob" onchange="codeout(-1);">
+                            <option value="0">1</option>
+                            <option value="1">2</option>
+                            <option value="2">3</option>
+                            <option value="3">4</option>
+                            <option value="4">5</option>
+                            <option value="5">6</option>
+                            <option value="6">7</option>
+                            <option value="7">8</option>
+                            <option value="8">9</option>
+                            <option value="9">10</option>
+                            <option value="10">11</option>
+                            <option value="11">12</option>
+                            <option value="12">13</option>
+                            <option value="13" selected>14</option>
+                        </select>
+                    </div>
+                    <div class="pokemon_box_table_1">Platz:</div>
+                    <div class="pokemon_box_table_2">
+                        <select id="pokemon_spot" class="pokemon_spot border_knob" onchange="codeout(-1);">
+                            <option value="0" selected>1</option>
+                            <option value="1">2</option>
+                            <option value="2">3</option>
+                            <option value="3">4</option>
+                            <option value="4">5</option>
+                            <option value="5">6</option>
+                            <option value="6">7</option>
+                            <option value="7">8</option>
+                            <option value="8">9</option>
+                            <option value="9">10</option>
+                            <option value="10">11</option>
+                            <option value="11">12</option>
+                            <option value="12">13</option>
+                            <option value="13">14</option>
+                            <option value="14">15</option>
+                            <option value="15">16</option>
+                            <option value="16">17</option>
+                            <option value="17">18</option>
+                            <option value="18">19</option>
+                            <option value="19">20</option>
+                            <option value="20">21</option>
+                            <option value="21">22</option>
+                            <option value="22">23</option>
+                            <option value="23">24</option>
+                            <option value="24">25</option>
+                            <option value="25">26</option>
+                            <option value="26">27</option>
+                            <option value="27">28</option>
+                            <option value="28">29</option>
+                            <option value="29">30</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="pokemon_box_table">
+                    <div class="pokemon_box_table_1">Shiny:</div>
+                    <div class="pokemon_box_table_2">
+                        <label class="checkbox"><input id="pokemon_shiny" class="pokemon_shiny border_knob" type="checkbox" onchange="NewPoke();"></label>
+                    </div>
+                </div>
             </div>
             
-        <div class="position pokemon_container_1">
-            <select id="pokemon_box" class="position pokemon_box text_normal text_white_small_shadow" onchange="codeout(-1);">
-                <option value="0">Box 1</option>
-                <option value="1">Box 2</option>
-                <option value="2">Box 3</option>
-                <option value="3">Box 4</option>
-                <option value="4">Box 5</option>
-                <option value="5">Box 6</option>
-                <option value="6">Box 7</option>
-                <option value="7">Box 8</option>
-                <option value="8">Box 9</option>
-                <option value="9">Box 10</option>
-                <option value="10">Box 11</option>
-                <option value="11">Box 12</option>
-                <option value="12">Box 13</option>
-                <option value="13" selected>Box 14</option>
-            </select>
-        </div>
-        <div class="position pokemon_container_2">
-            <select id="pokemon_spot" class="position pokemon_spot text_normal text_white_small_shadow" onchange="codeout(-1);">
-                <option value="0" selected>Platz 1</option>
-                <option value="1">Platz 2</option>
-                <option value="2">Platz 3</option>
-                <option value="3">Platz 4</option>
-                <option value="4">Platz 5</option>
-                <option value="5">Platz 6</option>
-                <option value="6">Platz 7</option>
-                <option value="7">Platz 8</option>
-                <option value="8">Platz 9</option>
-                <option value="9">Platz 10</option>
-                <option value="10">Platz 11</option>
-                <option value="11">Platz 12</option>
-                <option value="12">Platz 13</option>
-                <option value="13">Platz 14</option>
-                <option value="14">Platz 15</option>
-                <option value="15">Platz 16</option>
-                <option value="16">Platz 17</option>
-                <option value="17">Platz 18</option>
-                <option value="18">Platz 19</option>
-                <option value="19">Platz 20</option>
-                <option value="20">Platz 21</option>
-                <option value="21">Platz 22</option>
-                <option value="22">Platz 23</option>
-                <option value="23">Platz 24</option>
-                <option value="24">Platz 25</option>
-                <option value="25">Platz 26</option>
-                <option value="26">Platz 27</option>
-                <option value="27">Platz 28</option>
-                <option value="28">Platz 29</option>
-                <option value="29">Platz 30</option>
-            </select>
-        </div>
         <div class="position pokemon_container_3">
-            <span id="pokemon_shiny_text" class="position pokemon_shiny_text text_normal text_white_small_shadow">Normal</span>
-            <input id="pokemon_shiny" class="position pokemon_shiny" onchange="switch_shiny();NewPoke();" type="checkbox" value="0"></input>
         </div>
         <div class="position pokemon_container_4">
             <select id="pokemon_gender" class="position pokemon_gender text_normal text_white_small_shadow">
