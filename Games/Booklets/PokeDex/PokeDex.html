@@ -33,13 +33,13 @@
           </div>
         </section>
         
-        <section id="home_site">
+        <section id="home_site" class="layout_container">
 
-            <div class="game_cover_container">
-                <div class="game_table border_3d">
+            <div class="game_cover_container border_3d">
+                <div class="game_table">
                     <div class="game_table_1">Spiel:</div>
                     <div class="game_table_2">
-                        <select id="game_select" class="game_select" onchange="select_cover();">
+                        <select id="game_select" class="game_select border_knob" onchange="select_cover();">
                             <option value="24">Feuerrote Edition</option>
                             <option value="23">Blattgrüne Edition</option>
                             <option value="4">Rubin-Edition</option>
@@ -48,436 +48,462 @@
                         </select>
                     </div>
                 </div>
-                <image id="game_cover" class="game_cover border_3d" src="pokemon/game_cover/Feuerrot.jpg"></image>
+                <image id="game_cover" class="game_cover" src="pokemon/game_cover/Feuerrot.jpg"></image>
             </div>
 
-            <div class="container_splitter"></div>
+            <div class="pokemon_container border_3d">
+                <div class="pokedex_select_table">
+                    <div class="pokedex_select_table_1">PokéDex:</div>
+                    <div class="pokedex_select_table_2">
+                        <select id="pokedex_select" class="pokedex_select border_knob" onchange="NewDex()">
+                            <option selected value="N">National-Dex</option>
+                            <option value="H">Hoenn-Dex</option>
+                            <option value="G">Spiel-Dex</option>
+                        </select>
+                    </div>
+                </div>
 
-            <div class="pokemon_container">
-                <select id="pokedex_select" class="pokedex_select" onchange="NewDex()">
-                    <option selected value="N">National-Dex</option>
-                    <option value="H">Hoenn-Dex</option>
-                    <option value="G">Spiel-Dex</option>
-                </select>
-                <image id="pokemon_picture" class="pokemon_picture border_3d" src="pokemon/normal/001.png"></image>
-                <select id="pokemon_select" class="pokemon_select border_3d" onchange="NewPoke();">
-                    <option selected value="001">Bisasam</option>
-                    <option value="002">Bisaknosp</option>
-                    <option value="003">Bisaflor</option>
-                    <option value="004">Glumanda</option>
-                    <option value="005">Glutexo</option>
-                    <option value="006">Glurak</option>
-                    <option value="007">Schiggy</option>
-                    <option value="008">Schillok</option>
-                    <option value="009">Turtok</option>
-                    <option value="010">Raupy</option>
-                    <option value="011">Safcon</option>
-                    <option value="012">Smettbo</option>
-                    <option value="013">Hornliu</option>
-                    <option value="014">Kokuna</option>
-                    <option value="015">Bibor</option>
-                    <option value="016">Taubsi</option>
-                    <option value="017">Tauboga</option>
-                    <option value="018">Tauboss</option>
-                    <option value="019">Rattfratz</option>
-                    <option value="020">Rattikarl</option>
-                    <option value="021">Habitak</option>
-                    <option value="022">Ibitak</option>
-                    <option value="023">Rettan</option>
-                    <option value="024">Arbok</option>
-                    <option value="025">Pikachu</option>
-                    <option value="026">Raichu</option>
-                    <option value="027">Sandan</option>
-                    <option value="028">Sandamer</option>
-                    <option value="029">Nidoran ♀</option>
-                    <option value="030">Nidorina</option>
-                    <option value="031">Nidoqueen</option>
-                    <option value="032">Nidoran ♂</option>
-                    <option value="033">Nidorino</option>
-                    <option value="034">Nidoking</option>
-                    <option value="035">Piepi</option>
-                    <option value="036">Pixi</option>
-                    <option value="037">Vulpix</option>
-                    <option value="038">Vulnona</option>
-                    <option value="039">Pummeluff</option>
-                    <option value="040">Knuddeluff</option>
-                    <option value="041">Zubat</option>
-                    <option value="042">Golbat</option>
-                    <option value="043">Myrapla</option>
-                    <option value="044">Duflor</option>
-                    <option value="045">Giflor</option>
-                    <option value="046">Paras</option>
-                    <option value="047">Parasek</option>
-                    <option value="048">Bluzuk</option>
-                    <option value="049">Omot</option>
-                    <option value="050">Digda</option>
-                    <option value="051">Digdri</option>
-                    <option value="052">Mauzi</option>
-                    <option value="053">Snobilikat</option>
-                    <option value="054">Enton</option>
-                    <option value="055">Entoron</option>
-                    <option value="056">Menki</option>
-                    <option value="057">Rasaff</option>
-                    <option value="058">Fukano</option>
-                    <option value="059">Arkani</option>
-                    <option value="060">Quapsel</option>
-                    <option value="061">Quaputzi</option>
-                    <option value="062">Quappo</option>
-                    <option value="063">Abra</option>
-                    <option value="064">Kadabra</option>
-                    <option value="065">Simsala</option>
-                    <option value="066">Machollo</option>
-                    <option value="067">Maschok</option>
-                    <option value="068">Machomei</option>
-                    <option value="069">Knofensa</option>
-                    <option value="070">Ultrigaria</option>
-                    <option value="071">Sarzenia</option>
-                    <option value="072">Tentacha</option>
-                    <option value="073">Tentoxa</option>
-                    <option value="074">Kleinstein</option>
-                    <option value="075">Georok</option>
-                    <option value="076">Geowaz</option>
-                    <option value="077">Ponita</option>
-                    <option value="078">Gallopa</option>
-                    <option value="079">Flegmon</option>
-                    <option value="080">Lahmus</option>
-                    <option value="081">Magnetilo</option>
-                    <option value="082">Magneton</option>
-                    <option value="083">Porenta</option>
-                    <option value="084">Dodu</option>
-                    <option value="085">Dodri</option>
-                    <option value="086">Jurob</option>
-                    <option value="087">Jugong</option>
-                    <option value="088">Sleima</option>
-                    <option value="089">Sleimok</option>
-                    <option value="090">Muschas</option>
-                    <option value="091">Austos</option>
-                    <option value="092">Nebulak</option>
-                    <option value="093">Alpollo</option>
-                    <option value="094">Gengar</option>
-                    <option value="095">Onix</option>
-                    <option value="096">Traumato</option>
-                    <option value="097">Hypno</option>
-                    <option value="098">Krabby</option>
-                    <option value="099">Kingler</option>
-                    <option value="100">Voltobal</option>
-                    <option value="101">Lectrobal</option>
-                    <option value="102">Owei</option>
-                    <option value="103">Kokowei</option>
-                    <option value="104">Tragosso</option>
-                    <option value="105">Knogga</option>
-                    <option value="106">Kicklee</option>
-                    <option value="107">Nockchan</option>
-                    <option value="108">Schlurp</option>
-                    <option value="109">Smogon</option>
-                    <option value="110">Smogmog</option>
-                    <option value="111">Rihorn</option>
-                    <option value="112">Rizeros</option>
-                    <option value="113">Chaneira</option>
-                    <option value="114">Tangela</option>
-                    <option value="115">Kangama</option>
-                    <option value="116">Seeper</option>
-                    <option value="117">Seemon</option>
-                    <option value="118">Goldini</option>
-                    <option value="119">Golking</option>
-                    <option value="120">Sterndu</option>
-                    <option value="121">Starmie</option>
-                    <option value="122">Pantimos</option>
-                    <option value="123">Sichlor</option>
-                    <option value="124">Rossana</option>
-                    <option value="125">Elektek</option>
-                    <option value="126">Magmar</option>
-                    <option value="127">Pinsir</option>
-                    <option value="128">Tauros</option>
-                    <option value="129">Karpador</option>
-                    <option value="130">Garados</option>
-                    <option value="131">Lapras</option>
-                    <option value="132">Ditto</option>
-                    <option value="133">Evoli</option>
-                    <option value="134">Aquana</option>
-                    <option value="135">Blitza</option>
-                    <option value="136">Flamara</option>
-                    <option value="137">Porygon</option>
-                    <option value="138">Amonitas</option>
-                    <option value="139">Amoroso</option>
-                    <option value="140">Kabuto</option>
-                    <option value="141">Kabutops</option>
-                    <option value="142">Aerodactyl</option>
-                    <option value="143">Relaxo</option>
-                    <option value="144">Arktos</option>
-                    <option value="145">Zapdos</option>
-                    <option value="146">Lavados</option>
-                    <option value="147">Dratini</option>
-                    <option value="148">Dragonir</option>
-                    <option value="149">Dragoran</option>
-                    <option value="150">Mewtu</option>
-                    <option value="151">Mew</option>
-                    <option value="152">Endivie</option>
-                    <option value="153">Lorblatt</option>
-                    <option value="154">Meganie</option>
-                    <option value="155">Feurigel</option>
-                    <option value="156">Igelavar</option>
-                    <option value="157">Tornupto</option>
-                    <option value="158">Karnimani</option>
-                    <option value="159">Tyracroc</option>
-                    <option value="160">Impergator</option>
-                    <option value="161">Wiesor</option>
-                    <option value="162">Wiesenior</option>
-                    <option value="163">Hoothoot</option>
-                    <option value="164">Noctuh</option>
-                    <option value="165">Ledyba</option>
-                    <option value="166">Ledian</option>
-                    <option value="167">Webarak</option>
-                    <option value="168">Ariados</option>
-                    <option value="169">Iksbat</option>
-                    <option value="170">Lampi</option>
-                    <option value="171">Lanturn</option>
-                    <option value="172">Pichu</option>
-                    <option value="173">Pii</option>
-                    <option value="174">Fluffeluff</option>
-                    <option value="175">Togepi</option>
-                    <option value="176">Togetic</option>
-                    <option value="177">Natu</option>
-                    <option value="178">Xatu</option>
-                    <option value="179">Voltilamm</option>
-                    <option value="180">Waaty</option>
-                    <option value="181">Ampharos</option>
-                    <option value="182">Blubella</option>
-                    <option value="183">Marill</option>
-                    <option value="184">Azumarill</option>
-                    <option value="185">Mogelbaum</option>
-                    <option value="186">Quaxo</option>
-                    <option value="187">Hoppspross</option>
-                    <option value="188">Hubelupf</option>
-                    <option value="189">Papungha</option>
-                    <option value="190">Griffel</option>
-                    <option value="191">Sonnkern</option>
-                    <option value="192">Sonnflora</option>
-                    <option value="193">Yanma</option>
-                    <option value="194">Felino</option>
-                    <option value="195">Morlord</option>
-                    <option value="196">Psiana</option>
-                    <option value="197">Nachtara</option>
-                    <option value="198">Kramurx</option>
-                    <option value="199">Laschoking</option>
-                    <option value="200">Traunfugil</option>
-                    <option value="201">Icognito</option>
-                    <option value="202">Woingenau</option>
-                    <option value="203">Girafarig</option>
-                    <option value="204">Tannza</option>
-                    <option value="205">Forstellka</option>
-                    <option value="206">Dummisel</option>
-                    <option value="207">Skorgla</option>
-                    <option value="208">Stahlos</option>
-                    <option value="209">Snubbull</option>
-                    <option value="210">Granbull</option>
-                    <option value="211">Baldorfish</option>
-                    <option value="212">Scherox</option>
-                    <option value="213">Pottrott</option>
-                    <option value="214">Skaraborn</option>
-                    <option value="215">Sniebel</option>
-                    <option value="216">Teddiursa</option>
-                    <option value="217">Ursaring</option>
-                    <option value="218">Schneckmag</option>
-                    <option value="219">Magcargo</option>
-                    <option value="220">Quiekel</option>
-                    <option value="221">Keifel</option>
-                    <option value="222">Corasonn</option>
-                    <option value="223">Remoraid</option>
-                    <option value="224">Octillery</option>
-                    <option value="225">Botogel</option>
-                    <option value="226">Mantax</option>
-                    <option value="227">Panzaeron</option>
-                    <option value="228">Hunduster</option>
-                    <option value="229">Hundemon</option>
-                    <option value="230">Seedraking</option>
-                    <option value="231">Phanpy</option>
-                    <option value="232">Donphan</option>
-                    <option value="233">Porygon 2</option>
-                    <option value="234">Damhirplex</option>
-                    <option value="235">Farbeagle</option>
-                    <option value="236">Rabauz</option>
-                    <option value="237">Kapoera</option>
-                    <option value="238">Kussilla</option>
-                    <option value="239">Elekid</option>
-                    <option value="240">Magby</option>
-                    <option value="241">Miltank</option>
-                    <option value="242">Heiteira</option>
-                    <option value="243">Raikou</option>
-                    <option value="244">Entei</option>
-                    <option value="245">Suicune</option>
-                    <option value="246">Larvitar</option>
-                    <option value="247">Pupitar</option>
-                    <option value="248">Despotar</option>
-                    <option value="249">Lugia</option>
-                    <option value="250">Ho-oh</option>
-                    <option value="251">Celebi</option>
+                <div class="pokedex_sort_table">
+                    <div class="pokedex_sort_table_1">Sortierung:</div>
+                    <div class="pokedex_sort_table_2">
+                        <select id="pokedex_sort" class="pokedex_sort border_knob" onchange="NPO();">
+                            <option selected>Nummer</option>
+                            <option>Alphabet</option>
+                            <option>Kampf</option>
+                            <option>Flug</option>
+                            <option>Gift</option>
+                            <option>Boden</option>
+                            <option>Stein</option>
+                            <option>Käfer</option>
+                            <option>Geist</option>
+                            <option>Stahl</option>
+                            <option>Feuer</option>
+                            <option>Wasser</option>
+                            <option>Pflanze</option>
+                            <option>Elektro</option>
+                            <option>Psycho</option>
+                            <option>Eis</option>
+                            <option>Drachen</option>
+                            <option>Dunkel</option>
+                            <option>Normal</option>
+                            <option>Hoenn-Dex</option>
+                            <option>Kanto-Dex</option>
+                            <option>National-Dex</option>
+                        </select>
+                    </div>
+                </div>
 
-                    <option value="277">Geckarbor</option>
-                    <option value="278">Reptain</option>
-                    <option value="279">Gewaldro</option>
-                    <option value="280">Flemmli</option>
-                    <option value="281">Jungglut</option>
-                    <option value="282">Lohgock</option>
-                    <option value="283">Hydropi</option>
-                    <option value="284">Moorabbel</option>
-                    <option value="285">Sumpex</option>
-                    <option value="286">Fiffyen</option>
-                    <option value="287">Magnayen</option>
-                    <option value="288">Zigzachs</option>
-                    <option value="289">Geradaks</option>
-                    <option value="290">Waumpel</option>
-                    <option value="291">Schaloko</option>
-                    <option value="292">Papinella</option>
-                    <option value="293">Panekon</option>
-                    <option value="294">Pudox</option>
-                    <option value="295">Loturzel</option>
-                    <option value="296">Lombrero</option>
-                    <option value="297">Kappalores</option>
-                    <option value="298">Samurzel</option>
-                    <option value="299">Blanas</option>
-                    <option value="300">Tengulist</option>
+                <image id="pokemon_picture" class="pokemon_picture" src="pokemon/normal/001.png"></image>
 
-                    <option value="301">Nincada</option>
-                    <option value="302">Ninjask</option>
-                    <option value="303">Ninjatom</option>
-                    <option value="304">Schwalbini</option>
-                    <option value="305">Schwalboss</option>
-                    <option value="306">Knilz</option>
-                    <option value="307">Kapilz</option>
-                    <option value="308">Pandir</option>
-                    <option value="309">Wingull</option>
-                    <option value="310">Pelipper</option>
-                    <option value="311">Gehweiher</option>
-                    <option value="312">Maskeregen</option>
-                    <option value="313">Wailmer</option>
-                    <option value="314">Wailord</option>
-                    <option value="315">Eneco</option>
-                    <option value="316">Enekoro</option>
-                    <option value="317">Kecleon</option>
-                    <option value="318">Puppance</option>
-                    <option value="319">Lepumentas</option>
-                    <option value="320">Nasgnet</option>
-                    <option value="321">Qurtel</option>
-                    <option value="322">Zobiris</option>
-                    <option value="323">Schmerbe</option>
-                    <option value="324">Welsar</option>
-                    <option value="325">Liebiskus</option>
-                    <option value="326">Krebscorps</option>
-                    <option value="327">Krebutack</option>
-                    <option value="328">Barschwa</option>
-                    <option value="329">Milotic</option>
-                    <option value="330">Kanivanha</option>
-                    <option value="331">Tohaido</option>
-                    <option value="332">Knacklion</option>
-                    <option value="333">Vibrava</option>
-                    <option value="334">Libelldra</option>
-                    <option value="335">Makuhita</option>
-                    <option value="336">Hariyama</option>
-                    <option value="337">Frizelbliz</option>
-                    <option value="338">Voltenso</option>
-                    <option value="339">Camaub</option>
-                    <option value="340">Camerupt</option>
-                    <option value="341">Seemops</option>
-                    <option value="342">Seejong</option>
-                    <option value="343">Walraisa</option>
-                    <option value="344">Tuska</option>
-                    <option value="345">Noktuska</option>
-                    <option value="346">Schneppke</option>
-                    <option value="347">Firnontor</option>
-                    <option value="348">Lunastein</option>
-                    <option value="349">Sonnfel</option>
-                    <option value="350">Azurill</option>
-                    <option value="351">Spoink</option>
-                    <option value="352">Groink</option>
-                    <option value="353">Plusle</option>
-                    <option value="354">Minun</option>
-                    <option value="355">Flunkifer</option>
-                    <option value="356">Meditie</option>
-                    <option value="357">Meditalis</option>
-                    <option value="358">Wablu</option>
-                    <option value="359">Altaria</option>
-                    <option value="360">Isso</option>
-                    <option value="361">Zwirrlicht</option>
-                    <option value="362">Zwirrklop</option>
-                    <option value="363">Roselia</option>
-                    <option value="364">Bummelz</option>
-                    <option value="365">Muntier</option>
-                    <option value="366">Letarking</option>
-                    <option value="367">Schluppuck</option>
-                    <option value="368">Schlukwech</option>
-                    <option value="369">Tropius</option>
-                    <option value="370">Flurmel</option>
-                    <option value="371">Krakeelo</option>
-                    <option value="372">Krawumms</option>
-                    <option value="373">Perlu</option>
-                    <option value="374">Aalabyss</option>
-                    <option value="375">Saganabyss</option>
-                    <option value="376">Absol</option>
-                    <option value="377">Shuppet</option>
-                    <option value="378">Banette</option>
-                    <option value="379">Vipitis</option>
-                    <option value="380">Sengo</option>
-                    <option value="381">Relicanth</option>
-                    <option value="382">Stollunior</option>
-                    <option value="383">Stollrak</option>
-                    <option value="384">Stolloss</option>
-                    <option value="385">Formeo</option>
-                    <option value="386">Volbeat</option>
-                    <option value="387">Illumise</option>
-                    <option value="388">Liliep</option>
-                    <option value="389">Wielie</option>
-                    <option value="390">Anorith</option>
-                    <option value="391">Armaldo</option>
-                    <option value="392">Trasla</option>
-                    <option value="393">Kirlia</option>
-                    <option value="394">Guardevoir</option>
-                    <option value="395">Kindwurm</option>
-                    <option value="396">Draschel</option>
-                    <option value="397">Brutalanda</option>
-                    <option value="398">Tanhel</option>
-                    <option value="399">Metang</option>
-                    <option value="400">Metagross</option>
-                    <option value="401">Regirock</option>
-                    <option value="402">Regice</option>
-                    <option value="403">Registeel</option>
-                    <option value="404">Kyogre</option>
-                    <option value="405">Groudon</option>
-                    <option value="406">Rayquaza</option>
-                    <option value="407">Latias</option>
-                    <option value="408">Latios</option>
-                    <option value="409">Jirachi</option>
-                    <option value="410">Deoxys</option>
-                    <option value="411">Palimpalim</option>
-                </select>
+                <div class="pokemon_select_table">
+                    <div class="pokemon_select_table_1">Pokémon:</div>
+                    <div class="pokemon_select_table_2">
+                        <select id="pokemon_select" class="pokemon_select border_knob" onchange="NewPoke();">
+                            <option selected value="001">Bisasam</option>
+                            <option value="002">Bisaknosp</option>
+                            <option value="003">Bisaflor</option>
+                            <option value="004">Glumanda</option>
+                            <option value="005">Glutexo</option>
+                            <option value="006">Glurak</option>
+                            <option value="007">Schiggy</option>
+                            <option value="008">Schillok</option>
+                            <option value="009">Turtok</option>
+                            <option value="010">Raupy</option>
+                            <option value="011">Safcon</option>
+                            <option value="012">Smettbo</option>
+                            <option value="013">Hornliu</option>
+                            <option value="014">Kokuna</option>
+                            <option value="015">Bibor</option>
+                            <option value="016">Taubsi</option>
+                            <option value="017">Tauboga</option>
+                            <option value="018">Tauboss</option>
+                            <option value="019">Rattfratz</option>
+                            <option value="020">Rattikarl</option>
+                            <option value="021">Habitak</option>
+                            <option value="022">Ibitak</option>
+                            <option value="023">Rettan</option>
+                            <option value="024">Arbok</option>
+                            <option value="025">Pikachu</option>
+                            <option value="026">Raichu</option>
+                            <option value="027">Sandan</option>
+                            <option value="028">Sandamer</option>
+                            <option value="029">Nidoran ♀</option>
+                            <option value="030">Nidorina</option>
+                            <option value="031">Nidoqueen</option>
+                            <option value="032">Nidoran ♂</option>
+                            <option value="033">Nidorino</option>
+                            <option value="034">Nidoking</option>
+                            <option value="035">Piepi</option>
+                            <option value="036">Pixi</option>
+                            <option value="037">Vulpix</option>
+                            <option value="038">Vulnona</option>
+                            <option value="039">Pummeluff</option>
+                            <option value="040">Knuddeluff</option>
+                            <option value="041">Zubat</option>
+                            <option value="042">Golbat</option>
+                            <option value="043">Myrapla</option>
+                            <option value="044">Duflor</option>
+                            <option value="045">Giflor</option>
+                            <option value="046">Paras</option>
+                            <option value="047">Parasek</option>
+                            <option value="048">Bluzuk</option>
+                            <option value="049">Omot</option>
+                            <option value="050">Digda</option>
+                            <option value="051">Digdri</option>
+                            <option value="052">Mauzi</option>
+                            <option value="053">Snobilikat</option>
+                            <option value="054">Enton</option>
+                            <option value="055">Entoron</option>
+                            <option value="056">Menki</option>
+                            <option value="057">Rasaff</option>
+                            <option value="058">Fukano</option>
+                            <option value="059">Arkani</option>
+                            <option value="060">Quapsel</option>
+                            <option value="061">Quaputzi</option>
+                            <option value="062">Quappo</option>
+                            <option value="063">Abra</option>
+                            <option value="064">Kadabra</option>
+                            <option value="065">Simsala</option>
+                            <option value="066">Machollo</option>
+                            <option value="067">Maschok</option>
+                            <option value="068">Machomei</option>
+                            <option value="069">Knofensa</option>
+                            <option value="070">Ultrigaria</option>
+                            <option value="071">Sarzenia</option>
+                            <option value="072">Tentacha</option>
+                            <option value="073">Tentoxa</option>
+                            <option value="074">Kleinstein</option>
+                            <option value="075">Georok</option>
+                            <option value="076">Geowaz</option>
+                            <option value="077">Ponita</option>
+                            <option value="078">Gallopa</option>
+                            <option value="079">Flegmon</option>
+                            <option value="080">Lahmus</option>
+                            <option value="081">Magnetilo</option>
+                            <option value="082">Magneton</option>
+                            <option value="083">Porenta</option>
+                            <option value="084">Dodu</option>
+                            <option value="085">Dodri</option>
+                            <option value="086">Jurob</option>
+                            <option value="087">Jugong</option>
+                            <option value="088">Sleima</option>
+                            <option value="089">Sleimok</option>
+                            <option value="090">Muschas</option>
+                            <option value="091">Austos</option>
+                            <option value="092">Nebulak</option>
+                            <option value="093">Alpollo</option>
+                            <option value="094">Gengar</option>
+                            <option value="095">Onix</option>
+                            <option value="096">Traumato</option>
+                            <option value="097">Hypno</option>
+                            <option value="098">Krabby</option>
+                            <option value="099">Kingler</option>
+                            <option value="100">Voltobal</option>
+                            <option value="101">Lectrobal</option>
+                            <option value="102">Owei</option>
+                            <option value="103">Kokowei</option>
+                            <option value="104">Tragosso</option>
+                            <option value="105">Knogga</option>
+                            <option value="106">Kicklee</option>
+                            <option value="107">Nockchan</option>
+                            <option value="108">Schlurp</option>
+                            <option value="109">Smogon</option>
+                            <option value="110">Smogmog</option>
+                            <option value="111">Rihorn</option>
+                            <option value="112">Rizeros</option>
+                            <option value="113">Chaneira</option>
+                            <option value="114">Tangela</option>
+                            <option value="115">Kangama</option>
+                            <option value="116">Seeper</option>
+                            <option value="117">Seemon</option>
+                            <option value="118">Goldini</option>
+                            <option value="119">Golking</option>
+                            <option value="120">Sterndu</option>
+                            <option value="121">Starmie</option>
+                            <option value="122">Pantimos</option>
+                            <option value="123">Sichlor</option>
+                            <option value="124">Rossana</option>
+                            <option value="125">Elektek</option>
+                            <option value="126">Magmar</option>
+                            <option value="127">Pinsir</option>
+                            <option value="128">Tauros</option>
+                            <option value="129">Karpador</option>
+                            <option value="130">Garados</option>
+                            <option value="131">Lapras</option>
+                            <option value="132">Ditto</option>
+                            <option value="133">Evoli</option>
+                            <option value="134">Aquana</option>
+                            <option value="135">Blitza</option>
+                            <option value="136">Flamara</option>
+                            <option value="137">Porygon</option>
+                            <option value="138">Amonitas</option>
+                            <option value="139">Amoroso</option>
+                            <option value="140">Kabuto</option>
+                            <option value="141">Kabutops</option>
+                            <option value="142">Aerodactyl</option>
+                            <option value="143">Relaxo</option>
+                            <option value="144">Arktos</option>
+                            <option value="145">Zapdos</option>
+                            <option value="146">Lavados</option>
+                            <option value="147">Dratini</option>
+                            <option value="148">Dragonir</option>
+                            <option value="149">Dragoran</option>
+                            <option value="150">Mewtu</option>
+                            <option value="151">Mew</option>
+
+                            <option value="152">Endivie</option>
+                            <option value="153">Lorblatt</option>
+                            <option value="154">Meganie</option>
+                            <option value="155">Feurigel</option>
+                            <option value="156">Igelavar</option>
+                            <option value="157">Tornupto</option>
+                            <option value="158">Karnimani</option>
+                            <option value="159">Tyracroc</option>
+                            <option value="160">Impergator</option>
+                            <option value="161">Wiesor</option>
+                            <option value="162">Wiesenior</option>
+                            <option value="163">Hoothoot</option>
+                            <option value="164">Noctuh</option>
+                            <option value="165">Ledyba</option>
+                            <option value="166">Ledian</option>
+                            <option value="167">Webarak</option>
+                            <option value="168">Ariados</option>
+                            <option value="169">Iksbat</option>
+                            <option value="170">Lampi</option>
+                            <option value="171">Lanturn</option>
+                            <option value="172">Pichu</option>
+                            <option value="173">Pii</option>
+                            <option value="174">Fluffeluff</option>
+                            <option value="175">Togepi</option>
+                            <option value="176">Togetic</option>
+                            <option value="177">Natu</option>
+                            <option value="178">Xatu</option>
+                            <option value="179">Voltilamm</option>
+                            <option value="180">Waaty</option>
+                            <option value="181">Ampharos</option>
+                            <option value="182">Blubella</option>
+                            <option value="183">Marill</option>
+                            <option value="184">Azumarill</option>
+                            <option value="185">Mogelbaum</option>
+                            <option value="186">Quaxo</option>
+                            <option value="187">Hoppspross</option>
+                            <option value="188">Hubelupf</option>
+                            <option value="189">Papungha</option>
+                            <option value="190">Griffel</option>
+                            <option value="191">Sonnkern</option>
+                            <option value="192">Sonnflora</option>
+                            <option value="193">Yanma</option>
+                            <option value="194">Felino</option>
+                            <option value="195">Morlord</option>
+                            <option value="196">Psiana</option>
+                            <option value="197">Nachtara</option>
+                            <option value="198">Kramurx</option>
+                            <option value="199">Laschoking</option>
+                            <option value="200">Traunfugil</option>
+                            <option value="201">Icognito</option>
+                            <option value="202">Woingenau</option>
+                            <option value="203">Girafarig</option>
+                            <option value="204">Tannza</option>
+                            <option value="205">Forstellka</option>
+                            <option value="206">Dummisel</option>
+                            <option value="207">Skorgla</option>
+                            <option value="208">Stahlos</option>
+                            <option value="209">Snubbull</option>
+                            <option value="210">Granbull</option>
+                            <option value="211">Baldorfish</option>
+                            <option value="212">Scherox</option>
+                            <option value="213">Pottrott</option>
+                            <option value="214">Skaraborn</option>
+                            <option value="215">Sniebel</option>
+                            <option value="216">Teddiursa</option>
+                            <option value="217">Ursaring</option>
+                            <option value="218">Schneckmag</option>
+                            <option value="219">Magcargo</option>
+                            <option value="220">Quiekel</option>
+                            <option value="221">Keifel</option>
+                            <option value="222">Corasonn</option>
+                            <option value="223">Remoraid</option>
+                            <option value="224">Octillery</option>
+                            <option value="225">Botogel</option>
+                            <option value="226">Mantax</option>
+                            <option value="227">Panzaeron</option>
+                            <option value="228">Hunduster</option>
+                            <option value="229">Hundemon</option>
+                            <option value="230">Seedraking</option>
+                            <option value="231">Phanpy</option>
+                            <option value="232">Donphan</option>
+                            <option value="233">Porygon 2</option>
+                            <option value="234">Damhirplex</option>
+                            <option value="235">Farbeagle</option>
+                            <option value="236">Rabauz</option>
+                            <option value="237">Kapoera</option>
+                            <option value="238">Kussilla</option>
+                            <option value="239">Elekid</option>
+                            <option value="240">Magby</option>
+                            <option value="241">Miltank</option>
+                            <option value="242">Heiteira</option>
+                            <option value="243">Raikou</option>
+                            <option value="244">Entei</option>
+                            <option value="245">Suicune</option>
+                            <option value="246">Larvitar</option>
+                            <option value="247">Pupitar</option>
+                            <option value="248">Despotar</option>
+                            <option value="249">Lugia</option>
+                            <option value="250">Ho-oh</option>
+                            <option value="251">Celebi</option>
+                            
+                            <option value="277">Geckarbor</option>
+                            <option value="278">Reptain</option>
+                            <option value="279">Gewaldro</option>
+                            <option value="280">Flemmli</option>
+                            <option value="281">Jungglut</option>
+                            <option value="282">Lohgock</option>
+                            <option value="283">Hydropi</option>
+                            <option value="284">Moorabbel</option>
+                            <option value="285">Sumpex</option>
+                            <option value="286">Fiffyen</option>
+                            <option value="287">Magnayen</option>
+                            <option value="288">Zigzachs</option>
+                            <option value="289">Geradaks</option>
+                            <option value="290">Waumpel</option>
+                            <option value="291">Schaloko</option>
+                            <option value="292">Papinella</option>
+                            <option value="293">Panekon</option>
+                            <option value="294">Pudox</option>
+                            <option value="295">Loturzel</option>
+                            <option value="296">Lombrero</option>
+                            <option value="297">Kappalores</option>
+                            <option value="298">Samurzel</option>
+                            <option value="299">Blanas</option>
+                            <option value="300">Tengulist</option>
+                            
+                            <option value="301">Nincada</option>
+                            <option value="302">Ninjask</option>
+                            <option value="303">Ninjatom</option>
+                            <option value="304">Schwalbini</option>
+                            <option value="305">Schwalboss</option>
+                            <option value="306">Knilz</option>
+                            <option value="307">Kapilz</option>
+                            <option value="308">Pandir</option>
+                            <option value="309">Wingull</option>
+                            <option value="310">Pelipper</option>
+                            <option value="311">Gehweiher</option>
+                            <option value="312">Maskeregen</option>
+                            <option value="313">Wailmer</option>
+                            <option value="314">Wailord</option>
+                            <option value="315">Eneco</option>
+                            <option value="316">Enekoro</option>
+                            <option value="317">Kecleon</option>
+                            <option value="318">Puppance</option>
+                            <option value="319">Lepumentas</option>
+                            <option value="320">Nasgnet</option>
+                            <option value="321">Qurtel</option>
+                            <option value="322">Zobiris</option>
+                            <option value="323">Schmerbe</option>
+                            <option value="324">Welsar</option>
+                            <option value="325">Liebiskus</option>
+                            <option value="326">Krebscorps</option>
+                            <option value="327">Krebutack</option>
+                            <option value="328">Barschwa</option>
+                            <option value="329">Milotic</option>
+                            <option value="330">Kanivanha</option>
+                            <option value="331">Tohaido</option>
+                            <option value="332">Knacklion</option>
+                            <option value="333">Vibrava</option>
+                            <option value="334">Libelldra</option>
+                            <option value="335">Makuhita</option>
+                            <option value="336">Hariyama</option>
+                            <option value="337">Frizelbliz</option>
+                            <option value="338">Voltenso</option>
+                            <option value="339">Camaub</option>
+                            <option value="340">Camerupt</option>
+                            <option value="341">Seemops</option>
+                            <option value="342">Seejong</option>
+                            <option value="343">Walraisa</option>
+                            <option value="344">Tuska</option>
+                            <option value="345">Noktuska</option>
+                            <option value="346">Schneppke</option>
+                            <option value="347">Firnontor</option>
+                            <option value="348">Lunastein</option>
+                            <option value="349">Sonnfel</option>
+                            <option value="350">Azurill</option>
+                            <option value="351">Spoink</option>
+                            <option value="352">Groink</option>
+                            <option value="353">Plusle</option>
+                            <option value="354">Minun</option>
+                            <option value="355">Flunkifer</option>
+                            <option value="356">Meditie</option>
+                            <option value="357">Meditalis</option>
+                            <option value="358">Wablu</option>
+                            <option value="359">Altaria</option>
+                            <option value="360">Isso</option>
+                            <option value="361">Zwirrlicht</option>
+                            <option value="362">Zwirrklop</option>
+                            <option value="363">Roselia</option>
+                            <option value="364">Bummelz</option>
+                            <option value="365">Muntier</option>
+                            <option value="366">Letarking</option>
+                            <option value="367">Schluppuck</option>
+                            <option value="368">Schlukwech</option>
+                            <option value="369">Tropius</option>
+                            <option value="370">Flurmel</option>
+                            <option value="371">Krakeelo</option>
+                            <option value="372">Krawumms</option>
+                            <option value="373">Perlu</option>
+                            <option value="374">Aalabyss</option>
+                            <option value="375">Saganabyss</option>
+                            <option value="376">Absol</option>
+                            <option value="377">Shuppet</option>
+                            <option value="378">Banette</option>
+                            <option value="379">Vipitis</option>
+                            <option value="380">Sengo</option>
+                            <option value="381">Relicanth</option>
+                            <option value="382">Stollunior</option>
+                            <option value="383">Stollrak</option>
+                            <option value="384">Stolloss</option>
+                            <option value="385">Formeo</option>
+                            <option value="386">Volbeat</option>
+                            <option value="387">Illumise</option>
+                            <option value="388">Liliep</option>
+                            <option value="389">Wielie</option>
+                            <option value="390">Anorith</option>
+                            <option value="391">Armaldo</option>
+                            <option value="392">Trasla</option>
+                            <option value="393">Kirlia</option>
+                            <option value="394">Guardevoir</option>
+                            <option value="395">Kindwurm</option>
+                            <option value="396">Draschel</option>
+                            <option value="397">Brutalanda</option>
+                            <option value="398">Tanhel</option>
+                            <option value="399">Metang</option>
+                            <option value="400">Metagross</option>
+                            <option value="401">Regirock</option>
+                            <option value="402">Regice</option>
+                            <option value="403">Registeel</option>
+                            <option value="404">Kyogre</option>
+                            <option value="405">Groudon</option>
+                            <option value="406">Rayquaza</option>
+                            <option value="407">Latias</option>
+                            <option value="408">Latios</option>
+                            <option value="409">Jirachi</option>
+                            <option value="410">Deoxys</option>
+                            <option value="411">Palimpalim</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="pokedex_number_table">
+                    <div class="pokedex_number_table_1">Nummer:</div>
+                    <div class="pokedex_number_table_2">
+                        <input id="pokedex_number" class="pokedex_number border_knob" value="# 1" type="text" onchange="NewPoke();" disabled></input>
+                    </div>
+                </div>
+                
             </div>
             
             <div class="pokedex_container border_3d">
-                <select id="pokedex_sort" class="position pokedex_sort text_normal text_white_small_shadow" onchange="NPO();">
-                    <option selected>Nummer</option>
-                    <option>Alphabet</option>
-                    <option>Kampf</option>
-                    <option>Flug</option>
-                    <option>Gift</option>
-                    <option>Boden</option>
-                    <option>Stein</option>
-                    <option>Käfer</option>
-                    <option>Geist</option>
-                    <option>Stahl</option>
-                    <option>Feuer</option>
-                    <option>Wasser</option>
-                    <option>Pflanze</option>
-                    <option>Elektro</option>
-                    <option>Psycho</option>
-                    <option>Eis</option>
-                    <option>Drachen</option>
-                    <option>Dunkel</option>
-                    <option>Normal</option>
-                    <option>Hoenn-Dex</option>
-                    <option>Kanto-Dex</option>
-                    <option>National-Dex</option>
-                </select>
-                <input id="pokedex_number" class="position pokedex_number textalign_center text_normal text_white_small_shadow" value="# 1" type="text" onchange="NewPoke();" disabled></input>
+                
+                
                 <select id="type_1" class="position type_1 text_normal text_white_small_shadow" onchange="NewPoke();" disabled>
                     <option value="0">Typ 1: Kampf</option>
                     <option value="1">Typ 1: Flug</option>
