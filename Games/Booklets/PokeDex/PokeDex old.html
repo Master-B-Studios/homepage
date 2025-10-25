@@ -4,20 +4,15 @@
 <title id="title_id" style="background-color: #000000"></title>
 <meta http-equiv="x-ua-compatible" content="ie=edge"/>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<HTA:application navigable="yes" icon="sources/image/icon0.ico">
-<link rel="stylesheet" type="text/css" href="sources/design/01.css">
-<script type="text/javascript" src="sources/data/functions_java.js"></script>
+<link rel="stylesheet" type="text/css" href="design.css">
+<script type="text/javascript" src="functions.js"></script>
 </head>
 
-<body class="mb_bg" onload="jump_page_home();" onkeypress="check_back(event,this);">
+<body class="mb_bg" onload="jump_page_home();">
 
 <section id="home">
-    <div class="position logo_container border_3d">
-        <image class="background_image" src="sources/design/Logo.png" onclick="jump_page_credits();"></image>
-    </div>
-    
     <div class="position cover_container border_3d">
-        <image id="game_cover" class="background_image" src="sources/pokemon/cover/Feuerrot.jpg"></image>
+        <image id="game_cover" class="background_image" src="pokemon/game_cover/Feuerrot.jpg"></image>
         <select id="game_select" class="position game_select text_normal" onchange="select_cover();">
             <option value="24">Feuerrote Edition</option>
             <option value="23">Blattgrüne Edition</option>
@@ -26,7 +21,6 @@
             <option value="30">Smaragd-Edition</option>
         </select>
     </div>
-    
     <div class="position pokedex_container border_3d">
         <select id="pokedex_sort" class="position pokedex_sort text_normal text_white_small_shadow" onchange="NPO();">
             <option selected>Nummer</option>
@@ -101,7 +95,7 @@
         <input id="pokemon_name" class="position pokemon_name text_normal text_white_small_shadow" value="" type=text placeholder="Spitzname"></input>
     </div>
     <div class="position pokemon_container border_3d">
-        <image id="pokemon_picture" class="position pokemon_picture" src="sources/pokemon/normal/001.png"></image>
+        <image id="pokemon_picture" class="position pokemon_picture" src="pokemon/normal/001.png"></image>
         <select id="pokemon_select" class="position pokemon_select" onchange="NewPoke();">
             <option selected value="001">Bisasam</option>
             <option value="002">Bisaknosp</option>
@@ -1017,13 +1011,13 @@
     </div>
 
     <div class="position fight_container border_3d">
-        <image class="background_image" src="sources/design/Icon_Fighting_01.png" onclick="jump_page_fight_site();"></image>
+        <image class="background_image" src="pokemon/icons/Icon_Fighting_01.png" onclick="jump_page_fight_site();"></image>
     </div>
     <div class="position trainer_container border_3d">
-        <image class="background_image" src="sources/design/Icon_Trainer_01.png" onclick="jump_page_trainer_site();"></image>
+        <image class="background_image" src="pokemon/icons/Icon_Trainer_01.png" onclick="jump_page_trainer_site();"></image>
     </div>
     <div class="position code_container border_3d">
-        <image class="background_image" src="sources/design/Icon_Code_01.png" onclick="MaxUPP();MaxDV();MaxEff();jump_page_code_site();"></image>
+        <image class="background_image" src="pokemon/icons/Icon_Code_01.png" onclick="MaxUPP();MaxDV();MaxEff();jump_page_code_site();"></image>
     </div>
 </section>
 
@@ -2728,7 +2722,7 @@
         </div>
     </div>
     <div class="position code_create_container border_3d">
-        <image class="background_image" src="sources/design/Icon_Code_01.png" onclick="codeout(-1);"></image>
+        <image class="background_image" src="pokemon/icons/Icon_Code_01.png" onclick="codeout(-1);"></image>
     </div>
     <textarea id="code_output" class="position code_output textalign_center text_normal text_white_small_shadow border_3d" readonly>
 
@@ -2741,7 +2735,7 @@ Nur ein Pokemon bearbeiten!
     <button class="position fight_table_link text_normal text_white_small_shadow border_3d" onclick="jump_page_fight_table_site();">Kampftabelle</button>
 </section>
 <section id="fight_table_site">
-    <image class="position fight_table border_3d" src="sources/pokemon/stuff/Kampftabelle_01.png"></image>
+    <image class="position fight_table border_3d" src="pokemon/stuff/Kampftabelle_01.png"></image>
 </section>
 
 
@@ -2751,8 +2745,8 @@ Nur ein Pokemon bearbeiten!
 
     <input id="pokemon_picture_extension" value=".png" type="text" onchange="NewPoke();"></input>
     <input id="pokemon_picture_00" type=checkbox checked>Leading Zeros</input>
-    <input id="pokemon_picture_normal" value="sources/pokemon/normal/" type="text" onchange="NewPoke();"></input>
-    <input id="pokemon_picture_shiny" value="sources/pokemon/shiny/" type="text" onchange="NewPoke();"></input>
+    <input id="pokemon_picture_normal" value="pokemon/normal/" type="text" onchange="NewPoke();"></input>
+    <input id="pokemon_picture_shiny" value="pokemon/shiny/" type="text" onchange="NewPoke();"></input>
 
     <select id="pokemon_nature" onchange="HPower();">
         <option value="00" selected>Robust</option>

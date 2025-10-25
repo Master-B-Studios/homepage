@@ -1,74 +1,48 @@
-.game_container {width: 100%;display: flex;align-items: center;}
+/* Views for multiple instances */
+.background_image {display: block;width: 100%;height: 100%;}
+.border_3d {border-left: 6px ridge #888888;border-top: 6px ridge #888888;border-right: 6px groove #888888;border-bottom: 6px groove #888888;}
+.container_splitter {width: 100%;height: 1em;}
 
-.game_select_wrapper {width: 48%;height: auto;border: 1px solid #888888;border-radius: 1em;position: relative;display: inline-block;margin: auto;}
-.game_cover {width: 100%;border-radius: 1em;transition: transform 1s ease;box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);cursor: pointer;display: block;}
-.game_cover:hover {transform: scale(0.9);}
-
-.pokemon_select_wrapper {width: 48%;height: auto;border: 1px solid #888888;border-radius: 1em;position: relative;display: inline-block;margin: auto;}
-.pokemon_image {width: 100%;border-radius: 1em;transition: transform 1s ease;box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);cursor: pointer;display: block;background-image: url(pokemon/background.png);background-size: contain;background-repeat: no-repeat;background-position: center;}
-.pokemon_image:hover {transform: scale(0.9);}
-
-.dropdown {width: 100%;height: 100%;position: absolute;color: #dbdbdb;top: 50%;left: 50%;transform: translate(-50%, -50%);display: none;flex-direction: column;background: rgba(0, 0, 0, 0.8);border-radius: 1em;box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);overflow: scroll;}
-.dropdown.visible {display: flex;}
-.option_game, .option_pokemon {padding: 0.5em 1em;font-size: 0.8em;cursor: pointer;border-bottom: 1px solid #dbdbdb;}
-.option_game:last-child, .option_pokemon:last-child {border-bottom: none;}
-.option_game:hover, .option_pokemon:hover {background: #444444;color: #48ff00;transition: color 1s background 1s;}
-
-.td_margin {width: 1%;}
-
-#pokemon_shiny_checkbox {width: 2em;height: 2em;background-color: #0000ff;}
-
-
-
-.header_credits {left: 50%;top: 33%;cursor: default;}
-.text_credits {left: 50%;top: 55%;cursor: default;}
-
-.border_3d {border-radius: 10px;border-left: 6px ridge #888888;border-top: 6px ridge #888888;border-right: 6px groove #888888;border-bottom: 6px groove #888888;}
-.border_3px {border-radius: 10px;border: 1px solid #888888;}
-
-/* Text */
-.header_normal {width: 30%;height: auto;font-size: 22px;font-weight: bold;text-align: center;text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;}
-.header_left {left: 20%;top: 14%;}
-.header_middle {left: 50%;top: 30%;}
-.header_right {left: 80%;top: 14%;}
-
-.text_normal {font-size: 12px;cursor: default;}
-.text_fat {width: 30%;height: auto;font-size: 22px;font-weight: bold;text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;}
-.text_complete {width: 100%;height: auto;font-size: 22px;text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;}
-
-.textalign_left {text-align: left;}
-.textalign_center {text-align: center;}
-.textalign_right {text-align: right;}
-
-.text_white {color: #dbdbdb;text-shadow: 4px 4px 6px #000000,-4px -4px 6px #000000,-4px 4px 6px #000000,4px -4px 6px #000000;}
-.text_green {color: #48ff00;text-shadow: 4px 4px 6px #000000,-4px -4px 6px #000000,-4px 4px 6px #000000,4px -4px 6px #000000;}
-.text_red {color: #fc2600;text-shadow: 4px 4px 6px #000000,-4px -4px 6px #000000,-4px 4px 6px #000000,4px -4px 6px #000000;}
-.text_cyan {color: #00eeff;text-shadow: 4px 4px 6px #000000,-4px -4px 6px #000000,-4px 4px 6px #000000,4px -4px 6px #000000;}
-
-.text_white_small_shadow {color: #dbdbdb;text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;}
-.text_white_no_shadow {color: #dbdbdb;}
+/* Game-Cover */
+.game_table {width: 100%;border-radius: 1em 1em 0 0;background-color: #111111;display: flex;}
+.game_table_1 {width: 25%;padding: 0.2em;text-align: center;}
+.game_table_2 {width: 75%;padding: 0.2em;}
+.game_cover_container {width: 100%;height: auto;margin: auto;}
+.game_cover {display: block;width: 100%;height: 100%;border-radius: 0 0 1em 1em;}
+.game_select {width: 100%;height: 100%;color: #dbdbdb;background-color: #222222;-webkit-appearance: none;appearance: none;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
+.game_select:hover {color: #48ff00;background-color: #444444;}
 
 /* Pokemon-Section */
-.hidden_code {visibility: hidden;}
+.pokemon_container {width: 100%;height: auto;margin: auto;}
 
+.pokedex_select {width: 100%;height: 100%;-webkit-appearance: none;appearance: none;text-align-last: center;}
+.pokemon_picture {display: block;width: 100%;height: 100%;border-radius: 0 0 1em 1em;background-image: url(pokemon/icons/background.png);background-size: contain;background-repeat: no-repeat;background-position: center;}
+.pokemon_select {width: 100%;height: 100%;color: #dbdbdb;background-color: #222222;border-radius: 1em 1em 0 0;-webkit-appearance: none;appearance: none;text-align-last: center;cursor: pointer;}
 
-.logo_container {width: 33%;height: auto;left: 25%;top: 10%;}
-.cover_container {width: 33%;height: auto;left: 75%;top: 10%;}
-.background_image {display: block;width: 100%;height: 100%;left: 50%;top: 50%;border-radius: 4px;}
-
-
-.pokedex_container {width: 30%;padding-top: 60%;left: 18%;top: 33.5%;background-color: #000000;text-align: center;}
+.pokedex_container {width: 100%;background-color: #222222;text-align: center;}
 .pokedex_sort {width: 100%;height: 12%;left: 50%;top: 6%;background-color: #111111;border-radius: 4px;border: 1px solid #888888;-webkit-appearance: none;appearance: none;text-align-last: center;}
 .pokedex_number {width: calc(100% - 2px);height: calc(12% - 2px);left: 50%;top: 20%;background-color: #000000;border-radius: 4px;border: 1px dotted #888888;}
-.pokedex_select {width: 100%;height: 12%;left: 50%;top: 34%;background-color: #111111;border-radius: 4px;border: 1px solid #888888;-webkit-appearance: none;appearance: none;text-align-last: center;}
+
 .type_1 {width: 100%;height: 12%;left: 50%;top: 57%;background-color: #000000;border-radius: 4px;border: 1px dotted #888888;-webkit-appearance: none;appearance: none;text-align-last: center;}
 .type_2 {width: 100%;height: 12%;left: 50%;top: 71%;background-color: #000000;border-radius: 4px;border: 1px dotted #888888;-webkit-appearance: none;appearance: none;text-align-last: center;}
 .pokemon_name {width: calc(100% - 2px);height: calc(12% - 2px);left: 50%;top: 94%;background-color: #111111;border-radius: 4px;border: 1px solid #888888;text-align-last: center;}
 
 
-.pokemon_container {width: 60%;padding-top: 60%;left: 67%;top: 33.5%;background-color: #000000;}
-.pokemon_picture {width: 100%;height: 100%;left: 50%;top: 50%;background-color: #000000;border-radius: 4px;}
-.pokemon_select {width: 100%;height: 100%;left: 50%;top: 50%;background-color: #111111;border-radius: 6px;border: none;-webkit-appearance: none;appearance: none;text-align-last: center;opacity: 0;}
+
+
+
+
+.hidden_code {visibility: hidden;}
+
+
+.logo_container {width: 33%;height: auto;left: 25%;top: 10%;}
+
+
+
+
+
+
+
 .pokemon_container_1 {width: calc(32% - 1px);height: calc(12% - 1px);left: 16%;top: 6%;background-color: #111111;border-radius: 4px;border: 1px solid #888888;}
 .pokemon_container_2 {width: calc(32% - 1px);height: calc(12% - 1px);left: 50%;top: 6%;background-color: #111111;border-radius: 4px;border: 1px solid #888888;}
 .pokemon_container_3 {width: calc(32% - 1px);height: calc(12% - 1px);left: 84%;top: 6%;background-color: #111111;border-radius: 4px;border: 1px solid #888888;}

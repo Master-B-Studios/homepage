@@ -1,71 +1,10 @@
-// Cover Selector
-const game_cover_folder = 'game_cover/';
-const game_cover_image = document.getElementById('game_cover');
-const game_dropdown = document.getElementById("game_dropdown");
-game_cover_image.addEventListener("click", () => {game_dropdown.classList.toggle("visible");});
-document.querySelectorAll(".option_game").forEach(opt => {
-    opt.addEventListener("click", () => {
-        const i = opt.dataset.value;
-        game_dropdown.classList.remove("visible");
-        /*
-        if (i==0) {game_cover_image.src = game_cover_folder+'Rubin.jpg"'}
-        if (i==1) {game_cover_image.src = game_cover_folder+'Saphir.jpg'}
-        if (i==2) {game_cover_image.src = game_cover_folder+'Rubin.jpg'}
-        if (i==3) {game_cover_image.src = game_cover_folder+'Saphir.jpg'}
-        */
-       if (i==4) {game_cover_image.src = game_cover_folder+'Rubin.jpg'}
-       if (i==5) {game_cover_image.src = game_cover_folder+'Saphir.jpg'}
-       /*
-       if (i==6) {game_cover_image.src = game_cover_folder+'Rubin.jpg'}
-       if (i==7) {game_cover_image.src = game_cover_folder+'Saphir.jpg'}
-       if (i==8) {game_cover_image.src = game_cover_folder+'Rubin.jpg'}
-       if (i==9) {game_cover_image.src = game_cover_folder+'Saphir.jpg'}
-       if (i==10) {game_cover_image.src = game_cover_folder+'Rubin.jpg'}
-       if (i==11) {game_cover_image.src = game_cover_folder+'Saphir.jpg'}
-       if (i==12) {game_cover_image.src = game_cover_folder+'Rubin.jpg'}
-       if (i==13) {game_cover_image.src = game_cover_folder+'Saphir.jpg'}
-       if (i==14) {game_cover_image.src = game_cover_folder+'Feuerrot.jpg'}
-       if (i==15) {game_cover_image.src = game_cover_folder+'Blattgruen.jpg'}
-       if (i==16) {game_cover_image.src = game_cover_folder+'Feuerrot.jpg'}
-       if (i==17) {game_cover_image.src = game_cover_folder+'Blattgruen.jpg'}
-       if (i==18) {game_cover_image.src = game_cover_folder+'Smaragd.jpg'}
-       if (i==19) {game_cover_image.src = game_cover_folder+'Feuerrot.jpg'}
-       if (i==20) {game_cover_image.src = game_cover_folder+'Blattgruen.jpg'}
-       if (i==21) {game_cover_image.src = game_cover_folder+'Feuerrot.jpg'}
-       if (i==22) {game_cover_image.src = game_cover_folder+'Blattgruen.jpg'}
-       */
-       if (i==23) {game_cover_image.src = game_cover_folder+'Blattgruen.jpg'}
-       if (i==24) {game_cover_image.src = game_cover_folder+'Feuerrot.jpg'}
-       /*
-       if (i==25) {game_cover_image.src = game_cover_folder+'Feuerrot.jpg'}
-       if (i==26) {game_cover_image.src = game_cover_folder+'Blattgruen.jpg'}
-       if (i==27) {game_cover_image.src = game_cover_folder+'Feuerrot.jpg'}
-       if (i==28) {game_cover_image.src = game_cover_folder+'Blattgruen.jpg'}
-       if (i==29) {game_cover_image.src = game_cover_folder+'Smaragd.jpg'}
-       */
-       if (i==30) {game_cover_image.src = game_cover_folder+'Smaragd.jpg'}
-    });
-});
+bs = '\\';
+directory_content = "'dir /a/b'";
+root_folder = '..'+bs+'..'+bs;
+roms_folder = '"'+'..'+bs+'roms'+bs;
+cover_folder = 'pokemon/game_cover/';
+pokedex_folder = '..'+bs+'pokemon'+bs+'pokedex'+bs;
 
-// Pokemon Selector
-var pokemon_number = 'null';
-var pokemon_shiny_value = 'false';
-const pokemon_shiny_switch = document.getElementById('pokemon_shiny_checkbox');
-const pokemon_image_folder = 'pokemon/';
-var pokemon_attribute_folder = 'normal/';
-var pokemon_image = document.getElementById('pokemon_image');
-const pokemon_dropdown = document.getElementById("pokemon_dropdown");
-pokemon_image.addEventListener("click", () => {pokemon_dropdown.classList.toggle("visible");});
-document.querySelectorAll(".option_pokemon").forEach(opt => {
-    opt.addEventListener("click", () => {
-        pokemon_number = opt.dataset.value;
-        pokemon_dropdown.classList.remove("visible");
-        if (pokemon_attribute_folder == 'normal/') {pokemon_image.src = pokemon_image_folder+pokemon_attribute_folder+pokemon_number+'.png';}
-    });
-});
-function switch_shiny() {if (pokemon_shiny_switch.checked) {pokemon_shiny_text.innerHTML= 'Shiny'} else {pokemon_shiny_text.innerHTML= 'Normal'}}
-
-// Command-Variables
 rdna = document.getElementsByClassName('rdna_sample');
 ra_sample = document.getElementsByClassName('ra_sample');
 rb_sample = document.getElementsByClassName('rb_sample');
@@ -73,26 +12,145 @@ rc_sample = document.getElementsByClassName('rc_sample');
 rd_sample = document.getElementsByClassName('rd_sample');
 RCode = document.getElementsByClassName('code_format');
 
+emulator = '..'+bs+'programs'+bs+'VBA'+bs+'VBA_1'+bs+'VisualBoyAdvance.exe';
+emulator_2 = '..'+bs+'programs'+bs+'VBA'+bs+'VBA_2'+bs+'VisualBoyAdvance.exe';
+
+// Resolutions
+
+// Jumpers
+function jump_page_home_site() {NewPoke();window.location.href='#home_site';}
+function jump_page_code_site() {window.location.href='#code_site';}
+function jump_page_fight_site() {window.location.href='#fight_site';}
+function jump_page_trainer_site() {window.location.href='#trainer_site';}
+function jump_page_fight_table_site() {window.location.href='#fight_table_site';}
+
+
+// Actions
+function add_folder(html) {var input = html.value;var folder = input.substr(0, input.lastIndexOf(bs));access.CopyFolder(folder,input_folder,1);jump_page_home_site();}
+function open_folder(foldername) {execute.Run('explorer.exe /e,'+foldername);}
+function open_list_folder(obj) {var foldername = obj.getAttribute('value');execute.Run('explorer.exe /e,'+foldername);}
+function start_app(appname) {execute.Run(appname);}
+function play_game() {
+    rom = '';
+    var game = game_select.value;
+    if (game == 24) {rom = roms_folder+'Pokemon - Feuerrote Edition.gba'+'"'}
+    if (game == 23) {rom = roms_folder+'Pokemon - Blattgrüne Edition.gba'+'"'}
+    if (game == 4) {rom = roms_folder+'Pokemon - Rubin-Edition.gba'+'"'}
+    if (game == 5) {rom = roms_folder+'Pokemon - Saphir-Edition.gba'+'"'}
+    if (game == 30) {rom = roms_folder+'Pokemon - Smaragd-Edition.gba'+'"'}
+    execute.Run(emulator+' '+rom);
+}
+function trade_game() {
+    trade_rom = '';
+    var trade_game = game_select.value;
+    if (trade_game == 24) {trade_rom = roms_folder+'Pokemon - Feuerrote Edition.gba'+'"'}
+    if (trade_game == 23) {trade_rom = roms_folder+'Pokemon - Blattgrüne Edition.gba'+'"'}
+    if (trade_game == 4) {trade_rom = roms_folder+'Pokemon - Rubin-Edition.gba'+'"'}
+    if (trade_game == 5) {trade_rom = roms_folder+'Pokemon - Saphir-Edition.gba'+'"'}
+    if (trade_game == 30) {trade_rom = roms_folder+'Pokemon - Smaragd-Edition.gba'+'"'}
+    execute.Run(emulator_2+' '+trade_rom);
+}
+function select_cover() {
+    i = game_select.value;
+    if (i==0) {game_cover.src = cover_folder+'Rubin.jpg"'}
+    if (i==1) {game_cover.src = cover_folder+'Saphir.jpg'}
+    if (i==2) {game_cover.src = cover_folder+'Rubin.jpg'}
+    if (i==3) {game_cover.src = cover_folder+'Saphir.jpg'}
+    if (i==4) {game_cover.src = cover_folder+'Rubin.jpg'}
+    if (i==5) {game_cover.src = cover_folder+'Saphir.jpg'}
+    if (i==6) {game_cover.src = cover_folder+'Rubin.jpg'}
+    if (i==7) {game_cover.src = cover_folder+'Saphir.jpg'}
+    if (i==8) {game_cover.src = cover_folder+'Rubin.jpg'}
+    if (i==9) {game_cover.src = cover_folder+'Saphir.jpg'}
+    if (i==10) {game_cover.src = cover_folder+'Rubin.jpg'}
+    if (i==11) {game_cover.src = cover_folder+'Saphir.jpg'}
+    if (i==12) {game_cover.src = cover_folder+'Rubin.jpg'}
+    if (i==13) {game_cover.src = cover_folder+'Saphir.jpg'}
+    if (i==14) {game_cover.src = cover_folder+'Feuerrot.jpg'}
+    if (i==15) {game_cover.src = cover_folder+'Blattgruen.jpg'}
+    if (i==16) {game_cover.src = cover_folder+'Feuerrot.jpg'}
+    if (i==17) {game_cover.src = cover_folder+'Blattgruen.jpg'}
+    if (i==18) {game_cover.src = cover_folder+'Smaragd.jpg'}
+    if (i==19) {game_cover.src = cover_folder+'Feuerrot.jpg'}
+    if (i==20) {game_cover.src = cover_folder+'Blattgruen.jpg'}
+    if (i==21) {game_cover.src = cover_folder+'Feuerrot.jpg'}
+    if (i==22) {game_cover.src = cover_folder+'Blattgruen.jpg'}
+    if (i==23) {game_cover.src = cover_folder+'Blattgruen.jpg'}
+    if (i==24) {game_cover.src = cover_folder+'Feuerrot.jpg'}
+    if (i==25) {game_cover.src = cover_folder+'Feuerrot.jpg'}
+    if (i==26) {game_cover.src = cover_folder+'Blattgruen.jpg'}
+    if (i==27) {game_cover.src = cover_folder+'Feuerrot.jpg'}
+    if (i==28) {game_cover.src = cover_folder+'Blattgruen.jpg'}
+    if (i==29) {game_cover.src = cover_folder+'Smaragd.jpg'}
+    if (i==30) {game_cover.src = cover_folder+'Smaragd.jpg'}
+}
+
+
+function clean(clean_foldername) {var list_folders = new Enumerator(access.GetFolder(clean_foldername).Subfolders);var list_files = new Enumerator(access.GetFolder(clean_foldername).Files);while(!list_folders.atEnd()) {foldername = list_folders.item().Name;access.DeleteFolder(clean_foldername+foldername);list_folders.moveNext();}while(!list_files.atEnd()) {filename = list_files.item().Name;access.DeleteFile(clean_foldername+filename);list_files.moveNext();}autoparse();}
+
+// Program Info
+function get_program_info() {
+    var createcmd = access.CreateTextFile('get_title.cmd',1,0);
+    createcmd.WriteLine('@echo off');
+    createcmd.WriteLine('chcp 65001');
+    createcmd.WriteLine('setlocal EnableDelayedExpansion');
+    createcmd.WriteLine('for %%i in ('+root_folder+'"*.html") do echo.%%~ni>title');
+    createcmd.WriteLine('for %%i in ('+root_folder+'"*.ver") do echo.%%~ni>version');
+    createcmd.WriteLine('exit');
+    createcmd.Close();
+    execute.Run('get_title.cmd',0,1);
+    access.DeleteFile('get_title.cmd');
+}
+function read_program_info() {
+    get_program_info();
+    var read_title = access.OpenTextFile('title',1,1);
+    var read_version = access.OpenTextFile('version',1,1);
+    title_id.innerHTML = '';
+    credits_header.innerHTML = '';
+    while(!read_title.AtEndOfStream) {
+        titlename = read_title.ReadLine();
+        title_id.innerHTML += titlename + ' - ';
+        credits_header.innerHTML += titlename+'<br>__________________________________<br>';
+    }
+    read_title.Close();
+    while(!read_version.AtEndOfStream) {
+        versionname = read_version.ReadLine();
+        title_id.innerHTML += 'Version ' + versionname;
+    }
+    read_version.Close();
+}
+
+// Changes
+    // Game.selectedIndex - Game.value;
+    // TGender.selectedIndex - TGender.value
+
+// Key Listener
+function check_enter(e) {if (e.keyCode === 13) {NewPoke();select_cover();codeout(-1);}}
+function check_back(e) {if (e.keyCode === 8) {jump_page_home_site();}}
+
+// Poke-Section
+
 // Poke-Section
 function NewPoke() {
-    var t = "";var u = "";var v = "";var x = 0;var i = 0;var png = 0;var pdex = "";
-    png = pokemon_number;
-    if (png < 1) {png = Math.floor(Math.random() * 386) + 1; pokemon_select.selectedIndex = png;} t = pokemon_picture_normal.value;
+    var t = " ";var u = " ";var v = " ";var x = 0;var i = 0;var pgn = 0;var pdex = " ";
+    pgn=pokemon_select.options[pokemon_select.selectedIndex].value;
+    icognito_select_container.style.visibility = 'hidden';
+    if (pgn<1) {pgn=Math.floor(Math.random()*386)+1; pokemon_select.selectedIndex=pgn;} t=pokemon_picture_normal.value;
     if (pokemon_shiny.checked) {t=pokemon_picture_shiny.value;} u="";
-    if (png==201) {u=icognito_select.options[icognito_select.selectedIndex].value;pokemon_obedient.checked=false;icognito_select_container.style.visibility = 'visible';}
-    if (png==151) {pokemon_obedient.checked=true;}
-    if (png==410) {pokemon_obedient.checked=true;}
-    if (pokemon_picture_00.checked) {v="000"+png;x=v.length;v=v.substring((x-3),x);}else{v=png;} pokemon_picture.src=t+v+u+pokemon_picture_extension.value;pdex=PokeDex(png);i=pokedex_select.selectedIndex;
+    if (pgn==201) {u=icognito_select.options[icognito_select.selectedIndex].value;pokemon_obedient.checked=false;icognito_select_container.style.visibility = 'visible';}
+    if (pgn==151) {pokemon_obedient.checked=true;}
+    if (pgn==410) {pokemon_obedient.checked=true;}
+    if (pokemon_picture_00.checked) {v="000"+pgn;x=v.length;v=v.substring((x-3),x);}else{v=pgn;} pokemon_picture.src=t+v+u+pokemon_picture_extension.value;pdex=PokeDex(pgn);i=pokedex_select.selectedIndex;
     if (i==0) {t=FI(pdex,"~",1); x=parseInt(t,10);}
     if (i==1) {t=FI(pdex,"~",2); x=parseInt(t,10);}
-    if (i==2) {x=png;} pokedex_number.value='# '+x;t=FI(pdex,"~",18);
+    if (i==2) {x=pgn;} pokedex_number.value='# '+x;t=FI(pdex,"~",18);
     if (t.length>2) {u=FI(t,"/",1);type_2.selectedIndex=parseInt(u,10);t=t.substring(0,(t.length-u.length-1));type_1.selectedIndex=parseInt(t,10);}
     else {type_1.selectedIndex=parseInt(t,10);type_2.selectedIndex=17;}
     t=SetGender();i=HPower();i=SetAb();
-    input_nickname=pokemon_number;input_pokedex=PokeDex(input_nickname);nickname=FI(input_pokedex,"~",3);pokemon_name.value=nickname;
-    read_pokedex_entry(png);
+    input_nickname=pokemon_select.options[pokemon_select.selectedIndex].value;input_pokedex=PokeDex(input_nickname);nickname=FI(input_pokedex,"~",3);pokemon_name.value=nickname;
+    //read_pokedex_entry(pgn);
 }
-
+function switch_shiny() {if (pokemon_shiny.checked) {pokemon_shiny_text.innerHTML= 'Shiny'} else {pokemon_shiny_text.innerHTML= 'Normal'}}
 function read_pokedex_entry(number) {pokemon_description.innerHTML = '';var read_entry = access.OpenTextFile(pokedex_folder+number+'.txt',1,1); while (!read_entry.AtEndOfStream) {poke_text = read_entry.ReadLine();} read_entry.Close();pokemon_description.innerHTML = poke_text;}
 
 function SetUnown() {
@@ -106,12 +164,12 @@ function UnownID(P,W) {
     if (W==3) {return S;}
 }
 function NewDex() {
-    var t=" ";var x=0;var i=0;var png=0;var pdex=" ";
-    png=pokemon_number;
-    if (png<1) {png=1;} pdex=PokeDex(png);i=pokedex_select.selectedIndex;
+    var t=" ";var x=0;var i=0;var pgn=0;var pdex=" ";
+    pgn=pokemon_select.options[pokemon_select.selectedIndex].value;
+    if (pgn<1) {pgn=1;} pdex=PokeDex(pgn);i=pokedex_select.selectedIndex;
     if (i==0) {t=FI(pdex,"~",1); x=parseInt(t,10);}
     if (i==1) {t=FI(pdex,"~",2); x=parseInt(t,10);}
-    if (i==2) {x=png;} pokedex_number.value='# '+x;return x;
+    if (i==2) {x=pgn;} pokedex_number.value='# '+x;return x;
 }
 function NPO() {
     var P1=pokemon_select;var ln=" ";var o=0;var l=0;var m=0;var w=0;var t=" ";var t2=" ";var tn=0;var tname=" ";LogConsole.value+="Sorting Pokemon\r\n";o=pokedex_sort.selectedIndex;
@@ -179,8 +237,8 @@ function NoRibbons(which) {
 }
 function MaxUPP() {var d=0;move_1_level.options[3].selected=true;move_2_level.options[3].selected=true;move_3_level.options[3].selected=true;move_4_level.options[3].selected=true;d=NMove('5');}
 function SetAb() {
-    var A=pokemon_ability;var pdex=" ";var png=0;var p=0;var o=" ";var at0=" ";var an0=0;var at1=" ";var an1=0;var t=" ";var u=" ";
-    png=pokemon_number;pdex=PokeDex(png);t=FI(pdex,"~",19);
+    var A=pokemon_ability;var pdex=" ";var pgn=0;var p=0;var o=" ";var at0=" ";var an0=0;var at1=" ";var an1=0;var t=" ";var u=" ";
+    pgn=pokemon_select.options[pokemon_select.selectedIndex].value;pdex=PokeDex(pgn);t=FI(pdex,"~",19);
     if (t.length>2) {u=FI(t,"/",1);an1=parseInt(u,10);t=t.substring(0,(t.length-u.length-1));an0=parseInt(t,10);}
     else {an0=parseInt(t,10);an1=77;}
     at0=Ab(an0,0);at1=Ab(an1,0);p=A.selectedIndex;A.options.length=0;A.options[0] = new Option(at0,"0",true);A.options[1] = new Option(at1,"1");A.options.length=2;A.selectedIndex=p;
@@ -303,7 +361,7 @@ function XQ(what) {
     if (what=="X") {i=pokemon_level.value;}
     if (i<0) {i=0;}
     if (i>100) {i=100;}
-    pl.value=i;s=pokemon_number;o=PokeDex(s);n=FI(o,"~",21);
+    pl.value=i;s=pokemon_select.options[pokemon_select.selectedIndex].value;o=PokeDex(s);n=FI(o,"~",21);
     if (n==0) {ex=i*i*i;}
     if (n==1) {xe="0x";xe+=x1.substr((i*8)+6,2);xe+=x1.substr((i*8)+4,2);xe+=x1.substr((i*8)+2,2);xe+=x1.substr((i*8),2);ex=1*xe;}
     if (n==2) {xe="0x";xe+=x2.substr((i*8)+6,2);xe+=x2.substr((i*8)+4,2);xe+=x2.substr((i*8)+2,2);xe+=x2.substr((i*8),2);ex=1*xe;}
@@ -319,7 +377,7 @@ function XQ(what) {
 }
 function HPower() {
     var o=" ";var pd=" ";var a0=0;var a1=0;var a2=0;var a3=0;var a4=0;var a5=0;var p=0;var pg=0;var q=0;var s=0;
-    pg=pokemon_number;pd=PokeDex(pg);o=FI(pd,"~",21);p=parseInt(o,10);q=XE(p);
+    pg=pokemon_select.options[pokemon_select.selectedIndex].value;pd=PokeDex(pg);o=FI(pd,"~",21);p=parseInt(o,10);q=XE(p);
     if (pokemon_experience.value<0) {pokemon_experience.value=0;}
     if (pokemon_experience.value>q) {pokemon_experience.value=q;}
     q=XL(p);p=basepoints_health.value;
@@ -400,7 +458,7 @@ function MT(n,W,T2) {
     if (x==3) {x=T2;if (x<0) {x=16;} if (x>16) {x=16;} c=o.substring((1+x),1);if (c=="+") {o=2.0;} if (c=="-") {o=-2.0;} if (c=="=") {o=1.0;} if (c=="0") {o=0.0;}}
     return o;
 }
-function Gtest() {var pg=0;var pd=" ";var p=" ";var gt=0;gt=256;pg=pokemon_number;pd=PokeDex(pg);p=FI(pd,"~",20);if (p=="-1") {gt=128;} if (p=="0") {gt=128;} if (p=="12") {gt=30;} if (p=="25") {gt=62;} if (p=="50") {gt=126;} if (p=="75") {gt=190;} if (p=="100") {gt=128;} return gt;}
+function Gtest() {var pg=0;var pd=" ";var p=" ";var gt=0;gt=256;pg=pokemon_select.options[pokemon_select.selectedIndex].value;pd=PokeDex(pg);p=FI(pd,"~",20);if (p=="-1") {gt=128;} if (p=="0") {gt=128;} if (p=="12") {gt=30;} if (p=="25") {gt=62;} if (p=="50") {gt=126;} if (p=="75") {gt=190;} if (p=="100") {gt=128;} return gt;}
 function FI(S,C,N) {var i=0;var j=0;var f=0;var t=" ";var o=" ";j=0;f=0;o="";for (i=0;i<(S.length);i++) {t=S.substring(i,i+1);if (f==0) {if (t==C) {j+=1;if (j==N) {f=1;}}} else {if (t==C) {j=i;i=(S.length)+1;} else {o+=t;}}} return o;}
 function PokeDex(n) {
     // info from http://pokefor.tk/
@@ -2138,7 +2196,7 @@ function FillAll() {
     ts=DecToHex(tid,8);
     D[1].value=ts;
     if (pokemon_egg.checked) {pokemon_name.value="Ei";}
-    if (pokemon_name.value=="") {input_nickname=pokemon_number;input_pokedex=PokeDex(input_nickname);nickname=FI(input_pokedex,"~",3);pokemon_name.value=nickname;}
+    if (pokemon_name.value=="") {input_nickname=pokemon_select.options[pokemon_select.selectedIndex].value;input_pokedex=PokeDex(input_nickname);nickname=FI(input_pokedex,"~",3);pokemon_name.value=nickname;}
     ts=StrToPoke(pokemon_name.value,10);tt=ts.substr(6,2);tt+=ts.substr(4,2);tt+=ts.substr(2,2);tt+=ts.substr(0,2);D[2].value=tt;tt=ts.substr(14,2);tt+=ts.substr(12,2);tt+=ts.substr(10,2);tt+=ts.substr(8,2);D[3].value=tt;
     tt=font.value;// 0201 Japanese | 0202 USA | 0203 French | 0204 Italian | 0205 German | 0206 | 0207 Spanish
     tt+=ts.substr(18,2);tt+=ts.substr(16,2);D[4].value=tt;
@@ -2149,7 +2207,7 @@ function FillAll() {
     if (marker_heart.checked) {r+=8;} tt=DecToHex(r,2);tt+=ts.substr(12,2);tt+=ts.substr(10,2);tt+=ts.substr(8,2);D[6].value=tt;BA0="0"+item_carry.options[item_carry.selectedIndex].value+DecToHex(Pvalue,4);As[0].value=BA0;cs=1*Pvalue;r=1*("0x0"+item_carry.options[item_carry.selectedIndex].value);cs+=r;r=xk^(1*("0x"+BA0));
     if (r<0) {r+=1*"0x100000000";}
     if (r>(1*"0xFFFFFFFF")) {r-=1*"0x100000000";} BA0=DecToHex(r,8);r1=pokemon_experience.value;
-    if (r1<0) {pokemon_experience.value=0;} S=PokeDex(pokemon_number);r=FI(S,21);
+    if (r1<0) {pokemon_experience.value=0;} S=PokeDex(pokemon_select.options[pokemon_select.selectedIndex].value);r=FI(S,21);
     if (r1>r) {r1=r;} BA1=DecToHex(pokemon_experience.value,8);As[1].value=BA1;cs+=pokemon_experience.value%65536;cs+=Math.floor(pokemon_experience.value/65536);r=xk^(1*("0x"+BA1));
     if (r<0) {r+=1*"0x100000000";}
     if (r>(1*"0xFFFFFFFF")) {r-=1*"0x100000000";} BA1=DecToHex(r,8);r=move_1_level.selectedIndex*1;
@@ -2492,7 +2550,7 @@ function codeout(n) {
         if (game_select.value>18&&game_select.value<29) {addr=(1*"0x02029318")+(pokemon_box.selectedIndex)*2400+(pokemon_spot.selectedIndex)*80;}
         //if (game_select.value==29) {addr=(1*"0x0202980C")+(Box.selectedIndex)*2400+(Spot.selectedIndex)*80;}
         if (game_select.value>28&&game_select.value<31) {addr=(1*"0x0202980C")+(pokemon_box.selectedIndex)*2400+(pokemon_spot.selectedIndex)*80;}
-        tlog+="Address: "+DecToHex(addr,8)+L;i=pokemon_number;tt=PokeDex(i);t=FI(tt,"~",3);
+        tlog+="Address: "+DecToHex(addr,8)+L;i=pokemon_select.options[pokemon_select.selectedIndex].value;tt=PokeDex(i);t=FI(tt,"~",3);
         tcode+=L+"Pokemon:   "+t+L+"Spitzname: "+pokemon_name.value+L+L;
         if (pokemon_egg.checked) {
             if (pokemon_happy.value<6) {tcode+="It's making sounds."+L+"It's about to hatch!"+L;}
@@ -2757,7 +2815,7 @@ function SetABCD() {var A=abcd_output;var n=0;var t=" ";n=Math.floor(pid.value%2
 function SetNature() {var pid=0;var D=rdna;var N=pokemon_nature;var n=0;pid=parseInt(1*("0x"+D[0].value),10);n=Math.floor(pid%25);N.selectedIndex=n;return n;}
 function SetDNA() {var t=" ";var tt=" ";var i=0;var D=rdna;tt="";for (i=0;20>i;i++) {t=D[i].value;tt+=t.substring(6,8);tt+=t.substring(4,6);tt+=t.substring(2,4);tt+=t.substring(0,2);} dna.value=tt;return tt;}
 function SetGender() {
-    var G=pokemon_gender;var pdex=" ";var png=0;var o=0;png=pokemon_number;pdex=PokeDex(png);x=FI(pdex,"~",20);o=G.selectedIndex;G.options.length=0;
+    var G=pokemon_gender;var pdex=" ";var pgn=0;var o=0;pgn=pokemon_select.options[pokemon_select.selectedIndex].value;pdex=PokeDex(pgn);x=FI(pdex,"~",20);o=G.selectedIndex;G.options.length=0;
     if (x==-1) {G.options[0] = new Option("⚪","0",true);G.options[1] = new Option("⚪","1");}
     if (x==100) {G.options[0] = new Option("♀","0",true);G.options[1] = new Option("♀","1");}
     if (x==0) {G.options[0] = new Option("♂","0",true);G.options[1] = new Option("♂","1");}

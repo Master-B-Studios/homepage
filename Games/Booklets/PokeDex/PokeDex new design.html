@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>PokéDex</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+  <link rel="icon" type="image/x-icon" href="../../../images/MB_Icon_01.png"></link>
+  <link rel="stylesheet" href="../../../assets/css/main.css"></link>
+  <link rel="stylesheet" href="code.css"></link>
+</head>
+<body onload="window.location.href = '#content';NewPoke();" class="is-preload">
+  <audio id="soundtrack" loop src="audio/Soundtrack.mp3" type="audio/mpeg"></audio>
+  <div id="wrapper">
+    
+    <nav id="nav">
+      <a href="../../../index.html"><img class="mb_icon" src="../../../images/MB_Icon_02.png"></img><span>Home</span></a>
+      <a href="../../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
+      <a href="../../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
+      <a href="../../../Games/games.html"><img class="mb_icon" src="../../../images/Games_Icon_01.png"></img><span>Games</span></a>
+      <a href="../booklets.html"><img class="mb_icon" src="../icon_01.png"></img><span>Booklets</span></a>
+    </nav>
+    
+    <div id="main">
+      <article id="content" class="panel">
+        <header><h2>PokéDex</h2></header>
+        <section>
+          <div class="soundtrack_container">
+            <img class="soundtrack_background" src="cover/PokeDex - Poster.jpg"></img>
+            <div class="soundtrack_control_container" onclick="bg_music();">
+              <img class="soundtrack_control" src="../../../images/button_play_01.png"></img>
+              <p class="soundtrack_text">Soundtrack Abspielen</p>
+            </div>
+          </div>
+        </section>
+
+        <div>
+          <table>
+            <tr>
+              <td class="td_margin"></td>
+              <td>Pokedex:</td>
+              <td>
+                <select id="pokedex_select" class="" onchange="NewDex()">
+                  <option selected value="N">National-Dex</option>
+                  <option value="H">Hoenn-Dex</option>
+                  <option value="G">Spiel-Dex</option>
+                </select>
+              </td>
+              <td class="td_margin"></td>
+              <td>Sortierung:</td>
+              <td>
+                <select id="pokedex_sort" class="" onchange="NPO();">
+                  <option selected>Nummer</option>
+                  <option>Alphabet</option>
+                  <option>Kampf</option>
+                  <option>Flug</option>
+                  <option>Gift</option>
+                  <option>Boden</option>
+                  <option>Stein</option>
+                  <option>Käfer</option>
+                  <option>Geist</option>
+                  <option>Stahl</option>
+                  <option>Feuer</option>
+                  <option>Wasser</option>
+                  <option>Pflanze</option>
+                  <option>Elektro</option>
+                  <option>Psycho</option>
+                  <option>Eis</option>
+                  <option>Drachen</option>
+                  <option>Dunkel</option>
+                  <option>Normal</option>
+                  <option>Hoenn-Dex</option>
+                  <option>Kanto-Dex</option>
+                  <option>National-Dex</option>
+                </select>
+              </td>
+              <td class="td_margin"></td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="game_container">
+          <div class="game_select_wrapper">
+            <img id="game_cover" class="game_cover" src="game_cover/Feuerrot.jpg" alt="Feuerrote Edition">
+            <div id="game_dropdown" class="dropdown">
+              <div class="option_game" data-value="24">Feuerrote Edition</div>
+              <div class="option_game" data-value="23">Blattgrüne Edition</div>
+              <div class="option_game" data-value="4">Rubin-Edition</div>
+              <div class="option_game" data-value="5">Saphir-Edition</div>
+              <div class="option_game" data-value="30">Smaragd-Edition</div>
+            </div>
+          </div>
+          <div class="pokemon_select_wrapper">
+            <img id="pokemon_image" class="pokemon_image" src="pokemon/normal/001.png" alt="Bisasam">
+            <div id="pokemon_dropdown" class="dropdown">
+              <div class="option_pokemon" data-value="001">Bisasam</div>
+              <div class="option_pokemon" data-value="002">Bisaknosp</div>
+              <div class="option_pokemon" data-value="003">Bisaflor</div>
+              <div class="option_pokemon" data-value="004">Glumanda</div>
+              <div class="option_pokemon" data-value="005">Glutexo</div>
+              <div class="option_pokemon" data-value="006">Glurak</div>
+              <div class="option_pokemon" data-value="007">Schiggy</div>
+              <div class="option_pokemon" data-value="008">Schillok</div>
+              <div class="option_pokemon" data-value="009">Turtok</div>
+              <div class="option_pokemon" data-value="010">Raupy</div>
+              <div class="option_pokemon" data-value="011">Safcon</div>
+              <div class="option_pokemon" data-value="012">Smettbo</div>
+              <div class="option_pokemon" data-value="013">Hornliu</div>
+              <div class="option_pokemon" data-value="014">Kokuna</div>
+              <div class="option_pokemon" data-value="015">Bibor</div>
+              <div class="option_pokemon" data-value="016">Taubsi</div>
+              <div class="option_pokemon" data-value="017">Tauboga</div>
+              <div class="option_pokemon" data-value="018">Tauboss</div>
+              <div class="option_pokemon" data-value="019">Rattfratz</div>
+              <div class="option_pokemon" data-value="020">Rattikarl</div>
+              <div class="option_pokemon" data-value="021">Habitak</div>
+              <div class="option_pokemon" data-value="022">Ibitak</div>
+              <div class="option_pokemon" data-value="023">Rettan</div>
+              <div class="option_pokemon" data-value="024">Arbok</div>
+              <div class="option_pokemon" data-value="025">Pikachu</div>
+              <div class="option_pokemon" data-value="026">Raichu</div>
+              <div class="option_pokemon" data-value="027">Sandan</div>
+              <div class="option_pokemon" data-value="028">Sandamer</div>
+              <div class="option_pokemon" data-value="029">Nidoran ♀</div>
+              <div class="option_pokemon" data-value="030">Nidorina</div>
+              <div class="option_pokemon" data-value="031">Nidoqueen</div>
+              <div class="option_pokemon" data-value="032">Nidoran ♂</div>
+              <div class="option_pokemon" data-value="033">Nidorino</div>
+              <div class="option_pokemon" data-value="034">Nidoking</div>
+              <div class="option_pokemon" data-value="035">Piepi</div>
+              <div class="option_pokemon" data-value="036">Pixi</div>
+              <div class="option_pokemon" data-value="037">Vulpix</div>
+              <div class="option_pokemon" data-value="038">Vulnona</div>
+              <div class="option_pokemon" data-value="039">Pummeluff</div>
+              <div class="option_pokemon" data-value="040">Knuddeluff</div>
+              <div class="option_pokemon" data-value="041">Zubat</div>
+              <div class="option_pokemon" data-value="042">Golbat</div>
+              <div class="option_pokemon" data-value="043">Myrapla</div>
+              <div class="option_pokemon" data-value="044">Duflor</div>
+              <div class="option_pokemon" data-value="045">Giflor</div>
+              <div class="option_pokemon" data-value="046">Paras</div>
+              <div class="option_pokemon" data-value="047">Parasek</div>
+              <div class="option_pokemon" data-value="048">Bluzuk</div>
+              <div class="option_pokemon" data-value="049">Omot</div>
+              <div class="option_pokemon" data-value="050">Digda</div>
+              <div class="option_pokemon" data-value="051">Digdri</div>
+              <div class="option_pokemon" data-value="052">Mauzi</div>
+              <div class="option_pokemon" data-value="053">Snobilikat</div>
+              <div class="option_pokemon" data-value="054">Enton</div>
+              <div class="option_pokemon" data-value="055">Entoron</div>
+              <div class="option_pokemon" data-value="056">Menki</div>
+              <div class="option_pokemon" data-value="057">Rasaff</div>
+              <div class="option_pokemon" data-value="058">Fukano</div>
+              <div class="option_pokemon" data-value="059">Arkani</div>
+              <div class="option_pokemon" data-value="060">Quapsel</div>
+              <div class="option_pokemon" data-value="061">Quaputzi</div>
+              <div class="option_pokemon" data-value="062">Quappo</div>
+              <div class="option_pokemon" data-value="063">Abra</div>
+              <div class="option_pokemon" data-value="064">Kadabra</div>
+              <div class="option_pokemon" data-value="065">Simsala</div>
+              <div class="option_pokemon" data-value="066">Machollo</div>
+              <div class="option_pokemon" data-value="067">Maschok</div>
+              <div class="option_pokemon" data-value="068">Machomei</div>
+              <div class="option_pokemon" data-value="069">Knofensa</div>
+              <div class="option_pokemon" data-value="070">Ultrigaria</div>
+              <div class="option_pokemon" data-value="071">Sarzenia</div>
+              <div class="option_pokemon" data-value="072">Tentacha</div>
+              <div class="option_pokemon" data-value="073">Tentoxa</div>
+              <div class="option_pokemon" data-value="074">Kleinstein</div>
+              <div class="option_pokemon" data-value="075">Georok</div>
+              <div class="option_pokemon" data-value="076">Geowaz</div>
+              <div class="option_pokemon" data-value="077">Ponita</div>
+              <div class="option_pokemon" data-value="078">Gallopa</div>
+              <div class="option_pokemon" data-value="079">Flegmon</div>
+              <div class="option_pokemon" data-value="080">Lahmus</div>
+              <div class="option_pokemon" data-value="081">Magnetilo</div>
+              <div class="option_pokemon" data-value="082">Magneton</div>
+              <div class="option_pokemon" data-value="083">Porenta</div>
+              <div class="option_pokemon" data-value="084">Dodu</div>
+              <div class="option_pokemon" data-value="085">Dodri</div>
+              <div class="option_pokemon" data-value="086">Jurob</div>
+              <div class="option_pokemon" data-value="087">Jugong</div>
+              <div class="option_pokemon" data-value="088">Sleima</div>
+              <div class="option_pokemon" data-value="089">Sleimok</div>
+              <div class="option_pokemon" data-value="090">Muschas</div>
+              <div class="option_pokemon" data-value="091">Austos</div>
+              <div class="option_pokemon" data-value="092">Nebulak</div>
+              <div class="option_pokemon" data-value="093">Alpollo</div>
+              <div class="option_pokemon" data-value="094">Gengar</div>
+              <div class="option_pokemon" data-value="095">Onix</div>
+              <div class="option_pokemon" data-value="096">Traumato</div>
+              <div class="option_pokemon" data-value="097">Hypno</div>
+              <div class="option_pokemon" data-value="098">Krabby</div>
+              <div class="option_pokemon" data-value="099">Kingler</div>
+              <div class="option_pokemon" data-value="100">Voltobal</div>
+              <div class="option_pokemon" data-value="101">Lectrobal</div>
+              <div class="option_pokemon" data-value="102">Owei</div>
+              <div class="option_pokemon" data-value="103">Kokowei</div>
+              <div class="option_pokemon" data-value="104">Tragosso</div>
+              <div class="option_pokemon" data-value="105">Knogga</div>
+              <div class="option_pokemon" data-value="106">Kicklee</div>
+              <div class="option_pokemon" data-value="107">Nockchan</div>
+              <div class="option_pokemon" data-value="108">Schlurp</div>
+              <div class="option_pokemon" data-value="109">Smogon</div>
+              <div class="option_pokemon" data-value="110">Smogmog</div>
+              <div class="option_pokemon" data-value="111">Rihorn</div>
+              <div class="option_pokemon" data-value="112">Rizeros</div>
+              <div class="option_pokemon" data-value="113">Chaneira</div>
+              <div class="option_pokemon" data-value="114">Tangela</div>
+              <div class="option_pokemon" data-value="115">Kangama</div>
+              <div class="option_pokemon" data-value="116">Seeper</div>
+              <div class="option_pokemon" data-value="117">Seemon</div>
+              <div class="option_pokemon" data-value="118">Goldini</div>
+              <div class="option_pokemon" data-value="119">Golking</div>
+              <div class="option_pokemon" data-value="120">Sterndu</div>
+              <div class="option_pokemon" data-value="121">Starmie</div>
+              <div class="option_pokemon" data-value="122">Pantimos</div>
+              <div class="option_pokemon" data-value="123">Sichlor</div>
+              <div class="option_pokemon" data-value="124">Rossana</div>
+              <div class="option_pokemon" data-value="125">Elektek</div>
+              <div class="option_pokemon" data-value="126">Magmar</div>
+              <div class="option_pokemon" data-value="127">Pinsir</div>
+              <div class="option_pokemon" data-value="128">Tauros</div>
+              <div class="option_pokemon" data-value="129">Karpador</div>
+              <div class="option_pokemon" data-value="130">Garados</div>
+              <div class="option_pokemon" data-value="131">Lapras</div>
+              <div class="option_pokemon" data-value="132">Ditto</div>
+              <div class="option_pokemon" data-value="133">Evoli</div>
+              <div class="option_pokemon" data-value="134">Aquana</div>
+              <div class="option_pokemon" data-value="135">Blitza</div>
+              <div class="option_pokemon" data-value="136">Flamara</div>
+              <div class="option_pokemon" data-value="137">Porygon</div>
+              <div class="option_pokemon" data-value="138">Amonitas</div>
+              <div class="option_pokemon" data-value="139">Amoroso</div>
+              <div class="option_pokemon" data-value="140">Kabuto</div>
+              <div class="option_pokemon" data-value="141">Kabutops</div>
+              <div class="option_pokemon" data-value="142">Aerodactyl</div>
+              <div class="option_pokemon" data-value="143">Relaxo</div>
+              <div class="option_pokemon" data-value="144">Arktos</div>
+              <div class="option_pokemon" data-value="145">Zapdos</div>
+              <div class="option_pokemon" data-value="146">Lavados</div>
+              <div class="option_pokemon" data-value="147">Dratini</div>
+              <div class="option_pokemon" data-value="148">Dragonir</div>
+              <div class="option_pokemon" data-value="149">Dragoran</div>
+              <div class="option_pokemon" data-value="150">Mewtu</div>
+              <div class="option_pokemon" data-value="151">Mew</div>
+              <div class="option_pokemon" data-value="152">Endivie</div>
+              <div class="option_pokemon" data-value="153">Lorblatt</div>
+              <div class="option_pokemon" data-value="154">Meganie</div>
+              <div class="option_pokemon" data-value="155">Feurigel</div>
+              <div class="option_pokemon" data-value="156">Igelavar</div>
+              <div class="option_pokemon" data-value="157">Tornupto</div>
+              <div class="option_pokemon" data-value="158">Karnimani</div>
+              <div class="option_pokemon" data-value="159">Tyracroc</div>
+              <div class="option_pokemon" data-value="160">Impergator</div>
+              <div class="option_pokemon" data-value="161">Wiesor</div>
+              <div class="option_pokemon" data-value="162">Wiesenior</div>
+              <div class="option_pokemon" data-value="163">Hoothoot</div>
+              <div class="option_pokemon" data-value="164">Noctuh</div>
+              <div class="option_pokemon" data-value="165">Ledyba</div>
+              <div class="option_pokemon" data-value="166">Ledian</div>
+              <div class="option_pokemon" data-value="167">Webarak</div>
+              <div class="option_pokemon" data-value="168">Ariados</div>
+              <div class="option_pokemon" data-value="169">Iksbat</div>
+              <div class="option_pokemon" data-value="170">Lampi</div>
+              <div class="option_pokemon" data-value="171">Lanturn</div>
+              <div class="option_pokemon" data-value="172">Pichu</div>
+              <div class="option_pokemon" data-value="173">Pii</div>
+              <div class="option_pokemon" data-value="174">Fluffeluff</div>
+              <div class="option_pokemon" data-value="175">Togepi</div>
+              <div class="option_pokemon" data-value="176">Togetic</div>
+              <div class="option_pokemon" data-value="177">Natu</div>
+              <div class="option_pokemon" data-value="178">Xatu</div>
+              <div class="option_pokemon" data-value="179">Voltilamm</div>
+              <div class="option_pokemon" data-value="180">Waaty</div>
+              <div class="option_pokemon" data-value="181">Ampharos</div>
+              <div class="option_pokemon" data-value="182">Blubella</div>
+              <div class="option_pokemon" data-value="183">Marill</div>
+              <div class="option_pokemon" data-value="184">Azumarill</div>
+              <div class="option_pokemon" data-value="185">Mogelbaum</div>
+              <div class="option_pokemon" data-value="186">Quaxo</div>
+              <div class="option_pokemon" data-value="187">Hoppspross</div>
+              <div class="option_pokemon" data-value="188">Hubelupf</div>
+              <div class="option_pokemon" data-value="189">Papungha</div>
+              <div class="option_pokemon" data-value="190">Griffel</div>
+              <div class="option_pokemon" data-value="191">Sonnkern</div>
+              <div class="option_pokemon" data-value="192">Sonnflora</div>
+              <div class="option_pokemon" data-value="193">Yanma</div>
+              <div class="option_pokemon" data-value="194">Felino</div>
+              <div class="option_pokemon" data-value="195">Morlord</div>
+              <div class="option_pokemon" data-value="196">Psiana</div>
+              <div class="option_pokemon" data-value="197">Nachtara</div>
+              <div class="option_pokemon" data-value="198">Kramurx</div>
+              <div class="option_pokemon" data-value="199">Laschoking</div>
+              <div class="option_pokemon" data-value="200">Traunfugil</div>
+              <div class="option_pokemon" data-value="201">Icognito</div>
+              <div class="option_pokemon" data-value="202">Woingenau</div>
+              <div class="option_pokemon" data-value="203">Girafarig</div>
+              <div class="option_pokemon" data-value="204">Tannza</div>
+              <div class="option_pokemon" data-value="205">Forstellka</div>
+              <div class="option_pokemon" data-value="206">Dummisel</div>
+              <div class="option_pokemon" data-value="207">Skorgla</div>
+              <div class="option_pokemon" data-value="208">Stahlos</div>
+              <div class="option_pokemon" data-value="209">Snubbull</div>
+              <div class="option_pokemon" data-value="210">Granbull</div>
+              <div class="option_pokemon" data-value="211">Baldorfish</div>
+              <div class="option_pokemon" data-value="212">Scherox</div>
+              <div class="option_pokemon" data-value="213">Pottrott</div>
+              <div class="option_pokemon" data-value="214">Skaraborn</div>
+              <div class="option_pokemon" data-value="215">Sniebel</div>
+              <div class="option_pokemon" data-value="216">Teddiursa</div>
+              <div class="option_pokemon" data-value="217">Ursaring</div>
+              <div class="option_pokemon" data-value="218">Schneckmag</div>
+              <div class="option_pokemon" data-value="219">Magcargo</div>
+              <div class="option_pokemon" data-value="220">Quiekel</div>
+              <div class="option_pokemon" data-value="221">Keifel</div>
+              <div class="option_pokemon" data-value="222">Corasonn</div>
+              <div class="option_pokemon" data-value="223">Remoraid</div>
+              <div class="option_pokemon" data-value="224">Octillery</div>
+              <div class="option_pokemon" data-value="225">Botogel</div>
+              <div class="option_pokemon" data-value="226">Mantax</div>
+              <div class="option_pokemon" data-value="227">Panzaeron</div>
+              <div class="option_pokemon" data-value="228">Hunduster</div>
+              <div class="option_pokemon" data-value="229">Hundemon</div>
+              <div class="option_pokemon" data-value="230">Seedraking</div>
+              <div class="option_pokemon" data-value="231">Phanpy</div>
+              <div class="option_pokemon" data-value="232">Donphan</div>
+              <div class="option_pokemon" data-value="233">Porygon 2</div>
+              <div class="option_pokemon" data-value="234">Damhirplex</div>
+              <div class="option_pokemon" data-value="235">Farbeagle</div>
+              <div class="option_pokemon" data-value="236">Rabauz</div>
+              <div class="option_pokemon" data-value="237">Kapoera</div>
+              <div class="option_pokemon" data-value="238">Kussilla</div>
+              <div class="option_pokemon" data-value="239">Elekid</div>
+              <div class="option_pokemon" data-value="240">Magby</div>
+              <div class="option_pokemon" data-value="241">Miltank</div>
+              <div class="option_pokemon" data-value="242">Heiteira</div>
+              <div class="option_pokemon" data-value="243">Raikou</div>
+              <div class="option_pokemon" data-value="244">Entei</div>
+              <div class="option_pokemon" data-value="245">Suicune</div>
+              <div class="option_pokemon" data-value="246">Larvitar</div>
+              <div class="option_pokemon" data-value="247">Pupitar</div>
+              <div class="option_pokemon" data-value="248">Despotar</div>
+              <div class="option_pokemon" data-value="249">Lugia</div>
+              <div class="option_pokemon" data-value="250">Ho-oh</div>
+              <div class="option_pokemon" data-value="251">Celebi</div>
+
+              <div class="option_pokemon" data-value="277">Geckarbor</div>
+              <div class="option_pokemon" data-value="278">Reptain</div>
+              <div class="option_pokemon" data-value="279">Gewaldro</div>
+              <div class="option_pokemon" data-value="280">Flemmli</div>
+              <div class="option_pokemon" data-value="281">Jungglut</div>
+              <div class="option_pokemon" data-value="282">Lohgock</div>
+              <div class="option_pokemon" data-value="283">Hydropi</div>
+              <div class="option_pokemon" data-value="284">Moorabbel</div>
+              <div class="option_pokemon" data-value="285">Sumpex</div>
+              <div class="option_pokemon" data-value="286">Fiffyen</div>
+              <div class="option_pokemon" data-value="287">Magnayen</div>
+              <div class="option_pokemon" data-value="288">Zigzachs</div>
+              <div class="option_pokemon" data-value="289">Geradaks</div>
+              <div class="option_pokemon" data-value="290">Waumpel</div>
+              <div class="option_pokemon" data-value="291">Schaloko</div>
+              <div class="option_pokemon" data-value="292">Papinella</div>
+              <div class="option_pokemon" data-value="293">Panekon</div>
+              <div class="option_pokemon" data-value="294">Pudox</div>
+              <div class="option_pokemon" data-value="295">Loturzel</div>
+              <div class="option_pokemon" data-value="296">Lombrero</div>
+              <div class="option_pokemon" data-value="297">Kappalores</div>
+              <div class="option_pokemon" data-value="298">Samurzel</div>
+              <div class="option_pokemon" data-value="299">Blanas</div>
+              <div class="option_pokemon" data-value="300">Tengulist</div>
+
+              <div class="option_pokemon" data-value="301">Nincada</div>
+              <div class="option_pokemon" data-value="302">Ninjask</div>
+              <div class="option_pokemon" data-value="303">Ninjatom</div>
+              <div class="option_pokemon" data-value="304">Schwalbini</div>
+              <div class="option_pokemon" data-value="305">Schwalboss</div>
+              <div class="option_pokemon" data-value="306">Knilz</div>
+              <div class="option_pokemon" data-value="307">Kapilz</div>
+              <div class="option_pokemon" data-value="308">Pandir</div>
+              <div class="option_pokemon" data-value="309">Wingull</div>
+              <div class="option_pokemon" data-value="310">Pelipper</div>
+              <div class="option_pokemon" data-value="311">Gehweiher</div>
+              <div class="option_pokemon" data-value="312">Maskeregen</div>
+              <div class="option_pokemon" data-value="313">Wailmer</div>
+              <div class="option_pokemon" data-value="314">Wailord</div>
+              <div class="option_pokemon" data-value="315">Eneco</div>
+              <div class="option_pokemon" data-value="316">Enekoro</div>
+              <div class="option_pokemon" data-value="317">Kecleon</div>
+              <div class="option_pokemon" data-value="318">Puppance</div>
+              <div class="option_pokemon" data-value="319">Lepumentas</div>
+              <div class="option_pokemon" data-value="320">Nasgnet</div>
+              <div class="option_pokemon" data-value="321">Qurtel</div>
+              <div class="option_pokemon" data-value="322">Zobiris</div>
+              <div class="option_pokemon" data-value="323">Schmerbe</div>
+              <div class="option_pokemon" data-value="324">Welsar</div>
+              <div class="option_pokemon" data-value="325">Liebiskus</div>
+              <div class="option_pokemon" data-value="326">Krebscorps</div>
+              <div class="option_pokemon" data-value="327">Krebutack</div>
+              <div class="option_pokemon" data-value="328">Barschwa</div>
+              <div class="option_pokemon" data-value="329">Milotic</div>
+              <div class="option_pokemon" data-value="330">Kanivanha</div>
+              <div class="option_pokemon" data-value="331">Tohaido</div>
+              <div class="option_pokemon" data-value="332">Knacklion</div>
+              <div class="option_pokemon" data-value="333">Vibrava</div>
+              <div class="option_pokemon" data-value="334">Libelldra</div>
+              <div class="option_pokemon" data-value="335">Makuhita</div>
+              <div class="option_pokemon" data-value="336">Hariyama</div>
+              <div class="option_pokemon" data-value="337">Frizelbliz</div>
+              <div class="option_pokemon" data-value="338">Voltenso</div>
+              <div class="option_pokemon" data-value="339">Camaub</div>
+              <div class="option_pokemon" data-value="340">Camerupt</div>
+              <div class="option_pokemon" data-value="341">Seemops</div>
+              <div class="option_pokemon" data-value="342">Seejong</div>
+              <div class="option_pokemon" data-value="343">Walraisa</div>
+              <div class="option_pokemon" data-value="344">Tuska</div>
+              <div class="option_pokemon" data-value="345">Noktuska</div>
+              <div class="option_pokemon" data-value="346">Schneppke</div>
+              <div class="option_pokemon" data-value="347">Firnontor</div>
+              <div class="option_pokemon" data-value="348">Lunastein</div>
+              <div class="option_pokemon" data-value="349">Sonnfel</div>
+              <div class="option_pokemon" data-value="350">Azurill</div>
+              <div class="option_pokemon" data-value="351">Spoink</div>
+              <div class="option_pokemon" data-value="352">Groink</div>
+              <div class="option_pokemon" data-value="353">Plusle</div>
+              <div class="option_pokemon" data-value="354">Minun</div>
+              <div class="option_pokemon" data-value="355">Flunkifer</div>
+              <div class="option_pokemon" data-value="356">Meditie</div>
+              <div class="option_pokemon" data-value="357">Meditalis</div>
+              <div class="option_pokemon" data-value="358">Wablu</div>
+              <div class="option_pokemon" data-value="359">Altaria</div>
+              <div class="option_pokemon" data-value="360">Isso</div>
+              <div class="option_pokemon" data-value="361">Zwirrlicht</div>
+              <div class="option_pokemon" data-value="362">Zwirrklop</div>
+              <div class="option_pokemon" data-value="363">Roselia</div>
+              <div class="option_pokemon" data-value="364">Bummelz</div>
+              <div class="option_pokemon" data-value="365">Muntier</div>
+              <div class="option_pokemon" data-value="366">Letarking</div>
+              <div class="option_pokemon" data-value="367">Schluppuck</div>
+              <div class="option_pokemon" data-value="368">Schlukwech</div>
+              <div class="option_pokemon" data-value="369">Tropius</div>
+              <div class="option_pokemon" data-value="370">Flurmel</div>
+              <div class="option_pokemon" data-value="371">Krakeelo</div>
+              <div class="option_pokemon" data-value="372">Krawumms</div>
+              <div class="option_pokemon" data-value="373">Perlu</div>
+              <div class="option_pokemon" data-value="374">Aalabyss</div>
+              <div class="option_pokemon" data-value="375">Saganabyss</div>
+              <div class="option_pokemon" data-value="376">Absol</div>
+              <div class="option_pokemon" data-value="377">Shuppet</div>
+              <div class="option_pokemon" data-value="378">Banette</div>
+              <div class="option_pokemon" data-value="379">Vipitis</div>
+              <div class="option_pokemon" data-value="380">Sengo</div>
+              <div class="option_pokemon" data-value="381">Relicanth</div>
+              <div class="option_pokemon" data-value="382">Stollunior</div>
+              <div class="option_pokemon" data-value="383">Stollrak</div>
+              <div class="option_pokemon" data-value="384">Stolloss</div>
+              <div class="option_pokemon" data-value="385">Formeo</div>
+              <div class="option_pokemon" data-value="386">Volbeat</div>
+              <div class="option_pokemon" data-value="387">Illumise</div>
+              <div class="option_pokemon" data-value="388">Liliep</div>
+              <div class="option_pokemon" data-value="389">Wielie</div>
+              <div class="option_pokemon" data-value="390">Anorith</div>
+              <div class="option_pokemon" data-value="391">Armaldo</div>
+              <div class="option_pokemon" data-value="392">Trasla</div>
+              <div class="option_pokemon" data-value="393">Kirlia</div>
+              <div class="option_pokemon" data-value="394">Guardevoir</div>
+              <div class="option_pokemon" data-value="395">Kindwurm</div>
+              <div class="option_pokemon" data-value="396">Draschel</div>
+              <div class="option_pokemon" data-value="397">Brutalanda</div>
+              <div class="option_pokemon" data-value="398">Tanhel</div>
+              <div class="option_pokemon" data-value="399">Metang</div>
+              <div class="option_pokemon" data-value="400">Metagross</div>
+              <div class="option_pokemon" data-value="401">Regirock</div>
+              <div class="option_pokemon" data-value="402">Regice</div>
+              <div class="option_pokemon" data-value="403">Registeel</div>
+              <div class="option_pokemon" data-value="404">Kyogre</div>
+              <div class="option_pokemon" data-value="405">Groudon</div>
+              <div class="option_pokemon" data-value="406">Rayquaza</div>
+              <div class="option_pokemon" data-value="407">Latias</div>
+              <div class="option_pokemon" data-value="408">Latios</div>
+              <div class="option_pokemon" data-value="409">Jirachi</div>
+              <div class="option_pokemon" data-value="410">Deoxys</div>
+              <div class="option_pokemon" data-value="411">Palimpalim</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <table>
+            <tr>
+              <td><select id="pokemon_box" class="position pokemon_box text_normal text_white_small_shadow" onchange="codeout(-1);">
+                <option value="0">Box 1</option>
+                <option value="1">Box 2</option>
+                <option value="2">Box 3</option>
+                <option value="3">Box 4</option>
+                <option value="4">Box 5</option>
+                <option value="5">Box 6</option>
+                <option value="6">Box 7</option>
+                <option value="7">Box 8</option>
+                <option value="8">Box 9</option>
+                <option value="9">Box 10</option>
+                <option value="10">Box 11</option>
+                <option value="11">Box 12</option>
+                <option value="12">Box 13</option>
+                <option value="13" selected>Box 14</option>
+            </select></td>
+              <td><select id="pokemon_spot" class="position pokemon_spot text_normal text_white_small_shadow" onchange="codeout(-1);">
+                <option value="0" selected>Platz 1</option>
+                <option value="1">Platz 2</option>
+                <option value="2">Platz 3</option>
+                <option value="3">Platz 4</option>
+                <option value="4">Platz 5</option>
+                <option value="5">Platz 6</option>
+                <option value="6">Platz 7</option>
+                <option value="7">Platz 8</option>
+                <option value="8">Platz 9</option>
+                <option value="9">Platz 10</option>
+                <option value="10">Platz 11</option>
+                <option value="11">Platz 12</option>
+                <option value="12">Platz 13</option>
+                <option value="13">Platz 14</option>
+                <option value="14">Platz 15</option>
+                <option value="15">Platz 16</option>
+                <option value="16">Platz 17</option>
+                <option value="17">Platz 18</option>
+                <option value="18">Platz 19</option>
+                <option value="19">Platz 20</option>
+                <option value="20">Platz 21</option>
+                <option value="21">Platz 22</option>
+                <option value="22">Platz 23</option>
+                <option value="23">Platz 24</option>
+                <option value="24">Platz 25</option>
+                <option value="25">Platz 26</option>
+                <option value="26">Platz 27</option>
+                <option value="27">Platz 28</option>
+                <option value="28">Platz 29</option>
+                <option value="29">Platz 30</option>
+            </select></td>
+              <td><span id="pokemon_shiny_text" class="">Normal</span>
+            <input id="pokemon_shiny_checkbox" class="" onchange="switch_shiny();" type="checkbox" value="0"></input>
+            </td>
+            <td><select id="pokemon_gender" class="position pokemon_gender text_normal text_white_small_shadow">
+                <option value="Girl">♀</option>
+                <option value="Boy" selected>♂</option>
+            </select></td>
+            <td><span id="pokemon_level_text" class="" onclick="pokemon_level.focus();">Level:</span>
+            <input id="pokemon_level" class="" value="1" onchange="XQ('X');"></input>
+          </td>
+          <td id="icognito_select_container">
+            <select id="icognito_select" class="position icognito_select text_normal text_white_small_shadow" onchange="NewPoke();">
+                <option value="a" selected>Form A</option>
+                <option value="b">Form B</option>
+                <option value="c">Form C</option>
+                <option value="d">Form D</option>
+                <option value="e">Form E</option>
+                <option value="f">Form F</option>
+                <option value="g">Form G</option>
+                <option value="h">Form H</option>
+                <option value="i">Form I</option>
+                <option value="j">Form J</option>
+                <option value="k">Form K</option>
+                <option value="l">Form L</option>
+                <option value="m">Form M</option>
+                <option value="n">Form N</option>
+                <option value="o">Form O</option>
+                <option value="p">Form P</option>
+                <option value="q">Form Q</option>
+                <option value="r">Form R</option>
+                <option value="s">Form S</option>
+                <option value="t">Form T</option>
+                <option value="u">Form U</option>
+                <option value="v">Form V</option>
+                <option value="w">Form W</option>
+                <option value="x">Form X</option>
+                <option value="y">Form Y</option>
+                <option value="z">Form Z</option>
+                <option value="ep">Form !</option>
+                <option value="qm">Form ?</option>
+            </select>
+          </td>
+            </tr>
+          </table>
+        </div>
+        
+
+      </article>
+    </div>
+    
+    <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
+
+  </div>
+</body>
+
+<script src="../../../assets/js/jquery.min.js"></script>
+<script src="../../../assets/js/browser.min.js"></script>
+<script src="../../../assets/js/breakpoints.min.js"></script>
+<script src="../../../assets/js/util.js"></script>
+<script src="../../../assets/js/main.js"></script>
+<script src="code.js"></script>
+<script>
+  var bg_playing = 'false';
+  var soundtrack = document.getElementById('soundtrack');
+  var background = soundtrack;
+  var soundtrack_control = document.getElementsByClassName('soundtrack_control');
+  var soundtrack_text = document.getElementsByClassName('soundtrack_text');
+  function bg_music() {
+    if (bg_playing == 'true') {
+      for (let i = 0; i < soundtrack_control.length; i++) {soundtrack_control[i].src = '../../../images/button_play_01.png';}
+      for (let i = 0; i < soundtrack_text.length; i++) {soundtrack_text[i].innerHTML = 'Soundtrack Fortsetzen';}
+      background.pause();bg_playing = 'false';
+    }
+    else if (bg_playing == 'false') {
+      for (let i = 0; i < soundtrack_control.length; i++) {soundtrack_control[i].src = '../../../images/button_pause_01.png';}
+      for (let i = 0; i < soundtrack_text.length; i++) {soundtrack_text[i].innerHTML = 'Soundtrack Pausieren';}
+      background.play();bg_playing = 'true';
+    }
+  }
+</script>
