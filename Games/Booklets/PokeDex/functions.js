@@ -7,8 +7,8 @@ const rc_sample = document.getElementsByClassName('rc_sample');
 const rd_sample = document.getElementsByClassName('rd_sample');
 const RCode = document.getElementsByClassName('code_format');
 
-const master_code = document.getElementsByClassName('master_code');
-const code_output = document.getElementsByClassName('code_output');
+const master_code = document.getElementById('master_code');
+const code_output = document.getElementById('code_output');
 
 function select_cover() {
     i = game_select.value;
@@ -2108,7 +2108,10 @@ function FillAll() {
     if (rpid.checked) {
         if (pokemon_shiny.checked) {i=0;gt=Gtest();for (i=0;i<65536;i++) {r=Math.round(Math.random()*65535);xk=(r*65536)+(r^(Math.round(Math.random()*7)));if (xk<0) {xk+=(1*"0x100000000");} tpid=xk^tid;if (tpid<0) {tpid+=(1*"0x100000000");} tg=Math.floor(tpid%256);if (tg<0) {tg+=256;} tn=Math.floor(tpid%25);if (tn<0) {tn+=25;} if (tg>gt && G.selectedIndex==1 && N.selectedIndex==tn) {if (Pvalue==201) {if (UnownID(tpid,1)==Utext) {i=65537;}} else {i=65537;}} if (tg<=gt && G.selectedIndex==0 && N.selectedIndex==tn) {if (Pvalue==201) {if (UnownID(tpid,1)==Utext) {i=65537;}} else {i=65537;}}}}
         else {i=0;gt=Gtest();for (i=0;i<65536;i++) {tpid=(Math.round(Math.random()*65536)*Math.round(Math.random()*65536))+Math.round(Math.random()*65512);if (tpid<0) {tpid+=(1*"0x100000000");} tn=Math.floor(tpid%25);if (tpid<0) {tpid+=(1*"0x100000000");} tpid+=pokemon_nature.selectedIndex;if (tpid<0) {tpid+=(1*"0x100000000");} tg=Math.floor(tpid%256);if (tg<0) {tg+=256;} tn=Math.floor(tpid%25);if (tn<0) {tn+=25;} if (tg>gt && G.selectedIndex==1 && N.selectedIndex==tn) {if (Pvalue==201) {if (UnownID(tpid,1)==Utext) {i=65537;}} else {i=65537;}} if (tg<=gt && G.selectedIndex==0 && N.selectedIndex==tn) {if (Pvalue==201) {if (UnownID(tpid,1)==Utext) {i=65537;}} else {i=65537;}}}xk=tid^tpid;}
-        if (i<65538) {pid.value="try again";code_output.value="try again";return;} else {pid.value=tpid;}
+        if (i<65538) {pid.value="try again";
+            //code_output.value="try again";
+            code_output.innerHTML="try again";
+            return;} else {pid.value=tpid;}
     }
     else {tpid=pid.value*1;tn=Math.floor(tpid%25);if (tn<0) {tn+=25;} N.selectedIndex=tn;tg=Math.floor(tpid%256);if (tg<0) {tg+=256;} gt=Gtest();if (tg>gt) {tg=1;} else {tg=0;} G.selectedIndex==tg;i=Math.floor(tpid%65536);r=(1*trainer_id.value)^i;i=Math.floor(tpid/65536);r1=(1*trainer_id_secret.value)^i;xk=r^r1;if (xk<8) {pokemon_shiny.checked=true;}else{pokemon_shiny.checked=false;} xk=tid^tpid;ts=Pvalue;if (ts=="201") {r1=UnownID(tpid,0);U.options[r1].selected=true;}} r1=xk;
     if (r1<0) {r1+=1*"0x100000000";}
@@ -2233,7 +2236,10 @@ function ec(addr,dat,s,r) {
 }
 function codeout(n) {
     clipboard_text.value = '';
-    var addr=0;var tt=" ";var t=" ";var r=0;var L="\r\n";var D=rdna;var tcode="";var tlog=" ";var i=0;var i2=0;var BA0=" ";var BA1=" ";var BA2=" ";t=FillAll();
+    var addr=0;var tt=" ";var t=" ";var r=0;
+    //var L="\r\n";
+    var L="<br>";
+    var D=rdna;var tcode="";var tlog=" ";var i=0;var i2=0;var BA0=" ";var BA1=" ";var BA2=" ";t=FillAll();
     i=game_select.value;
     if (i==0) {t="Ruby"+L+L;}
     if (i==1) {t="Sapphire"+L+L;}
@@ -2267,7 +2273,7 @@ function codeout(n) {
     if (i==29) {t="Emerald"+L+L;}
     if (i==30) {t="Smaragd-Edition"+L+L;}
     tcode+=t;
-    if (n==-1) {r=0;for (i=0; i<6; i++) {if (RCode[i].checked) {r=i;i=7;}}}
+    if (n==-1) {r=0;for (i=0; i<6; i++) {if (RCode[i].checked) {r=i;i=7;}} console.log(RCode[i].checked)}
     else {r=n;} LogConsole.value="Code Out";tlog="Code Output\r\n";tCode="";t="";
     if (r<4||r==5) {
         i=game_select.value;
@@ -2577,7 +2583,9 @@ function codeout(n) {
         }
     }
     else {tcode=dna.value;}
-    code_output.value=tcode;
+    //console.log(tcode)
+    //code_output.value=tcode;
+    code_output.innerHTML=tcode;
     LogConsole.value=tlog+"Fertig...";
 
     //var create_clipboard = access.CreateTextFile('clipboard.cmd',1,0);
@@ -2588,7 +2596,9 @@ function codeout(n) {
 function IsCode(C) {var e=0;e=0;if (C=="0") {e=1;} if (C=="1") {e=1;} if (C=="2") {e=1;} if (C=="3") {e=1;} if (C=="4") {e=1;} if (C=="5") {e=1;} if (C=="6") {e=1;} if (C=="7") {e=1;} if (C=="8") {e=1;} if (C=="9") {e=1;} if (C=="a") {e=1;} if (C=="b") {e=1;} if (C=="c") {e=1;} if (C=="d") {e=1;} if (C=="e") {e=1;} if (C=="f") {e=1;} if (C=="A") {e=1;} if (C=="B") {e=1;} if (C=="C") {e=1;} if (C=="D") {e=1;} if (C=="E") {e=1;} if (C=="F") {e=1;} if (C.charCodeAt(0)==13) {e=2;} if (C.charCodeAt(0)==10) {e=2;} if (C==" ") {e=2;} if (C==":") {e=2;} return e;}
 function codein() {
     var t=" ";var tt=" ";var r=0;var tcode=" ";var tlog=" ";var i=0; var j=0; var n=0;var w=0; var x=0; var y=0; var z=0;var ao=0;var tf=0;var a=" "; var v=" ";var cb=0;var c=RCode;var D=rdna;
-    tcode=code_output.value;LogConsole.value="Scanning for Addr\r\n";r=0; j=0; n=0; t="";tt="";tlog="";a=" ";v=" ";tf=0; ao=0; cb=0;tlog="Code Extraction\r\n";
+    //tcode=code_output.value;
+    tcode=code_output.innerHTML;
+    LogConsole.value="Scanning for Addr\r\n";r=0; j=0; n=0; t="";tt="";tlog="";a=" ";v=" ";tf=0; ao=0; cb=0;tlog="Code Extraction\r\n";
     for (i=0;(tcode.length)>=i;i++) {
         t=tcode.substring(i,i+1);
         if (IsCode(t)==1) {
