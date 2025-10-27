@@ -1,55 +1,15 @@
-bs = '\\';
-directory_content = "'dir /a/b'";
-root_folder = '..'+bs+'..'+bs;
-roms_folder = '"'+'..'+bs+'roms'+bs;
-cover_folder = 'pokemon/game_cover/';
-pokedex_folder = '..'+bs+'pokemon'+bs+'pokedex'+bs;
+const cover_folder = 'pokemon/game_cover/';
 
-rdna = document.getElementsByClassName('rdna_sample');
-ra_sample = document.getElementsByClassName('ra_sample');
-rb_sample = document.getElementsByClassName('rb_sample');
-rc_sample = document.getElementsByClassName('rc_sample');
-rd_sample = document.getElementsByClassName('rd_sample');
-RCode = document.getElementsByClassName('code_format');
+const rdna = document.getElementsByClassName('rdna_sample');
+const ra_sample = document.getElementsByClassName('ra_sample');
+const rb_sample = document.getElementsByClassName('rb_sample');
+const rc_sample = document.getElementsByClassName('rc_sample');
+const rd_sample = document.getElementsByClassName('rd_sample');
+const RCode = document.getElementsByClassName('code_format');
 
-emulator = '..'+bs+'programs'+bs+'VBA'+bs+'VBA_1'+bs+'VisualBoyAdvance.exe';
-emulator_2 = '..'+bs+'programs'+bs+'VBA'+bs+'VBA_2'+bs+'VisualBoyAdvance.exe';
+const master_code = document.getElementsByClassName('master_code');
+const code_output = document.getElementsByClassName('code_output');
 
-// Resolutions
-
-// Jumpers
-function jump_page_home_site() {NewPoke();window.location.href='#home_site';}
-function jump_page_code_site() {window.location.href='#code_site';}
-function jump_page_fight_site() {window.location.href='#fight_site';}
-function jump_page_trainer_site() {window.location.href='#trainer_site';}
-function jump_page_fight_table_site() {window.location.href='#fight_table_site';}
-
-
-// Actions
-function add_folder(html) {var input = html.value;var folder = input.substr(0, input.lastIndexOf(bs));access.CopyFolder(folder,input_folder,1);jump_page_home_site();}
-function open_folder(foldername) {execute.Run('explorer.exe /e,'+foldername);}
-function open_list_folder(obj) {var foldername = obj.getAttribute('value');execute.Run('explorer.exe /e,'+foldername);}
-function start_app(appname) {execute.Run(appname);}
-function play_game() {
-    rom = '';
-    var game = game_select.value;
-    if (game == 24) {rom = roms_folder+'Pokemon - Feuerrote Edition.gba'+'"'}
-    if (game == 23) {rom = roms_folder+'Pokemon - Blattgrüne Edition.gba'+'"'}
-    if (game == 4) {rom = roms_folder+'Pokemon - Rubin-Edition.gba'+'"'}
-    if (game == 5) {rom = roms_folder+'Pokemon - Saphir-Edition.gba'+'"'}
-    if (game == 30) {rom = roms_folder+'Pokemon - Smaragd-Edition.gba'+'"'}
-    execute.Run(emulator+' '+rom);
-}
-function trade_game() {
-    trade_rom = '';
-    var trade_game = game_select.value;
-    if (trade_game == 24) {trade_rom = roms_folder+'Pokemon - Feuerrote Edition.gba'+'"'}
-    if (trade_game == 23) {trade_rom = roms_folder+'Pokemon - Blattgrüne Edition.gba'+'"'}
-    if (trade_game == 4) {trade_rom = roms_folder+'Pokemon - Rubin-Edition.gba'+'"'}
-    if (trade_game == 5) {trade_rom = roms_folder+'Pokemon - Saphir-Edition.gba'+'"'}
-    if (trade_game == 30) {trade_rom = roms_folder+'Pokemon - Smaragd-Edition.gba'+'"'}
-    execute.Run(emulator_2+' '+trade_rom);
-}
 function select_cover() {
     i = game_select.value;
     if (i==0) {game_cover.src = cover_folder+'Rubin.jpg"'}

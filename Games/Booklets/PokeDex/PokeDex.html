@@ -2877,1219 +2877,1231 @@
                 </div>
                 <div class="code_table">
                     <div class="code_table_3">VBA</div>
-                    <div class="code_table_4"><label class="checkbox"><input id="master_code" class="pokemon_shiny border_knob" type="radio" value="VBA" onclick="codeout(0);"></label></div>
+                    <div class="code_table_4"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" type="radio" value="VBA" onclick="codeout(0);"></label></div>
                     <div class="code_table_5">ARv1-2/GSv1-2</div>
-                    <div class="code_table_6"><label class="checkbox"><input id="master_code" class="pokemon_shiny border_knob" type="radio" value="ARv1" onclick="codeout(1);"></label></div>
+                    <div class="code_table_6"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" type="radio" value="ARv1" onclick="codeout(1);"></label></div>
                 </div>
                 <div class="code_table">
                     <div class="code_table_3">ARv3</div>
-                    <div class="code_table_4"><label class="checkbox"><input id="master_code" class="pokemon_shiny border_knob" type="radio" value="ARv3" onclick="codeout(2);"></label></div>
+                    <div class="code_table_4"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" type="radio" value="ARv3" onclick="codeout(2);"></label></div>
                     <div class="code_table_5">CB/GSv3+Type8</div>
-                    <div class="code_table_6"><label class="checkbox"><input id="master_code" class="pokemon_shiny border_knob" type="radio" value="CB" onclick="codeout(3);"></label></div>
+                    <div class="code_table_6"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" type="radio" value="CB" onclick="codeout(3);"></label></div>
                 </div>
                 <div class="code_table">
                     <div class="code_table_3">80-Bytes</div>
-                    <div class="code_table_4"><label class="checkbox"><input id="master_code" class="pokemon_shiny border_knob" type="radio" value="Hex" onclick="codeout(4);"></label></div>
+                    <div class="code_table_4"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" type="radio" value="Hex" onclick="codeout(4);"></label></div>
                     <div class="code_table_5">CB/GSv3+Type5</div>
-                    <div class="code_table_6"><label class="checkbox"><input id="master_code" class="pokemon_shiny border_knob" type="radio" value="CB5" onclick="codeout(5);"></label></div>
+                    <div class="code_table_6"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" type="radio" value="CB5" onclick="codeout(5);"></label></div>
                 </div>
                 <div class="code_table">
                     <div class="code_table_7">Code Erzeugen</div>
-                    <div class="code_table_8 border_knob"><img src="pokemon/icons/Icon_Fighting_01.png"></div>
-                    
+                    <div class="code_table_8 border_knob"><img src="pokemon/icons/Icon_Fighting_01.png" onclick="MaxUPP();MaxDV();MaxEff();codeout(-1);"></div>
                 </div>
-            </div>
+                <div class="code_table">
+                    <div id="code_output" class="item_description border_knob" readonly></div>
+                </div>
+            </div>        
+        </section>
+        
+        <section id="hidden_code"  style="visibility: hidden;">
+            <textarea id="LogConsole"></textarea>
+            <input id="clipboard_text" type="text" value=""></input>
+            <input id="pokemon_picture_extension" value=".png" type="text" onchange="NewPoke();"></input>
+            <input id="pokemon_picture_00" type=checkbox checked>Leading Zeros</input>
+            <input id="pokemon_picture_normal" value="pokemon/normal/" type="text" onchange="NewPoke();"></input>
+            <input id="pokemon_picture_shiny" value="pokemon/shiny/" type="text" onchange="NewPoke();"></input>
             
-        </div>
+            <select id="pokemon_nature" onchange="HPower();">
+                <option value="00" selected>Robust</option>
+                <option value="01">Solo</option>
+                <option value="02">Mutig</option>
+                <option value="03">Hart</option>
+                <option value="04">Frech</option>
+                <option value="05">Kühn</option>
+                <option value="06">Sanft</option>
+                <option value="07">Locker</option>
+                <option value="08">Pfiffig</option>
+                <option value="09">Lasch</option>
+                <option value="0A">Scheu</option>
+                <option value="0B">Hastig</option>
+                <option value="0C">Ernst</option>
+                <option value="0D">Froh</option>
+                <option value="0E">Naiv</option>
+                <option value="0F">Mäßig</option>
+                <option value="10">Mild</option>
+                <option value="11">Ruhig</option>
+                <option value="12">Zaghaft</option>
+                <option value="13">Hitzig</option>
+                <option value="14">Still</option>
+                <option value="15">Zart</option>
+                <option value="16">Forsch</option>
+                <option value="17">Sacht</option>
+                <option value="18">Kauzig</option>
+            </select>
+
+            <input id="pokemon_name_box" type=checkbox value="0"></input>
+            <input id="pokemon_obedient" type=checkbox value="0" checked></input>
+            <input id="pokemon_happy" value="255" maxLength=3></input>
+            <input id="pokemon_egg" type=checkbox value="0"></input>
+            <select id="pokemon_pokerus">
+                <option value="0" selected>Nie Gehabt</option>
+                <option value="1">Abgeklunken</option>
+                <option value="2">Aktiv</option>
+            </select>
+
+            <input id="pokemon_experience" value="1" maxLength=9 onchange="HPower();"></input>
+            <input id="pokemon_experience_next" size=9 value="?" onchange="HPower();"></input>
+            <select id="pokemon_ability" onchange="SetAb();">
+                <option selected value="0"></option>
+                <option value="1">Keine</option>
+            </select>
+            <textarea id="pokemon_ability_text"></textarea>
+
+            <input id="marker_circle" type=checkbox value="0"></input>
+            <input id="marker_square" type=checkbox value="0"></input>
+            <input id="marker_triangle" type=checkbox value="0"></input>
+            <input id="marker_heart" type=checkbox value="0"></input>
+
+            <input id="pokemon_caught_level" class="position pokemon_caught_level textalign_center text_normal text_white_small_shadow" maxlength="3" value="10" onchange="HPower();"></input>
+            <select id="pokemon_caught_ball" class="position pokemon_caught_ball text_normal text_white_small_shadow">
+                <option value="1">Meister-Ball</option>
+                <option value="2">Hyper-Ball</option>
+                <option value="3">Super-Ball</option>
+                <option value="4" selected>Poke-Ball</option>
+                <option value="5">Safari-Ball</option>
+                <option value="6">Netz-Ball</option>
+                <option value="7">Tauch-Ball</option>
+                <option value="8">Nest-Ball</option>
+                <option value="9">Wieder-Ball</option>
+                <option value="A">Timer-Ball</option>
+                <option value="B">Luxus-Ball</option>
+                <option value="C">Premier-Ball</option>
+            </select>
+            <select id="pokemon_caught_game" class="position pokemon_caught_game text_normal text_white_small_shadow">
+                <option value="0">0</option>
+                <option value="1">Saphir-Edition</option>
+                <option value="2">Rubin-Edition</option>
+                <option value="3">Smaragd-Edition</option>
+                <option value="4" selected>Feuerrote Edition</option>
+                <option value="5">Blattgrüne Edition</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">Pokemon Kolosseum</option>
+            </select>
+            <select id="pokemon_caught_location" class="position pokemon_caught_location text_normal text_white_small_shadow">
+                <option value="00">Wurzelheim</option>
+                <option value="01">Rosaltstadt</option>
+                <option value="02">Faustauhaven</option>
+                <option value="03">Bad Lavastadt</option>
+                <option value="04">Laubwechselfeld</option>
+                <option value="05">Wiesenflur</option>
+                <option value="06">Flossbrunn</option>
+                <option value="07">Blütenburg-City</option>
+                <option value="08">Graphitport-City</option>
+                <option value="09">Malvenfroh-City</option>
+                <option value="0A">Metarost-City</option>
+                <option value="0B">Baumhausen-City</option>
+                <option value="0C">Seegrasulb-City</option>
+                <option value="0D">Moosbach-City</option>
+                <option value="0E">Xeneroville</option>
+                <option value="0F">Prachtpolis-City</option>
+                <option value="10">Route 101</option>
+                <option value="11">Route 102</option>
+                <option value="12">Route 103</option>
+                <option value="13">Route 104</option>
+                <option value="14">Route 105</option>
+                <option value="15">Route 106</option>
+                <option value="16">Route 107</option>
+                <option value="17">Route 108</option>
+                <option value="18">Route 109</option>
+                <option value="19">Route 110</option>
+                <option value="1A">Route 111</option>
+                <option value="1B">Route 112</option>
+                <option value="1C">Route 113</option>
+                <option value="1D">Route 114</option>
+                <option value="1E">Route 115</option>
+                <option value="1F">Route 116</option>
+                <option value="20">Route 117</option>
+                <option value="21">Route 118</option>
+                <option value="22">Route 119</option>
+                <option value="23">Route 120</option>
+                <option value="24">Route 121</option>
+                <option value="25">Route 122</option>
+                <option value="26">Route 123</option>
+                <option value="27">Route 124</option>
+                <option value="28">Route 125</option>
+                <option value="29">Route 126</option>
+                <option value="2A">Route 127</option>
+                <option value="2B">Route 128</option>
+                <option value="2C">Route 129</option>
+                <option value="2D">Route 130</option>
+                <option value="2E">Route 131</option>
+                <option value="2F">Route 132</option>
+                <option value="30">Route 133</option>
+                <option value="31">Route 134</option>
+                <option value="32">Unterwasser - Route 124</option>
+                <option value="33">Unterwasser - Route 126</option>
+                <option value="34">Unterwasser - Route 127</option>
+                <option value="35">Unterwasser - Route 128</option>
+                <option value="36">Unterwasser - Xeneroville</option>
+                <option value="37">Granithöhle</option>
+                <option value="38">Schlotberg</option>
+                <option value="39">Safari-Zone</option>
+                <option value="3A">Duellturm</option>
+                <option value="3B">Blütenburgwald</option>
+                <option value="3C">Metaflurtunnel</option>
+                <option value="3D">Schiffswrack</option>
+                <option value="3E">Neu-Malvenfroh</option>
+                <option value="3F">Meteorfälle</option>
+                <option value="40">Meteorfälle - 1. Stock</option>
+                <option value="41">Pyroberg</option>
+                <option value="42">Team Magmas Versteck</option>
+                <option value="43">Küstenhöhle</option>
+                <option value="44">Tiefseehöhle</option>
+                <option value="45">Unterwasser - Ozeanhöhle</option>
+                <option value="46">Siegesstraße</option>
+                <option value="47">Wundereiland</option>
+                <option value="48">Urzeithöhle</option>
+                <option value="49">Insel im Süden</option>
+                <option value="4A">Feuriger Pfad - Endhöhle</option>
+                <option value="4B">Feuriger Pfad</option>
+                <option value="4C">Steilpass - Spitze</option>
+                <option value="4D">Steilpass - Fuss</option>
+                <option value="4E">Unterwasser - Siegelkammer</option>
+                <option value="4F">Unterwasser - Route 134</option>
+                <option value="50">Sonnengrotte</option>
+                <option value="51">Inselhöhle</option>
+                <option value="52">Wüstenruine</option>
+                <option value="53">Grabmal</option>
+                <option value="54">LKW</option>
+                <option value="55">Himmelturm</option>
+                <option value="56">Geheimbasis</option>
+                <option value="57">Fähre</option>
+                <option value="58">Alabastia</option>
+                <option value="59">Vertania-City</option>
+                <option value="5A">Marmoria-City</option>
+                <option value="5B">Azuria-City</option>
+                <option value="5C">Lavandia</option>
+                <option value="5D">Orania-City</option>
+                <option value="5E">Prismania-City</option>
+                <option value="5F">Fuchsania-City</option>
+                <option value="60">Zinnoberinsel</option>
+                <option value="61">Indigo-Plateau</option>
+                <option value="62">Saffronia-City</option>
+                <option value="63">Route 4 - Eingang</option>
+                <option value="64">Route 10</option>
+                <option value="65">Route 1</option>
+                <option value="66">Route 2</option>
+                <option value="67">Route 3</option>
+                <option value="68">Route 4</option>
+                <option value="69">Route 5</option>
+                <option value="6A">Route 6</option>
+                <option value="6B">Route 7</option>
+                <option value="6C">Route 8</option>
+                <option value="6D">Route 9</option>
+                <option value="6E">Route 10</option>
+                <option value="6F">Route 11</option>
+                <option value="70">Route 12</option>
+                <option value="71">Route 13</option>
+                <option value="72">Route 14</option>
+                <option value="73">Route 15</option>
+                <option value="74">Route 16</option>
+                <option value="75">Route 17</option>
+                <option value="76">Route 18</option>
+                <option value="77">Route 19</option>
+                <option value="78">Route 20</option>
+                <option value="79">Route 21</option>
+                <option value="7A">Route 22</option>
+                <option value="7B">Route 23</option>
+                <option value="7C">Route 24</option>
+                <option value="7D">Route 25</option>
+                <option value="7E">Vertania-Wald</option>
+                <option value="7F">Mondberg</option>
+                <option value="80">M.S. Anne</option>
+                <option value="81">Unterführung Süd</option>
+                <option value="82">Unterführung Nord</option>
+                <option value="83">Digda-Höhle</option>
+                <option value="84">Siegesstraße</option>
+                <option value="85">Rocket-Versteck</option>
+                <option value="86">Silph Company</option>
+                <option value="87">Pokemon-Landgut</option>
+                <option value="88">Safari-Zone</option>
+                <option value="89">Pokemon-Liga</option>
+                <option value="8A">Felstunnel</option>
+                <option value="8B">Seeschauminseln</option>
+                <option value="8C">Pokemon-Turm</option>
+                <option value="8D">Azuria-Höhle</option>
+                <option value="8E">Kraftwerk</option>
+                <option value="8F">Eiland Eins</option>
+                <option value="90">Eiland Zwei</option>
+                <option value="91">Eiland Drei</option>
+                <option value="92">Eiland Vier</option>
+                <option value="93">Eiland Fünf</option>
+                <option value="94">Eiland Sieben</option>
+                <option value="95">Eiland Sechs</option>
+                <option value="96">Glühweg</option>
+                <option value="97">Schatzgestade</option>
+                <option value="98">Kap Kante</option>
+                <option value="99">Bundbrücke</option>
+                <option value="9A">Tri-Eiland Hafen</option>
+                <option value="9B">Eiland Sechs</option>
+                <option value="9C">Eiland Sieben</option>
+                <option value="9D">Eiland Acht</option>
+                <option value="9E">Eiland Neun</option>
+                <option value="9F">Ferienparadies</option>
+                <option value="A0">Wasserirrgarten</option>
+                <option value="A1">Weide</option>
+                <option value="A2">Südsee-Route</option>
+                <option value="A3">Fern-Eiland</option>
+                <option value="A4">Grüner Pfad</option>
+                <option value="A5">Wasserweg</option>
+                <option value="A6">Ruinental</option>
+                <option value="A7">Trainerturm</option>
+                <option value="A8">Schluchteingang</option>
+                <option value="A9">7-Schatzschlucht</option>
+                <option value="AA">Tanibo-Ruinen</option>
+                <option value="AB">Eiland 22</option>
+                <option value="AC">Eiland 23</option>
+                <option value="AD">Eiland 24</option>
+                <option value="AE">Nabelfelsen</option>
+                <option value="AF">Glutberg</option>
+                <option value="B0">Beerenforst</option>
+                <option value="B1">Eiskaskadenhöhle</option>
+                <option value="B2">Rocketlager</option>
+                <option value="B3">Trainerturm</option>
+                <option value="B4">Punktloch</option>
+                <option value="B5">Verlorene Höhle</option>
+                <option value="B6">Musterbuschwald</option>
+                <option value="B7">Wandelhöhle</option>
+                <option value="B8">Tanibo-Kammern</option>
+                <option value="B9">Tri-Eiland Tunnel</option>
+                <option value="BA">Tanibo-Schlüssel</option>
+                <option value="BB">Entstehungsinsel</option>
+                <option value="BC">Einamon Kammer</option>
+                <option value="BD">Pezwulp Kammer</option>
+                <option value="BE">Dreiecke Kammer</option>
+                <option value="BF">Vierzisse Kammer</option>
+                <option value="C0">Fünibisku Kammer</option>
+                <option value="C1">Lilechs Kammer</option>
+                <option value="C2">Sieborbia Kammer</option>
+                <option value="C3">Glutberg-Spa</option>
+                <option value="C4">Prismania-City-Einkaufszentrum</option>
+                <option value="C5">Team Aqua's Versteck</option>
+                <option value="C6">Team Magma's Versteck</option>
+                <option value="C7">Wunderturm</option>
+                <option value="C8">Entstehungsinsel</option>
+                <option value="C9">Fern-Eiland</option>
+                <option value="CA">Höhlenatelier</option>
+                <option value="CB">Ozeanhöhle</option>
+                <option value="CC">Unterwasser</option>
+                <option value="CD">Terrahöhle</option>
+                <option value="CE">Unterwasser</option>
+                <option value="CF">Unterwasser</option>
+                <option value="D0">Unterwasser</option>
+                <option value="D1">Wüstentunnel</option>
+                <option value="D2">Wandelhöhle</option>
+                <option value="D3">Nabelfelsen</option>
+                <option value="D4">Trainerberg</option>
+                <option value="D5">D5</option>
+                <option value="D6">D6</option>
+                <option value="D7">D7</option>
+                <option value="D8">D8</option>
+                <option value="D9">D9</option>
+                <option value="DA">DA</option>
+                <option value="DB">DB</option>
+                <option value="DC">DC</option>
+                <option value="DD">DD</option>
+                <option value="DE">DE</option>
+                <option value="DF">DF</option>
+                <option value="E0">E0</option>
+                <option value="E1">E1</option>
+                <option value="E2">E2</option>
+                <option value="E3">E3</option>
+                <option value="E4">E4</option>
+                <option value="E5">E5</option>
+                <option value="E6">E6</option>
+                <option value="E7">E7</option>
+                <option value="E8">E8</option>
+                <option value="E9">E9</option>
+                <option value="EA">EA</option>
+                <option value="EB">EB</option>
+                <option value="EC">EC</option>
+                <option value="ED">ED</option>
+                <option value="EE">EE</option>
+                <option value="EF">EF</option>
+                <option value="F0">F0</option>
+                <option value="F1">F1</option>
+                <option value="F2">F2</option>
+                <option value="F3">F3</option>
+                <option value="F4">F4</option>
+                <option value="F5">F5</option>
+                <option value="F6">F6</option>
+                <option value="F7">F7</option>
+                <option value="F8">F8</option>
+                <option value="F9">F9</option>
+                <option value="FA">FA</option>
+                <option value="FB">FB</option>
+                <option value="FC">FC</option>
+                <option value="FD">FD</option>
+                <option value="FE">Durch Tausch erhalten</option>
+                <option value="FF" selected>Schicksalhafte Begegnung</option>
+            </select>
+
+            <input id="basepoints_summary" class="position basepoints_summary textalign_right text_normal text_white_small_shadow" value="?" onchange="HPower();"></input>
+            <input id="basepoints_health" class="position basepoints_health text_normal text_white_small_shadow" value="0" maxLength=3 onchange="HPower();"></input>
+            <input id="basepoints_attack" class="position basepoints_attack text_normal text_white_small_shadow" value="0" maxLength=3 onchange="HPower();"></input>
+            <input id="basepoints_defense" class="position basepoints_defense text_normal text_white_small_shadow" value="0" maxLength=3 onchange="HPower();"></input>
+            <input id="basepoints_attack_special" class="position basepoints_attack_special text_normal text_white_small_shadow" value="0" maxLength=3 onchange="HPower();"></input>
+            <input id="basepoints_defense_special" class="position basepoints_defense_special text_normal text_white_small_shadow" value="0" maxLength=3 onchange="HPower();"></input>
+            <input id="basepoints_speed" class="position basepoints_speed text_normal text_white_small_shadow" value="0" maxLength=3 onchange="HPower();"></input>
+
+            <span class="position selector_pokemon_hidden_power text_normal text_white_small_shadow">Kraftreserve</span>
+            <input id="hidden_power" class="position hidden_power textalign_right text_normal text_white_small_shadow" value="0" maxLength=3 onchange="HPower();"></input>
+            <span class="position selector_pokemon_hidden_power_type text_normal text_white_small_shadow">Reserve-Typ</span>
+
+            <select id="hidden_type" name="HiddenPower" class="position hidden_type text_normal text_white_small_shadow" onchange="HPower();">
+                <option value="0">Kampf</option>
+                <option value="1">Flug</option>
+                <option value="2">Gift</option>
+                <option value="3">Boden</option>
+                <option value="4">Stein</option>
+                <option value="5">Käfer</option>
+                <option value="6">Geist</option>
+                <option value="7">Stahl</option>
+                <option value="8">Feuer</option>
+                <option value="9">Wasser</option>
+                <option value="10">Pflanze</option>
+                <option value="11">Elektro</option>
+                <option value="12">Psycho</option>
+                <option value="13">Eis</option>
+                <option value="14">Drachen</option>
+                <option value="15">Dunkel</option>
+                <option value="16">Normal</option>
+                <option value="17" selected></option>
+            </select>
+
+            <span class="position selector_pokemon_hp_text text_normal text_white_small_shadow">Gesundheit</span>
             
-    <div class="position code_container border_3d">
-        <image class="background_image" src="pokemon/icons/Icon_Code_01.png" onclick="MaxUPP();MaxDV();MaxEff();jump_page_code_site();"></image>
-    </div>
-</section>
+            <select id="health" class="position health text_normal text_white_small_shadow" onchange="HPower();">
+                <option selected value="00">0</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
+            
+            <span class="position selector_pokemon_attack_text text_normal text_white_small_shadow">Angriff</span>
+            
+            <select id="attack" class="position attack text_normal text_white_small_shadow" onchange="HPower();">
+                <option selected value="00">0</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
 
-    </div>
-    <div class="position code_create_container border_3d">
-        <image class="background_image" src="pokemon/icons/Icon_Code_01.png" onclick="codeout(-1);"></image>
-    </div>
-    <textarea id="code_output" class="position code_output textalign_center text_normal text_white_small_shadow border_3d" readonly>
-    </textarea>
+            <span class="position selector_pokemon_defence_text text_normal text_white_small_shadow">Abwehr</span>
 
+            <select id="defense" class="position defense text_normal text_white_small_shadow" onchange="HPower();">
+                <option selected value="00">0</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
 
+            <span class="position selector_pokemon_special_attack_text text_normal text_white_small_shadow">Spezial-Angriff</span>
 
-<section id="hidden_code"  style="visibility: hidden;">
-    <textarea id="LogConsole"></textarea>
-    <input id="clipboard_text" type="text" value=""></input>
+            <select id="attack_special" class="position attack_special text_normal text_white_small_shadow" onchange="HPower();">
+                <option selected value="00">0</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
 
-    <input id="pokemon_picture_extension" value=".png" type="text" onchange="NewPoke();"></input>
-    <input id="pokemon_picture_00" type=checkbox checked>Leading Zeros</input>
-    <input id="pokemon_picture_normal" value="pokemon/normal/" type="text" onchange="NewPoke();"></input>
-    <input id="pokemon_picture_shiny" value="pokemon/shiny/" type="text" onchange="NewPoke();"></input>
+            <span class="position selector_pokemon_special_defence_text text_normal text_white_small_shadow">Spezial-Abwehr</span>
 
-    <select id="pokemon_nature" onchange="HPower();">
-        <option value="00" selected>Robust</option>
-        <option value="01">Solo</option>
-        <option value="02">Mutig</option>
-        <option value="03">Hart</option>
-        <option value="04">Frech</option>
-        <option value="05">Kühn</option>
-        <option value="06">Sanft</option>
-        <option value="07">Locker</option>
-        <option value="08">Pfiffig</option>
-        <option value="09">Lasch</option>
-        <option value="0A">Scheu</option>
-        <option value="0B">Hastig</option>
-        <option value="0C">Ernst</option>
-        <option value="0D">Froh</option>
-        <option value="0E">Naiv</option>
-        <option value="0F">Mäßig</option>
-        <option value="10">Mild</option>
-        <option value="11">Ruhig</option>
-        <option value="12">Zaghaft</option>
-        <option value="13">Hitzig</option>
-        <option value="14">Still</option>
-        <option value="15">Zart</option>
-        <option value="16">Forsch</option>
-        <option value="17">Sacht</option>
-        <option value="18">Kauzig</option>
-    </select>
-    <input id="pokemon_name_box" type=checkbox value="0"></input>
-    <input id="pokemon_obedient" type=checkbox value="0" checked></input>
-    <input id="pokemon_happy" value="255" maxLength=3></input>
-    <input id="pokemon_egg" type=checkbox value="0"></input>
-    <select id="pokemon_pokerus">
-        <option value="0" selected>Nie Gehabt</option>
-        <option value="1">Abgeklunken</option>
-        <option value="2">Aktiv</option>
-    </select>
+            <select id="defense_special" class="position defense_special text_normal text_white_small_shadow" onchange="HPower();">
+                <option selected value="00">0</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
+            
+            <span class="position selector_pokemon_speed_text text_normal text_white_small_shadow">Geschwindigkeit</span>
+            
+            <select id="speed" class="position speed text_normal text_white_small_shadow" onchange="HPower();">
+                <option selected value="00">0</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
 
-    <input id="pokemon_experience" value="1" maxLength=9 onchange="HPower();"></input>
-    <input id="pokemon_experience_next" size=9 value="?" onchange="HPower();"></input>
-    <select id="pokemon_ability" onchange="SetAb();">
-        <option selected value="0"></option>
-        <option value="1">Keine</option>
-    </select>
-    <textarea id="pokemon_ability_text"></textarea>
+            <input id="health_dex" class="position health_dex text_normal text_white_small_shadow" value="0" onchange="HPower();"></input>
+            <input id="attack_dex" class="position attack_dex text_normal text_white_small_shadow" value="0" onchange="HPower();"></input>
+            <input id="defense_dex" class="position defense_dex text_normal text_white_small_shadow" value="0" onchange="HPower();"></input>
+            <input id="attack_special_dex" class="position attack_special_dex text_normal text_white_small_shadow" value="0" onchange="HPower();"></input>
+            <input id="defense_special_dex" class="position defense_special_dex text_normal text_white_small_shadow" value="0" onchange="HPower();"></input>
+            <input id="speed_dex" class="position speed_dex text_normal text_white_small_shadow" value="0" onchange="HPower();"></input>
 
-    <input id="marker_circle" type=checkbox value="0"></input>
-    <input id="marker_square" type=checkbox value="0"></input>
-    <input id="marker_triangle" type=checkbox value="0"></input>
-    <input id="marker_heart" type=checkbox value="0"></input>
+            <input id="move_1_pp" value="5" maxLength=2></input>
+            <input id="move_2_pp" value="5" maxLength=2></input>
+            <input id="move_3_pp" value="5" maxLength=2></input>
+            <input id="move_4_pp" value="5" maxLength=2></input>
 
-    <input id="pokemon_caught_level" class="position pokemon_caught_level textalign_center text_normal text_white_small_shadow" maxlength="3" value="10" onchange="HPower();"></input>
-    <select id="pokemon_caught_ball" class="position pokemon_caught_ball text_normal text_white_small_shadow">
-        <option value="1">Meister-Ball</option>
-        <option value="2">Hyper-Ball</option>
-        <option value="3">Super-Ball</option>
-        <option value="4" selected>Poke-Ball</option>
-        <option value="5">Safari-Ball</option>
-        <option value="6">Netz-Ball</option>
-        <option value="7">Tauch-Ball</option>
-        <option value="8">Nest-Ball</option>
-        <option value="9">Wieder-Ball</option>
-        <option value="A">Timer-Ball</option>
-        <option value="B">Luxus-Ball</option>
-        <option value="C">Premier-Ball</option>
-    </select>
-    <select id="pokemon_caught_game" class="position pokemon_caught_game text_normal text_white_small_shadow">
-        <option value="0">0</option>
-        <option value="1">Saphir-Edition</option>
-        <option value="2">Rubin-Edition</option>
-        <option value="3">Smaragd-Edition</option>
-        <option value="4" selected>Feuerrote Edition</option>
-        <option value="5">Blattgrüne Edition</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">Pokemon Kolosseum</option>
-    </select>
-    <select id="pokemon_caught_location" class="position pokemon_caught_location text_normal text_white_small_shadow">
-        <option value="00">Wurzelheim</option>
-        <option value="01">Rosaltstadt</option>
-        <option value="02">Faustauhaven</option>
-        <option value="03">Bad Lavastadt</option>
-        <option value="04">Laubwechselfeld</option>
-        <option value="05">Wiesenflur</option>
-        <option value="06">Flossbrunn</option>
-        <option value="07">Blütenburg-City</option>
-        <option value="08">Graphitport-City</option>
-        <option value="09">Malvenfroh-City</option>
-        <option value="0A">Metarost-City</option>
-        <option value="0B">Baumhausen-City</option>
-        <option value="0C">Seegrasulb-City</option>
-        <option value="0D">Moosbach-City</option>
-        <option value="0E">Xeneroville</option>
-        <option value="0F">Prachtpolis-City</option>
-        <option value="10">Route 101</option>
-        <option value="11">Route 102</option>
-        <option value="12">Route 103</option>
-        <option value="13">Route 104</option>
-        <option value="14">Route 105</option>
-        <option value="15">Route 106</option>
-        <option value="16">Route 107</option>
-        <option value="17">Route 108</option>
-        <option value="18">Route 109</option>
-        <option value="19">Route 110</option>
-        <option value="1A">Route 111</option>
-        <option value="1B">Route 112</option>
-        <option value="1C">Route 113</option>
-        <option value="1D">Route 114</option>
-        <option value="1E">Route 115</option>
-        <option value="1F">Route 116</option>
-        <option value="20">Route 117</option>
-        <option value="21">Route 118</option>
-        <option value="22">Route 119</option>
-        <option value="23">Route 120</option>
-        <option value="24">Route 121</option>
-        <option value="25">Route 122</option>
-        <option value="26">Route 123</option>
-        <option value="27">Route 124</option>
-        <option value="28">Route 125</option>
-        <option value="29">Route 126</option>
-        <option value="2A">Route 127</option>
-        <option value="2B">Route 128</option>
-        <option value="2C">Route 129</option>
-        <option value="2D">Route 130</option>
-        <option value="2E">Route 131</option>
-        <option value="2F">Route 132</option>
-        <option value="30">Route 133</option>
-        <option value="31">Route 134</option>
-        <option value="32">Unterwasser - Route 124</option>
-        <option value="33">Unterwasser - Route 126</option>
-        <option value="34">Unterwasser - Route 127</option>
-        <option value="35">Unterwasser - Route 128</option>
-        <option value="36">Unterwasser - Xeneroville</option>
-        <option value="37">Granithöhle</option>
-        <option value="38">Schlotberg</option>
-        <option value="39">Safari-Zone</option>
-        <option value="3A">Duellturm</option>
-        <option value="3B">Blütenburgwald</option>
-        <option value="3C">Metaflurtunnel</option>
-        <option value="3D">Schiffswrack</option>
-        <option value="3E">Neu-Malvenfroh</option>
-        <option value="3F">Meteorfälle</option>
-        <option value="40">Meteorfälle - 1. Stock</option>
-        <option value="41">Pyroberg</option>
-        <option value="42">Team Magmas Versteck</option>
-        <option value="43">Küstenhöhle</option>
-        <option value="44">Tiefseehöhle</option>
-        <option value="45">Unterwasser - Ozeanhöhle</option>
-        <option value="46">Siegesstraße</option>
-        <option value="47">Wundereiland</option>
-        <option value="48">Urzeithöhle</option>
-        <option value="49">Insel im Süden</option>
-        <option value="4A">Feuriger Pfad - Endhöhle</option>
-        <option value="4B">Feuriger Pfad</option>
-        <option value="4C">Steilpass - Spitze</option>
-        <option value="4D">Steilpass - Fuss</option>
-        <option value="4E">Unterwasser - Siegelkammer</option>
-        <option value="4F">Unterwasser - Route 134</option>
-        <option value="50">Sonnengrotte</option>
-        <option value="51">Inselhöhle</option>
-        <option value="52">Wüstenruine</option>
-        <option value="53">Grabmal</option>
-        <option value="54">LKW</option>
-        <option value="55">Himmelturm</option>
-        <option value="56">Geheimbasis</option>
-        <option value="57">Fähre</option>
-        <option value="58">Alabastia</option>
-        <option value="59">Vertania-City</option>
-        <option value="5A">Marmoria-City</option>
-        <option value="5B">Azuria-City</option>
-        <option value="5C">Lavandia</option>
-        <option value="5D">Orania-City</option>
-        <option value="5E">Prismania-City</option>
-        <option value="5F">Fuchsania-City</option>
-        <option value="60">Zinnoberinsel</option>
-        <option value="61">Indigo-Plateau</option>
-        <option value="62">Saffronia-City</option>
-        <option value="63">Route 4 - Eingang</option>
-        <option value="64">Route 10</option>
-        <option value="65">Route 1</option>
-        <option value="66">Route 2</option>
-        <option value="67">Route 3</option>
-        <option value="68">Route 4</option>
-        <option value="69">Route 5</option>
-        <option value="6A">Route 6</option>
-        <option value="6B">Route 7</option>
-        <option value="6C">Route 8</option>
-        <option value="6D">Route 9</option>
-        <option value="6E">Route 10</option>
-        <option value="6F">Route 11</option>
-        <option value="70">Route 12</option>
-        <option value="71">Route 13</option>
-        <option value="72">Route 14</option>
-        <option value="73">Route 15</option>
-        <option value="74">Route 16</option>
-        <option value="75">Route 17</option>
-        <option value="76">Route 18</option>
-        <option value="77">Route 19</option>
-        <option value="78">Route 20</option>
-        <option value="79">Route 21</option>
-        <option value="7A">Route 22</option>
-        <option value="7B">Route 23</option>
-        <option value="7C">Route 24</option>
-        <option value="7D">Route 25</option>
-        <option value="7E">Vertania-Wald</option>
-        <option value="7F">Mondberg</option>
-        <option value="80">M.S. Anne</option>
-        <option value="81">Unterführung Süd</option>
-        <option value="82">Unterführung Nord</option>
-        <option value="83">Digda-Höhle</option>
-        <option value="84">Siegesstraße</option>
-        <option value="85">Rocket-Versteck</option>
-        <option value="86">Silph Company</option>
-        <option value="87">Pokemon-Landgut</option>
-        <option value="88">Safari-Zone</option>
-        <option value="89">Pokemon-Liga</option>
-        <option value="8A">Felstunnel</option>
-        <option value="8B">Seeschauminseln</option>
-        <option value="8C">Pokemon-Turm</option>
-        <option value="8D">Azuria-Höhle</option>
-        <option value="8E">Kraftwerk</option>
-        <option value="8F">Eiland Eins</option>
-        <option value="90">Eiland Zwei</option>
-        <option value="91">Eiland Drei</option>
-        <option value="92">Eiland Vier</option>
-        <option value="93">Eiland Fünf</option>
-        <option value="94">Eiland Sieben</option>
-        <option value="95">Eiland Sechs</option>
-        <option value="96">Glühweg</option>
-        <option value="97">Schatzgestade</option>
-        <option value="98">Kap Kante</option>
-        <option value="99">Bundbrücke</option>
-        <option value="9A">Tri-Eiland Hafen</option>
-        <option value="9B">Eiland Sechs</option>
-        <option value="9C">Eiland Sieben</option>
-        <option value="9D">Eiland Acht</option>
-        <option value="9E">Eiland Neun</option>
-        <option value="9F">Ferienparadies</option>
-        <option value="A0">Wasserirrgarten</option>
-        <option value="A1">Weide</option>
-        <option value="A2">Südsee-Route</option>
-        <option value="A3">Fern-Eiland</option>
-        <option value="A4">Grüner Pfad</option>
-        <option value="A5">Wasserweg</option>
-        <option value="A6">Ruinental</option>
-        <option value="A7">Trainerturm</option>
-        <option value="A8">Schluchteingang</option>
-        <option value="A9">7-Schatzschlucht</option>
-        <option value="AA">Tanibo-Ruinen</option>
-        <option value="AB">Eiland 22</option>
-        <option value="AC">Eiland 23</option>
-        <option value="AD">Eiland 24</option>
-        <option value="AE">Nabelfelsen</option>
-        <option value="AF">Glutberg</option>
-        <option value="B0">Beerenforst</option>
-        <option value="B1">Eiskaskadenhöhle</option>
-        <option value="B2">Rocketlager</option>
-        <option value="B3">Trainerturm</option>
-        <option value="B4">Punktloch</option>
-        <option value="B5">Verlorene Höhle</option>
-        <option value="B6">Musterbuschwald</option>
-        <option value="B7">Wandelhöhle</option>
-        <option value="B8">Tanibo-Kammern</option>
-        <option value="B9">Tri-Eiland Tunnel</option>
-        <option value="BA">Tanibo-Schlüssel</option>
-        <option value="BB">Entstehungsinsel</option>
-        <option value="BC">Einamon Kammer</option>
-        <option value="BD">Pezwulp Kammer</option>
-        <option value="BE">Dreiecke Kammer</option>
-        <option value="BF">Vierzisse Kammer</option>
-        <option value="C0">Fünibisku Kammer</option>
-        <option value="C1">Lilechs Kammer</option>
-        <option value="C2">Sieborbia Kammer</option>
-        <option value="C3">Glutberg-Spa</option>
-        <option value="C4">Prismania-City-Einkaufszentrum</option>
-        <option value="C5">Team Aqua's Versteck</option>
-        <option value="C6">Team Magma's Versteck</option>
-        <option value="C7">Wunderturm</option>
-        <option value="C8">Entstehungsinsel</option>
-        <option value="C9">Fern-Eiland</option>
-        <option value="CA">Höhlenatelier</option>
-        <option value="CB">Ozeanhöhle</option>
-        <option value="CC">Unterwasser</option>
-        <option value="CD">Terrahöhle</option>
-        <option value="CE">Unterwasser</option>
-        <option value="CF">Unterwasser</option>
-        <option value="D0">Unterwasser</option>
-        <option value="D1">Wüstentunnel</option>
-        <option value="D2">Wandelhöhle</option>
-        <option value="D3">Nabelfelsen</option>
-        <option value="D4">Trainerberg</option>
-        <option value="D5">D5</option>
-        <option value="D6">D6</option>
-        <option value="D7">D7</option>
-        <option value="D8">D8</option>
-        <option value="D9">D9</option>
-        <option value="DA">DA</option>
-        <option value="DB">DB</option>
-        <option value="DC">DC</option>
-        <option value="DD">DD</option>
-        <option value="DE">DE</option>
-        <option value="DF">DF</option>
-        <option value="E0">E0</option>
-        <option value="E1">E1</option>
-        <option value="E2">E2</option>
-        <option value="E3">E3</option>
-        <option value="E4">E4</option>
-        <option value="E5">E5</option>
-        <option value="E6">E6</option>
-        <option value="E7">E7</option>
-        <option value="E8">E8</option>
-        <option value="E9">E9</option>
-        <option value="EA">EA</option>
-        <option value="EB">EB</option>
-        <option value="EC">EC</option>
-        <option value="ED">ED</option>
-        <option value="EE">EE</option>
-        <option value="EF">EF</option>
-        <option value="F0">F0</option>
-        <option value="F1">F1</option>
-        <option value="F2">F2</option>
-        <option value="F3">F3</option>
-        <option value="F4">F4</option>
-        <option value="F5">F5</option>
-        <option value="F6">F6</option>
-        <option value="F7">F7</option>
-        <option value="F8">F8</option>
-        <option value="F9">F9</option>
-        <option value="FA">FA</option>
-        <option value="FB">FB</option>
-        <option value="FC">FC</option>
-        <option value="FD">FD</option>
-        <option value="FE">Durch Tausch erhalten</option>
-        <option value="FF" selected>Schicksalhafte Begegnung</option>
-    </select>
+            <select id="ribbon_cool" name="Cool">
+                <option value="0" selected> </option>
+                <option value="1">Normal</option>
+                <option value="2">Super</option>
+                <option value="3">Hyper</option>
+                <option value="4">Master</option>
+            </select>
 
-    <input id="basepoints_summary" class="position basepoints_summary textalign_right text_normal text_white_small_shadow" value="?" onchange="HPower();"></input>
-    <input id="basepoints_health" class="position basepoints_health text_normal text_white_small_shadow" value="0" maxLength=3 onchange="HPower();"></input>
-    <input id="basepoints_attack" class="position basepoints_attack text_normal text_white_small_shadow" value="0" maxLength=3 onchange="HPower();"></input>
-    <input id="basepoints_defense" class="position basepoints_defense text_normal text_white_small_shadow" value="0" maxLength=3 onchange="HPower();"></input>
-    <input id="basepoints_attack_special" class="position basepoints_attack_special text_normal text_white_small_shadow" value="0" maxLength=3 onchange="HPower();"></input>
-    <input id="basepoints_defense_special" class="position basepoints_defense_special text_normal text_white_small_shadow" value="0" maxLength=3 onchange="HPower();"></input>
-    <input id="basepoints_speed" class="position basepoints_speed text_normal text_white_small_shadow" value="0" maxLength=3 onchange="HPower();"></input>
+            <select id="ribbon_beauty" name="Schön">
+                <option value="0" selected> </option>
+                <option value="1">Normal</option>
+                <option value="2">Super</option>
+                <option value="3">Hyper</option>
+                <option value="4">Master</option>
+            </select>
 
-    <span class="position selector_pokemon_hidden_power text_normal text_white_small_shadow">Kraftreserve</span>
-    <input id="hidden_power" class="position hidden_power textalign_right text_normal text_white_small_shadow" value="0" maxLength=3 onchange="HPower();"></input>
-    <span class="position selector_pokemon_hidden_power_type text_normal text_white_small_shadow">Reserve-Typ</span>
-    <select id="hidden_type" name="HiddenPower" class="position hidden_type text_normal text_white_small_shadow" onchange="HPower();">
-        <option value="0">Kampf</option>
-        <option value="1">Flug</option>
-        <option value="2">Gift</option>
-        <option value="3">Boden</option>
-        <option value="4">Stein</option>
-        <option value="5">Käfer</option>
-        <option value="6">Geist</option>
-        <option value="7">Stahl</option>
-        <option value="8">Feuer</option>
-        <option value="9">Wasser</option>
-        <option value="10">Pflanze</option>
-        <option value="11">Elektro</option>
-        <option value="12">Psycho</option>
-        <option value="13">Eis</option>
-        <option value="14">Drachen</option>
-        <option value="15">Dunkel</option>
-        <option value="16">Normal</option>
-        <option value="17" selected></option>
-    </select>
-    <span class="position selector_pokemon_hp_text text_normal text_white_small_shadow">Gesundheit</span>
-    <select id="health" class="position health text_normal text_white_small_shadow" onchange="HPower();">
-        <option selected value="00">0</option>
-        <option value="01">1</option>
-        <option value="02">2</option>
-        <option value="03">3</option>
-        <option value="04">4</option>
-        <option value="05">5</option>
-        <option value="06">6</option>
-        <option value="07">7</option>
-        <option value="08">8</option>
-        <option value="09">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
-        <option value="21">21</option>
-        <option value="22">22</option>
-        <option value="23">23</option>
-        <option value="24">24</option>
-        <option value="25">25</option>
-        <option value="26">26</option>
-        <option value="27">27</option>
-        <option value="28">28</option>
-        <option value="29">29</option>
-        <option value="30">30</option>
-        <option value="31">31</option>
-    </select>
-    <span class="position selector_pokemon_attack_text text_normal text_white_small_shadow">Angriff</span>
-    <select id="attack" class="position attack text_normal text_white_small_shadow" onchange="HPower();">
-        <option selected value="00">0</option>
-        <option value="01">1</option>
-        <option value="02">2</option>
-        <option value="03">3</option>
-        <option value="04">4</option>
-        <option value="05">5</option>
-        <option value="06">6</option>
-        <option value="07">7</option>
-        <option value="08">8</option>
-        <option value="09">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
-        <option value="21">21</option>
-        <option value="22">22</option>
-        <option value="23">23</option>
-        <option value="24">24</option>
-        <option value="25">25</option>
-        <option value="26">26</option>
-        <option value="27">27</option>
-        <option value="28">28</option>
-        <option value="29">29</option>
-        <option value="30">30</option>
-        <option value="31">31</option>
-    </select>
-    <span class="position selector_pokemon_defence_text text_normal text_white_small_shadow">Abwehr</span>
-    <select id="defense" class="position defense text_normal text_white_small_shadow" onchange="HPower();">
-        <option selected value="00">0</option>
-        <option value="01">1</option>
-        <option value="02">2</option>
-        <option value="03">3</option>
-        <option value="04">4</option>
-        <option value="05">5</option>
-        <option value="06">6</option>
-        <option value="07">7</option>
-        <option value="08">8</option>
-        <option value="09">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
-        <option value="21">21</option>
-        <option value="22">22</option>
-        <option value="23">23</option>
-        <option value="24">24</option>
-        <option value="25">25</option>
-        <option value="26">26</option>
-        <option value="27">27</option>
-        <option value="28">28</option>
-        <option value="29">29</option>
-        <option value="30">30</option>
-        <option value="31">31</option>
-    </select>
-    <span class="position selector_pokemon_special_attack_text text_normal text_white_small_shadow">Spezial-Angriff</span>
-    <select id="attack_special" class="position attack_special text_normal text_white_small_shadow" onchange="HPower();">
-        <option selected value="00">0</option>
-        <option value="01">1</option>
-        <option value="02">2</option>
-        <option value="03">3</option>
-        <option value="04">4</option>
-        <option value="05">5</option>
-        <option value="06">6</option>
-        <option value="07">7</option>
-        <option value="08">8</option>
-        <option value="09">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
-        <option value="21">21</option>
-        <option value="22">22</option>
-        <option value="23">23</option>
-        <option value="24">24</option>
-        <option value="25">25</option>
-        <option value="26">26</option>
-        <option value="27">27</option>
-        <option value="28">28</option>
-        <option value="29">29</option>
-        <option value="30">30</option>
-        <option value="31">31</option>
-    </select>
-    <span class="position selector_pokemon_special_defence_text text_normal text_white_small_shadow">Spezial-Abwehr</span>
-    <select id="defense_special" class="position defense_special text_normal text_white_small_shadow" onchange="HPower();">
-        <option selected value="00">0</option>
-        <option value="01">1</option>
-        <option value="02">2</option>
-        <option value="03">3</option>
-        <option value="04">4</option>
-        <option value="05">5</option>
-        <option value="06">6</option>
-        <option value="07">7</option>
-        <option value="08">8</option>
-        <option value="09">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
-        <option value="21">21</option>
-        <option value="22">22</option>
-        <option value="23">23</option>
-        <option value="24">24</option>
-        <option value="25">25</option>
-        <option value="26">26</option>
-        <option value="27">27</option>
-        <option value="28">28</option>
-        <option value="29">29</option>
-        <option value="30">30</option>
-        <option value="31">31</option>
-    </select>
-    <span class="position selector_pokemon_speed_text text_normal text_white_small_shadow">Geschwindigkeit</span>
-    <select id="speed" class="position speed text_normal text_white_small_shadow" onchange="HPower();">
-        <option selected value="00">0</option>
-        <option value="01">1</option>
-        <option value="02">2</option>
-        <option value="03">3</option>
-        <option value="04">4</option>
-        <option value="05">5</option>
-        <option value="06">6</option>
-        <option value="07">7</option>
-        <option value="08">8</option>
-        <option value="09">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
-        <option value="21">21</option>
-        <option value="22">22</option>
-        <option value="23">23</option>
-        <option value="24">24</option>
-        <option value="25">25</option>
-        <option value="26">26</option>
-        <option value="27">27</option>
-        <option value="28">28</option>
-        <option value="29">29</option>
-        <option value="30">30</option>
-        <option value="31">31</option>
-    </select>
+            <select id="ribbon_cute" name="Anmut">
+                <option value="0" selected> </option>
+                <option value="1">Normal</option>
+                <option value="2">Super</option>
+                <option value="3">Hyper</option>
+                <option value="4">Master</option>
+            </select>
 
-    <input id="health_dex" class="position health_dex text_normal text_white_small_shadow" value="0" onchange="HPower();"></input>
-    <input id="attack_dex" class="position attack_dex text_normal text_white_small_shadow" value="0" onchange="HPower();"></input>
-    <input id="defense_dex" class="position defense_dex text_normal text_white_small_shadow" value="0" onchange="HPower();"></input>
-    <input id="attack_special_dex" class="position attack_special_dex text_normal text_white_small_shadow" value="0" onchange="HPower();"></input>
-    <input id="defense_special_dex" class="position defense_special_dex text_normal text_white_small_shadow" value="0" onchange="HPower();"></input>
-    <input id="speed_dex" class="position speed_dex text_normal text_white_small_shadow" value="0" onchange="HPower();"></input>
+            <select id="ribbon_smart" name="Klug">
+                <option value="0" selected> </option>
+                <option value="1">Normal</option>
+                <option value="2">Super</option>
+                <option value="3">Hyper</option>
+                <option value="4">Master</option>
+            </select>
 
-    <input id="move_1_pp" value="5" maxLength=2></input>
-    <input id="move_2_pp" value="5" maxLength=2></input>
-    <input id="move_3_pp" value="5" maxLength=2></input>
-    <input id="move_4_pp" value="5" maxLength=2></input>
+            <select id="ribbon_tough" name="Stark">
+                <option value="0" selected> </option>
+                <option value="1">Normal</option>
+                <option value="2">Super</option>
+                <option value="3">Hyper</option>
+                <option value="4">Master</option>
+            </select>
 
-    <select id="ribbon_cool" name="Cool">
-        <option value="0" selected> </option>
-        <option value="1">Normal</option>
-        <option value="2">Super</option>
-        <option value="3">Hyper</option>
-        <option value="4">Master</option>
-    </select>
-    <select id="ribbon_beauty" name="Schön">
-        <option value="0" selected> </option>
-        <option value="1">Normal</option>
-        <option value="2">Super</option>
-        <option value="3">Hyper</option>
-        <option value="4">Master</option>
-    </select>
-    <select id="ribbon_cute" name="Anmut">
-        <option value="0" selected> </option>
-        <option value="1">Normal</option>
-        <option value="2">Super</option>
-        <option value="3">Hyper</option>
-        <option value="4">Master</option>
-    </select>
-    <select id="ribbon_smart" name="Klug">
-        <option value="0" selected> </option>
-        <option value="1">Normal</option>
-        <option value="2">Super</option>
-        <option value="3">Hyper</option>
-        <option value="4">Master</option>
-    </select>
-    <select id="ribbon_tough" name="Stark">
-        <option value="0" selected> </option>
-        <option value="1">Normal</option>
-        <option value="2">Super</option>
-        <option value="3">Hyper</option>
-        <option value="4">Master</option>
-    </select>
+            <input id="trainer_name_box" class="position trainer_name_box" type=checkbox value="0"></input>
+            <input id="trainer_gender_box" class="position trainer_gender_box" type=checkbox value="0"></input>
+            <input id="trainer_id_box" class="position trainer_id_box" type=checkbox value="0"></input>
+            <input id="trainer_id_secret_box" class="position trainer_id_secret_box" type=checkbox value="0"></input>
 
-    <input id="trainer_name_box" class="position trainer_name_box" type=checkbox value="0"></input>
-    <input id="trainer_gender_box" class="position trainer_gender_box" type=checkbox value="0"></input>
-    <input id="trainer_id_box" class="position trainer_id_box" type=checkbox value="0"></input>
-    <input id="trainer_id_secret_box" class="position trainer_id_secret_box" type=checkbox value="0"></input>
+            <input id="RS0" type=checkbox value="0"></input>
+            <input id="RS1" type=checkbox value="0"></input>
+            <input id="RS2" type=checkbox value="0"></input>
+            <input id="RS3" type=checkbox value="0"></input>
+            <input id="RS4" type=checkbox value="0"></input>
+            <input id="RS5" type=checkbox value="0"></input>
+            <input id="RS6" type=checkbox value="0"></input>
+            <input id="RChampion" name=RChampion type=checkbox value="0"></input>
+            <input id="RB50" name=RB50 type=checkbox value="0"></input>
+            <input id="RB100" name=RB100 type=checkbox value="0"></input>
+            <input id="RSketch" name=RSketch type=checkbox value="0"></input>
+            <input id="RHardWorker" name=RHardWorker type=checkbox value="0"></input>
+            <input id="Beauty" name=Beauty value="255" maxLength=3></input>
+            <input id="Cool" name=Cool value="255" maxLength=3></input>
+            <input id="Luster" name=Luster value="255" maxLength=3></input>
+            <input id="Tough" name=Tough value="255" maxLength=3></input>
+            <input id="Smart" name=Smart value="255" maxLength=3></input>
+            <input id="Cute" name=Cute value="255" maxLength=3></input>
 
-    <input id="RS0" type=checkbox value="0"></input>
-    <input id="RS1" type=checkbox value="0"></input>
-    <input id="RS2" type=checkbox value="0"></input>
-    <input id="RS3" type=checkbox value="0"></input>
-    <input id="RS4" type=checkbox value="0"></input>
-    <input id="RS5" type=checkbox value="0"></input>
-    <input id="RS6" type=checkbox value="0"></input>
-    <input id="RChampion" name=RChampion type=checkbox value="0"></input>
-    <input id="RB50" name=RB50 type=checkbox value="0"></input>
-    <input id="RB100" name=RB100 type=checkbox value="0"></input>
-    <input id="RSketch" name=RSketch type=checkbox value="0"></input>
-    <input id="RHardWorker" name=RHardWorker type=checkbox value="0"></input>
-    <input id="Beauty" name=Beauty value="255" maxLength=3></input>
-    <input id="Cool" name=Cool value="255" maxLength=3></input>
-    <input id="Luster" name=Luster value="255" maxLength=3></input>
-    <input id="Tough" name=Tough value="255" maxLength=3></input>
-    <input id="Smart" name=Smart value="255" maxLength=3></input>
-    <input id="Cute" name=Cute value="255" maxLength=3></input>
-    <select id="S0M">
-        <option selected value="0">None</option>
-        <option value="1">2003 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="2">2003 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="3">2003 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="4">2003 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="5">2003 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="6">2003 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="7">2003 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="8">2003 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="9">2003 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="10">2004 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="11">2004 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="12">2004 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="13">2004 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="14">2004 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="15">2004 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="16">2004 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="17">2004 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="18">2004 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="19">2005 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="20">2005 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="21">2005 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="22">2005 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="23">2005 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="24">2005 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="25">2005 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="26">2005 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="27">2005 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="28">POKEMON BATTLE CUP CHAMPION RIBBON</option>
-        <option value="29">POKEMON BATTLE CUP Runner-up RIBBON</option>
-        <option value="30">POKEMON BATTLE CUP Semifinalist RIBBON</option>
-        <option value="31">POKEMON BATTLE CUP Participation RIBBON</option>
-        <option value="32">POKEMON LEAGUE CUP CHAMPION RIBBON</option>
-        <option value="33">POKEMON LEAGUE CUP Runner-up RIBBON</option>
-        <option value="34">POKEMON LEAGUE CUP Semifinalist RIBBON</option>
-        <option value="35">POKEMON LEAGUE CUP Participation RIBBON</option>
-        <option value="36">ADVANCE CUP CHAMPION RIBBON</option>
-        <option value="37">ADVANCE CUP Runner-up RIBBON</option>
-        <option value="38">ADVANCE CUP Semifinalist RIBBON</option>
-        <option value="39">ADVANCE CUP Participation RIBBON</option>
-        <option value="40">POKEMON Tournament Participation RIBBON</option>
-        <option value="41">POKEMON Event Participation RIBBON</option>
-        <option value="42">POKEMON Festival Participation RIBBON</option>
-        <option value="43">Difficulty-clearing Commemorative RIBBON</option>
-        <option value="44">RIBBON awarded for clearing all difficulties</option>
-        <option value="45">100-striaght Win Commemorative RIBBON</option>
-        <option value="46">DARKNESS TOWER Clear Commemorative RIBBON</option>
-        <option value="47">RED TOWER Clear Commemorative RIBBON</option>
-        <option value="48">BLACKIRON TOWER Clear Commemorative RIBBON</option>
-        <option value="49">FINAL TOWER Clear Commemorative RIBBON</option>
-        <option value="50">Legend-making Commemorative RIBBON</option>
-        <option value="51">POKEMON CENTER TOKYO Commemorative RIBBON</option>
-        <option value="52">POKEMON CENTER OSAKA Commemorative RIBBON</option>
-        <option value="53">POKEMON CENTER NAGOYA Commemorative RIBBON</option>
-        <option value="54">POKEMON CENTER NY Commemorative RIBBON</option>
-        <option value="56">Summer Holidays RIBBON</option>
-        <option value="57">Winter Holidays RIBBON</option>
-        <option value="58">Spring Holidays RIBBON</option>
-        <option value="59">Evergreen RIBBON</option>
-        <option value="60">Special Holidays RIBBON</option>
-        <option value="61">Hard Worker RIBBON</option>
-        <option value="62">Lots of Friends RIBBON</option>
-        <option value="63">Full of Energy RIBBON</option>
-        <option value="64">A Commemorative RIBBON for a loved POKEMON</option>
-    </select>
-    <select id="S1M">
-        <option selected value="0">None</option>
-        <option value="1">2003 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="2">2003 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="3">2003 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="4">2003 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="5">2003 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="6">2003 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="7">2003 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="8">2003 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="9">2003 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="10">2004 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="11">2004 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="12">2004 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="13">2004 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="14">2004 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="15">2004 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="16">2004 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="17">2004 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="18">2004 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="19">2005 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="20">2005 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="21">2005 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="22">2005 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="23">2005 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="24">2005 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="25">2005 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="26">2005 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="27">2005 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="28">POKEMON BATTLE CUP CHAMPION RIBBON</option>
-        <option value="29">POKEMON BATTLE CUP Runner-up RIBBON</option>
-        <option value="30">POKEMON BATTLE CUP Semifinalist RIBBON</option>
-        <option value="31">POKEMON BATTLE CUP Participation RIBBON</option>
-        <option value="32">POKEMON LEAGUE CUP CHAMPION RIBBON</option>
-        <option value="33">POKEMON LEAGUE CUP Runner-up RIBBON</option>
-        <option value="34">POKEMON LEAGUE CUP Semifinalist RIBBON</option>
-        <option value="35">POKEMON LEAGUE CUP Participation RIBBON</option>
-        <option value="36">ADVANCE CUP CHAMPION RIBBON</option>
-        <option value="37">ADVANCE CUP Runner-up RIBBON</option>
-        <option value="38">ADVANCE CUP Semifinalist RIBBON</option>
-        <option value="39">ADVANCE CUP Participation RIBBON</option>
-        <option value="40">POKEMON Tournament Participation RIBBON</option>
-        <option value="41">POKEMON Event Participation RIBBON</option>
-        <option value="42">POKEMON Festival Participation RIBBON</option>
-        <option value="43">Difficulty-clearing Commemorative RIBBON</option>
-        <option value="44">RIBBON awarded for clearing all difficulties</option>
-        <option value="45">100-striaght Win Commemorative RIBBON</option>
-        <option value="46">DARKNESS TOWER Clear Commemorative RIBBON</option>
-        <option value="47">RED TOWER Clear Commemorative RIBBON</option>
-        <option value="48">BLACKIRON TOWER Clear Commemorative RIBBON</option>
-        <option value="49">FINAL TOWER Clear Commemorative RIBBON</option>
-        <option value="50">Legend-making Commemorative RIBBON</option>
-        <option value="51">POKEMON CENTER TOKYO Commemorative RIBBON</option>
-        <option value="52">POKEMON CENTER OSAKA Commemorative RIBBON</option>
-        <option value="53">POKEMON CENTER NAGOYA Commemorative RIBBON</option>
-        <option value="54">POKEMON CENTER NY Commemorative RIBBON</option>
-        <option value="56">Summer Holidays RIBBON</option>
-        <option value="57">Winter Holidays RIBBON</option>
-        <option value="58">Spring Holidays RIBBON</option>
-        <option value="59">Evergreen RIBBON</option>
-        <option value="60">Special Holidays RIBBON</option>
-        <option value="61">Hard Worker RIBBON</option>
-        <option value="62">Lots of Friends RIBBON</option>
-        <option value="63">Full of Energy RIBBON</option>
-        <option value="64">A Commemorative RIBBON for a loved POKEMON</option>
-    </select>
-    <select id="S2M">
-        <option selected value="0">None</option>
-        <option value="1">2003 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="2">2003 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="3">2003 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="4">2003 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="5">2003 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="6">2003 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="7">2003 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="8">2003 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="9">2003 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="10">2004 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="11">2004 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="12">2004 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="13">2004 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="14">2004 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="15">2004 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="16">2004 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="17">2004 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="18">2004 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="19">2005 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="20">2005 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="21">2005 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="22">2005 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="23">2005 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="24">2005 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="25">2005 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="26">2005 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="27">2005 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="28">POKEMON BATTLE CUP CHAMPION RIBBON</option>
-        <option value="29">POKEMON BATTLE CUP Runner-up RIBBON</option>
-        <option value="30">POKEMON BATTLE CUP Semifinalist RIBBON</option>
-        <option value="31">POKEMON BATTLE CUP Participation RIBBON</option>
-        <option value="32">POKEMON LEAGUE CUP CHAMPION RIBBON</option>
-        <option value="33">POKEMON LEAGUE CUP Runner-up RIBBON</option>
-        <option value="34">POKEMON LEAGUE CUP Semifinalist RIBBON</option>
-        <option value="35">POKEMON LEAGUE CUP Participation RIBBON</option>
-        <option value="36">ADVANCE CUP CHAMPION RIBBON</option>
-        <option value="37">ADVANCE CUP Runner-up RIBBON</option>
-        <option value="38">ADVANCE CUP Semifinalist RIBBON</option>
-        <option value="39">ADVANCE CUP Participation RIBBON</option>
-        <option value="40">POKEMON Tournament Participation RIBBON</option>
-        <option value="41">POKEMON Event Participation RIBBON</option>
-        <option value="42">POKEMON Festival Participation RIBBON</option>
-        <option value="43">Difficulty-clearing Commemorative RIBBON</option>
-        <option value="44">RIBBON awarded for clearing all difficulties</option>
-        <option value="45">100-striaght Win Commemorative RIBBON</option>
-        <option value="46">DARKNESS TOWER Clear Commemorative RIBBON</option>
-        <option value="47">RED TOWER Clear Commemorative RIBBON</option>
-        <option value="48">BLACKIRON TOWER Clear Commemorative RIBBON</option>
-        <option value="49">FINAL TOWER Clear Commemorative RIBBON</option>
-        <option value="50">Legend-making Commemorative RIBBON</option>
-        <option value="51">POKEMON CENTER TOKYO Commemorative RIBBON</option>
-        <option value="52">POKEMON CENTER OSAKA Commemorative RIBBON</option>
-        <option value="53">POKEMON CENTER NAGOYA Commemorative RIBBON</option>
-        <option value="54">POKEMON CENTER NY Commemorative RIBBON</option>
-        <option value="56">Summer Holidays RIBBON</option>
-        <option value="57">Winter Holidays RIBBON</option>
-        <option value="58">Spring Holidays RIBBON</option>
-        <option value="59">Evergreen RIBBON</option>
-        <option value="60">Special Holidays RIBBON</option>
-        <option value="61">Hard Worker RIBBON</option>
-        <option value="62">Lots of Friends RIBBON</option>
-        <option value="63">Full of Energy RIBBON</option>
-        <option value="64">A Commemorative RIBBON for a loved POKEMON</option>
-    </select>
-    <select id="S3M">
-        <option selected value="0">None</option>
-        <option value="1">2003 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="2">2003 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="3">2003 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="4">2003 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="5">2003 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="6">2003 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="7">2003 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="8">2003 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="9">2003 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="10">2004 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="11">2004 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="12">2004 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="13">2004 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="14">2004 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="15">2004 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="16">2004 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="17">2004 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="18">2004 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="19">2005 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="20">2005 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="21">2005 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="22">2005 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="23">2005 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="24">2005 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="25">2005 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="26">2005 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="27">2005 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="28">POKEMON BATTLE CUP CHAMPION RIBBON</option>
-        <option value="29">POKEMON BATTLE CUP Runner-up RIBBON</option>
-        <option value="30">POKEMON BATTLE CUP Semifinalist RIBBON</option>
-        <option value="31">POKEMON BATTLE CUP Participation RIBBON</option>
-        <option value="32">POKEMON LEAGUE CUP CHAMPION RIBBON</option>
-        <option value="33">POKEMON LEAGUE CUP Runner-up RIBBON</option>
-        <option value="34">POKEMON LEAGUE CUP Semifinalist RIBBON</option>
-        <option value="35">POKEMON LEAGUE CUP Participation RIBBON</option>
-        <option value="36">ADVANCE CUP CHAMPION RIBBON</option>
-        <option value="37">ADVANCE CUP Runner-up RIBBON</option>
-        <option value="38">ADVANCE CUP Semifinalist RIBBON</option>
-        <option value="39">ADVANCE CUP Participation RIBBON</option>
-        <option value="40">POKEMON Tournament Participation RIBBON</option>
-        <option value="41">POKEMON Event Participation RIBBON</option>
-        <option value="42">POKEMON Festival Participation RIBBON</option>
-        <option value="43">Difficulty-clearing Commemorative RIBBON</option>
-        <option value="44">RIBBON awarded for clearing all difficulties</option>
-        <option value="45">100-striaght Win Commemorative RIBBON</option>
-        <option value="46">DARKNESS TOWER Clear Commemorative RIBBON</option>
-        <option value="47">RED TOWER Clear Commemorative RIBBON</option>
-        <option value="48">BLACKIRON TOWER Clear Commemorative RIBBON</option>
-        <option value="49">FINAL TOWER Clear Commemorative RIBBON</option>
-        <option value="50">Legend-making Commemorative RIBBON</option>
-        <option value="51">POKEMON CENTER TOKYO Commemorative RIBBON</option>
-        <option value="52">POKEMON CENTER OSAKA Commemorative RIBBON</option>
-        <option value="53">POKEMON CENTER NAGOYA Commemorative RIBBON</option>
-        <option value="54">POKEMON CENTER NY Commemorative RIBBON</option>
-        <option value="56">Summer Holidays RIBBON</option>
-        <option value="57">Winter Holidays RIBBON</option>
-        <option value="58">Spring Holidays RIBBON</option>
-        <option value="59">Evergreen RIBBON</option>
-        <option value="60">Special Holidays RIBBON</option>
-        <option value="61">Hard Worker RIBBON</option>
-        <option value="62">Lots of Friends RIBBON</option>
-        <option value="63">Full of Energy RIBBON</option>
-        <option value="64">A Commemorative RIBBON for a loved POKEMON</option>
-    </select>
-    <select id="S4M">
-        <option selected value="0">None</option>
-        <option value="1">2003 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="2">2003 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="3">2003 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="4">2003 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="5">2003 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="6">2003 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="7">2003 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="8">2003 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="9">2003 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="10">2004 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="11">2004 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="12">2004 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="13">2004 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="14">2004 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="15">2004 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="16">2004 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="17">2004 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="18">2004 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="19">2005 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="20">2005 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="21">2005 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="22">2005 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="23">2005 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="24">2005 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="25">2005 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="26">2005 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="27">2005 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="28">POKEMON BATTLE CUP CHAMPION RIBBON</option>
-        <option value="29">POKEMON BATTLE CUP Runner-up RIBBON</option>
-        <option value="30">POKEMON BATTLE CUP Semifinalist RIBBON</option>
-        <option value="31">POKEMON BATTLE CUP Participation RIBBON</option>
-        <option value="32">POKEMON LEAGUE CUP CHAMPION RIBBON</option>
-        <option value="33">POKEMON LEAGUE CUP Runner-up RIBBON</option>
-        <option value="34">POKEMON LEAGUE CUP Semifinalist RIBBON</option>
-        <option value="35">POKEMON LEAGUE CUP Participation RIBBON</option>
-        <option value="36">ADVANCE CUP CHAMPION RIBBON</option>
-        <option value="37">ADVANCE CUP Runner-up RIBBON</option>
-        <option value="38">ADVANCE CUP Semifinalist RIBBON</option>
-        <option value="39">ADVANCE CUP Participation RIBBON</option>
-        <option value="40">POKEMON Tournament Participation RIBBON</option>
-        <option value="41">POKEMON Event Participation RIBBON</option>
-        <option value="42">POKEMON Festival Participation RIBBON</option>
-        <option value="43">Difficulty-clearing Commemorative RIBBON</option>
-        <option value="44">RIBBON awarded for clearing all difficulties</option>
-        <option value="45">100-striaght Win Commemorative RIBBON</option>
-        <option value="46">DARKNESS TOWER Clear Commemorative RIBBON</option>
-        <option value="47">RED TOWER Clear Commemorative RIBBON</option>
-        <option value="48">BLACKIRON TOWER Clear Commemorative RIBBON</option>
-        <option value="49">FINAL TOWER Clear Commemorative RIBBON</option>
-        <option value="50">Legend-making Commemorative RIBBON</option>
-        <option value="51">POKEMON CENTER TOKYO Commemorative RIBBON</option>
-        <option value="52">POKEMON CENTER OSAKA Commemorative RIBBON</option>
-        <option value="53">POKEMON CENTER NAGOYA Commemorative RIBBON</option>
-        <option value="54">POKEMON CENTER NY Commemorative RIBBON</option>
-        <option value="56">Summer Holidays RIBBON</option>
-        <option value="57">Winter Holidays RIBBON</option>
-        <option value="58">Spring Holidays RIBBON</option>
-        <option value="59">Evergreen RIBBON</option>
-        <option value="60">Special Holidays RIBBON</option>
-        <option value="61">Hard Worker RIBBON</option>
-        <option value="62">Lots of Friends RIBBON</option>
-        <option value="63">Full of Energy RIBBON</option>
-        <option value="64">A Commemorative RIBBON for a loved POKEMON</option>
-    </select>
-    <select id="S5M">
-        <option selected value="0">None</option>
-        <option value="1">2003 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="2">2003 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="3">2003 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="4">2003 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="5">2003 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="6">2003 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="7">2003 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="8">2003 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="9">2003 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="10">2004 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="11">2004 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="12">2004 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="13">2004 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="14">2004 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="15">2004 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="16">2004 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="17">2004 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="18">2004 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="19">2005 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="20">2005 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="21">2005 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="22">2005 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="23">2005 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="24">2005 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="25">2005 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="26">2005 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="27">2005 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="28">POKEMON BATTLE CUP CHAMPION RIBBON</option>
-        <option value="29">POKEMON BATTLE CUP Runner-up RIBBON</option>
-        <option value="30">POKEMON BATTLE CUP Semifinalist RIBBON</option>
-        <option value="31">POKEMON BATTLE CUP Participation RIBBON</option>
-        <option value="32">POKEMON LEAGUE CUP CHAMPION RIBBON</option>
-        <option value="33">POKEMON LEAGUE CUP Runner-up RIBBON</option>
-        <option value="34">POKEMON LEAGUE CUP Semifinalist RIBBON</option>
-        <option value="35">POKEMON LEAGUE CUP Participation RIBBON</option>
-        <option value="36">ADVANCE CUP CHAMPION RIBBON</option>
-        <option value="37">ADVANCE CUP Runner-up RIBBON</option>
-        <option value="38">ADVANCE CUP Semifinalist RIBBON</option>
-        <option value="39">ADVANCE CUP Participation RIBBON</option>
-        <option value="40">POKEMON Tournament Participation RIBBON</option>
-        <option value="41">POKEMON Event Participation RIBBON</option>
-        <option value="42">POKEMON Festival Participation RIBBON</option>
-        <option value="43">Difficulty-clearing Commemorative RIBBON</option>
-        <option value="44">RIBBON awarded for clearing all difficulties</option>
-        <option value="45">100-striaght Win Commemorative RIBBON</option>
-        <option value="46">DARKNESS TOWER Clear Commemorative RIBBON</option>
-        <option value="47">RED TOWER Clear Commemorative RIBBON</option>
-        <option value="48">BLACKIRON TOWER Clear Commemorative RIBBON</option>
-        <option value="49">FINAL TOWER Clear Commemorative RIBBON</option>
-        <option value="50">Legend-making Commemorative RIBBON</option>
-        <option value="51">POKEMON CENTER TOKYO Commemorative RIBBON</option>
-        <option value="52">POKEMON CENTER OSAKA Commemorative RIBBON</option>
-        <option value="53">POKEMON CENTER NAGOYA Commemorative RIBBON</option>
-        <option value="54">POKEMON CENTER NY Commemorative RIBBON</option>
-        <option value="56">Summer Holidays RIBBON</option>
-        <option value="57">Winter Holidays RIBBON</option>
-        <option value="58">Spring Holidays RIBBON</option>
-        <option value="59">Evergreen RIBBON</option>
-        <option value="60">Special Holidays RIBBON</option>
-        <option value="61">Hard Worker RIBBON</option>
-        <option value="62">Lots of Friends RIBBON</option>
-        <option value="63">Full of Energy RIBBON</option>
-        <option value="64">A Commemorative RIBBON for a loved POKEMON</option>
-    </select>
-    <select id="S6M">
-        <option selected value="0">None</option>
-        <option value="1">2003 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="2">2003 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="3">2003 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="4">2003 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="5">2003 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="6">2003 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="7">2003 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="8">2003 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="9">2003 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="10">2004 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="11">2004 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="12">2004 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="13">2004 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="14">2004 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="15">2004 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="16">2004 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="17">2004 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="18">2004 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="19">2005 REGIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="20">2005 NATIONAL TOURNEY CHAMPION RIBBON</option>
-        <option value="21">2005 GLOBAL CUP CHAMPION RIBBON</option>
-        <option value="22">2005 REGIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="23">2005 NATIONAL TOURNEY Runner-up RIBBON</option>
-        <option value="24">2005 GLOBAL CUP Runner-up RIBBON</option>
-        <option value="25">2005 REGIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="26">2005 NATIONAL TOURNEY Semifinalist RIBBON</option>
-        <option value="27">2005 GLOBAL CUP Semifinalist RIBBON</option>
-        <option value="28">POKEMON BATTLE CUP CHAMPION RIBBON</option>
-        <option value="29">POKEMON BATTLE CUP Runner-up RIBBON</option>
-        <option value="30">POKEMON BATTLE CUP Semifinalist RIBBON</option>
-        <option value="31">POKEMON BATTLE CUP Participation RIBBON</option>
-        <option value="32">POKEMON LEAGUE CUP CHAMPION RIBBON</option>
-        <option value="33">POKEMON LEAGUE CUP Runner-up RIBBON</option>
-        <option value="34">POKEMON LEAGUE CUP Semifinalist RIBBON</option>
-        <option value="35">POKEMON LEAGUE CUP Participation RIBBON</option>
-        <option value="36">ADVANCE CUP CHAMPION RIBBON</option>
-        <option value="37">ADVANCE CUP Runner-up RIBBON</option>
-        <option value="38">ADVANCE CUP Semifinalist RIBBON</option>
-        <option value="39">ADVANCE CUP Participation RIBBON</option>
-        <option value="40">POKEMON Tournament Participation RIBBON</option>
-        <option value="41">POKEMON Event Participation RIBBON</option>
-        <option value="42">POKEMON Festival Participation RIBBON</option>
-        <option value="43">Difficulty-clearing Commemorative RIBBON</option>
-        <option value="44">RIBBON awarded for clearing all difficulties</option>
-        <option value="45">100-striaght Win Commemorative RIBBON</option>
-        <option value="46">DARKNESS TOWER Clear Commemorative RIBBON</option>
-        <option value="47">RED TOWER Clear Commemorative RIBBON</option>
-        <option value="48">BLACKIRON TOWER Clear Commemorative RIBBON</option>
-        <option value="49">FINAL TOWER Clear Commemorative RIBBON</option>
-        <option value="50">Legend-making Commemorative RIBBON</option>
-        <option value="51">POKEMON CENTER TOKYO Commemorative RIBBON</option>
-        <option value="52">POKEMON CENTER OSAKA Commemorative RIBBON</option>
-        <option value="53">POKEMON CENTER NAGOYA Commemorative RIBBON</option>
-        <option value="54">POKEMON CENTER NY Commemorative RIBBON</option>
-        <option value="56">Summer Holidays RIBBON</option>
-        <option value="57">Winter Holidays RIBBON</option>
-        <option value="58">Spring Holidays RIBBON</option>
-        <option value="59">Evergreen RIBBON</option>
-        <option value="60">Special Holidays RIBBON</option>
-        <option value="61">Hard Worker RIBBON</option>
-        <option value="62">Lots of Friends RIBBON</option>
-        <option value="63">Full of Energy RIBBON</option>
-        <option value="64">A Commemorative RIBBON for a loved POKEMON</option>
-    </select>
+            <select id="S0M">
+                <option selected value="0">None</option>
+                <option value="1">2003 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="2">2003 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="3">2003 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="4">2003 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="5">2003 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="6">2003 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="7">2003 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="8">2003 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="9">2003 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="10">2004 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="11">2004 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="12">2004 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="13">2004 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="14">2004 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="15">2004 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="16">2004 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="17">2004 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="18">2004 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="19">2005 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="20">2005 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="21">2005 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="22">2005 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="23">2005 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="24">2005 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="25">2005 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="26">2005 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="27">2005 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="28">POKEMON BATTLE CUP CHAMPION RIBBON</option>
+                <option value="29">POKEMON BATTLE CUP Runner-up RIBBON</option>
+                <option value="30">POKEMON BATTLE CUP Semifinalist RIBBON</option>
+                <option value="31">POKEMON BATTLE CUP Participation RIBBON</option>
+                <option value="32">POKEMON LEAGUE CUP CHAMPION RIBBON</option>
+                <option value="33">POKEMON LEAGUE CUP Runner-up RIBBON</option>
+                <option value="34">POKEMON LEAGUE CUP Semifinalist RIBBON</option>
+                <option value="35">POKEMON LEAGUE CUP Participation RIBBON</option>
+                <option value="36">ADVANCE CUP CHAMPION RIBBON</option>
+                <option value="37">ADVANCE CUP Runner-up RIBBON</option>
+                <option value="38">ADVANCE CUP Semifinalist RIBBON</option>
+                <option value="39">ADVANCE CUP Participation RIBBON</option>
+                <option value="40">POKEMON Tournament Participation RIBBON</option>
+                <option value="41">POKEMON Event Participation RIBBON</option>
+                <option value="42">POKEMON Festival Participation RIBBON</option>
+                <option value="43">Difficulty-clearing Commemorative RIBBON</option>
+                <option value="44">RIBBON awarded for clearing all difficulties</option>
+                <option value="45">100-striaght Win Commemorative RIBBON</option>
+                <option value="46">DARKNESS TOWER Clear Commemorative RIBBON</option>
+                <option value="47">RED TOWER Clear Commemorative RIBBON</option>
+                <option value="48">BLACKIRON TOWER Clear Commemorative RIBBON</option>
+                <option value="49">FINAL TOWER Clear Commemorative RIBBON</option>
+                <option value="50">Legend-making Commemorative RIBBON</option>
+                <option value="51">POKEMON CENTER TOKYO Commemorative RIBBON</option>
+                <option value="52">POKEMON CENTER OSAKA Commemorative RIBBON</option>
+                <option value="53">POKEMON CENTER NAGOYA Commemorative RIBBON</option>
+                <option value="54">POKEMON CENTER NY Commemorative RIBBON</option>
+                <option value="56">Summer Holidays RIBBON</option>
+                <option value="57">Winter Holidays RIBBON</option>
+                <option value="58">Spring Holidays RIBBON</option>
+                <option value="59">Evergreen RIBBON</option>
+                <option value="60">Special Holidays RIBBON</option>
+                <option value="61">Hard Worker RIBBON</option>
+                <option value="62">Lots of Friends RIBBON</option>
+                <option value="63">Full of Energy RIBBON</option>
+                <option value="64">A Commemorative RIBBON for a loved POKEMON</option>
+            </select>
 
-    <input onclick="codein();" type=button value="V-Code to Samples-V"></input>
-    <input onclick="Sample(-1)" type=button value="All Samples"></input>
-    <input onclick="Sample(32)" type=button value="All ABCD"></input>
-    <input id="abcd_output" size=5 value="ABCD" maxLength=5 type="text"></input>
+            <select id="S1M">
+                <option selected value="0">None</option>
+                <option value="1">2003 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="2">2003 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="3">2003 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="4">2003 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="5">2003 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="6">2003 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="7">2003 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="8">2003 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="9">2003 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="10">2004 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="11">2004 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="12">2004 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="13">2004 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="14">2004 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="15">2004 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="16">2004 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="17">2004 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="18">2004 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="19">2005 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="20">2005 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="21">2005 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="22">2005 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="23">2005 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="24">2005 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="25">2005 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="26">2005 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="27">2005 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="28">POKEMON BATTLE CUP CHAMPION RIBBON</option>
+                <option value="29">POKEMON BATTLE CUP Runner-up RIBBON</option>
+                <option value="30">POKEMON BATTLE CUP Semifinalist RIBBON</option>
+                <option value="31">POKEMON BATTLE CUP Participation RIBBON</option>
+                <option value="32">POKEMON LEAGUE CUP CHAMPION RIBBON</option>
+                <option value="33">POKEMON LEAGUE CUP Runner-up RIBBON</option>
+                <option value="34">POKEMON LEAGUE CUP Semifinalist RIBBON</option>
+                <option value="35">POKEMON LEAGUE CUP Participation RIBBON</option>
+                <option value="36">ADVANCE CUP CHAMPION RIBBON</option>
+                <option value="37">ADVANCE CUP Runner-up RIBBON</option>
+                <option value="38">ADVANCE CUP Semifinalist RIBBON</option>
+                <option value="39">ADVANCE CUP Participation RIBBON</option>
+                <option value="40">POKEMON Tournament Participation RIBBON</option>
+                <option value="41">POKEMON Event Participation RIBBON</option>
+                <option value="42">POKEMON Festival Participation RIBBON</option>
+                <option value="43">Difficulty-clearing Commemorative RIBBON</option>
+                <option value="44">RIBBON awarded for clearing all difficulties</option>
+                <option value="45">100-striaght Win Commemorative RIBBON</option>
+                <option value="46">DARKNESS TOWER Clear Commemorative RIBBON</option>
+                <option value="47">RED TOWER Clear Commemorative RIBBON</option>
+                <option value="48">BLACKIRON TOWER Clear Commemorative RIBBON</option>
+                <option value="49">FINAL TOWER Clear Commemorative RIBBON</option>
+                <option value="50">Legend-making Commemorative RIBBON</option>
+                <option value="51">POKEMON CENTER TOKYO Commemorative RIBBON</option>
+                <option value="52">POKEMON CENTER OSAKA Commemorative RIBBON</option>
+                <option value="53">POKEMON CENTER NAGOYA Commemorative RIBBON</option>
+                <option value="54">POKEMON CENTER NY Commemorative RIBBON</option>
+                <option value="56">Summer Holidays RIBBON</option>
+                <option value="57">Winter Holidays RIBBON</option>
+                <option value="58">Spring Holidays RIBBON</option>
+                <option value="59">Evergreen RIBBON</option>
+                <option value="60">Special Holidays RIBBON</option>
+                <option value="61">Hard Worker RIBBON</option>
+                <option value="62">Lots of Friends RIBBON</option>
+                <option value="63">Full of Energy RIBBON</option>
+                <option value="64">A Commemorative RIBBON for a loved POKEMON</option>
+            </select>
+            
+            <select id="S2M">
+                <option selected value="0">None</option>
+                <option value="1">2003 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="2">2003 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="3">2003 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="4">2003 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="5">2003 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="6">2003 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="7">2003 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="8">2003 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="9">2003 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="10">2004 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="11">2004 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="12">2004 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="13">2004 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="14">2004 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="15">2004 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="16">2004 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="17">2004 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="18">2004 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="19">2005 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="20">2005 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="21">2005 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="22">2005 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="23">2005 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="24">2005 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="25">2005 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="26">2005 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="27">2005 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="28">POKEMON BATTLE CUP CHAMPION RIBBON</option>
+                <option value="29">POKEMON BATTLE CUP Runner-up RIBBON</option>
+                <option value="30">POKEMON BATTLE CUP Semifinalist RIBBON</option>
+                <option value="31">POKEMON BATTLE CUP Participation RIBBON</option>
+                <option value="32">POKEMON LEAGUE CUP CHAMPION RIBBON</option>
+                <option value="33">POKEMON LEAGUE CUP Runner-up RIBBON</option>
+                <option value="34">POKEMON LEAGUE CUP Semifinalist RIBBON</option>
+                <option value="35">POKEMON LEAGUE CUP Participation RIBBON</option>
+                <option value="36">ADVANCE CUP CHAMPION RIBBON</option>
+                <option value="37">ADVANCE CUP Runner-up RIBBON</option>
+                <option value="38">ADVANCE CUP Semifinalist RIBBON</option>
+                <option value="39">ADVANCE CUP Participation RIBBON</option>
+                <option value="40">POKEMON Tournament Participation RIBBON</option>
+                <option value="41">POKEMON Event Participation RIBBON</option>
+                <option value="42">POKEMON Festival Participation RIBBON</option>
+                <option value="43">Difficulty-clearing Commemorative RIBBON</option>
+                <option value="44">RIBBON awarded for clearing all difficulties</option>
+                <option value="45">100-striaght Win Commemorative RIBBON</option>
+                <option value="46">DARKNESS TOWER Clear Commemorative RIBBON</option>
+                <option value="47">RED TOWER Clear Commemorative RIBBON</option>
+                <option value="48">BLACKIRON TOWER Clear Commemorative RIBBON</option>
+                <option value="49">FINAL TOWER Clear Commemorative RIBBON</option>
+                <option value="50">Legend-making Commemorative RIBBON</option>
+                <option value="51">POKEMON CENTER TOKYO Commemorative RIBBON</option>
+                <option value="52">POKEMON CENTER OSAKA Commemorative RIBBON</option>
+                <option value="53">POKEMON CENTER NAGOYA Commemorative RIBBON</option>
+                <option value="54">POKEMON CENTER NY Commemorative RIBBON</option>
+                <option value="56">Summer Holidays RIBBON</option>
+                <option value="57">Winter Holidays RIBBON</option>
+                <option value="58">Spring Holidays RIBBON</option>
+                <option value="59">Evergreen RIBBON</option>
+                <option value="60">Special Holidays RIBBON</option>
+                <option value="61">Hard Worker RIBBON</option>
+                <option value="62">Lots of Friends RIBBON</option>
+                <option value="63">Full of Energy RIBBON</option>
+                <option value="64">A Commemorative RIBBON for a loved POKEMON</option>
+            </select>
 
-    <input class="rdna_sample" onclick="Sample(0)" type=radio value="00000000" CHECKED>Code Sample:0</input>
-    <input class="rdna_sample" onclick="Sample(1)" type=radio value="00000000">Code Sample 1:</input>
-    <input class="rdna_sample" onclick="Sample(2)" type=radio value="00000000">Code Sample 2:</input>
-    <input class="rdna_sample" onclick="Sample(3)" type=radio value="00000000">Code Sample 3:</input>
-    <input class="rdna_sample" onclick="Sample(4)" type=radio value="00000000">Code Sample 4:</input>
-    <input class="rdna_sample" onclick="Sample(5)" type=radio value="00000000">Code Sample 5:</input>
-    <input class="rdna_sample" onclick="Sample(6)" type=radio value="00000000">Code Sample 6:</input>
-    <input class="rdna_sample" onclick="Sample(7)" type=radio value="00000000">Code Sample 7:</input>
-    <input class="rdna_sample" onclick="Sample(8)" type=radio value="00000000">Code Sample 8:</input>
-    <input class="rdna_sample" onclick="Sample(9)" type=radio value="00000000">Code Sample 9:</input>
-    <input class="rdna_sample" onclick="Sample(10)" type=radio value="00000000">Code Sample 10:</input>
-    <input class="rdna_sample" onclick="Sample(11)" type=radio value="00000000">Code Sample 11:</input>
-    <input class="rdna_sample" onclick="Sample(12)" type=radio value="00000000">Code Sample 12:</input>
-    <input class="rdna_sample" onclick="Sample(13)" type=radio value="00000000">Code Sample 13:</input>
-    <input class="rdna_sample" onclick="Sample(14)" type=radio value="00000000">Code Sample 14:</input>
-    <input class="rdna_sample" onclick="Sample(15)" type=radio value="00000000">Code Sample 15:</input>
-    <input class="rdna_sample" onclick="Sample(16)" type=radio value="00000000">Code Sample 16:</input>
-    <input class="rdna_sample" onclick="Sample(17)" type=radio value="00000000">Code Sample 17:</input>
-    <input class="rdna_sample" onclick="Sample(18)" type=radio value="00000000">Code Sample 18:</input>
-    <input class="rdna_sample" onclick="Sample(19)" type=radio value="00000000">Code Sample 19:</input>
-    <input class="ra_sample" onclick="Sample(20)" type=radio value="00000000" CHECKED>A Structure:0</input>
-    <input class="ra_sample" onclick="Sample(21)" type=radio value="00000000">A Structure 1:</input>
-    <input class="ra_sample" onclick="Sample(22)" type=radio value="00000000">A Structure 2:</input>
-    <input class="rb_sample" onclick="Sample(23)" type=radio value="00000000" CHECKED>B Structure 0:</input>
-    <input class="rb_sample" onclick="Sample(24)" type=radio value="00000000">B Structure 1:</input>
-    <input class="rb_sample" onclick="Sample(25)" type=radio value="00000000">B Structure 2:</input>
-    <input class="rc_sample" onclick="Sample(26)" type=radio value="00000000" CHECKED>C Structure 0:</input>
-    <input class="rc_sample" onclick="Sample(27)" type=radio value="00000000">C Structure 1:</input>
-    <input class="rc_sample" onclick="Sample(28)" type=radio value="00000000">C Structure 2:</input>
-    <input class="rd_sample" onclick="Sample(29)" type=radio value="00000000" CHECKED>D Structure:0</input>
-    <input class="rd_sample" onclick="Sample(30)" type=radio value="00000000">D Structure 1:</input>
-    <input class="rd_sample" onclick="Sample(31)" type=radio value="00000000">D Structure 2:</input>
-    <input id="code_selector" size=10 value="" maxLength=10 type="text"></input>
-    <input id="xkey" size=10 value="" maxLength=10 type="text"></input>
-    <input id="font" size=4 value="0205" maxLength=4 type="text"></input>
-    <input id="font_box" type=checkbox value="0"></input>
-    <input id="dna" type="text" value="0"></input>
-    <input id="rpid" type=checkbox value="0" checked></input>
-    <input id="pid" size=20 value="" maxLength=20></input>
+            <select id="S3M">
+                <option selected value="0">None</option>
+                <option value="1">2003 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="2">2003 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="3">2003 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="4">2003 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="5">2003 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="6">2003 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="7">2003 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="8">2003 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="9">2003 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="10">2004 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="11">2004 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="12">2004 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="13">2004 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="14">2004 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="15">2004 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="16">2004 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="17">2004 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="18">2004 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="19">2005 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="20">2005 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="21">2005 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="22">2005 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="23">2005 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="24">2005 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="25">2005 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="26">2005 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="27">2005 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="28">POKEMON BATTLE CUP CHAMPION RIBBON</option>
+                <option value="29">POKEMON BATTLE CUP Runner-up RIBBON</option>
+                <option value="30">POKEMON BATTLE CUP Semifinalist RIBBON</option>
+                <option value="31">POKEMON BATTLE CUP Participation RIBBON</option>
+                <option value="32">POKEMON LEAGUE CUP CHAMPION RIBBON</option>
+                <option value="33">POKEMON LEAGUE CUP Runner-up RIBBON</option>
+                <option value="34">POKEMON LEAGUE CUP Semifinalist RIBBON</option>
+                <option value="35">POKEMON LEAGUE CUP Participation RIBBON</option>
+                <option value="36">ADVANCE CUP CHAMPION RIBBON</option>
+                <option value="37">ADVANCE CUP Runner-up RIBBON</option>
+                <option value="38">ADVANCE CUP Semifinalist RIBBON</option>
+                <option value="39">ADVANCE CUP Participation RIBBON</option>
+                <option value="40">POKEMON Tournament Participation RIBBON</option>
+                <option value="41">POKEMON Event Participation RIBBON</option>
+                <option value="42">POKEMON Festival Participation RIBBON</option>
+                <option value="43">Difficulty-clearing Commemorative RIBBON</option>
+                <option value="44">RIBBON awarded for clearing all difficulties</option>
+                <option value="45">100-striaght Win Commemorative RIBBON</option>
+                <option value="46">DARKNESS TOWER Clear Commemorative RIBBON</option>
+                <option value="47">RED TOWER Clear Commemorative RIBBON</option>
+                <option value="48">BLACKIRON TOWER Clear Commemorative RIBBON</option>
+                <option value="49">FINAL TOWER Clear Commemorative RIBBON</option>
+                <option value="50">Legend-making Commemorative RIBBON</option>
+                <option value="51">POKEMON CENTER TOKYO Commemorative RIBBON</option>
+                <option value="52">POKEMON CENTER OSAKA Commemorative RIBBON</option>
+                <option value="53">POKEMON CENTER NAGOYA Commemorative RIBBON</option>
+                <option value="54">POKEMON CENTER NY Commemorative RIBBON</option>
+                <option value="56">Summer Holidays RIBBON</option>
+                <option value="57">Winter Holidays RIBBON</option>
+                <option value="58">Spring Holidays RIBBON</option>
+                <option value="59">Evergreen RIBBON</option>
+                <option value="60">Special Holidays RIBBON</option>
+                <option value="61">Hard Worker RIBBON</option>
+                <option value="62">Lots of Friends RIBBON</option>
+                <option value="63">Full of Energy RIBBON</option>
+                <option value="64">A Commemorative RIBBON for a loved POKEMON</option>
+            </select>
 
-    <input class="position code_generate text_normal text_white_small_shadow border_3px" onclick="codeout(-1);" type=button value="Code Generieren"></input>
-</section>
+            <select id="S4M">
+                <option selected value="0">None</option>
+                <option value="1">2003 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="2">2003 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="3">2003 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="4">2003 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="5">2003 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="6">2003 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="7">2003 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="8">2003 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="9">2003 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="10">2004 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="11">2004 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="12">2004 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="13">2004 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="14">2004 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="15">2004 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="16">2004 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="17">2004 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="18">2004 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="19">2005 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="20">2005 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="21">2005 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="22">2005 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="23">2005 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="24">2005 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="25">2005 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="26">2005 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="27">2005 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="28">POKEMON BATTLE CUP CHAMPION RIBBON</option>
+                <option value="29">POKEMON BATTLE CUP Runner-up RIBBON</option>
+                <option value="30">POKEMON BATTLE CUP Semifinalist RIBBON</option>
+                <option value="31">POKEMON BATTLE CUP Participation RIBBON</option>
+                <option value="32">POKEMON LEAGUE CUP CHAMPION RIBBON</option>
+                <option value="33">POKEMON LEAGUE CUP Runner-up RIBBON</option>
+                <option value="34">POKEMON LEAGUE CUP Semifinalist RIBBON</option>
+                <option value="35">POKEMON LEAGUE CUP Participation RIBBON</option>
+                <option value="36">ADVANCE CUP CHAMPION RIBBON</option>
+                <option value="37">ADVANCE CUP Runner-up RIBBON</option>
+                <option value="38">ADVANCE CUP Semifinalist RIBBON</option>
+                <option value="39">ADVANCE CUP Participation RIBBON</option>
+                <option value="40">POKEMON Tournament Participation RIBBON</option>
+                <option value="41">POKEMON Event Participation RIBBON</option>
+                <option value="42">POKEMON Festival Participation RIBBON</option>
+                <option value="43">Difficulty-clearing Commemorative RIBBON</option>
+                <option value="44">RIBBON awarded for clearing all difficulties</option>
+                <option value="45">100-striaght Win Commemorative RIBBON</option>
+                <option value="46">DARKNESS TOWER Clear Commemorative RIBBON</option>
+                <option value="47">RED TOWER Clear Commemorative RIBBON</option>
+                <option value="48">BLACKIRON TOWER Clear Commemorative RIBBON</option>
+                <option value="49">FINAL TOWER Clear Commemorative RIBBON</option>
+                <option value="50">Legend-making Commemorative RIBBON</option>
+                <option value="51">POKEMON CENTER TOKYO Commemorative RIBBON</option>
+                <option value="52">POKEMON CENTER OSAKA Commemorative RIBBON</option>
+                <option value="53">POKEMON CENTER NAGOYA Commemorative RIBBON</option>
+                <option value="54">POKEMON CENTER NY Commemorative RIBBON</option>
+                <option value="56">Summer Holidays RIBBON</option>
+                <option value="57">Winter Holidays RIBBON</option>
+                <option value="58">Spring Holidays RIBBON</option>
+                <option value="59">Evergreen RIBBON</option>
+                <option value="60">Special Holidays RIBBON</option>
+                <option value="61">Hard Worker RIBBON</option>
+                <option value="62">Lots of Friends RIBBON</option>
+                <option value="63">Full of Energy RIBBON</option>
+                <option value="64">A Commemorative RIBBON for a loved POKEMON</option>
+            </select>
+            
+            <select id="S5M">
+                <option selected value="0">None</option>
+                <option value="1">2003 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="2">2003 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="3">2003 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="4">2003 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="5">2003 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="6">2003 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="7">2003 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="8">2003 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="9">2003 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="10">2004 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="11">2004 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="12">2004 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="13">2004 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="14">2004 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="15">2004 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="16">2004 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="17">2004 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="18">2004 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="19">2005 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="20">2005 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="21">2005 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="22">2005 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="23">2005 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="24">2005 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="25">2005 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="26">2005 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="27">2005 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="28">POKEMON BATTLE CUP CHAMPION RIBBON</option>
+                <option value="29">POKEMON BATTLE CUP Runner-up RIBBON</option>
+                <option value="30">POKEMON BATTLE CUP Semifinalist RIBBON</option>
+                <option value="31">POKEMON BATTLE CUP Participation RIBBON</option>
+                <option value="32">POKEMON LEAGUE CUP CHAMPION RIBBON</option>
+                <option value="33">POKEMON LEAGUE CUP Runner-up RIBBON</option>
+                <option value="34">POKEMON LEAGUE CUP Semifinalist RIBBON</option>
+                <option value="35">POKEMON LEAGUE CUP Participation RIBBON</option>
+                <option value="36">ADVANCE CUP CHAMPION RIBBON</option>
+                <option value="37">ADVANCE CUP Runner-up RIBBON</option>
+                <option value="38">ADVANCE CUP Semifinalist RIBBON</option>
+                <option value="39">ADVANCE CUP Participation RIBBON</option>
+                <option value="40">POKEMON Tournament Participation RIBBON</option>
+                <option value="41">POKEMON Event Participation RIBBON</option>
+                <option value="42">POKEMON Festival Participation RIBBON</option>
+                <option value="43">Difficulty-clearing Commemorative RIBBON</option>
+                <option value="44">RIBBON awarded for clearing all difficulties</option>
+                <option value="45">100-striaght Win Commemorative RIBBON</option>
+                <option value="46">DARKNESS TOWER Clear Commemorative RIBBON</option>
+                <option value="47">RED TOWER Clear Commemorative RIBBON</option>
+                <option value="48">BLACKIRON TOWER Clear Commemorative RIBBON</option>
+                <option value="49">FINAL TOWER Clear Commemorative RIBBON</option>
+                <option value="50">Legend-making Commemorative RIBBON</option>
+                <option value="51">POKEMON CENTER TOKYO Commemorative RIBBON</option>
+                <option value="52">POKEMON CENTER OSAKA Commemorative RIBBON</option>
+                <option value="53">POKEMON CENTER NAGOYA Commemorative RIBBON</option>
+                <option value="54">POKEMON CENTER NY Commemorative RIBBON</option>
+                <option value="56">Summer Holidays RIBBON</option>
+                <option value="57">Winter Holidays RIBBON</option>
+                <option value="58">Spring Holidays RIBBON</option>
+                <option value="59">Evergreen RIBBON</option>
+                <option value="60">Special Holidays RIBBON</option>
+                <option value="61">Hard Worker RIBBON</option>
+                <option value="62">Lots of Friends RIBBON</option>
+                <option value="63">Full of Energy RIBBON</option>
+                <option value="64">A Commemorative RIBBON for a loved POKEMON</option>
+            </select>
+
+            <select id="S6M">
+                <option selected value="0">None</option>
+                <option value="1">2003 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="2">2003 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="3">2003 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="4">2003 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="5">2003 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="6">2003 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="7">2003 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="8">2003 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="9">2003 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="10">2004 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="11">2004 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="12">2004 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="13">2004 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="14">2004 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="15">2004 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="16">2004 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="17">2004 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="18">2004 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="19">2005 REGIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="20">2005 NATIONAL TOURNEY CHAMPION RIBBON</option>
+                <option value="21">2005 GLOBAL CUP CHAMPION RIBBON</option>
+                <option value="22">2005 REGIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="23">2005 NATIONAL TOURNEY Runner-up RIBBON</option>
+                <option value="24">2005 GLOBAL CUP Runner-up RIBBON</option>
+                <option value="25">2005 REGIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="26">2005 NATIONAL TOURNEY Semifinalist RIBBON</option>
+                <option value="27">2005 GLOBAL CUP Semifinalist RIBBON</option>
+                <option value="28">POKEMON BATTLE CUP CHAMPION RIBBON</option>
+                <option value="29">POKEMON BATTLE CUP Runner-up RIBBON</option>
+                <option value="30">POKEMON BATTLE CUP Semifinalist RIBBON</option>
+                <option value="31">POKEMON BATTLE CUP Participation RIBBON</option>
+                <option value="32">POKEMON LEAGUE CUP CHAMPION RIBBON</option>
+                <option value="33">POKEMON LEAGUE CUP Runner-up RIBBON</option>
+                <option value="34">POKEMON LEAGUE CUP Semifinalist RIBBON</option>
+                <option value="35">POKEMON LEAGUE CUP Participation RIBBON</option>
+                <option value="36">ADVANCE CUP CHAMPION RIBBON</option>
+                <option value="37">ADVANCE CUP Runner-up RIBBON</option>
+                <option value="38">ADVANCE CUP Semifinalist RIBBON</option>
+                <option value="39">ADVANCE CUP Participation RIBBON</option>
+                <option value="40">POKEMON Tournament Participation RIBBON</option>
+                <option value="41">POKEMON Event Participation RIBBON</option>
+                <option value="42">POKEMON Festival Participation RIBBON</option>
+                <option value="43">Difficulty-clearing Commemorative RIBBON</option>
+                <option value="44">RIBBON awarded for clearing all difficulties</option>
+                <option value="45">100-striaght Win Commemorative RIBBON</option>
+                <option value="46">DARKNESS TOWER Clear Commemorative RIBBON</option>
+                <option value="47">RED TOWER Clear Commemorative RIBBON</option>
+                <option value="48">BLACKIRON TOWER Clear Commemorative RIBBON</option>
+                <option value="49">FINAL TOWER Clear Commemorative RIBBON</option>
+                <option value="50">Legend-making Commemorative RIBBON</option>
+                <option value="51">POKEMON CENTER TOKYO Commemorative RIBBON</option>
+                <option value="52">POKEMON CENTER OSAKA Commemorative RIBBON</option>
+                <option value="53">POKEMON CENTER NAGOYA Commemorative RIBBON</option>
+                <option value="54">POKEMON CENTER NY Commemorative RIBBON</option>
+                <option value="56">Summer Holidays RIBBON</option>
+                <option value="57">Winter Holidays RIBBON</option>
+                <option value="58">Spring Holidays RIBBON</option>
+                <option value="59">Evergreen RIBBON</option>
+                <option value="60">Special Holidays RIBBON</option>
+                <option value="61">Hard Worker RIBBON</option>
+                <option value="62">Lots of Friends RIBBON</option>
+                <option value="63">Full of Energy RIBBON</option>
+                <option value="64">A Commemorative RIBBON for a loved POKEMON</option>
+            </select>
+
+            <input onclick="codein();" type=button value="V-Code to Samples-V"></input>
+            <input onclick="Sample(-1)" type=button value="All Samples"></input>
+            <input onclick="Sample(32)" type=button value="All ABCD"></input>
+            <input id="abcd_output" size=5 value="ABCD" maxLength=5 type="text"></input>
+
+            <input class="rdna_sample" onclick="Sample(0)" type=radio value="00000000" CHECKED>Code Sample:0</input>
+            <input class="rdna_sample" onclick="Sample(1)" type=radio value="00000000">Code Sample 1:</input>
+            <input class="rdna_sample" onclick="Sample(2)" type=radio value="00000000">Code Sample 2:</input>
+            <input class="rdna_sample" onclick="Sample(3)" type=radio value="00000000">Code Sample 3:</input>
+            <input class="rdna_sample" onclick="Sample(4)" type=radio value="00000000">Code Sample 4:</input>
+            <input class="rdna_sample" onclick="Sample(5)" type=radio value="00000000">Code Sample 5:</input>
+            <input class="rdna_sample" onclick="Sample(6)" type=radio value="00000000">Code Sample 6:</input>
+            <input class="rdna_sample" onclick="Sample(7)" type=radio value="00000000">Code Sample 7:</input>
+            <input class="rdna_sample" onclick="Sample(8)" type=radio value="00000000">Code Sample 8:</input>
+            <input class="rdna_sample" onclick="Sample(9)" type=radio value="00000000">Code Sample 9:</input>
+            <input class="rdna_sample" onclick="Sample(10)" type=radio value="00000000">Code Sample 10:</input>
+            <input class="rdna_sample" onclick="Sample(11)" type=radio value="00000000">Code Sample 11:</input>
+            <input class="rdna_sample" onclick="Sample(12)" type=radio value="00000000">Code Sample 12:</input>
+            <input class="rdna_sample" onclick="Sample(13)" type=radio value="00000000">Code Sample 13:</input>
+            <input class="rdna_sample" onclick="Sample(14)" type=radio value="00000000">Code Sample 14:</input>
+            <input class="rdna_sample" onclick="Sample(15)" type=radio value="00000000">Code Sample 15:</input>
+            <input class="rdna_sample" onclick="Sample(16)" type=radio value="00000000">Code Sample 16:</input>
+            <input class="rdna_sample" onclick="Sample(17)" type=radio value="00000000">Code Sample 17:</input>
+            <input class="rdna_sample" onclick="Sample(18)" type=radio value="00000000">Code Sample 18:</input>
+            <input class="rdna_sample" onclick="Sample(19)" type=radio value="00000000">Code Sample 19:</input>
+            <input class="ra_sample" onclick="Sample(20)" type=radio value="00000000" CHECKED>A Structure:0</input>
+            <input class="ra_sample" onclick="Sample(21)" type=radio value="00000000">A Structure 1:</input>
+            <input class="ra_sample" onclick="Sample(22)" type=radio value="00000000">A Structure 2:</input>
+            <input class="rb_sample" onclick="Sample(23)" type=radio value="00000000" CHECKED>B Structure 0:</input>
+            <input class="rb_sample" onclick="Sample(24)" type=radio value="00000000">B Structure 1:</input>
+            <input class="rb_sample" onclick="Sample(25)" type=radio value="00000000">B Structure 2:</input>
+            <input class="rc_sample" onclick="Sample(26)" type=radio value="00000000" CHECKED>C Structure 0:</input>
+            <input class="rc_sample" onclick="Sample(27)" type=radio value="00000000">C Structure 1:</input>
+            <input class="rc_sample" onclick="Sample(28)" type=radio value="00000000">C Structure 2:</input>
+            <input class="rd_sample" onclick="Sample(29)" type=radio value="00000000" CHECKED>D Structure:0</input>
+            <input class="rd_sample" onclick="Sample(30)" type=radio value="00000000">D Structure 1:</input>
+            <input class="rd_sample" onclick="Sample(31)" type=radio value="00000000">D Structure 2:</input>
+            <input id="code_selector" size=10 value="" maxLength=10 type="text"></input>
+            <input id="xkey" size=10 value="" maxLength=10 type="text"></input>
+            <input id="font" size=4 value="0205" maxLength=4 type="text"></input>
+            <input id="font_box" type=checkbox value="0"></input>
+            <input id="dna" type="text" value="0"></input>
+            <input id="rpid" type=checkbox value="0" checked></input>
+            <input id="pid" size=20 value="" maxLength=20></input>
+
+            <input class="position code_generate text_normal text_white_small_shadow border_3px" onclick="codeout(-1);" type=button value="Code Generieren"></input>
+
+        </section>
 
       </article>
     </div>
