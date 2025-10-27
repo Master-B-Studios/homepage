@@ -1,31 +1,36 @@
 /* Layout Commands */
-.layout_container {display: grid;grid-template-columns: 1fr 1fr;gap: 1em;align-items: start;}
-@media (orientation: portrait) {.layout_container {grid-template-columns: 1fr;}}
+.layout_container {display: grid;grid-template-columns: 1fr;gap: 1em;}
+@media (orientation: landscape) {.layout_container {grid-template-columns: 1fr 1fr;align-items: start;align-content: start;}}
 
 /* Views for multiple instances */
+.container_header {width: 100%;text-align: center;padding: 0.5em;}
 .background_image {display: block;width: 100%;height: 100%;}
 
 .border_3d {box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.1),inset -2px -2px 5px rgba(255, 255, 255, 0.1);;}
 .border_knob {box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.1),inset -2px -2px 5px rgba(0, 0, 0, 0.5);}
 
 .checkbox {display: flex;align-items: center;cursor: pointer;}
-.checkbox input[type="checkbox"] {appearance: none;-moz-appearance: none;-webkit-appearance: none;width: 1.6em;height: 1.6em;background-color: #222222;border-radius: 0.5em;position: relative;cursor: pointer;transition: all 1s ease;margin: 0;padding: 0;}
+.checkbox input[type="checkbox"] {appearance: none;-moz-appearance: none;-webkit-appearance: none;width: 1.8em;height: 1.8em;background-color: #222222;border-radius: 0.5em;position: relative;cursor: pointer;transition: all 1s ease;margin: 0;padding: 0;}
 .checkbox input[type="checkbox"]:hover {background-color: #444444;}
 .checkbox input[type="checkbox"]:checked::after {content: "✔";position: absolute;top: 0%;left: 25%;font-size: 1em;color: #48ff00;}
+.checkbox input[type="radio"] {appearance: none;-moz-appearance: none;-webkit-appearance: none;width: 1.8em;height: 1.8em;background-color: #222222;border-radius: 0.5em;position: relative;cursor: pointer;transition: all 1s ease;margin: 0;padding: 0;}
+.checkbox input[type="radio"]:hover {background-color: #444444;}
+.checkbox input[type="radio"]:checked::after {content: "✔";position: absolute;top: 0%;left: 25%;font-size: 1em;color: #48ff00;}
+
 
 /* Game-Cover */
-.game_cover_container {width: 100%;margin: auto;justify-content: flex-start;background-color: #111111;border-radius: 1em;}
+.game_cover_container {width: 100%;background-color: #111111;border-radius: 1em;align-items: start;align-content: start;}
 
-.game_table {width: 100%;border-radius: 0;display: flex;align-items: flex-start;padding: 0.5em;border-radius: 1em 1em 0 0;}
+.game_table {width: 100%;border-radius: 0;display: flex;padding: 0.5em;border-radius: 1em 1em 0 0;}
 .game_table_1 {width: 30%;text-align: center;}
 .game_table_2 {width: 70%;}
 
-.game_cover {display: block;width: 100%;height: 100%;padding: 0 0.5em 0.5em 0.5em;border-radius: 1em;}
+.game_cover {display: block;width: calc(100% - 1em);margin: auto;border-radius: 0.5em;}
 .game_select {width: 100%;color: #dbdbdb;background-color: #222222;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
 .game_select:hover {color: #48ff00;background-color: #444444;}
 
 /* Pokemon-Section */
-.pokemon_container {width: 100%;margin: auto;justify-content: flex-start;background-color: #111111;border-radius: 1em;}
+.pokemon_container {width: 100%;background-color: #111111;border-radius: 1em;align-items: start;align-content: start;}
 
 .pokedex_select_table {width: 100%;display: flex;align-items: flex-start;padding: 0.5em;border-radius: 1em 1em 0 0;}
 .pokedex_select_table_1 {width: 30%;text-align: center;}
@@ -39,7 +44,9 @@
 .pokedex_sort {width: 100%;color: #dbdbdb;background-color: #222222;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
 .pokedex_sort:hover {color: #48ff00;background-color: #444444;}
 
+.pokemon_picture_swapper {width: 100%;cursor: pointer;position: relative;}
 .pokemon_picture {display: block;width: calc(100% - 1em);margin: auto;border-radius: 0.5em;background-image: url(pokemon/icons/background.png);background-size: contain;background-repeat: no-repeat;background-position: center;transition: all 1s ease;}
+.pokemon_description {width: calc(100% - 1em);height: 100%;top: 0%;left: 0.5em;position: absolute;padding: 0.5em 1em;border-radius: 0.5em;color: #dbdbdb;text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);opacity: 0;overflow: scroll;background-color: rgba(0, 0, 0, 0.6);}
 
 .pokemon_select_table {width: 100%;display: flex;align-items: flex-start;padding: 0.5em;}
 .pokemon_select_table_1 {width: 30%;text-align: center;}
@@ -54,7 +61,7 @@
 .pokedex_number:hover {color: #48ff00;background-color: #444444;}
 
 /* Stats Section */
-.stats_container {width: 100%;margin: auto;justify-content: flex-start;background-color: #111111;border-radius: 1em;}
+.stats_container {width: 100%;justify-content: flex-start;background-color: #111111;border-radius: 1em;}
 
 .stats_table {width: 100%;display: flex;align-items: flex-start;padding: 0.5em;border-radius: 0 0 1em 1em;}
 .stats_table_1 {width: 30%;text-align: center;}
@@ -77,6 +84,63 @@
 .pokemon_spot:hover {color: #48ff00;background-color: #444444;}
 .pokemon_shiny {width: 1em;height: 1em;color: #dbdbdb;background-color: #222222;}
 .pokemon_shiny:hover {color: #48ff00;background-color: #444444;}
+.pokemon_gender {width: 100%;color: #dbdbdb;background-color: #222222;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;padding: 0;margin: 0;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
+.pokemon_gender:hover {color: #48ff00;background-color: #444444;}
+.pokemon_level {width: 100%;color: #dbdbdb;background-color: #222222;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;padding: 0;margin: 0;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
+.pokemon_level:hover {color: #48ff00;background-color: #444444;}
+.icognito_select {width: 100%;color: #dbdbdb;background-color: #222222;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;padding: 0;margin: 0;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
+.icognito_select:hover {color: #48ff00;background-color: #444444;}
+
+/* Item Section */
+.item_container {width: 100%;justify-content: flex-start;background-color: #111111;border-radius: 1em;}
+
+.item_sort_table {width: 100%;display: flex;align-items: flex-start;padding: 0.5em;}
+.item_sort_table_1 {width: 30%;text-align: center;}
+.item_sort_table_2 {width: 70%;}
+.item_sort {width: 100%;color: #dbdbdb;background-color: #222222;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
+.item_sort:hover {color: #48ff00;background-color: #444444;}
+
+.item_carry_table {width: 100%;display: flex;align-items: flex-start;padding: 0.5em;}
+.item_carry_table_1 {width: 30%;text-align: center;}
+.item_carry_table_2 {width: 70%;}
+.item_carry {width: 100%;color: #dbdbdb;background-color: #222222;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
+.item_carry:hover {color: #48ff00;background-color: #444444;}
+
+.item_text_table {width: 100%;display: flex;align-items: flex-end;padding: 0.5em;}
+.item_text_table_1 {width:100%;text-align: justify;}
+.item_description {width: 100%;color: #dbdbdb;background-color: #000000;border-radius: 0.5em;padding: 0.8em 1em;}
+
+/* Fight Section */
+.fight_container {width: 100%;justify-content: flex-start;background-color: #111111;border-radius: 1em;}
+
+.attack_table {width: 100%;display: flex;align-items: flex-start;padding: 0.5em;border-radius: 0 0 1em 1em;}
+.attack_table_1 {width: 30%;text-align: center;}
+.attack_table_2 {width: 70%;}
+.attack_table_3 {width: 30%;text-align: center;}
+.attack_table_4 {width: 20%;}
+.move {width: 100%;color: #dbdbdb;background-color: #222222;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;padding: 0;margin: 0;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
+.move:hover {color: #48ff00;background-color: #444444;}
+
+/* Trainer Section */
+.trainer_container {width: 100%;justify-content: flex-start;background-color: #111111;border-radius: 1em;}
+
+.trainer_name {width: 100%;color: #dbdbdb;background-color: #222222;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
+.trainer_name:hover {color: #48ff00;background-color: #444444;}
+.trainer_gender {width: 100%;color: #dbdbdb;background-color: #222222;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;padding: 0;margin: 0;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
+.trainer_gender:hover {color: #48ff00;background-color: #444444;}
+.trainer_id {width: 100%;color: #dbdbdb;background-color: #222222;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;padding: 0;margin: 0;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
+.trainer_id:hover {color: #48ff00;background-color: #444444;}
+.trainer_id_secret {width: 100%;color: #dbdbdb;background-color: #222222;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;padding: 0;margin: 0;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
+.trainer_id_secret:hover {color: #48ff00;background-color: #444444;}
+
+/* Code Section */
+.code_container {width: 100%;justify-content: flex-start;background-color: #111111;border-radius: 1em;}
+
+.code_table {width: 100%;border-radius: 0;display: flex;padding: 0.5em;border-radius: 1em 1em 0 0;}
+.code_table_1 {width: 80%;text-align: center;}
+.code_table_2 {width: 20%;}
+.code_table_3 {width: 30%;text-align: center;}
+.code_table_4 {width: 20%;}
 
 
 .hidden_code {visibility: hidden;}
@@ -84,78 +148,6 @@
 
 .logo_container {width: 33%;height: auto;left: 25%;top: 10%;}
 
-
-
-
-
-
-
-.pokemon_container_1 {width: calc(32% - 1px);height: calc(12% - 1px);left: 16%;top: 6%;background-color: #111111;border-radius: 4px;border: 1px solid #888888;}
-.pokemon_container_2 {width: calc(32% - 1px);height: calc(12% - 1px);left: 50%;top: 6%;background-color: #111111;border-radius: 4px;border: 1px solid #888888;}
-.pokemon_container_3 {width: calc(32% - 1px);height: calc(12% - 1px);left: 84%;top: 6%;background-color: #111111;border-radius: 4px;border: 1px solid #888888;}
-.pokemon_container_4 {width: calc(32% - 1px);height: calc(12% - 1px);left: 16%;top: 94%;background-color: #111111;border-radius: 4px;border: 1px solid #888888;}
-.pokemon_container_5 {width: calc(32% - 1px);height: calc(12% - 1px);left: 84%;top: 94%;background-color: #111111;border-radius: 4px;border: 1px solid #888888;}
-
-.pokemon_nature {width: calc(100% - 2px);height: calc(100% - 2px);left: 50%;top: 50%;background-color: #111111;border-radius: 6px;border: none;-webkit-appearance: none;appearance: none;text-align-last: center;}
-
-.pokemon_gender {width: calc(100% - 2px);height: calc(100% - 2px);left: 50%;top: 50%;background-color: #111111;border-radius: 6px;border: none;-webkit-appearance: none;appearance: none;text-align-last: center;font-size: 16px;}
-.pokemon_level_text {width: 100%;height: 100%;left: 50%;top: 50%;padding-left: 10px;background-color: none;border-radius: 6px;border: none;display: flex;align-items: center;}
-.pokemon_level {width: 40%;height: calc(100% - 4px);left: 75%;top: 50%;background-color: #111111;border-radius: 6px;border: none;text-align: right;}
-
-.icognito_select_container {width: calc(32% - 1px);height: calc(12% - 1px);left: 50%;top: 94%;background-color: #111111;border-radius: 4px;border: 1px solid #888888;visibility: hidden;}
-.icognito_select {width: calc(100% - 2px);height: calc(100% - 2px);left: 50%;top: 50%;background-color: #111111;border-radius: 6px;border: none;-webkit-appearance: none;appearance: none;text-align-last: center;}
-
-
-.item_container {width: 94%;height: 12%;left: 50%;top: 55.5%;background-color: #000000;}
-.item_carry_text {width: calc(38% - 2px);height: calc(33% - 2px);left: 19%;top: calc(16.5% - 1px);background-color: #000000;border-radius: 4px;border: 1px dotted #888888;display: flex; align-items: center;justify-content: center;}
-.item_carry {width: 38%;height: 33%;left: 19%;top: 50%;background-color: #111111;border-radius: 4px;border: 1px solid #888888;-webkit-appearance: none;appearance: none;text-align-last: center;}
-.item_sort {width: 38%;height: 33%;left: 19%;top: calc(83.5% + 1px);background-color: #111111;border-radius: 4px;border: 1px solid #888888;-webkit-appearance: none;appearance: none;text-align-last: center;}
-.item_description {width: calc(62% - 10px);height: calc(100% - 8px);left: 69%;top: 50%;padding: 4px;background-color: #000000;border-radius: 4px;border: 1px dotted #888888;scrollbar-base-color: #111111;scrollbar-track-color: #111111;scrollbar-face-color: #111111;scrollbar-arrow-color: #48ff00;scrollbar-shadow-color: #888888;overflow: auto;font-family: monospace;}
-
-.pokemon_description_container {width: 94%;height: 20%;left: 50%;top: 73.5%;background-color: #000000;}
-.pokemon_description {width: calc(100% - 8px);height: calc(100% - 8px);left: 50%;top: 50%;padding: 4px;background-color: #000000;border-radius: 4px;border: 1px dotted #888888;scrollbar-base-color: #111111;scrollbar-track-color: #111111;scrollbar-face-color: #111111;scrollbar-arrow-color: #48ff00;scrollbar-shadow-color: #888888;overflow: auto;font-family: monospace;}
-
-.fight_container {aspect-ratio: 1/1;width: 28%;height: auto;left: 17.5%;top: 92%;}
-.trainer_container {aspect-ratio: 1/1;width: 28%;height: auto;left: 50%;top: 92%;}
-.code_container {aspect-ratio: 1/1;width: 28%;height: auto;left: 82.5%;top: 92%;}
-
-
-.move_1_container {width: calc(90% + 13px);height: 22%;left: 50%;top: 13%;background-color: #000000;}
-.move_2_container {width: calc(90% + 13px);height: 22%;left: 50%;top: 37.5%;background-color: #000000;}
-.move_3_container {width: calc(90% + 13px);height: 22%;left: 50%;top: 62%;background-color: #000000;}
-.move_4_container {width: calc(90% + 13px);height: 22%;left: 50%;top: 86.5%;background-color: #000000;}
-
-.move_container_1 {width: 32%;height: 16%;left: 16.5%;top: 8%;background-color: #111111;border-radius: 6px;border: 1px solid #888888;}
-.move_sort {width: 100%;height: 100%;left: 50%;top: 50%;background-color: #111111;border-radius: 4px;border: none;-webkit-appearance: none;appearance: none;text-align-last: center;}
-
-.move_container_2 {width: 32%;height: 16%;left: 16.5%;top: 26%;background-color: #111111;border-radius: 6px;border: 1px solid #888888;}
-.move {width: 100%;height: 100%;left: 50%;top: 50%;background-color: #111111;border-radius: 4px;border: none;-webkit-appearance: none;appearance: none;text-align-last: center;}
-
-.move_container_3 {width: 32%;height: 16%;left: 50%;top: 8%;background-color: #111111;border-radius: 6px;border: 1px solid #888888;}
-.move_level {width: 100%;height: 100%;left: 50%;top: 50%;background-color: #111111;border-radius: 4px;border: none;-webkit-appearance: none;appearance: none;text-align-last: center;}
-
-.move_container_4 {width: 32%;height: 16%;left: 50%;top: 26%;background-color: #000000;border-radius: 6px;border: 1px dotted #888888;}
-.move_type {width: calc(100% - 2px);height: calc(100% - 2px);left: 50%;top: 50%;background-color: #000000;border-radius: 4px;border: none;-webkit-appearance: none;appearance: none;text-align-last: center;}
-
-.move_container_5 {width: 32%;height: 16%;left: 83.5%;top: 8%;background-color: #000000;border-radius: 6px;border: 1px dotted #888888;}
-.move_power_text {width: calc(60% - 2px);height: calc(100% - 2px);left: 30%;top: 50%;background-color: none;border-radius: 4px;border: none;display: flex;align-items: center;justify-content: center;}
-.move_power {width: calc(40% - 2px);height: calc(100% - 2px);left: 80%;top: 50%;background-color: #000000;border-radius: 4px;border: none;-webkit-appearance: none;appearance: none;text-align-last: center;}
-
-.move_container_6 {width: 32%;height: 16%;left: 83.5%;top: 26%;background-color: #000000;border-radius: 6px;border: 1px dotted #888888;}
-.move_accuracy_text {width: calc(60% - 2px);height: calc(100% - 2px);left: 30%;top: 50%;background-color: none;border-radius: 4px;border: none;display: flex;align-items: center;justify-content: center;}
-.move_accuracy {width: calc(40% - 2px);height: calc(100% - 2px);left: 80%;top: 50%;background-color: #000000;border-radius: 4px;border: none;-webkit-appearance: none;appearance: none;text-align-last: center;}
-
-.move_description {width: calc(100% - 24px);height: calc(64% - 24px);left: 50%;top: 68%;padding: 10px;background-color: #000000;border-radius: 6px;border: 1px dotted #888888;}
-
-.trainer_name_container {width: calc(50% + 13px);height: 20%;left: 50%;top: 50%;background-color: #111111;}
-.trainer_name_container_1 {width: calc(100% - 4px);height: calc(25% - 4px);left: 50%;top: 12.5%;background-color: #111111;border-radius: 6px;border: 1px solid #888888;}
-.trainer_name {width: calc(100% - 4px);height: calc(100% - 4px);left: 50%;top: 50%;background-color: #111111;border-radius: 4px;border: none;text-align-last: center;}
-.trainer_name_container_2 {width: calc(100% - 4px);height: calc(25% - 4px);left: 50%;top: 37.5%;background-color: #111111;border-radius: 6px;border: 1px solid #888888;}
-.trainer_gender {width: calc(100% - 4px);height: calc(100% - 4px);left: 50%;top: 50%;background-color: #111111;border-radius: 4px;border: none;-webkit-appearance: none;appearance: none;text-align-last: center;}
-.trainer_name_container_3 {width: calc(100% - 4px);height: calc(25% - 4px);left: 50%;top: 62.5%;background-color: #111111;border-radius: 6px;border: 1px solid #888888;}
-.trainer_id {width: calc(100% - 4px);height: calc(100% - 4px);left: 50%;top: 50%;background-color: #111111;border-radius: 4px;border: none;text-align-last: center;}
-.trainer_name_container_4 {width: calc(100% - 4px);height: calc(25% - 4px);left: 50%;top: 87.5%;background-color: #111111;border-radius: 6px;border: 1px solid #888888;}
-.trainer_id_secret {width: calc(100% - 4px);height: calc(100% - 4px);left: 50%;top: 50%;background-color: #111111;border-radius: 4px;border: none;text-align-last: center;}
 
 
 .code_choice_1_container {width: calc(90% + 13px);height: calc(4%);left: 50%;top: 6.5%;background-color: #000000;}

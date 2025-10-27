@@ -93,22 +93,26 @@ function check_enter(e) {if (e.keyCode === 13) {NewPoke();select_cover();codeout
 function check_back(e) {if (e.keyCode === 8) {jump_page_home_site();}}
 
 // Poke-Section Variables
-var pokemon_shiny = document.getElementById('pokemon_shiny');
+const pokemon_shiny = document.getElementById('pokemon_shiny');
+const icognito_select = document.getElementById('icognito_select');
+const icognito_select_container_1 = document.getElementById('icognito_select_container_1');
+const icognito_select_container_2 = document.getElementById('icognito_select_container_2');
+const item_description = document.getElementById('item_description');
 
 // Poke-Section
 function NewPoke() {
     var t = " ";var u = " ";var v = " ";var x = 0;var i = 0;var pgn = 0;var pdex = " ";
     pgn=pokemon_select.options[pokemon_select.selectedIndex].value;
-    icognito_select_container.style.visibility = 'hidden';
+    icognito_select_container_1.style.visibility = 'hidden';icognito_select_container_2.style.visibility = 'hidden';
     if (pgn<1) {pgn=Math.floor(Math.random()*386)+1; pokemon_select.selectedIndex=pgn;} t=pokemon_picture_normal.value;
     if (pokemon_shiny.checked) {t=pokemon_picture_shiny.value;} u="";
-    if (pgn==201) {u=icognito_select.options[icognito_select.selectedIndex].value;pokemon_obedient.checked=false;icognito_select_container.style.visibility = 'visible';}
+    if (pgn==201) {u=icognito_select.options[icognito_select.selectedIndex].value;pokemon_obedient.checked=false;icognito_select_container_1.style.visibility = 'visible';icognito_select_container_2.style.visibility = 'visible';}
     if (pgn==151) {pokemon_obedient.checked=true;}
     if (pgn==410) {pokemon_obedient.checked=true;}
     if (pokemon_picture_00.checked) {v="000"+pgn;x=v.length;v=v.substring((x-3),x);}else{v=pgn;} pokemon_picture.src=t+v+u+pokemon_picture_extension.value;pdex=PokeDex(pgn);i=pokedex_select.selectedIndex;
     if (i==0) {t=FI(pdex,"~",1); x=parseInt(t,10);}
     if (i==1) {t=FI(pdex,"~",2); x=parseInt(t,10);}
-    if (i==2) {x=pgn;} pokedex_number.value='# '+x;t=FI(pdex,"~",18);
+    if (i==2) {x=pgn;} pokedex_number.value=+x;t=FI(pdex,"~",18);
     if (t.length>2) {u=FI(t,"/",1);type_2.selectedIndex=parseInt(u,10);t=t.substring(0,(t.length-u.length-1));type_1.selectedIndex=parseInt(t,10);}
     else {type_1.selectedIndex=parseInt(t,10);type_2.selectedIndex=17;}
     t=SetGender();i=HPower();i=SetAb();
@@ -182,7 +186,6 @@ function NPO() {
     while (l==0) {w+=1;if (o==0) {if (w==252) {w+=25;} if (w>411) {w=-1;} t=parseInt(w,10);} else {t=FI(ln,"~",w);} if (t=="-1") {P1.options.length=m;P1.selectedIndex=0;t=NewPoke();l=1;} else {tn=1*t;t2=PokeDex(tn);tname=FI(t2,"~",3);if (m==0) {P1.options[m]= new Option(tname,t,true);} else {P1.options[m]= new Option(tname,t);} m+=1;}}
     LogConsole.value+="Done Sorting\r\n";return t;
 }
-
 
 function MaxContest() {Luster.value=255;Cool.value=255;Beauty.value=255;Cute.value=255;Smart.value=255;Tough.value=255;}
 function MaxDV() {health.options[31].selected=true;attack.options[31].selected=true;defense.options[31].selected=true;speed.options[31].selected=true;attack_special.options[31].selected=true;defense_special.options[31].selected=true;dv=HPower();}
@@ -823,7 +826,7 @@ function PokeDex(n) {
     if (n==411) {O="~358~151~Palimpalim~65~50~70~65~95~80~0~0~0~0~1~1~147~45~12~29~50~4~7~0/0~";}
     return O;
 }
-function ItemC() {var t=" ";var i=0;i=item_carry.selectedIndex;t=item_carry[i].value;item_description.value=ItemDex(t,2);return i;}
+function ItemC() {var t=" ";var i=0;i=item_carry.selectedIndex;t=item_carry[i].value;item_description.value=ItemDex(t,2);item_description.innerHTML=item_description.value;return i;}
 function ItemDex(n,w) {
     var o=" ";var i=0;var t=" ";
     if (n=="000") {o="~Nichts~";} else {o="~Unknown~"+n+" Unknown Item~";}
@@ -2716,7 +2719,7 @@ function SetStructure() {
     a0=1*("0x"+As[0].value);a1=1*("0x"+As[1].value);a2=1*("0x"+As[2].value);b0=1*("0x"+Bs[0].value);b1=1*("0x"+Bs[1].value);b2=1*("0x"+Bs[2].value);c0=1*("0x"+Cs[0].value);c1=1*("0x"+Cs[1].value);c2=1*("0x"+Cs[2].value);d0=1*("0x"+Ds[0].value);d1=1*("0x"+Ds[1].value);d2=1*("0x"+Ds[2].value);
     if (P1O.selectedIndex!=0) {P1O.selectedIndex=0;i=NPO();} i=Math.floor(a0%65536)-1;
     if (i>251) {i-=25;} pokemon_select.selectedIndex=i;
-    if (item_sort.selectedIndex!=0) {item_sort.selectedIndex=0;i=NIO();} i=Math.floor(a0/65536);item_carry.selectedIndex=ItemDex(DecToHex(i,3),1);item_description.value=ItemDex(DecToHex(i,3),2);pokemon_experience.value=a1;i=Math.floor(a2%4);move_1_level.selectedIndex=i;i=Math.floor((a2/4)%4);move_2_level.selectedIndex=i;i=Math.floor((a2/16)%4);move_3_level.selectedIndex=i;i=Math.floor((a2/64)%4);move_4_level.selectedIndex=i;i=Math.floor((a2/256)%256);pokemon_happy.value=i;
+    if (item_sort.selectedIndex!=0) {item_sort.selectedIndex=0;i=NIO();} i=Math.floor(a0/65536);item_carry.selectedIndex=ItemDex(DecToHex(i,3),1);item_description.value=ItemDex(DecToHex(i,3),2);item_description.innerHTML=item_description.value;pokemon_experience.value=a1;i=Math.floor(a2%4);move_1_level.selectedIndex=i;i=Math.floor((a2/4)%4);move_2_level.selectedIndex=i;i=Math.floor((a2/16)%4);move_3_level.selectedIndex=i;i=Math.floor((a2/64)%4);move_4_level.selectedIndex=i;i=Math.floor((a2/256)%256);pokemon_happy.value=i;
     if (move_1_sort.selectedIndex!=0) {move_1_sort.selectedIndex=0;i=NMO('1')} i=Math.floor(b0%65536)-1;move_1.selectedIndex=i;
     if (move_2_sort.selectedIndex!=0) {move_2_sort.selectedIndex=0;i=NMO('2')} i=Math.floor(b0/65536);move_2.selectedIndex=i;
     if (move_3_sort.selectedIndex!=0) {move_3_sort.selectedIndex=0;i=NMO('3')} i=Math.floor(b1%65536);move_3.selectedIndex=i;
@@ -2930,4 +2933,19 @@ function NLO() {
     l=0;m=0;w=0;H1.options.lenght=0;
     while (l==0) {w+=1;t=FI(ln,"~",w);if (t=="-1") {H1.options.length=m;H1.selectedIndex=0;l=1;} else {tname=LocDex(t,o);if (m==0) {H1.options[m]= new Option(tname,t,true);} else {H1.options[m]= new Option(tname,t);} m+=1;}}
     LogConsole.value+="Done Sorting\r\n";return t;
+}
+
+
+const description_text = document.getElementById('pokemon_description');
+description_text.style.opacity = '0';
+
+function show_pokemon_description() {
+    const poke_select = pokemon_select.options[pokemon_select.selectedIndex].value;
+    const text = pokemon_texts[poke_select];
+    if (description_text.style.opacity == '0') {description_text.style.opacity = '1';description_text.innerHTML = text;}
+    else {description_text.style.opacity = '0';}
+}
+
+const pokemon_texts = {
+    '001': 'Bisasam ist ein kleines, vierbeiniges und reptilienähnliches Pokémon. Es trägt einen hellgrünen Samen auf dem Rücken und sein Körper ist in einem etwas helleren Grünton gefärbt. Zusätzlich sind auf seiner Haut einzelne, dunkelgrüne Flecken zu erkennen. Das Pflanze-Gift-Pokémon besitzt einen breiten Kopf, der von zwei abgerundeten, dreieckigen Ohren gekrönt wird. Die großen Augen bestehen aus weißer Lederhaut und rot-weißen Pupillen. Die beiden kleinen Nasenlöcher befinden sich direkt über dem sehr breiten Maul. In der schillernden Form erscheint Bisasam komplett in einem leuchtend hellen Grün. Lediglich die Knolle weist ein dunkleres Grün als gewöhnlich auf. Bisasams Knolle ist der Ausgangspunkt für zahlreiche Fähigkeiten. Sie ermöglicht es dem Pokémon Sonnenlicht zu absorbieren und dieses dort zu speichern. Dadurch kann Bisasam Attacken wie Solarstrahl, Synthese und Wachstum erlernen. Da Bisasam seine Knolle kurzzeitig an der Spitze öffnen kann, kann es die in der Knolle enthaltenen Samen auch offensiv nutzen, indem es den Gegner mit Samen bombardiert oder auf den Gegner einen Egelsamen schießt, der ihn bepflanzt und ihm Energie absaugt. Ebenso kann es durch die Knolle Puder freisetzen, was man am Einsatz von Giftpuder und Schlafpuder sehen kann. Zu guter Letzt kann Bisasam auch Ranken seitlich oder oben aus der Knolle heraus entfesseln, von denen es nicht nur beim Einsatz von Rankenhieb, einer seiner charakteristischsten Attacken, Gebrauch macht, sondern die es auch generell zum Greifen und Fangen von Objekten verwenden kann. Wie alle Pflanzen-Starter-Pokémon ist es mit genügend Zuneigung dazu in der Lage, von einem Attacken-Lehrer die Attacke Pflanzensäulen zu erlernen. Bisasam weist gemeinsam mit seiner Evolutionslinie ein sehr schmales Verbreitungsspektrum auf und ist lediglich in Kanto und in Kalos heimisch. Aber auch dort ist es in freier Wildbahn äußerst selten anzutreffen und wird in diesen Regionen viel eher als Starter-Pokémon genutzt. Aus diesem Grund befinden sich die meisten Bisasam und dessen Entwicklungen im Besitz von Pokémon-Trainern und werden fast ausschließlich zu diesem Zweck gezüchtet und aufgezogen. Aufgrund dieser frühen und zumeist lang anhaltenden Verbindung zu einem Trainer gelten Bisasam als treue und gut erzogene Pokémon. Die wenigen wilden Exemplare bevorzugen als natürlichen Lebensraum hohes, sonniges Grasland und Wälder - vorwiegend in der Kanto-Region.',
 }
