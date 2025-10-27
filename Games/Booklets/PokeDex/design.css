@@ -137,10 +137,12 @@
 .code_container {width: 100%;justify-content: flex-start;background-color: #111111;border-radius: 1em;}
 
 .code_table {width: 100%;border-radius: 0;display: flex;padding: 0.5em;border-radius: 1em 1em 0 0;}
-.code_table_1 {width: 80%;text-align: center;}
-.code_table_2 {width: 20%;}
-.code_table_3 {width: 30%;text-align: center;}
+.code_table_1 {width: 85%;text-align: center;}
+.code_table_2 {width: 15%;}
+.code_table_3 {width: 25%;text-align: center;}
 .code_table_4 {width: 20%;}
+.code_table_5 {width: 40%;text-align: center;}
+.code_table_6 {width: 15%;}
 
 
 .hidden_code {visibility: hidden;}

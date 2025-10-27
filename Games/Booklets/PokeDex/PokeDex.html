@@ -2878,8 +2878,25 @@
                 <div class="code_table">
                     <div class="code_table_3">VBA</div>
                     <div class="code_table_4"><label class="checkbox"><input id="master_code" class="pokemon_shiny border_knob" type="radio" value="VBA" onclick="codeout(0);"></label></div>
-                    <div class="code_table_3">ARv1-2/GSv1-2</div>
-                    <div class="code_table_4"><label class="checkbox"><input id="master_code" class="pokemon_shiny border_knob" type="radio" value="ARv1" onclick="codeout(1);"></label></div>
+                    <div class="code_table_5">ARv1-2/GSv1-2</div>
+                    <div class="code_table_6"><label class="checkbox"><input id="master_code" class="pokemon_shiny border_knob" type="radio" value="ARv1" onclick="codeout(1);"></label></div>
+                </div>
+                <div class="code_table">
+                    <div class="code_table_3">ARv3</div>
+                    <div class="code_table_4"><label class="checkbox"><input id="master_code" class="pokemon_shiny border_knob" type="radio" value="ARv3" onclick="codeout(2);"></label></div>
+                    <div class="code_table_5">CB/GSv3+Type8</div>
+                    <div class="code_table_6"><label class="checkbox"><input id="master_code" class="pokemon_shiny border_knob" type="radio" value="CB" onclick="codeout(3);"></label></div>
+                </div>
+                <div class="code_table">
+                    <div class="code_table_3">80-Bytes</div>
+                    <div class="code_table_4"><label class="checkbox"><input id="master_code" class="pokemon_shiny border_knob" type="radio" value="Hex" onclick="codeout(4);"></label></div>
+                    <div class="code_table_5">CB/GSv3+Type5</div>
+                    <div class="code_table_6"><label class="checkbox"><input id="master_code" class="pokemon_shiny border_knob" type="radio" value="CB5" onclick="codeout(5);"></label></div>
+                </div>
+                <div class="code_table">
+                    <div class="code_table_7">Code Erzeugen</div>
+                    <div class="code_table_8 border_knob"><img src="pokemon/icons/Icon_Fighting_01.png"></div>
+                    
                 </div>
             </div>
             
@@ -2890,46 +2907,13 @@
     </div>
 </section>
 
-
-<section id="code_site"  style="visibility: hidden;">
-    <div class="position code_choice_1_container border_3d">
-        <span class="position mirage_island_code_text text_normal text_white_small_shadow"></span>
-        
-        <span class="position master_code_text text_normal text_white_small_shadow">Master-Code</span>
-        
-    </div>
-    <div class="position code_choice_2_container border_3d">
-        <div class="position vba_container">
-            <span class="position vba_code_text text_normal text_white_small_shadow">VBA</span>
-            <input class="position code_format" onclick="codeout(0);" type="radio" value="VBA"></input>
-        </div>
-        <div class="position arv1_container">
-            <span class="position arv1_code_text text_normal text_white_small_shadow">ARv1-2/GSv1-2</span>
-            <input class="position code_format" onclick="codeout(1);" type="radio" value="ARv1"></input>
-        </div>
-        <div class="position arv3_container">
-            <span class="position arv3_code_text text_normal text_white_small_shadow">ARv3</span>
-            <input class="position code_format" onclick="codeout(2);" type="radio" value="ARv3" checked></input>
-        </div>
-        <div class="position cb_container">
-            <span class="position cb_code_text text_normal text_white_small_shadow">CB/GSv3+Type8</span>
-            <input class="position code_format" onclick="codeout(3);" type="radio" value="CB"></input>
-        </div>
-        <div class="position bytes_container">
-            <span class="position bytes_code_text text_normal text_white_small_shadow">80-Bytes</span>
-            <input class="position code_format" onclick="codeout(4);" type="radio" value="Hex"></input>
-        </div>
-        <div class="position cb5_container">
-            <span class="position cb5_code_text text_normal text_white_small_shadow">CB/GSv3+Type5</span>
-            <input class="position code_format" onclick="codeout(5);" type="radio" value="CB5"></input>
-        </div>
     </div>
     <div class="position code_create_container border_3d">
         <image class="background_image" src="pokemon/icons/Icon_Code_01.png" onclick="codeout(-1);"></image>
     </div>
     <textarea id="code_output" class="position code_output textalign_center text_normal text_white_small_shadow border_3d" readonly>
     </textarea>
-</section>
+
 
 
 <section id="hidden_code"  style="visibility: hidden;">
