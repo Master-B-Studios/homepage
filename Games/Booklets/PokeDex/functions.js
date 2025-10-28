@@ -45,13 +45,6 @@ function select_cover() {
     if (i==30) {game_cover.src = cover_folder+'Smaragd.jpg'}
 }
 
-
-function clean(clean_foldername) {var list_folders = new Enumerator(access.GetFolder(clean_foldername).Subfolders);var list_files = new Enumerator(access.GetFolder(clean_foldername).Files);while(!list_folders.atEnd()) {foldername = list_folders.item().Name;access.DeleteFolder(clean_foldername+foldername);list_folders.moveNext();}while(!list_files.atEnd()) {filename = list_files.item().Name;access.DeleteFile(clean_foldername+filename);list_files.moveNext();}autoparse();}
-
-// Key Listener
-function check_enter(e) {if (e.keyCode === 13) {NewPoke();select_cover();codeout(-1);}}
-function check_back(e) {if (e.keyCode === 8) {jump_page_home_site();}}
-
 // Poke-Section Variables
 const pokemon_shiny = document.getElementById('pokemon_shiny');
 const icognito_select = document.getElementById('icognito_select');
@@ -77,9 +70,7 @@ function NewPoke() {
     else {type_1.selectedIndex=parseInt(t,10);type_2.selectedIndex=17;}
     t=SetGender();i=HPower();i=SetAb();
     input_nickname=pokemon_select.options[pokemon_select.selectedIndex].value;input_pokedex=PokeDex(input_nickname);nickname=FI(input_pokedex,"~",3);pokemon_name.value=nickname;
-    //read_pokedex_entry(pgn);
 }
-function read_pokedex_entry(number) {pokemon_description.innerHTML = '';var read_entry = access.OpenTextFile(pokedex_folder+number+'.txt',1,1); while (!read_entry.AtEndOfStream) {poke_text = read_entry.ReadLine();} read_entry.Close();pokemon_description.innerHTML = poke_text;}
 
 function SetUnown() {
     var D=rdna;var U=icognito_select;var pid=0;var s=0;var t=" ";var US=" ";pid=parseInt(1*("0x"+D[0].value),10);s=Math.floor(pid%4);s+=(Math.floor(pid/256)%4)*4;s+=(Math.floor(pid/65536)%4)*16;s+=(Math.floor(pid/16777216)%4)*64;t=Math.floor(s % 28);
