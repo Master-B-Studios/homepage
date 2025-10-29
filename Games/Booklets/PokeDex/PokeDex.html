@@ -2900,8 +2900,12 @@
                     <!--div class="code_table_6"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" type="radio" value="CB5" onclick="codeout(5);"></label></div-->
                 </div>
                 <div class="code_table">
-                    <div class="code_table_7">Code Erzeugen</div>
-                    <div class="code_table_8 border_knob"><img src="pokemon/icons/Icon_Fighting_01.png" onclick="MaxUPP();MaxDV();MaxEff();codeout(-1);"></div>
+                    <div class="code_table_7 border_knob"><img src="pokemon/icons/Icon_Fighting_01.png" onclick="MaxUPP();MaxDV();MaxEff();codeout(-1);"></div>
+                    <div class="code_table_7 border_knob"><img src="pokemon/icons/Icon_Fighting_01.png" onclick="MaxUPP();MaxDV();MaxEff();codeout(-1);"></div>
+                </div>
+                <div class="code_table">
+                    <div class="code_table_8">Code Erzeugen</div>
+                    <div class="code_table_8">Code Kopieren</div>
                 </div>
                 <div class="code_table">
                     <!--textarea id="code_output" class="item_description border_knob" readonly></textarea-->
@@ -2910,7 +2914,7 @@
             </div>        
         </section>
         
-        <section id="hidden_code"  style="visibility: hidden;">
+        <section id="hidden_code" style="display: none;">
             <textarea id="LogConsole"></textarea>
             <input id="clipboard_text" type="text" value=""></input>
             <input id="pokemon_picture_extension" value=".png" type="text" onchange="NewPoke();"></input>
