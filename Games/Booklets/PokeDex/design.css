@@ -1,6 +1,6 @@
 /* Layout Commands */
 .layout_container {display: grid;grid-template-columns: 1fr;gap: 1em;}
-@media (orientation: landscape) {.layout_container {grid-template-columns: 1fr 1fr;align-items: start;align-content: start;}}
+@media (orientation: landscape) {.layout_container {grid-template-columns: repeat(2, minmax(0, 50vw));align-items: start;align-content: start;}}
 
 /* Views for multiple instances */
 .container_header {width: 100%;text-align: center;padding: 0.5em;}
@@ -8,6 +8,7 @@
 
 .border_3d {box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.1),inset -2px -2px 5px rgba(255, 255, 255, 0.1);;}
 .border_knob {box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.1),inset -2px -2px 5px rgba(0, 0, 0, 0.5);}
+.border_input {box-shadow: inset 2px 2px 1px rgba(255, 255, 255, 0.2),inset -2px -2px 1px rgba(255, 255, 255, 0.2);}
 
 .checkbox {display: flex;align-items: center;cursor: pointer;}
 .checkbox input[type="checkbox"] {appearance: none;-moz-appearance: none;-webkit-appearance: none;width: 1.8em;height: 1.8em;background-color: #222222;border-radius: 0.5em;position: relative;cursor: pointer;transition: all 1s ease;margin: 0;padding: 0;}
@@ -46,7 +47,10 @@
 
 .pokemon_picture_swapper {width: 100%;cursor: pointer;position: relative;}
 .pokemon_picture {display: block;width: calc(100% - 1em);margin: auto;border-radius: 0.5em;background-image: url(pokemon/icons/background.png);background-size: contain;background-repeat: no-repeat;background-position: center;transition: all 1s ease;}
-.pokemon_description {width: calc(100% - 1em);height: 100%;top: 0%;left: 0.5em;position: absolute;padding: 0.5em 1em;border-radius: 0.5em;color: #dbdbdb;text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);opacity: 0;overflow: scroll;background-color: rgba(0, 0, 0, 0.6);}
+.pokemon_description {width: calc(100% - 1em);height: 100%;top: 0%;left: 0.5em;position: absolute;padding: 0.5em 1em;border-radius: 0.5em;opacity: 0;color: #dbdbdb;text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);overflow-y: auto;background-color: rgba(0, 0, 0, 0.6);scrollbar-width: thin;scrollbar-color: #48ff00 rgba(255, 255, 255, 0.1);overflow-x: hidden;}
+.pokemon_description::-webkit-scrollbar-track {background: rgba(255, 255, 255, 0.1);border-radius: 0.5em;}
+.pokemon_description::-webkit-scrollbar-thumb {background-color: #48ff00;border-radius: 0.5em;}
+.pokemon_description::-webkit-scrollbar-corner {background: transparent;}
 
 .pokemon_select_table {width: 100%;display: flex;align-items: flex-start;padding: 0.5em;}
 .pokemon_select_table_1 {width: 30%;text-align: center;}
@@ -72,8 +76,8 @@
 .pokemon_name_table {width: 100%;display: flex;align-items: flex-start;padding: 0.5em;border-radius: 0 0 1em 1em;}
 .pokemon_name_table_1 {width: 30%;text-align: center;}
 .pokemon_name_table_2 {width: 70%;}
-.pokemon_name {width: 100%;color: #dbdbdb;background-color: #222222;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;padding: 0;margin: 0;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
-.pokemon_name:hover {color: #48ff00;background-color: #444444;}
+.pokemon_name {width: 100%;color: #dbdbdb;background-color: #000000;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;padding: 0;margin: 0;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
+.pokemon_name:hover {color: #48ff00;background-color: #222222;}
 
 .pokemon_box_table {width: 100%;display: flex;align-items: flex-start;padding: 0.5em;border-radius: 0 0 1em 1em;}
 .pokemon_box_table_1 {width: 30%;text-align: center;}
@@ -108,7 +112,7 @@
 
 .item_text_table {width: 100%;display: flex;align-items: flex-end;padding: 0.5em;}
 .item_text_table_1 {width:100%;text-align: justify;}
-.item_description {width: 100%;color: #dbdbdb;background-color: #000000;border-radius: 0.5em;padding: 0.8em 1em;}
+.item_description {width: 100%;color: #dbdbdb;background-color: #000000;border-radius: 0.5em;padding: 0.8em 1em;word-wrap: break-word;word-break: normal;max-width: 100%;}
 
 /* Fight Section */
 .fight_container {width: 100%;justify-content: flex-start;background-color: #111111;border-radius: 1em;}
@@ -124,14 +128,14 @@
 /* Trainer Section */
 .trainer_container {width: 100%;justify-content: flex-start;background-color: #111111;border-radius: 1em;}
 
-.trainer_name {width: 100%;color: #dbdbdb;background-color: #222222;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
-.trainer_name:hover {color: #48ff00;background-color: #444444;}
+.trainer_name {width: 100%;color: #dbdbdb;background-color: #000000;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
+.trainer_name:hover {color: #48ff00;background-color: #222222;}
 .trainer_gender {width: 100%;color: #dbdbdb;background-color: #222222;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;padding: 0;margin: 0;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
 .trainer_gender:hover {color: #48ff00;background-color: #444444;}
-.trainer_id {width: 100%;color: #dbdbdb;background-color: #222222;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;padding: 0;margin: 0;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
-.trainer_id:hover {color: #48ff00;background-color: #444444;}
-.trainer_id_secret {width: 100%;color: #dbdbdb;background-color: #222222;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;padding: 0;margin: 0;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
-.trainer_id_secret:hover {color: #48ff00;background-color: #444444;}
+.trainer_id {width: 100%;color: #dbdbdb;background-color: #000000;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;padding: 0;margin: 0;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
+.trainer_id:hover {color: #48ff00;background-color: #222222;}
+.trainer_id_secret {width: 100%;color: #dbdbdb;background-color: #000000;outline: none;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;padding: 0;margin: 0;text-align-last: center;border-radius: 0.5em;cursor: pointer;transition: all, background 1s ease;}
+.trainer_id_secret:hover {color: #48ff00;background-color: #222222;}
 
 /* Code Section */
 .code_container {width: 100%;justify-content: flex-start;background-color: #111111;border-radius: 1em;}

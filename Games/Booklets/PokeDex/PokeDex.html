@@ -94,7 +94,7 @@
             <div class="pokemon_container border_3d">
                 <div class="container_header">Pokémon</div>
                 <div id="pokemon_picture_swapper" class="pokemon_picture_swapper" onclick="show_pokemon_description();">
-                    <image id="pokemon_picture" class="pokemon_picture" src="pokemon/normal/001.gif"></image>
+                    <image id="pokemon_picture" class="pokemon_picture" src="pokemon/normal/001.png"></image>
                     <div id="pokemon_description" class="pokemon_description">My Description text here</div>
                 </div>
                 <div class="pokemon_select_table">
@@ -602,7 +602,7 @@
                 <div class="pokemon_name_table">
                     <div class="pokemon_name_table_1">Spitzname:</div>
                     <div class="pokemon_name_table_2">
-                        <input id="pokemon_name" class="pokemon_name border_knob" value="" type=text placeholder=""></input>
+                        <input id="pokemon_name" class="pokemon_name border_input" value="" type=text placeholder=""></input>
                     </div>
                 </div>
                 <div class="pokemon_box_table">
@@ -1099,7 +1099,7 @@
                 </div>
                 <div class="item_text_table">
                     <div class="item_text_table_1">
-                        <div id="item_description" class="item_description border_knob" onchange="ItemC()"></div>
+                        <div id="item_description" class="item_description border_input" onchange="ItemC()"></div>
                     </div>
                 </div>
             </div>
@@ -1530,7 +1530,7 @@
                 </div>
                 <div class="item_text_table">
                     <div class="item_text_table_1">
-                        <div id="move_1_description" class="item_description border_knob" onchange="NMove('0');" readonly>Kein Effekt...</div>
+                        <div id="move_1_description" class="item_description border_input" onchange="NMove('0');" readonly>Kein Effekt...</div>
                     </div>
                 </div>
             </div>
@@ -1961,7 +1961,7 @@
                 </div>
                 <div class="item_text_table">
                     <div class="item_text_table_1">
-                        <div id="move_2_description" class="item_description border_knob" onchange="NMove('0');" readonly>Kein Effekt...</div>
+                        <div id="move_2_description" class="item_description border_input" onchange="NMove('0');" readonly>Kein Effekt...</div>
                     </div>
                 </div>
             </div>
@@ -2392,7 +2392,7 @@
                 </div>
                 <div class="item_text_table">
                     <div class="item_text_table_1">
-                        <div id="move_3_description" class="item_description border_knob" onchange="NMove('0');" readonly>Kein Effekt...</div>
+                        <div id="move_3_description" class="item_description border_input" onchange="NMove('0');" readonly>Kein Effekt...</div>
                     </div>
                 </div>
             </div>
@@ -2823,7 +2823,7 @@
                 </div>
                 <div class="item_text_table">
                     <div class="item_text_table_1">
-                        <div id="move_4_description" class="item_description border_knob" onchange="NMove('0');" readonly>Kein Effekt...</div>
+                        <div id="move_4_description" class="item_description border_input" onchange="NMove('0');" readonly>Kein Effekt...</div>
                     </div>
                 </div>
             </div>
@@ -2834,7 +2834,7 @@
                 <div class="game_table">
                     <div class="game_table_1">Name:</div>
                     <div class="game_table_2">
-                        <input id="trainer_name" class="trainer_name border_knob" value="" type=text placeholder="Trainer-Name"></input>
+                        <input id="trainer_name" class="trainer_name border_input" value="" type=text placeholder="Trainer-Name"></input>
                     </div>
                 </div>
                 <div class="game_table">
@@ -2849,13 +2849,13 @@
                 <div class="game_table">
                     <div class="game_table_1">ID:</div>
                     <div class="game_table_2">
-                        <input id="trainer_id" class="trainer_id border_knob" value="" type=text placeholder="Trainer-ID"></input>
+                        <input id="trainer_id" class="trainer_id border_input" value="" type=text placeholder="Trainer-ID"></input>
                     </div>
                 </div>
                 <div class="game_table">
                     <div class="game_table_1">Secret-ID:</div>
                     <div class="game_table_2">
-                        <input id="trainer_id_secret" class="trainer_id_secret border_knob" value="" type=text placeholder="Trainer-Secret-ID"></input>
+                        <input id="trainer_id_secret" class="trainer_id_secret border_input" value="" type=text placeholder="Trainer-Secret-ID"></input>
                     </div>
                 </div>
             </div>
@@ -2877,21 +2877,27 @@
                 </div>
                 <div class="code_table">
                     <div class="code_table_3">VBA</div>
-                    <div class="code_table_4"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" type="radio" value="VBA" onclick="codeout(0);"></label></div>
+                    <div class="code_table_4"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" name="code_format" type="radio" value="VBA"></label></div>
+                    <!--div class="code_table_4"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" type="radio" value="VBA" onclick="codeout(0);"></label></div-->
                     <div class="code_table_5">ARv1-2/GSv1-2</div>
-                    <div class="code_table_6"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" type="radio" value="ARv1" onclick="codeout(1);"></label></div>
+                    <div class="code_table_6"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" name="code_format" type="radio" value="ARv1"></label></div>
+                    <!--div class="code_table_6"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" type="radio" value="ARv1" onclick="codeout(1);"></label></div-->
                 </div>
                 <div class="code_table">
                     <div class="code_table_3">ARv3</div>
-                    <div class="code_table_4"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" type="radio" value="ARv3" onclick="codeout(2);"></label></div>
+                    <div class="code_table_4"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" name="code_format" type="radio" value="ARv3"></label></div>
+                    <!--div class="code_table_4"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" type="radio" value="ARv3" onclick="codeout(2);"></label></div-->
                     <div class="code_table_5">CB/GSv3+Type8</div>
-                    <div class="code_table_6"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" type="radio" value="CB" onclick="codeout(3);"></label></div>
+                    <div class="code_table_6"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" name="code_format" type="radio" value="CB"></label></div>
+                    <!--div class="code_table_6"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" type="radio" value="CB" onclick="codeout(3);"></label></div-->
                 </div>
                 <div class="code_table">
                     <div class="code_table_3">80-Bytes</div>
-                    <div class="code_table_4"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" type="radio" value="Hex" onclick="codeout(4);"></label></div>
+                    <div class="code_table_4"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" name="code_format" type="radio" value="Hex"></label></div>
+                    <!--div class="code_table_4"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" type="radio" value="Hex" onclick="codeout(4);"></label></div-->
                     <div class="code_table_5">CB/GSv3+Type5</div>
-                    <div class="code_table_6"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" type="radio" value="CB5" onclick="codeout(5);"></label></div>
+                    <div class="code_table_6"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" name="code_format" type="radio" value="CB5"></label></div>
+                    <!--div class="code_table_6"><label class="checkbox"><input class="pokemon_shiny border_knob code_format" type="radio" value="CB5" onclick="codeout(5);"></label></div-->
                 </div>
                 <div class="code_table">
                     <div class="code_table_7">Code Erzeugen</div>
@@ -2899,7 +2905,7 @@
                 </div>
                 <div class="code_table">
                     <!--textarea id="code_output" class="item_description border_knob" readonly></textarea-->
-                    <div id="code_output" class="item_description border_knob"></div>
+                    <div id="code_output" class="item_description border_input"></div>
                 </div>
             </div>        
         </section>
