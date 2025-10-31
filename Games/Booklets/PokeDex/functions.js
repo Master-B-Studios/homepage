@@ -1,4 +1,5 @@
 const cover_folder = 'pokemon/game_cover/';
+const game_cover = document.getElementById('game_cover');
 
 const rdna = document.getElementsByClassName('rdna_sample');
 const ra_sample = document.getElementsByClassName('ra_sample');
