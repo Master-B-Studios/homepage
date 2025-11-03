@@ -636,8 +636,8 @@ const showroomVideos = {
             { name: '3000GT VR-4',                                      src: 'cars/Mitsubishi/3000GT_1998_VR-4.mp4',                                    data: { production_year: '1998', drive: '4WD', power: '320', weight: '1710', length: '4600', worth: '~15.000 Credits' } },
             { name: 'Airtrek Turbo-R',                                  src: 'cars/Mitsubishi/Airtrek_2002_Turbo-R.mp4',                                data: { production_year: '2002', drive: '4WD', power: '241', weight: '1520', length: '4465', worth: '22.950 Credits' } },
             { name: 'Colt 1.5 Sport X',                                 src: 'cars/Mitsubishi/Colt_2002_1.5_Sport_X_Version.mp4',                       data: { production_year: '2002', drive: 'FF',  power: '99',  weight: '1030', length: '3870', worth: '14.950 Credits' } },
-            { name: 'CZ-3 Tarmac',                                      src: 'cars/Mitsubishi/CZ-3_2001_Tarmac.mp4',                                    data: { production_year: '2001', drive: '4WD', power: 'X', weight: '1200', length: '4000', worth: 'Schweizer Alpen Einfach' } },
-            { name: 'CZ-3 Tarmac Rally Car',                            src: 'cars/Mitsubishi/CZ-3_2002_Tarmac_Rally_Car.mp4',                          data: { production_year: '2002', drive: '4WD', power: 'X', weight: '1200', length: '4000', worth: 'Grand Canyon Normal' } },
+            { name: 'CZ-3 Tarmac',                                      src: 'cars/Mitsubishi/CZ-3_2001_Tarmac.mp4',                                    data: { production_year: '2001', drive: '4WD', power: '230', weight: '1200', length: '4000', worth: 'Schweizer Alpen Einfach' } },
+            { name: 'CZ-3 Tarmac Rally Car',                            src: 'cars/Mitsubishi/CZ-3_2002_Tarmac_Rally_Car.mp4',                          data: { production_year: '2002', drive: '4WD', power: '320', weight: '1200', length: '4000', worth: 'Grand Canyon Normal' } },
             { name: 'Eclipse GT',                                       src: 'cars/Mitsubishi/Eclipse_1995_GT.mp4',                                     data: { production_year: '1995', drive: 'FF',  power: '226', weight: '1330', length: '4370', worth: '~7.000 Credits' } },
             { name: 'Eclipse GTS Spyder',                               src: 'cars/Mitsubishi/Eclipse_2003_GTS_Spyder.mp4',                             data: { production_year: '2003', drive: 'FF',  power: '213', weight: '1510', length: '4455', worth: '26.780 Credits' } },
             { name: 'Eclipse GT',                                       src: 'cars/Mitsubishi/Eclipse_2006_GT.mp4',                                     data: { production_year: '2006', drive: 'FF',  power: '265', weight: '1575', length: '4564', worth: '25.000 Credits' } },
@@ -646,7 +646,7 @@ const showroomVideos = {
             { name: 'FTO GPR',                                          src: 'cars/Mitsubishi/FTO_1997_GPR.mp4',                                        data: { production_year: '1997', drive: 'FF',  power: '199', weight: '1150', length: '4365', worth: '~14.000 Credits' } },
             { name: 'FTO GPX',                                          src: 'cars/Mitsubishi/FTO_1997_GPX.mp4',                                        data: { production_year: '1997', drive: 'FF',  power: '200', weight: '1150', length: '4365', worth: '~14.000 Credits' } },
             { name: 'FTO GR',                                           src: 'cars/Mitsubishi/FTO_1997_GR.mp4',                                         data: { production_year: '1997', drive: 'FF',  power: '179', weight: '1150', length: '4365', worth: '~14.000 Credits' } },
-            { name: 'FTO Super Touring Car',                            src: 'cars/Mitsubishi/FTO_1997_Super_Touring_Car.mp4',                          data: { production_year: '1997', drive: 'FF',  power: 'X', weight: '1150', length: '4365', worth: '~14.000 Credits' } },
+            { name: 'FTO Super Touring Car',                            src: 'cars/Mitsubishi/FTO_1997_Super_Touring_Car.mp4',                          data: { production_year: '1997', drive: 'FF',  power: '430', weight: '1150', length: '4365', worth: '~14.000 Credits' } },
             { name: 'FTO GPR',                                          src: 'cars/Mitsubishi/FTO_1999_GPR.mp4',                                        data: { production_year: '1999', drive: 'FF',  power: '200', weight: '1150', length: '4365', worth: '~14.000 Credits' } },
             { name: 'FTO GPX',                                          src: 'cars/Mitsubishi/FTO_1999_GPX.mp4',                                        data: { production_year: '1999', drive: 'FF',  power: '200', weight: '1150', length: '4365', worth: '~14.000 Credits' } },
             { name: 'Galant GTO MR',                                    src: 'cars/Mitsubishi/Galant_1970_GTO_MR.mp4',                                  data: { production_year: '1970', drive: 'FR',  power: '125', weight: '980',  length: '4080', worth: '21.800 Credits | ~7.000 Credits' } },
@@ -654,7 +654,7 @@ const showroomVideos = {
             { name: 'i Concept',                                        src: 'cars/Mitsubishi/i_2003_Concept.mp4',                                      data: { production_year: '2003', drive: 'MR',  power: '68',  weight: '790',  length: '3516', worth: 'Mirage Cup' } },
             { name: 'HSRII Concept',                                    src: 'cars/Mitsubishi/HSR_1989_2_Concept.mp4',                                  data: { production_year: '1989', drive: '4WD', power: '350', weight: '790',  length: '3516', worth: 'Mirage Cup' } },
             { name: 'Lancer 1600 GSR',                                  src: 'cars/Mitsubishi/Lancer_1973_1600_GSR.mp4',                                data: { production_year: '1973', drive: 'FR',  power: '110', weight: '825',  length: '4000', worth: '14.200 Credits' } },
-            { name: 'Lancer 1600 GSR Rally Car',                        src: 'cars/Mitsubishi/Lancer_1974_1600_GSR_Rally_Car.mp4',                      data: { production_year: '1974', drive: 'FR',  power: 'X', weight: '825',  length: '3965', worth: 'Evolution Meeting' } },
+            { name: 'Lancer 1600 GSR Rally Car',                        src: 'cars/Mitsubishi/Lancer_1974_1600_GSR_Rally_Car.mp4',                      data: { production_year: '1974', drive: 'FR',  power: '160', weight: '825',  length: '3965', worth: 'Evolution Meeting' } },
             { name: 'Lancer EX 1800 GSR IC Turbo',                      src: 'cars/Mitsubishi/Lancer_1983_EX_1800_GSR_IC_Turbo.mp4',                    data: { production_year: '1983', drive: 'FR',  power: '160', weight: '1085', length: '4000', worth: '~9.000 Credits' } },
             { name: 'Lancer Evolution I GSR',                           src: 'cars/Mitsubishi/Lancer_1992_Evolution_1_GSR.mp4',                         data: { production_year: '1992', drive: '4WD', power: '250', weight: '1240', length: '4310', worth: '~12.000 Credits' } },
             { name: 'Lancer Evolution II GSR',                          src: 'cars/Mitsubishi/Lancer_1994_Evolution_2_GSR.mp4',                         data: { production_year: '1994', drive: '4WD', power: '267', weight: '1250', length: '4310', worth: '~14.000 Credits' } },
@@ -678,7 +678,7 @@ const showroomVideos = {
             { name: 'Minica Dangan ZZ',                                 src: 'cars/Mitsubishi/Minica_1989_Dangan_ZZ.mp4',                               data: { production_year: '1989', drive: 'FF',  power: '64',  weight: '640',  length: '3195', worth: '~3.000 Credits' } },
             { name: 'Mirage 1400 GLX',                                  src: 'cars/Mitsubishi/Mirage_1978_1400_GLX.mp4',                                data: { production_year: '1978', drive: 'FF',  power: '82',  weight: '795',  length: '3790', worth: '9.220 Credits' } },
             { name: 'Mirage Cyborg ZR',                                 src: 'cars/Mitsubishi/Mirage_1997_Cyborg_ZR.mp4',                               data: { production_year: '1997', drive: 'FF',  power: '175', weight: '1060', length: '3890', worth: '~7.000 Credits' } },
-            { name: 'Pajero Rally Raid Car',                            src: 'cars/Mitsubishi/Pajero_1985_Rally_Raid_Car.mp4',                          data: { production_year: '1985', drive: '4WD', power: 'X', weight: '1202', length: '3920', worth: 'Tahiti Schwer' } },
+            { name: 'Pajero Rally Raid Car',                            src: 'cars/Mitsubishi/Pajero_1985_Rally_Raid_Car.mp4',                          data: { production_year: '1985', drive: '4WD', power: '230', weight: '1202', length: '3920', worth: 'Tahiti Schwer' } },
             { name: 'Pajero Rally Raid Car',                            src: 'cars/Mitsubishi/Pajero_2003_Rally_Raid_Car.mp4',                          data: { production_year: '2003', drive: '4WD', power: '272', weight: '1825', length: '4223', worth: 'Yosemite Rally II Schwer' } },
             { name: 'Starion 4WD Rally Car',                            src: 'cars/Mitsubishi/Starion_1984_4WD_Rally_Car.mp4',                          data: { production_year: '1984', drive: '4WD', power: '360', weight: '1250', length: '4000', worth: 'Grand Canyon Schwer' } },
         ],
@@ -692,7 +692,7 @@ const showroomVideos = {
     nike: {
         manufacturer: 'Nike', country: 'Amerika',                       // 1
         cars: [
-            { name: 'One',                                              src: 'cars/Nike/One_2022.mp4',                                                  data: { production_year: '2022', drive: '4WD', power: 'X', weight: '760',  length: '4000', worth: 'Internationale B-Lizenz | Saleen S7 Club' } },
+            { name: 'One',                                              src: 'cars/Nike/One_2022.mp4',                                                  data: { production_year: '2022', drive: '4WD', power: '259', weight: '760',  length: '4000', worth: 'Internationale B-Lizenz | Saleen S7 Club' } },
         ],
     },
     nismo: {
@@ -799,12 +799,12 @@ const showroomVideos = {
     opel: {
         manufacturer: 'Opel', country: 'Deutschland',                   // 7
         cars: [
-            { name: 'Astra Touring Car',                                src: 'cars/Opel/Astra_2000_Touring_Car.mp4',                                    data: { production_year: '2000', drive: 'FR',  power: '460', weight: '1000', length: '4400', worth: '550.000 Credits' } },
+            { name: 'Astra Touring Car',                                src: 'cars/Opel/Astra_2000_Touring_Car.mp4',                                    data: { production_year: '2000', drive: 'FR',  power: '461', weight: '1000', length: '4400', worth: '550.000 Credits' } },
             { name: 'Calibra Touring Car',                              src: 'cars/Opel/Calibra_1994_Touring_Car.mp4',                                  data: { production_year: '1994', drive: '4WD', power: '427', weight: '1059', length: '4400', worth: 'Speedster Trophy' } },
-            { name: 'Corsa Comfort 1.4i',                               src: 'cars/Opel/Corsa_2001_Comfort_1.4i.mp4',                                   data: { production_year: '2001', drive: 'FF',  power: '88',  weight: '998',  length: '4000', worth: '17.960 Credits' } },
-            { name: 'Speedster',                                        src: 'cars/Opel/Speedster_2000.mp4',                                            data: { production_year: '2000', drive: 'MR',  power: '145', weight: '850',  length: '3790', worth: '44.690 Credits' } },
-            { name: 'Speedster Turbo',                                  src: 'cars/Opel/Speedster_2000_Turbo.mp4',                                      data: { production_year: '2000', drive: 'MR',  power: '197', weight: '1005', length: '3786', worth: '49.550 Credits' } },
-            { name: 'Tigra 1.6i',                                       src: 'cars/Opel/Tigra_1999_1.6i.mp4',                                           data: { production_year: '1999', drive: 'FF',  power: '104', weight: '1032', length: '3922', worth: '~19.000 Credits' } },
+            { name: 'Corsa Comfort 1.4i',                               src: 'cars/Opel/Corsa_2001_Comfort_1.4i.mp4',                                   data: { production_year: '2001', drive: 'FF',  power: '90',  weight: '998',  length: '4000', worth: '17.960 Credits' } },
+            { name: 'Speedster',                                        src: 'cars/Opel/Speedster_2000.mp4',                                            data: { production_year: '2000', drive: 'MR',  power: '147', weight: '850',  length: '3790', worth: '44.690 Credits' } },
+            { name: 'Speedster Turbo',                                  src: 'cars/Opel/Speedster_2000_Turbo.mp4',                                      data: { production_year: '2000', drive: 'MR',  power: '200', weight: '1005', length: '3786', worth: '49.550 Credits' } },
+            { name: 'Tigra 1.6i',                                       src: 'cars/Opel/Tigra_1999_1.6i.mp4',                                           data: { production_year: '1999', drive: 'FF',  power: '106', weight: '1032', length: '3922', worth: '~19.000 Credits' } },
             { name: 'Vectra 3.2 V6',                                    src: 'cars/Opel/Vectra_2003_3.2_V6.mp4',                                        data: { production_year: '2003', drive: 'FF',  power: '211', weight: '1510', length: '4400', worth: '36.530 Credits' } },
         ],
     },
@@ -819,15 +819,15 @@ const showroomVideos = {
         manufacturer: 'Pagani', country: 'Italien',                     // 4
         cars: [
             { name: 'Zonda C12',                                        src: 'cars/Pagani/Zonda_2000_C12.mp4',                                          data: { production_year: '2000', drive: 'MR',  power: '394', weight: '1251', length: '4345', worth: '388.720 Credits' } },
-            { name: 'Zonda C12S',                                       src: 'cars/Pagani/Zonda_2000_C12S.mp4',                                         data: { production_year: '2000', drive: 'MR',  power: '550', weight: '1351', length: '4395', worth: '450.040 Credits' } },
-            { name: 'Zonda LM Race Car',                                src: 'cars/Pagani/Zonda_2001_LM_Race_Car.mp4',                                  data: { production_year: '2001', drive: 'MR',  power: '660', weight: '1150', length: '4395', worth: 'Fahrmissionen 21-24' } },
+            { name: 'Zonda C12S',                                       src: 'cars/Pagani/Zonda_2000_C12S.mp4',                                         data: { production_year: '2000', drive: 'MR',  power: '551', weight: '1351', length: '4395', worth: '450.040 Credits' } },
+            { name: 'Zonda LM Race Car',                                src: 'cars/Pagani/Zonda_2001_LM_Race_Car.mp4',                                  data: { production_year: '2001', drive: 'MR',  power: '661', weight: '1150', length: '4395', worth: 'Fahrmissionen 21-24' } },
             { name: 'Zonda C12S 7.3',                                   src: 'cars/Pagani/Zonda_2002_C12S_7.3.mp4',                                     data: { production_year: '2002', drive: 'MR',  power: '556', weight: '1250', length: '4395', worth: '631.680 Credits' } },
         ],
     },
     panoz: {
         manufacturer: 'Panoz', country: 'Amerika',                      // 1
         cars: [
-            { name: 'Esperante GTR-1 Race Car',                         src: 'cars/Panoz/Esperante_1998_GTR-1_Race_Car.mp4',                            data: { production_year: '1998', drive: 'FR',  power: '750', weight: '1149', length: '4000', worth: '4.500.000 Credits' } },
+            { name: 'Esperante GTR-1 Race Car',                         src: 'cars/Panoz/Esperante_1998_GTR-1_Race_Car.mp4',                            data: { production_year: '1998', drive: 'FR',  power: '752', weight: '1149', length: '4000', worth: '4.500.000 Credits' } },
         ],
     },
     pescarolo_sport: {
@@ -858,7 +858,7 @@ const showroomVideos = {
         manufacturer: 'Plymouth', country: 'Amerika',                   // 2
         cars: [
             { name: 'Cuda 440 Six-Pack',                                src: 'cars/Plymouth/Cuda_1971_440_Six_Pack.mp4',                                data: { production_year: '1971', drive: 'FR',  power: '390', weight: '1576', length: '4740', worth: '58.360 Credits' } },
-            { name: 'Super Bird',                                       src: 'cars/Plymouth/Super_Bird_1970.mp4',                                       data: { production_year: '1970', drive: 'FR',  power: '425', weight: '1755', length: '5588', worth: 'Muscle-Car Wettkampf' } },
+            { name: 'Super Bird',                                       src: 'cars/Plymouth/Super_Bird_1970.mp4',                                       data: { production_year: '1970', drive: 'FR',  power: '431', weight: '1755', length: '5588', worth: 'Muscle-Car Wettkampf' } },
         ],
     },
     polyphony_digital: {
