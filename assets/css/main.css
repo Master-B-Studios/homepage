@@ -258,7 +258,7 @@ input[accept=".episodes"] {display: none;z-index: 100;cursor: pointer;}
 
 .design_table_04 {width: 25%;}
 .design_header_01 {text-align: center;font-weight: bold;font-size: 1.5em;}
-.design_border_01 {border: 1px solid #444444;}
+.design_border_01 {border: 1px solid #444444;border-collapse: separate;}
 .design_borderspacing_01 {border-spacing: 6px;border-collapse: separate;}
 .design_padding_01 {padding: 0.5em;}
 .design_margin_01 {margin: 0.5em;}
