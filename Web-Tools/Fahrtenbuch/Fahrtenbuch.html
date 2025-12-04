@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Fahrtenbuch</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+  <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
+  <link rel="stylesheet" href="../../assets/css/main.css"></link>
+  <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+  <style>
+    .button_row {width: 100%;height: auto;display: flex;align-items: center;justify-content: space-evenly;}
+    input[accept=".csv"] {display: none;z-index: 100;cursor: pointer;width: 100%;}
+    .icon_button {width: 4em;height: 4em;display: flex;align-items: center;justify-content: center;border-radius: 1em;}
+    .icon {width: auto;height: 100%;}
+
+    .car_selection {width: 100%;height: auto;display: flex;}
+    #car_text {width: auto;height: auto;padding: 0 0.4em;text-align: right;}
+    #car_name {width: 100%;height: auto;padding: 0 0.4em;background-color: #111111;border-radius: 0.4em;text-align: center;}
+
+    .div_entry {margin-bottom: 1em;}
+    .table_entry {border-radius: 1em;border: 1px solid #dbdbdb;border-collapse: separate;border-spacing: 0.4em;margin: 0 0 1em 0;}
+    .table_entry td {padding: 0.4em;}
+    .td_info {width: 50%;height: auto;margin: 10px;}
+    .td_data {width: 50%;height: auto;background-color: #111111;border-radius: 0.4em;text-align: center;}
+    .td_spec {width: 100%;min-height: 2.6em;height: 2.6em;background-color: #111111;border-radius: 0.4em;}
+
+    .day_container {width: 100%;height: auto;display: flex;}
+    .day_text {width: auto;height: auto;padding: 0 0.4em;}
+    .day_input {width: 100%;height: auto;padding: 0 0.4em;background-color: #111111;border-radius: 0.4em;outline: none;border: none;text-align: center;color: #dbdbdb;}
+    .time_container {width: 100%;height: auto;display: flex;}
+  </style>
+</head>
+<body onload="window.location.href='#fahrtenbuch';" class="is-preload">
+  <div id="wrapper">
+    
+    <nav id="nav">
+      <a href="../../index.html"><img class="mb_icon" src="../../images/MB_Icon_02.png"></img><span>Home</span></a>
+      <a href="../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
+      <a href="../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
+      <a href="../../Games/games.html"><img class="mb_icon" src="../../images/Games_Icon_01.png"></img><span>Games</span></a>
+      <a href="#fahrtenbuch"><img class="mb_icon" src="icon_01.png"></img><span>Fahrtenbuch</span></a>
+    </nav>
+    
+    <div id="main">
+      <article id="fahrtenbuch" class="panel">
+        <header><h2>Fahrtenbuch</h2></header>
+        <section>
+          <div class="button_row">
+            <button class="icon_button" onclick="document.getElementById('load').click()"><img class="icon" src="icon_01.png"><input id="load" type="file" accept=".csv" onchange="load_document(this);"></input></button>
+            <button class="icon_button" onclick="save_document();"><img class="icon" src="icon_01.png"></button>
+          </div>
+        </section>
+        <section id="car_selection" style="display: none;">
+          <div id="car_text">Fahrzeug:</div><div id="car_name" contenteditable="true"></div>
+        </section>
+        <section><div id="content"></div></section>
+      </article>
+    </div>
+    
+    <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
+
+  </div>
+</body>
+
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/browser.min.js"></script>
+<script src="../../assets/js/breakpoints.min.js"></script>
+<script src="../../assets/js/util.js"></script>
+<script src="../../assets/js/main.js"></script>
+
+<script>
+  function load_document(obj) {file = obj.files[0];if (file && file.type == 'text/csv') {import_csv(file);}}
+  
+  function import_csv(file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const text = e.target.result;
+      const entries = parseKeyValueCSV(text);
+      const fahrzeug = getFahrzeugName(entries);
+      if (fahrzeug) {document.getElementById('car_name').textContent = fahrzeug;document.getElementById('car_selection').style.display = "flex";}
+      showEntriesInTable(entries);
+    };
+    reader.readAsText(file, "UTF-8");
+  }
+
+  function getFahrzeugName(entries) {for (const entry of entries) {if (entry["Fahrzeug"]) {return entry["Fahrzeug"];}}; return null;}
+
+  function parseKeyValueCSV(text) {
+    const lines = text.split(/\r?\n/);
+    const entries = [];
+    console.log(entries);
+    const filtered = entries.filter(e => e["Tag"]);
+    let current = {};
+    lines.forEach(line => {
+      if (line.trim() === "") {
+        if (Object.keys(current).length > 0) {entries.push(current);current = {};}
+        return;
+      }
+      const parts = line.split(";");
+      const key = parts[0]?.trim();
+      const value = parts[1]?.trim();
+      if (key) current[key] = value || "";
+    });
+    if (Object.keys(current).length > 0) {entries.push(current);}
+    return entries;
+  }
+  
+  function showEntriesInTable(entries) {
+    const filtered = entries.filter(e => e["Tag"]);
+    const sorted = filtered.sort((a, b) => {
+        const d1 = parseDateTime(a["Tag"], a["Zeit Start"]);
+        const d2 = parseDateTime(b["Tag"], b["Zeit Start"]);
+        return d1 - d2;
+    });
+    sorted.forEach(e => {
+      const div = document.getElementById('content');
+      const table = document.createElement("table");table.className = 'table_entry';
+      const tbody = document.createElement("tbody");
+      const row_1 = document.createElement("tr");
+      row_1.innerHTML = `
+        <td class="td_info">Tag:</td><td class="td_data" contenteditable="true">${e["Tag"] || ""}</td>
+      `;
+      const row_2 = document.createElement("tr");
+      row_2.innerHTML = `
+        <td class="td_info">Zeit Start:</td><td class="td_data" contenteditable="true">${e["Zeit Start"] || ""}</td>
+      `
+      const row_3 = document.createElement("tr");
+      row_3.innerHTML = `
+        <td class="td_info">Zeit Ende:</td><td class="td_data" contenteditable="true">${e["Zeit Ende"] || ""}</td>
+      `
+      const row_4 = document.createElement("tr");
+      row_4.innerHTML = `
+        <td class="td_info">Kilometerstand Start:</td><td class="td_data" contenteditable="true">${e["Kilometerstand Start"] || ""}</td>
+      `
+      const row_5 = document.createElement("tr");
+      row_5.innerHTML = `
+        <td class="td_info">Kilometerstand Ende:</td><td class="td_data" contenteditable="true">${e["Kilometerstand Ende"] || ""}</td>
+      `
+      const row_6 = document.createElement("tr");
+      row_6.innerHTML = `
+        <td class="td_info">Gefahrene Kilometer:</td><td class="td_data" contenteditable="true">${e["Gefahrene Kilometer"] || ""}</td>
+      `
+      const row_7 = document.createElement("tr");
+      row_7.innerHTML = `
+        <td class="td_info" colspan="2">Besonderheiten:</td>
+      `
+      const row_8 = document.createElement("tr");
+      row_8.innerHTML = `
+        <td class="td_spec" colspan="2" contenteditable="true">${e["Besonderheiten"] || ""}</td>
+      `
+      div.appendChild(table);table.appendChild(tbody)
+      tbody.appendChild(row_1);tbody.appendChild(row_2);tbody.appendChild(row_3);tbody.appendChild(row_4);
+      tbody.appendChild(row_5);tbody.appendChild(row_6);tbody.appendChild(row_7);tbody.appendChild(row_8);
+    });
+  }
+  
+  function parseDateTime(tag, zeit) {
+    if (!tag || !zeit) return new Date(0);
+    const [day, month, year] = tag.split(".");
+    const [hour, minute] = zeit.split(":");
+    return new Date(year, month - 1, day, hour, minute);
+  }
+
+  function set_date() {
+		var date = new Date().toISOString().substring(0, 10);var day = date.substring(8);var month = date.substring(5, 7);var year = date.substring(0, 4);
+		var day_of_week = new Date().getDay();
+		var days = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+		document.getElementById('day_of_week').innerHTML = days[day_of_week]+', ';
+	}
+	function change_day(obj) {
+		var day_of_week = new Date(obj.value+'T00:00:00').getDay();
+		var days = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+	}
+</script>

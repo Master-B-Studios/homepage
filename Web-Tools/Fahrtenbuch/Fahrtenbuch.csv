@@ -1,0 +1,17 @@
+Fahrzeug;XX-XX XXXX;
+
+Tag;01.01.2000;
+Zeit Start;09:00;
+Zeit Ende;11:30;
+Kilometerstand Start;24242;
+Kilometerstand Ende;24250;
+Gefahrene Kilometer;8;
+Besonderheiten;;
+
+Tag;04.01.2000;
+Zeit Start;09:14;
+Zeit Ende;09:52;
+Kilometerstand Start;24260;
+Kilometerstand Ende;24270;
+Gefahrene Kilometer;10;
+Besonderheiten;;
