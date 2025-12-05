@@ -11,18 +11,30 @@
     .button_row {width: 100%;height: auto;display: flex;align-items: center;justify-content: space-evenly;}
     input[accept=".csv"] {display: none;z-index: 100;cursor: pointer;width: 100%;}
     .icon_button {width: 4em;height: 4em;display: flex;align-items: center;justify-content: center;border-radius: 1em;}
+    .icon_button:hover {background-color: #222222;}
     .icon {width: auto;height: 100%;}
+    .icon:hover {filter: hue-rotate(80);}
 
     .car_selection {width: 100%;height: auto;display: flex;}
     #car_text {width: auto;height: auto;padding: 0 0.4em;text-align: right;}
-    #car_name {width: 100%;height: auto;padding: 0 0.4em;background-color: #111111;border-radius: 0.4em;text-align: center;}
+    #car_name {width: 100%;height: auto;padding: 0 0.4em;background-color: #111111;border: 1px solid #dbdbdb;border-radius: 0.4em;text-align: center;cursor: pointer;}
+    #car_name:hover {outline: none;border: 1px solid #00ff00;color: #00ff00;transition: all 2s;}
+    #car_name:focus {outline: none;border: 1px solid #00ff00;color: #00ff00;}
 
     .div_entry {margin-bottom: 1em;}
     .table_entry {border-radius: 1em;border: 1px solid #dbdbdb;border-collapse: separate;border-spacing: 0.4em;margin: 0 0 1em 0;}
     .table_entry td {padding: 0.4em;}
     .td_info {width: 50%;height: auto;margin: 10px;}
-    .td_data {width: 50%;height: auto;background-color: #111111;border-radius: 0.4em;text-align: center;}
-    .td_spec {width: 100%;min-height: 2.6em;height: 2.6em;background-color: #111111;border-radius: 0.4em;}
+    .td_spec {width: 50%;height: auto;margin: 10px;}
+    .td_delete {width: auto;height: auto;color: #ff4400;border: 1px solid #000000;border-radius: 0.4em;text-align: center;cursor: pointer;}
+    .td_delete:hover {border: 1px solid #ff4400;transition: all 2s;}
+    .td_data {width: 50%;height: auto;background-color: #111111;border: 1px solid #000000;border-radius: 0.4em;text-align: center;cursor: pointer;}
+    .td_data:hover {outline: none;border: 1px solid #00ff00;color: #00ff00;transition: all 2s;}
+    .td_data:focus {outline: none;border: 1px solid #00ff00;color: #00ff00;}
+    .td_spec_input {width: 100%;min-height: 2.6em;height: 2.6em;background-color: #111111;border: 1px solid #000000;border-radius: 0.4em;cursor: pointer;}
+    .td_spec_input:hover {outline: none;border: 1px solid #00ff00;color: #00ff00;transition: all 2s;}
+    .td_spec_input:focus {outline: none;border: 1px solid #00ff00;color: #00ff00;}
+    .td_date {width: auto;height: 100%;outline: none;border: none;filter: invert(100%);background-color: rgba(0, 0, 0, 0);opacity: 1;color: #111111;}
 
     .day_container {width: 100%;height: auto;display: flex;}
     .day_text {width: auto;height: auto;padding: 0 0.4em;}
@@ -48,6 +60,7 @@
           <div class="button_row">
             <button class="icon_button" onclick="document.getElementById('load').click()"><img class="icon" src="load_document.png"><input id="load" type="file" accept=".csv" onchange="load_document(this);"></input></button>
             <button class="icon_button" onclick="save_document();"><img class="icon" src="save_document.png"></button>
+            <button class="icon_button" onclick="add_entry();"><img class="icon" src="add_entry.png"></button>
           </div>
         </section>
         <section id="car_selection" style="display: none;">
@@ -88,14 +101,10 @@
   function parseKeyValueCSV(text) {
     const lines = text.split(/\r?\n/);
     const entries = [];
-    console.log(entries);
     const filtered = entries.filter(e => e["Tag"]);
     let current = {};
     lines.forEach(line => {
-      if (line.trim() === "") {
-        if (Object.keys(current).length > 0) {entries.push(current);current = {};}
-        return;
-      }
+      if (line.trim() === "") {if (Object.keys(current).length > 0) {entries.push(current);current = {};}; return;}
       const parts = line.split(";");
       const key = parts[0]?.trim();
       const value = parts[1]?.trim();
@@ -110,15 +119,16 @@
     const sorted = filtered.sort((a, b) => {
         const d1 = parseDateTime(a["Tag"], a["Zeit Start"]);
         const d2 = parseDateTime(b["Tag"], b["Zeit Start"]);
-        return d1 - d2;
+        return d2 - d1;
     });
     sorted.forEach(e => {
+      const [format_day, format_month, format_year] = e["Tag"].split(".");
       const div = document.getElementById('content');
       const table = document.createElement("table");table.className = 'table_entry';
       const tbody = document.createElement("tbody");
       const row_1 = document.createElement("tr");
       row_1.innerHTML = `
-        <td class="td_info">Tag:</td><td class="td_data" contenteditable="true">${e["Tag"] || ""}</td>
+        <td class="td_info">Tag:</td><td class="td_data"><input class="td_date" type="date" value="${format_year}-${format_month}-${format_day}"></td>
       `;
       const row_2 = document.createElement("tr");
       row_2.innerHTML = `
@@ -130,28 +140,29 @@
       `
       const row_4 = document.createElement("tr");
       row_4.innerHTML = `
-        <td class="td_info">Kilometerstand Start:</td><td class="td_data" contenteditable="true">${e["Kilometerstand Start"] || ""}</td>
+        <td class="td_info">Kilometerstand Start:</td><td class="td_data km_strt" contenteditable="true">${e["Kilometerstand Start"] || ""}</td>
       `
       const row_5 = document.createElement("tr");
       row_5.innerHTML = `
-        <td class="td_info">Kilometerstand Ende:</td><td class="td_data" contenteditable="true">${e["Kilometerstand Ende"] || ""}</td>
+        <td class="td_info">Kilometerstand Ende:</td><td class="td_data km_stop" onblur="get_km_difference();" contenteditable="true">${e["Kilometerstand Ende"] || ""}</td>
       `
       const row_6 = document.createElement("tr");
       row_6.innerHTML = `
-        <td class="td_info">Gefahrene Kilometer:</td><td class="td_data" contenteditable="true">${e["Gefahrene Kilometer"] || ""}</td>
+        <td class="td_info">Gefahrene Kilometer:</td><td class="td_data km_diff" contenteditable="true">${e["Gefahrene Kilometer"] || ""}</td>
       `
       const row_7 = document.createElement("tr");
       row_7.innerHTML = `
-        <td class="td_info" colspan="2">Besonderheiten:</td>
+        <td class="td_spec">Besonderheiten:</td><td class="td_delete" onclick="delete_table_entry(this);">Löschen</td>
       `
       const row_8 = document.createElement("tr");
       row_8.innerHTML = `
-        <td class="td_spec" colspan="2" contenteditable="true">${e["Besonderheiten"] || ""}</td>
+        <td class="td_spec_input" colspan="2" contenteditable="true">${e["Besonderheiten"] || ""}</td>
       `
       div.appendChild(table);table.appendChild(tbody)
       tbody.appendChild(row_1);tbody.appendChild(row_2);tbody.appendChild(row_3);tbody.appendChild(row_4);
       tbody.appendChild(row_5);tbody.appendChild(row_6);tbody.appendChild(row_7);tbody.appendChild(row_8);
     });
+    get_km_difference();
   }
   
   function parseDateTime(tag, zeit) {
@@ -161,14 +172,65 @@
     return new Date(year, month - 1, day, hour, minute);
   }
 
-  function set_date() {
+  function get_km_difference() {
+    const km_diff_input = document.getElementsByClassName('km_diff');
+    const km_strt_input = document.getElementsByClassName('km_strt');
+    const km_stop_input = document.getElementsByClassName('km_stop');
+    for (var i = 0; i < km_diff_input.length; i++) {
+      if (km_diff_input[i].innerHTML == '') {km_diff_input[i].innerHTML = km_stop_input[i].innerHTML-km_strt_input[i].innerHTML;}
+    }
+  }
+
+  function add_entry() {
+    const div = document.getElementById('content');
+    const table = document.createElement("table");table.className = 'table_entry';
+    const tbody = document.createElement("tbody");
+    const row_1 = document.createElement("tr");
+    row_1.innerHTML = `
+      <td class="td_info">Tag:</td><td class="td_data"><input class="td_date" type="date"></td>
+    `;
+    const row_2 = document.createElement("tr");
+    row_2.innerHTML = `
+      <td class="td_info">Zeit Start:</td><td class="td_data" contenteditable="true"></td>
+    `
+    const row_3 = document.createElement("tr");
+    row_3.innerHTML = `
+      <td class="td_info">Zeit Ende:</td><td class="td_data" contenteditable="true"></td>
+    `
+    const row_4 = document.createElement("tr");
+    row_4.innerHTML = `
+      <td class="td_info">Kilometerstand Start:</td><td class="td_data km_strt" contenteditable="true"></td>
+    `
+    const row_5 = document.createElement("tr");
+    row_5.innerHTML = `
+      <td class="td_info">Kilometerstand Ende:</td><td class="td_data km_stop" onblur="get_km_difference();" contenteditable="true"></td>
+    `
+    const row_6 = document.createElement("tr");
+    row_6.innerHTML = `
+      <td class="td_info">Gefahrene Kilometer:</td><td class="td_data km_diff" contenteditable="true"></td>
+    `
+    const row_7 = document.createElement("tr");
+    row_7.innerHTML = `
+      <td class="td_spec">Besonderheiten:</td><td class="td_delete" onclick="delete_table_entry(this);">Löschen</td>
+    `
+    const row_8 = document.createElement("tr");
+    row_8.innerHTML = `
+      <td class="td_spec_input" colspan="2" contenteditable="true"></td>
+    `
+    div.insertBefore(table, document.getElementsByClassName('table_entry')[0]);table.appendChild(tbody)
+    tbody.appendChild(row_1);tbody.appendChild(row_2);tbody.appendChild(row_3);tbody.appendChild(row_4);
+    tbody.appendChild(row_5);tbody.appendChild(row_6);tbody.appendChild(row_7);tbody.appendChild(row_8);
+    check_day();
+  }
+
+  function delete_table_entry(obj) {
+    if (confirm('Diesen Eintrag wirklich löschen?') == true) {obj.parentNode.parentNode.parentNode.remove();}
+    else {return;}
+  }
+
+  function check_day() {
 		var date = new Date().toISOString().substring(0, 10);var day = date.substring(8);var month = date.substring(5, 7);var year = date.substring(0, 4);
-		var day_of_week = new Date().getDay();
-		var days = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
-		document.getElementById('day_of_week').innerHTML = days[day_of_week]+', ';
-	}
-	function change_day(obj) {
-		var day_of_week = new Date(obj.value+'T00:00:00').getDay();
-		var days = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+		const date_field = document.getElementsByClassName('td_date');
+    for (var i = 0; i < date_field.length; i++) {if (date_field[i].value == '') {date_field[i].value = year+'-'+month+'-'+day;}}
 	}
 </script>
