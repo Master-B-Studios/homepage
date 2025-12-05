@@ -274,6 +274,6 @@
     
     const link = document.createElement("A");
     const filename = title_document+'.csv';
-    link.setAttribute("href","data:text/xml,"+save_content);link.setAttribute("style","display:none");link.setAttribute("download",filename);document.body.appendChild(link);console.log(link.outerHTML);link.click();document.body.removeChild(link);
+    link.setAttribute("href","data:text/csv,"+save_content);link.setAttribute("style","display:none");link.setAttribute("download",filename);document.body.appendChild(link);console.log(link.outerHTML);link.click();document.body.removeChild(link);
   }
 </script>
