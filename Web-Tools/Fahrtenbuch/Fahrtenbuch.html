@@ -59,7 +59,7 @@
         <section>
           <div class="button_row">
             <button class="icon_button" onclick="document.getElementById('load').click()"><img class="icon" src="load_document.png"><input id="load" type="file" accept=".csv" onchange="load_document(this);"></input></button>
-            <button class="icon_button" onclick="save_document();"><img class="icon" src="save_document.png"></button>
+            <button class="icon_button" onclick="download_document();"><img class="icon" src="save_document.png"></button>
             <button class="icon_button" onclick="add_entry();"><img class="icon" src="add_entry.png"></button>
           </div>
         </section>
@@ -132,11 +132,11 @@
       `;
       const row_2 = document.createElement("tr");
       row_2.innerHTML = `
-        <td class="td_info">Zeit Start:</td><td class="td_data" contenteditable="true">${e["Zeit Start"] || ""}</td>
+        <td class="td_info">Zeit Start:</td><td class="td_data time_strt" contenteditable="true">${e["Zeit Start"] || ""}</td>
       `
       const row_3 = document.createElement("tr");
       row_3.innerHTML = `
-        <td class="td_info">Zeit Ende:</td><td class="td_data" contenteditable="true">${e["Zeit Ende"] || ""}</td>
+        <td class="td_info">Zeit Ende:</td><td class="td_data time_stop" contenteditable="true">${e["Zeit Ende"] || ""}</td>
       `
       const row_4 = document.createElement("tr");
       row_4.innerHTML = `
@@ -152,11 +152,11 @@
       `
       const row_7 = document.createElement("tr");
       row_7.innerHTML = `
-        <td class="td_spec">Besonderheiten:</td><td class="td_delete" onclick="delete_table_entry(this);">Löschen</td>
+        <td class="td_spec">Besonderheiten:</td><td class="td_delete" onclick="delete_table_entry(this);">Eintrag Löschen</td>
       `
       const row_8 = document.createElement("tr");
       row_8.innerHTML = `
-        <td class="td_spec_input" colspan="2" contenteditable="true">${e["Besonderheiten"] || ""}</td>
+        <td class="td_spec_input special" colspan="2" contenteditable="true">${e["Besonderheiten"] || ""}</td>
       `
       div.appendChild(table);table.appendChild(tbody)
       tbody.appendChild(row_1);tbody.appendChild(row_2);tbody.appendChild(row_3);tbody.appendChild(row_4);
@@ -180,6 +180,7 @@
   }
 
   function add_entry() {
+    document.getElementById('car_selection').style.display = "flex";
     const div = document.getElementById('content');
     const table = document.createElement("table");table.className = 'table_entry';
     const tbody = document.createElement("tbody");
@@ -189,11 +190,11 @@
     `;
     const row_2 = document.createElement("tr");
     row_2.innerHTML = `
-      <td class="td_info">Zeit Start:</td><td class="td_data" onclick="get_time(this);" contenteditable="true"></td>
+      <td class="td_info">Zeit Start:</td><td class="td_data time_strt" onclick="get_time(this);" contenteditable="true"></td>
     `
     const row_3 = document.createElement("tr");
     row_3.innerHTML = `
-      <td class="td_info">Zeit Ende:</td><td class="td_data" onclick="get_time(this);" contenteditable="true"></td>
+      <td class="td_info">Zeit Ende:</td><td class="td_data time_stop" onclick="get_time(this);" contenteditable="true"></td>
     `
     const row_4 = document.createElement("tr");
     row_4.innerHTML = `
@@ -209,11 +210,11 @@
     `
     const row_7 = document.createElement("tr");
     row_7.innerHTML = `
-      <td class="td_spec">Besonderheiten:</td><td class="td_delete" onclick="delete_table_entry(this);">Löschen</td>
+      <td class="td_spec">Besonderheiten:</td><td class="td_delete" onclick="delete_table_entry(this);">Eintrag Löschen</td>
     `
     const row_8 = document.createElement("tr");
     row_8.innerHTML = `
-      <td class="td_spec_input" colspan="2" contenteditable="true"></td>
+      <td class="td_spec_input special" colspan="2" contenteditable="true"></td>
     `
     div.insertBefore(table, document.getElementsByClassName('table_entry')[0]);table.appendChild(tbody)
     tbody.appendChild(row_1);tbody.appendChild(row_2);tbody.appendChild(row_3);tbody.appendChild(row_4);
@@ -236,7 +237,43 @@
     var time = new Date();
     var minutes = time.getMinutes().toString().length == 1 ? '0' + time.getMinutes() : time.getMinutes();
     var hours = time.getHours().toString().length == 1 ? '0' + time.getHours() : time.getHours();
-    console.log(hours + ':' + minutes)
     obj.innerHTML = hours + ':' + minutes;
+  }
+
+  function download_document() {
+    const download_car_name = document.getElementById('car_name').innerHTML;
+    const time = new Date();
+    const seconds = time.getSeconds().toString().length == 1 ? '0' + time.getSeconds() : time.getSeconds();
+    const minutes = time.getMinutes().toString().length == 1 ? '0' + time.getMinutes() : time.getMinutes();
+    const hours = time.getHours().toString().length == 1 ? '0' + time.getHours() : time.getHours();
+    const day = time.getDay().toString().length == 1 ? '0' + time.getDay() : time.getDay();
+    const month = time.getMonth().toString().length == 1 ? '0' + time.getMonth() : time.getMonth();
+    const year = time.getFullYear().toString().length == 1 ? '0' + time.getFullYear() : time.getFullYear();
+    const title_document = download_car_name+' '+year+'-'+month+'-'+day+' '+hours+'-'+minutes+'-'+seconds;
+
+    const table = document.getElementsByClassName('table_entry');
+    const day_strt = document.getElementsByClassName('td_date');
+    const time_strt = document.getElementsByClassName('time_strt');
+    const time_stop = document.getElementsByClassName('time_stop');
+    const km_strt = document.getElementsByClassName('km_strt');
+    const km_stop = document.getElementsByClassName('km_stop');
+    const km_diff = document.getElementsByClassName('km_diff');
+    const special = document.getElementsByClassName('special');
+
+    let save_content = 'Fahrzeug;'+download_car_name+';\n\n';
+    for (var i = 0; i < table.length; i++) {
+      const [start_day_year, start_day_month, start_day_day] = day_strt[i].value.split("-");
+      save_content += 'Tag;'+start_day_day+'.'+start_day_month+'.'+start_day_year+';\n';
+      save_content += 'Zeit Start;'+time_strt[i].innerHTML+';\n';
+      save_content += 'Zeit Ende;'+time_stop[i].innerHTML+';\n';
+      save_content += 'Kilometerstand Start;'+km_strt[i].innerHTML+';\n';
+      save_content += 'Kilometerstand Ende;'+km_stop[i].innerHTML+';\n';
+      save_content += 'Gefahrene Kilometer;'+km_diff[i].innerHTML+';\n';
+      save_content += 'Besonderheiten;'+special[i].innerHTML+';\n\n';
+    }
+    
+    const link = document.createElement("A");
+    const filename = title_document+'.csv';
+    link.setAttribute("href","data:text/xml,"+save_content);link.setAttribute("style","display:none");link.setAttribute("download",filename);document.body.appendChild(link);console.log(link.outerHTML);link.click();document.body.removeChild(link);
   }
 </script>
