@@ -16,8 +16,8 @@
     .icon:hover {filter: hue-rotate(80);}
 
     .car_selection {width: 100%;height: auto;display: flex;}
-    #car_text {width: auto;height: auto;padding: 0 0.4em;text-align: right;}
-    #car_name {width: 100%;height: auto;padding: 0 0.4em;background-color: #111111;border: 1px solid #dbdbdb;border-radius: 0.4em;text-align: center;cursor: pointer;}
+    #car_text {width: 50%;height: auto;padding: 0.4em;}
+    #car_name {width: 50%;height: auto;padding: 0.4em;background-color: #111111;border: 1px solid #000000;border-radius: 0.4em;text-align: center;cursor: pointer;}
     #car_name:hover {outline: none;border: 1px solid #00ff00;color: #00ff00;transition: all 2s;}
     #car_name:focus {outline: none;border: 1px solid #00ff00;color: #00ff00;}
 
@@ -63,7 +63,7 @@
             <button class="icon_button" onclick="add_entry();"><img class="icon" src="add_entry.png"></button>
           </div>
         </section>
-        <section id="car_selection" style="display: none;">
+        <section id="car_selection" style="display: none;border: 1px solid #dbdbdb;border-radius: 1em;padding: 0.4em;">
           <div id="car_text">Fahrzeug:</div><div id="car_name" contenteditable="true"></div>
         </section>
         <section><div id="content"></div></section>
