@@ -26,15 +26,15 @@
     .table_entry td {padding: 0.4em;}
     .td_info {width: 50%;height: auto;margin: 10px;}
     .td_spec {width: 50%;height: auto;margin: 10px;}
-    .td_delete {width: auto;height: auto;color: #ff4400;border: 1px solid #000000;border-radius: 0.4em;text-align: center;cursor: pointer;}
-    .td_delete:hover {border: 1px solid #ff4400;transition: all 2s;}
+    .td_delete {width: auto;height: auto;color: #ff4400;border: 1px solid #ff4400;border-radius: 0.4em;text-align: center;cursor: pointer;}
+    .td_delete:hover {background-color: #ff4400;color: #000000;transition: all 2s;}
     .td_data {width: 50%;height: auto;background-color: #111111;border: 1px solid #000000;border-radius: 0.4em;text-align: center;cursor: pointer;}
     .td_data:hover {outline: none;border: 1px solid #00ff00;color: #00ff00;transition: all 2s;}
     .td_data:focus {outline: none;border: 1px solid #00ff00;color: #00ff00;}
     .td_spec_input {width: 100%;min-height: 2.6em;height: 2.6em;background-color: #111111;border: 1px solid #000000;border-radius: 0.4em;cursor: pointer;}
     .td_spec_input:hover {outline: none;border: 1px solid #00ff00;color: #00ff00;transition: all 2s;}
     .td_spec_input:focus {outline: none;border: 1px solid #00ff00;color: #00ff00;}
-    .td_date {width: auto;height: 100%;outline: none;border: none;filter: invert(100%);background-color: rgba(0, 0, 0, 0);opacity: 1;color: #111111;}
+    .td_date {width: auto;height: 100%;outline: none;border: none;filter: invert(100%);background-color: rgba(0, 0, 0, 0);opacity: 1;color: #111111;cursor: pointer;}
 
     .day_container {width: 100%;height: auto;display: flex;}
     .day_text {width: auto;height: auto;padding: 0 0.4em;}
@@ -176,9 +176,7 @@
     const km_diff_input = document.getElementsByClassName('km_diff');
     const km_strt_input = document.getElementsByClassName('km_strt');
     const km_stop_input = document.getElementsByClassName('km_stop');
-    for (var i = 0; i < km_diff_input.length; i++) {
-      if (km_diff_input[i].innerHTML == '') {km_diff_input[i].innerHTML = km_stop_input[i].innerHTML-km_strt_input[i].innerHTML;}
-    }
+    for (var i = 0; i < km_diff_input.length; i++) {km_diff_input[i].innerHTML = km_stop_input[i].innerHTML-km_strt_input[i].innerHTML;}
   }
 
   function add_entry() {
@@ -191,15 +189,15 @@
     `;
     const row_2 = document.createElement("tr");
     row_2.innerHTML = `
-      <td class="td_info">Zeit Start:</td><td class="td_data" contenteditable="true"></td>
+      <td class="td_info">Zeit Start:</td><td class="td_data" onclick="get_time(this);" contenteditable="true"></td>
     `
     const row_3 = document.createElement("tr");
     row_3.innerHTML = `
-      <td class="td_info">Zeit Ende:</td><td class="td_data" contenteditable="true"></td>
+      <td class="td_info">Zeit Ende:</td><td class="td_data" onclick="get_time(this);" contenteditable="true"></td>
     `
     const row_4 = document.createElement("tr");
     row_4.innerHTML = `
-      <td class="td_info">Kilometerstand Start:</td><td class="td_data km_strt" contenteditable="true"></td>
+      <td class="td_info">Kilometerstand Start:</td><td class="td_data km_strt" onblur="get_km_difference();" contenteditable="true"></td>
     `
     const row_5 = document.createElement("tr");
     row_5.innerHTML = `
@@ -207,7 +205,7 @@
     `
     const row_6 = document.createElement("tr");
     row_6.innerHTML = `
-      <td class="td_info">Gefahrene Kilometer:</td><td class="td_data km_diff" contenteditable="true"></td>
+      <td class="td_info">Gefahrene Kilometer:</td><td class="td_data km_diff"></td>
     `
     const row_7 = document.createElement("tr");
     row_7.innerHTML = `
@@ -233,4 +231,12 @@
 		const date_field = document.getElementsByClassName('td_date');
     for (var i = 0; i < date_field.length; i++) {if (date_field[i].value == '') {date_field[i].value = year+'-'+month+'-'+day;}}
 	}
+
+  function get_time(obj) {
+    var time = new Date();
+    var minutes = time.getMinutes().toString().length == 1 ? '0' + time.getMinutes() : time.getMinutes();
+    var hours = time.getHours().toString().length == 1 ? '0' + time.getHours() : time.getHours();
+    console.log(hours + ':' + minutes)
+    obj.innerHTML = hours + ':' + minutes;
+  }
 </script>
