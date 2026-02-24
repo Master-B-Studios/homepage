@@ -54,19 +54,19 @@
           <table class="table_container" style="cursor: default;">
             <tr>
               <td class="table_td_025 text_right">Name Des Spiels:</td>
-              <td class="table_td_075 text_center editable" colspan="3" contenteditable="true" onfocus="clean(this);" id="game_title"></td>
+              <td id="game_title" class="table_td_075 text_center editable" colspan="3" contenteditable="true"></td>
             </tr>
             <tr>
               <td class="table_td_025 text_right">ID: (CUSA12345)</td>
-              <td class="table_td_025 text_center editable" contenteditable="true" onfocus="clean(this);" id="game_id"></td>
+              <td id="game_id" class="table_td_025 text_center editable" contenteditable="true"></td>
               <td class="table_td_025 text_right">Version: (01.00)</td>
-              <td class="table_td_025 text_center editable" contenteditable="true" onfocus="clean(this);"  id="game_version"></td>
+              <td id="game_version" class="table_td_025 text_center editable" contenteditable="true"></td>
             </tr>
             <tr>
               <td class="table_td_025 text_right">Genre:</td>
-              <td class="table_td_025 text_center editable" contenteditable="true" onfocus="clean(this);" id="game_genre"></td>
+              <td id="game_genre" class="table_td_025 text_center editable" contenteditable="true">Master Studios</td>
               <td class="table_td_025 text_right">Prozess:</td>
-              <td class="table_td_025 text_center editable" contenteditable="true" onfocus="clean(this);" id="game_process">eboot.bin</td>
+              <td id="game_process" class="table_td_025 text_center editable" contenteditable="true">eboot.bin</td>
             </tr>
           </table>
         </section>
@@ -76,7 +76,7 @@
         <section id="nav_section">
           <table class="table_container" style="cursor: default;">
             <tr>
-              <td class="table_td_050 text_center editable" onclick="create_cheat_tables();">File Herunterladen</td>
+              <td class="table_td_050 text_center editable" onclick="exportTrainer();">File Herunterladen</td>
               <td class="table_td_050 text_center editable" onclick="add_cheat();">Cheat Hinzufügen</td>
             </tr>
           </table>
@@ -202,10 +202,7 @@ function renumberOffsets(section) {
   });
 }
 
-function validateCusa(cusa) {return /^[A-Z]{4}[0-9]{5}$/.test(cusa);}
-function validateVersion(version) {return /^[0-9]{2}\.[0-9]{2}$/.test(version);}
-
-function generateXML(gameName, modder, cusa, version) {
+function generateXML(title, gaId, version, genre, process, modder) {
   const sections = document.querySelectorAll("#cheat_section > section");
   let cheatsXML = "";
   sections.forEach(section => {
@@ -232,12 +229,12 @@ function generateXML(gameName, modder, cusa, version) {
   });
   return `<?xml version="1.0" encoding="utf-16"?>
   <Trainer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    Game="${gameName}"
+    Game="${title}"
     Moder="${modder}"
-    Cusa="${cusa}"
+    Cusa="${gaId}"
     Version="${version}"
-    Process="eboot.bin">
-  <Genres Name="Adventure" />
+    Process="${process}">
+  <Genres Name="${genre}" />
   <Items />
   ${cheatsXML}
 </Trainer>`;
@@ -256,14 +253,26 @@ function downloadSHNFile(filename, content) {
 }
 
 function exportTrainer() {
-  const cusa = document.getElementById("cusa_input").value.trim().toUpperCase();
-  const version = document.getElementById("version_input").value.trim();
-  const gameName = document.getElementById("game_input").value.trim();
+  const gameTitle = document.getElementById("game_title");
+  const gameId = document.getElementById("game_id");
+  const gameVersion = document.getElementById("game_version");
+  const gameGenre = document.getElementById("game_genre");
+  const gameProcess = document.getElementById("game_process");
   const modder = "Master Studios";
-  if (!validateCusa(cusa)) {alert("CUSA Format ungültig! (z.B. CUSA12345)");return;}
-  if (!validateVersion(version)) {alert("Version Format ungültig! (z.B. 01.04)");return;}
-  const xmlContent = generateXML(gameName, modder, cusa, version);
-  const filename = `${cusa}_${version}.shn`;
+
+  if (!gameTitle || !gameId || !gameVersion || !gameGenre || !gameProcess) {alert("Ein Pflichtfeld fehlt!");return;}
+
+  const title = gameTitle.textContent.trim();
+  const gaId = gameId.textContent.trim().toUpperCase();
+  const version = gameVersion.textContent.trim();
+  const genre = gameGenre.textContent.trim();
+  const process = gameProcess.textContent.trim();
+
+  if (!/^[A-Z]{4}[0-9]{5}$/.test(gaId)) {alert("CUSA ungültig! (z.B. CUSA12345)");return;}
+  if (!/^\d{2}\.\d{2}$/.test(version)) {alert("Version ungültig! (z.B. 01.04)");return;}
+
+  const xmlContent = generateXML(title, gaId, version, genre, process, modder);
+  const filename = `${gaId}_${version}.shn`;
   downloadSHNFile(filename, xmlContent);
 }
 </script>
