@@ -303,36 +303,80 @@ function uploadTrainer() {
 }
 
 function parseJSONTrainer(jsonText) {
-  const data = JSON.parse(jsonText);
+  console.log("=== JSON Parser gestartet ===");
 
-  // Felder setzen
+  let data;
+  try {
+    data = JSON.parse(jsonText);
+  } catch (e) {
+    alert("Ungültige JSON-Datei!");
+    return;
+  }
+
+  if (!data || !data.mods) {
+    alert("Ungültiges JSON-Format!");
+    return;
+  }
+
+  // -------------------------
+  // Allgemeine Felder setzen
+  // -------------------------
   document.getElementById("game_title").textContent = data.name || "";
-  document.getElementById("game_id").textContent = data.id || "";
+  document.getElementById("game_id").textContent = (data.id || "").toUpperCase();
   document.getElementById("game_version").textContent = data.version || "";
-  document.getElementById("game_genre").textContent = (data.credits && data.credits[0]) || "";
   document.getElementById("game_process").textContent = data.process || "";
+  document.getElementById("game_genre").textContent = "Unknown";
 
+  // -------------------------
   // Alte Cheats löschen
-  document.getElementById("cheat_section").innerHTML = "";
+  // -------------------------
+  const cheatSectionContainer = document.getElementById("cheat_section");
+  cheatSectionContainer.innerHTML = "";
 
-  data.mods.forEach(mod => {
-    const cheatId = add_cheat(); // Titel wird automatisch "Cheat X"
+  console.log("Anzahl Mods im JSON:", data.mods.length);
 
-    // Das Beschreibungsfeld füllen
-    const section = document.querySelector(`#cheat_section > section[data-cheat-id="${cheatId}"]`);
+  // -------------------------
+  // Cheats erstellen
+  // -------------------------
+  data.mods.forEach((mod, index) => {
+
+    console.log("\n=== Mod", index + 1, "===");
+    console.log("Name:", mod.name);
+
+    const cheatId = add_cheat();
+    const section = cheatSectionContainer.querySelectorAll("section")[index];
+
+    // Cheat Titel setzen
     const descTD = section.querySelector(".table_td_075.editable");
-    if (descTD) descTD.textContent = mod.name;
+    if (descTD) descTD.textContent = mod.name || "";
 
-    // Offsets einfügen
-    const table = document.getElementById(`table_${cheatId}`);
-    mod.memory.forEach(mem => {
-      add_offset(cheatId);
-      const block = table.querySelector(".offset-block:last-child");
-      block.querySelector(".hex-offset").textContent = mem.offset.toUpperCase();
-      block.querySelector(".hex_on").textContent = formatHexInput(mem.on);
-      block.querySelector(".hex_off").textContent = formatHexInput(mem.off);
+    if (!mod.memory || !Array.isArray(mod.memory)) return;
+
+    console.log("Memory-Einträge:", mod.memory.length);
+
+    mod.memory.forEach((mem, i) => {
+
+      console.log("-- Memory", i + 1);
+
+      const block = add_offset(cheatId, section);
+      if (!block) return;
+
+      const offset = (mem.offset || "").toUpperCase();
+      const valueOn = formatHexInput(mem.on || "");
+      const valueOff = formatHexInput(mem.off || "");
+
+      console.log("Offset:", offset);
+      console.log("On:", valueOn);
+      console.log("Off:", valueOff);
+
+      block.querySelector(".hex_offset").textContent = offset;
+      block.querySelector(".hex_on").textContent = valueOn;
+      block.querySelector(".hex_off").textContent = valueOff;
     });
   });
+
+  renumberCheats();
+  console.log("=== JSON Parser fertig ===");
 }
 
 function parseXMLTrainer(xmlText) {
