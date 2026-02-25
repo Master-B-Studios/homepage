@@ -77,7 +77,7 @@
           <table class="table_container" style="cursor: default;">
             <tr>
               <td class="table_td_030 text_center editable" onclick="uploadTrainer();">File Hochladen</td>
-              <input type="file" id="trainerFileInput" accept=".shn,.xml,.json" style="display:none" />
+              <input type="file" id="trainerFileInput" accept=".shn,.xml,.json,.mc4" style="display:none" />
               <td class="table_td_030 text_center editable" onclick="exportTrainer();">File Herunterladen</td>
               <td class="table_td_030 text_center editable" onclick="add_cheat();">Cheat Hinzufügen</td>
             </tr>
@@ -287,96 +287,72 @@ function exportTrainer() {
   downloadSHNFile(filename, xmlContent);
 }
 
-function uploadTrainer() {
+async function uploadTrainer() {
   const input = document.getElementById("trainerFileInput");
+  input.value = "";
   input.click();
-  input.onchange = async function () {
-    const file = input.files[0];
+
+  input.onchange = async (e) => {
+    const file = e.target.files[0];
     if (!file) return;
+    const ext = file.name.toLowerCase();
     const text = await file.text();
-    const ext = file.name.split('.').pop().toLowerCase();
-    if (ext === 'json') {parseJSONTrainer(text);}
-    else if (ext === 'shn' || ext === 'xml') {parseXMLTrainer(text);}
-    else {alert("Unbekanntes Format! Nur .shn oder .json erlaubt.");}
-    input.value = "";
+
+    if (ext.endsWith(".json")) {parseJSONTrainer(text);return;}
+    if (ext.endsWith(".mc4")) {
+      let xmlText;
+      const decodedEntities = decodeHTMLEntities(text.trim());
+      if (decodedEntities.startsWith("&lt;") || decodedEntities.startsWith("<?xml")) {
+        xmlText = cleanMC4XML(decodedEntities);
+      }
+      else {
+        const decrypted = await decryptMC4(text);
+        if (!decrypted) return;
+        xmlText = cleanMC4XML(decrypted);
+      }
+      parseMC4Trainer(xmlText);
+      return;
+    }
+
+    parseXMLTrainer(text);
   };
 }
 
 function parseJSONTrainer(jsonText) {
-  console.log("=== JSON Parser gestartet ===");
-
   let data;
-  try {
-    data = JSON.parse(jsonText);
-  } catch (e) {
-    alert("Ungültige JSON-Datei!");
-    return;
-  }
+  try {data = JSON.parse(jsonText);}
+  catch (e) {alert("Ungültige JSON-Datei!");return;}
+  if (!data || !data.mods) {alert("Ungültiges JSON-Format!");return;}
 
-  if (!data || !data.mods) {
-    alert("Ungültiges JSON-Format!");
-    return;
-  }
-
-  // -------------------------
-  // Allgemeine Felder setzen
-  // -------------------------
   document.getElementById("game_title").textContent = data.name || "";
   document.getElementById("game_id").textContent = (data.id || "").toUpperCase();
   document.getElementById("game_version").textContent = data.version || "";
   document.getElementById("game_process").textContent = data.process || "";
   document.getElementById("game_genre").textContent = "Unknown";
 
-  // -------------------------
-  // Alte Cheats löschen
-  // -------------------------
   const cheatSectionContainer = document.getElementById("cheat_section");
   cheatSectionContainer.innerHTML = "";
 
-  console.log("Anzahl Mods im JSON:", data.mods.length);
-
-  // -------------------------
-  // Cheats erstellen
-  // -------------------------
   data.mods.forEach((mod, index) => {
-
-    console.log("\n=== Mod", index + 1, "===");
-    console.log("Name:", mod.name);
-
     const cheatId = add_cheat();
     const section = cheatSectionContainer.querySelectorAll("section")[index];
-
-    // Cheat Titel setzen
     const descTD = section.querySelector(".table_td_075.editable");
     if (descTD) descTD.textContent = mod.name || "";
-
     if (!mod.memory || !Array.isArray(mod.memory)) return;
 
-    console.log("Memory-Einträge:", mod.memory.length);
-
     mod.memory.forEach((mem, i) => {
-
-      console.log("-- Memory", i + 1);
-
       const block = add_offset(cheatId, section);
       if (!block) return;
-
       const offset = (mem.offset || "").toUpperCase();
       const valueOn = formatHexInput(mem.on || "");
       const valueOff = formatHexInput(mem.off || "");
-
-      console.log("Offset:", offset);
-      console.log("On:", valueOn);
-      console.log("Off:", valueOff);
-
       block.querySelector(".hex_offset").textContent = offset;
       block.querySelector(".hex_on").textContent = valueOn;
       block.querySelector(".hex_off").textContent = valueOff;
     });
-  });
 
+  });
   renumberCheats();
-  console.log("=== JSON Parser fertig ===");
 }
 
 function parseXMLTrainer(xmlText) {
@@ -419,5 +395,96 @@ function parseXMLTrainer(xmlText) {
     }
   }
   renumberCheats();
+}
+
+function parseMC4Trainer(xmlText) {
+  xmlText = decodeHTMLEntities(xmlText);
+  let parser = new DOMParser();
+  let xml;
+  try {xml = parser.parseFromString(xmlText, "application/xml");}
+  catch (e) {alert("Ungültige MC4 XML-Datei!");return;}
+  const trainer = xml.querySelector("Trainer");
+  if (!trainer) {alert("Trainer-Node nicht gefunden!");return;}
+  document.getElementById("game_title").textContent = trainer.getAttribute("Game") || "";
+  document.getElementById("game_id").textContent = trainer.getAttribute("Cusa") || "";
+  document.getElementById("game_version").textContent = trainer.getAttribute("Version") || "";
+  document.getElementById("game_process").textContent = trainer.getAttribute("Process") || "";
+  const genres = [...trainer.querySelectorAll("Genres")]
+    .map(g => g.getAttribute("Name"))
+    .join(", ");
+  document.getElementById("game_genre").textContent = genres;
+  const cheatSectionContainer = document.getElementById("cheat_section");
+  cheatSectionContainer.innerHTML = "";
+  const cheats = trainer.querySelectorAll("Cheat");
+
+  cheats.forEach((cheat, index) => {
+    const cheatId = add_cheat();
+    const section = cheatSectionContainer.querySelectorAll("section")[index];
+    const descTD = section.querySelector(".table_td_075.editable");
+    if (descTD) descTD.textContent = cheat.getAttribute("Text") || "";
+    const lines = cheat.querySelectorAll("Cheatline");
+
+    lines.forEach(line => {
+      const block = add_offset(cheatId, section);
+      if (!block) return;
+      const offset = line.querySelector("Offset")?.textContent.trim().toUpperCase() || "";
+      const valueOn = line.querySelector("ValueOn")?.textContent.replace(/-/g, "").trim() || "";
+      const valueOff = line.querySelector("ValueOff")?.textContent.replace(/-/g, "").trim() || "";
+      block.querySelector(".hex_offset").textContent = offset;
+      block.querySelector(".hex_on").textContent = formatHexInput(valueOn);
+      block.querySelector(".hex_off").textContent = formatHexInput(valueOff);
+    });
+  });
+
+  renumberCheats();
+}
+
+function decodeHTMLEntities(text) {
+  const textarea = document.createElement("textarea");
+  textarea.innerHTML = text;
+  return textarea.value;
+}
+
+function cleanMC4XML(xmlText) {
+  const textarea = document.createElement("textarea");
+  textarea.innerHTML = xmlText;
+  xmlText = textarea.value;
+  xmlText = xmlText.replace(/[^\x09\x0A\x0D\x20-\xFF]/g, "");
+  xmlText = xmlText.replace(/\\"/g, '"');
+  return xmlText;
+}
+
+async function decryptMC4(base64Text) {
+  try {
+    const binary = Uint8Array.from(atob(base64Text.trim()), c => c.charCodeAt(0));
+    const keyStr = "304c6528f659c766110239a51cl5dd9c";
+    const ivStr  = "u@}kzW2u[u(8DWar";
+    const enc = new TextEncoder();
+    const keyBytes = enc.encode(keyStr);
+    const ivBytes  = enc.encode(ivStr);
+
+    const cryptoKey = await crypto.subtle.importKey(
+      "raw",
+      keyBytes,
+      { name: "AES-CBC" },
+      false,
+      ["decrypt"]
+    );
+
+    const decrypted = await crypto.subtle.decrypt(
+      { name: "AES-CBC", iv: ivBytes },
+      cryptoKey,
+      binary
+    );
+
+    const decoder = new TextDecoder("utf-16");
+    return cleanMC4XML(decoder.decode(decrypted));
+
+  }
+  catch (e) {
+    alert("MC4 Decrypt fehlgeschlagen!");
+    console.error(e);
+    return null;
+  }
 }
 </script>

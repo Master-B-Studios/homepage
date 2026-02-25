@@ -6,22 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
   <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
   <link rel="stylesheet" href="../../assets/css/main.css"></link>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    .table_container {border: 1px solid #444444;border-collapse: separate;border-spacing: 6px;border-collapse: separate;}
-    .table_td_var {width: auto;padding: 0.5em;}
-    .table_td_025 {width: 25%;padding: 0.5em;}
-    .table_td_030 {width: 30%;padding: 0.5em;}
-    .table_td_050 {width: 50%;padding: 0.5em;}
-    .table_td_070 {width: 70%;padding: 0.5em;}
-    .table_td_075 {width: 75%;padding: 0.5em;}
-    .table_td_100 {width: 75%;padding: 0.5em;}
+    body {font-family: 'JetBrains Mono', monospace;font-weight: 200;letter-spacing: 1px;}
+    .table_container {border: 1px solid #444444;border-collapse: separate;border-spacing: 6px;border-collapse: separate;table-layout: fixed;font-size: 0.8em;}
+    .table_td_var {width: auto;height: 1.5em;padding: 0.5em;}
+    .table_td_025 {width: 25%;height: 1.5em;padding: 0.5em;}
+    .table_td_030 {width: 30%;height: 1.5em;padding: 0.5em;}
+    .table_td_050 {width: 50%;height: 1.5em;padding: 0.5em;}
+    .table_td_070 {width: 70%;height: 1.5em;padding: 0.5em;}
+    .table_td_075 {width: 75%;height: 1.5em;padding: 0.5em;}
+    .table_td_100 {width: 75%;height: 1.5em;padding: 0.5em;}
 
-    .text_left {text-align: left;}
-    .text_right {text-align: right;}
-    .text_center {text-align: center;}
+    .text_left {text-align: left;margin: auto;}
+    .text_right {text-align: right;margin: auto;}
+    .text_center {text-align: center;margin: auto;}
 
     .editable {cursor: pointer;background-color: #080808;}
     .editable:hover {color: #00aa44;background-color: #222222;transition: all 1.5s;}
+
+    .icon_td_025 {width: 25%;padding: 0;cursor: pointer;vertical-align: middle;}
+    .icon_wrapper {width: 100%;height: 100%;display: flex;justify-content: center;align-items: center;}
+    .icon {max-height: 1.5em;width: auto;display: block;}
+    .icon_td_025:hover {background-color: #440000;transition: all 1.5s;}
   </style>
 </head>
 <body onload="window.location.href = '#playstation';localStorage.getItem('page');" class="is-preload">
@@ -45,76 +54,32 @@
           <table class="table_container" style="cursor: default;">
             <tr>
               <td class="table_td_025 text_right">Name Des Spiels:</td>
-              <td class="table_td_025 text_center editable" colspan="3" contenteditable="true" onfocus="clean(this);" id="game_title"></td>
+              <td id="game_title" class="table_td_075 text_center editable" colspan="3" contenteditable="true"></td>
             </tr>
             <tr>
               <td class="table_td_025 text_right">ID: (CUSA12345)</td>
-              <td class="table_td_025 text_center editable" contenteditable="true" onfocus="clean(this);" id="game_id"></td>
-              <td class="table_td_025 text_right">Master-Version: (01.00)</td>
-              <td class="table_td_025 text_center editable" contenteditable="true" onfocus="clean(this);"  id="game_version"></td>
+              <td id="game_id" class="table_td_025 text_center editable" contenteditable="true"></td>
+              <td class="table_td_025 text_right">Version: (01.00)</td>
+              <td id="game_version" class="table_td_025 text_center editable" contenteditable="true"></td>
             </tr>
             <tr>
               <td class="table_td_025 text_right">Genre:</td>
-              <td class="table_td_025 text_center editable" contenteditable="true" onfocus="clean(this);" id="game_genre"></td>
+              <td id="game_genre" class="table_td_025 text_center editable" contenteditable="true">Master Studios</td>
               <td class="table_td_025 text_right">Prozess:</td>
-              <td class="table_td_025 text_center editable" contenteditable="true" onfocus="clean(this);" id="game_process">eboot.bin</td>
+              <td id="game_process" class="table_td_025 text_center editable" contenteditable="true">eboot.bin</td>
             </tr>
           </table>
         </section>
 
-        <section id="cheat_section">
-
-          <section id="c1">
-            <table id="table_c1" class="table_container" style="cursor: default;">
-              <tr><td class="table_td_100 text_center" colspan="2">Cheat 1</td></tr>
-              <tr>
-                <td class="table_td_025 text_right">Beschreibung:</td>
-                <td class="table_td_075 editable" contenteditable="true" id="desc1_c1"></td>
-              </tr>
-              <tr id="address_tr1_c1">
-                <td class="table_td_025 text_right">Adresse 1:</td>
-                <td class="table_td_075 editable" contenteditable="true" id="address1_c1"></td>
-              </tr>
-              <tr id="on_tr1_c1">
-                <td class="table_td_025 text_right">An:</td>
-                <td class="table_td_075 editable" contenteditable="true" id="on1_c1"></td>
-              </tr>
-              <tr id="off_tr1_c1">
-                <td class="table_td_025 text_right">Aus:</td>
-                <td class="table_td_075 editable" contenteditable="true" id="off1_c1"></td>
-              </tr>
-            </table>
-            <table class="table_container" style="cursor: default;">
-              <tr>
-                <td class="table_td_050 text_center editable" onclick="offset_rem(c1);">Offset Entfernen</td>
-                <td class="table_td_050 text_center editable" onclick="offset_add(c1);">Offset Hinzufügen</td>
-              </tr>
-            </table>
-          </section>
-
-          <section id="c2">
-            <table id="table_c2" class="table_container" style="cursor: default;">
-              <tr><td class="table_td_100 text_center" colspan="2">Cheat 1</td></tr>
-              <tr>
-                <td class="table_td_025 text_right">Beschreibung:</td>
-                <td class="table_td_075 editable" contenteditable="true" id="desc1_c2"></td>
-              </tr>
-            </table>
-            <table class="table_container" style="cursor: default;">
-              <tr>
-                <td class="table_td_050 text_center editable" onclick="offset_rem(c2);">Offset Entfernen</td>
-                <td class="table_td_050 text_center editable" onclick="offset_add(c2);">Offset Hinzufügen</td>
-              </tr>
-            </table>
-          </section>
-          
-        </section>
+        <section id="cheat_section"></section>
 
         <section id="nav_section">
-          <table class="design_border_01 design_borderspacing_01" style="cursor: default;">
+          <table class="table_container" style="cursor: default;">
             <tr>
-              <td class="table_td_050 text_center editable" onclick="create_cheat_tables();">File Herunterladen</td>
-              <td class="table_td_050 text_center editable" onclick="produce_list();">Cheat Hinzufügen</td>
+              <td class="table_td_030 text_center editable" onclick="uploadTrainer();">File Hochladen</td>
+              <input type="file" id="trainerFileInput" accept=".shn,.xml,.json,.mc4" style="display:none" />
+              <td class="table_td_030 text_center editable" onclick="exportTrainer();">File Herunterladen</td>
+              <td class="table_td_030 text_center editable" onclick="add_cheat();">Cheat Hinzufügen</td>
             </tr>
           </table>
         </section>
@@ -138,216 +103,332 @@
 let cheatCounter = 0;
 const container = document.getElementById("cheat_section");
 
-document.querySelectorAll('[contenteditable="true"]').forEach(el => {
-  el.addEventListener("paste", function (e) {
-    e.preventDefault();
-    const text = e.clipboardData.getData("text/plain");
-    document.execCommand("insertText", false, text);
-  });
+function formatHexInput(value) {
+  let cleaned = value.replace(/[^0-9a-fA-F]/g, "");
+  cleaned = cleaned.toUpperCase();
+  const pairs = cleaned.match(/.{1,2}/g);
+  return pairs ? pairs.join("-") : "";
+}
+
+document.addEventListener("input", function (e) {
+  if (!(e.target.classList.contains("hex_on") || e.target.classList.contains("hex_off"))) return;
+  const element = e.target;
+  const formatted = formatHexInput(element.textContent);
+  element.textContent = formatted;
+  const range = document.createRange();
+  range.selectNodeContents(element);
+  range.collapse(false);
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
 });
 
-function produce_list() {
-  cheatCounter++;
-  const cheatId = "c" + cheatCounter;
+document.addEventListener("paste", function (e) {
+  if (!e.target.matches('[contenteditable="true"]')) return;
+  e.preventDefault();
+  let text = e.clipboardData.getData("text/plain");
+  if (e.target.classList.contains("hex_on") || e.target.classList.contains("hex_off")) {text = formatHexInput(text);}
+  const selection = window.getSelection();
+  if (!selection.rangeCount) return;
+  selection.deleteFromDocument();
+  selection.getRangeAt(0).insertNode(document.createTextNode(text));
+  selection.collapseToEnd();
+});
 
+function add_cheat() {
+  const cheatCount = document.querySelectorAll("#cheat_section > section").length + 1;
+  const cheatId = "c_" + Date.now();
   const section = document.createElement("section");
-  section.id = cheatId;
-
+  section.dataset.cheatId = cheatId;
   section.innerHTML = `
     <table id="table_${cheatId}" class="table_container">
       <tr>
-        <td class="table_td_100 text_center" colspan="2">
-          Cheat ${cheatCounter}
+        <td class="table_td_025"></td>
+        <td class="table_td_050 text_center" colspan="2">Cheat ${cheatCount}</td>
+        <td class="icon_td_025 removeCheat">
+          <div class="icon_wrapper">
+            <img class="icon" src="../../images/Trash_01.png">
+          </div>
         </td>
       </tr>
       <tr>
         <td class="table_td_025 text_right">Beschreibung:</td>
-        <td class="table_td_075 editable" contenteditable="true"></td>
+        <td id="desc_${cheatCount}" class="table_td_075 editable" contenteditable="true" colspan="3"></td>
       </tr>
+      <tr class="tr_flipper_gap"></tr>
     </table>
-
     <table class="table_container">
       <tr>
-        <td class="table_td_050 text_center editable addOffset">
-          Offset Hinzufügen
-        </td>
-        <td class="table_td_050 text_center editable removeCheat">
-          Cheat Entfernen
-        </td>
+        <td class="table_td_100 text_center editable addOffset">Offset Hinzufügen</td>
       </tr>
     </table>
   `;
-
-  container.appendChild(section);
-
-  // Event Listener setzen
-  section.querySelector(".addOffset")
-    .addEventListener("click", () => offset_add(cheatId));
-
-  section.querySelector(".removeCheat")
-    .addEventListener("click", () => section.remove());
+  document.getElementById("cheat_section").appendChild(section);
+  section.querySelector(".addOffset").addEventListener("click", () => add_offset(cheatId));
+  section.querySelector(".removeCheat").addEventListener("click", () => {section.remove();renumberCheats();});
+  return section;
 }
-function offset_add(cheatId) {
-  const table = document.getElementById("table_" + cheatId);
 
-  const offsetCount =
-    table.querySelectorAll(".offset-block").length + 1;
-
+function add_offset(cheatId, section = null) {
+  const table = section ? section.querySelector("table") : document.getElementById("table_" + cheatId);
+  if (!table) return null;
+  const offsetCount = table.querySelectorAll(".offset-block").length + 1;
   const wrapper = document.createElement("tbody");
   wrapper.classList.add("offset-block");
-
   wrapper.innerHTML = `
     <tr>
-      <td class="table_td_025 text_right">Adresse ${offsetCount}:</td>
-      <td class="table_td_075 editable" contenteditable="true"></td>
+      <td class="table_td_025 text_right">Offset ${offsetCount}:</td>
+      <td class="table_td_025 editable hex_offset" contenteditable="true" colspan="2"></td>
+      <td class="icon_td_025 text_center removeOffset">
+        <div class="icon_wrapper"><img class="icon" src="../../images/Trash_01.png"></div>
+      </td>
     </tr>
     <tr>
       <td class="table_td_025 text_right">An:</td>
-      <td class="table_td_075 editable" contenteditable="true"></td>
+      <td class="table_td_025 editable hex_on" contenteditable="true" colspan="3"></td>
     </tr>
     <tr>
       <td class="table_td_025 text_right">Aus:</td>
-      <td class="table_td_075 editable" contenteditable="true"></td>
+      <td class="table_td_025 editable hex_off" contenteditable="true" colspan="3"></td>
     </tr>
-    <tr>
-      <td colspan="2" class="text_center editable removeOffset">
-        Offset Entfernen
-      </td>
-    </tr>
+    <tr class="tr_flipper_gap"><td></td><td></td><td></td><td></td></tr>
   `;
-
   table.appendChild(wrapper);
-
-  wrapper.querySelector(".removeOffset")
-    .addEventListener("click", () => wrapper.remove());
+  wrapper.querySelector(".removeOffset").addEventListener("click", () => {
+    wrapper.remove();
+    const sec = table.closest("section");
+    renumberOffsets(sec);
+  });
+  return wrapper;
 }
 
-function offset_add(obj) {
-  console.log('table_'+obj.id);
-  var table = document.getElementById('table_'+obj.id);
-  var child = '<tr id="address_tr1_c1">' +
-                '<td class="table_td_025 text_right">Adresse 1:</td>' +
-                '<td class="table_td_075 editable" contenteditable="true" id="address1_c1"></td>' +
-              '</tr>';
-  table.appendChild(child);
+function renumberCheats() {
+  const sections = document.querySelectorAll("#cheat_section > section");
+  sections.forEach((section, index) => {
+    const titleCell = section.querySelector("td[colspan='2']");
+    if (titleCell) {titleCell.textContent = "Cheat " + (index + 1);}
+  });
 }
 
-function create_cheat_tables() {
-  cheats = document.getElementById('number_cheat_tables').innerHTML;
-  container.innerHTML = '';
-  for (let i = 0; i < cheats; i++) {
-    i++;
-    container.innerHTML += ''+
-  '<table class="design_border_01 design_borderspacing_01" style="cursor: default;">'+
-    '<tr>'+
-      '<td class="design_table_04 design_padding_01 design_text_center" colspan="2">Cheat '+i+'</td>'+
-      '<td class="design_table_04 design_padding_01 design_text_center design_editable_01" onclick="offset(offset_list_'+i+', 1);">1 Offset</td>'+
-      '<td class="design_table_04 design_padding_01 design_text_center design_editable_01" onclick="offset(offset_list_'+i+', 2);">2 Offsets</td>'+
-    '</tr>'+
-    '<tr>'+
-      '<td class="design_table_04 design_padding_01 design_text_right">Beschreibung:</td>'+
-      '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true" onfocus="clean(this);" id="cheat_'+i+'_description"></td>'+
-      '</tr>'+
-      '<table class="design_border_01 design_borderspacing_01" style="cursor: default;" id="offset_list_'+i+'"></table>'+
-    '</table>'+
-    '<div class="tr_flipper_gap"></div>';
-    i--;
-  }
+function renumberOffsets(section) {
+  const offsetBlocks = section.querySelectorAll(".offset-block");
+  offsetBlocks.forEach((block, index) => {
+    const addressLabel = block.querySelector("tr:first-child td:first-child");
+    if (addressLabel) {addressLabel.textContent = "Offset " + (index + 1) + ":";}
+  });
 }
 
-function offset(offset_list, offset_amount) {
-  console.log(offset_list.id)
-  var cheat_number = offset_list.id
-  cheat_number = cheat_number.substring(cheat_number.length - 1);
-  offset_list.innerHTML = '';
-  for (let i = 0; i < offset_amount; i++) {
-    i++;
-    offset_list.innerHTML += ''+
-      '<tr>'+
-        '<td class="design_table_04 design_padding_01 design_text_right">Offset '+i+':</td>'+
-        '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true" onfocus="clean(this);" onblur="format_text(this);" id="cheat_'+cheat_number+'_offset_'+i+'"></td>'+
-      '</tr>'+
-      '<tr>'+
-        '<td class="design_table_04 design_padding_01 design_text_right">Wert Aktiv:</td>'+
-        '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true" onfocus="clean(this);" onblur="format_text(this);" id="cheat_'+cheat_number+'_offset_'+i+'_on"></td>'+
-      '</tr>'+
-      '<tr>'+
-        '<td class="design_table_04 design_padding_01 design_text_right">Wert Inaktiv:</td>'+
-        '<td class="design_table_04 design_padding_01 design_editable_01 design_text_left" colspan="3" contenteditable="true" onfocus="clean(this);" onblur="format_text(this);" id="cheat_'+cheat_number+'_offset_'+i+'_off"></td>'+
-      '</tr>'+
-      '<tr><td class="design_table_04"></td><td class="design_table_04"></td><td class="design_table_04"></td><td class="design_table_04"></td></tr>';
-    i--;
-  }
+function generateXML(title, gaId, version, genre, process, modder) {
+  const sections = document.querySelectorAll("#cheat_section > section");
+  let cheatsXML = "";
+  sections.forEach(section => {
+    const cheatTitle = section.querySelector(".table_td_075.editable")?.textContent.trim() || "";
+    const offsetBlocks = section.querySelectorAll(".offset-block");
+    let cheatlinesXML = "";
+
+    offsetBlocks.forEach(block => {
+      const offset = block.querySelector(".hex_offset")?.textContent.trim() || "";
+      const valueOn = block.querySelector(".hex_on")?.textContent.trim() || "";
+      const valueOff = block.querySelector(".hex_off")?.textContent.trim() || "";
+      cheatlinesXML += `
+    <Cheatline>
+      <Offset>${offset}</Offset>
+      <Section>0</Section>
+      <ValueOn>${valueOn}</ValueOn>
+      <ValueOff>${valueOff}</ValueOff>
+    </Cheatline>`;
+    });
+
+    cheatsXML += `
+  <Cheat Text="${cheatTitle}">${cheatlinesXML}
+  </Cheat>`;
+  });
+
+  return `<?xml version="1.0" encoding="utf-16"?>
+<Trainer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Game="${title}" Moder="${modder}" Cusa="${gaId}" Version="${version}" Process="${process}">
+  <Genres Name="${genre}"/>
+  <Items/>${cheatsXML}
+</Trainer>`;
 }
 
-function produce_list() {
-  var game_title = document.getElementById('game_title').innerHTML;
-  var game_id = document.getElementById('game_id').innerHTML;
-  var game_version = document.getElementById('game_version').innerHTML;
-  var game_process = document.getElementById('game_process').innerHTML;
+function downloadSHNFile(filename, content) {
+  const encoder = new TextEncoder("utf-16le");
+  const encoded = encoder.encode(content);
+  const blob = new Blob([encoded], { type: "text/xml;charset=utf-16;" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
 
-  var br = '\n';
-  var exportlist = document.getElementById('download_list');
-  exportlist.innerHTML = '';
-  exportlist.innerHTML += ''+
-  '{'+br+
-  ' "name": "'+game_title+'",'+br+
-  ' "id": "'+game_id+'",'+br+
-  ' "version": "'+game_version+'",'+br+
-  ' "process": "'+game_process+'",'+br+
-  ' "mods": ['+br;
-  for (let i = 0; i < cheats; i++) {
-    i++;
-    var cheat_description = document.getElementById('cheat_'+i+'_description').innerHTML;
-    var offset_1 = document.getElementById('cheat_'+i+'_offset_1').innerHTML;
-    var on_1 = document.getElementById('cheat_'+i+'_offset_1_on').innerHTML;
-    var off_1 = document.getElementById('cheat_'+i+'_offset_1_off').innerHTML;
+function exportTrainer() {
+  const gameTitle = document.getElementById("game_title");
+  const gameId = document.getElementById("game_id");
+  const gameVersion = document.getElementById("game_version");
+  const gameGenre = document.getElementById("game_genre");
+  const gameProcess = document.getElementById("game_process");
+  const modder = "Master Studios";
 
-    exportlist.innerHTML += '   {"name": "'+cheat_description+'","type": "checkbox","memory": [';
-    exportlist.innerHTML += '{"offset": "'+offset_1+'",';
-    exportlist.innerHTML += '"on": "'+on_1+'",';
-    exportlist.innerHTML += '"off": "'+off_1+'"}';
+  if (!gameTitle || !gameId || !gameVersion || !gameGenre || !gameProcess) {alert("Ein Pflichtfeld fehlt!");return;}
 
-    if (document.getElementById('cheat_'+i+'_offset_2')) {
-      var offset_2 = document.getElementById('cheat_'+i+'_offset_2').innerHTML;
-      var on_2 = document.getElementById('cheat_'+i+'_offset_2_on').innerHTML;
-      var off_2 = document.getElementById('cheat_'+i+'_offset_2_off').innerHTML;
+  const title = gameTitle.textContent.trim();
+  const gaId = gameId.textContent.trim().toUpperCase();
+  const version = gameVersion.textContent.trim();
+  const genre = gameGenre.textContent.trim();
+  const process = gameProcess.textContent.trim();
 
-      exportlist.innerHTML += ',{"offset": "'+offset_2+'",';
-      exportlist.innerHTML += '"on": "'+on_2+'",';
-      exportlist.innerHTML += '"off": "'+off_2+'"}';
+  if (!/^[A-Z]{4}[0-9]{5}$/.test(gaId)) {alert("CUSA ungültig! (z.B. CUSA12345)");return;}
+  if (!/^\d{2}\.\d{2}$/.test(version)) {alert("Version ungültig! (z.B. 01.04)");return;}
+
+  const xmlContent = generateXML(title, gaId, version, genre, process, modder);
+  const filename = `${gaId}_${version}.shn`;
+  downloadSHNFile(filename, xmlContent);
+}
+
+function uploadTrainer() {
+  const input = document.getElementById("trainerFileInput");
+  input.click();
+  input.onchange = async function () {
+    const file = input.files[0];
+    if (!file) return;
+    const text = await file.text();
+    const ext = file.name.split('.').pop().toLowerCase();
+    if (ext === 'json') {parseJSONTrainer(text);}
+    else if (ext === 'shn' || ext === 'xml') {parseXMLTrainer(text);}
+    else if (ext === 'mc4' || ext === 'xml') {parseMC4Trainer(text);}
+    else {alert("Unbekanntes Format! Nur .shn, .mc4 oder .json erlaubt.");}
+    input.value = "";
+  };
+}
+
+function parseJSONTrainer(jsonText) {
+  let data;
+  try {data = JSON.parse(jsonText);}
+  catch (e) {alert("Ungültige JSON-Datei!");return;}
+  if (!data || !data.mods) {alert("Ungültiges JSON-Format!");return;}
+
+  document.getElementById("game_title").textContent = data.name || "";
+  document.getElementById("game_id").textContent = (data.id || "").toUpperCase();
+  document.getElementById("game_version").textContent = data.version || "";
+  document.getElementById("game_process").textContent = data.process || "";
+  document.getElementById("game_genre").textContent = "Unknown";
+
+  const cheatSectionContainer = document.getElementById("cheat_section");
+  cheatSectionContainer.innerHTML = "";
+
+  data.mods.forEach((mod, index) => {
+    const cheatId = add_cheat();
+    const section = cheatSectionContainer.querySelectorAll("section")[index];
+    const descTD = section.querySelector(".table_td_075.editable");
+    if (descTD) descTD.textContent = mod.name || "";
+    if (!mod.memory || !Array.isArray(mod.memory)) return;
+
+    mod.memory.forEach((mem, i) => {
+      const block = add_offset(cheatId, section);
+      if (!block) return;
+      const offset = (mem.offset || "").toUpperCase();
+      const valueOn = formatHexInput(mem.on || "");
+      const valueOff = formatHexInput(mem.off || "");
+      block.querySelector(".hex_offset").textContent = offset;
+      block.querySelector(".hex_on").textContent = valueOn;
+      block.querySelector(".hex_off").textContent = valueOff;
+    });
+    
+  });
+  renumberCheats();
+}
+
+function parseXMLTrainer(xmlText) {
+  let parser = new DOMParser();
+  let xml;
+  try {xml = parser.parseFromString(xmlText, "application/xml");}
+  catch(e) {alert("Ungültige XML-Datei!");return;}
+  const trainer = xml.querySelector("Trainer");
+  if (!trainer) return alert("Ungültiges SHN-Format!");
+
+  document.getElementById("game_title").textContent = trainer.getAttribute("Game") || "";
+  document.getElementById("game_id").textContent = trainer.getAttribute("Cusa") || "";
+  document.getElementById("game_version").textContent = trainer.getAttribute("Version") || "";
+  document.getElementById("game_process").textContent = trainer.getAttribute("Process") || "";
+  document.getElementById("game_genre").textContent = trainer.getAttribute("Moder") || "";
+
+  const cheatSectionContainer = document.getElementById("cheat_section");
+  cheatSectionContainer.innerHTML = "";
+  const cheats = trainer.querySelectorAll("Cheat");
+
+  for (let i = 0; i < cheats.length; i++) {
+    const cheat = cheats[i];
+    const cheatText = cheat.getAttribute("Text") || "";
+    const cheatId = add_cheat();
+    const section = cheatSectionContainer.querySelectorAll("section")[i];
+    const descTD = section.querySelector(".table_td_075.editable");
+    if (descTD) descTD.textContent = cheatText;
+    const cheatlines = cheat.querySelectorAll("Cheatline");
+
+    for (let j = 0; j < cheatlines.length; j++) {
+      const line = cheatlines[j];
+      const block = add_offset(cheatId, section);
+      if (!block) continue;
+      const offset = (line.querySelector("Offset")?.textContent || "").toUpperCase();
+      const valueOn = formatHexInput(line.querySelector("ValueOn")?.textContent || "");
+      const valueOff = formatHexInput(line.querySelector("ValueOff")?.textContent || "");
+      block.querySelector(".hex_offset").textContent = offset;
+      block.querySelector(".hex_on").textContent = valueOn;
+      block.querySelector(".hex_off").textContent = valueOff;
     }
-    if (i == cheats) {exportlist.innerHTML += ']}'+br;}
-    else {exportlist.innerHTML += ']},'+br;}
-    i--;
   }
-  exportlist.innerHTML += ''+
-  '  ],'+br+
-  '  "credits": ["Master Studios"]'+br+
-  '}';
-  save_list();
+  renumberCheats();
 }
 
-function save_list() {
-  var link = document.createElement("A");
-  var filename = document.getElementById('game_id').innerHTML+'_'+document.getElementById('game_version').innerHTML+'.json';
+function parseMC4Trainer(xmlText) {
+  xmlText = decodeHTMLEntities(xmlText);
+  xmlText = xmlText.replace(/[^\x09\x0A\x0D\x20-\xFF]/g, "");
+  xmlText = xmlText.replace(/\\"/g, '"');
+  let parser = new DOMParser();
+  let xml;
+  try {xml = parser.parseFromString(xmlText, "application/xml");}
+  catch (e) {alert("Ungültige MC4 XML-Datei!");return;}
+  const trainer = xml.querySelector("Trainer");
+  if (!trainer) {alert("Trainer-Node nicht gefunden!");return;}
+  document.getElementById("game_title").textContent = trainer.getAttribute("Game") || "";
+  document.getElementById("game_id").textContent = trainer.getAttribute("Cusa") || "";
+  document.getElementById("game_version").textContent = trainer.getAttribute("Version") || "";
+  document.getElementById("game_process").textContent = trainer.getAttribute("Process") || "";
+  const genres = [...trainer.querySelectorAll("Genres")]
+    .map(g => g.getAttribute("Name"))
+    .join(", ");
+  document.getElementById("game_genre").textContent = genres;
+  const cheatSectionContainer = document.getElementById("cheat_section");
+  cheatSectionContainer.innerHTML = "";
+  const cheats = trainer.querySelectorAll("Cheat");
 
-    var save_content = document.getElementById('download_list').innerHTML;
+  cheats.forEach((cheat, index) => {
+    const cheatId = add_cheat();
+    const section = cheatSectionContainer.querySelectorAll("section")[index];
+    const descTD = section.querySelector(".table_td_075.editable");
+    if (descTD) descTD.textContent = cheat.getAttribute("Text") || "";
+    const lines = cheat.querySelectorAll("Cheatline");
 
-    link.setAttribute("href","data:text/xml,"+save_content);
-    link.setAttribute("style","display:none");
-    link.setAttribute("download",filename);
-    document.body.appendChild(link);
-    console.log(link.outerHTML);
-    link.click();
-    document.body.removeChild(link);
+    lines.forEach(line => {
+      const block = add_offset(cheatId, section);
+      if (!block) return;
+      const offset = line.querySelector("Offset")?.textContent.trim().toUpperCase() || "";
+      const valueOn = line.querySelector("ValueOn")?.textContent.replace(/-/g, "").trim() || "";
+      const valueOff = line.querySelector("ValueOff")?.textContent.replace(/-/g, "").trim() || "";
+      block.querySelector(".hex_offset").textContent = offset;
+      block.querySelector(".hex_on").textContent = formatHexInput(valueOn);
+      block.querySelector(".hex_off").textContent = formatHexInput(valueOff);
+    });
+  });
+
+  renumberCheats();
 }
-function format_text(obj) {
-  var text = obj.innerHTML;
-  text = text.replace(/-/gi, '');
-  text = text.toUpperCase();
-  obj.innerHTML = text;
+
+function decodeHTMLEntities(text) {
+  const textarea = document.createElement("textarea");
+  textarea.innerHTML = text;
+  return textarea.value;
 }
-
-
 </script>
