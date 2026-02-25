@@ -76,8 +76,10 @@
         <section id="nav_section">
           <table class="table_container" style="cursor: default;">
             <tr>
-              <td class="table_td_050 text_center editable" onclick="exportTrainer();">File Herunterladen</td>
-              <td class="table_td_050 text_center editable" onclick="add_cheat();">Cheat Hinzufügen</td>
+              <td class="table_td_030 text_center editable" onclick="uploadTrainer();">File Hochladen</td>
+              <input type="file" id="trainerFileInput" accept=".shn,.xml,.json" style="display:none" />
+              <td class="table_td_030 text_center editable" onclick="exportTrainer();">File Herunterladen</td>
+              <td class="table_td_030 text_center editable" onclick="add_cheat();">Cheat Hinzufügen</td>
             </tr>
           </table>
         </section>
@@ -138,39 +140,60 @@ function add_cheat() {
   const cheatId = "c_" + Date.now();
   const section = document.createElement("section");
   section.dataset.cheatId = cheatId;
-
   section.innerHTML = `
     <table id="table_${cheatId}" class="table_container">
       <tr>
         <td class="table_td_025"></td>
         <td class="table_td_050 text_center" colspan="2">Cheat ${cheatCount}</td>
-        <td class="icon_td_025 removeCheat"><div class="icon_wrapper"><img class="icon" src="../../images/Trash_01.png"></div></td>
+        <td class="icon_td_025 removeCheat">
+          <div class="icon_wrapper">
+            <img class="icon" src="../../images/Trash_01.png">
+          </div>
+        </td>
       </tr>
       <tr>
         <td class="table_td_025 text_right">Beschreibung:</td>
-        <td class="table_td_075 editable" contenteditable="true" colspan="3"></td>
+        <td id="desc_${cheatCount}" class="table_td_075 editable" contenteditable="true" colspan="3"></td>
       </tr>
       <tr class="tr_flipper_gap"></tr>
     </table>
-    <table class="table_container"><tr><td class="table_td_100 text_center editable addOffset">Offset Hinzufügen</td></tr></table>
+    <table class="table_container">
+      <tr>
+        <td class="table_td_100 text_center editable addOffset">Offset Hinzufügen</td>
+      </tr>
+    </table>
   `;
+
   document.getElementById("cheat_section").appendChild(section);
 
-  section.querySelector(".addOffset").addEventListener("click", () => offset_add(cheatId));
-  section.querySelector(".removeCheat").addEventListener("click", () => {section.remove();renumberCheats();});
+  // Events
+  section.querySelector(".addOffset").addEventListener("click", () => add_offset(cheatId));
+  section.querySelector(".removeCheat").addEventListener("click", () => {
+    section.remove();
+    renumberCheats();
+  });
+
+  return section; // 🔹 Direkt das Section-Element zurückgeben
 }
 
-function offset_add(cheatId) {
-  const table = document.getElementById("table_" + cheatId);
+function add_offset(cheatId, section = null) {
+  const table = section
+    ? section.querySelector("table")   // Tabelle aus der Section
+    : document.getElementById("table_" + cheatId);
+
+  if (!table) return null;
+
   const offsetCount = table.querySelectorAll(".offset-block").length + 1;
+
   const wrapper = document.createElement("tbody");
   wrapper.classList.add("offset-block");
-
   wrapper.innerHTML = `
     <tr>
       <td class="table_td_025 text_right">Offset ${offsetCount}:</td>
       <td class="table_td_025 editable hex_offset" contenteditable="true" colspan="2"></td>
-      <td class="icon_td_025 text_center removeOffset"><div class="icon_wrapper"><img class="icon" src="../../images/Trash_01.png"></div></td>
+      <td class="icon_td_025 text_center removeOffset">
+        <div class="icon_wrapper"><img class="icon" src="../../images/Trash_01.png"></div>
+      </td>
     </tr>
     <tr>
       <td class="table_td_025 text_right">An:</td>
@@ -179,11 +202,19 @@ function offset_add(cheatId) {
     <tr>
       <td class="table_td_025 text_right">Aus:</td>
       <td class="table_td_025 editable hex_off" contenteditable="true" colspan="3"></td>
+    </tr>
     <tr class="tr_flipper_gap"><td></td><td></td><td></td><td></td></tr>
   `;
 
   table.appendChild(wrapper);
-  wrapper.querySelector(".removeOffset").addEventListener("click", () => {wrapper.remove();const section = table.closest("section");renumberOffsets(section);});
+
+  wrapper.querySelector(".removeOffset").addEventListener("click", () => {
+    wrapper.remove();
+    const sec = table.closest("section");
+    renumberOffsets(sec);
+  });
+
+  return wrapper;
 }
 
 function renumberCheats() {
@@ -206,37 +237,32 @@ function generateXML(title, gaId, version, genre, process, modder) {
   const sections = document.querySelectorAll("#cheat_section > section");
   let cheatsXML = "";
   sections.forEach(section => {
-    const cheatTitle = section.querySelector(".editable").textContent.trim();
+    const cheatTitle = section.querySelector(".table_td_075.editable")?.textContent.trim() || "";
     const offsetBlocks = section.querySelectorAll(".offset-block");
     let cheatlinesXML = "";
+
     offsetBlocks.forEach(block => {
-      const fields = block.querySelectorAll("[contenteditable]");
-      const offset = block.querySelector(".hex-offset")?.textContent.trim() || "";
-      const valueOn = block.querySelector(".hex-on")?.textContent.trim() || "";
-      const valueOff = block.querySelector(".hex-off")?.textContent.trim() || "";
+      const offset = block.querySelector(".hex_offset")?.textContent.trim() || "";
+      const valueOn = block.querySelector(".hex_on")?.textContent.trim() || "";
+      const valueOff = block.querySelector(".hex_off")?.textContent.trim() || "";
       cheatlinesXML += `
-      <Cheatline>
-        <Offset>${offset}</Offset>
-        <Section>0</Section>
-        <ValueOn>${valueOn}</ValueOn>
-        <ValueOff>${valueOff}</ValueOff>
-        </Cheatline>`;
+    <Cheatline>
+      <Offset>${offset}</Offset>
+      <Section>0</Section>
+      <ValueOn>${valueOn}</ValueOn>
+      <ValueOff>${valueOff}</ValueOff>
+    </Cheatline>`;
     });
+
     cheatsXML += `
-    <Cheat Text="${cheatTitle}">
-      ${cheatlinesXML}
-    </Cheat>`;
+  <Cheat Text="${cheatTitle}">${cheatlinesXML}
+  </Cheat>`;
   });
+
   return `<?xml version="1.0" encoding="utf-16"?>
-  <Trainer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    Game="${title}"
-    Moder="${modder}"
-    Cusa="${gaId}"
-    Version="${version}"
-    Process="${process}">
-  <Genres Name="${genre}" />
-  <Items />
-  ${cheatsXML}
+<Trainer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Game="${title}" Moder="${modder}" Cusa="${gaId}" Version="${version}" Process="${process}">
+  <Genres Name="${genre}"/>
+  <Items/>${cheatsXML}
 </Trainer>`;
 }
 
@@ -274,5 +300,125 @@ function exportTrainer() {
   const xmlContent = generateXML(title, gaId, version, genre, process, modder);
   const filename = `${gaId}_${version}.shn`;
   downloadSHNFile(filename, xmlContent);
+}
+
+function uploadTrainer() {
+  const input = document.getElementById("trainerFileInput");
+  input.click();
+  input.onchange = async function () {
+    const file = input.files[0];
+    if (!file) return;
+    const text = await file.text();
+    const ext = file.name.split('.').pop().toLowerCase();
+    if (ext === 'json') {parseJSONTrainer(text);}
+    else if (ext === 'shn' || ext === 'xml') {parseXMLTrainer(text);}
+    else {alert("Unbekanntes Format! Nur .shn oder .json erlaubt.");}
+    input.value = "";
+  };
+}
+
+function parseJSONTrainer(jsonText) {
+  const data = JSON.parse(jsonText);
+
+  // Felder setzen
+  document.getElementById("game_title").textContent = data.name || "";
+  document.getElementById("game_id").textContent = data.id || "";
+  document.getElementById("game_version").textContent = data.version || "";
+  document.getElementById("game_genre").textContent = (data.credits && data.credits[0]) || "";
+  document.getElementById("game_process").textContent = data.process || "";
+
+  // Alte Cheats löschen
+  document.getElementById("cheat_section").innerHTML = "";
+
+  data.mods.forEach(mod => {
+    const cheatId = add_cheat(); // Titel wird automatisch "Cheat X"
+
+    // Das Beschreibungsfeld füllen
+    const section = document.querySelector(`#cheat_section > section[data-cheat-id="${cheatId}"]`);
+    const descTD = section.querySelector(".table_td_075.editable");
+    if (descTD) descTD.textContent = mod.name;
+
+    // Offsets einfügen
+    const table = document.getElementById(`table_${cheatId}`);
+    mod.memory.forEach(mem => {
+      add_offset(cheatId);
+      const block = table.querySelector(".offset-block:last-child");
+      block.querySelector(".hex-offset").textContent = mem.offset.toUpperCase();
+      block.querySelector(".hex_on").textContent = formatHexInput(mem.on);
+      block.querySelector(".hex_off").textContent = formatHexInput(mem.off);
+    });
+  });
+}
+
+function parseXMLTrainer(xmlText) {
+  console.log("=== XML Parser gestartet ===");
+
+  let parser = new DOMParser();
+  let xml;
+  try {
+    xml = parser.parseFromString(xmlText, "application/xml");
+  } catch(e) {
+    alert("Ungültige XML-Datei!");
+    return;
+  }
+
+  const trainer = xml.querySelector("Trainer");
+  if (!trainer) return alert("Ungültiges SHN-Format!");
+
+  // Allgemeine Felder
+  document.getElementById("game_title").textContent = trainer.getAttribute("Game") || "";
+  document.getElementById("game_id").textContent = trainer.getAttribute("Cusa") || "";
+  document.getElementById("game_version").textContent = trainer.getAttribute("Version") || "";
+  document.getElementById("game_process").textContent = trainer.getAttribute("Process") || "";
+  document.getElementById("game_genre").textContent = trainer.getAttribute("Moder") || "";
+
+  // Alte Cheats löschen
+  const cheatSectionContainer = document.getElementById("cheat_section");
+  cheatSectionContainer.innerHTML = "";
+
+  const cheats = trainer.querySelectorAll("Cheat");
+  console.log("Anzahl Cheats in XML:", cheats.length);
+
+  for (let i = 0; i < cheats.length; i++) {
+    const cheat = cheats[i];
+    console.log("\n=== Cheat", i + 1, "===");
+
+    const cheatText = cheat.getAttribute("Text") || "";
+    console.log("Text:", cheatText);
+
+    // Cheat-Section erstellen
+    const cheatId = add_cheat(); // baut Section + Tabellen + AddOffset-Button
+    const section = cheatSectionContainer.querySelectorAll("section")[i];
+
+    // Beschreibung setzen
+    const descTD = section.querySelector(".table_td_075.editable");
+    if (descTD) descTD.textContent = cheatText;
+
+    const cheatlines = cheat.querySelectorAll("Cheatline");
+    console.log("Anzahl Cheatlines:", cheatlines.length);
+
+    for (let j = 0; j < cheatlines.length; j++) {
+      const line = cheatlines[j];
+      console.log("-- Cheatline", j + 1);
+
+      // Offset hinzufügen – jetzt Section übergeben, damit add_offset immer den richtigen Table benutzt
+      const block = add_offset(cheatId, section); // Section ist das HTMLElement
+      if (!block) continue;
+
+      const offset = (line.querySelector("Offset")?.textContent || "").toUpperCase();
+      const valueOn = formatHexInput(line.querySelector("ValueOn")?.textContent || "");
+      const valueOff = formatHexInput(line.querySelector("ValueOff")?.textContent || "");
+
+      console.log("Block-Element:", block);
+      console.log("Offset:", offset, "On:", valueOn, "Off:", valueOff);
+
+      block.querySelector(".hex_offset").textContent = offset;
+      block.querySelector(".hex_on").textContent = valueOn;
+      block.querySelector(".hex_off").textContent = valueOff;
+    }
+  }
+
+  renumberCheats();
+  console.log("=== Parser fertig ===");
 }
 </script>
