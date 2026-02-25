@@ -163,28 +163,16 @@ function add_cheat() {
       </tr>
     </table>
   `;
-
   document.getElementById("cheat_section").appendChild(section);
-
-  // Events
   section.querySelector(".addOffset").addEventListener("click", () => add_offset(cheatId));
-  section.querySelector(".removeCheat").addEventListener("click", () => {
-    section.remove();
-    renumberCheats();
-  });
-
-  return section; // 🔹 Direkt das Section-Element zurückgeben
+  section.querySelector(".removeCheat").addEventListener("click", () => {section.remove();renumberCheats();});
+  return section;
 }
 
 function add_offset(cheatId, section = null) {
-  const table = section
-    ? section.querySelector("table")   // Tabelle aus der Section
-    : document.getElementById("table_" + cheatId);
-
+  const table = section ? section.querySelector("table") : document.getElementById("table_" + cheatId);
   if (!table) return null;
-
   const offsetCount = table.querySelectorAll(".offset-block").length + 1;
-
   const wrapper = document.createElement("tbody");
   wrapper.classList.add("offset-block");
   wrapper.innerHTML = `
@@ -205,15 +193,12 @@ function add_offset(cheatId, section = null) {
     </tr>
     <tr class="tr_flipper_gap"><td></td><td></td><td></td><td></td></tr>
   `;
-
   table.appendChild(wrapper);
-
   wrapper.querySelector(".removeOffset").addEventListener("click", () => {
     wrapper.remove();
     const sec = table.closest("section");
     renumberOffsets(sec);
   });
-
   return wrapper;
 }
 
@@ -351,74 +336,44 @@ function parseJSONTrainer(jsonText) {
 }
 
 function parseXMLTrainer(xmlText) {
-  console.log("=== XML Parser gestartet ===");
-
   let parser = new DOMParser();
   let xml;
-  try {
-    xml = parser.parseFromString(xmlText, "application/xml");
-  } catch(e) {
-    alert("Ungültige XML-Datei!");
-    return;
-  }
-
+  try {xml = parser.parseFromString(xmlText, "application/xml");}
+  catch(e) {alert("Ungültige XML-Datei!");return;}
   const trainer = xml.querySelector("Trainer");
   if (!trainer) return alert("Ungültiges SHN-Format!");
 
-  // Allgemeine Felder
   document.getElementById("game_title").textContent = trainer.getAttribute("Game") || "";
   document.getElementById("game_id").textContent = trainer.getAttribute("Cusa") || "";
   document.getElementById("game_version").textContent = trainer.getAttribute("Version") || "";
   document.getElementById("game_process").textContent = trainer.getAttribute("Process") || "";
   document.getElementById("game_genre").textContent = trainer.getAttribute("Moder") || "";
 
-  // Alte Cheats löschen
   const cheatSectionContainer = document.getElementById("cheat_section");
   cheatSectionContainer.innerHTML = "";
-
   const cheats = trainer.querySelectorAll("Cheat");
-  console.log("Anzahl Cheats in XML:", cheats.length);
 
   for (let i = 0; i < cheats.length; i++) {
     const cheat = cheats[i];
-    console.log("\n=== Cheat", i + 1, "===");
-
     const cheatText = cheat.getAttribute("Text") || "";
-    console.log("Text:", cheatText);
-
-    // Cheat-Section erstellen
-    const cheatId = add_cheat(); // baut Section + Tabellen + AddOffset-Button
+    const cheatId = add_cheat();
     const section = cheatSectionContainer.querySelectorAll("section")[i];
-
-    // Beschreibung setzen
     const descTD = section.querySelector(".table_td_075.editable");
     if (descTD) descTD.textContent = cheatText;
-
     const cheatlines = cheat.querySelectorAll("Cheatline");
-    console.log("Anzahl Cheatlines:", cheatlines.length);
 
     for (let j = 0; j < cheatlines.length; j++) {
       const line = cheatlines[j];
-      console.log("-- Cheatline", j + 1);
-
-      // Offset hinzufügen – jetzt Section übergeben, damit add_offset immer den richtigen Table benutzt
-      const block = add_offset(cheatId, section); // Section ist das HTMLElement
+      const block = add_offset(cheatId, section);
       if (!block) continue;
-
       const offset = (line.querySelector("Offset")?.textContent || "").toUpperCase();
       const valueOn = formatHexInput(line.querySelector("ValueOn")?.textContent || "");
       const valueOff = formatHexInput(line.querySelector("ValueOff")?.textContent || "");
-
-      console.log("Block-Element:", block);
-      console.log("Offset:", offset, "On:", valueOn, "Off:", valueOff);
-
       block.querySelector(".hex_offset").textContent = offset;
       block.querySelector(".hex_on").textContent = valueOn;
       block.querySelector(".hex_off").textContent = valueOff;
     }
   }
-
   renumberCheats();
-  console.log("=== Parser fertig ===");
 }
 </script>
