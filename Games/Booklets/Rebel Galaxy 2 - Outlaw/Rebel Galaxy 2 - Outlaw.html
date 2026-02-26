@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>Wing Over</title>
+  <title>Rebel Galaxy 2 - Outlaw</title>
   <meta charset="utf-8"></meta>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
   <link rel="icon" type="image/x-icon" href="../../../images/MB_Icon_01.png"></link>
   <link rel="stylesheet" href="../../../assets/css/main.css"></link>
+  <style>
+    .border_01 {border: 1px solid #444444;border-collapse: collapse;padding: 0.5em;}
+    .border_01 tr {width: 100%;height: auto;border: 1px solid #444444;border-collapse: collapse;}
+    .border_01 td {padding: 0.5em;text-align: center;font-size: 0.8em;}
+  </style>
 </head>
 <body onload="window.location.href = '#content';" class="is-preload">
   <audio id="soundtrack" loop src="audio/Soundtrack.mp3" type="audio/mpeg"></audio>
@@ -21,10 +26,10 @@
     
     <div id="main">
       <article id="content" class="panel">
-        <header><h2>Wing Over</h2></header>
+        <header><h2>Rebel Galaxy 2 - Outlaw</h2></header>
         <section>
           <div class="soundtrack_container">
-            <img class="soundtrack_background" src="cover/Wing Over - Poster.jpg"></img>
+            <img class="soundtrack_background" src="cover/00 Rebel Galaxy 2 - Outlaw - Poster.jpg"></img>
             <div class="soundtrack_control_container" onclick="bg_music();">
               <img class="soundtrack_control" src="../../../images/button_play_01.png"></img>
               <p class="soundtrack_text">Soundtrack Abspielen</p>
@@ -33,45 +38,205 @@
         </section>
 
         <section>
-          <details class="details_1" style="color: #1fff50;" close>
+          <details class="details_1" style="color: #1fc0ff;" close>
+            <summary>Dodge-Sektor-Karte</summary>
+            <img class="quest_img" src="maps/Dodge-Sector.jpg"></img>
+          </details>
+        </section>
+        
+        <section>
+          <details class="details_1" style="color: #ff4000;" close>
+            <summary>Handelsgüter</summary>
+            <table class="quest_table border_01">
+              <thead>
+                <tr><td>Ware</td><td>Legal</td><td>System</td><td>Ort</td><td>Betreiber</td><td>Menge</td><td>Preis</td><td>Marktpreis</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>&lt;unknown&gt;</td><td></td><td>Gore</td><td>Virian Station</td><td>Red Devils</td><td></td><td></td><td></td></tr>
+                <tr><td>&lt;unknown&gt;</td><td></td><td>Juarez</td><td>Jesse's Den</td><td>DoubleJacks</td><td></td><td></td><td></td></tr>
+                <tr><td>&lt;unknown&gt;</td><td></td><td>Juarez</td><td>Jesse's Den</td><td>DoubleJacks</td><td></td><td></td><td></td></tr>
+                <tr><td>&lt;unknown&gt;</td><td></td><td>Littlehope</td><td>Clanton</td><td>Red Devils</td><td></td><td></td><td></td></tr>
+                <tr><td>&lt;unknown&gt;</td><td></td><td>Sweetland</td><td>Chapel</td><td>Outpost -Inviolates</td><td></td><td></td><td></td></tr>
+                <tr><td>&lt;unknown&gt;</td><td></td><td>Vacaville</td><td>Redreaver</td><td>Red Devils</td><td></td><td></td><td></td></tr>
+                <tr><td>Alien Artifacts</td><td></td><td>Slaughter</td><td>Chancey Mining</td><td>Independent</td><td></td><td></td><td></td></tr>
+                <tr><td>Alien Fossils</td><td></td><td>Discouragement</td><td>Morgan Station</td><td>Independent</td><td></td><td>2952</td><td>4622</td></tr>
+                <tr><td>Alien Fossils</td><td></td><td>Juarez</td><td>Loreto</td><td>Independent</td><td></td><td>2717</td><td>4622</td></tr>
+                <tr><td>Alien Fossils</td><td></td><td>Merlin</td><td>Pellinore Outpost</td><td>Independent</td><td></td><td>2655</td><td>4622</td></tr>
+                <tr><td>Alien Fossils</td><td></td><td>Rockfarming</td><td>Granite</td><td>Independent</td><td></td><td>2313</td><td>4622</td></tr>
+                <tr><td>Alien Fossils</td><td></td><td>Slaughter</td><td>Chancey Mining</td><td>Independent</td><td></td><td>2951</td><td>4622</td></tr>
+                <tr><td>Alien Specimens</td><td></td><td>Colorado</td><td>Port Denver</td><td>Independent</td><td></td><td>6213</td><td>12798</td></tr>
+                <tr><td>Alien Specimens</td><td></td><td>Slaughter</td><td>Chancey Mining</td><td>Independent</td><td></td><td>9060</td><td>12798</td></tr>
+                <tr><td>Alien Specimens</td><td></td><td>Hitchcock</td><td>Fontaine Mining</td><td>Independent</td><td></td><td>6003</td><td>12798</td></tr>
+                <tr><td>Anomalies</td><td></td><td>Backbone</td><td>Ridley</td><td>Independent</td><td></td><td>2147</td><td>4725</td></tr>
+                <tr><td>Anomalies</td><td></td><td>Gore</td><td>Zadar</td><td>Independent</td><td></td><td>3245</td><td>4725</td></tr>
+                <tr><td>Anomalies</td><td></td><td>Utah</td><td>Tremonton</td><td>Commonwealth</td><td></td><td>3712</td><td>4725</td></tr>
+                <tr><td>Antimatter Speck</td><td></td><td>Discouragement</td><td>Velos Casino</td><td>Independent</td><td></td><td>4857</td><td>6468</td></tr>
+                <tr><td>Bio-Weapons</td><td style="color: #ff4000;">X</td><td>Tennessee</td><td>Jellico Outpost</td><td>Red Devils</td><td></td><td></td><td></td></tr>
+                <tr><td>Black Market</td><td></td><td>Rockfarming</td><td>Granite</td><td>Independent</td><td></td><td></td><td></td></tr>
+                <tr><td>Black Market</td><td></td><td>Hitchcock</td><td>Alfred</td><td>Independent</td><td></td><td>N/A</td><td>N/A</td></tr>
+                <tr><td>Black Market</td><td></td><td>Medicine Hat</td><td>Dautry Outpost</td><td>Independent</td><td></td><td>N/A</td><td>N/A</td></tr>
+                <tr><td>Black-Market Weapons</td><td style="color: #ff4000;">X</td><td>Rockfarming</td><td>Shanksville</td><td>Red Devils</td><td></td><td>629</td><td>900</td></tr>
+                <tr><td>Ceramics</td><td></td><td>Kansas</td><td>Lola</td><td>Independent</td><td></td><td>826</td><td></td></tr>
+                <tr><td>Ceramics</td><td></td><td>Montana</td><td>Chinook Refinery</td><td>Independent</td><td></td><td>847</td><td>1260</td></tr>
+                <tr><td>Ceramics</td><td></td><td>Laredo</td><td>Saguard Refindery</td><td>Independent</td><td></td><td>843</td><td>1260</td></tr>
+                <tr><td>Komponenten</td><td></td><td>Louisiana</td><td>Lafayette Tech</td><td>Independent</td><td>10+</td><td>369</td><td>683</td></tr>
+                <tr><td>Komponenten</td><td></td><td>Missouri</td><td>Port Ozark</td><td>Commonwealth</td><td></td><td>563</td><td>683</td></tr>
+                <tr><td>Komponenten</td><td></td><td>Medicine Hat</td><td>Callahan Mfr</td><td>Commonwealth</td><td>10+</td><td>332</td><td>683</td></tr>
+                <tr><td>Counterfit Goods</td><td style="color: #ff4000;">X</td><td>Dakota</td><td>Astoria</td><td>Independent</td><td></td><td>1488</td><td>1965</td></tr>
+                <tr><td>Counterfit Goods</td><td style="color: #ff4000;">X</td><td>Taggart</td><td>Noir</td><td>Red Devils</td><td></td><td></td><td></td></tr>
+                <tr><td>Counterfit Goods</td><td style="color: #ff4000;">X</td><td>Taggart</td><td>Rasmussen</td><td>Independent</td><td></td><td>1110</td><td>1965</td></tr>
+                <tr><td>Data Cubes</td><td></td><td>Carolina</td><td>Spartanburg</td><td>Commonwealth</td><td></td><td>918</td><td>1890</td></tr>
+                <tr><td>Data Cubes</td><td></td><td>Louisiana</td><td>Lafayette Tech</td><td>Independent</td><td></td><td>1151</td><td>1890</td></tr>
+                <tr><td>Data Cubes</td><td></td><td>Nimpoo</td><td>Stantz Mfr</td><td>Commonwealth</td><td></td><td>1608</td><td>1890</td></tr>
+                <tr><td>Data Cubes</td><td></td><td>Carolina</td><td>Charleston Tech</td><td>Independents</td><td></td><td>1223</td><td>1890</td></tr>
+                <tr><td>Designer Clothes</td><td></td><td>Hampton</td><td>Cordell</td><td>Independent</td><td></td><td>1699</td><td>2592</td></tr>
+                <tr><td>Designer Clothes</td><td></td><td>Utah</td><td>Provo Station</td><td>Commonwealth</td><td></td><td>1558</td><td>2592</td></tr>
+                <tr><td>Devotional Art</td><td></td><td>Arizona</td><td>Buckeye</td><td>Independent</td><td></td><td>1477</td><td>2160</td></tr>
+                <tr><td>Devotional Art</td><td></td><td>Arizona</td><td>Flagstaff</td><td>Independent</td><td>5+</td><td>812</td><td>2160</td></tr>
+                <tr><td>Devotional Art</td><td></td><td>Sweetland</td><td>parhelion Mfrs</td><td>Independent</td><td></td><td>1380</td><td>2160</td></tr>
+                <tr><td>Devotional Art</td><td></td><td>Tombstone</td><td>Port Hickok</td><td>Independent</td><td></td><td>1572</td><td>2160</td></tr>
+                <tr><td>Devotional Art</td><td></td><td>1167-C</td><td>872-D</td><td>Independent</td><td></td><td>1851</td><td>2160</td></tr>
+                <tr><td>Diamonds</td><td></td><td>Colorado</td><td>Boulder Tech</td><td>Commonwealth</td><td></td><td>735</td><td></td></tr>
+                <tr><td>Diamonds</td><td></td><td>Discouragement</td><td>Morgan Station</td><td>Independent</td><td></td><td>617</td><td>1138</td></tr>
+                <tr><td>Diamonds</td><td></td><td>Louisiana</td><td>Tallulah</td><td>Independent</td><td></td><td>814</td><td>1138</td></tr>
+                <tr><td>Diamonds</td><td></td><td>Texas</td><td>Nacodoches</td><td>Commonwealth</td><td></td><td>683</td><td>1138</td></tr>
+                <tr><td>Diamonds</td><td></td><td>Utah</td><td>Tremonton</td><td>Commonwealth</td><td></td><td>828</td><td>1138</td></tr>
+                <tr><td>Dry-Aged Yikyak</td><td></td><td>Hitchcock</td><td>Hedren</td><td>Commonwealth</td><td></td><td>1417</td><td>1530</td></tr>
+                <tr><td>Dry-Aged Yikyak</td><td></td><td>Mississippi</td><td>Manatchie</td><td>Independent</td><td></td><td>831</td><td></td></tr>
+                <tr><td>Dry-Aged Yikyak</td><td></td><td>Missouri</td><td>Port Jefferson</td><td>Commonwealth</td><td></td><td>677</td><td>1530</td></tr>
+                <tr><td>Dry-Aged Yikyak</td><td></td><td>Montana</td><td>Port Belgrade</td><td>Independent</td><td>10+</td><td>969</td><td>1530</td></tr>
+                <tr><td>Dry-Aged Yikyak</td><td></td><td>Texas</td><td>Austin</td><td>Commonwealth</td><td></td><td>619</td><td>1530</td></tr>
+                <tr><td>Exchange Only</td><td></td><td>Nevada</td><td>NueVegas Casino</td><td>Independent</td><td></td><td></td><td></td></tr>
+                <tr><td>Exchange Only</td><td></td><td>Nevada</td><td>Sparks Casino</td><td>Independent</td><td></td><td></td><td></td></tr>
+                <tr><td>Fine Art</td><td></td><td>Arizona</td><td>Flagstaff</td><td>Independent</td><td>5+</td><td>1373</td><td>3888</td></tr>
+                <tr><td>Fine Art</td><td></td><td>1167-C</td><td>872-D</td><td>Independent</td><td></td><td>3029</td><td>3888</td></tr>
+                <tr><td>Gold Ore</td><td></td><td>Juarez</td><td>Loreto</td><td>Independent</td><td></td><td>1305</td><td>1800</td></tr>
+                <tr><td>Gold Ore</td><td></td><td>Kansas</td><td>Topika</td><td>Commonwealth</td><td></td><td>1322</td><td></td></tr>
+                <tr><td>Gold Ore</td><td></td><td>Louisiana</td><td>Tallulah</td><td>Independent</td><td>5+</td><td>1159</td><td>1800</td></tr>
+                <tr><td>Gold Ore</td><td></td><td>Texas</td><td>Amarillo</td><td>Commonwealth</td><td></td><td>1009</td><td>1800</td></tr>
+                <tr><td>Gold Ore</td><td></td><td>Texas</td><td>Lubbock</td><td>Commonwealth</td><td></td><td>1380</td><td>1800</td></tr>
+                <tr><td>Gold Ore</td><td></td><td>Hitchcock</td><td>Fontaine Mining</td><td>Independent</td><td>10+</td><td>699</td><td>1800</td></tr>
+                <tr><td>Greel Blue Label</td><td></td><td>Kansas</td><td>Wichita Distillery</td><td>Independent</td><td></td><td>1896</td><td></td></tr>
+                <tr><td>Greel Blue Label</td><td></td><td>Hitchcock</td><td>Hedren</td><td>Commonwealth</td><td>10+</td><td>1138</td><td>3240</td></tr>
+                <tr><td>Greel Whiskey</td><td></td><td>Backbone</td><td>Venger Outpost</td><td>Independent</td><td></td><td>1811</td><td>2160</td></tr>
+                <tr><td>Greel Whiskey</td><td></td><td>Kansas</td><td>Wichita Distillery</td><td>Independent</td><td></td><td>1655</td><td></td></tr>
+                <tr><td>Greel Whiskey</td><td></td><td>Mississippi</td><td>Manatchie</td><td>Independent</td><td></td><td>884</td><td>2160</td></tr>
+                <tr><td>Hijacked Valuables</td><td style="color: #ff4000;">X</td><td>Alabama</td><td>Arbuthnott</td><td>Independent</td><td>15+</td><td>1756</td><td>3000</td></tr>
+                <tr><td>Hijacked Valuables</td><td style="color: #ff4000;">X</td><td>Dutch</td><td>Calpurina Station</td><td>Independent</td><td>5+</td><td></td><td>3000</td></tr>
+                <tr><td>Hijacked Valuables</td><td></td><td>Hitchcock</td><td>Alfred</td><td>Independent</td><td></td><td>1611</td><td>3000</td></tr>
+                <tr><td>Hitchcock Coronas</td><td></td><td>Derringer</td><td>Backfire</td><td>Independent</td><td>5+</td><td>532</td><td>936</td></tr>
+                <tr><td>Hitchcock Coronas</td><td></td><td>Hitchcock</td><td>Alfred</td><td>Independent</td><td>20+</td><td>564</td><td>936</td></tr>
+                <tr><td>Holovangelism Vids</td><td></td><td>Arizona</td><td>Buckeye</td><td>Independent</td><td></td><td>1047</td><td>1440</td></tr>
+                <tr><td>Holovangelism VIds</td><td></td><td>Sweetland</td><td>Parhelion Mfrs</td><td>Independent</td><td></td><td>962</td><td>1440</td></tr>
+                <tr><td>Holovangelism VIds</td><td></td><td>Tombstone</td><td>Port Hickok</td><td>Independent</td><td></td><td>1152</td><td>1440</td></tr>
+                <tr><td>Holovids</td><td></td><td>Carolina</td><td>Charleston Tech</td><td>Independents</td><td></td><td>767</td><td>1080</td></tr>
+                <tr><td>Holovids</td><td></td><td>Colorado</td><td>Boulder Tech</td><td>Commonwealth</td><td></td><td>626</td><td></td></tr>
+                <tr><td>Holovids</td><td></td><td>Sexton</td><td>Crow's Nest</td><td>Independent</td><td></td><td>728</td><td>1080</td></tr>
+                <tr><td>Holovids</td><td></td><td>Taggart</td><td>Rasmussen</td><td>Independent</td><td></td><td>757</td><td>1080</td></tr>
+                <tr><td>Human Organs</td><td style="color: #ff4000;">X</td><td>Gore</td><td>Virian</td><td>Red Devils</td><td></td><td></td><td></td></tr>
+                <tr><td>Human Organs</td><td style="color: #ff4000;">X</td><td>Rockfarming</td><td>Shanksville</td><td>Red Devils</td><td></td><td>5750</td><td>12200</td></tr>
+                <tr><td>Human Transplants</td><td style="color: #ff4000;">X</td><td>Backbone</td><td>Venger Outpost</td><td>Independent</td><td></td><td>5447</td><td>8200</td></tr>
+                <tr><td>Human Transplants</td><td style="color: #ff4000;">X</td><td>Sweetland</td><td>Parhelion Mfrs</td><td>Independent</td><td></td><td></td><td>8200</td></tr>
+                <tr><td>Human Transplants</td><td style="color: #ff4000;">X</td><td>Sweetland</td><td>Parhelion Mfrs</td><td>Independent</td><td></td><td>4861</td><td>8200</td></tr>
+                <tr><td>Iron Ore</td><td></td><td>Discouragement</td><td>Morgan Station</td><td>Independent</td><td></td><td>472</td><td>650</td></tr>
+                <tr><td>Iron Ore</td><td></td><td>Kansas</td><td>Topika</td><td>Commonwealth</td><td></td><td>406</td><td></td></tr>
+                <tr><td>Iron Ore</td><td></td><td>Louisiana</td><td>Tallulah</td><td>Independent</td><td></td><td>315</td><td>650</td></tr>
+                <tr><td>Iron Ore</td><td></td><td>Rockfarming</td><td>Granite</td><td>Independent</td><td></td><td>348</td><td>650</td></tr>
+                <tr><td>Iron Ore</td><td></td><td>Texas</td><td>Lubbock</td><td>Commonwealth</td><td></td><td>512</td><td>650</td></tr>
+                <tr><td>Iron Ore</td><td></td><td>Texas</td><td>Nacodoches</td><td>Commonwealth</td><td></td><td>461</td><td>650</td></tr>
+                <tr><td>Multi-Player Games</td><td></td><td>Backbone</td><td>Anders Tech</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>Multi-Player Games</td><td></td><td>Louisiana</td><td>Lafayette Tech</td><td>Independent</td><td></td><td>1151</td><td>1890</td></tr>
+                <tr><td>Nano-Fibers</td><td></td><td>Dutch</td><td>Calpurnia Station</td><td>Independent</td><td></td><td></td><td>1890</td></tr>
+                <tr><td>Nano-Fibers</td><td></td><td>Slaughter</td><td>Harbringer Exchange</td><td>Independent</td><td></td><td>1288</td><td>1890</td></tr>
+                <tr><td>Nano-Fibers</td><td></td><td>Laredo</td><td>Rutherford</td><td>Independent</td><td>10+</td><td>1446</td><td>1890</td></tr>
+                <tr><td>Nano-Fibers</td><td></td><td>Laredo</td><td>Saguard Refindery</td><td>Independent</td><td></td><td>1171</td><td>1890</td></tr>
+                <tr><td>Narco-Cola</td><td style="color: #ff4000;">X</td><td>Dakota</td><td>Darius Junction</td><td>Red Devils</td><td></td><td></td><td></td></tr>
+                <tr><td>Narco-Cola</td><td style="color: #ff4000;">X</td><td>Merlin</td><td>Blacknight</td><td>Red Devils</td><td></td><td>968</td><td>1100</td></tr>
+                <tr><td>Narco-Cola</td><td style="color: #ff4000;">X</td><td>Tibodaux</td><td>Dante</td><td>Red Devils</td><td></td><td>514</td><td>1100</td></tr>
+                <tr><td>No Exports Exchange Only</td><td></td><td>Montana</td><td>Ravalli Cnter</td><td>Commonwealth</td><td></td><td></td><td></td></tr>
+                <tr><td>Obtanium Ore</td><td></td><td>Backbone</td><td>Ridley</td><td>Independent</td><td></td><td>2097</td><td>2700</td></tr>
+                <tr><td>Obtanium Ore</td><td></td><td>Gore</td><td>Zadar</td><td>Independent</td><td></td><td>2319</td><td>2700</td></tr>
+                <tr><td>Obtanium Ore</td><td></td><td>Kansas</td><td>Topika</td><td>Commonwealth</td><td></td><td>1704</td><td></td></tr>
+                <tr><td>Obtanium Ore</td><td></td><td>Texas</td><td>Amarillo</td><td>Commonwealth</td><td></td><td>2411</td><td>2700</td></tr>
+                <tr><td>Obtanium Ore</td><td></td><td>Texas</td><td>Lubbock</td><td>Commonwealth</td><td></td><td>2011</td><td>2700</td></tr>
+                <tr><td>Obtanium Ore</td><td></td><td>Texas</td><td>Nacodoches</td><td>Commonwealth</td><td></td><td>2188</td><td>2700</td></tr>
+                <tr><td>Obtanium Ore</td><td></td><td>Utah</td><td>Tremonton</td><td>Commonwealth</td><td></td><td>2109</td><td>2700</td></tr>
+                <tr><td>Obtanium Ore</td><td></td><td>Hitchcock</td><td>Fontaine Mining</td><td>Independent</td><td></td><td>2085</td><td>2700</td></tr>
+                <tr><td>Processors</td><td></td><td>Backbone</td><td>Anders Tech</td><td>Independent</td><td></td><td>1425</td><td>2835</td></tr>
+                <tr><td>Processors</td><td></td><td>Medicine Hat</td><td>Dautry Outpost</td><td>Independent</td><td></td><td>1990</td><td>2835</td></tr>
+                <tr><td>Pulp Novels</td><td></td><td>Alabama</td><td>Arbuthnott</td><td>Independent</td><td></td><td>157</td><td>390</td></tr>
+                <tr><td>Pulp Novels</td><td></td><td>Louisiana</td><td>Lafayette Tech</td><td>Independent</td><td>5+</td><td>182</td><td>390</td></tr>
+                <tr><td>Pulp Novels</td><td></td><td>Rockfarming</td><td>Shanksville</td><td>Red Devils</td><td></td><td>307</td><td>390</td></tr>
+                <tr><td>Pulp Novels</td><td></td><td>Sexton</td><td>Crow's Nest</td><td>Independent</td><td>5+</td><td>267</td><td>390</td></tr>
+                <tr><td>Pulp Novels</td><td></td><td>Utah</td><td>Provo Station</td><td>Commonwealth</td><td></td><td>285</td><td>390</td></tr>
+                <tr><td>Pure Water</td><td></td><td>Backbone</td><td>Ridley</td><td>Independent</td><td></td><td>2232</td><td>3150</td></tr>
+                <tr><td>Pure Water</td><td></td><td>Colorado</td><td>Boulder Tech</td><td>Commonwealth</td><td></td><td>2139</td><td></td></tr>
+                <tr><td>Pure Water</td><td></td><td>Colorado</td><td>Port Denver</td><td>Independent</td><td>10+</td><td>1904</td><td>3150</td></tr>
+                <tr><td>Pure Water</td><td></td><td>Texas</td><td>Amarillo</td><td>Commonwealth</td><td></td><td>2554</td><td>3150</td></tr>
+                <tr><td>Red Star Beer</td><td></td><td>Mississippi</td><td>Manatchie</td><td>Independent</td><td></td><td>635</td><td></td></tr>
+                <tr><td>Red Star Beer</td><td></td><td>New Mexico</td><td>Hobbes Station</td><td>Independent</td><td></td><td></td><td></td></tr>
+                <tr><td>Red Star Beer</td><td></td><td>Texas</td><td>Austin</td><td>Commonwealth</td><td></td><td>746</td><td>780</td></tr>
+                <tr><td>Religious Tracks</td><td></td><td>Arizona</td><td>Buckeye</td><td>Independent</td><td>5+</td><td>356</td><td>520</td></tr>
+                <tr><td>Religious Tracks</td><td></td><td>Arizona</td><td>Flagstaff</td><td>Independent</td><td>5+</td><td>280</td><td>520</td></tr>
+                <tr><td>Religious Tracks</td><td></td><td>Derringer</td><td>Backfire</td><td>Independent</td><td>5+</td><td>367</td><td>520</td></tr>
+                <tr><td>Religious Tracks</td><td></td><td>Tombstone</td><td>Port Hickok</td><td>Independent</td><td></td><td>352</td><td>520</td></tr>
+                <tr><td>Religious Tracks</td><td></td><td>1167-C</td><td>872-D</td><td>Independent</td><td></td><td>361</td><td>520</td></tr>
+                <tr><td>Robot Modules</td><td></td><td>Carolina</td><td>Spartanburg</td><td>Commonwealth</td><td></td><td>583</td><td>813</td></tr>
+                <tr><td>Robot Modules</td><td></td><td>Missouri</td><td>Port Ozark</td><td>Commonwealth</td><td></td><td>593</td><td>813</td></tr>
+                <tr><td>Robot Modules</td><td></td><td>Nimpoo</td><td>Stantz Mfr</td><td>Commonwealth</td><td></td><td>428</td><td>813</td></tr>
+                <tr><td>Robot Modules</td><td></td><td>Thibodaux</td><td>Bonnaire Mfrs</td><td>Independent</td><td></td><td>647</td><td>813</td></tr>
+                <tr><td>Robot Warriors</td><td></td><td>Backbone</td><td>Anders Tech</td><td>Independent</td><td></td><td>2612</td><td>3375</td></tr>
+                <tr><td>Robot Warriors</td><td></td><td>Sweetland</td><td>parhelion Mfrs</td><td>Independent</td><td></td><td>2167</td><td>3375</td></tr>
+                <tr><td>Robot Warriors</td><td></td><td>Medicine Hat</td><td>Dautry Outpost</td><td>Independent</td><td></td><td>2554</td><td>3375</td></tr>
+                <tr><td>Robot Warriors</td><td></td><td>Medicine Hat</td><td>Callahan Mfr</td><td>Commonwealth</td><td>5+</td><td>2343</td><td>3375</td></tr>
+                <tr><td>Robot Workers</td><td></td><td>Missouri</td><td>Joplin</td><td>Independent</td><td></td><td></td><td></td></tr>
+                <tr><td>Robot Workers</td><td></td><td>Nimpoo</td><td>Stantz Mfr</td><td>Commonwealth</td><td></td><td>1801</td><td>2250</td></tr>
+                <tr><td>Robot Workers</td><td></td><td>Thibodaux</td><td>Bonnaire Mfrs</td><td>Independent</td><td></td><td>1100</td><td>2250</td></tr>
+                <tr><td>Robot Workers</td><td></td><td>Medicine Hat</td><td>Callahan Mfr</td><td>Commonwealth</td><td>5+</td><td>1408</td><td>2250</td></tr>
+                <tr><td>Robotic Warriors</td><td></td><td>Nimpoo</td><td>Stantz Mfr</td><td>Commonwealth</td><td></td><td>1774</td><td>3375</td></tr>
+                <tr><td>Robotics</td><td></td><td>Missouri</td><td>Joplin</td><td>Independent</td><td></td><td></td><td></td></tr>
+                <tr><td>Scag</td><td style="color: #ff4000;">X</td><td>Dakota</td><td>Darius Junction</td><td>Red Devils</td><td></td><td></td><td></td></tr>
+                <tr><td>Scag</td><td style="color: #ff4000;">X</td><td>Gore</td><td>Zadar</td><td>Independent</td><td></td><td>1892</td><td>3015</td></tr>
+                <tr><td>Scag</td><td style="color: #ff4000;">X</td><td>Taggart</td><td>Noir</td><td>Red Devils</td><td></td><td>4529</td><td>3015</td></tr>
+                <tr><td>Soja-Paste</td><td></td><td>Dakota</td><td>Astoria</td><td>Independent</td><td></td><td>351</td><td>553</td></tr>
+                <tr><td>Soja-Paste</td><td></td><td>Missouri</td><td>Port Jefferson</td><td>Commonwealth</td><td></td><td>371</td><td>553</td></tr>
+                <tr><td>Soja-Paste</td><td></td><td>Montana</td><td>Port Belgrade</td><td>Independent</td><td>10+</td><td>311</td><td>553</td></tr>
+                <tr><td>Soja-Paste</td><td></td><td>Texas</td><td>Austin</td><td>Commonwealth</td><td></td><td>349</td><td>553</td></tr>
+                <tr><td>Steel</td><td></td><td>Kansas</td><td>Lola</td><td>Independent</td><td></td><td>256</td><td></td></tr>
+                <tr><td>Steel</td><td></td><td>Laredo</td><td>Saguard Refindery</td><td>Independent</td><td></td><td>330</td><td>455</td></tr>
+                <tr><td>Stolen Freight</td><td style="color: #ff4000;">X</td><td>Discouragement</td><td>Velos Casino</td><td>Independent</td><td></td><td>382</td><td>700</td></tr>
+                <tr><td>Stolen Freight</td><td style="color: #ff4000;">X</td><td>Juarez</td><td>Loreto</td><td>Independent</td><td></td><td>439</td><td>700</td></tr>
+                <tr><td>Stolen Freight</td><td style="color: #ff4000;">X</td><td>Merlin</td><td>Blacknight</td><td>Red Devils</td><td></td><td>380</td><td>700</td></tr>
+                <tr><td>Stolen Freight</td><td style="color: #ff4000;">X</td><td>Merlin</td><td>Pellinore Outpost</td><td>Independent</td><td></td><td>459</td><td>700</td></tr>
+                <tr><td>Stolen Freight</td><td style="color: #ff4000;">X</td><td>Thibodaux</td><td>Bonnaire Mfrs</td><td>Independent</td><td></td><td>389</td><td>700</td></tr>
+                <tr><td>Stolen Freight</td><td style="color: #ff4000;">X</td><td>Tibodaux</td><td>Dante</td><td>Red Devils</td><td></td><td>473</td><td>700</td></tr>
+                <tr><td>Stolen Freight</td><td></td><td>Medicine Hat</td><td>Dautry Outpost</td><td>Independent</td><td></td><td>416</td><td>700</td></tr>
+                <tr><td>Sushi-grade Starfish</td><td></td><td>Hitchcock</td><td>Hedren</td><td>Commonwealth</td><td></td><td>1743</td><td>2295</td></tr>
+                <tr><td>Sushi-Grade Starfish</td><td></td><td>Dakota</td><td>Astoria</td><td>Independent</td><td></td><td>1426</td><td>2295</td></tr>
+                <tr><td>Sushi-Grade Starfish</td><td></td><td>Mississippi</td><td>Manatchie</td><td>Independent</td><td>10+</td><td>1321</td><td>2295</td></tr>
+                <tr><td>Sushi-Grade Starfish</td><td></td><td>Montana</td><td>Port Belgrade</td><td>Independent</td><td></td><td>1368</td><td>2295</td></tr>
+                <tr><td>Vat-Grown Tissues</td><td style="color: #ff4000;">X</td><td>Slaughter</td><td>Harbringer Exchange</td><td>Independent</td><td></td><td>5566</td><td>3000</td></tr>
+                <tr><td>Vat-Grown Tissues</td><td style="color: #ff4000;">X</td><td>Slaughter</td><td>Harbringer Exchange</td><td>Independent</td><td></td><td>2233</td><td>3000</td></tr>
+                <tr><td>Void</td><td style="color: #ff4000;">X</td><td>Alabama</td><td>Arbuthnott</td><td>Independent</td><td></td><td>3394</td><td>4500</td></tr>
+                <tr><td>Void</td><td style="color: #ff4000;">X</td><td>Taggart</td><td>Rasmussen</td><td>Independent</td><td></td><td></td><td></td></tr>
+              </tbody>
+              <tfoot></tfoot>
+            </table>
+          </details>
+        </section>
+
+        <section>
+          <details class="details_1" style="color: #aaaaaa;" close>
             <summary>Cheats</summary>
-            <div class="quest_text">Cheats im Hauptbildschirm eingeben</div>
-
-            <details class="details_2" style="color: #aaaaaa;" close>
-              <summary>Alle Waffen</summary>
-              <div class="quest_text"></div>
-              <div class="quest_answer"></div>
-              <div class="cheat_list">
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Up.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Up.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Down.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Down.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Left.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Right.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Left.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Right.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Down.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Button_Triangle.png"></img>
-            </div>
-            </details>
-
-            <details class="details_2" style="color: #aaaaaa;" close>
-              <summary>Alle Gegenstände & Munition</summary>
-              <div class="quest_text"></div>
-              <div class="quest_answer"></div>
-              <div class="cheat_list">
-                <img class="cheat_button" src="../../../assets/ps_buttons/Button_Triangle.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Down.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Right.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Left.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Right.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Left.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Up.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Down.png"></img>
-                <img class="cheat_button" src="../../../assets/ps_buttons/Arrow_Up.png"></img>
-            </div>
-            </details>
-
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="download_icon design_padding_01" rowspan="2"><img src="../../PlayStation Jailbreak/icons/PS5.png"></img></td>
+                <td class="design_header_01 design_padding_01">.shn-Cheat-File</td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="download_desc" rowspan="3">Cheat-File für PS4 & PS5:<br>Schildenergie, Schiffshülle, Waffenenergie, Raketen, Nachbrenner, Sprungantrieb, Geld</td></tr>
+              <tr class="tr_video_scripts"><td class="download_banner design_padding_01" onclick="download('cheat_shn__________');">Download</a></td></tr>
+            </table>
           </details>
         </section>
 
@@ -106,4 +271,19 @@
       background.play();bg_playing = 'true';
     }
   }
+  function download(obj) {
+  if (obj == 'cheat_shn__________') {url = 'cheats/CUSA20605_01.04.shn'}
+  else if (obj == 'cheat_shn__________') {url = 'downloads/ps5_autoloader.zip'}
+  else if (obj == 'y2jb_update________') {url = 'downloads/y2jb_update.zip'}
+  else if (obj == 'y2jb_update_creator') {url = 'downloads/Y2JB Update-Creator.zip'}
+  else if (obj == 'mb_payload_sender__') {url = 'downloads/MB Payload-Sender.apk'}
+  else if (obj == 'etaHEN_____________') {url = 'downloads/PS5 etaHEN 2.4b.bin'}
+  else if (obj == 'airPSX_____________') {url = 'downloads/PS5 airPSX 0.19.elf'}
+  var link = document.createElement("a");
+  link.href = url;
+  link.download = url.split('/').pop();
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
 </script>
