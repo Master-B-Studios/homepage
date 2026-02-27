@@ -394,7 +394,7 @@ function parseXMLTrainer(xmlText) {
       const block = add_offset(cheatId, section);
       if (!block) continue;
       const offset = (line.querySelector("Offset")?.textContent || "").toUpperCase();
-      const valueSection = (line.querySelector("Section")?.textContent || "");
+      const valueSection = (line.querySelector("Section")?.textContent || "0");
       const valueOn = formatHexInput(line.querySelector("ValueOn")?.textContent || "");
       const valueOff = formatHexInput(line.querySelector("ValueOff")?.textContent || "");
       block.querySelector(".hex_offset").textContent = offset;
@@ -437,7 +437,7 @@ function parseMC4Trainer(xmlText) {
       const block = add_offset(cheatId, section);
       if (!block) return;
       const offset = line.querySelector("Offset")?.textContent.trim().toUpperCase() || "";
-      const valueSection = line.querySelector("Section")?.textContent.replace(/-/g, "").trim() || "";
+      const valueSection = line.querySelector("Section")?.textContent.replace(/-/g, "").trim() || "0";
       const valueOn = line.querySelector("ValueOn")?.textContent.replace(/-/g, "").trim() || "";
       const valueOff = line.querySelector("ValueOff")?.textContent.replace(/-/g, "").trim() || "";
       block.querySelector(".hex_offset").textContent = offset;
