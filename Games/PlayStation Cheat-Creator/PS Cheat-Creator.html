@@ -349,7 +349,7 @@ function parseJSONTrainer(jsonText) {
       const block = add_offset(cheatId, section);
       if (!block) return;
       const offset = (mem.offset || "").toUpperCase();
-      const valueSection = (mem.valueSection || "");
+      const valueSection = (mem.valueSection || "0");
       const valueOn = formatHexInput(mem.on || "");
       const valueOff = formatHexInput(mem.off || "");
       block.querySelector(".hex_offset").textContent = offset;
