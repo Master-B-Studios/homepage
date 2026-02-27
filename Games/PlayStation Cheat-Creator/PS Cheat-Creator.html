@@ -368,13 +368,14 @@ function parseXMLTrainer(xmlText) {
   try {xml = parser.parseFromString(xmlText, "application/xml");}
   catch(e) {alert("Ungültige XML-Datei!");return;}
   const trainer = xml.querySelector("Trainer");
+  const genres = xml.querySelector("Genres");
   if (!trainer) return alert("Ungültiges SHN-Format!");
 
   document.getElementById("game_title").textContent = trainer.getAttribute("Game") || "";
   document.getElementById("game_id").textContent = trainer.getAttribute("Cusa") || "";
   document.getElementById("game_version").textContent = trainer.getAttribute("Version") || "";
   document.getElementById("game_process").textContent = trainer.getAttribute("Process") || "";
-  document.getElementById("game_genre").textContent = trainer.getAttribute("Moder") || "";
+  document.getElementById("game_genre").textContent = genres.getAttribute("Name") || "";
 
   const cheatSectionContainer = document.getElementById("cheat_section");
   cheatSectionContainer.innerHTML = "";
