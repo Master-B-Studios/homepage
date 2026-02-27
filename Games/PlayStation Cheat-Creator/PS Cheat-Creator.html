@@ -438,11 +438,10 @@ function parseMC4Trainer(xmlText) {
       const block = add_offset(cheatId, section);
       if (!block) return;
       const offset = line.querySelector("Offset")?.textContent.trim().toUpperCase() || "";
-      const valueSection = line.querySelector("Section")?.textContent.replace(/-/g, "").trim() || "0";
       const valueOn = line.querySelector("ValueOn")?.textContent.replace(/-/g, "").trim() || "";
       const valueOff = line.querySelector("ValueOff")?.textContent.replace(/-/g, "").trim() || "";
       block.querySelector(".hex_offset").textContent = offset;
-      block.querySelector(".valsection").textContent = valueSection;
+      block.querySelector(".valsection").textContent = "0";
       block.querySelector(".hex_on").textContent = formatHexInput(valueOn);
       block.querySelector(".hex_off").textContent = formatHexInput(valueOff);
     });
