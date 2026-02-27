@@ -177,7 +177,7 @@ function add_offset(cheatId, section = null) {
   wrapper.classList.add("offset-block");
   wrapper.innerHTML = `
     <tr>
-      <td class="table_td_025 text_right">Offset ${offsetCount}:</td>
+      <td class="table_td_025 text_right">Offset ${offsetCount}</td>
       <td class="table_td_025 editable hex_offset" contenteditable="true" colspan="2"></td>
       <td class="icon_td_025 text_center removeOffset">
         <div class="icon_wrapper"><img class="icon" src="../../images/Trash_01.png"></div>
@@ -190,6 +190,10 @@ function add_offset(cheatId, section = null) {
     <tr>
       <td class="table_td_025 text_right">Aus:</td>
       <td class="table_td_025 editable hex_off" contenteditable="true" colspan="3"></td>
+    </tr>
+    <tr>
+      <td class="table_td_025 text_right">Section:</td>
+      <td class="table_td_025 editable valsection" contenteditable="true" colspan="3">0</td>
     </tr>
     <tr class="tr_flipper_gap"><td></td><td></td><td></td><td></td></tr>
   `;
@@ -230,10 +234,11 @@ function generateXML(title, gaId, version, genre, process, modder) {
       const offset = block.querySelector(".hex_offset")?.textContent.trim() || "";
       const valueOn = block.querySelector(".hex_on")?.textContent.trim() || "";
       const valueOff = block.querySelector(".hex_off")?.textContent.trim() || "";
+      const valueSection = block.querySelector(".valsection")?.textContent.trim() || "";
       cheatlinesXML += `
     <Cheatline>
       <Offset>${offset}</Offset>
-      <Section>0</Section>
+      <Section>${valueSection}</Section>
       <ValueOn>${valueOn}</ValueOn>
       <ValueOff>${valueOff}</ValueOff>
     </Cheatline>`;
@@ -344,9 +349,11 @@ function parseJSONTrainer(jsonText) {
       const block = add_offset(cheatId, section);
       if (!block) return;
       const offset = (mem.offset || "").toUpperCase();
+      const valueSection = (mem.valueSection || "");
       const valueOn = formatHexInput(mem.on || "");
       const valueOff = formatHexInput(mem.off || "");
       block.querySelector(".hex_offset").textContent = offset;
+      block.querySelector(".valsection").textContent = valueSection;
       block.querySelector(".hex_on").textContent = valueOn;
       block.querySelector(".hex_off").textContent = valueOff;
     });
@@ -387,9 +394,11 @@ function parseXMLTrainer(xmlText) {
       const block = add_offset(cheatId, section);
       if (!block) continue;
       const offset = (line.querySelector("Offset")?.textContent || "").toUpperCase();
+      const valueSection = (line.querySelector("Section")?.textContent || "");
       const valueOn = formatHexInput(line.querySelector("ValueOn")?.textContent || "");
       const valueOff = formatHexInput(line.querySelector("ValueOff")?.textContent || "");
       block.querySelector(".hex_offset").textContent = offset;
+      block.querySelector(".valsection").textContent = valueSection;
       block.querySelector(".hex_on").textContent = valueOn;
       block.querySelector(".hex_off").textContent = valueOff;
     }
@@ -428,9 +437,11 @@ function parseMC4Trainer(xmlText) {
       const block = add_offset(cheatId, section);
       if (!block) return;
       const offset = line.querySelector("Offset")?.textContent.trim().toUpperCase() || "";
+      const valueSection = line.querySelector("Section")?.textContent.replace(/-/g, "").trim() || "";
       const valueOn = line.querySelector("ValueOn")?.textContent.replace(/-/g, "").trim() || "";
       const valueOff = line.querySelector("ValueOff")?.textContent.replace(/-/g, "").trim() || "";
       block.querySelector(".hex_offset").textContent = offset;
+      block.querySelector(".valsection").textContent = valueSection;
       block.querySelector(".hex_on").textContent = formatHexInput(valueOn);
       block.querySelector(".hex_off").textContent = formatHexInput(valueOff);
     });
