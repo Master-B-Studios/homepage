@@ -307,13 +307,14 @@ async function uploadTrainer() {
     if (ext.endsWith(".mc4")) {
       let xmlText;
       const decodedEntities = decodeHTMLEntities(text.trim());
-      if (decodedEntities.startsWith("&lt;") || decodedEntities.startsWith("<?xml")) {
-        xmlText = cleanMC4XML(decodedEntities);
+      if (decodedEntities.startsWith("&lt;") || decodedEntities.startsWith("<?xml") || decodedEntities.startsWith("?<?xml")) {
+        xmlText = clean_mc4(decodedEntities);
+        console.log(xmlText);
       }
       else {
         const decrypted = await decryptMC4(text);
         if (!decrypted) return;
-        xmlText = cleanMC4XML(decrypted);
+        xmlText = clean_mc4(decrypted);
       }
       parseMC4Trainer(xmlText);
       return;
@@ -456,12 +457,17 @@ function decodeHTMLEntities(text) {
   return textarea.value;
 }
 
-function cleanMC4XML(xmlText) {
+function clean_mc4(xmlText) {
   const textarea = document.createElement("textarea");
   textarea.innerHTML = xmlText;
   xmlText = textarea.value;
-  xmlText = xmlText.replace(/[^\x09\x0A\x0D\x20-\xFF]/g, "");
-  xmlText = xmlText.replace(/\\"/g, '"');
+  if (xmlText.startsWith("&lt;")) {
+        xmlText = xmlText.replace(/[^\x09\x0A\x0D\x20-\xFF]/g, "");
+        xmlText = xmlText.replace(/\\"/g, '"');
+      }
+      else if (xmlText.startsWith("<?xml") || xmlText.startsWith("?<?xml")) {
+        xmlText = xmlText.replace(/\?/g, "");
+      }
   return xmlText;
 }
 
@@ -491,7 +497,7 @@ async function decryptMC4(base64Text) {
     );
 
     const decoder = new TextDecoder("utf-16");
-    return cleanMC4XML(decoder.decode(decrypted));
+    return clean_mc4_1(decoder.decode(decrypted));
 
   }
   catch (e) {
