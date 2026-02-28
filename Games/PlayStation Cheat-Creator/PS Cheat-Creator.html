@@ -13,6 +13,7 @@
     article {font-family: 'JetBrains Mono', monospace;font-weight: 200;letter-spacing: 1px;}
     .table_container {border: 1px solid #444444;border-collapse: separate;border-spacing: 6px;border-collapse: separate;table-layout: fixed;font-size: 0.8em;}
     .table_td_var {width: auto;height: 1.5em;padding: 0.5em;}
+    .table_td_min {width: 1.5em;height: 1.5em;padding: 0.5em;}
     .table_td_025 {width: 25%;height: 1.5em;padding: 0.5em;}
     .table_td_030 {width: 30%;height: 1.5em;padding: 0.5em;}
     .table_td_050 {width: 50%;height: 1.5em;padding: 0.5em;}
@@ -24,13 +25,19 @@
     .text_right {text-align: right;margin: auto;}
     .text_center {text-align: center;margin: auto;}
 
-    .editable {cursor: pointer;background-color: #080808;}
+    .editable {cursor: pointer;background-color: #080808;border: none;outline: none;}
     .editable:hover {color: #00aa44;background-color: #222222;transition: all 1.5s;}
+    .editable:focus {border: none;outline: 1px solid #00aa44;}
 
     .icon_td_025 {width: 25%;padding: 0;cursor: pointer;vertical-align: middle;}
     .icon_wrapper {width: 100%;height: 100%;display: flex;justify-content: center;align-items: center;}
     .icon {max-height: 1.5em;width: auto;display: block;}
     .icon_td_025:hover {background-color: #440000;transition: all 1.5s;}
+
+    .dropdown {position: relative;top: 0.5em;border: 1px solid #00aa44;color: #dddddd;background: #111111;margin-bottom: 0.5em;z-index: 1000;}
+    .dropdown div {padding: 0.5em;cursor: pointer;}
+    .dropdown div:hover {color: #00aa44;background-color: #222222;transition: all 1.5s;}
+    .hidden {display: none;}
   </style>
 </head>
 <body onload="window.location.href = '#playstation';localStorage.getItem('page');" class="is-preload">
@@ -64,7 +71,9 @@
             </tr>
             <tr>
               <td class="table_td_025 text_right">Genre:</td>
-              <td id="game_genre" class="table_td_025 text_center editable" contenteditable="true">Master Studios</td>
+              <td id="game_genre" class="table_td_025 text_center editable" contenteditable="true" onclick="genreDrop();" onblur="hideDropdown();">
+                Master Studios
+              </td>
               <td class="table_td_025 text_right">Prozess:</td>
               <td id="game_process" class="table_td_025 text_center editable" contenteditable="true">eboot.bin</td>
             </tr>
@@ -507,4 +516,31 @@ async function decryptMC4(base64Text) {
     return null;
   }
 }
+
+var genre_add = 0;
+const suggestions = ["Master Studios", "PS1", "PS2", "PS4", "PS5"];
+const td = document.getElementById("game_genre");
+
+function genreDrop() {
+  if (genre_add == 0) {
+    genre_add = 1;
+    td.innerHTML += '<div id="dropdown" class="dropdown hidden"></div>';
+    const dropdown = document.getElementById("dropdown");
+    dropdown.innerHTML = "";
+    suggestions.forEach(option => {
+      const item = document.createElement("div");
+      item.textContent = option;
+      item.addEventListener("mousedown", (e) => {e.preventDefault();td.innerHTML = option;dropdown.classList.add("hidden");genre_add = 0;});
+      dropdown.appendChild(item);
+    });
+  dropdown.classList.remove("hidden");
+  }
+  else if (genre_add == 1) {
+    console.log(genre_add);
+    genre_add = 0;
+    dropdown.classList.remove("hidden");
+    console.log(genre_hide);
+  }
+}
+function hideDropdown() {dropdown.classList.add("hidden");}
 </script>
