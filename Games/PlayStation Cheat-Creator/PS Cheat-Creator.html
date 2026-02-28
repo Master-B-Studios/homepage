@@ -470,6 +470,8 @@ async function decryptMC4(base64Text) {
     const binary = Uint8Array.from(atob(base64Text.trim()), c => c.charCodeAt(0));
     const keyStr = "304c6528f659c766110239a51cl5dd9c";
     const ivStr  = "u@}kzW2u[u(8DWar";
+    //const keyStr = "0x33303463";
+    //const ivStr  = "0x75407D6B";
     const enc = new TextEncoder();
     const keyBytes = enc.encode(keyStr);
     const ivBytes  = enc.encode(ivStr);
