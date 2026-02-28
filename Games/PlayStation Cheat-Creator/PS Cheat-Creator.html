@@ -309,7 +309,6 @@ async function uploadTrainer() {
       const decodedEntities = decodeHTMLEntities(text.trim());
       if (decodedEntities.startsWith("&lt;") || decodedEntities.startsWith("<?xml") || decodedEntities.startsWith("?<?xml")) {
         xmlText = clean_mc4(decodedEntities);
-        console.log(xmlText);
       }
       else {
         const decrypted = await decryptMC4(text);
@@ -462,12 +461,14 @@ function clean_mc4(xmlText) {
   textarea.innerHTML = xmlText;
   xmlText = textarea.value;
   if (xmlText.startsWith("&lt;")) {
-        xmlText = xmlText.replace(/[^\x09\x0A\x0D\x20-\xFF]/g, "");
-        xmlText = xmlText.replace(/\\"/g, '"');
-      }
-      else if (xmlText.startsWith("<?xml") || xmlText.startsWith("?<?xml")) {
-        xmlText = xmlText.replace(/\?/g, "");
-      }
+    xmlText = xmlText.replace(/[^\x09\x0A\x0D\x20-\xFF]/g, "");
+    xmlText = xmlText.replace(/\\/g, "");
+  }
+  else if (xmlText.startsWith("<?xml") || xmlText.startsWith("?<?xml")) {
+    xmlText = xmlText.replace(/\?/g, "");
+    xmlText = xmlText.replace(/\\/g, "");
+  }
+  console.log(xmlText);
   return xmlText;
 }
 
