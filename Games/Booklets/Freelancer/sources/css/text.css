@@ -1,0 +1,42 @@
+/*/ Main Text /*/
+
+.text_standard {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    color: #ffffff;
+}
+
+.text_freelancer {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+    color: #ffffff;
+}
+
+.text_freelancer_credits {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2em;
+    text-align: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+    color: #ffffff;
+}
+
+.jg_link {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em; /* px/16=em */
+    text-align: center;
+    color: #ffffff;
+}
+.jg_link:hover {
+    color: #15ff00;
+}
+
+.poi_link {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em; /* px/16=em */
+    text-align: center;
+    color: #ffffff;
+}

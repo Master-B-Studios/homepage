@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!-- /*
+ * Freelancer-Map For Freelancer Crossfire
+ *
+ * Copyright (C) 2021 by Master B. All rights reserved.
+ */
+ -->
+
+<html lang="de">
+
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<link rel="stylesheet" type="text/css" href="../../css/layout.css">
+<link rel="stylesheet" type="text/css" href="../../css/images.css">
+<link rel="stylesheet" type="text/css" href="../../css/text.css">
+<script type="text/javascript" src="../../js/freelancer.js"></script>
+
+<head><div><img class="sector_overview"  id="Sirius-Sector" onclick="loadmap_big()"src="../../map_images/02_Sectors/Sirius-Sector.jpg"></img></div></head>
+
+<body class="bw">
+<div class="space_horizontal_60"></div>
+
+<div class="systems_table">
+
+	<div class="system_button" id="Alaska" onclick="loadmap_system()">
+	<img id="Alaska" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Alaska">Alaska</p>
+	</div>
+	
+	<div class="system_button" id="Arena" onclick="loadmap_system()">
+	<img id="Arena" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Arena">Arena</p>
+	</div>
+	
+	<div class="system_button" id="Bering" onclick="loadmap_system()">
+	<img id="Bering" src="../../map_images/03_Systems/Sirius/X-Independent.png"></img>
+	<p class="text_freelancer" id="Bering">Bering</p>
+	</div>
+	
+	<div class="system_button" id="California" onclick="loadmap_system()">
+	<img id="California" src="../../map_images/03_Systems/Sirius/X-Liberty.png"></img>
+	<p class="text_freelancer" id="California">California</p>
+	</div>
+	
+	<div class="system_button" id="Cambridge" onclick="loadmap_system()">
+	<img id="Cambridge" src="../../map_images/03_Systems/Sirius/X-Bretonia.png"></img>
+	<p class="text_freelancer" id="Cambridge">Cambridge</p>
+	</div>
+	
+	<div class="system_button" id="Casius" onclick="loadmap_system()">
+	<img id="Casius" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Casius">Casius</p>
+	</div>
+	
+	<div class="system_button" id="Chugoku" onclick="loadmap_system()">
+	<img id="Chugoku" src="../../map_images/03_Systems/Sirius/X-Kusari.png"></img>
+	<p class="text_freelancer" id="Chugoku">Chugoku</p>
+	</div>
+	
+	<div class="system_button" id="Colorado" onclick="loadmap_system()">
+	<img id="Colorado" src="../../map_images/03_Systems/Sirius/X-Liberty.png"></img>
+	<p class="text_freelancer" id="Colorado">Colorado</p>
+	</div>
+	
+	<div class="system_button" id="Coloseum" onclick="loadmap_system()">
+	<img id="Coloseum" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Coloseum">Coloseum</p>
+	</div>
+	
+	<div class="system_button" id="Cortez" onclick="loadmap_system()">
+	<img id="Cortez" src="../../map_images/03_Systems/Sirius/X-Independent.png"></img>
+	<p class="text_freelancer" id="Cortez">Cortez</p>
+	</div>
+	
+	<div class="system_button" id="Custodian" onclick="loadmap_system()">
+	<img id="Custodian" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Custodian">Custodian</p>
+	</div>
+	
+	<div class="system_button" id="Daedalus" onclick="loadmap_system()">
+	<img id="Daedalus" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Daedalus">Daedalus</p>
+	</div>
+	
+	<div class="system_button" id="Death-Valley" onclick="loadmap_system()">
+	<img id="Death-Valley" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Death-Valley">Death Valley</p>
+	</div>
+	
+	<div class="system_button" id="Dervon" onclick="loadmap_system()">
+	<img id="Dervon" src="../../map_images/03_Systems/Sirius/X-Hidden.png"></img>
+	<p class="text_freelancer" id="Dervon">Dervon</p>
+	</div>
+	
+	<div class="system_button" id="Dresden" onclick="loadmap_system()">
+	<img id="Dresden" src="../../map_images/03_Systems/Sirius/X-Rheinland.png"></img>
+	<p class="text_freelancer" id="Dresden">Dresden</p>
+	</div>
+	
+	<div class="system_button" id="Dublin" onclick="loadmap_system()">
+	<img id="Dublin" src="../../map_images/03_Systems/Sirius/X-Bretonia.png"></img>
+	<p class="text_freelancer" id="Dublin">Dublin</p>
+	</div>
+	
+	<div class="system_button" id="Dyson-Sphere" onclick="loadmap_system()">
+	<img id="Dyson-Sphere" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Dyson-Sphere">Dyson Sphere</p>
+	</div>
+	
+	<div class="system_button" id="Edinburgh" onclick="loadmap_system()">
+	<img id="Edinburgh" src="../../map_images/03_Systems/Sirius/X-Bretonia.png"></img>
+	<p class="text_freelancer" id="Edinburgh">Edinburgh</p>
+	</div>
+	
+	<div class="system_button" id="Enigma" onclick="loadmap_system()">
+	<img id="Enigma" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Enigma">Enigma</p>
+	</div>
+	
+	<div class="system_button" id="Enyo" onclick="loadmap_system()">
+	<img id="Enyo" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Enyo">Enyo</p>
+	</div>
+	
+	<div class="system_button" id="Far-Point" onclick="loadmap_system()">
+	<img id="Far-Point" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Far-Point">Far Point</p>
+	</div>
+	
+	<div class="system_button" id="Frankfurt" onclick="loadmap_system()">
+	<img id="Frankfurt" src="../../map_images/03_Systems/Sirius/X-Rheinland.png"></img>
+	<p class="text_freelancer" id="Frankfurt">Frankfurt</p>
+	</div>
+	
+	<div class="system_button" id="Freeport-7" onclick="loadmap_system()">
+	<img id="Freeport-7" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Freeport-7">Freeport 7</p>
+	</div>
+	
+	<div class="system_button" id="Galileo" onclick="loadmap_system()">
+	<img id="Galileo" src="../../map_images/03_Systems/Sirius/X-Independent.png"></img>
+	<p class="text_freelancer" id="Galileo">Galileo</p>
+	</div>
+	
+	<div class="system_button" id="Hamburg" onclick="loadmap_system()">
+	<img id="Hamburg" src="../../map_images/03_Systems/Sirius/X-Rheinland.png"></img>
+	<p class="text_freelancer" id="Hamburg">Hamburg</p>
+	</div>
+	
+	<div class="system_button" id="Helios" onclick="loadmap_system()">
+	<img id="Helios" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Helios">Helios</p>
+	</div>
+	
+	<div class="system_button" id="Hiruga" onclick="loadmap_system()">
+	<img id="Hiruga" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Hiruga">Hiruga</p>
+	</div>
+	
+	<div class="system_button" id="Hokkaido" onclick="loadmap_system()">
+	<img id="Hokkaido" src="../../map_images/03_Systems/Sirius/X-Kusari.png"></img>
+	<p class="text_freelancer" id="Hokkaido">Hokkaido</p>
+	</div>
+	
+	<div class="system_button" id="Honshu" onclick="loadmap_system()">
+	<img id="Honshu" src="../../map_images/03_Systems/Sirius/X-Kusari.png"></img>
+	<p class="text_freelancer" id="Honshu">Honshu</p>
+	</div>
+	
+	<div class="system_button" id="Hudson" onclick="loadmap_system()">
+	<img id="Hudson" src="../../map_images/03_Systems/Sirius/X-Independent.png"></img>
+	<p class="text_freelancer" id="Hudson">Hudson</p>
+	</div>
+	
+	<div class="system_button" id="Hyperion" onclick="loadmap_system()">
+	<img id="Hyperion" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Hyperion">Hyperion</p>
+	</div>
+	
+	<div class="system_button" id="Inner-Cloud" onclick="loadmap_system()">
+	<img id="Inner-Cloud" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Inner-Cloud">Inner Cloud</p>
+	</div>
+	
+	<div class="system_button" id="Kepler" onclick="loadmap_system()">
+	<img id="Kepler" src="../../map_images/03_Systems/Sirius/X-Independent.png"></img>
+	<p class="text_freelancer" id="Kepler">Kepler</p>
+	</div>
+	
+	<div class="system_button" id="Kyushu" onclick="loadmap_system()">
+	<img id="Kyushu" src="../../map_images/03_Systems/Sirius/X-Kusari.png"></img>
+	<p class="text_freelancer" id="Kyushu">Kyushu</p>
+	</div>
+	
+	<div class="system_button" id="Leeds" onclick="loadmap_system()">
+	<img id="Leeds" src="../../map_images/03_Systems/Sirius/X-Bretonia.png"></img>
+	<p class="text_freelancer" id="Leeds">Leeds</p>
+	</div>
+	
+	<div class="system_button" id="Lost-Paradise" onclick="loadmap_system()">
+	<img id="Lost-Paradise" src="../../map_images/03_Systems/Sirius/X-Hidden.png"></img>
+	<p class="text_freelancer" id="Lost-Paradise">Lost Paradise</p>
+	</div>
+	
+	<div class="system_button" id="Lower-Unknown" onclick="loadmap_system()">
+	<img id="Lower-Unknown" src="../../map_images/03_Systems/Sirius/X-Unknown.png"></img>
+	<p class="text_freelancer" id="Lower-Unknown">Lower Unknown</p>
+	</div>
+	
+	<div class="system_button" id="Magellan" onclick="loadmap_system()">
+	<img id="Magellan" src="../../map_images/03_Systems/Sirius/X-Independent.png"></img>
+	<p class="text_freelancer" id="Magellan">Magellan</p>
+	</div>
+	
+	<div class="system_button" id="Manchester" onclick="loadmap_system()">
+	<img id="Manchester" src="../../map_images/03_Systems/Sirius/X-Bretonia.png"></img>
+	<p class="text_freelancer" id="Manchester">Manchester</p>
+	</div>
+	
+	<div class="system_button" id="Midpoint-Rift" onclick="loadmap_system()">
+	<img id="Midpoint-Rift" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Midpoint-Rift">Midpoint Rift</p>
+	</div>
+	
+	<div class="system_button" id="Neophobos" onclick="loadmap_system()">
+	<img id="Neophobos" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Neophobos">Neophobos</p>
+	</div>
+	
+	<div class="system_button" id="Nephele" onclick="loadmap_system()">
+	<img id="Nephele" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Nephele">Nephele</p>
+	</div>
+	
+	<div class="system_button" id="New-Berlin" onclick="loadmap_system()">
+	<img id="New-Berlin" src="../../map_images/03_Systems/Sirius/X-Rheinland.png"></img>
+	<p class="text_freelancer" id="New-Berlin">New Berlin</p>
+	</div>
+	
+	<div class="system_button" id="New-London" onclick="loadmap_system()">
+	<img id="New-London" src="../../map_images/03_Systems/Sirius/X-Bretonia.png"></img>
+	<p class="text_freelancer" id="New-London">New London</p>
+	</div>
+	
+	<div class="system_button" id="New-Tokyo" onclick="loadmap_system()">
+	<img id="New-Tokyo" src="../../map_images/03_Systems/Sirius/X-Kusari.png"></img>
+	<p class="text_freelancer" id="New-Tokyo">New Tokyo</p>
+	</div>
+	
+	<div class="system_button" id="New-York" onclick="loadmap_system()">
+	<img id="New-York" src="../../map_images/03_Systems/Sirius/X-Liberty.png"></img>
+	<p class="text_freelancer" id="New-York">New York</p>
+	</div>
+	
+	<div class="system_button" id="Nomads-Lair" onclick="loadmap_system()">
+	<img id="Nomads-Lair" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Nomads-Lair">Nomads Lair</p>
+	</div>
+	
+	<div class="system_button" id="Oasis" onclick="loadmap_system()">
+	<img id="Oasis" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Oasis">Oasis</p>
+	</div>
+	
+	<div class="system_button" id="Omega-3" onclick="loadmap_system()">
+	<img id="Omega-3" src="../../map_images/03_Systems/Sirius/X-Border.png"></img>
+	<p class="text_freelancer" id="Omega-3">Omega-3</p>
+	</div>
+		
+	<div class="system_button" id="Omega-5" onclick="loadmap_system()">
+	<img id="Omega-5" src="../../map_images/03_Systems/Sirius/X-Border.png"></img>
+	<p class="text_freelancer" id="Omega-5">Omega-5</p>
+	</div>
+		
+	<div class="system_button" id="Omega-7" onclick="loadmap_system()">
+	<img id="Omega-7" src="../../map_images/03_Systems/Sirius/X-Border.png"></img>
+	<p class="text_freelancer" id="Omega-7">Omega-7</p>
+	</div>
+	
+	<div class="system_button" id="Omega-11" onclick="loadmap_system()">
+	<img id="Omega-11" src="../../map_images/03_Systems/Sirius/X-Border.png"></img>
+	<p class="text_freelancer" id="Omega-11">Omega-11</p>
+	</div>
+	
+	<div class="system_button" id="Omega-41" onclick="loadmap_system()">
+	<img id="Omega-41" src="../../map_images/03_Systems/Sirius/X-Edge.png"></img>
+	<p class="text_freelancer" id="Omega-41">Omega-41</p>
+	</div>
+	
+	<div class="system_button" id="Omicron-Alpha" onclick="loadmap_system()">
+	<img id="Omicron-Alpha" src="../../map_images/03_Systems/Sirius/X-Hispania.png"></img>
+	<p class="text_freelancer" id="Omicron-Alpha">Omicron Alpha</p>
+	</div>
+	
+	<div class="system_button" id="Omicron-Beta" onclick="loadmap_system()">
+	<img id="Omicron-Beta" src="../../map_images/03_Systems/Sirius/X-Hispania.png"></img>
+	<p class="text_freelancer" id="Omicron-Beta">Omicron Beta</p>
+	</div>
+	
+	<div class="system_button" id="Omicron-Gamma" onclick="loadmap_system()">
+	<img id="Omicron-Gamma" src="../../map_images/03_Systems/Sirius/X-Edge.png"></img>
+	<p class="text_freelancer" id="Omicron-Gamma">Omicron Gamma</p>
+	</div>
+	
+	<div class="system_button" id="Omicron-Minor" onclick="loadmap_system()">
+	<img id="Omicron-Minor" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Omicron-Minor">Omicron Minor</p>
+	</div>
+	
+	<div class="system_button" id="Omicron-Theta" onclick="loadmap_system()">
+	<img id="Omicron-Theta" src="../../map_images/03_Systems/Sirius/X-Edge.png"></img>
+	<p class="text_freelancer" id="Omicron-Theta">Omicron Theta</p>
+	</div>
+	
+	<div class="system_button" id="Outer-Dyson-Sphere" onclick="loadmap_system()">
+	<img id="Outer-Dyson-Sphere" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Outer-Dyson-Sphere">Outer Dyson Sphere</p>
+	</div>
+	
+	<div class="system_button" id="Purian-Lake" onclick="loadmap_system()">
+	<img id="Purian-Lake" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Purian-Lake">Purian Lake</p>
+	</div>
+	
+	<div class="system_button" id="Quantos" onclick="loadmap_system()">
+	<img id="Quantos" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Quantos">Quantos</p>
+	</div>
+	
+	<div class="system_button" id="Regalis" onclick="loadmap_system()">
+	<img id="Regalis" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Regalis">Regalis</p>
+	</div>
+	
+	<div class="system_button" id="Sea-Of-Shadows" onclick="loadmap_system()">
+	<img id="Sea-Of-Shadows" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Sea-Of-Shadows">Sea Of Shadows</p>
+	</div>
+	
+	<div class="system_button" id="Sekar" onclick="loadmap_system()">
+	<img id="Sekar" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Sekar">Sekar</p>
+	</div>
+	
+	<div class="system_button" id="Seltos" onclick="loadmap_system()">
+	<img id="Seltos" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Seltos">Seltos</p>
+	</div>
+	
+	<div class="system_button" id="Shikoku" onclick="loadmap_system()">
+	<img id="Shikoku" src="../../map_images/03_Systems/Sirius/X-Kusari.png"></img>
+	<p class="text_freelancer" id="Shikoku">Shikoku</p>
+	</div>
+	
+	<div class="system_button" id="Sigma-13" onclick="loadmap_system()">
+	<img id="Sigma-13" src="../../map_images/03_Systems/Sirius/X-Border.png"></img>
+	<p class="text_freelancer" id="Sigma-13">Sigma-13</p>
+	</div>
+	
+	<div class="system_button" id="Sigma-17" onclick="loadmap_system()">
+	<img id="Sigma-17" src="../../map_images/03_Systems/Sirius/X-Border.png"></img>
+	<p class="text_freelancer" id="Sigma-17">Sigma-17</p>
+	</div>
+	
+	<div class="system_button" id="Sigma-19" onclick="loadmap_system()">
+	<img id="Sigma-19" src="../../map_images/03_Systems/Sirius/X-Border.png"></img>
+	<p class="text_freelancer" id="Sigma-19">Sigma-19</p>
+	</div>
+	
+	<div class="system_button" id="Stuttgart" onclick="loadmap_system()">
+	<img id="Stuttgart" src="../../map_images/03_Systems/Sirius/X-Rheinland.png"></img>
+	<p class="text_freelancer" id="Stuttgart">Stuttgart</p>
+	</div>
+	
+	<div class="system_button" id="Tarsus" onclick="loadmap_system()">
+	<img id="Tarsus" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Tarsus">Tarsus</p>
+	</div>
+	
+	<div class="system_button" id="Tau-23" onclick="loadmap_system()">
+	<img id="Tau-23" src="../../map_images/03_Systems/Sirius/X-Border.png"></img>
+	<p class="text_freelancer" id="Tau-23">Tau-23</p>
+	</div>
+	
+	<div class="system_button" id="Tau-29" onclick="loadmap_system()">
+	<img id="Tau-29" src="../../map_images/03_Systems/Sirius/X-Border.png"></img>
+	<p class="text_freelancer" id="Tau-29">Tau-29</p>
+	</div>
+	
+	<div class="system_button" id="Tau-31" onclick="loadmap_system()">
+	<img id="Tau-31" src="../../map_images/03_Systems/Sirius/X-Border.png"></img>
+	<p class="text_freelancer" id="Tau-31">Tau-31</p>
+	</div>
+	
+	<div class="system_button" id="Tau-37" onclick="loadmap_system()">
+	<img id="Tau-37" src="../../map_images/03_Systems/Sirius/X-Hispania.png"></img>
+	<p class="text_freelancer" id="Tau-37">Tau-37</p>
+	</div>
+	
+	<div class="system_button" id="Telosis" onclick="loadmap_system()">
+	<img id="Telosis" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Telosis">Telosis</p>
+	</div>
+	
+	<div class="system_button" id="Texas" onclick="loadmap_system()">
+	<img id="Texas" src="../../map_images/03_Systems/Sirius/X-Liberty.png"></img>
+	<p class="text_freelancer" id="Texas">Texas</p>
+	</div>
+	
+	<div class="system_button" id="The-Corridor" onclick="loadmap_system()">
+	<img id="The-Corridor" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="The-Corridor">The Corridor</p>
+	</div>
+	
+	<div class="system_button" id="Tohoku" onclick="loadmap_system()">
+	<img id="Tohoku" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Tohoku">Tohoku</p>
+	</div>
+	
+	<div class="system_button" id="Unknown-1" onclick="loadmap_system()">
+	<img id="Unknown-1" src="../../map_images/03_Systems/Sirius/X-Unknown.png"></img>
+	<p class="text_freelancer" id="Unknown-1">Unknown 1</p>
+	</div>
+	
+	<div class="system_button" id="Unknown-2" onclick="loadmap_system()">
+	<img id="Unknown-2" src="../../map_images/03_Systems/Sirius/X-Unknown.png"></img>
+	<p class="text_freelancer" id="Unknown-2">Unknown 2</p>
+	</div>
+	
+	<div class="system_button" id="Unknown-3" onclick="loadmap_system()">
+	<img id="Unknown-3" src="../../map_images/03_Systems/Sirius/X-Unknown.png"></img>
+	<p class="text_freelancer" id="Unknown-3">Unknown 3</p>
+	</div>
+	
+	<div class="system_button" id="Upper-Unknown" onclick="loadmap_system()">
+	<img id="Upper-Unknown" src="../../map_images/03_Systems/Sirius/X-Unknown.png"></img>
+	<p class="text_freelancer" id="Upper-Unknown">Upper Unknown</p>
+	</div>
+	
+	<div class="system_button" id="Utopia" onclick="loadmap_system()">
+	<img id="Utopia" src="../../map_images/03_Systems/Sirius/X-Rheinland.png"></img>
+	<p class="text_freelancer" id="Utopia">Utopia</p>
+	</div>
+	
+	<div class="system_button" id="Vega" onclick="loadmap_system()">
+	<img id="Vega" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Vega">Vega</p>
+	</div>
+	
+	<div class="system_button" id="Vespus" onclick="loadmap_system()">
+	<img id="Vespus" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Vespus">Vespus</p>
+	</div>
+	
+	<div class="system_button" id="Wanderers-Pond" onclick="loadmap_system()">
+	<img id="Wanderers-Pond" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Wanderers-Pond">Wanderer's Pond</p>
+	</div>
+	
+	<div class="system_button" id="Wheel-Of-Sirius" onclick="loadmap_system()">
+	<img id="Wheel-Of-Sirius" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="Wheel-Of-Sirius">Wheel Of Sirius</p>
+	</div>
+	
+	<div class="system_button" id="X-3043" onclick="loadmap_system()">
+	<img id="X-3043" src="../../map_images/03_Systems/Sirius/X-Crossfire.png"></img>
+	<p class="text_freelancer" id="X-3043">X-3043</p>
+	</div>
+	
+</div>
+<div class="space_horizontal_60"></div>
+</body>
+</html>

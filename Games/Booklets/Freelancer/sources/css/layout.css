@@ -1,0 +1,52 @@
+/*/ Main Colors /*/
+
+.bw {
+    background-color: black;
+    color: white;
+}
+
+
+/*/ Spaces /*/
+
+.space_vertical_20 {
+    justify-content: space-between;
+    width: 20px;
+}
+
+.space_horizontal_60 {
+    justify-content: space-between;
+    height: 60px;
+}
+
+.space_horizontal_300 {
+    justify-content: space-between;
+    height: 300px;
+}
+
+
+/*/ Table-Layouts /*/
+
+.sectors_table {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: space-around;
+}
+.systems_table {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: space-around;
+}
+.poi_table {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: space-around;
+}
