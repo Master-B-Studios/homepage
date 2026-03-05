@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>Wing Over</title>
+  <title>Freelancer</title>
   <meta charset="utf-8"></meta>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
   <link rel="icon" type="image/x-icon" href="../../../images/MB_Icon_01.png"></link>
   <link rel="stylesheet" href="../../../assets/css/main.css"></link>
+  <style>
+    .map_container {width: 100%;height: auto;cursor: normal;}
+    .map_container svg {width: 100%;height: auto;cursor: normal;}
+    .planet {filter: drop-shadow(0 0 0 6px black);transition: transform 0.2s ease, filter 0.2s ease;}
+    .overlay {opacity: 0.5;transform-box: fill-box;transform-origin: center;}
+    .overlay:hover {opacity: 0.8;transform: scale(1.6);}
+  </style>
 </head>
 <body onload="window.location.href = '#content';" class="is-preload">
   <audio id="soundtrack" loop src="audio/Soundtrack.mp3" type="audio/mpeg"></audio>
@@ -21,15 +28,36 @@
     
     <div id="main">
       <article id="content" class="panel">
-        <header><h2>Wing Over</h2></header>
+        <header><h2>Freelancer</h2></header>
         <section>
           <div class="soundtrack_container">
-            <img class="soundtrack_background" src="cover/Wing Over - Poster.jpg"></img>
+            <img class="soundtrack_background" src="cover/Freelancer - Poster.jpg"></img>
             <div class="soundtrack_control_container" onclick="bg_music();">
               <img class="soundtrack_control" src="../../../images/button_play_01.png"></img>
               <p class="soundtrack_text">Soundtrack Abspielen</p>
             </div>
           </div>
+        </section>
+
+        <section>
+          <details class="details_1" style="color: #1fff50;" open>
+            <summary>Map</summary>
+
+            <div class="map_container">
+              <svg viewBox="0 0 1920 1080">
+                <image href="sources/map_images/01_Galaxy/galaxy.jpg" width="1920" height="1080"/>
+                <g class="planet" onclick="planetClick('Merkur')">
+                  <image href="sources/map_images/01_Galaxy/Sirius.png" x="1100" y="0" width="620" height="620" style="transform: rotate(170deg);filter: brightness(0);transform-origin: center;" />
+                  <image href="sources/map_images/01_Galaxy/Sirius.png" x="1100" y="0" width="600" height="600" style="transform: rotate(170deg);transform-origin: center;" />
+                </g>
+                <g class="planet"onclick="planetClick('Merkur')"><image href="sources/map_images/01_Galaxy/Altair.png" class="overlay" x="1370" y="500" width="250" height="250" style="rotate: 80deg;"/></g>
+                <g class="planet"onclick="planetClick('Merkur')"><image href="sources/map_images/01_Galaxy/Canis.png" class="overlay" x="650" y="770" width="300" height="300" style="rotate: 0deg;"/></g>
+                <g class="planet"onclick="planetClick('Merkur')"><image href="sources/map_images/01_Galaxy/Inner_Core.png" class="overlay" x="750" y="450" width="200" height="200"/></g>
+                <g class="planet"onclick="planetClick('Merkur')"><image href="sources/map_images/01_Galaxy/Sol.png" class="overlay" x="300" y="500" width="250" height="250" style="rotate: 240deg;"/></g>
+              </svg>
+            </div>
+
+          </details>
         </section>
 
         <section>
@@ -108,4 +136,8 @@
       background.play();bg_playing = 'true';
     }
   }
+
+  function planetClick(name) {
+  alert("Du hast " + name + " geklickt!");
+}
 </script>
