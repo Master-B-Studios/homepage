@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../maps.css">
+</head>
+<body>
+
+<div id="galaxy_overview" class="map_container">
+  <svg viewBox="0 0 1080 1080" style="cursor: default;">
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="40" refX="40" refY="5" orient="auto">
+        <polygon points="0 0, 10 5, 0 10" fill="#dbdbdb"/>
+      </marker>
+    </defs>
+    <image href="Galaxy_Overview.jpg" width="1080" height="1080"/>
+    
+    <g class="connectors">
+      <line x1="720" y1="380" x2="260" y2="400" stroke="#dbdbdb" stroke-width="2" marker-end="url(#arrowhead)"/>
+      <line x1="720" y1="380" x2="550" y2="510" stroke="#dbdbdb" stroke-width="2"/>
+      <line x1="720" y1="380" x2="480" y2="640" stroke="#dbdbdb" stroke-width="2"/>
+      <line x1="660" y1="760" x2="550" y2="510" stroke="#dbdbdb" stroke-width="2"/>
+      <line x1="260" y1="400" x2="480" y2="640" stroke="#dbdbdb" stroke-width="2"/>
+    </g>
+    
+    <text x="540" y="80" font-size="50" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Galaxy Overview</text>
+    
+    <g id="altair_____pointer" data-system="altair____" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="680" y="340" width="80" height="80" class="red____img"/>
+      <text x="720" y="434" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Altair</text>
+    </g>
+    <g id="canis______pointer" data-system="canis_____" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="620" y="720" width="80" height="80" class="green__img"/>
+      <text x="660" y="814" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Canis</text>
+    </g>
+    <g id="inner_core_pointer" data-system="inner_core" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="510" y="470" width="80" height="80" class="orange_img"/>
+      <text x="550" y="564" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Inner Core</text>
+    </g>
+    <g id="sirius_____pointer" data-system="sirius____" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="220" y="360" width="80" height="80" class="blue___img"/>
+      <text x="260" y="454" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Sirius</text>
+    </g>
+    <g id="sol________pointer" data-system="sol_______" class="planet overlay trans_center" onclick="parent.parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="440" y="600" width="80" height="80" class="yellow_img"/>
+      <text x="480" y="694" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Sol</text>
+    </g>
+  </svg>
+</div>
+
+<div class="map_texts">
+  <div id="altair_____texxter" data-system="altair____" class="txt red____txt" onclick="parent.system_click(this);">Altair</div>
+  <div id="canis______texxter" data-system="canis_____" class="txt green__txt" onclick="parent.system_click(this);">Canis</div>
+  <div id="inner_core_texxter" data-system="inner_core" class="txt orange_txt" onclick="parent.system_click(this);">Inner Core</div>
+  <div id="sirius_____texxter" data-system="sirius____" class="txt blue___txt" onclick="parent.system_click(this);">Sirius</div>
+  <div id="sol________texxter" data-system="sol_______" class="txt yellow_txt" onclick="parent.system_click(this);">Sol</div>
+</div>
+
+</body>
+</html>
+<script src="../maps.js"></script>

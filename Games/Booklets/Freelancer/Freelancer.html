@@ -7,11 +7,7 @@
   <link rel="icon" type="image/x-icon" href="../../../images/MB_Icon_01.png"></link>
   <link rel="stylesheet" href="../../../assets/css/main.css"></link>
   <style>
-    .map_container {width: 100%;height: auto;cursor: normal;}
-    .map_container svg {width: 100%;height: auto;cursor: normal;}
-    .planet {filter: drop-shadow(0 0 0 6px black);transition: transform 0.2s ease, filter 0.2s ease;}
-    .overlay {opacity: 0.5;transform-box: fill-box;transform-origin: center;}
-    .overlay:hover {opacity: 0.8;transform: scale(1.6);}
+  .map_frame {width: 100%;height: 900px;border: none;}
   </style>
 </head>
 <body onload="window.location.href = '#content';" class="is-preload">
@@ -43,19 +39,7 @@
           <details class="details_1" style="color: #1fff50;" open>
             <summary>Map</summary>
 
-            <div class="map_container">
-              <svg viewBox="0 0 1920 1080">
-                <image href="sources/map_images/01_Galaxy/galaxy.jpg" width="1920" height="1080"/>
-                <g class="planet" onclick="planetClick('Merkur')">
-                  <image href="sources/map_images/01_Galaxy/Sirius.png" x="1100" y="0" width="620" height="620" style="transform: rotate(170deg);filter: brightness(0);transform-origin: center;" />
-                  <image href="sources/map_images/01_Galaxy/Sirius.png" x="1100" y="0" width="600" height="600" style="transform: rotate(170deg);transform-origin: center;" />
-                </g>
-                <g class="planet"onclick="planetClick('Merkur')"><image href="sources/map_images/01_Galaxy/Altair.png" class="overlay" x="1370" y="500" width="250" height="250" style="rotate: 80deg;"/></g>
-                <g class="planet"onclick="planetClick('Merkur')"><image href="sources/map_images/01_Galaxy/Canis.png" class="overlay" x="650" y="770" width="300" height="300" style="rotate: 0deg;"/></g>
-                <g class="planet"onclick="planetClick('Merkur')"><image href="sources/map_images/01_Galaxy/Inner_Core.png" class="overlay" x="750" y="450" width="200" height="200"/></g>
-                <g class="planet"onclick="planetClick('Merkur')"><image href="sources/map_images/01_Galaxy/Sol.png" class="overlay" x="300" y="500" width="250" height="250" style="rotate: 240deg;"/></g>
-              </svg>
-            </div>
+            <iframe id="map_view" class="map_frame" src="maps/02_Sectors/Altair.html"></iframe>
 
           </details>
         </section>
@@ -137,7 +121,14 @@
     }
   }
 
-  function planetClick(name) {
-  alert("Du hast " + name + " geklickt!");
-}
+  var system_active = '';
+  var system_new = '';
+
+  var map_view = document.getElementById('map_view');
+  
+  function system_click(obj) {
+    var name_sys = obj.dataset.system;
+    if (name_sys == 'altair____') {map_view.src = 'maps/02_Sectors/Altair.html'}
+  }
+  
 </script>

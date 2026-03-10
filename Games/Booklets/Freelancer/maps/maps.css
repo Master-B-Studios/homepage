@@ -1,0 +1,29 @@
+@font-face {font-family: "Freelancer";src: url("../fonts/normal.ttf") format("truetype");font-weight: normal;font-style: normal;}
+.map_container {width: 100%;height: auto;cursor: default;font-family: "Freelancer", sans-serif;}
+.map_container svg {width: 100%;height: auto;}
+.planet {filter: drop-shadow(0 0 0 6px black);transition: transform 0.5s ease, filter 0.5s ease;}
+.overlay {transform-box: fill-box;cursor: pointer;filter: drop-shadow(0 0 0 #000000) drop-shadow(0 0 4px #000000);position: relative;z-index: 10;}
+.trans_center {transform-origin: center;}
+.trans_left {transform-origin: left;}
+.trans_right {transform-origin: right;}
+.overlay image {opacity: 1;position: relative;z-index: 10;}
+.overlay text {fill: #dbdbdb;stroke: #000000;stroke-width: 4px;paint-order: stroke;position: relative;z-index: 10;}
+.overlay:hover {position: relative;z-index: 100;}
+.overlay:hover image {opacity: 1;position: relative;z-index: 100;}
+
+.scale-active {transform: scale(1.6);position: relative;z-index: 100;}
+
+.map_texts {width: 100%;height: auto;cursor: default;font-family: "Freelancer", sans-serif;display: flex;justify-content: space-evenly;margin-top: 1em;}
+.txt {cursor: pointer;filter: drop-shadow(0 0 0 #000000) drop-shadow(0 0 4px #000000);transition: transform 0.5s ease, filter 0.5s ease;position: relative;z-index: 10;}
+.txt:hover {transform: scale(1.6);position: relative;z-index: 100;}
+
+.orange_img {filter: brightness(0) saturate(100%) invert(50%) sepia(100%) saturate(500%) hue-rotate(0deg) brightness(100%) contrast(100%);}
+.orange_txt {color: #CB7F09;}
+.yellow_img {filter: brightness(0) saturate(100%) invert(80%) sepia(70%) saturate(500%) hue-rotate(0deg) brightness(100%) contrast(100%);}
+.yellow_txt {color: #DAC22A;}
+.red____img {filter: brightness(0) saturate(100%) invert(40%) sepia(100%) saturate(500%) hue-rotate(320deg) brightness(100%) contrast(100%);}
+.red____txt {color: #D75445;}
+.green__img {filter: brightness(0) saturate(100%) invert(40%) sepia(100%) saturate(500%) hue-rotate(130deg) brightness(100%) contrast(100%);}
+.green__txt {color: #0B8980;}
+.blue___img {filter: brightness(0) saturate(100%) invert(50%) sepia(100%) saturate(500%) hue-rotate(180deg) brightness(100%) contrast(100%);}
+.blue___txt {color: #428DD4;}

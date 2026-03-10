@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../maps.css">
+</head>
+<body>
+
+<div id="galaxy_overview" class="map_container">
+  <svg viewBox="0 0 1080 1080" style="cursor: default;">
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="40" refX="40" refY="5" orient="auto">
+        <polygon points="0 0, 10 5, 0 10" fill="#dbdbdb"/>
+      </marker>
+    </defs>
+    <image href="Altair.jpg" width="1080" height="1080"/>
+    <image href="Altair-Sector.jpg" width="1080" height="1080"/>
+    
+    <g class="connectors">
+      <line x1="720" y1="380" x2="260" y2="400" stroke="#dbdbdb" stroke-width="2" marker-end="url(#arrowhead)"/>
+      <line x1="720" y1="380" x2="550" y2="510" stroke="#dbdbdb" stroke-width="2"/>
+      <line x1="720" y1="380" x2="480" y2="640" stroke="#dbdbdb" stroke-width="2"/>
+      <line x1="660" y1="760" x2="550" y2="510" stroke="#dbdbdb" stroke-width="2"/>
+      <line x1="260" y1="400" x2="480" y2="640" stroke="#dbdbdb" stroke-width="2"/>
+    </g>
+    
+    <text x="540" y="80" font-size="50" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Altair Sector</text>
+    
+    <g data-system="Tomsk" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/System_Pointer_Coalition.png" x="110" y="210" width="40" height="40"/>
+      <text x="130" y="262" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Tomsk</text>
+    </g>
+    <g data-system="Gagarin" class="planet overlay trans_left" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/System_Pointer_Coalition.png" x="26" y="178" width="40" height="40"/>
+      <text x="46" y="230" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Gagarin</text>
+    </g>
+    <g data-system="New Beijing" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/System_Pointer_Coalition.png" x="128" y="140" width="40" height="40"/>
+      <text x="148" y="192" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">New Beijing</text>
+    </g>
+    <g data-system="Kalinin" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/System_Pointer_Coalition.png" x="94" y="300" width="40" height="40"/>
+      <text x="114" y="352" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Kalinin</text>
+    </g>
+    <g data-system="New Hongkong" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/System_Pointer_Coalition.png" x="272" y="190" width="40" height="40"/>
+      <text x="292" y="242" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">New Hongkong</text>
+    </g>
+    <g data-system="Sovetskaya" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/System_Pointer_Coalition.png" x="228" y="276" width="40" height="40"/>
+      <text x="248" y="328" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Sovetskaya</text>
+    </g>
+    <g data-system="Gladius" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/System_Pointer_Coalition.png" x="142" y="436" width="40" height="40"/>
+      <text x="162" y="488" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Gladius</text>
+    </g>
+    <g data-system="Guangdong" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/System_Pointer_Coalition.png" x="76" y="570" width="40" height="40"/>
+      <text x="96" y="622" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Guangdong</text>
+    </g>
+    <g data-system="Gurm" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/System_Pointer_Coalition.png" x="334" y="476" width="40" height="40"/>
+      <text x="354" y="528" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Gurm</text>
+    </g>
+    <g data-system="New Mekka" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/System_Pointer_Coalition.png" x="464" y="304" width="40" height="40"/>
+      <text x="484" y="356" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">New Mekka</text>
+    </g>
+    <g data-system="Er Riad" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/System_Pointer_Coalition.png" x="574" y="314" width="40" height="40"/>
+      <text x="594" y="366" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Er Riad</text>
+    </g>
+  </svg>
+</div>
+
+<div class="map_texts">
+  <div id="altair_____texxter" data-system="altair____" class="txt red____txt" onclick="parent.system_click(this);">Altair</div>
+  <div id="canis______texxter" data-system="canis_____" class="txt green__txt" onclick="parent.system_click(this);">Canis</div>
+  <div id="inner_core_texxter" data-system="inner_core" class="txt orange_txt" onclick="parent.system_click(this);">Inner Core</div>
+  <div id="sirius_____texxter" data-system="sirius____" class="txt blue___txt" onclick="parent.system_click(this);">Sirius</div>
+  <div id="sol________texxter" data-system="sol_______" class="txt yellow_txt" onclick="parent.system_click(this);">Sol</div>
+</div>
+
+</body>
+</html>
+<script src="../maps.js"></script>
