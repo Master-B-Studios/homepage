@@ -13,7 +13,7 @@
 
 .scale-active {transform: scale(1.6);position: relative;z-index: 100;}
 
-.map_texts {width: 100%;height: auto;cursor: default;font-family: "Freelancer", sans-serif;display: flex;justify-content: space-evenly;margin-top: 1em;flex-wrap: wrap;}
+.map_texts {width: 100%;height: auto;cursor: default;font-family: "Freelancer", sans-serif;display: flex;justify-content: space-between;margin-top: 1em;flex-wrap: wrap;}
 .txt {cursor: pointer;filter: drop-shadow(0 0 0 #000000) drop-shadow(0 0 4px #000000);transition: transform 0.5s ease, filter 0.5s ease;position: relative;z-index: 10;margin: 1em;}
 .txt:hover {transform: scale(1.4);position: relative;z-index: 100;color: #dbdbdb;}
 
@@ -31,4 +31,4 @@
 
 .coalition {color: #FFDD55;}
 .nomads {color: #CA32C6;}
-.domkvash {color: #0A31CD;}
+.domkavash {color: #0A31CD;}
