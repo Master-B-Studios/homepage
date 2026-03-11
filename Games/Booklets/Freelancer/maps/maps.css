@@ -13,9 +13,9 @@
 
 .scale-active {transform: scale(1.6);position: relative;z-index: 100;}
 
-.map_texts {width: 100%;height: auto;cursor: default;font-family: "Freelancer", sans-serif;display: flex;justify-content: space-evenly;margin-top: 1em;}
-.txt {cursor: pointer;filter: drop-shadow(0 0 0 #000000) drop-shadow(0 0 4px #000000);transition: transform 0.5s ease, filter 0.5s ease;position: relative;z-index: 10;}
-.txt:hover {transform: scale(1.6);position: relative;z-index: 100;}
+.map_texts {width: 100%;height: auto;cursor: default;font-family: "Freelancer", sans-serif;display: flex;justify-content: space-evenly;margin-top: 1em;flex-wrap: wrap;}
+.txt {cursor: pointer;filter: drop-shadow(0 0 0 #000000) drop-shadow(0 0 4px #000000);transition: transform 0.5s ease, filter 0.5s ease;position: relative;z-index: 10;margin: 1em;}
+.txt:hover {transform: scale(1.4);position: relative;z-index: 100;color: #dbdbdb;}
 
 .orange_img {filter: brightness(0) saturate(100%) invert(50%) sepia(100%) saturate(500%) hue-rotate(0deg) brightness(100%) contrast(100%);}
 .orange_txt {color: #CB7F09;}
@@ -27,3 +27,8 @@
 .green__txt {color: #0B8980;}
 .blue___img {filter: brightness(0) saturate(100%) invert(50%) sepia(100%) saturate(500%) hue-rotate(180deg) brightness(100%) contrast(100%);}
 .blue___txt {color: #428DD4;}
+
+
+.coalition {color: #FFDD55;}
+.nomads {color: #CA32C6;}
+.domkvash {color: #0A31CD;}
