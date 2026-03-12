@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../maps.css">
+</head>
+<body>
+
+<div id="galaxy_overview" class="map_container">
+  <svg viewBox="0 0 1080 1080" style="cursor: default;">
+    <defs>
+      <clipPath id="galaxy_border"><rect x="20" y="20" width="80" height="80" rx="10" ry="10"/></clipPath>
+      <marker id="arrowhead_system" markerWidth="10" markerHeight="40" refX="40" refY="5" orient="auto"><polygon points="0 0, 10 5, 0 10" fill="#dbdbdb"/></marker>
+      <marker id="arrowhead_sector_from" markerWidth="10" markerHeight="40" refX="24" refY="5" orient="auto"><polygon points="0 0, 10 5, 0 10" fill="#00ff00"/></marker>
+      <marker id="arrowhead_sector_towa" markerWidth="10" markerHeight="40" refX="-24" refY="5" orient="auto"><polygon points="10 5, 0 0, 0 10" fill="#00ff00"/></marker>
+    </defs>
+
+    <image href="Canis.jpg" width="1080" height="1080"/>
+    
+    <g data-system="galaxy" class="planet overlay trans_galaxy" onclick="parent.system_click(this);">
+      <image href="../01_Galaxy/Galaxy_Overview.jpg" x="20" y="20" width="80" height="80" clip-path="url(#galaxy_border)"/>
+      <rect x="20" y="20" width="80" height="80" rx="10" ry="10" fill="none" stroke="#dbdbdb" stroke-width="2"/>
+    </g>
+    
+    <g class="headers">
+      <text x="540" y="80" font-size="50" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Canis Sector</text>
+      <rect x="10" y="910" width="1060" height="160" fill="#000000" fill-opacity="0.6"/>
+
+      <image href="../00_Pointers/Empty.png" x="20" y="920" width="40" height="40"/>
+      <text x="70" y="945" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+      <image href="../00_Pointers/Empty.png" x="290" y="920" width="40" height="40"/>
+      <text x="340" y="945" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+      <image href="../00_Pointers/Empty.png" x="560" y="920" width="40" height="40"/>
+      <text x="610" y="945" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+      <image href="../00_Pointers/Empty.png" x="830" y="920" width="40" height="40"/>
+      <text x="880" y="945" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+
+      <image href="../00_Pointers/Empty.png" x="20" y="970" width="40" height="40"/>
+      <text x="70" y="995" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+      <image href="../00_Pointers/Empty.png" x="290" y="970" width="40" height="40"/>
+      <text x="340" y="995" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+      <image href="../00_Pointers/Empty.png" x="560" y="970" width="40" height="40"/>
+      <text x="610" y="995" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+      <image href="../00_Pointers/Empty.png" x="830" y="970" width="40" height="40"/>
+      <text x="880" y="995" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+
+      <image href="../00_Pointers/Abandoned_Faction.png" x="20" y="1020" width="40" height="40"/>
+      <text x="70" y="1045" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer">Abandoned Space</text>
+      <image href="../00_Pointers/Empty.png" x="290" y="1020" width="40" height="40"/>
+      <text x="340" y="1045" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+      <image href="../00_Pointers/Empty.png" x="560" y="1020" width="40" height="40"/>
+      <text x="610" y="1045" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+      <image href="../00_Pointers/Empty.png" x="830" y="1020" width="40" height="40"/>
+      <text x="880" y="1045" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+    </g>
+
+    <g class="connectors">
+      <line x1="240" y1="694" x2="596" y2="742" stroke="#dbdbdb" stroke-width="2"/>
+      <line x1="240" y1="694" x2="506" y2="612" stroke="#dbdbdb" stroke-width="2"/>
+      <line x1="596" y1="742" x2="506" y2="612" stroke="#dbdbdb" stroke-width="2"/>
+      <line x1="668" y1="510" x2="506" y2="612" stroke="#dbdbdb" stroke-width="2"/>
+      <line x1="668" y1="510" x2="912" y2="582" stroke="#dbdbdb" stroke-width="2"/>
+      <line x1="240" y1="694" x2="660" y2="350" stroke="#00ff00" stroke-width="2" stroke-dasharray="8 6"/>
+    </g>
+    
+    <g data-system="Assris" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Abandoned_System_Pointer.png" x="220" y="674" width="40" height="40"/>
+      <text x="240" y="726" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Assris</text>
+    </g>
+    <g data-system="Keltur" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Abandoned_System_Pointer.png" x="576" y="722" width="40" height="40"/>
+      <text x="596" y="774" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Keltur</text>
+    </g>
+    <g data-system="Kinak" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Abandoned_System_Pointer.png" x="486" y="592" width="40" height="40"/>
+      <text x="506" y="644" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Kinak</text>
+    </g>
+    <g data-system="Belay" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Abandoned_System_Pointer.png" x="648" y="490" width="40" height="40"/>
+      <text x="668" y="542" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Belay</text>
+    </g>
+    <g data-system="Banysia" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Abandoned_System_Pointer.png" x="892" y="562" width="40" height="40"/>
+      <text x="912" y="614" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Banysia</text>
+    </g>
+    <g data-system="inner_core" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="620" y="310" width="80" height="80" class="orange_img"/>
+      <text x="660" y="402" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Inner Core</text>
+    </g>
+  </svg>
+</div>
+
+<div class="map_texts">
+  <div data-system="Assris" class="txt abandoned" onclick="parent.system_click(this);">Assris</div>
+  <div data-system="Banysia" class="txt abandoned" onclick="parent.system_click(this);">Banysia</div>
+  <div data-system="Belay" class="txt abandoned" onclick="parent.system_click(this);">Belay</div>
+  <div data-system="Keltur" class="txt abandoned" onclick="parent.system_click(this);">Keltur</div>
+  <div data-system="Kinak" class="txt abandoned" onclick="parent.system_click(this);">Kinak</div>
+</div>
+
+</body>
+</html>
+<script src="../maps.js"></script>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../maps.css">
+</head>
+<body>
+
+<div id="galaxy_overview" class="map_container">
+  <svg viewBox="0 0 1080 1080" style="cursor: default;">
+    <defs>
+      <clipPath id="galaxy_border"><rect x="20" y="20" width="80" height="80" rx="10" ry="10"/></clipPath>
+      <marker id="arrowhead_system" markerWidth="10" markerHeight="40" refX="40" refY="5" orient="auto"><polygon points="0 0, 10 5, 0 10" fill="#dbdbdb"/></marker>
+      <marker id="arrowhead_sector_from" markerWidth="10" markerHeight="40" refX="24" refY="5" orient="auto"><polygon points="0 0, 10 5, 0 10" fill="#00ff00"/></marker>
+      <marker id="arrowhead_sector_towa" markerWidth="10" markerHeight="40" refX="-24" refY="5" orient="auto"><polygon points="10 5, 0 0, 0 10" fill="#00ff00"/></marker>
+    </defs>
+
+    <image href="Inner Core.jpg" width="1080" height="1080"/>
+    
+    <g data-system="galaxy" class="planet overlay trans_galaxy" onclick="parent.system_click(this);">
+      <image href="../01_Galaxy/Galaxy_Overview.jpg" x="20" y="20" width="80" height="80" clip-path="url(#galaxy_border)"/>
+      <rect x="20" y="20" width="80" height="80" rx="10" ry="10" fill="none" stroke="#dbdbdb" stroke-width="2"/>
+    </g>
+    
+    <g class="headers">
+      <text x="540" y="80" font-size="50" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Inner Core Sector</text>
+      <rect x="10" y="910" width="1060" height="160" fill="#000000" fill-opacity="0.6"/>
+
+      <image href="../00_Pointers/Empty.png" x="20" y="920" width="40" height="40"/>
+      <text x="70" y="945" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+      <image href="../00_Pointers/Empty.png" x="290" y="920" width="40" height="40"/>
+      <text x="340" y="945" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+      <image href="../00_Pointers/Empty.png" x="560" y="920" width="40" height="40"/>
+      <text x="610" y="945" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+      <image href="../00_Pointers/Empty.png" x="830" y="920" width="40" height="40"/>
+      <text x="880" y="945" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+
+      <image href="../00_Pointers/Empty.png" x="20" y="970" width="40" height="40"/>
+      <text x="70" y="995" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+      <image href="../00_Pointers/Empty.png" x="290" y="970" width="40" height="40"/>
+      <text x="340" y="995" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+      <image href="../00_Pointers/Empty.png" x="560" y="970" width="40" height="40"/>
+      <text x="610" y="995" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+      <image href="../00_Pointers/Empty.png" x="830" y="970" width="40" height="40"/>
+      <text x="880" y="995" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+
+      <image href="../00_Pointers/DomKavash_Faction.png" x="20" y="1020" width="40" height="40"/>
+      <text x="70" y="1045" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer">Dom'Kavash</text>
+      <image href="../00_Pointers/Hostile_Faction.png" x="290" y="1020" width="40" height="40"/>
+      <text x="340" y="1045" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer">Hostile Systems</text>
+      <image href="../00_Pointers/Empty.png" x="560" y="1020" width="40" height="40"/>
+      <text x="610" y="1045" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+      <image href="../00_Pointers/Empty.png" x="830" y="1020" width="40" height="40"/>
+      <text x="880" y="1045" font-size="14" text-anchor="left" fill="#dbdbdb" font-family="Freelancer"></text>
+    </g>
+
+    <g class="connectors">
+      <line x1="194" y1="866" x2="454" y2="824" stroke="#dbdbdb" stroke-width="2"/> <!--Inner Core - Venn-->
+      <line x1="460" y1="722" x2="454" y2="824" stroke="#dbdbdb" stroke-width="2"/> <!--Venn - Jormdar-->
+      <line x1="584" y1="886" x2="454" y2="824" stroke="#dbdbdb" stroke-width="2"/> <!--Venn - Celldra-->
+      <line x1="584" y1="886" x2="590" y2="780" stroke="#dbdbdb" stroke-width="2"/> <!--Celldra - Sadurm-->
+      <line x1="584" y1="886" x2="710" y2="794" stroke="#dbdbdb" stroke-width="2"/> <!--Celldra - Pyrddra-->
+      <line x1="590" y1="780" x2="710" y2="794" stroke="#dbdbdb" stroke-width="2"/> <!--Pyrddra - Sadurm-->
+      <line x1="608" y1="624" x2="710" y2="794" stroke="#dbdbdb" stroke-width="2"/> <!--Pyrddra - Mephter-->
+      <line x1="608" y1="624" x2="460" y2="722" stroke="#dbdbdb" stroke-width="2"/> <!--Mephter - Jormdar-->
+      <line x1="590" y1="780" x2="460" y2="722" stroke="#dbdbdb" stroke-width="2"/> <!--Jormdar - Sadurm-->
+      <line x1="608" y1="624" x2="800" y2="600" stroke="#dbdbdb" stroke-width="2"/> <!--Mephter - Ryssk-->
+      <line x1="850" y1="454" x2="800" y2="600" stroke="#dbdbdb" stroke-width="2"/> <!--Weth - Ryssk-->
+      <line x1="850" y1="454" x2="694" y2="390" stroke="#dbdbdb" stroke-width="2"/> <!--Weth - Whyr-->
+      <line x1="850" y1="454" x2="910" y2="360" stroke="#dbdbdb" stroke-width="2"/> <!--Weth - Rhuntath-->
+      <line x1="766" y1="292" x2="910" y2="360" stroke="#dbdbdb" stroke-width="2"/> <!--Loret - Rhuntath-->
+      <line x1="766" y1="292" x2="890" y2="180" stroke="#dbdbdb" stroke-width="2"/> <!--Loret - Zhiklor-->
+      <line x1="766" y1="292" x2="580" y2="216" stroke="#dbdbdb" stroke-width="2"/> <!--Loret - Lenas-->
+      <line x1="766" y1="292" x2="694" y2="390" stroke="#dbdbdb" stroke-width="2"/> <!--Loret - Whyr-->
+      <line x1="524" y1="464" x2="694" y2="390" stroke="#dbdbdb" stroke-width="2"/> <!--Minnck - Whyr-->
+      <line x1="524" y1="464" x2="490" y2="580" stroke="#dbdbdb" stroke-width="2"/> <!--Minnck - Timath-->
+      <line x1="524" y1="464" x2="290" y2="570" stroke="#dbdbdb" stroke-width="2"/> <!--Minnck - Crallard-->
+      <line x1="524" y1="464" x2="366" y2="472" stroke="#dbdbdb" stroke-width="2"/> <!--Minnck - Sorror-->
+      <line x1="524" y1="464" x2="520" y2="308" stroke="#dbdbdb" stroke-width="2"/> <!--Minnck - Bimia-->
+      <line x1="580" y1="216" x2="520" y2="308" stroke="#dbdbdb" stroke-width="2"/> <!--Lenas - Bimia-->
+      <line x1="580" y1="216" x2="534" y2="156" stroke="#dbdbdb" stroke-width="2"/> <!--Lenas - Dras-->
+      <line x1="290" y1="570" x2="164" y2="496" stroke="#dbdbdb" stroke-width="2"/> <!--Crallard - Lintkin-->
+      <line x1="290" y1="570" x2="366" y2="472" stroke="#dbdbdb" stroke-width="2"/> <!--Crallard - Sorror-->
+      <line x1="390" y1="288" x2="366" y2="472" stroke="#dbdbdb" stroke-width="2"/> <!--Trawtai - Sorror-->
+      <line x1="390" y1="288" x2="250" y2="264" stroke="#dbdbdb" stroke-width="2"/> <!--Trawtai - Relenth-->
+      <line x1="390" y1="288" x2="468" y2="200" stroke="#dbdbdb" stroke-width="2"/> <!--Trawtai - Phanchdar-->
+
+      <line x1="120" y1="640" x2="194" y2="866" stroke="#00ff00" stroke-width="2" stroke-dasharray="8 6" marker-end="url(#arrowhead_sector_from)"/> <!--Sirius - Inner Core-->
+      <line x1="340" y1="690" x2="194" y2="866" stroke="#00ff00" stroke-width="2" stroke-dasharray="8 6" marker-end="url(#arrowhead_sector_from)"/> <!--Altair - Inner Core-->
+      <line x1="366" y1="472" x2="140" y2="360" stroke="#00ff00" stroke-width="2" stroke-dasharray="8 6"/> <!--Sorror - Canis-->
+      <line x1="468" y1="200" x2="180" y2="140" stroke="#00ff00" stroke-width="2" stroke-dasharray="8 6" marker-start="url(#arrowhead_sector_towa)"/> <!--Phanchdar - Altair-->
+    </g>
+    
+    <g data-system="Inner Core" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Hostile_System_Pointer.png" x="174" y="846" width="40" height="40"/>
+      <text x="194" y="898" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Inner Core</text>
+    </g>
+    <g data-system="Venn" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Hostile_System_Pointer.png" x="434" y="804" width="40" height="40"/>
+      <text x="454" y="856" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Venn</text>
+    </g>
+    <g data-system="Celldra" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Hostile_System_Pointer.png" x="564" y="866" width="40" height="40"/>
+      <text x="584" y="918" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Celldra</text>
+    </g>
+    <g data-system="Jormdar" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Hostile_System_Pointer.png" x="440" y="702" width="40" height="40"/>
+      <text x="460" y="754" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Jormdar</text>
+    </g>
+    <g data-system="Sadurm" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Hostile_System_Pointer.png" x="570" y="760" width="40" height="40"/>
+      <text x="590" y="812" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Sadurm</text>
+    </g>
+    <g data-system="Pyrddra" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Hostile_System_Pointer.png" x="690" y="774" width="40" height="40"/>
+      <text x="710" y="826" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Pyrddra</text>
+    </g>
+    <g data-system="Mephter" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Hostile_System_Pointer.png" x="588" y="604" width="40" height="40"/>
+      <text x="608" y="656" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Mephter</text>
+    </g>
+    <g data-system="Ryssk" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Hostile_System_Pointer.png" x="780" y="580" width="40" height="40"/>
+      <text x="800" y="632" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Ryssk</text>
+    </g>
+    <g data-system="Weth" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/DomKavash_System_Pointer.png" x="830" y="434" width="40" height="40"/>
+      <text x="850" y="486" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Weth</text>
+    </g>
+    <g data-system="Rhuntath" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/DomKavash_System_Pointer.png" x="890" y="340" width="40" height="40"/>
+      <text x="910" y="392" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Rhuntath</text>
+    </g>
+    <g data-system="Crallard" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/DomKavash_System_Pointer.png" x="270" y="550" width="40" height="40"/>
+      <text x="290" y="602" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Crallard</text>
+    </g>
+    <g data-system="Timath" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/DomKavash_System_Pointer.png" x="470" y="560" width="40" height="40"/>
+      <text x="490" y="612" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Timath</text>
+    </g>
+    <g data-system="Lintkin" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/DomKavash_System_Pointer.png" x="144" y="476" width="40" height="40"/>
+      <text x="164" y="528" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Lintkin</text>
+    </g>
+    <g data-system="Sorror" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/DomKavash_System_Pointer.png" x="346" y="452" width="40" height="40"/>
+      <text x="366" y="504" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Sorror</text>
+    </g>
+    <g data-system="Minnck" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/DomKavash_System_Pointer.png" x="504" y="444" width="40" height="40"/>
+      <text x="524" y="496" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Minnck</text>
+    </g>
+    <g data-system="Whyr" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/DomKavash_System_Pointer.png" x="674" y="370" width="40" height="40"/>
+      <text x="694" y="422" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Whyr</text>
+    </g>
+    <g data-system="Relenth" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/DomKavash_System_Pointer.png" x="230" y="244" width="40" height="40"/>
+      <text x="250" y="296" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Relenth</text>
+    </g>
+    <g data-system="Trawtai" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/DomKavash_System_Pointer.png" x="370" y="268" width="40" height="40"/>
+      <text x="390" y="320" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Trawtai</text>
+    </g>
+    <g data-system="Bimia" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/DomKavash_System_Pointer.png" x="500" y="288" width="40" height="40"/>
+      <text x="520" y="340" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Bimia</text>
+    </g>
+    <g data-system="Loret" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/DomKavash_System_Pointer.png" x="746" y="272" width="40" height="40"/>
+      <text x="766" y="324" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Loret</text>
+    </g>
+    <g data-system="Lenas" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/DomKavash_System_Pointer.png" x="560" y="196" width="40" height="40"/>
+      <text x="580" y="248" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Lenas</text>
+    </g>
+    <g data-system="Phanchdar" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/DomKavash_System_Pointer.png" x="448" y="180" width="40" height="40"/>
+      <text x="468" y="232" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Phanchdar</text>
+    </g>
+    <g data-system="Dras" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/DomKavash_System_Pointer.png" x="514" y="136" width="40" height="40"/>
+      <text x="534" y="188" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Dras</text>
+    </g>
+    <g data-system="Zhiklor" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/DomKavash_System_Pointer.png" x="870" y="160" width="40" height="40"/>
+      <text x="890" y="212" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Zhiklor</text>
+    </g>
+    <g data-system="sirius____" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="80" y="600" width="80" height="80" class="blue___img"/>
+      <text x="120" y="692" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Sirius</text>
+    </g>
+    <g data-system="altair____" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="290" y="650" width="80" height="80" class="red____img"/>
+      <text x="330" y="742" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Altair</text>
+    </g>
+    <g data-system="altair____" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="140" y="100" width="80" height="80" class="red____img"/>
+      <text x="180" y="192" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Altair</text>
+    </g>
+    <g data-system="canis_____" class="planet overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="100" y="320" width="80" height="80" class="green__img"/>
+      <text x="140" y="412" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Canis</text>
+    </g>
+  </svg>
+</div>
+
+<div class="map_texts">
+  <div data-system="Bimia" class="txt domkavash" onclick="parent.system_click(this);">Bimia</div>
+  <div data-system="Celldra" class="txt hostile" onclick="parent.system_click(this);">Celldra</div>
+  <div data-system="Crallard" class="txt domkavash" onclick="parent.system_click(this);">Crallard</div>
+  <div data-system="Dras" class="txt domkavash" onclick="parent.system_click(this);">Dras</div>
+  <div data-system="Inner Core" class="txt hostile" onclick="parent.system_click(this);">Inner Core</div>
+  <div data-system="Jormdar" class="txt hostile" onclick="parent.system_click(this);">Jormdar</div>
+  <div data-system="Lenas" class="txt domkavash" onclick="parent.system_click(this);">Lenas</div>
+  <div data-system="Lintkin" class="txt domkavash" onclick="parent.system_click(this);">Lintkin</div>
+  <div data-system="Loret" class="txt domkavash" onclick="parent.system_click(this);">Loret</div>
+  <div data-system="Mephter" class="txt hostile" onclick="parent.system_click(this);">Mephter</div>
+  <div data-system="Minnck" class="txt domkavash" onclick="parent.system_click(this);">Minnck</div>
+  <div data-system="Phanchdar" class="txt domkavash" onclick="parent.system_click(this);">Phanchdar</div>
+  <div data-system="Pyrddra" class="txt hostile" onclick="parent.system_click(this);">Pyrddra</div>
+  <div data-system="Relenth" class="txt domkavash" onclick="parent.system_click(this);">Relenth</div>
+  <div data-system="Rhuntath" class="txt domkavash" onclick="parent.system_click(this);">Rhuntath</div>
+  <div data-system="Ryssk" class="txt hostile" onclick="parent.system_click(this);">Ryssk</div>
+  <div data-system="Sadurm" class="txt hostile" onclick="parent.system_click(this);">Sadurm</div>
+  <div data-system="Sorror" class="txt domkavash" onclick="parent.system_click(this);">Sorror</div>
+  <div data-system="Timath" class="txt domkavash" onclick="parent.system_click(this);">Timath</div>
+  <div data-system="Trawtai" class="txt domkavash" onclick="parent.system_click(this);">Trawtai</div>
+  <div data-system="Venn" class="txt hostile" onclick="parent.system_click(this);">Venn</div>
+  <div data-system="Weth" class="txt hostile" onclick="parent.system_click(this);">Weth</div>
+  <div data-system="Whyr" class="txt domkavash" onclick="parent.system_click(this);">Whyr</div>
+  <div data-system="Zhiklor" class="txt domkavash" onclick="parent.system_click(this);">Zhiklor</div>
+</div>
+
+</body>
+</html>
+<script src="../maps.js"></script>

@@ -2,7 +2,10 @@
 .map_container {width: 100%;height: auto;cursor: default;font-family: "Freelancer", sans-serif;}
 .map_container svg {width: 100%;height: auto;}
 .planet {filter: drop-shadow(0 0 0 6px black);transition: transform 0.5s ease, filter 0.5s ease;}
+.headers text {cursor: default;filter: drop-shadow(0 0 0 #000000) drop-shadow(0 0 4px #000000);fill: #dbdbdb;stroke: #000000;stroke-width: 4px;paint-order: stroke;}
+.headers image {cursor: default;filter: drop-shadow(0 0 0 #000000) drop-shadow(0 0 4px #000000);fill: #dbdbdb;stroke: #000000;stroke-width: 4px;paint-order: stroke;}
 .overlay {transform-box: fill-box;cursor: pointer;filter: drop-shadow(0 0 0 #000000) drop-shadow(0 0 4px #000000);position: relative;z-index: 10;}
+.trans_galaxy {transform-origin: left, top;}
 .trans_center {transform-origin: center;}
 .trans_left {transform-origin: left;}
 .trans_right {transform-origin: right;}
@@ -32,3 +35,6 @@
 .coalition {color: #FFDD55;}
 .nomads {color: #CA32C6;}
 .domkavash {color: #0A31CD;}
+.crossfire {color: #6CF978;}
+.abandoned {color: #94BAD3;}
+.hostile {color: #387F77;}
