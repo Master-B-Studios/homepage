@@ -10,7 +10,7 @@
 .trans_left {transform-origin: left;}
 .trans_right {transform-origin: right;}
 .overlay image {opacity: 1;position: relative;z-index: 10;}
-.overlay text {fill: #dbdbdb;stroke: #000000;stroke-width: 4px;paint-order: stroke;position: relative;z-index: 10;}
+.overlay text {fill: #dbdbdb;stroke: #000000;stroke-width: 4px;paint-order: stroke;position: relative;z-index: 10;font-size: 0.8em;}
 .overlay:hover {position: relative;z-index: 100;}
 .overlay:hover image {opacity: 1;position: relative;z-index: 100;}
 
