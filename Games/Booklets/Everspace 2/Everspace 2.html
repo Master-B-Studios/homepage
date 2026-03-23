@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>Wing Over</title>
+  <title>Everspace 2</title>
   <meta charset="utf-8"></meta>
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
   <link rel="icon" type="image/x-icon" href="../../../images/MB_Icon_01.png"></link>
   <link rel="stylesheet" href="../../../assets/css/main.css"></link>
+  <style>
+  .map_frame {width: 100%;height: 2000px;border: none;}
+  </style>
 </head>
 <body onload="window.location.href = '#content';" class="is-preload">
   <audio id="soundtrack" loop src="audio/Soundtrack.mp3" type="audio/mpeg"></audio>
@@ -21,15 +24,24 @@
     
     <div id="main">
       <article id="content" class="panel">
-        <header><h2>Wing Over</h2></header>
+        <header><h2>Everspace 2</h2></header>
         <section>
           <div class="soundtrack_container">
-            <img class="soundtrack_background" src="cover/Wing Over - Poster.jpg"></img>
+            <img class="soundtrack_background" src="cover/Everspace 2 - Poster.jpg"></img>
             <div class="soundtrack_control_container" onclick="bg_music();">
               <img class="soundtrack_control" src="../../../images/button_play_01.png"></img>
               <p class="soundtrack_text">Soundtrack Abspielen</p>
             </div>
           </div>
+        </section>
+
+        <section>
+          <details class="details_1" style="color: #1fff50;" open>
+            <summary>Map</summary>
+
+            <iframe id="map_view" class="map_frame" src="maps/01_Galaxy/Galaxy.html"></iframe>
+
+          </details>
         </section>
 
         <section>
@@ -108,4 +120,20 @@
       background.play();bg_playing = 'true';
     }
   }
+
+  var system_active = '';
+  var system_new = '';
+
+  var map_view = document.getElementById('map_view');
+  
+  function system_click(obj) {
+    var name_sys = obj.dataset.system;
+    if (name_sys == 'galaxy') {map_view.src = 'maps/01_Galaxy/Galaxy_Overview.html';}
+    else if (name_sys == 'altair____') {map_view.src = 'maps/02_Sectors/Altair.html';}
+    else if (name_sys == 'sol_______') {map_view.src = 'maps/02_Sectors/Sol.html';}
+    else if (name_sys == 'canis_____') {map_view.src = 'maps/02_Sectors/Canis.html';}
+    else if (name_sys == 'inner_core') {map_view.src = 'maps/02_Sectors/Inner Core.html';}
+    else if (name_sys == 'sirius____') {map_view.src = 'maps/02_Sectors/Sirius.html';}
+  }
+  
 </script>

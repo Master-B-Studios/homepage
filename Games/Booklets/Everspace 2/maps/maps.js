@@ -1,0 +1,3 @@
+const systems = document.querySelectorAll('[data-system]');
+systems.forEach(el => {el.addEventListener("mouseenter", () => {const name = el.dataset.system;document.querySelectorAll(`[data-system="${name}"]`).forEach(e => e.classList.add("scale-active"));});
+el.addEventListener("mouseleave", () => {const name = el.dataset.system;document.querySelectorAll(`[data-system="${name}"]`).forEach(e => e.classList.remove("scale-active"));});});

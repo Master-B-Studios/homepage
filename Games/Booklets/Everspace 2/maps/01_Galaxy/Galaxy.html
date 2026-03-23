@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../maps.css">
+</head>
+<body>
+
+<div id="galaxy_overview" class="map_container">
+  <svg viewBox="0 0 1080 1080" style="cursor: default;">
+    <defs>
+      <clipPath id="galaxy_border"><rect x="20" y="20" width="80" height="80" rx="10" ry="10"/></clipPath>
+      <marker id="arrowhead_sector_sector" markerWidth="10" markerHeight="40" refX="40" refY="5" orient="auto"><polygon points="0 0, 10 5, 0 10" fill="#00ff00"/></marker>
+    </defs>
+
+    <image href="Galaxy.jpg" width="1080" height="1080"/>
+    
+    <g class="connectors">
+      <line x1="181" y1="321" x2="262" y2="530" stroke="#ffffff" stroke-width="2"/><!--Aethon - Union-->
+      <line x1="45" y1="517" x2="262" y2="530" stroke="#ffffff" stroke-width="2"/><!--Drake - Union-->
+      <line x1="173" y1="775" x2="262" y2="530" stroke="#ffffff" stroke-width="2"/><!--Ceto - Union-->
+      <line x1="508" y1="505" x2="262" y2="530" stroke="#ffffff" stroke-width="2"/><!--Zharkov - Union-->
+      <line x1="508" y1="505" x2="818" y2="386" stroke="#ffffff" stroke-width="2"/><!--Zharkov - Ushak Sanctuary-->
+      <line x1="508" y1="505" x2="536" y2="723" stroke="#ffffff" stroke-width="2"/><!--Zharkov - Khait Nebula-->
+      <line x1="746" y1="683" x2="536" y2="723" stroke="#ffffff" stroke-width="2"/><!--Khait Dominion - Khait Nebula-->
+      <line x1="746" y1="683" x2="869" y2="538" stroke="#ffffff" stroke-width="2"/><!--Khait Dominion - Rhak Homeworlds-->
+      <line x1="818" y1="386" x2="869" y2="538" stroke="#ffffff" stroke-width="2"/><!--Ushak Sanctuary - Rhak Homeworlds-->
+    </g>
+    
+    <g class="headers">
+      <text x="540" y="80" font-size="50" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">Galaxy</text>
+    </g>
+    
+    <g data-system="AETHON" class="overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="141" y="281" width="80" height="80" class="sector_img"/>
+      <text x="181" y="375" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">AETHON</text>
+    </g>
+    <g data-system="KHIONE" class="overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="374" y="275" width="80" height="80" class="sector_img"/>
+      <text x="414" y="369" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">KHIONE</text>
+    </g>
+    <g data-system="DRAKE" class="overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="5" y="477" width="80" height="80" class="sector_img"/>
+      <text x="45" y="571" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">DRAKE</text>
+    </g>
+    <g data-system="UNION" class="overlay trans_center" onclick="parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="222" y="490" width="80" height="80" class="sector_img"/>
+      <text x="262" y="584" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">UNION</text>
+    </g>
+    <g data-system="ZHARKOV" class="overlay trans_center" onclick="parent.parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="468" y="465" width="80" height="80" class="sector_img"/>
+      <text x="508" y="559" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">ZHARKOV</text>
+    </g>
+    <g data-system="USHAK SANCTUARY" class="overlay trans_center" onclick="parent.parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="778" y="346" width="80" height="80" class="sector_img"/>
+      <text x="818" y="440" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">USHAK SANCTUARY</text>
+    </g>
+    <g data-system="CETO" class="overlay trans_center" onclick="parent.parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="133" y="735" width="80" height="80" class="sector_img"/>
+      <text x="173" y="829" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">CETO</text>
+    </g>
+    <g data-system="KHAIT NEBULA" class="overlay trans_center" onclick="parent.parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="496" y="683" width="80" height="80" class="sector_img"/>
+      <text x="536" y="777" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">KHAÏT NEBULA</text>
+    </g>
+    <g data-system="KHAIT DOMINION" class="overlay trans_center" onclick="parent.parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="706" y="643" width="80" height="80" class="sector_img"/>
+      <text x="746" y="737" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">KHAÏT DOMINION</text>
+    </g>
+    <g data-system="RHAK HOMEWORLDS" class="overlay trans_center" onclick="parent.parent.system_click(this);">
+      <image href="../00_Pointers/Sector_Pointer.png" x="829" y="498" width="80" height="80" class="sector_img"/>
+      <text x="869" y="592" font-size="14" text-anchor="middle" fill="#dbdbdb" font-family="Freelancer">RHAK HOMEWORLDS</text>
+    </g>
+  </svg>
+</div>
+
+<div class="map_texts">
+  <div data-system="altair____" class="txt red____txt" onclick="parent.system_click(this);">Altair</div>
+  <div data-system="canis_____" class="txt green__txt" onclick="parent.system_click(this);">Canis</div>
+  <div data-system="inner_core" class="txt orange_txt" onclick="parent.system_click(this);">Inner Core</div>
+  <div data-system="sirius____" class="txt blue___txt" onclick="parent.system_click(this);">Sirius</div>
+  <div data-system="sol_______" class="txt yellow_txt" onclick="parent.system_click(this);">Sol</div>
+</div>
+
+</body>
+</html>
+<script src="../maps.js"></script>
