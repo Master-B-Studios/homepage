@@ -1,29 +1,27 @@
 @font-face {font-family: "Freelancer";src: url("../fonts/JosefinSans-Regular.ttf") format("truetype");font-weight: normal;font-style: normal;}
 .map_container {width: 100%;height: auto;cursor: default;font-family: "Freelancer", sans-serif;}
 .map_container svg {width: 100%;height: auto;}
+
 .headers text {cursor: default;filter: drop-shadow(0 0 0 #000000) drop-shadow(0 0 4px #000000);fill: #dbdbdb;stroke: #000000;stroke-width: 4px;paint-order: stroke;}
 .headers image {cursor: default;filter: drop-shadow(0 0 0 #000000) drop-shadow(0 0 4px #000000);fill: #dbdbdb;stroke: #000000;stroke-width: 4px;paint-order: stroke;}
+
 .overlay {transform-box: fill-box;cursor: pointer;filter: drop-shadow(0 0 0 #000000) drop-shadow(0 0 4px #000000);}
-.trans_galaxy {transform-origin: left, top;}
-.trans_center {transform-origin: center;}
-.trans_left {transform-origin: left;}
-.trans_right {transform-origin: right;}
+.trans_galaxy {transform-origin: left, top;transition: all 0.5s ease;}
+.trans_center {transform-origin: center;transition: all 0.5s ease;}
+.trans_left {transform-origin: left;transition: all 0.5s ease;}
+.trans_right {transform-origin: right;transition: all 0.5s ease;}
+
 .overlay text {fill: #dbdbdb;stroke: #000000;stroke-width: 4px;paint-order: stroke;font-size: 0.8em;}
+
 .overlay:hover {opacity: 1;transition: all 0.5s ease;}
 .scale-active {transform: scale(1.2);position: relative;z-index: 100;}
+
+.map_texts {width: 100%;height: auto;cursor: default;font-family: "Freelancer", sans-serif;display: flex;justify-content: space-between;margin-top: 1em;flex-wrap: wrap;color: #dbdbdb;}
 .txt {cursor: pointer;filter: drop-shadow(0 0 0 #000000) drop-shadow(0 0 4px #000000);transition: transform 0.5s ease, filter 0.5s ease;position: relative;z-index: 10;margin: 1em;}
-.txt:hover {transform: scale(1.2);position: relative;z-index: 100;color: #dbdbdb;}
+.txt:hover {transform: scale(1.4);position: relative;z-index: 100;color: #dbdbdb;}
 
 .sector_img {opacity: 0.1;}
 .sector_img:hover {opacity: 1;transition: all 0.5s ease;}
 .sector_txt {color: #CB7F09;}
 
 .connectors line {opacity: 0.1;}
-
-
-.coalition {color: #FFDD55;}
-.nomads {color: #CA32C6;}
-.domkavash {color: #0A31CD;}
-.crossfire {color: #6CF978;}
-.abandoned {color: #94BAD3;}
-.hostile {color: #387F77;}
