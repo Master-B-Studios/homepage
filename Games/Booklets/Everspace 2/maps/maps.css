@@ -7,13 +7,18 @@
 
 .overlay {transform-box: fill-box;cursor: pointer;filter: drop-shadow(0 0 0 #000000) drop-shadow(0 0 4px #000000);}
 .overlay:hover {opacity: 1;transition: all 0.5s ease;}
-.overlay text {fill: #dbdbdb;stroke: #000000;stroke-width: 2px;paint-order: stroke;font-size: 0.8em;opacity: 0.4;}
+.overlay polygon {fill:#00000000;stroke:#ffffff;stroke-width:2;opacity: 0.4;}
+.overlay:hover polygon {opacity: 1;transition: all 0.5s ease;}
+.overlay text {fill: #dbdbdb;stroke: #000000;stroke-width: 2px;paint-order: stroke;font-size: 0.8em;opacity: 0.4;font-size:14;}
 .overlay:hover text {opacity: 1;transition: all 0.5s ease;}
 
 .trans_galaxy {transform-origin: left, top;transition: all 0.5s ease;}
 .trans_center {transform-origin: center;transition: all 0.5s ease;}
+.trans_center text {text-anchor:middle;}
 .trans_left {transform-origin: left;transition: all 0.5s ease;}
+.trans_left text {text-anchor:left;}
 .trans_right {transform-origin: right;transition: all 0.5s ease;}
+.trans_right text {text-anchor:right;}
 
 .scale-active {transform: scale(1.2);position: relative;z-index: 100;}
 
@@ -23,6 +28,6 @@
 
 .sector_img {opacity: 0.4;}
 .sector_img:hover {opacity: 1;transition: all 0.5s ease;}
-.sector_txt {color: #CB7F09;}
+.sector_txt {font-size:14; text-anchor:middle; fill:#dbdbdb;}
 
 .connectors line {opacity: 0.1;}
