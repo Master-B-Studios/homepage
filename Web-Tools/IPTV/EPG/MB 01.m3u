@@ -1,0 +1,43 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="ProSieben.de" tvg-logo="Pro_7.png" group-title="",Pro 7
+https://dash4.antik.sk/live/test_pro_sieben_tizen/playlist.m3u8
+#EXTINF:-1 tvg-id="RTL.de" tvg-logo="RTL.png" group-title="",RTL
+https://viamotionhsi.netplus.ch/live/eds/rtl/browser-HLS8/rtl.m3u8
+#EXTINF:-1 tvg-id="RTLZWEI.de" tvg-logo="RTL_2.png" group-title="",RTL II
+https://viamotionhsi.netplus.ch/live/eds/rtl2/browser-HLS8/rtl2.m3u8
+#EXTINF:-1 tvg-id="NITRO.de" tvg-logo="RTL_Nitro.png" group-title="Entertainment",Nitro
+https://viamotionhsi.netplus.ch/live/eds/rtlnitro/browser-HLS8/rtlnitro.m3u8
+#EXTINF:-1 tvg-id="sixx.de" tvg-logo="Sixx.png" group-title="",Sixx
+https://dash4.antik.sk/live/test_sixx_tizen/playlist.m3u8
+#EXTINF:-1 tvg-id="kabel.eins.de" tvg-logo="Kabel_1.png" group-title="Entertainment",Kabel 1
+https://dash4.antik.sk/live/test_kabel_eins_tizen/playlist.m3u8
+#EXTINF:-1 tvg-id="VOX.de" tvg-logo="VOX.png" group-title="",VOX
+https://viamotionhsi.netplus.ch/live/eds/vox/browser-dash/vox.mpd
+#EXTINF:-1 tvg-id="Motorvision.TV.de" tvg-logo="MotorVision.png" group-title="Auto",Motorvision
+https://mvg-mv-xumo.otteravision.com/mvg/mv/mv.m3u8
+#EXTINF:-1 tvg-id="kabel.eins.Doku.de" tvg-logo="Kabel_1_Doku.png" group-title="Documentary",Kabel 1 Doku
+http://79.232.88.203:9981/stream/channelid/81078517
+#EXTINF:-1 tvg-id="N24.DOKU.de" tvg-logo="N24_Doku.png" group-title="Documentary",N24 Doku
+https://jmp2.uk/plu-60080e8a4bf36000076a81b1.m3u8
+#EXTINF:-1 tvg-id="Welt.der.Wunder.TV.de" tvg-logo="Welt_Der_Wunder.png" group-title="",Welt Der Wunder
+https://wdw.iptv-playoutcenter.de/wdw/wdw1/playlist.m3u8
+#EXTINF:-1 tvg-id="Das.Erste.de" tvg-logo="ARD.png" group-title="General",ARD
+https://daserste-live.ard-mcdn.de/daserste/live/hls/int/master.m3u8
+#EXTINF:-1 tvg-id="ZDF.de" tvg-logo="ZDF.png" group-title="",ZDF
+https://viamotionhsi.netplus.ch/live/eds/zdfhd/browser-dash/zdfhd.mpd
+#EXTINF:-1 tvg-id="3sat.de" tvg-logo="3Sat.png" group-title="General",3Sat
+https://viamotionhsi.netplus.ch/live/eds/3sathd/browser-HLS8/3sathd.m3u8
+#EXTINF:-1 tvg-id="Servus.TV.Österreich.de" tvg-logo="ServusTV.png" group-title="Spartenprogramm",Servus TV Österreich
+https://viamotionhsi.netplus.ch/live/eds/servustvhd/browser-HLS8/servustvhd.m3u8
+#EXTINF:-1 tvg-id="SRF.zwei.de" tvg-logo="SRF_2.png" group-title="Spartenprogramm",SRF zwei
+https://viamotionhsi.netplus.ch/live/eds/srf2hd/browser-HLS8/srf2hd.m3u8
+#EXTINF:-1 tvg-id="WELT.de" tvg-logo="Welt.png" group-title="News",WELT
+https://viamotionhsi.netplus.ch/live/eds/n24/browser-HLS8/n24.m3u8
+#EXTINF:-1 tvg-id="Comedy.Central.de" tvg-logo="Comedy_Central.png" group-title="Comedy",Comedy Central
+https://viamotionhsi.netplus.ch/live/eds/comedycentral/browser-HLS8/comedycentral.m3u8
+#EXTINF:-1 tvg-id="Disney.Channel.de" tvg-logo="Disney_Channel.png" group-title="Kids",Disney Channel
+https://viamotionhsi.netplus.ch/live/eds/disneychannelde/browser-HLS8/disneychannelde.m3u8
+#EXTINF:-1 tvg-id="DELUXE.MUSIC.de" tvg-logo="Deluxe_Music.png" group-title="Music",Deluxe Music
+https://sdn-global-live-streaming-packager-cache.3qsdn.com/13456/13456_264_live.m3u8
+#EXTINF:-1 tvg-id="Deluxe Dance" tvg-logo="Deluxe_Dance.png" group-title="Music",Deluxe Dance
+https://sdn-global-live-streaming-packager-cache.3qsdn.com/64733/64733_264_live.m3u8

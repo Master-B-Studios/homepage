@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Phase 10</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+  <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
+  <link rel="stylesheet" href="../../assets/css/main.css"></link>
+</head>
+<body onload="window.location.href = '#phase_10';" class="is-preload">
+  <div id="wrapper">
+    
+    <nav id="nav">
+      <a href="../../index.html"><img class="mb_icon" src="../../images/MB_Icon_02.png"></img><span>Home</span></a>
+      <a href="../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
+      <a href="../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
+      <a href="../../Games/games.html"><img class="mb_icon" src="../../images/Games_Icon_01.png"></img><span>Games</span></a>
+      <a href="#phase_10" onclick="window.location.reload();"><img class="mb_icon" src="icon_01.png"></img><span>Tic Tac Toe</span></a>
+    </nav>
+    
+    <div id="main">
+      <article id="phase_10" class="panel center">
+        <table>
+          <tr>
+            <td id="player_1" colspan="6">Sandra</td>
+          </tr>
+          <tr>
+            <td rowspan="2">Phase:</td><td id="phase_1">1</td><td id="phase_2">2</td><td id="phase_3">3</td><td id="phase_4">4</td><td id="phase_5">5</td>
+          </tr>
+          <tr>
+            <td id="phase_6">6</td><td id="phase_7">7</td><td id="phase_8">8</td><td id="phase_9">9</td><td id="phase_10">10</td>
+          </tr>
+        </table>
+        <h1>Phase 10</h1>
+
+<input id="name" placeholder="Spielername">
+<button onclick="addPlayer()">Spieler hinzufügen</button>
+<button onclick="addRound()">Neue Runde</button>
+
+<h2 id="winner"></h2>
+
+<div id="players"></div>
+
+      </article>
+    </div>
+    
+    <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
+
+  </div>
+</body>
+
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/browser.min.js"></script>
+<script src="../../assets/js/breakpoints.min.js"></script>
+<script src="../../assets/js/util.js"></script>
+<script src="../../assets/js/main.js"></script>
+
+<script>
+  function getData() {
+  return JSON.parse(localStorage.getItem("phase10")) || { players: [], finished: false };
+}
+
+function saveData(data) {
+  localStorage.setItem("phase10", JSON.stringify(data));
+}
+
+function addPlayer() {
+  const name = document.getElementById("name").value;
+  if (!name) return;
+
+  const data = getData();
+  data.players.push({
+    name,
+    phase: 1,
+    rounds: []
+  });
+
+  saveData(data);
+  render();
+}
+
+function addRound() {
+  const data = getData();
+  if (data.finished) return;
+
+  data.players.forEach(p => {
+    p.rounds.push({ points: 0, phaseCompleted: false });
+  });
+
+  saveData(data);
+  render();
+}
+
+function updatePoints(playerIndex, roundIndex, value) {
+  const data = getData();
+  data.players[playerIndex].rounds[roundIndex].points = Number(value);
+  saveData(data);
+  render();
+}
+
+function togglePhase(playerIndex, roundIndex) {
+  const data = getData();
+  const player = data.players[playerIndex];
+  const round = player.rounds[roundIndex];
+
+  round.phaseCompleted = !round.phaseCompleted;
+
+  if (round.phaseCompleted && player.phase < 10) {
+    player.phase++;
+  }
+
+  checkGameEnd(data);
+  saveData(data);
+  render();
+}
+
+function getTotal(pointsArray) {
+  return pointsArray.reduce((sum, r) => sum + (r.points || 0), 0);
+}
+
+function checkGameEnd(data) {
+  if (data.players.some(p => p.phase === 10)) {
+    data.finished = true;
+  }
+}
+
+function getWinner(players) {
+  let winner = players[0];
+  players.forEach(p => {
+    if (getTotal(p.rounds) < getTotal(winner.rounds)) {
+      winner = p;
+    }
+  });
+  return winner;
+}
+
+function render() {
+  const data = getData();
+  const container = document.getElementById("players");
+  container.innerHTML = "";
+
+  data.players.forEach((p, i) => {
+    const total = getTotal(p.rounds);
+
+    let roundsHTML = "";
+    p.rounds.forEach((r, ri) => {
+      roundsHTML += `
+        <div class="round">
+          Runde ${ri+1}:
+          <input type="number" value="${r.points}"
+            onchange="updatePoints(${i}, ${ri}, this.value)">
+          Phase geschafft:
+          <input type="checkbox" ${r.phaseCompleted ? "checked" : ""}
+            onchange="togglePhase(${i}, ${ri})">
+        </div>
+      `;
+    });
+
+    container.innerHTML += `
+      <div class="player">
+        <strong>${p.name}</strong><br>
+        Phase: ${p.phase}<br>
+        Gesamtpunkte: ${total}
+        ${roundsHTML}
+      </div>
+    `;
+  });
+
+  if (data.finished) {
+    const winner = getWinner(data.players);
+    document.getElementById("winner").innerText =
+      "🏆 Gewinner: " + winner.name;
+  }
+}
+
+render();
+</script>
