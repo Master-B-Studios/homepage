@@ -4,6 +4,7 @@
 
 .headers text {cursor: default;filter: drop-shadow(0 0 0 #000000) drop-shadow(0 0 4px #000000);fill: #dbdbdb;stroke: #000000;stroke-width: 4px;paint-order: stroke;}
 .headers image {cursor: default;filter: drop-shadow(0 0 0 #000000) drop-shadow(0 0 4px #000000);fill: #dbdbdb;stroke: #000000;stroke-width: 4px;paint-order: stroke;}
+.system_header text {cursor: default;filter: drop-shadow(0 0 0 #000000) drop-shadow(0 0 4px #000000);fill: #dbdbdb;stroke: #000000;stroke-width: 4px;paint-order: stroke;font-size: 2em;text-anchor: middle;}
 
 .overlay {transform-box: fill-box;cursor: pointer;filter: drop-shadow(0 0 0 #000000) drop-shadow(0 0 4px #000000);}
 .overlay:hover {opacity: 1;transition: all 0.5s ease;}
@@ -12,13 +13,14 @@
 .overlay text {fill: #dbdbdb;stroke: #000000;stroke-width: 2px;paint-order: stroke;font-size: 0.8em;opacity: 0.4;font-size:14;}
 .overlay:hover text {opacity: 1;transition: all 0.5s ease;}
 
-.trans_galaxy {transform-origin: left, top;transition: all 0.5s ease;}
+.trans_galaxy {transform-origin: left top;transition: all 0.5s ease;}
+.trans_sector {transform-origin: right top;transition: all 0.5s ease;}
 .trans_center {transform-origin: center;transition: all 0.5s ease;}
-.trans_center text {text-anchor:middle;}
+.trans_center text {text-anchor: middle;}
 .trans_left {transform-origin: left;transition: all 0.5s ease;}
-.trans_left text {text-anchor:left;}
+.trans_left text {text-anchor: left;}
 .trans_right {transform-origin: right;transition: all 0.5s ease;}
-.trans_right text {text-anchor:right;}
+.trans_right text {text-anchor: right;}
 
 .scale-active {transform: scale(1.2);position: relative;z-index: 100;}
 
