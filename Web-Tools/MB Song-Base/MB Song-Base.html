@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>MB Song-Base</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+  <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
+  <link rel="stylesheet" href="../../assets/css/main.css"></link>
+  <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+  <style>
+    #list_container {width: 100%;height: auto;display: block;}
+    #list_container summary {color: #1fff50;font-size: 1.2em;margin-top: 0.5em;margin-bottom: 0.5em;}
+    #list_container div {width: 100%;height: auto;}
+    #list_container input {width: 100%;height: auto;text-align: center;font-size: 1em;outline-color: none;outline: none;background-color: #222222;color: #dbdbdb;border: none;padding: 0.5em;margin-bottom: 1em;box-sizing: border-box;}
+    #list_container input:focus {outline: none;box-shadow: none;}
+
+    #song-list {width: 100%; display: flex;flex-wrap: wrap;align-items: center;justify-content: space-between;}
+    #song-list button {margin: 5px;}
+
+    #song_container {width: 100%;height: auto;display: block;margin-top: 1em;}
+    #song_container summary {color: #dbdbdb;font-size: 1.2em;margin-top: 0.5em;margin-bottom: 0.5em;}
+
+    #transpose {width: 100%;height: auto;display: flex;align-items: center;justify-content: start;margin-bottom: 1em;}
+    #transpose button {margin: 5px;}
+
+    .line {display: flex;flex-wrap: wrap;white-space: pre-wrap;}
+    .word {display: inline-flex;flex-direction: column;align-items: flex-start;margin-right: 0px;}
+    .chord {font-size: 1em;color: #1fff50;line-height: 1em;height: 0.6em;}
+</style>
+</head>
+<body onload="" class="is-preload">
+  <div id="wrapper">
+    
+    <nav id="nav">
+      <a href="../../index.html"><img class="mb_icon" src="../../images/MB_Icon_02.png"></img><span>Home</span></a>
+      <a href="../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
+      <a href="../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
+	  <a href="../../Games/games.html"><img class="mb_icon" src="../../images/Games_Icon_01.png"></img><span>Games</span></a>
+      <a href="#mb_song_base"><img class="mb_icon" src="icon_01.png"></img><span>Song-Base</span></a>
+    </nav>
+    
+    <div id="main">
+      <article id="mb_song_base" class="panel">
+        <header><h2>MB Song-Base</h2></header>
+        <details id="list_container" open>
+          <summary>Datenbank</summary>
+          <div id="search_container"><input type="text" id="search" placeholder="Song suchen..." oninput="filterSongs()"/></div>
+          <div id="song-list"></div>
+        </details>
+        <details id="song_container" close>
+          <summary id="song_title"></summary>
+          <div id="transpose"><button onclick="transpose(-1)">- Halbton</button><button onclick="transpose(1)">+ Halbton</button></div>
+          <div id="song"></div>
+        </details>
+      </article>
+    </div>
+
+    <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
+
+  </div>
+</body>
+
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/browser.min.js"></script>
+<script src="../../assets/js/breakpoints.min.js"></script>
+<script src="../../assets/js/util.js"></script>
+<script src="../../assets/js/main.js"></script>
+<script>
+  let originalSong = null;
+  let currentSong = null;
+  let songIndex = [];
+  let transposeSteps = 0;
+  const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "B", "H"];
+
+  function renderLine(line) {
+    const div = document.createElement("div");
+    div.className = "line";
+    const parts = line.split(/(\[[^\]]+\])/g);
+    let currentChord = null;
+    parts.forEach(part => {
+      if (part.startsWith("[") && part.endsWith("]")) {currentChord = part.slice(1, -1);}
+      else if (part.length > 0) {
+        const span = document.createElement("span");
+        span.className = "word";
+        const chordDiv = document.createElement("div");
+        chordDiv.className = "chord";
+        chordDiv.textContent = currentChord || "";
+        const textDiv = document.createElement("div");
+        textDiv.textContent = part;
+        span.appendChild(chordDiv);
+        span.appendChild(textDiv);
+        div.appendChild(span);
+        currentChord = null;
+      }
+    });
+    if (currentChord) {
+      const span = document.createElement("span");
+      span.className = "word";
+      const chordDiv = document.createElement("div");
+      chordDiv.className = "chord";
+      chordDiv.textContent = currentChord;
+      const textDiv = document.createElement("div");
+      textDiv.innerHTML = "&nbsp;";
+      span.appendChild(chordDiv);
+      span.appendChild(textDiv);
+      div.appendChild(span);
+    }
+    return div;
+  }
+  
+  function transposeChord(chord, steps) {
+    return chord.replace(/([A-H]#?)(?=[^A-H#b]*|$)/g, (match) => {
+      let index = notes.indexOf(match);
+      if (index === -1) return match;
+      let newIndex = (index + steps + 12) % 12;
+      return notes[newIndex];
+    });
+  }
+  function transposeLine(line, steps) {
+    return line.replace(/\[([^\]]+)\]/g, (match, chord) => {
+      const newChord = transposeChord(chord, steps);
+      return `[${newChord}]`;
+    });
+  }
+  function transposeSong(song, steps) {
+    return {
+      ...song,
+      lines: song.lines.map(line => transposeLine(line, steps))
+    };
+  }
+  function transpose(steps) {
+    transposeSteps += steps;
+    currentSong = transposeSong(originalSong, transposeSteps);
+    renderSong(currentSong);
+  }
+  
+  async function loadAndRender(name) {
+  originalSong = await loadSong(name);
+  currentSong = originalSong;
+  transposeSteps = 0;
+
+  renderSong(currentSong);
+
+  // 👉 Titel setzen
+  const titleEl = document.getElementById("song_title");
+  const artist = currentSong.artist || "Unbekannt";
+  titleEl.textContent = `${artist} - ${currentSong.title}`;
+
+  // 👉 Details umschalten
+  document.getElementById("song_container").open = true;
+  document.getElementById("list_container").open = false;
+}
+  
+  async function loadSong(name) {
+    const res = await fetch(`songs/${name}.json`);
+    return await res.json();
+  }
+  function renderSong(song) {
+    const container = document.getElementById("song");
+    container.innerHTML = "";
+    song.lines.forEach(line => {container.appendChild(renderLine(line));});
+  }
+  
+  async function loadSongIndex() {
+    const res = await fetch("songs/00_index.json");
+    songIndex = await res.json();
+    renderSongList(sortSongs([...songIndex]));
+  }
+
+  function renderSongList(list) {
+    const container = document.getElementById("song-list");
+    container.innerHTML = "";    
+    list.forEach(song => {
+      const btn = document.createElement("button");
+      btn.textContent = `${song.artist} - ${song.title}`;
+      btn.style.display = "block";
+      btn.style.marginBottom = "5px";
+      btn.onclick = () => loadAndRender(song.name);
+      container.appendChild(btn);
+    });
+  }
+  
+  function filterSongs() {
+    const query = document.getElementById("search").value.toLowerCase();
+    const filtered = songIndex.filter(song => song.title.toLowerCase().includes(query) || song.artist.toLowerCase().includes(query));
+    renderSongList(sortSongs(filtered));
+  }
+  function sortSongs(list) {
+    return list.sort((a, b) => {
+      const artistCompare = a.artist.localeCompare(b.artist);
+      if (artistCompare !== 0) return artistCompare;
+      return a.title.localeCompare(b.title);
+    });
+  }
+
+  window.addEventListener("DOMContentLoaded", async () => {
+    window.location.hash = "#mb_song_base";
+    await loadSongIndex();
+    if (songIndex.length > 0) {loadAndRender(songIndex[1].name);}
+  });
+</script>
