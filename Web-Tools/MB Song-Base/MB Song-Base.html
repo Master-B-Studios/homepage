@@ -49,7 +49,11 @@
         </details>
         <details id="song_container" close>
           <summary id="song_title"></summary>
-          <div id="transpose"><button onclick="transpose(-1)">- Halbton</button><button onclick="transpose(1)">+ Halbton</button></div>
+          <div id="transpose">
+            <button onclick="transpose(-1)">- Halbton</button><button onclick="transpose(1)">+ Halbton</button>
+            <button onclick="startScroll()">▶ Play</button><button onclick="stopScroll()">⏸ Pause</button>
+            <label style="margin-left: 1em;">Speed:<input type="range" min="1" max="100" value="20" id="scrollSpeed" /></label>
+          </div>
           <div id="song"></div>
         </details>
       </article>
@@ -192,6 +196,19 @@
       return a.title.localeCompare(b.title);
     });
   }
+
+  let scrollInterval = null;
+  function startScroll() {
+    stopScroll();
+    const speedInput = document.getElementById("scrollSpeed");
+    const container = document.getElementById("song_container");
+    scrollInterval = setInterval(() => {
+      const speed = parseInt(speedInput.value, 10);
+      window.scrollBy(0, speed * 0.1);
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {stopScroll();}
+    }, 50);
+  }
+  function stopScroll() {if (scrollInterval) {clearInterval(scrollInterval);scrollInterval = null;}}
 
   window.addEventListener("DOMContentLoaded", async () => {
     window.location.hash = "#mb_song_base";
