@@ -23,6 +23,16 @@
     #transpose {width: 100%;height: auto;display: flex;align-items: center;justify-content: start;margin-bottom: 1em;}
     #transpose button {margin: 5px;}
 
+    /*#controls {width: 80%;position: fixed;bottom: 0.5em;left: 2em;z-index: 1000;background: #111111;padding: 0.25em;border-radius: 1em;display: flex;gap: 0em;}
+    #controls button {font-size: 1.2em;padding: 0em;}*/
+    #controls {position: fixed;bottom: 0.5em;left: 50%;transform: translateX(-50%);z-index: 1000;display: flex;align-items: center;padding: 0 0.5em 0 0.2em;background: #22222222;border-radius: 999px;border: 1px solid #222222;box-shadow: 0 4px 12px rgba(0,0,0,0.4);backdrop-filter: blur(5px);width: fit-content;color: #1fff50;text-align: center;}
+    #controls button {width: 1.8em;height: 1.8em;font-size: 1.8em;border-radius: 999px;color: #1fff50;background-color: none;padding: 0;margin: 0;}
+    #controls button span svg:hover {fill: #dbdbdb;}
+    #controls input[type="range"] {background-color: #00000000;}
+    #scrollSpeed::-webkit-slider-thumb {-webkit-appearance: none;width: 1.4em;height: 1.4em;border-radius: 50%;background: #1fff50;border: 1px solid #000000;cursor: pointer;box-shadow: 0 0 6px rgba(31,255,80,0.6);margin-top: -0.2em;}
+    #scrollSpeed::-webkit-slider-thumb:hover {background: #dbdbdb;}
+    #scrollSpeed::-webkit-slider-runnable-track {height: 1em;width: 10em;border-radius: 999px;background: #222222;margin-top: 0.5em;}
+
     .line {display: flex;flex-wrap: wrap;white-space: pre-wrap;}
     .word {display: inline-flex;flex-direction: column;align-items: flex-start;margin-right: 0px;}
     .chord {font-size: 1em;color: #1fff50;line-height: 1em;height: 0.6em;margin-right: 0.5em;}
@@ -35,7 +45,7 @@
       <a href="../../index.html"><img class="mb_icon" src="../../images/MB_Icon_02.png"></img><span>Home</span></a>
       <a href="../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
       <a href="../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
-	  <a href="../../Games/games.html"><img class="mb_icon" src="../../images/Games_Icon_01.png"></img><span>Games</span></a>
+      <a href="../../Games/games.html"><img class="mb_icon" src="../../images/Games_Icon_01.png"></img><span>Games</span></a>
       <a href="#mb_song_base"><img class="mb_icon" src="icon_01.png"></img><span>Song-Base</span></a>
     </nav>
     
@@ -51,8 +61,10 @@
           <summary id="song_title"></summary>
           <div id="transpose">
             <button onclick="transpose(-1)">- Halbton</button><button onclick="transpose(1)">+ Halbton</button>
-            <button onclick="startScroll()">▶ Play</button><button onclick="stopScroll()">⏸ Pause</button>
-            <label style="margin-left: 1em;">Speed:<input type="range" min="1" max="100" value="20" id="scrollSpeed" /></label>
+            <div id="controls">
+              <button id="scrollToggle" onclick="toggleScroll()" style="background-color: #00000000;padding: 0;"><span id="scrollIcon"></span></button>
+              <label><input id="scrollSpeed" type="range" min="5" max="50" value="5"/></label>
+            </div>
           </div>
           <div id="song"></div>
         </details>
@@ -198,21 +210,36 @@
   }
 
   let scrollInterval = null;
+  let isScrolling = false;
+  
+  function toggleScroll() {if (isScrolling) {stopScroll();} else {startScroll();}}
   function startScroll() {
     stopScroll();
     const speedInput = document.getElementById("scrollSpeed");
-    const container = document.getElementById("song_container");
+    const button = document.getElementById("scrollToggle");
+    isScrolling = true;
+    updateScrollButton();
     scrollInterval = setInterval(() => {
       const speed = parseInt(speedInput.value, 10);
       window.scrollBy(0, speed * 0.1);
       if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {stopScroll();}
-    }, 50);
+    }, 100);
   }
-  function stopScroll() {if (scrollInterval) {clearInterval(scrollInterval);scrollInterval = null;}}
+  function stopScroll() {
+    if (scrollInterval) {clearInterval(scrollInterval);scrollInterval = null;}
+    isScrolling = false;
+    updateScrollButton();
+  }
+  function updateScrollButton() {
+    const icon = document.getElementById("scrollIcon");
+    if (isScrolling) {icon.innerHTML = `<svg viewBox="0 0 24 24" width="1.8em" height="1.8em" fill="#1fff50"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg>`;}
+    else {icon.innerHTML = `<svg viewBox="0 0 24 24" width="1.8em" height="1.8em" fill="#1fff50"><polygon points="8,5 19,12 8,19"></polygon></svg>`;}
+  }
 
   window.addEventListener("DOMContentLoaded", async () => {
     window.location.hash = "#mb_song_base";
     await loadSongIndex();
-    //if (songIndex.length > 0) {loadAndRender(songIndex[0].name);}
+    updateScrollButton();
+    //if (songIndex.length > 0) {loadAndRender(songIndex[4].name);}
   });
 </script>
