@@ -50,7 +50,7 @@ function save_film() {
     '   <originaltitle>'+title_movie+'</originaltitle>\n'+
     '   <plot>'+content_movie+'</plot>\n'+
     '   <runtime>'+runtime_movie+'</runtime>\n'+
-    '   <mpaa>'+age_movie+'</mpaa>\n'+
+    '   <mpaa>FSK-'+age_movie+'</mpaa>\n'+
     '   <id>'+number_movie+'</id>\n'+
     '   <uniqueid type="mbdb">'+number_movie+'</uniqueid>\n'+
     '   <year>'+year_movie+'</year>\n'+
@@ -83,7 +83,7 @@ function save_serie() {
     '<tvshow>\n'+
     '   <title>'+title_serie+'</title>\n'+
     '   <plot>'+content_serie+'</plot>\n'+
-    '   <mpaa>'+age_serie+'</mpaa>\n'+
+    '   <mpaa>FSK-'+age_serie+'</mpaa>\n'+
     '   <id>S'+number_serie+'</id>\n'+
     '   <uniqueid type="mbdb">S'+number_serie+'</uniqueid>\n'+
     seasons+
