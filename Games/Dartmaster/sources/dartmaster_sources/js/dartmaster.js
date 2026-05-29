@@ -27,6 +27,7 @@ $(function () {
 		var player = currentLegData().selectPlayer;
 		switch (e.keyCode) {
 			case 13:	// Enter
+				nextScore();changeNextSelect();return false;
 			case 9:		// Tab
 				scrollRound(currentLegData().selectRound);if (nextScore() === false) {return false;} changeNextSelect();return false;
 			case 8:		// BS
