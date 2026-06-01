@@ -114,21 +114,21 @@ dice.addEventListener("click", () => {
   result.textContent = "Würfeln...";
   
   const animationInterval = setInterval(() => {
-    const randomNumber = Math.floor(Math.random() * 6) + 1;
+    const randomNumber = Math.floor(Math.random() * 7) + 0;
     dice_img.src = `dices/${randomNumber}.png`;
   }, 200);
   
   setTimeout(() => {
     clearInterval(animationInterval);
-    const finalNumber = Math.floor(Math.random() * 6) + 1;
+    const finalNumber = Math.floor(Math.random() * 7) + 0;
     dice_img.src = `dices/${finalNumber}.png`;
     dice_img.classList.remove("rolling");
-    result.textContent = `Du musst ${finalNumber} mal furzen!`;
     rolling = false;
 
     rolledNumber = finalNumber;
     pressesThisRound = 0;
-    canFart = true;
+    if (finalNumber == 0) {canFart = false;result.textContent = `Du darfst Aussetzen!`;}
+    else {canFart = true;result.textContent = `Du musst ${finalNumber} mal furzen!`;}
   }, 2000);
 });
 
