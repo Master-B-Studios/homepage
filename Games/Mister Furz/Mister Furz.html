@@ -83,8 +83,8 @@ const fartRates = [
 ];
 
 const randomSounds = [];
-for (let i = 1; i <= 119; i++) {
-    const file = String(i).padStart(3, "0");
+for (let i = 1; i <= 18; i++) {
+    const file = String(i).padStart(2, "0");
     const audio = new Audio(`farts/random/${file}.mp3`);
     audio.preload = "auto";
     randomSounds.push(audio);
@@ -145,7 +145,7 @@ farter.addEventListener("click", () => {
   const rate = 0.7 + fartCounter * 0.04;
   
   if (fartCounter === targetFart) {
-    const randomIndex = Math.floor(Math.random() * 119);
+    const randomIndex = Math.floor(Math.random() * 18);
     result.textContent = "💥 BOOM! Runde verloren!";
     randomSounds[randomIndex].currentTime = 0;
     randomSounds[randomIndex].play();
