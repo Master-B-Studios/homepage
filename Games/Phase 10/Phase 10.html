@@ -10,8 +10,17 @@
     .phase10-table {width: 100%;border-collapse: collapse;}
     .phase10-table td, .phase10-table th {border: 1px solid #666;padding: 8px;text-align: center;}
     #tableContainer {max-height: 70vh;overflow-y: auto;}
-    .phase {display: inline-block;width: 24px;margin: 2px;cursor: pointer;}
-    .phase.active {background: #4CAF50;color: white;border-radius: 20%;}
+    .button_table {width: 100%;}
+    .button_table td {background-color: #222222;cursor: pointer;transition: all 1s ease;}
+    .button_table td:hover {background-color: #444444;color: #48ff00;}
+    .button_standard {background-color: #222222;cursor: pointer;transition: all 1s ease;}
+    .button_standard:hover {background-color: #444444;color: #48ff00;}
+    .button_player {background-color: #111111;cursor: pointer;transition: all 1s ease;outline: none;}
+    .button_player:hover {background-color: #444444;color: #48ff00;}
+    .phase {display: inline-block;width: 24px;margin: 2px;cursor: pointer;color: #dbdbdb;}
+    .phase.active {color: #000000;border-radius: 0.5em;background-color: #48ff00;}
+    .phasebox {width: 1.8em;height: 1.8em;background-color: none;border-radius: 0.5em;position: relative;cursor: pointer;transition: all 1s ease;margin: 0;padding: 0;outline: none;}
+    .scorebox {appearance: none;-moz-appearance: none;-webkit-appearance: none;width: 1.8em;height: 1.8em;background-color: #222222;border-radius: 0.5em;position: relative;cursor: pointer;transition: all 1s ease;margin: 0;padding: 0;outline: none;}
     .checkbox {display: flex;align-items: center;cursor: pointer;}
     .checkbox input[type="checkbox"] {appearance: none;-moz-appearance: none;-webkit-appearance: none;width: 1.8em;height: 1.8em;background-color: #222222;border-radius: 0.5em;position: relative;cursor: pointer;transition: all 1s ease;margin: 0;padding: 0;}
     .checkbox input[type="checkbox"]:hover {background-color: #444444;}
@@ -32,25 +41,23 @@
     <div id="main">
       <article id="phase_10" class="panel center">
         <div class="phase10-header">
-
-    <h1>Phase 10</h1>
-
-    <button onclick="addPlayer()">
-        Spieler hinzufügen
-    </button>
-
-    <button onclick="addRound()">
-        Runde hinzufügen
-    </button>
-
-    <button onclick="resetGame()">
-        Spiel zurücksetzen
-    </button>
-
-</div>
-
-<div id="tableContainer"></div>
-
+          <h1>Phase 10</h1>
+          <div class="tr_flipper_gap"></div>
+          <div id="phase_1" onclick="hide_element(this);" style="display: block;">
+            <span>Phase 1:<br>2 Drillinge</span>
+            <img>
+          </div>
+          <div class="tr_flipper_gap"></div>
+          <table class="button_table">
+            <tr>
+              <td class="button" onclick="addPlayer();">Spieler Hinzufügen</td>
+              <td></td>
+              <td class="button" onclick="resetGame();">Spiel Zurücksetzen</td>
+            </tr>
+          </table>
+        </div>
+        <div class="tr_flipper_gap"></div>
+        <div id="tableContainer" style="display: none;"></div>
       </article>
     </div>
     
@@ -72,6 +79,7 @@ function getData() {return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {pla
 function saveData(data) {localStorage.setItem(STORAGE_KEY, JSON.stringify(data));}
 
 function addPlayer() {
+  document.getElementById("tableContainer").style = "display: block;";
   const data = getData();
   const roundCount = data.players.length > 0 ? data.players[0].rounds.length : 0;
   const rounds = [];
@@ -96,6 +104,11 @@ function updateName(playerIndex, value) {
   const data = getData();
   data.players[playerIndex].name = value.trim() || `Spieler ${playerIndex + 1}`;
   saveData(data);
+}
+
+function delete_text(obj) {
+  console.log(obj)
+  obj.innerHTML = "";
 }
 
 function updatePoints(playerIndex, roundIndex, value) {
@@ -131,7 +144,7 @@ function renderPhase(player) {
   const currentPhase = getCurrentPhase(player);
   let html = "";
   for (let p = 1; p <= 10; p++) {
-    html += `<span class="phase ${p === currentPhase? " active": ""}">${p}</span>`;
+    html += `<span class="phasebox phase ${p === currentPhase? " active": ""}">${p}</span>`;
     if (p === 5) {html += "<br>";}
   }
   return html;
@@ -142,9 +155,10 @@ function render() {
   const container = document.getElementById("tableContainer");
   let maxRounds = 0;
   data.players.forEach(player => {maxRounds = Math.max(maxRounds,player.rounds.length);});
-  let html = `<table class="phase10-table"><thead><tr><th></th>`;
+  const roundText = maxRounds === 0 ? "Start" : "Nächste Runde";
+  let html = `<table class="phase10-table"><thead><tr><th class="button_standard" onclick="addRound();">${roundText}</th>`;
   data.players.forEach((player, playerIndex) => {
-    html += `<th contenteditable="true" onblur="updateName(${playerIndex},this.innerText)">${player.name}</th>`;
+    html += `<th class="button_player" contenteditable="true" onfocus="delete_text(this);" onblur="updateName(${playerIndex},this.innerText)">${player.name}</th>`;
   });
   html += `</tr><tr><th>Phase</th>`;
   data.players.forEach(player => {html += `<th>${renderPhase(player)}</th>`;});
@@ -152,14 +166,16 @@ function render() {
   data.players.forEach(player => {html += `<th>${getTotal(player)}</th>`;});
   html += `</tr></thead><tbody>`;
   for (let roundIndex = 0;roundIndex < maxRounds;roundIndex++) {
-    html += `<tr class="round-row"><td>Punkte Runde${roundIndex + 1}</td>`;
+    html += `<tr class="round-row"><td>Runde ${roundIndex + 1}</td>`;
     data.players.forEach((player, playerIndex) => {
       const round =player.rounds[roundIndex];
       html += `
       <td>
         <div style="display:flex;justify-content:center;align-items:center;gap:10px;">
-          <div contenteditable="true" onblur="updatePoints(${playerIndex},${roundIndex},this.innerText)">${round.points}</div>
-          <input class="checkbox" type="checkbox"${round.phaseCompleted? "checked": ""} onchange="togglePhaseCompleted(${playerIndex},${roundIndex})">
+          <div>Punkte:</div>
+          <div class="scorebox" contenteditable="true" onfocus="delete_text(this);" onblur="updatePoints(${playerIndex},${roundIndex},this.innerText)">${round.points}</div>
+          <div>Phase:</div>
+          <label class="checkbox"><input type="checkbox"${round.phaseCompleted? "checked": ""} onchange="togglePhaseCompleted(${playerIndex},${roundIndex})"></label>
         </div>
       </td>`;
     });
@@ -172,6 +188,7 @@ render();
 
 function resetGame() {
   if (!confirm("Möchtest du das aktuelle Spiel wirklich zurücksetzen?")) {return;}
+  document.getElementById("tableContainer").style = "display: none;";
   localStorage.removeItem(STORAGE_KEY);
   render();
 }
