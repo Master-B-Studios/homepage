@@ -7,8 +7,10 @@
   <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_01.png"></link>
   <link rel="stylesheet" href="../../assets/css/main.css"></link>
   <style>
+    .phase_view {width: 100%;height: auto;background-color: #111111;border-radius: 0.5em;border: 1px solid #666666;padding: 1em;}
+    .phase_view span {font-size: 2em;}
     .phase10-table {width: 100%;border-collapse: collapse;}
-    .phase10-table td, .phase10-table th {border: 1px solid #666;padding: 8px;text-align: center;}
+    .phase10-table td, .phase10-table th {border: 1px solid #666666;padding: 8px;text-align: center;}
     #tableContainer {max-height: 70vh;overflow-y: auto;}
     .button_table {width: 100%;}
     .button_table td {background-color: #222222;cursor: pointer;transition: all 1s ease;}
@@ -43,11 +45,141 @@
         <div class="phase10-header">
           <h1>Phase 10</h1>
           <div class="tr_flipper_gap"></div>
-          <div id="phase_1" onclick="hide_element(this);" style="display: block;">
-            <span>Phase 1:<br>2 Drillinge</span>
-            <img>
+
+          <div id="instruction_1" class="phase_view" onclick="hide_element(this);" style="display: none;">
+            <span>Phase 1:<br><br>2 Drillinge<br>&nbsp;</span>
+            <svg viewBox="0 0 1300 620" style="cursor: default;">
+              <g><image href="cards/01 Green.png" x="0" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/01 Purple.png" x="100" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/01 Red.png" x="200" y="0" width="400" height="620" class="sector_img"/></g>
+
+              <g><image href="cards/08 Purple.png" x="700" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/08 Red.png" x="800" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/08 Yellow.png" x="900" y="0" width="400" height="620" class="sector_img"/></g>
+            </svg>
           </div>
+          <div id="instruction_2" class="phase_view" onclick="hide_element(this);" style="display: none;">
+            <span>Phase 2:<br><br>1 Drilling + 1 Viererfolge<br>&nbsp;</span>
+            <svg viewBox="0 0 1400 620" style="cursor: default;">
+              <g><image href="cards/02 Green.png" x="0" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/02 Purple.png" x="100" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/02 Red.png" x="200" y="0" width="400" height="620" class="sector_img"/></g>
+
+              <g><image href="cards/04 Purple.png" x="700" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/05 Red.png" x="800" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/06 Yellow.png" x="900" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/07 Green.png" x="1000" y="0" width="400" height="620" class="sector_img"/></g>
+            </svg>
+          </div>
+          <div id="instruction_3" class="phase_view" onclick="hide_element(this);" style="display: none;">
+            <span>Phase 3:<br><br>1 Vierling + 1 Viererfolge<br>&nbsp;</span>
+            <svg viewBox="0 0 1500 620" style="cursor: default;">
+              <g><image href="cards/03 Green.png" x="0" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/03 Purple.png" x="100" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/03 Red.png" x="200" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/03 Yellow.png" x="300" y="0" width="400" height="620" class="sector_img"/></g>
+
+              <g><image href="cards/07 Purple.png" x="800" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/08 Red.png" x="900" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/09 Yellow.png" x="1000" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/10 Green.png" x="1100" y="0" width="400" height="620" class="sector_img"/></g>
+            </svg>
+          </div>
+          <div id="instruction_4" class="phase_view" onclick="hide_element(this);" style="display: none;">
+            <span>Phase 4:<br><br>Siebenerfolge<br>&nbsp;</span>
+            <svg viewBox="0 0 1000 620" style="cursor: default;">
+              <g><image href="cards/03 Green.png" x="0" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/04 Purple.png" x="100" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/05 Red.png" x="200" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/06 Yellow.png" x="300" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/07 Purple.png" x="400" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/08 Red.png" x="500" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/09 Yellow.png" x="600" y="0" width="400" height="620" class="sector_img"/></g>
+            </svg>
+          </div>
+          <div id="instruction_5" class="phase_view" onclick="hide_element(this);" style="display: none;">
+            <span>Phase 5:<br><br>Achterfolge<br>&nbsp;</span>
+            <svg viewBox="0 0 1100 620" style="cursor: default;">
+              <g><image href="cards/03 Green.png" x="0" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/04 Purple.png" x="100" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/05 Red.png" x="200" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/06 Yellow.png" x="300" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/07 Purple.png" x="400" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/08 Red.png" x="500" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/09 Yellow.png" x="600" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/10 Yellow.png" x="700" y="0" width="400" height="620" class="sector_img"/></g>
+            </svg>
+          </div>
+          <div id="instruction_6" class="phase_view" onclick="hide_element(this);" style="display: none;">
+            <span>Phase 6:<br><br>Neunerfolge<br>&nbsp;</span>
+            <svg viewBox="0 0 1200 620" style="cursor: default;">
+              <g><image href="cards/03 Green.png" x="0" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/04 Purple.png" x="100" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/05 Red.png" x="200" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/06 Yellow.png" x="300" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/07 Purple.png" x="400" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/08 Red.png" x="500" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/09 Yellow.png" x="600" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/10 Yellow.png" x="700" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/11 Red.png" x="800" y="0" width="400" height="620" class="sector_img"/></g>
+            </svg>
+          </div>
+          <div id="instruction_7" class="phase_view" onclick="hide_element(this);" style="display: none;">
+            <span>Phase 7:<br><br>2 Vierlinge<br>&nbsp;</span>
+            <svg viewBox="0 0 1500 620" style="cursor: default;">
+              <g><image href="cards/05 Green.png" x="0" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/05 Purple.png" x="100" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/05 Red.png" x="200" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/05 Yellow.png" x="300" y="0" width="400" height="620" class="sector_img"/></g>
+
+              <g><image href="cards/09 Green.png" x="800" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/09 Purple.png" x="900" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/09 Red.png" x="1000" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/09 Yellow.png" x="1100" y="0" width="400" height="620" class="sector_img"/></g>
+            </svg>
+          </div>
+          <div id="instruction_8" class="phase_view" onclick="hide_element(this);" style="display: none;">
+            <span>Phase 8:<br><br>7 Karten Einer Farbe<br>&nbsp;</span>
+            <svg viewBox="0 0 1000 620" style="cursor: default;">
+              <g><image href="cards/03 Green.png" x="0" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/04 Green.png" x="100" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/05 Green.png" x="200" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/08 Green.png" x="300" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/09 Green.png" x="400" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/10 Green.png" x="500" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/11 Green.png" x="600" y="0" width="400" height="620" class="sector_img"/></g>
+            </svg>
+          </div>
+          <div id="instruction_9" class="phase_view" onclick="hide_element(this);" style="display: none;">
+            <span>Phase 9:<br><br>1 Fünfling + 1 Zwilling<br>&nbsp;</span>
+            <svg viewBox="0 0 1400 620" style="cursor: default;">
+              <g><image href="cards/03 Green.png" x="0" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/03 Purple.png" x="100" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/03 Red.png" x="200" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/03 Yellow.png" x="300" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/Joker.png" x="400" y="0" width="400" height="620" class="sector_img"/></g>
+
+              <g><image href="cards/07 Purple.png" x="900" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/07 Red.png" x="1000" y="0" width="400" height="620" class="sector_img"/></g>
+            </svg>
+          </div>
+          <div id="instruction_10" class="phase_view" onclick="hide_element(this);" style="display: none;">
+            <span>Phase 10:<br><br>1 Fünfling + 1 Drilling<br>&nbsp;</span>
+            <svg viewBox="0 0 1500 620" style="cursor: default;">
+              <g><image href="cards/03 Green.png" x="0" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/03 Purple.png" x="100" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/03 Red.png" x="200" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/03 Yellow.png" x="300" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/Joker.png" x="400" y="0" width="400" height="620" class="sector_img"/></g>
+
+              <g><image href="cards/07 Purple.png" x="900" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/07 Red.png" x="1000" y="0" width="400" height="620" class="sector_img"/></g>
+              <g><image href="cards/07 Yellow.png" x="1100" y="0" width="400" height="620" class="sector_img"/></g>
+            </svg>
+          </div>
+
           <div class="tr_flipper_gap"></div>
+
           <table class="button_table">
             <tr>
               <td class="button" onclick="addPlayer();">Spieler Hinzufügen</td>
@@ -144,7 +276,7 @@ function renderPhase(player) {
   const currentPhase = getCurrentPhase(player);
   let html = "";
   for (let p = 1; p <= 10; p++) {
-    html += `<span class="phasebox phase ${p === currentPhase? " active": ""}">${p}</span>`;
+    html += `<span class="phasebox phase ${p === currentPhase? " active": ""}" onclick="show_instruction_phase(this);">${p}</span>`;
     if (p === 5) {html += "<br>";}
   }
   return html;
@@ -185,6 +317,23 @@ function render() {
   container.innerHTML = html;
 }
 render();
+
+function show_instruction_phase(obj) {
+  console.log(obj.innerHTML)
+  if (obj.innerHTML == 1) {document.getElementById("instruction_1").style = "display: block;"}
+  else if (obj.innerHTML == 2) {document.getElementById("instruction_2").style = "display: block;"}
+  else if (obj.innerHTML == 3) {document.getElementById("instruction_3").style = "display: block;"}
+  else if (obj.innerHTML == 4) {document.getElementById("instruction_4").style = "display: block;"}
+  else if (obj.innerHTML == 5) {document.getElementById("instruction_5").style = "display: block;"}
+  else if (obj.innerHTML == 6) {document.getElementById("instruction_6").style = "display: block;"}
+  else if (obj.innerHTML == 7) {document.getElementById("instruction_7").style = "display: block;"}
+  else if (obj.innerHTML == 8) {document.getElementById("instruction_8").style = "display: block;"}
+  else if (obj.innerHTML == 9) {document.getElementById("instruction_9").style = "display: block;"}
+  else if (obj.innerHTML == 10) {document.getElementById("instruction_10").style = "display: block;"}
+}
+function hide_element(obj) {
+  obj.style = "display: none;"
+}
 
 function resetGame() {
   if (!confirm("Möchtest du das aktuelle Spiel wirklich zurücksetzen?")) {return;}
