@@ -184,6 +184,8 @@
             <tr>
               <td class="button" onclick="addPlayer();">Spieler Hinzufügen</td>
               <td></td>
+              <td class="button" onclick="gameOn();">Weiterspielen</td>
+              <td></td>
               <td class="button" onclick="resetGame();">Spiel Zurücksetzen</td>
             </tr>
           </table>
@@ -239,8 +241,7 @@ function updateName(playerIndex, value) {
 }
 
 function delete_text(obj) {
-  console.log(obj)
-  obj.innerHTML = "";
+  if (obj.innerHTML === "0") {obj.innerHTML = "";}
 }
 
 function updatePoints(playerIndex, roundIndex, value) {
@@ -333,6 +334,9 @@ function show_instruction_phase(obj) {
 }
 function hide_element(obj) {
   obj.style = "display: none;"
+}
+function gameOn() {
+  document.getElementById("tableContainer").style = "display: block;"
 }
 
 function resetGame() {
