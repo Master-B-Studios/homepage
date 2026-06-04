@@ -124,7 +124,6 @@ dice.addEventListener("click", () => {
     dice_img.src = `dices/${finalNumber}.png`;
     dice_img.classList.remove("rolling");
     rolling = false;
-
     rolledNumber = finalNumber;
     pressesThisRound = 0;
     if (finalNumber == 0) {canFart = false;result.textContent = `Du darfst Aussetzen!`;}
@@ -136,6 +135,13 @@ farter.addEventListener("click", () => {
   farter_img.classList.add("pressed");
   setTimeout(() => {farter_img.classList.remove("pressed");}, 200);
   if (audioContext.state === "suspended") {audioContext.resume();}
+  console.log(fartCounter);
+  if (canFart == false && fartCounter == 0) {
+    const randomIndex = Math.floor(Math.random() * 18);
+    randomSounds[randomIndex].currentTime = 0;
+    randomSounds[randomIndex].play();
+    return;
+  }
   if (!canFart) return;
   fartCounter++;
   pressesThisRound++;
@@ -161,7 +167,7 @@ farter.addEventListener("click", () => {
   
   if (remaining > 0) {result.textContent = `Noch ${remaining} mal furzen!`;}
   if (pressesThisRound >= rolledNumber) {canFart = false;result.textContent = "Nächster Spieler!";}
-  
+
   playFart(rate);
   console.log(`Furz ${fartCounter} / Rundendruck ${pressesThisRound}/${rolledNumber}`);
 });
