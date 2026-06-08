@@ -8,6 +8,17 @@ function jump_page_film() {window.location.href = '#film'}
 function jump_page_serie() {window.location.href = '#serie'}
 function jump_page_episode() {window.location.href = '#episode'}
 
+document.addEventListener("paste", function (e) {
+  if (!e.target.matches('[contenteditable="true"]')) return;
+  e.preventDefault();
+  let text = e.clipboardData.getData("text/plain");
+  const selection = window.getSelection();
+  if (!selection.rangeCount) return;
+  selection.deleteFromDocument();
+  selection.getRangeAt(0).insertNode(document.createTextNode(text));
+  selection.collapseToEnd();
+});
+
 function subclick(obj) {obj.children[0].click();}
 
 function reset_all() {
