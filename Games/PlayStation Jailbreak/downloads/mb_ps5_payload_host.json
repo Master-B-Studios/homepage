@@ -16,6 +16,13 @@
       "version": "v0.3"
     },
     {
+      "name": "MB KstuffFull",
+      "filename": "MB_KstuffFull_1.6.7.elf",
+      "url": "https://raw.githubusercontent.com/Master-B-Studios/homepage/Games/PlayStation%20Jailbreak/downloads/MB_KstuffFull_1.6.7.elf",
+      "description": "Recompiled Kstuff mit geänderten Debug-Messages.",
+      "version": "v1.6.7"
+    },
+    {
       "name": "PS5 Debug",
       "filename": "ps5_debug_1_0_b_5.bin",
       "url": "https://raw.githubusercontent.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/ps5_debug_1_0_b_5.bin",
@@ -28,13 +35,6 @@
       "url": "https://raw.githubusercontent.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/ps5_etahen_2_5_b.bin",
       "description": "Standard PS5 Debug",
       "version": "v2.5.b"
-    },
-    {
-      "name": "MB Kstuff-Full",
-      "filename": "mb_ps5_kstuff_full_1_6_7.elf",
-      "url": "https://raw.githubusercontent.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/mb_ps5_kstuff_full_1_6_7.elf",
-      "description": "Standard PS5 Debug",
-      "version": "v1.6.7"
     }
   ]
 }
