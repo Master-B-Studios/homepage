@@ -30,11 +30,11 @@
       "version": "v1.0.b.5"
     },
     {
-      "name": "etaHEN",
-      "filename": "ps5_etahen_2_5_b.bin",
-      "url": "https://raw.githubusercontent.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/ps5_etahen_2_5_b.bin",
+      "name": "MB Toolbox",
+      "filename": "MB_Toolbox_2.5.elf",
+      "url": "https://raw.githubusercontent.com/Master-B-Studios/homepage/main/Games/PlayStation%20Jailbreak/downloads/MB_Toolbox_2.5.bin",
       "description": "Standard PS5 Debug",
-      "version": "v2.5.b"
+      "version": "v2.5"
     }
   ]
 }
