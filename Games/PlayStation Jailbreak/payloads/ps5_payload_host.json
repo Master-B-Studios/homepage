@@ -3,10 +3,10 @@
   "payloads": [
     {
       "name": "MB PayloadManager",
-      "filename": "MB_PayloadManager_0.3.1.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_PayloadManager_0.3.1.elf",
+      "filename": "MB_PayloadManager_0.3.2.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_PayloadManager_0.3.2.elf",
       "description": "Custom-Version des pldmgr von itsplk. Deutsches Layout. Die Companion-App wird unter Medien und nicht in den Games installiert. Nach Download eine Kopie erstellen zu /data/ps5_autoloader/MB_Payload_Manager.elf.",
-      "version": "v0.3.1"
+      "version": "v0.3.2"
     },
     {
       "name": "MB NanoDNS",
