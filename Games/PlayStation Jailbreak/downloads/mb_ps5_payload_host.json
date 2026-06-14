@@ -24,9 +24,9 @@
     },
     {
       "name": "MB Nano-DNS",
-      "filename": "mb_ps5_nanodns_0_3.elf",
-      "url": "https://raw.githubusercontent.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/mb_ps5_nanodns_0_3.elf",
-      "description": "Standard PS5 Debug",
+      "filename": "MB_Nano-DNS_0.3.elf",
+      "url": "https://raw.githubusercontent.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/MB_Nano-DNS_0.3.elf",
+      "description": "Mit dieser Custom-Version von NanoDNS kann Verbindung zum Internet trotz Router-IP 127.0.0.1 hergestellt werden. Leicht angepasste Debug-Messages.",
       "version": "v0.3"
     },
     {
