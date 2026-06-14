@@ -4,14 +4,14 @@
     {
       "name": "MB PayloadManager",
       "filename": "MB_PayloadManager_0.3.1.elf",
-      "url": "https://master-b-studios.github.io/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_PayloadManager_0.3.1.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_PayloadManager_0.3.1.elf",
       "description": "Custom-Version des pldmgr von itsplk. Deutsches Layout. Die Companion-App wird unter Medien und nicht in den Games installiert. Nach Download eine Kopie erstellen zu /data/ps5_autoloader/MB_Payload_Manager.elf.",
       "version": "v0.3.1"
     },
     {
       "name": "MB NanoDNS",
       "filename": "MB_NanoDNS_0.3.elf",
-      "url": "https://master-b-studios.github.io/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_NanoDNS_0.3.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_NanoDNS_0.3.elf",
       "description": "Mit dieser Custom-Version von NanoDNS kann Verbindung zum Internet trotz Router-IP 127.0.0.1 hergestellt werden. Leicht angepasste Debug-Messages.",
       "version": "v0.3"
     },
@@ -25,14 +25,14 @@
     {
       "name": "MB Toolbox",
       "filename": "MB_Toolbox_2.5.elf",
-      "url": "https://master-b-studios.github.io/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_Toolbox_2.5.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_Toolbox_2.5.elf",
       "description": "Custom-Version von etaHEN 2.5b. Deutsches Layout. Neue Navigationsstruktur und viele Optionen entfernt. Bug: Messages funktionieren nicht.",
       "version": "v2.5"
     },
     {
       "name": "PS5 Debug",
       "filename": "PS5_Debug_1.0.b5.bin",
-      "url": "https://master-b-studios.github.io/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_Debug_1.0.b5.bin",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_Debug_1.0.b5.bin",
       "description": "Standard PS5 Debug",
       "version": "v1.0.b5"
     }
