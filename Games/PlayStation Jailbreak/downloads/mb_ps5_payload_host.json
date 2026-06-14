@@ -4,7 +4,7 @@
     {
       "name": "MB Payload-Manager",
       "filename": "mb_ps5_payload_manger_0_3_1.elf",
-      "url": "https://master-b-studios.github.io/homepage/Games/PlayStation Jailbreak/downloads/mb_ps5_payload_manger_0_3_1.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/mb_ps5_payload_manger_0_3_1.elf",
       "description": "Redefined Payload-Manager",
       "version": "v0.3.1",
       "checksum": ""
@@ -12,7 +12,7 @@
     {
       "name": "PS5 Debug",
       "filename": "ps5_debug_1_0_b_5.bin",
-      "url": "https://master-b-studios.github.io/homepage/Games/PlayStation Jailbreak/downloads/ps5_debug_1_0_b_5.bin",
+      "url": "https://github.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/ps5_debug_1_0_b_5.bin",
       "description": "Standard PS5 Debug",
       "version": "v1.0.b.5",
       "checksum": ""
@@ -20,7 +20,7 @@
     {
       "name": "etaHEN",
       "filename": "ps5_etahen_2_5_b.bin",
-      "url": "https://master-b-studios.github.io/homepage/Games/PlayStation Jailbreak/downloads/ps5_etahen_2_5_b.bin",
+      "url": "https://github.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/ps5_etahen_2_5_b.bin",
       "description": "Standard PS5 Debug",
       "version": "v2.5.b",
       "checksum": ""
@@ -28,7 +28,7 @@
     {
       "name": "MB Nano-DNS",
       "filename": "mb_ps5_nanodns_0_3.elf",
-      "url": "https://master-b-studios.github.io/homepage/Games/PlayStation Jailbreak/downloads/mb_ps5_nanodns_0_3.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/mb_ps5_nanodns_0_3.elf",
       "description": "Standard PS5 Debug",
       "version": "v0.3",
       "checksum": ""
@@ -36,7 +36,7 @@
     {
       "name": "MB Kstuff-Full",
       "filename": "mb_ps5_kstuff_full_1_6_7.elf",
-      "url": "https://master-b-studios.github.io/homepage/Games/PlayStation Jailbreak/downloads/mb_ps5_kstuff_full_1_6_7.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/mb_ps5_kstuff_full_1_6_7.elf",
       "description": "Standard PS5 Debug",
       "version": "v1.6.7",
       "checksum": ""
