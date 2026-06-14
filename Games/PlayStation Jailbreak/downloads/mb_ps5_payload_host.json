@@ -5,7 +5,7 @@
       "name": "MB PayloadManager",
       "filename": "mb_ps5_payload_manger_0_3_1.elf",
       "url": "https://raw.githubusercontent.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/mb_ps5_payload_manger_0_3_1.elf",
-      "description": "Custom-Version des pldmgr von itsplk. Deutsches Layout. Nach Download eine Kopie erstellen zu /data/ps5_autoload/MB_Payload_Manager.elf.",
+      "description": "Custom-Version des pldmgr von itsplk. Deutsches Layout. Die Companion-App wird unter Medien und nicht in den Games installiert. Nach Download eine Kopie erstellen zu /data/ps5_autoloader/MB_Payload_Manager.elf.",
       "version": "v0.3.1"
     },
     {
