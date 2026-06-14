@@ -23,18 +23,18 @@
       "version": "v1.6.7"
     },
     {
-      "name": "PS5 Debug",
-      "filename": "ps5_debug_1.0.b5.bin",
-      "url": "https://github.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/ps5_debug_1.0.b5.bin",
-      "description": "Standard PS5 Debug",
-      "version": "v1.0.b5"
-    },
-    {
       "name": "MB Toolbox",
       "filename": "MB_Toolbox_2.5.elf",
       "url": "https://github.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/MB_Toolbox_2.5.bin",
       "description": "Standard PS5 Debug",
       "version": "v2.5"
+    },
+    {
+      "name": "PS5 Debug",
+      "filename": "ps5_debug_1.0.b5.bin",
+      "url": "https://github.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/ps5_debug_1.0.b5.bin",
+      "description": "Standard PS5 Debug",
+      "version": "v1.0.b5"
     }
   ]
 }
