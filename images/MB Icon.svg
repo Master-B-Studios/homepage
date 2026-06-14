@@ -1,0 +1,93 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5120 5120">
+    <defs>
+        <linearGradient id="rainbow_long_left" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#ff3300"></stop>
+            <stop offset="10%" stop-color="#ffcc00"></stop>
+            <stop offset="60%" stop-color="#00ff66"></stop>
+            <stop offset="80%" stop-color="#00ccff"></stop>
+            <stop offset="100%" stop-color="#3366ff"></stop>
+        </linearGradient>
+        <linearGradient id="rainbow_long_right" x1="100%" y1="0%" x2="0%" y2="0%">
+            <stop offset="0%" stop-color="#ff3300"></stop>
+            <stop offset="10%" stop-color="#ffcc00"></stop>
+            <stop offset="60%" stop-color="#00ff66"></stop>
+            <stop offset="80%" stop-color="#00ccff"></stop>
+            <stop offset="100%" stop-color="#3366ff"></stop>
+        </linearGradient>
+        <linearGradient id="rainbow_small_left" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#ff3300"></stop>
+            <stop offset="15%" stop-color="#ffcc00"></stop>
+            <stop offset="100%" stop-color="#00ff66"></stop>
+        </linearGradient>
+        <linearGradient id="rainbow_small_right" x1="100%" y1="0%" x2="0%" y2="0%">
+            <stop offset="0%" stop-color="#ff3300"></stop>
+            <stop offset="15%" stop-color="#ffcc00"></stop>
+            <stop offset="100%" stop-color="#00ff66"></stop>
+        </linearGradient>
+
+        <filter id="softShadow">
+            <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#000000" flood-opacity="0.5"></feDropShadow>
+        </filter>
+    </defs>
+
+    <!-- Hintergrund -->
+    <rect width="5120" height="5120" fill="none"></rect>
+
+    <g stroke="#000000" stroke-width="10" filter="url(#softShadow)">
+        <!-- Linke Linien -->
+        <polygon points="320,1960 1840,1960 1760,2040 320,2040" fill="url(#rainbow_long_left)"></polygon>
+        <polygon points="320,2520 1260,2520 1260,2600 320,2600" fill="url(#rainbow_small_left)"></polygon>
+        <polygon points="320,3160 1840,3160 1760,3080 320,3080" fill="url(#rainbow_long_left)"></polygon>
+
+        <!-- Rechte Linien -->
+        <polygon points="3280,1960 4800,1960 4800,2040 3360,2040" fill="url(#rainbow_long_right)"></polygon>
+        <polygon points="4800,2520 3860,2520 3860,2600 4800,2600" fill="url(#rainbow_small_right)"></polygon>
+        <polygon points="4800,3160 3280,3160 3360,3080 4800,3080" fill="url(#rainbow_long_right)"></polygon>
+    </g>
+
+    <g fill="#888888" stroke="#000000" stroke-width="10" filter="url(#softShadow)">
+        <!-- MB -->
+        <path d="
+            M 1340 2580
+            L 1500 2580
+            L 2019 3099
+            L 2020 2140
+            L 2200 2140
+            L 2410 2530
+            L 2620 2140
+            L 2980 2140
+            A 230 230 0 0 1 3173 2493
+            A 240 240 0 0 1 3020 2900
+            L 2520 2900
+            L 2616 2720
+            L 3020 2720
+            A 60 60 0 0 0 2980 2600
+            L 2684 2600
+            L 2780 2420
+            L 2980 2420
+            A 50 50 0 0 0 2980 2320
+            L 2703 2320
+            L 2500 2700
+            L 2320 2700
+            L 2200 2476
+            L 2200 3280
+            L 2540 3620
+            L 2540 3780
+            Z ">
+        </path>
+
+        <!-- Corners -->
+        <polygon points="1340,2540 2540,1340 2540,1500 1500,2540"></polygon>
+        <polygon points="2580,1340 3780,2540 3620,2540 2580,1500"></polygon>
+        <polygon points="2580,3620 3620,2580 3780,2580 2580,3780"></polygon>
+        <!--polygon points="1340,2580 2540,3780 2540,3620 1500,2580"></polygon-->
+    </g>
+
+    <g font-size="300" fill="#ffffff" stroke="#000000" stroke-width="4" filter="url(#softShadow)">
+        <!-- Master -->
+        <text x="400" y="2380" text-anchor="start">Master</text>
+        <!-- Studios -->
+        <text x="4720" y="2940" text-anchor="end">Studios</text>
+    </g>
+</svg>
