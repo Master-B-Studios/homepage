@@ -4,7 +4,7 @@
     {
       "name": "MB PayloadManager",
       "filename": "MB_PayloadManager_0.3.1.elf",
-      "url": "https://raw.githubusercontent.com/Master-B-Studios/homepage/Games/PlayStation%20Jailbreak/downloads/mb_ps5_payload_manger_0_3_1.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/MB_PayloadManager_0.3.1.elf",
       "description": "Custom-Version des pldmgr von itsplk. Deutsches Layout. Die Companion-App wird unter Medien und nicht in den Games installiert. Nach Download eine Kopie erstellen zu /data/ps5_autoloader/MB_Payload_Manager.elf.",
       "version": "v0.3.1"
     },
@@ -18,21 +18,21 @@
     {
       "name": "MB KstuffFull",
       "filename": "MB_KstuffFull_1.6.7.elf",
-      "url": "https://raw.githubusercontent.com/Master-B-Studios/homepage/Games/PlayStation%20Jailbreak/downloads/MB_KstuffFull_1.6.7.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/MB_KstuffFull_1.6.7.elf",
       "description": "Recompiled Kstuff mit geänderten Debug-Messages.",
       "version": "v1.6.7"
     },
     {
       "name": "PS5 Debug",
       "filename": "ps5_debug_1_0_b_5.bin",
-      "url": "https://raw.githubusercontent.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/ps5_debug_1_0_b_5.bin",
+      "url": "https://github.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/ps5_debug_1_0_b_5.bin",
       "description": "Standard PS5 Debug",
       "version": "v1.0.b.5"
     },
     {
       "name": "MB Toolbox",
       "filename": "MB_Toolbox_2.5.elf",
-      "url": "https://raw.githubusercontent.com/Master-B-Studios/homepage/main/Games/PlayStation%20Jailbreak/downloads/MB_Toolbox_2.5.bin",
+      "url": "https://github.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/MB_Toolbox_2.5.bin",
       "description": "Standard PS5 Debug",
       "version": "v2.5"
     }
