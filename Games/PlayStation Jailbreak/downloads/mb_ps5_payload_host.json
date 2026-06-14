@@ -3,15 +3,15 @@
   "payloads": [
     {
       "name": "MB PayloadManager",
-      "filename": "mb_ps5_payload_manger_0_3_1.elf",
-      "url": "https://raw.githubusercontent.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/mb_ps5_payload_manger_0_3_1.elf",
+      "filename": "MB_PayloadManager_0.3.1.elf",
+      "url": "https://raw.githubusercontent.com/Master-B-Studios/homepage/Games/PlayStation%20Jailbreak/downloads/mb_ps5_payload_manger_0_3_1.elf",
       "description": "Custom-Version des pldmgr von itsplk. Deutsches Layout. Die Companion-App wird unter Medien und nicht in den Games installiert. Nach Download eine Kopie erstellen zu /data/ps5_autoloader/MB_Payload_Manager.elf.",
       "version": "v0.3.1"
     },
     {
       "name": "MB NanoDNS",
       "filename": "MB_NanoDNS_0.3.elf",
-      "url": "https://raw.githubusercontent.com/Master-B-Studios/homepage/blob/main/Games/PlayStation%20Jailbreak/downloads/MB_NanoDNS_0.3.elf",
+      "url": "https://raw.githubusercontent.com/Master-B-Studios/homepage/Games/PlayStation%20Jailbreak/downloads/MB_NanoDNS_0.3.elf",
       "description": "Mit dieser Custom-Version von NanoDNS kann Verbindung zum Internet trotz Router-IP 127.0.0.1 hergestellt werden. Leicht angepasste Debug-Messages.",
       "version": "v0.3"
     },
