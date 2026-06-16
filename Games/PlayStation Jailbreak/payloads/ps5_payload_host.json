@@ -30,11 +30,32 @@
       "version": "v2.5"
     },
     {
+      "name": "PS5 ShadowMountPlus",
+      "filename": "PS5_ShadowMountPlus_1.6.15.2.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_ShadowMountPlus_1.6.15.2.elf",
+      "description": "ShadowMountPlus scannt PS5-Game-Dumps, die in lokalen Ordnern abgelegt wurden und stellt einen Shortcut auf dem Homebildschirm bereit.",
+      "version": "v1.6.15.2"
+    },
+    {
       "name": "PS5 Debug",
-      "filename": "PS5_Debug_1.0.b5.bin",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_Debug_1.0.b5.bin",
+      "filename": "PS5_Debug_1.0.B5.bin",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_Debug_1.0.B5.bin",
       "description": "Standard PS5 Debug",
-      "version": "v1.0.b5"
+      "version": "v1.0.B5"
+    },
+    {
+      "name": "PS5 FakeSignIn",
+      "filename": "PS5_FakeSignIn_1.1.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_FakeSignIn_1.1.elf",
+      "description": "Nach der Offline-Aktivierung eines Accounts durch etaHEN kann man mit FakeSignIn Remote-Play und USB-Speicherdaten-Transfer freischalten.",
+      "version": "v1.1"
+    },
+    {
+      "name": "PS5 etaHEN 2.5B",
+      "filename": "PS5_etaHEN_2.5B.bin",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_etaHEN_2.5B.bin",
+      "description": "Backup von etaHEN um Einstellungen vorzunehmen, die mit MB Toolbox ausgeblendet sind.",
+      "version": "v2.5B"
     },
     {
       "name": "PS5 etaHEN 2.6B",
