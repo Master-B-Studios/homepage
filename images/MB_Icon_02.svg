@@ -10,7 +10,7 @@
     </defs>
 
     <!-- Hintergrund -->
-    <rect width="2440" height="2440" fill="none"></rect>
+    <rect width="2440" height="2440" fill="white"></rect>
 
     <g fill="#dbdbdb" filter="url(#brushedTexture)" stroke="#000000" stroke-width="10">
         <!-- MB -->
@@ -41,6 +41,7 @@
             L 770 1840
             L 1200 2280
             L 1200 2440
+            L 0 1240
 
             M 0 1200
             L 1200 0
