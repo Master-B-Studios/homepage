@@ -1,0 +1,65 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5120 5120">
+    <defs>
+        <filter id="brushedTexture">
+            <feTurbulence type="fractalNoise" baseFrequency="0.005 0.8" numOctaves="10" seed="10" result="noise"/>
+            <feColorMatrix in="noise" type="saturate" values="0" result="mono"/>
+            <feComposite in="mono" in2="SourceAlpha" operator="in" result="maskedNoise"/>
+            <feBlend in="SourceGraphic" in2="maskedNoise" mode="multiply" result="metal"/>
+        </filter>
+    </defs>
+
+    <!-- Hintergrund -->
+    <rect width="2440" height="2440" fill="none"></rect>
+
+    <g fill="#dbdbdb" filter="url(#brushedTexture)" stroke="#000000" stroke-width="10">
+        <!-- MB -->
+        <path d="
+            M 0 1240
+            L 160 1240
+            L 680 1760
+            L 680 800
+            L 860 800
+            L 1070 1190
+            L 1280 800
+            L 1640 800
+            A 230 230 0 0 1 1833 1153
+            A 240 240 0 0 1 1680 1560
+            L 1180 1560
+            L 1276 1380
+            L 1680 1380
+            A 60 60 0 0 0 1640 1260
+            L 1344 1260
+            L 1440 1080
+            L 1640 1080
+            A 50 50 0 0 0 1640 980
+            L 1363 980
+            L 1160 1360
+            L 980 1360
+            L 860 1136
+            L 860 1660
+            L 770 1840
+            L 1200 2280
+            L 1200 2440
+
+            M 0 1200
+            L 1200 0
+            L 1200 160
+            L 160 1200
+            L 0 1200
+
+            M 1240 0
+            L 2440 1200
+            L 2280 1200
+            L 1240 160
+            L 1240 0
+
+            M 1240 2280
+            L 2280 1240
+            L 2440 1240
+            L 1240 2440
+            L 1240 2280
+            Z ">
+        </path>
+    </g>
+</svg>

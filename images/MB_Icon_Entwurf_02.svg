@@ -1,0 +1,72 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5120 5120">
+    <defs>
+        <linearGradient id="rainbow_full" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#ff3300"></stop>
+            <stop offset="5%" stop-color="#ffcc00"></stop>
+            <stop offset="20%" stop-color="#00ff66"></stop>
+            <stop offset="40%" stop-color="#00ccff"></stop>
+            <stop offset="50%" stop-color="#3366ff"></stop>
+            <stop offset="60%" stop-color="#00ccff"></stop>
+            <stop offset="80%" stop-color="#00ff66"></stop>
+            <stop offset="95%" stop-color="#ffcc00"></stop>
+            <stop offset="100%" stop-color="#ff3300"></stop>
+        </linearGradient>
+
+        <filter id="softShadow">
+            <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#000000" flood-opacity="0.5"></feDropShadow>
+        </filter>
+
+        <filter id="brushedTexture">
+            <feTurbulence type="fractalNoise" baseFrequency="0.005 0.8" numOctaves="10" seed="10" result="noise"/>
+            <feColorMatrix in="noise" type="saturate" values="0" result="mono"/>
+            <feComposite in="mono" in2="SourceAlpha" operator="in" result="maskedNoise"/>
+            <feBlend in="SourceGraphic" in2="maskedNoise" mode="multiply" result="metal"/>
+        </filter>
+    </defs>
+
+    <!-- Hintergrund -->
+    <rect width="5120" height="5120" fill="#ffffff"></rect>
+    
+    <!--circle cx="2560" cy="2560" r="2400" fill="red"/-->
+
+    <g fill="#000000">
+        <!-- MB -->
+        <path d="
+        M 1300 4600
+        A 2400 2400 0 1 1 4680 1440
+        L 4100 1440
+        Q 0 0 800 3300
+        L 1000 1600
+        L 1600 1600
+        L 1800 2700
+        L 2300 1600
+        L 2900 1600
+        L 2700 3300
+        L 2200 3300
+        L 2400 2200
+        L 2050 3300
+        L 1450 3300
+        L 1300 2200
+        L 1300 3300
+        Z"/>
+
+        <path d="
+        M 1460 4690
+        A 2400 2400 0 0 0 4760 1600
+        L 3400 1600
+        A 500 500 0 0 0 3400 2600
+        L 3800 2600
+        A 100 100 0 0 1 3800 2900
+        L 2810 2900
+        L 2770 3300
+        L 3900 3300
+        A 500 500 0 0 0 3900 2300
+        L 3500 2300
+        A 100 100 0 0 1 3480 2000
+        L 4380 2000
+        Q 5000 5000 1460 4110
+        Z"/>
+    </g>
+
+</svg>

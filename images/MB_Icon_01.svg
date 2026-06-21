@@ -29,6 +29,13 @@
         <filter id="softShadow">
             <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#000000" flood-opacity="0.5"></feDropShadow>
         </filter>
+
+        <filter id="brushedTexture">
+            <feTurbulence type="fractalNoise" baseFrequency="0.005 0.8" numOctaves="10" seed="10" result="noise"/>
+            <feColorMatrix in="noise" type="saturate" values="0" result="mono"/>
+            <feComposite in="mono" in2="SourceAlpha" operator="in" result="maskedNoise"/>
+            <feBlend in="SourceGraphic" in2="maskedNoise" mode="multiply" result="metal"/>
+        </filter>
     </defs>
 
     <!-- Hintergrund -->
@@ -46,7 +53,7 @@
         <polygon points="4800,3160 3280,3160 3360,3080 4800,3080" fill="url(#rainbow_long_right)"></polygon>
     </g>
 
-    <g fill="#888888" stroke="#000000" stroke-width="10" filter="url(#softShadow)">
+    <g fill="#dbdbdb" filter="url(#brushedTexture)" stroke="#000000" stroke-width="10">
         <!-- MB -->
         <path d="
             M 1340 2580
@@ -71,20 +78,33 @@
             L 2500 2700
             L 2320 2700
             L 2200 2476
-            L 2200 3280
+            L 2200 3000
+            L 2110 3180
             L 2540 3620
             L 2540 3780
+
+            M 1340 2540
+            L 2540 1340
+            L 2540 1500
+            L 1500 2540
+            L 1340 2540
+
+            M 2580 1340
+            L 3780 2540
+            L 3620 2540
+            L 2580 1500
+            L 2580 1340
+
+            M 2580 3620
+            L 3620 2580
+            L 3780 2580
+            L 2580 3780
+            L 2580 3620
             Z ">
         </path>
-
-        <!-- Corners -->
-        <polygon points="1340,2540 2540,1340 2540,1500 1500,2540"></polygon>
-        <polygon points="2580,1340 3780,2540 3620,2540 2580,1500"></polygon>
-        <polygon points="2580,3620 3620,2580 3780,2580 2580,3780"></polygon>
-        <!--polygon points="1340,2580 2540,3780 2540,3620 1500,2580"></polygon-->
     </g>
 
-    <g font-size="300" fill="#ffffff" stroke="#000000" stroke-width="4" filter="url(#softShadow)">
+    <g font-size="300" fill="#dbdbdb" filter="url(#brushedTexture)" stroke="#000000" stroke-width="4">
         <!-- Master -->
         <text x="400" y="2380" text-anchor="start">Master</text>
         <!-- Studios -->
