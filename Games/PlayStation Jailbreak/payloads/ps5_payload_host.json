@@ -72,6 +72,13 @@
       "version": "v2.6B"
     },
     {
+      "name": "PS5 FTPServer 0.20",
+      "filename": "PS5_FTPServer_0.20.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_FTPServer_0.20.elf",
+      "description": "FTPServer von Payload-Dev. Decrypted System-PRX-Files beim Download.",
+      "version": "v0.20"
+    },
+    {
       "name": "PS5 KstuffFull Version 1.6.7",
       "filename": "PS5_KstuffFull_1.6.7.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_KstuffFull_1.6.7.elf",
