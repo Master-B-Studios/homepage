@@ -70,6 +70,13 @@
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_etaHEN_2.6B.bin",
       "description": "Backup von etaHEN um Einstellungen vorzunehmen, die mit MB Toolbox ausgeblendet sind.",
       "version": "v2.6B"
+    },
+    {
+      "name": "PS5 KstuffFull Version 1.6.7",
+      "filename": "PS5_KstuffFull_1.6.7.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_KstuffFull_1.6.7.elf",
+      "description": "Offizielles Kstuff von EchoStretch.",
+      "version": "v1.6.7"
     }
   ]
 }
