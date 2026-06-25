@@ -7,16 +7,31 @@
   <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_02.svg"></link>
   <link rel="stylesheet" href="The Lost City.css"/>
   <script type="text/javascript" src="The Lost City.js"></script>
+  <style>
+    html, body {width: 100%;height: 100%;margin: 0;padding: 0;overflow: hidden;}
+    body {display: flex;justify-content: center;align-items: center;}
+    .playboard {width: min(100vw, calc(100vh * 16 / 9));aspect-ratio: 16 / 9;}
+    .playboard svg {display: block;width: 100%;height: 100%;}
+    .toolbar {cursor: pointer;}
+    .pointer_right {cursor: e-resize;}
+    .object {cursor: pointer;}
+  </style>
 </head>
 
-<body onload="set_bg();">
-  <div id="game_container" class="game_container">
-    <div id="background____" class="background____">
-      <img id="background_img" class="background_img" src="screens/01_01_01_01.jpg">
-      <div id="nav_up________" class="nav_up________" onclick="uwd();"></div>
-      <div id="nav_right_____" class="nav_right_____" onclick="fwd();"></div>
-      <div id="nav_down______" class="nav_down______" onclick="dwd();"></div>
-      <div id="nav_left______" class="nav_left______" onclick="rwd();"></div>
-    </div>
+<body onload="">
+  <div id="playboard" class="playboard">
+    <svg viewBox="0 0 1920 1080">
+      <image href="screens/01_01_01_01.jpg" width="1920" height="968"/>
+      <g data="navigator" class="pointer_right" onclick="">
+        <path fill="#00000000" d="M 1553 643 L 1691 787 L 1773 782 L 1789 290 L 1776 94 L 1765 45 L 1750 6 L 1620 6 L 1600 70 L 1570 156 L 1550 200 Z"/>
+      </g>
+      <g data="toolbar" class="toolbar" onclick=""><polygon fill="#dbdbdb" points="0,969 1920,969 1920,1080 0,1080"/></g>
+      <g data="object_puzzle_" class="object" onclick=""><polygon fill="#00000000" points="860,60 1060,60 1060,260 860,260"/></g>
+      <g data="object_lion_" class="object" onclick=""><polygon fill="#00000000" points="430,290 630,290 630,490 430,490"/></g>
+    </svg>
   </div>
 </body>
+
+<script>
+  playboard = document.getElementById('playboard');
+</script>
