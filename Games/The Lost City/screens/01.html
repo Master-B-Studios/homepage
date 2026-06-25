@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../The Lost City.css">
+</head>
+<body onload="set_bg();">
+  <div id="screen_view" class="screen_view">
+    <svg viewBox="0 0 1920 1080">
+      <image id="screen" href="01_1.jpg" width="1920" height="968"/>
+
+      <g data="to_02" class="pointer_right" onclick="nav('02');">
+        <path fill="#00000000" d="M 1553 643 L 1691 787 L 1773 782 L 1789 290 L 1776 94 L 1765 45 L 1750 6 L 1620 6 L 1600 70 L 1570 156 L 1550 200 Z"/>
+      </g>
+      
+      <g data="toolbar" class="toolbar" onclick=""><polygon fill="#dbdbdb" points="0,969 1920,969 1920,1080 0,1080"/></g>
+      <g data="object_puzzle_" class="object" onclick=""><polygon fill="#00000000" points="860,60 1060,60 1060,260 860,260"/></g>
+      <g data="object_lion_" class="object" onclick=""><polygon fill="#00000000" points="430,290 630,290 630,490 430,490"/></g>
+    </svg>
+  </div>
+</body>
+</html>
+<script src="../The Lost City.js"></script>
+<script>
+  function set_bg() {
+    const map = location.pathname.match(/([^/]+)\.html$/)[1];
+    document.getElementById('screen').setAttribute("href",`${map}_${season}.jpg`);
+  }
+</script>
