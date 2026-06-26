@@ -2,15 +2,15 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../The Lost City.css">
-<script src="../navigator.js"></script>
+<style>body {cursor: none;}</style>
+<script src="../The Lost City.js"></script>
 </head>
 <body onload="set_bg();">
   <div id="screen_view" class="screen_view">
     <svg viewBox="0 0 1440 726">
       <image id="screen" href="02_1.jpg" width="1440" height="726"/>
 
-      <g data="to_01" class="pointer_left" onclick="nav('01');">
+      <g data="to_01" class="cursor_left" onclick="nav('01');">
         <path fill="#00000000" d="M 196 627 L 313 591 L 325 310 L 297 250 L 252 237 L 200 300 Z"/>
       </g>
       <g data="to_05" class="cursor_up" onclick="nav('05');">
@@ -29,6 +29,5 @@
     const map = location.pathname.match(/([^/]+)\.html$/)[1];
     document.getElementById('screen').setAttribute("href",`${map}_${season}.jpg`);
     if (quest_002 === false && season === 3) {document.getElementById('screen').setAttribute("href",`02_3_0.jpg`);}
-    console.log(season)
   }
 </script>
