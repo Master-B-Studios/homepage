@@ -2,14 +2,15 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../The Lost City.css">
+<style>body {cursor: none;}</style>
+<script src="../The Lost City.js"></script>
 </head>
 <body onload="set_bg();">
   <div id="screen_view" class="screen_view">
     <svg viewBox="0 0 1440 726">
       <image id="screen" href="04_1.jpg" width="1440" height="726"/>
 
-      <g data="to_03" class="pointer_down" onclick="nav('03');">
+      <g data="to_03" class="cursor_down" onclick="nav('03');">
         <path fill="#00000000" d="M 330 722 L 780 722 L 822 592 L 640 592 Z"/>
       </g>
       <g data="04_closeup_01" class="object" onclick="nav('04_closeup_01');">
@@ -20,7 +21,6 @@
   </div>
 </body>
 </html>
-<script src="../The Lost City.js"></script>
 <script>
   function set_bg() {
     const map = location.pathname.match(/([^/]+)\.html$/)[1];

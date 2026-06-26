@@ -1,9 +1,10 @@
-
-
-
-//----------------------------------------------------
+//-----------------------------------------------------
 // Cursor Manager
 //----------------------------------------------------
+
+const isTouch =
+    "ontouchstart" in window ||
+    navigator.maxTouchPoints > 0;
 
 const cursor = document.getElementById("cursor");
 
@@ -54,7 +55,7 @@ for (const type in CURSORS) {
 screenFrame.addEventListener("load", initRoom);
 
 function initRoom() {
-
+    setCursor("default");
     const doc = screenFrame.contentDocument;
 
     // Cursor bewegen
