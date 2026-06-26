@@ -7,7 +7,7 @@
 
 const cursor = document.getElementById("cursor");
 
-const CURSOR_FPS = 10;
+const CURSOR_FPS = 8;
 const CURSOR_FRAMES = 4;
 
 let cursorType = "default";
@@ -99,3 +99,11 @@ function setCursor(type){
 }
 
 function resetCursor(e) {const hotspot = e.target.closest("[class*='cursor_']");if(hotspot) {setCursor("default");}}
+
+setInterval(() => {
+    if (cursor.style.display === "none") return;
+    cursorFrame++;
+    if (cursorFrame > CURSOR_FRAMES)
+        cursorFrame = 1;
+    cursor.src = cursorCache[cursorType][cursorFrame - 1].src;
+}, 1000 / CURSOR_FPS);
