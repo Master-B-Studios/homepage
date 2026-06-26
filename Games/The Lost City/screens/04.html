@@ -7,12 +7,15 @@
 <body onload="set_bg();">
   <div id="screen_view" class="screen_view">
     <svg viewBox="0 0 1440 726">
-      <image id="screen" href="01_1.jpg" width="1440" height="726"/>
+      <image id="screen" href="04_1.jpg" width="1440" height="726"/>
 
-      <g data="to_02" class="pointer_right" onclick="nav('02');">
-        <path fill="#00000000" d="M 1162 534 L 1348 622 L 1356 168 L 1330 6 L 1200 6 L 1156 134 Z"/>
+      <g data="to_03" class="pointer_down" onclick="nav('03');">
+        <path fill="#00000000" d="M 330 722 L 780 722 L 822 592 L 640 592 Z"/>
       </g>
-      
+      <g data="04_closeup_01" class="object" onclick="nav('04_closeup_01');">
+        <path fill="#00000000" d="M 650 565 L 824 565 L 820 85 L 643 81 Z"/>
+      </g>
+
     </svg>
   </div>
 </body>
@@ -22,5 +25,6 @@
   function set_bg() {
     const map = location.pathname.match(/([^/]+)\.html$/)[1];
     document.getElementById('screen').setAttribute("href",`${map}_${season}.jpg`);
+    if (quest_001 === false && season === 3) {document.getElementById('screen').setAttribute("href",`03_3_0.jpg`);}
   }
 </script>

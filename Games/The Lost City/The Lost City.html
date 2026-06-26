@@ -1,25 +1,19 @@
 <!DOCTYPE html>
-<html>
-  <head>
-  <title>The Lost City</title>
-  <meta charset="utf-8"></meta>
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
-  <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_02.svg"></link>
-  <link rel="stylesheet" href="The Lost City.css"/>
-  <script type="text/javascript" src="The Lost City.js"></script>
-  <style>
-    html, body {width: 100%;height: 100%;margin: 0;padding: 0;overflow: hidden;}
-    body {display: flex;justify-content: center;align-items: center;background-color: #000000;}
-  </style>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>The Lost City</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="The Lost City.css">
+    <script src="The Lost City.js" defer></script>
+    <script src="navigator.js" defer></script>
 </head>
 
 <body>
-    <div id="playboard" class="playboard">
+    <main id="playboard" class="playboard">
         <iframe id="screen_frame" class="screen_frame" src="screens/02.html"></iframe>
-    </div>
+    </main>
+    <img id="cursor" src="navigator/right_1.png" alt="" draggable="false">
 </body>
 
-<script>
-  const playboard = document.getElementById('playboard');
-</script>
 </html>

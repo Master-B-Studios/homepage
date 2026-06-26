@@ -3,31 +3,32 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="../The Lost City.css">
+<script src="../navigator.js"></script>
 </head>
 <body onload="set_bg();">
   <div id="screen_view" class="screen_view">
-    <svg viewBox="0 0 1920 1080">
-      <image id="screen" href="02_1.jpg" width="1920" height="968"/>
+    <svg viewBox="0 0 1440 726">
+      <image id="screen" href="02_1.jpg" width="1440" height="726"/>
 
       <g data="to_01" class="pointer_left" onclick="nav('01');">
-        <path fill="#00000000" d="M 270 835 L 366 813 L 387 424 L 370 380 L 345 336 L 303 357 L 282 400 L 270 468 Z"/>
+        <path fill="#00000000" d="M 196 627 L 313 591 L 325 310 L 297 250 L 252 237 L 200 300 Z"/>
       </g>
-      <g data="to_05" class="pointer_up" onclick="nav('05');">
-        <path fill="#00000000" d="M 987 714 L 1156 709 L 1180 313 L 1123 310 L 973 436 Z"/>
+      <g data="to_05" class="cursor_up" onclick="nav('05');">
+        <path fill="#00000000" d="M 738 556 L 892 550 L 892 220 L 738 288 Z"/>
       </g>
-      <g data="to_03" class="pointer_right" onclick="nav('03');">
-        <path fill="#00000000" d="M 1500 762 L 1606 754 L 1614 330 L 1504 354 Z"/>
+      <g data="to_03" class="cursor_right" onclick="nav('03');">
+        <path fill="#00000000" d="M 1104 570 L 1233 585 L 1233 200 L 1116 230 Z"/>
       </g>
       
     </svg>
   </div>
 </body>
 </html>
-<script src="../The Lost City.js"></script>
 <script>
   function set_bg() {
     const map = location.pathname.match(/([^/]+)\.html$/)[1];
     document.getElementById('screen').setAttribute("href",`${map}_${season}.jpg`);
-    if (quest_001 === false) {document.getElementById('screen').setAttribute("href",`01_0.jpg`);}
+    if (quest_002 === false && season === 3) {document.getElementById('screen').setAttribute("href",`02_3_0.jpg`);}
+    console.log(season)
   }
 </script>

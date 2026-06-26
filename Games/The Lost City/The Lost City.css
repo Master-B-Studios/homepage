@@ -1,8 +1,43 @@
-.playboard {width: min(100vw, calc(100vh * 16 / 9));aspect-ratio: 16 / 9;}
-.screen_frame {width: 100%;height: 100%;border: none;}
-.toolbar {cursor: pointer;}
-.pointer_left {cursor: w-resize;}
-.pointer_right {cursor: e-resize;}
-.pointer_up {cursor: n-resize;}
-.pointer_down {cursor: s-resize;}
-.object {cursor: pointer;}
+/* --------------------------------------------------
+   Grundlayout
+-------------------------------------------------- */
+
+html, body {width: 100%;height: 100%;margin: 0;overflow: hidden;}
+
+
+/* --------------------------------------------------
+   Spielbereich
+-------------------------------------------------- */
+
+body {display: flex;justify-content: center;align-items: center;background: #000000;cursor: none;}
+.playboard {width: min(100vw, calc(100vh * 16 / 9));aspect-ratio: 16 / 9;position: relative;}
+.screen_frame {width: 100%;height: 100%;display: block;border: none;}
+
+
+/* --------------------------------------------------
+   Eigener Cursor
+-------------------------------------------------- */
+
+#cursor {
+    position: fixed;
+    width: 48px;
+    height: 48px;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    z-index: 999999;
+    display: none;
+}
+
+
+/* --------------------------------------------------
+   Klassen innerhalb der SVGs
+-------------------------------------------------- */
+
+.pointer_left,
+.pointer_right,
+.pointer_up,
+.pointer_down,
+.object {cursor: none;}
