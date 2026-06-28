@@ -2,7 +2,7 @@
 // Game
 //----------------------------------------------------
 
-let season = 3;
+let season = 1;
 
 let quest_001 = true;
 let quest_002 = true;
