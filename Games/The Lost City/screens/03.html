@@ -17,6 +17,10 @@
         <path fill="#00000000" d="M 592 532 L 810 524 L 806 178 L 580 176 Z"/>
       </g>
 
+      <g data="03_puzzle_door" class="cursor_object" onclick="enter('03_puzzle_door');">
+        <path fill="#00000000" d="M 592 532 L 810 524 L 806 178 L 580 176 Z"/>
+      </g>
+
     </svg>
   </div>
 </body>
@@ -25,6 +29,6 @@
   function set_bg() {
     const map = location.pathname.match(/([^/]+)\.html$/)[1];
     document.getElementById('screen').setAttribute("href",`${map}_${season}.jpg`);
-    if (quest_001 === false && season === 3) {document.getElementById('screen').setAttribute("href",`03_3_0.jpg`);}
+    if (quest_03_door === false && season === 3) {document.getElementById('screen').setAttribute("href",`03_3_0.jpg`);}
   }
 </script>
