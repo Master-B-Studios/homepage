@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>body {cursor: none;}</style>
+<script src="../The Lost City.js"></script>
+</head>
+<body onload="set_bg();">
+  <div id="screen_view" class="screen_view">
+    <svg viewBox="0 0 1440 726">
+      <image id="screen" href="" width="1440" height="726"/>
+
+      <g data="to_23" class="cursor_down" onclick="nav('23');">
+        <path fill="#00000000" d="M 666 720 L 1010 720 L 1104 524 L 810 524 Z"/>
+      </g>
+      <g data="to_30" class="cursor_up" onclick="nav('30');">
+        <path fill="#00000000" d="M 144 335 L 430 335 L 430 50 L 144 50 Z"/>
+      </g>
+      <g data="to_32" class="cursor_up" onclick="nav('32');">
+        <path fill="#00000000" d="M 840 375 L 1085 440 L 1210 40 L 915 20 Z"/>
+      </g>
+
+    </svg>
+  </div>
+</body>
+</html>
+<script>
+  function set_bg() {
+    const map = location.pathname.match(/([^/]+)\.html$/)[1];
+    document.getElementById('screen').setAttribute("href",`${map}_${season}.jpg`);
+    if (quest_001 === false && season === 3) {document.getElementById('screen').setAttribute("href",`03_3_0.jpg`);}
+  }
+</script>
