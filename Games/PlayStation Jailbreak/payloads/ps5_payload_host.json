@@ -51,6 +51,13 @@
       "version": "v1.0.B5"
     },
     {
+      "name": "PS5 Debug NG",
+      "filename": "PS5_Debug_NG_1.3.0.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_Debug_NG_1.3.0.elf",
+      "description": "PS5 Debug-NG",
+      "version": "v1.3.0"
+    },
+    {
       "name": "PS5 FakeSignIn",
       "filename": "PS5_FakeSignIn_1.1.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_FakeSignIn_1.1.elf",
