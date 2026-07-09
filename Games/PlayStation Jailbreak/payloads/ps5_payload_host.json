@@ -51,6 +51,13 @@
       "version": "v1.0.B5"
     },
     {
+      "name": "PS5 Debug MemDBG",
+      "filename": "PS5_Debug_MemDBG_0.1.1.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_Debug_MemDBG_0.1.1.elf",
+      "description": "PS5 Debug MemDBG",
+      "version": "0.1.1"
+    },
+    {
       "name": "PS5 Debug NG",
       "filename": "PS5_Debug_NG_1.3.0.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_Debug_NG_1.3.0.elf",
