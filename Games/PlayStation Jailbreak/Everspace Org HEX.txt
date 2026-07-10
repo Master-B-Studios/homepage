@@ -1,3 +1,6 @@
+Apps auf MAC erlauben:
+xattr -cr /Applications/MemDBG.app
+
 God-Mode:
 
 address	bytes	instruction	size
