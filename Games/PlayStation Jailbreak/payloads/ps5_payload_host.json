@@ -98,6 +98,13 @@
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_KstuffFull_1.6.7.elf",
       "description": "Offizielles Kstuff von EchoStretch.",
       "version": "v1.6.7"
+    },
+    {
+      "name": "PS5 KstuffLite Version 1.09",
+      "filename": "PS5_KstuffLite_1.09.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_KstuffLite_1.09.elf",
+      "description": "Offizielles Kstuff von EchoStretch.",
+      "version": "v1.09"
     }
   ]
 }
