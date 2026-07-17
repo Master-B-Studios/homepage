@@ -31,10 +31,10 @@
     },
     {
       "name": "PS5 ShadowMountPlus",
-      "filename": "PS5_ShadowMountPlus_1.6.15.2.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_ShadowMountPlus_1.6.15.2.elf",
+      "filename": "PS5_ShadowMountPlus_1.6B16.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_ShadowMountPlus_1.6B16.elf",
       "description": "ShadowMountPlus scannt PS5-Game-Dumps, die in lokalen Ordnern abgelegt wurden und stellt einen Shortcut auf dem Homebildschirm bereit.",
-      "version": "v1.6.15.2"
+      "version": "v1.6B16"
     },
     {
       "name": "PS5 Backpork",
@@ -45,10 +45,10 @@
     },
     {
       "name": "PS5 Debug",
-      "filename": "PS5_Debug_1.0.B5.bin",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_Debug_1.0.B5.bin",
+      "filename": "PS5_Debug_1.0B5.bin",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_Debug_1.0B5.bin",
       "description": "Standard PS5 Debug",
-      "version": "v1.0.B5"
+      "version": "v1.0B5"
     },
     {
       "name": "PS5 Debug MemDBG",
