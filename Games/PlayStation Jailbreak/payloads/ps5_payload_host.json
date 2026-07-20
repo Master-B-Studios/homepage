@@ -44,6 +44,13 @@
       "version": "v1.6B16"
     },
     {
+      "name": "PS5 SaveManager",
+      "filename": "PS5_SaveManager_1.7.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_SaveManager_1.7.elf",
+      "description": "SaveManager zum Decrypten und Encrypten.",
+      "version": "v1.7"
+    },
+    {
       "name": "PS5 ShadowMountPlus",
       "filename": "PS5_ShadowMountPlus_1.6B16.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_ShadowMountPlus_1.6B16.elf",
