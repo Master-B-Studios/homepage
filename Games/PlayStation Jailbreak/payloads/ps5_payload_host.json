@@ -23,6 +23,13 @@
       "version": "v1.6.7"
     },
     {
+      "name": "MB KstuffLite",
+      "filename": "MB_KstuffLite_1.09.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_KstuffLite_1.09.elf",
+      "description": "Recompiled Kstuff mit angepassten Debug-Messages.",
+      "version": "v1.09"
+    },
+    {
       "name": "MB Toolbox",
       "filename": "MB_Toolbox_2.5.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_Toolbox_2.5.elf",
