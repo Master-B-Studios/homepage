@@ -37,6 +37,13 @@
       "version": "v2.5"
     },
     {
+      "name": "MB ShadowMount",
+      "filename": "MB_ShadowMount_1.6B16.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_ShadowMount_1.6B16.elf",
+      "description": "ShadowMount scannt PS5-Game-Dumps, die in lokalen Ordnern abgelegt wurden und stellt einen Shortcut auf dem Homebildschirm bereit.",
+      "version": "v1.6B16"
+    },
+    {
       "name": "PS5 ShadowMountPlus",
       "filename": "PS5_ShadowMountPlus_1.6B16.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_ShadowMountPlus_1.6B16.elf",
@@ -105,6 +112,13 @@
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_KstuffFull_1.6.7.elf",
       "description": "Offizielles Kstuff von EchoStretch.",
       "version": "v1.6.7"
+    },
+    {
+      "name": "PS5 KstuffLite Version 1.09",
+      "filename": "PS5_KstuffLite_1.09.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_KstuffLite_1.09.elf",
+      "description": "Offizielles Kstuff von EchoStretch.",
+      "version": "v1.09"
     }
   ]
 }
