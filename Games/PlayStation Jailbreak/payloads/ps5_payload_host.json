@@ -2,20 +2,6 @@
   "name": "MB Payload-Host",
   "payloads": [
     {
-      "name": "MB PayloadManager",
-      "filename": "MB_PayloadManager_0.3.1.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_PayloadManager_0.3.1.elf",
-      "description": "Custom-Version des pldmgr von itsplk. Deutsches Layout. Die Companion-App wird unter Medien und nicht in den Games installiert. Nach Download eine Kopie erstellen zu /data/ps5_autoloader/MB_Payload_Manager.elf.",
-      "version": "v0.3.1"
-    },
-    {
-      "name": "MB NanoDNS",
-      "filename": "MB_NanoDNS_0.3.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_NanoDNS_0.3.elf",
-      "description": "Mit dieser Custom-Version von NanoDNS kann Verbindung zum Internet trotz Router-IP 127.0.0.1 hergestellt werden. Leicht angepasste Debug-Messages.",
-      "version": "v0.3"
-    },
-    {
       "name": "MB KstuffFull",
       "filename": "MB_KstuffFull_1.6.7.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_KstuffFull_1.6.7.elf",
@@ -30,11 +16,25 @@
       "version": "v1.09"
     },
     {
-      "name": "MB Toolbox",
-      "filename": "MB_Toolbox_2.5.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_Toolbox_2.5.elf",
-      "description": "Custom-Version von etaHEN 2.5b. Deutsches Layout. Neue Navigationsstruktur und viele Optionen entfernt. Bug: Messages funktionieren nicht.",
-      "version": "v2.5"
+      "name": "MB NanoDNS",
+      "filename": "MB_NanoDNS_0.3.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_NanoDNS_0.3.elf",
+      "description": "Mit dieser Custom-Version von NanoDNS kann Verbindung zum Internet trotz Router-IP 127.0.0.1 hergestellt werden. Leicht angepasste Debug-Messages.",
+      "version": "v0.3"
+    },
+    {
+      "name": "MB PayloadManager",
+      "filename": "MB_PayloadManager_0.3.1.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_PayloadManager_0.3.1.elf",
+      "description": "Custom-Version des pldmgr von itsplk. Deutsches Layout. Die Companion-App wird unter Medien und nicht in den Games installiert. Nach Download eine Kopie erstellen zu /data/ps5_autoloader/MB_Payload_Manager.elf.",
+      "version": "v0.3.1"
+    },
+    {
+      "name": "MB PS5 Debug",
+      "filename": "MB_PS5_Debug_1.3.0.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_PS5_Debug_1.3.0.elf",
+      "description": "PS5 Debug by Master Studios",
+      "version": "v1.3.0"
     },
     {
       "name": "MB ShadowMount",
@@ -44,11 +44,11 @@
       "version": "v1.6B16"
     },
     {
-      "name": "PS5 ShadowMountPlus",
-      "filename": "PS5_ShadowMountPlus_1.6B16.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_ShadowMountPlus_1.6B16.elf",
-      "description": "ShadowMountPlus scannt PS5-Game-Dumps, die in lokalen Ordnern abgelegt wurden und stellt einen Shortcut auf dem Homebildschirm bereit.",
-      "version": "v1.6B16"
+      "name": "MB Toolbox",
+      "filename": "MB_Toolbox_2.5.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_Toolbox_2.5.elf",
+      "description": "Custom-Version von etaHEN 2.5b. Deutsches Layout. Neue Navigationsstruktur und viele Optionen entfernt. Bug: Messages funktionieren nicht.",
+      "version": "v2.5"
     },
     {
       "name": "PS5 Backpork",
@@ -79,13 +79,6 @@
       "version": "v1.3.0"
     },
     {
-      "name": "PS5 FakeSignIn",
-      "filename": "PS5_FakeSignIn_1.1.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_FakeSignIn_1.1.elf",
-      "description": "Nach der Offline-Aktivierung eines Accounts durch etaHEN kann man mit FakeSignIn Remote-Play und USB-Speicherdaten-Transfer freischalten.",
-      "version": "v1.1"
-    },
-    {
       "name": "PS5 etaHEN 2.5B",
       "filename": "PS5_etaHEN_2.5B.bin",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_etaHEN_2.5B.bin",
@@ -98,6 +91,13 @@
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_etaHEN_2.6B.bin",
       "description": "Backup von etaHEN um Einstellungen vorzunehmen, die mit MB Toolbox ausgeblendet sind.",
       "version": "v2.6B"
+    },
+    {
+      "name": "PS5 FakeSignIn",
+      "filename": "PS5_FakeSignIn_1.1.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_FakeSignIn_1.1.elf",
+      "description": "Nach der Offline-Aktivierung eines Accounts durch etaHEN kann man mit FakeSignIn Remote-Play und USB-Speicherdaten-Transfer freischalten.",
+      "version": "v1.1"
     },
     {
       "name": "PS5 FTPServer 0.20",
@@ -119,6 +119,20 @@
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_KstuffLite_1.09.elf",
       "description": "Offizielles Kstuff von EchoStretch.",
       "version": "v1.09"
+    },
+    {
+      "name": "PS5 SaveManager",
+      "filename": "PS5_SaveManager_1.7.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_SaveManager_1.7.elf",
+      "description": "SaveManager zum Decrypten und Encrypten.",
+      "version": "v1.7"
+    },
+    {
+      "name": "PS5 ShadowMountPlus",
+      "filename": "PS5_ShadowMountPlus_1.6B16.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_ShadowMountPlus_1.6B16.elf",
+      "description": "ShadowMountPlus scannt PS5-Game-Dumps, die in lokalen Ordnern abgelegt wurden und stellt einen Shortcut auf dem Homebildschirm bereit.",
+      "version": "v1.6B16"
     }
   ]
 }
