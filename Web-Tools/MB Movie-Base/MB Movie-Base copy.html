@@ -43,7 +43,7 @@
     #search_container input:focus {outline: none;box-shadow: none;}
 </style>
 </head>
-<body onload="window.location.href = '#mb_movie_base';getMovieFolders();" class="is-preload">
+<body onload="window.location.href = '#mb_movie_base';load_moviebase();" class="is-preload">
   <div id="wrapper">
     
     <nav id="nav">
@@ -72,29 +72,6 @@
 <script src="../../assets/js/util.js"></script>
 <script src="../../assets/js/main.js"></script>
 <script>
-
-  const GITHUB_USER = "master-b-studios";
-const GITHUB_REPO = "homepage";
-const MOVIE_FOLDER = "Web-Tools/MB Movie-Base/Data";
-
-async function getMovieFolders() {
-
-    const url =
-        `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${encodeURIComponent(MOVIE_FOLDER).replace(/%2F/g,'/')}`;
-
-    const response = await fetch(url);
-
-    if (!response.ok)
-        throw new Error("Movie-Ordner konnten nicht geladen werden.");
-
-    const json = await response.json();
-
-    return json
-        .filter(entry => entry.type === "dir")
-        .map(entry => entry.name)
-        .sort((a, b) => Number(a) - Number(b));
-}
-
   let current_data = [];
   let current_sort = {};
   let current_group = 'Name';
