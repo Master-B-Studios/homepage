@@ -58,10 +58,15 @@ def read_movie(folder: Path):
 
     try:
         root = ET.parse(nfo).getroot()
-
-    except Exception as e:
-        print(f"❌ {folder.name}: XML-Fehler ({e})")
-        return None
+    except ET.ParseError:
+        text = nfo.read_text(encoding="utf-8", errors="ignore")
+        text = text.replace("&", "&amp;")
+        try:
+            root = ET.fromstring(text)
+            print(f"⚠ {folder.name}: '&' automatisch repariert")
+        except Exception as e:
+            print(f"❌ {folder.name}: XML-Fehler ({e})")
+            return None
 
     # ---------- Filmobjekt ----------
 
