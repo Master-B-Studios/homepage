@@ -2,118 +2,210 @@
     {
         "id": "0001",
         "title": "Hulk",
-        "originaltitle": "Hulk",
         "plot": "Der Forscher Dr. Bruce Banner mutiert als Folge eines fehlgeschlagenen Experiments zum zerstörerischen grünen Muskelberg, sobald er wütend wird. Während Kollegin Betty, mit der ihn mehr als nur die Arbeit verbindet, zu dem vermeintlichen Monster hält, hat der Hulk auch viele Feinde. Beispielsweise den fiesen Wissenschaftler Glenn Talbot, der die \"Kampfmaschine\" militärisch \"nützen\" will, General Ross, der sie \"ausschalten\" möchte, und natürlich Vater David, der Schuld daran trägt, dass Bruce zum Ungetüm wurde.",
         "runtime": "140",
         "mpaa": "FSK-16",
         "year": "2003",
         "folder": "0001",
         "filename": "Hulk",
-        "poster": "Movies/0001/Hulk-poster.jpg",
-        "hasPoster": true
+        "poster": "Movies/0001/Hulk-poster.jpg"
     },
     {
         "id": "0002",
         "title": "South Park - Der Film",
-        "originaltitle": "South Park - Der Film",
         "plot": "Kenny, Cartman, Kyle und Stan schleichen sich in den kanadischen Kinofilm Feurige Ärsche - und das Chaos in South Park nimmt seinen Lauf. Die Vier kommen völlig versaut aus dem Kino und die Eltern sind außer sich: Sie gründen eine militante Bürgerinitiative und fordern die Hinrichtung der beiden Hauptdarsteller Terrance und Phillip. Die Sache eskaliert und führt die USA geradewegs in den Krieg gegen Kanada. Und ehe die Jungs sich versehen, riskieren sie ihr Leben für Frieden und Freiheit...",
         "runtime": "81",
         "mpaa": "FSK-16",
         "year": "2000",
         "folder": "0002",
         "filename": "South Park - Der Film",
-        "poster": "Movies/0002/South Park - Der Film-poster.jpg",
-        "hasPoster": true
+        "poster": "Movies/0002/South Park - Der Film-poster.jpg"
     },
     {
         "id": "0003",
         "title": "School Of Rock",
-        "originaltitle": "School Of Rock",
         "plot": "Dewey Finn steckt in der Klemme: Zuerst feuern ihn seine Bandmitglieder, dann droht ihm auch noch Mitbewohner Ned mit Rausschmiss, falls er seine Miete nicht bezahlt. Also gibt sich Dewey kurzerhand für Ned aus und springt als Aushilfslehrer an einer Elitegrundschule ein - ungläubig beäugt von der ultrakorrekten Schulleiterin Rosalie Mullins. Und weil Rocken das einzige ist, bei dem sich Dewey wirklich auskennt, steht für die gedrillten Musterschüler von nun an Headbangen, Rockgeschichte und Bühnenperformance auf dem Stundenplan.",
         "runtime": "108",
         "mpaa": "FSK-12",
         "year": "2003",
         "folder": "0003",
         "filename": "School Of Rock",
-        "poster": "Movies/0003/School Of Rock-poster.jpg",
-        "hasPoster": true
+        "poster": "Movies/0003/School Of Rock-poster.jpg"
     },
     {
         "id": "0004",
         "title": "Superman 1 - Der Film",
-        "originaltitle": "Superman 1 - Der Film",
         "plot": "Kurz vor der Zerstörung seines Heimatplaneten Krypton wird der kleine Kal-El von seinen Eltern in einer Raumkapsel Richtung Erde geschickt. Dort findet ihn das Farmerehepaar Kent, das ihm den Namen Clark gibt. Schon früh stellt sich heraus, dass ihr Ziehsohn außergewöhnliche Fähigkeiten besitzt. Erwachsen geworden, arbeitet Clark als unscheinbarer Reporter beim Daily Planet, wo er sich in seine Kollegin Lois Lane verliebt. Die hat jedoch nur Augen für Superman, nicht ahnend, dass der Held und Clark Kent ein und dieselbe Person sind.",
         "runtime": "145",
         "mpaa": "FSK-12",
         "year": "1978",
         "folder": "0004",
         "filename": "Superman 1 - Der Film",
-        "poster": "Movies/0004/Superman 1 - Der Film-poster.jpg",
-        "hasPoster": true
+        "poster": "Movies/0004/Superman 1 - Der Film-poster.jpg"
     },
     {
         "id": "0005",
         "title": "Constantine",
-        "originaltitle": "Constantine",
-        "plot": "Er ist durch die Hölle gegangen - und das ist keine Metapher John Constantine ist Detektiv in Los Angeles, allerdings für die ganz speziellen Fälle. Denn Constantine weiß, dass es parallel zu unserer Realität auch noch eine von Dämonen bevölkerte Höllendimension gibt und dass sich die Welten bisweilen überschneiden, ohne dass die Menschheit etwas davon ahnt. Da kontaktiert ihn eines Tages Angela Dodson, der er bei der Klärung des Todes ihrer Zwillingsschwester Isabel helfen soll, die sich vom Dach der Nervenheilanstalt stürzte, in der sie einsaß. Angela glaubt, hinter ihrem Tod stecke mehr; was sie nicht glaubt, sind Constantines Ansichten über die Dämonenwelt. Zwangsläufig wird sie jedoch eines Besseren belehrt, denn die Kräfte der Unheimlichen brechen zunehmend in unsere Realität durch.",
+        "plot": "Er ist durch die Hölle gegangen - und das ist keine Metapher! John Constantine ist Detektiv in Los Angeles, allerdings für die ganz speziellen Fälle. Denn Constantine weiß, dass es parallel zu unserer Realität auch noch eine von Dämonen bevölkerte Höllendimension gibt und dass sich die Welten bisweilen überschneiden, ohne dass die Menschheit etwas davon ahnt. Da kontaktiert ihn eines Tages Angela Dodson, der er bei der Klärung des Todes ihrer Zwillingsschwester Isabel helfen soll, die sich vom Dach der Nervenheilanstalt stürzte, in der sie einsaß. Angela glaubt, hinter ihrem Tod stecke mehr; was sie nicht glaubt, sind Constantines Ansichten über die Dämonenwelt. Zwangsläufig wird sie jedoch eines Besseren belehrt, denn die Kräfte der Unheimlichen brechen zunehmend in unsere Realität durch.",
         "runtime": "121",
         "mpaa": "FSK-16",
         "year": "2005",
         "folder": "0005",
         "filename": "Constantine",
-        "poster": "Movies/0005/Constantine-poster.jpg",
-        "hasPoster": true
+        "poster": "Movies/0005/Constantine-poster.jpg"
     },
     {
         "id": "0006",
         "title": "Superman 2 - Allein Gegen Alle",
-        "originaltitle": "Superman 2 - Allein Gegen Alle",
         "plot": "Zweiter Teil der erfolgreichen Comicverfilmungen. Terroristen besetzen den Eiffelturm und drohen, eine Wasserstoffbombe zu zünden. Superman schafft es, die Bombe im Weltall zu entsorgen. Die Explosion befreit General Zod, Ursa und Non, die in der Phantomzone gefangen waren. Clark Kent, der inzwischen für Lois Lane seine Superkräfte aufgegeben hat, nimmt den Kampf gegen die Verbrecher auf.",
         "runtime": "127",
         "mpaa": "FSK-12",
         "year": "1980",
         "folder": "0006",
         "filename": "Superman 2 - Allein Gegen Alle",
-        "poster": "Movies/0006/Superman 2 - Allein Gegen Alle-poster.jpg",
-        "hasPoster": true
+        "poster": "Movies/0006/Superman 2 - Allein Gegen Alle-poster.jpg"
     },
     {
         "id": "0007",
         "title": "Dinner For One",
-        "originaltitle": "Dinner For One",
         "plot": "Zu Ehren ihres Geburtstages wird alljährlich für Miss Sophie eine Feier veranstaltet, um genau zu sein: Ein Dinner. Doch die geladenen Gäste, vier Herren mit Namen Sir Toby, Admiral von Schneider, Mr. Pommeroy und Mr. Winterbottom, sind schon vor Jahren verstorben, und so muss auch zu ihrem heutigen 90. Geburtstag ihr Butler James nicht nur seinen Mann stehen, sondern gleich vier weitere. Da zu jedem Menü passend Alkohol serviert wird und James im Namen jedes einzelnen Gastes Miss Sophie einen Toast aussprechen muss, ist es nur eine Frage der Zeit bis die Kombination Sherry, Weißwein, Champagner und Portwein ihre Wirkung zeigt...",
         "runtime": "18",
         "mpaa": "FSK-0",
         "year": "1963",
         "folder": "0007",
         "filename": "Dinner For One",
-        "poster": "Movies/0007/Dinner For One-poster.jpg",
-        "hasPoster": true
+        "poster": "Movies/0007/Dinner For One-poster.jpg"
     },
     {
         "id": "0008",
         "title": "Ein Königreich Für Ein Lama 1",
-        "originaltitle": "Ein Königreich Für Ein Lama 1",
         "plot": "Kuzco ist ein junger Inkaherrscher und dementsprechend eingebildet. Er will nicht nur das Haus des Hirten Pacha für ein Sommerschwimmbad abreißen, er entlässt auch noch seine Beraterin Yzma. Die sinnt auf Rache und versucht nicht nur, ihn zu vergiften sondern auch den Thron an sich zu reißen. Doch ihr dämlicher Gehilfe Kronk macht einen Fehler und Kuzco wird nur in ein Lama verwandelt. Auf Umwegen gelangt er zufällig wieder an Pacha, der ihm helfen will Yzma und Kronk zu stoppen. Jetzt ist Chaos angesagt...",
         "runtime": "78",
         "mpaa": "FSK-6",
         "year": "2000",
         "folder": "0008",
         "filename": "Ein Königreich Für Ein Lama 1",
-        "poster": "Movies/0008/Ein Königreich Für Ein Lama 1-poster.jpg",
-        "hasPoster": true
+        "poster": "Movies/0008/Ein Königreich Für Ein Lama 1-poster.jpg"
     },
     {
         "id": "0009",
         "title": "Spongebob Schwammkopf - Der Film",
-        "originaltitle": "Spongebob Schwammkopf - Der Film",
         "plot": "Hektik in Bikini Bottom, dem Wohnort des gelben Schwamms Spongebob Schwammkopf. Irgendjemand hat die Krone von König Neptun gestohlen und der Verdacht fällt sofort auf Spongbobs Chef Mr. Krabs. Nur Spongebob und sein bester Freund, der Seestern Patrick, glauben an Mr. Krabs und machen sich auf, um dessen Unschuld zu beweisen. Dafür müssen sie Bikini Bottom verlassen und sich nach Shell City durchschlagen. Doch auf dem Weg dorthin kommen sie in allerlei schwierige Situation, die überstanden werden wollen, um Mr. Krabs zu retten.",
         "runtime": "82",
         "mpaa": "FSK-6",
         "year": "2004",
         "folder": "0009",
         "filename": "Spongebob Schwammkopf - Der Film",
-        "poster": "Movies/0009/Spongebob Schwammkopf - Der Film-poster.jpg",
-        "hasPoster": true
+        "poster": "Movies/0009/Spongebob Schwammkopf - Der Film-poster.jpg"
+    },
+    {
+        "id": "0010",
+        "title": "Rat Race",
+        "plot": "Donald Sinclair ist exzentrischer Multimilliardär und Besitzer des größten und extravagantesten Spielkasinos in Las Vegas. Um einige seiner wohlhabendsten Gönner angemessen zu unterhalten, lässt er sich ein Spiel der etwas anderen Art einfallen: Sechs zufällig ausgewählte Personen werden auf den in einem Schließfach in New Mexico deponierten Gewinn in Höhe von Zwei Millionen Dollar angesetzt. Was die Teilnehmer des Spieles \"ohne Regeln\" aber nicht wissen, ist, dass der Tycoon und seine reichen Freunde eine Wette auf den Ausgang des Rennens abgeschlossen haben und jede ihrer Bewegungen verfolgen, gerade so, als seien sie Laborratten in einer Versuchsanordnung. Getrieben von Gier, Hast und einer Menge Böswilligkeiten, sind die Teilnehmer zu allem bereit, was sie dem verlockenden Cash-Gewinn näher bringen kann. Es ist jedoch nur eine Frage der Zeit, bis sie realisieren, dass sie lediglich Teil jener elitären Wette sind und den Spieß umdrehen.",
+        "runtime": "112",
+        "mpaa": "FSK-12",
+        "year": "2001",
+        "folder": "0010",
+        "filename": "Rat Race",
+        "poster": "Movies/0010/Rat Race-poster.jpg"
+    },
+    {
+        "id": "0011",
+        "title": "Alien 2179 - Die Rückkehr",
+        "plot": "Nach der ersten Begegnung Ripleys mit dem Alien sind 57 Jahre vergangen. Ziellos treibt sie sich immer noch im Kälteschlaf befindlich durchs All. Zufällig wird sie entdeckt und wieder zurück zur Erde gebracht. Ihren Berichten über die Ereignisse mit dem Alien wird zunächst wenig Glauben geschenkt, doch als der Kontakt zu dem mittlerweile bevölkerten, aus dem ersten Teil bekannten Planeten abbricht, wird Ripley gebeten zusammen mit einem Trupp Space-Marines nach dem Rechten zu sehen. Sie kommen zu spät - die komplette Kolonie wurde von den Aliens überrannt und das Einsatzteam muss es mit der Übermacht aufnehmen...",
+        "runtime": "137",
+        "mpaa": "FSK-18",
+        "year": "1986",
+        "folder": "0011",
+        "filename": "Alien 2179 - Die Rückkehr",
+        "poster": "Movies/0011/Alien 2179 - Die Rückkehr-poster.jpg"
+    },
+    {
+        "id": "0012",
+        "title": "Alien 2180 - Alien³",
+        "plot": "Nachdem Ellen Ripley, die kleine Newt, Soldat Hicks und der Android Bishop von LV 426 entkommen sind und sich mit dem Raumschiff USS Sulaco auf dem Rückweg zur Erde befinden, bricht wegen des säurehaltigen Blutes eines Facehuggers (\"Gesichtsumklammerer\") auf einem Zwischendeck ein Feuer aus. Eine Rettungskapsel wird abgesprengt und macht auf dem Planeten Fiorina \"Fury\" 161, auf dem sich nur eine Strafkolonie befindet, eine Bruchlandung. Corporal Hicks und Newt sterben bei dem Aufprall bzw. durch Ertrinken, der Android Bishop ist nicht mehr funktionsfähig. Neben Ripley überlebt die Landung nur ein Facehugger, der sich in einem Rottweiler schnell einen neuen Wirt sucht. Das kurz darauf neugeborene Alien beginnt bald die Strafgefangenen zu dezimieren.",
+        "runtime": "115",
+        "mpaa": "FSK-18",
+        "year": "1992",
+        "folder": "0012",
+        "filename": "Alien 2180 - Alien³",
+        "poster": "Movies/0012/Alien 2180 - Alien³-poster.jpg"
+    },
+    {
+        "id": "0013",
+        "title": "Matrix 2 - Reloaded",
+        "plot": "Die Wächter schwärmen aus. Smith klont sich. Neo fliegt … aber vielleicht kann selbst der Auserwählte mit seinen atemberaubenden neuen Fähigkeiten den Angriff der Maschinen nicht mehr aufhalten. Neo. Morpheus. Trinity. Zurück im spannenden zweiten Kapitel der Matrix-Trilogie treffen sie auf außergewöhnliche Verbündete: Gemeinsam bekämpfen sie ihre Gegner, die sich klonen, durch Upgrades immer stärker werden und die letzte Festung der Menschheit belagern.",
+        "runtime": "136",
+        "mpaa": "FSK-16",
+        "year": "2003",
+        "folder": "0013",
+        "filename": "Matrix 2 - Reloaded",
+        "poster": "Movies/0013/Matrix 2 - Reloaded-poster.jpg"
+    },
+    {
+        "id": "0014",
+        "title": "Matrix 3 - Revolutions",
+        "plot": "Die letzte Schlacht gegen die Maschinen kämpfen Neo, der Auserwählte, Rebellionsführer Morpheus und ihre Verbündeten - ein Krieg, der in den Ruinen der realen Welt geführt wird, der das Schicksal der Menschheit besiegelt und dessen Sieg in den Händen von Neo liegt, der seinerseits eine Reihe von Überraschungen zu erwarten hat.",
+        "runtime": "129",
+        "mpaa": "FSK-16",
+        "year": "2003",
+        "folder": "0014",
+        "filename": "Matrix 3 - Revolutions",
+        "poster": "Movies/0014/Matrix 3 - Revolutions-poster.jpg"
+    },
+    {
+        "id": "0015",
+        "title": "Meet The Feebles",
+        "plot": "Trevor, die Ratte, Drogenhändler, Pornofilmer und Zyniker. Wynyard, der Frosch, aufgrund seiner Vietnam-Erfahrung drogenabhängig und Trevors bester Kunde. Sid, der Elefant, manisch-depressiv und außerdem noch mit einer Vaterschaftsklage eines Huhnes gestraft. Sebastian, der Fuchs, homosexueller Päderast, ist auch gleichzeitig Regisseur der Show. Harry, das Karnickel, vögelt sich durch das ganze Ballett, und da er dabei nicht der einzige ist, zieht er sich schon bald gewisse Krankheiten zu. Heidi, das 400 Pfund schwere Nilpferd, wird von ihrem Mann betrogen und nutzt daraufhin aus, dass er großkalibrige Waffen schmuggelt. Und dann wäre da noch Robert, der Igel, Held dieses Films und unsterblich in die Robbe Lucille verknallt. Trotz allem versuchen diese Charaktere eine Varieté-Show auf die Bühne zu stellen. Doch bei Sex, Drugs und Rock ’n’ Roll hinter, auf und unter der Bühne kann doch jeder Versuch nur zum Scheitern verurteilt sein, oder... ?",
+        "runtime": "93",
+        "mpaa": "FSK-18",
+        "year": "1989",
+        "folder": "0015",
+        "filename": "Meet The Feebles",
+        "poster": "Movies/0015/Meet The Feebles-poster.jpg"
+    },
+    {
+        "id": "0016",
+        "title": "Die Wutprobe",
+        "plot": "Per Gerichtsbeschluss verdonnert man den sanftmütigen Marketing-Angestellten Dave Buznik dazu, bei dem offensichtlich geistesgestörten Therapeuten Buddy Rydell vier Wochen Anti-Aggressionstraining zu absolvieren. Der mutterfixierte Seelenklempner erweist sich nicht nur selbst als cholerischer Psychopath, sondern schafft es zusammen mit Buzniks Mit-Patienten - darunter der gemeingefährliche Chuck - innerhalb kürzester Zeit, dessen Leben sowie die vormals wunderbare Beziehung zu Linda in einen Trümmerhaufen zu verwandeln.",
+        "runtime": "100",
+        "mpaa": "FSK-12",
+        "year": "2003",
+        "folder": "0016",
+        "filename": "Die Wutprobe",
+        "poster": "Movies/0016/Die Wutprobe-poster.jpg"
+    },
+    {
+        "id": "0017",
+        "title": "50 Erste Dates",
+        "plot": "Der auf Hawaii lebende Tierarzt Henry Roth gilt als Frauenheld, der langfristigen Beziehungen lieber aus dem Weg geht. Als er die nette Lucy Whitmore kennen und lieben lernt, ändert sich seine Meinung. Er muss jedoch bald feststellen, dass Lucy seit einem Autounfall an einer speziellen Form der Amnesie leidet, bei der sie nach jeder Nacht den vorhergegangenen Tag wieder vergessen hat. Durch geschickte Vorkehrungen ihrer Familie weiß Lucy bis dato gar nichts von ihrer Krankheit. Henry wirbt somit jeden Tag aufs Neue um Lucys Liebe, die sich jedoch partout nicht an ihn erinnern kann.",
+        "runtime": "95",
+        "mpaa": "FSK-0",
+        "year": "2004",
+        "folder": "0017",
+        "filename": "50 Erste Dates",
+        "poster": "Movies/0017/50 Erste Dates-poster.jpg"
+    },
+    {
+        "id": "0018",
+        "title": "Bruce Allmächtig",
+        "plot": "Weil man ihn bei der Beförderung übergangen hat, rastet der TV-Journalist Bruce Nolan dermaßen aus, dass man ihm den Stuhl vor die Tür stellt. Was folgt, ist unter anderem eine Wuttirade auf den lieben Gott. Der zufälligerweise zuhört - und seinem erzürnten Schäfchen kurzerhand für eine Woche die göttliche Allmacht überträgt. Bruce ist begeistert. Freundin Grace wird mit einer imposanteren Oberweite ausgestattet, die Gassi-Probleme des Hundes werden endgültig gelöst und seinem \"Reporterglück\" ordentlich nachgeholfen.",
+        "runtime": "101",
+        "mpaa": "FSK-6",
+        "year": "2003",
+        "folder": "0018",
+        "filename": "Bruce Allmächtig",
+        "poster": "Movies/0018/Bruce Allmächtig-poster.jpg"
+    },
+    {
+        "id": "0019",
+        "title": "Königreich Der Himmel",
+        "plot": "Ende des 12. Jahrhunderts zur Zeit der Kreuzzüge: Der junge Schmied Balian tritt widerwillig eine gefährliche Reise an und folgt seinem Vater und geachteten Kreuzritter Godfrey in das Heilige Land, um dort in seine Fußstapfen zu treten und dessen Vision von Frieden in die Tat umzusetzen. Als Diener des von Intriganten umgebenen Königs Baldwin IV findet er sich mitten im Strudel des Krieges und einer unglücklichen Liebe zu Prinzessin Sybilla wieder. Zum Ritter geschlagen wird er dank seines Mutes zu einem ehrbaren Verfechter des Friedens zwischen den unterschiedlichen Religionen.",
+        "runtime": "138",
+        "mpaa": "FSK-12",
+        "year": "2005",
+        "folder": "0019",
+        "filename": "Königreich Der Himmel",
+        "poster": "Movies/0019/Königreich Der Himmel-poster.jpg"
     }
 ]
