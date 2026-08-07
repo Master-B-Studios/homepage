@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<movie>
+    <title>Hulk</title>
+    <originaltitle>Hulk</originaltitle>
+    <plot>Der Forscher Dr. Bruce Banner mutiert als Folge eines fehlgeschlagenen Experiments zum zerstörerischen grünen Muskelberg, sobald er wütend wird. Während Kollegin Betty, mit der ihn mehr als nur die Arbeit verbindet, zu dem vermeintlichen Monster hält, hat der Hulk auch viele Feinde. Beispielsweise den fiesen Wissenschaftler Glenn Talbot, der die "Kampfmaschine" militärisch "nützen" will, General Ross, der sie "ausschalten" möchte, und natürlich Vater David, der Schuld daran trägt, dass Bruce zum Ungetüm wurde.</plot>
+    <runtime>140</runtime>
+    <mpaa>FSK-16</mpaa>
+    <id>0001</id>
+    <uniqueid type="mbdb">0001</uniqueid>
+    <year>2003</year>
+</movie>

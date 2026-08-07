@@ -1,0 +1,40 @@
+name: Build Movie Database
+
+on:
+  push:
+    paths:
+      - 'Web-Tools/MB Movie-Base/Movies/**'
+      - 'Tools/build_moviebase.py'
+      - '.github/workflows/build-moviebase.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Python installieren
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Datenbank erzeugen
+        run: python Tools/build_moviebase.py
+
+      - name: Änderungen committen
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add "Web-Tools/MB Movie-Base/movies.json"
+
+          git diff --cached --quiet || git commit -m "Movie-Base aktualisiert"
+
+          git push
