@@ -12,17 +12,41 @@ MOVIES = BASE / "Web-Tools" / "MB Movie-Base" / "Movies"
 OUTPUT = BASE / "Web-Tools" / "MB Movie-Base" / "movies.json"
 
 # ----------------------------------------------------------
-# Hilfsfunktion
+# Film einlesen
 # ----------------------------------------------------------
 
 def read_movie(folder: Path):
 
-    nfo = folder / "movie.nfo"
-    poster = folder / "poster.jpg"
+    # -------------------------
+    # NFO suchen
+    # -------------------------
 
-    if not nfo.exists():
-        print(f"❌ {folder.name}: movie.nfo fehlt")
+    nfo_files = list(folder.glob("*.nfo"))
+
+    if len(nfo_files) == 0:
+        print(f"❌ {folder.name}: keine NFO gefunden")
         return None
+
+    if len(nfo_files) > 1:
+        print(f"❌ {folder.name}: mehrere NFO-Dateien gefunden")
+        return None
+
+    nfo = nfo_files[0]
+
+    # -------------------------
+    # Poster suchen
+    # -------------------------
+
+    poster_files = list(folder.glob("*-poster.jpg"))
+
+    if len(poster_files) > 1:
+        print(f"⚠ {folder.name}: mehrere Poster gefunden")
+
+    poster = poster_files[0] if poster_files else None
+
+    # -------------------------
+    # XML lesen
+    # -------------------------
 
     try:
         root = ET.parse(nfo).getroot()
@@ -33,53 +57,72 @@ def read_movie(folder: Path):
 
     movie = {}
 
+    # -------------------------
     # Alle XML-Tags übernehmen
+    # -------------------------
+
     for child in root:
 
         tag = child.tag
+        value = (child.text or "").strip()
 
-        # mehrere gleiche Tags (genre, actor, ...)
         if tag in movie:
 
             if not isinstance(movie[tag], list):
                 movie[tag] = [movie[tag]]
 
-            movie[tag].append(child.text or "")
+            movie[tag].append(value)
 
         else:
-            movie[tag] = child.text or ""
 
-    # Zusätzliche Informationen
+            movie[tag] = value
+
+    # -------------------------
+    # Zusätzliche Daten
+    # -------------------------
 
     movie["folder"] = folder.name
-    movie["poster"] = f"Movies/{folder.name}/poster.jpg"
-    movie["hasPoster"] = poster.exists()
+
+    movie["filename"] = nfo.stem
+
+    if poster:
+        movie["poster"] = f"Movies/{folder.name}/{poster.name}"
+        movie["hasPoster"] = True
+    else:
+        movie["poster"] = ""
+        movie["hasPoster"] = False
 
     return movie
 
 
 # ----------------------------------------------------------
-# Filme einlesen
+# Filme sammeln
 # ----------------------------------------------------------
 
 movies = []
 
 folders = sorted(
     [f for f in MOVIES.iterdir() if f.is_dir()],
-    key=lambda x: int(x.name)
+    key=lambda p: int(p.name)
 )
 
 for folder in folders:
 
     movie = read_movie(folder)
 
-    if movie is not None:
+    if movie:
         movies.append(movie)
 
-print(f"{len(movies)} Filme gefunden.")
+# ----------------------------------------------------------
+# Nach ID sortieren
+# ----------------------------------------------------------
+
+movies.sort(
+    key=lambda m: int(m.get("id", 0))
+)
 
 # ----------------------------------------------------------
-# JSON speichern
+# JSON schreiben
 # ----------------------------------------------------------
 
 with open(OUTPUT, "w", encoding="utf-8") as f:
@@ -91,4 +134,6 @@ with open(OUTPUT, "w", encoding="utf-8") as f:
         indent=4
     )
 
-print("movies.json geschrieben.")
+print()
+print(f"✅ {len(movies)} Filme verarbeitet.")
+print(f"💾 {OUTPUT}")
