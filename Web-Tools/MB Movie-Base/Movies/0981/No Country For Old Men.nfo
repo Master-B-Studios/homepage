@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>No Country For Old Men</title>
+  <originaltitle>No Country For Old Men</originaltitle>
+  <plot>Ein Mann stolpert förmlich über einen blutigen Tatort, einen Pick-up-Truck, vollgeladen mit Heroin, und unwiderstehlichen zwei Millionen Dollar in bar. Seine Entscheidung, das Geld für sich zu behalten, setzt eine gewaltvolle Kettenreaktion in Gang, die noch nicht einmal das Gesetz von West-Texas aufhalten kann.</plot>
+  <runtime>123</runtime>
+  <mpaa>FSK-16</mpaa>
+  <id>0981</id>
+  <uniqueid type="mbdb">0981</uniqueid>
+  <year>2007</year>
+</movie>

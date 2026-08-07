@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>Superhero Movie</title>
+  <originaltitle>Superhero Movie</originaltitle>
+  <plot>Nachdem er von einer genetisch veränderten Libelle gebissen wurde, bekommt der Außenseiter Rick Riker Superkräfte und besitzt von nun an unglaubliche Körperkraft und eine gepanzerte Haut. Rick beschließt seine Superkräfte für das Gute einzusetzen und geht unter dem Namen "The Dragonfly" auf Verbrecherjagd. Sein Gegenpart ist der gefürchtete Bösewicht Lou Landers, der nach einem fehlgeschlagenen Experiment die Gabe besitzt, Menschen die Lebenskräfte zu entziehen. Wird Riker den Bösewicht besiegen können?</plot>
+  <runtime>81</runtime>
+  <mpaa>FSK-12</mpaa>
+  <id>0405</id>
+  <uniqueid type="mbdb">0405</uniqueid>
+  <year>2008</year>
+</movie>

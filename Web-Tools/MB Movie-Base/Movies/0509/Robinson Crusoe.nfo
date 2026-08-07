@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>Robinson Crusoe</title>
+  <originaltitle>Robinson Crusoe</originaltitle>
+  <plot>Nach einem Sturm auf See findet sich Robinson Crusoe auf Land wieder. Zu seinem Nachteil entdeckt er, dass es eine Insel ist, die nicht mit dem Festland verbunden ist. Er findet das gestrandete Schiff und holt sich alles Essbare und Waffen von Bord. Nach mehreren Jahren auf der Insel bekommt er plötzlich Besuch von Kannibalen.</plot>
+  <runtime>270</runtime>
+  <mpaa>FSK-12</mpaa>
+  <id>0509</id>
+  <uniqueid type="mbdb">0509</uniqueid>
+  <year>1964</year>
+</movie>

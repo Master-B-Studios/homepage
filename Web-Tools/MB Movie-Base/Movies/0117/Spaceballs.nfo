@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>Spaceballs</title>
+  <originaltitle>Spaceballs</originaltitle>
+  <plot>Wir befinden uns weit, weit, weit weg in einer Galaxie, in der es ein kleines Völkchen gibt, das sich Spaceballs nennt. Angeführt durch Lord Helmchen und Colonel Sandfurz versuchen sie, die Luft des Planeten Druidia zu entsaugen, denn ihr Heimatplanet leidet unter Luftverschmutzung. Kurzerhand wird Prinzessin Vespa entführt und der Weltraumcowboy Lone Star muss sie aus den Fängen der Schurken retten. Unterstützt wird er bei dieser Mission von Waldi, dem Möter, er ist halb Mensch, halb Köter.</plot>
+  <runtime>96</runtime>
+  <mpaa>FSK-12</mpaa>
+  <id>0117</id>
+  <uniqueid type="mbdb">0117</uniqueid>
+  <year>1987</year>
+</movie>

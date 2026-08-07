@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>Scary Movie 1</title>
+  <originaltitle>Scary Movie 1</originaltitle>
+  <plot>Aus scheinbar heiterem Himmel wird die jungfräuliche Cindy Campbell von einem unheimlichen Maskenmann attackiert, doch im Gegensatz zu manch anderem Freund aus ihrer Clique, den es in der Folgezeit noch erwischen wird, überlebt sie die Attacke. Cindy entwickelt den Verdacht, dass ein vor Jahresfrist bei einem von der Clique verursachten Unfall getöteter Passant sein Ableben nur vorgetäuscht hat und nunmehr Rache sucht. Gemeinsam mit dem tölpelhaften Dorfsherriff und einer rasenden Reporterin geht sie der Sache auf den Grund.</plot>
+  <runtime>88</runtime>
+  <mpaa>FSK-16</mpaa>
+  <id>0489</id>
+  <uniqueid type="mbdb">0489</uniqueid>
+  <year>2000</year>
+</movie>

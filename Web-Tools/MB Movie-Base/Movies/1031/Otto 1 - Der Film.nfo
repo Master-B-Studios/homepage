@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>Otto 1 - Der Film</title>
+  <originaltitle>Otto 1 - Der Film</originaltitle>
+  <plot>Ein junger Mann namens Otto kommt aus Ostfriesland in die große Stadt. Dort rettet er dem reichen Mädchen Silvia ganz zufällig das Leben. Doch damit beginnen auch jede Menge Probleme, denn die schöne Silvia hat nicht nur Geld, sondern auch einen Verlobten und eine Mutter. Dazu kommen noch Ottos Firma OSSI - mit viel Schulden aber wenigen Kunden - und der zwielichtige Geldverleiher Shark, der sein Geld von ihm zurückfordert.</plot>
+  <runtime>85</runtime>
+  <mpaa>FSK-0</mpaa>
+  <id>1031</id>
+  <uniqueid type="mbdb">1031</uniqueid>
+  <year>1985</year>
+</movie>

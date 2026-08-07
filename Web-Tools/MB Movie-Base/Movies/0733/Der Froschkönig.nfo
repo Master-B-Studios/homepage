@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>Der Froschkönig</title>
+  <originaltitle>Der Froschkönig</originaltitle>
+  <plot>Die Handlung des Films beruht auf dem Märchen „Der Froschkönig oder der eiserne Heinrich“ der Brüder Grimm.</plot>
+  <runtime>65</runtime>
+  <mpaa>FSK-0</mpaa>
+  <id>0733</id>
+  <uniqueid type="mbdb">0733</uniqueid>
+  <year>1988</year>
+</movie>

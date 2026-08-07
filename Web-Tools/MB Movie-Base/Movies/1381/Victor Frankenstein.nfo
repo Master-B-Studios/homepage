@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>Victor Frankenstein</title>
+  <originaltitle>Victor Frankenstein</originaltitle>
+  <plot>Nachdem sich der junge Medizinstudent Frankenstein des von einer dunklen Vergangenheit gezeichneten Igors annimmt, entwickelt sich zwischen dem angehenden Mediziner und seinem wissbegierigen Helfer eine enge Freundschaft. Hautnah erlebt Igor mit, wie sein genialer Meister Experimente vollzieht, die über die Grenzen der Wissenschaft hinausgehen...</plot>
+  <runtime>110</runtime>
+  <mpaa>FSK-16</mpaa>
+  <id>1381</id>
+  <uniqueid type="mbdb">1381</uniqueid>
+  <year>2015</year>
+</movie>

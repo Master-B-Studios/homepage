@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>Der Sturm</title>
+  <originaltitle>Der Sturm</originaltitle>
+  <plot>Die Gefahr von Sturm und Wellen auf hoher See ist ihr Alltag, für einen erfolgreichen Fischzug geben sie alles – die Schwertfischer von Gloucester riskieren täglich ihr Leben und sind stolz darauf Aber als Captain Tyne und seine Crew dieses Mal auslaufen, um den letzten Fang der Saison einzuholen, ahnen sie nicht, welcher Macht sie sich stellen müssen.</plot>
+  <runtime>130</runtime>
+  <mpaa>FSK-12</mpaa>
+  <id>0072</id>
+  <uniqueid type="mbdb">0072</uniqueid>
+  <year>2000</year>
+</movie>

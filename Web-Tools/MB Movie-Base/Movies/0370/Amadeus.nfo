@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>Amadeus</title>
+  <originaltitle>Amadeus</originaltitle>
+  <plot>Am Wiener Hof von Kaiser Joseph II. wird man schon früh auf das Wunderkind Mozart aufmerksam. Doch die Begeisterung ist nicht ungeteilt: Dem verhärmten Hofkomponisten Salieri ist das lebensfrohe Genie ein unerträglicher Dorn im Auge. Und während Mozart zur musikalischen Sensation des Jahrhunderts aufsteigt, reift in seinem verbitterten Konkurrenten ein mörderischer Plan.</plot>
+  <runtime>160</runtime>
+  <mpaa>FSK-12</mpaa>
+  <id>0370</id>
+  <uniqueid type="mbdb">0370</uniqueid>
+  <year>1984</year>
+</movie>

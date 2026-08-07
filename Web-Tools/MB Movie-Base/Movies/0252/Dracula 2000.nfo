@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>Dracula 2000</title>
+  <originaltitle>Dracula 2000</originaltitle>
+  <plot>In der Antiquitätenhandlung von Matthew Van Helsing wird eingebrochen. Dank der ausgeklügelten Sicherheitstechnik gelingt es den Dieben aber nicht, wertvolle Kunstgegenstände zu entwenden, sondern nur einen versiegelten Sarg. Doch darin schlummert Graf Dracula höchstpersönlich...</plot>
+  <runtime>95</runtime>
+  <mpaa>FSK-16</mpaa>
+  <id>0252</id>
+  <uniqueid type="mbdb">0252</uniqueid>
+  <year>2000</year>
+</movie>

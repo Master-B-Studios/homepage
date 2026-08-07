@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>Batman Vs. Robin</title>
+  <originaltitle>Batman Vs. Robin</originaltitle>
+  <plot>Batman entdeckt, dass eine Geheimgruppierung namens "Rat der Eulen" in Wirklichkeit seit Jahrzehnten die Geschichte seiner Heimatstadt Gotham lenkt.</plot>
+  <runtime>80</runtime>
+  <mpaa>FSK-16</mpaa>
+  <id>1212</id>
+  <uniqueid type="mbdb">1212</uniqueid>
+  <year>2015</year>
+</movie>

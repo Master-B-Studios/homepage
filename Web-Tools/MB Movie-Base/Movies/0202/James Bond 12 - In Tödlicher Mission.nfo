@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>James Bond 12 - In Tödlicher Mission</title>
+  <originaltitle>James Bond 12 - In Tödlicher Mission</originaltitle>
+  <plot>Ein als Fischkutter getarntes Spionageschiff der Engländer sinkt im ionischen Meer. An Bord befindet sich ein strenggeheimes Steuer- und Verschlüsselungsgerät ATAC. In feindlichen Händen könnte es zum Abschuss von Atomraketen auf westliche Städte verwendet werden. James Bond muss das Gerät finden, bevor es dem Feind in die Hände gerät.</plot>
+  <runtime>127</runtime>
+  <mpaa>FSK-12</mpaa>
+  <id>0202</id>
+  <uniqueid type="mbdb">0202</uniqueid>
+  <year>1981</year>
+</movie>

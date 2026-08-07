@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>Tetris</title>
+  <originaltitle>Tetris</originaltitle>
+  <plot>Bevor Tetris zu einem der bekanntesten Computerspiele der Welt wurde, ging es auf eine außergewöhnliche Reise: Als der in den Niederlanden geborene Computerspiel-Entwickler Henk Rogers Ende der 1980er-Jahre das Spiel des russischen Programmierers Alexey Pajitno entdeckt, steht der Eiserne Vorhang der UdSSR kurz vor dem Fall. Mit dem Ziel, dessen Werk weltweit auf Videospielkonsolen zu vermarkten, erwirbt Rogers die Lizenz an Tetris. Dabei gerät er jedoch in einen Strudel aus Lügen und Korruption, sodass er irgendwann sogar mit dem russischen Geheimdienst KGB verhandeln muss. Während mehrere Parteien, darunter auch die Videospielriesen Atari und Nintendo, ihren rechtlichen Anspruch auf das Spiel erheben, wird Rogers in einen gewaltigen Rechtsstreit verwickelt.</plot>
+  <runtime>118</runtime>
+  <mpaa>FSK-12</mpaa>
+  <id>0403</id>
+  <uniqueid type="mbdb">0403</uniqueid>
+  <year>2023</year>
+</movie>

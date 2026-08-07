@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>Resident Evil 1</title>
+  <originaltitle>Resident Evil 1</originaltitle>
+  <plot>Alice und Rain müssen ein Kommando-Team in eine riesige unterirdische Genforschungsfabrik führen, in welcher eine Stunde zuvor ein tödlicher Virus ausgebrochen ist. Der Virus hat binnen Sekunden das gesamte Forschungspersonal getötet und als blutrünstige Untote wieder auferstehen lassen. Alice hat weniger als drei Stunden Zeit, den Virus zu isolieren und einen die Welt vernichtenden Outbreak an die Oberfläche zu verhindern. Doch schnell wird dem Team klar, dass es nicht nur von den Untoten bedroht wird. Ein Horrortrip beginnt...</plot>
+  <runtime>100</runtime>
+  <mpaa>FSK-16</mpaa>
+  <id>0409</id>
+  <uniqueid type="mbdb">0409</uniqueid>
+  <year>2002</year>
+</movie>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>James Bond 10 - Der Spion Der Mich Liebte</title>
+  <originaltitle>James Bond 10 - Der Spion Der Mich Liebte</originaltitle>
+  <plot>Ein russisches und ein amerikanisches U-Boot mit Atomraketen an Bord verschwinden spurlos von der Bildfläche. Amerikaner und Russen beschuldigen sich gegenseitig. James Bond soll das Rätsel der verschwundenen U-Boote lösen. Aber auch der KGB hat schon einen Agenten losgeschickt.</plot>
+  <runtime>125</runtime>
+  <mpaa>FSK-12</mpaa>
+  <id>0200</id>
+  <uniqueid type="mbdb">0200</uniqueid>
+  <year>1977</year>
+</movie>

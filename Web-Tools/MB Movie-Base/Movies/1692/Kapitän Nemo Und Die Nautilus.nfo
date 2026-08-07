@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>Kapitän Nemo Und Die Nautilus</title>
+  <originaltitle>Kapitän Nemo Und Die Nautilus</originaltitle>
+  <plot>Im Jahr 1886 führt Meeresforscher Pierre Arronax eine Expedition vor der Küste Neuenglands durch, um ein geheimnisvolles Seeungeheuer aufzuspüren. Bei seiner Suche stößt er auf das hochentwickelte U-Boot Nautilus, das heimlich unter dem Ozean kreuzt, und dessen charismatischen Kapitän Nemo.</plot>
+  <runtime>173</runtime>
+  <mpaa>FSK-12</mpaa>
+  <id>1692</id>
+  <uniqueid type="mbdb">1692</uniqueid>
+  <year>1997</year>
+</movie>

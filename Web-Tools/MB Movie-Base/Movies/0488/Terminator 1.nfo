@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>Terminator 1</title>
+  <originaltitle>Terminator 1</originaltitle>
+  <plot>Ein Cyborg aus der Zukunft wird auf eine tödliche Mission in die heutige Gegenwart geschickt. Er soll Sarah Connor töten, eine junge Frau, die eine entscheidende Rolle für die Zukunft der Menschheit spielen wird. Sie hat nur eine Chance, Kyle Reese, ein Freiheitskämpfer, der ebenfalls aus der Zukunft kommt.</plot>
+  <runtime>107</runtime>
+  <mpaa>FSK-16</mpaa>
+  <id>0488</id>
+  <uniqueid type="mbdb">0488</uniqueid>
+  <year>1984</year>
+</movie>

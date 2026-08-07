@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>X-Men 1</title>
+  <originaltitle>X-Men 1</originaltitle>
+  <plot>Die Ausreißerin Rogue, die aufgrund ihrer wachsenden Mutantenkräfte, nämlich die Fähigkeit, durch Berührung die Persönlichkeiten, Erinnerungen und Kräfte anderer Menschen kurzzeitig zu absorbieren, von zu Hause weggelaufen ist, trifft bei ihrer Flucht in Kanada auf den Einzelgänger Logan, der geschärfte Sinne und die Fähigkeit besitzt, eigene Verletzungen in Sekunden zu heilen. Dazu ist sein Skelett vollständig mit einem schier unzerstörbarem Metall (Adamantium) überzogen und mit sechs ausfahrbaren Klauen bewaffnet; Logan kann sich aber nicht erinnern, wann und wo sein Skelett derart behandelt worden ist, noch hat er irgendeine Erinnerung an seine eigene Vergangenheit.</plot>
+  <runtime>100</runtime>
+  <mpaa>FSK-12</mpaa>
+  <id>0121</id>
+  <uniqueid type="mbdb">0121</uniqueid>
+  <year>2000</year>
+</movie>

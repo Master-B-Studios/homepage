@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>Pulp Fiction</title>
+  <originaltitle>Pulp Fiction</originaltitle>
+  <plot>Vincent Vega und Jules Winnfield holen für ihren Boss Marsellus Wallace eine schwarze Aktentasche aus einer Wohnung ab. Drei Jungs, die ihnen dabei im Weg stehen, lassen ihr Leben. Die Killer machen sich mit einem vierten Jungen als Geisel auf den Weg ins Hauptquartier. Doch als das Auto über eine Straßenerhöhung schaukelt, erschießt Vincent aus Versehen die Geisel. Um den blutverspritzten Wagen zu reinigen, machen die beiden einen Abstecher zu Jules's Freund Jimmie, wo auf Befehl vom Boss ein Spezialist für schwierige Aufträge zu ihnen stößt: The Wolf...</plot>
+  <runtime>178</runtime>
+  <mpaa>FSK-16</mpaa>
+  <id>1000</id>
+  <uniqueid type="mbdb">1000</uniqueid>
+  <year>1994</year>
+</movie>

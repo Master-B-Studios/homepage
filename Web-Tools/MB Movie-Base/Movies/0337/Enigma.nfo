@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>Enigma</title>
+  <originaltitle>Enigma</originaltitle>
+  <plot>Der geniale Code-Spezialist Tom Jericho kehrt im März 1943, nachdem er wegen eines Nervenzusammenbruchs beurlaubt wurde, ins nördlich von London gelegene Bletchley Park zurück. Dort, im Zentrum der britischen Spionageabwehr, wird Jericho dringend gebraucht, denn die Nazis haben ihren U-Boot-Code geändert. Sollte der neue Code nicht innerhalb weniger Tage geknackt sein, wäre ein lebenswichtiger Nachschubkonvoi der Alliierten auf dem Nordatlantik schutzlos den Angriffen der deutschen Unterwasserflotte ausgeliefert…</plot>
+  <runtime>119</runtime>
+  <mpaa>FSK-12</mpaa>
+  <id>0337</id>
+  <uniqueid type="mbdb">0337</uniqueid>
+  <year>2001</year>
+</movie>

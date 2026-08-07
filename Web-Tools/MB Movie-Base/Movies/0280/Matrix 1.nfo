@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>Matrix 1</title>
+  <originaltitle>Matrix 1</originaltitle>
+  <plot>Der Hacker Neo wird übers Internet von einer geheimnisvollen Untergrund-Organisation kontaktiert. Der Kopf der Gruppe - der gesuchte Terrorist Morpheus - weiht ihn in ein entsetzliches Geheimnis ein: Die Realität, wie wir sie erleben, ist nur eine Scheinwelt. In Wahrheit werden die Menschen längst von einer unheimlichen virtuellen Macht beherrscht - der „Matrix“, deren Agenten Neo bereits im Visier haben...</plot>
+  <runtime>136</runtime>
+  <mpaa>FSK-16</mpaa>
+  <id>0280</id>
+  <uniqueid type="mbdb">0280</uniqueid>
+  <year>1999</year>
+</movie>

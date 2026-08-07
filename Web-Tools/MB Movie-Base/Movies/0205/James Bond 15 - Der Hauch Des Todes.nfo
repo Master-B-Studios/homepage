@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>James Bond 15 - Der Hauch Des Todes</title>
+  <originaltitle>James Bond 15 - Der Hauch Des Todes</originaltitle>
+  <plot>James Bond verhilft einem russischen General zur Flucht in den Westen. Von ihm erfährt er, dass der KGB in einer groß angelegten Aktion alle feindlichen Agenten töten will. Wenig später wird der General vor den Augen des Secret Service entführt. 007 schöpft einen Verdacht.</plot>
+  <runtime>130</runtime>
+  <mpaa>FSK-12</mpaa>
+  <id>0205</id>
+  <uniqueid type="mbdb">0205</uniqueid>
+  <year>1987</year>
+</movie>

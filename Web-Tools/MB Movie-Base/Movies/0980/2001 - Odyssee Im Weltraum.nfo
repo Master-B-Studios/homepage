@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>2001 - Odyssee Im Weltraum</title>
+  <originaltitle>2001 - Odyssee Im Weltraum</originaltitle>
+  <plot>Als im Jahr 2001 ein Monolith auf dem Mond entdeckt wird, wird diese Entdeckung als der Beweis für außerirdisches Leben gedeutet. Eineinhalb Jahre nach der Entdeckung des Monoliths werden 2 Astronauten, Bowman und Poole, mit dem Raumschiff Discovery zum Jupiter geschickt, um weitere Erkenntnisse zu gewinnen. Das Raumschiff ist mit dem Supercomputer HAL-9000 ausgerüstet. Bald ergeben sich erste Komplikationen mit dem Computer...</plot>
+  <runtime>164</runtime>
+  <mpaa>FSK-12</mpaa>
+  <id>0980</id>
+  <uniqueid type="mbdb">0980</uniqueid>
+  <year>1968</year>
+</movie>

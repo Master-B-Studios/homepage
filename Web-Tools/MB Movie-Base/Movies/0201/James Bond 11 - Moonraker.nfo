@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movie>
+  <title>James Bond 11 - Moonraker</title>
+  <originaltitle>James Bond 11 - Moonraker</originaltitle>
+  <plot>Während des Transportes auf dem Rücken einer Boeing 747 wird ein Space Shuttle entführt und das Flugzeug vernichtet. Seine Nachforschungen führen James Bond zu der Herstellerfirma des Shuttles. Schon bald merkt er, dass deren Besitzer Hugo Drax die gesamte Menschheit vernichten will. Es kommt zum Showdown im Weltall.</plot>
+  <runtime>126</runtime>
+  <mpaa>FSK-12</mpaa>
+  <id>0201</id>
+  <uniqueid type="mbdb">0201</uniqueid>
+  <year>1979</year>
+</movie>
