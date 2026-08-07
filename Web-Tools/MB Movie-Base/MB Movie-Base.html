@@ -7,7 +7,6 @@
   <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_02.svg"></link>
   <link rel="stylesheet" href="../../assets/css/main.css"></link>
   <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
-  <script src="Scripts/xlsx.full.min.js"></script>
   <style>
     tbody {width: 100%;height: auto;}
     tr {width: 100%;height: auto;}
@@ -18,16 +17,6 @@
 
     .movie_row_1 {background-color: #222222;border: 4px solid #222222;}
     .movie_row_2 {border: 4px solid #222222;}
-
-    .table_name___ {width: 16%;height: auto;text-align: left;vertical-align: middle;padding: 1em;}
-    .table_year___ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
-    .table_number_ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
-    .table_runtime {width: 16%;height: auto;text-align: center;vertical-align: middle;}
-    .table_fsk____ {width: 16%;height: auto;text-align: center;vertical-align: middle;}
-    .table_fsk____ img {width: 100%;height: auto;}
-    .table_content {width: 16%;height: auto;text-align: justify;overflow: hidden;text-overflow: ellipsis;display: none;}
-    .table_poster_ {width: 20%;height: 100%;vertical-align: middle;}
-    .table_poster_ img {display: block;width: 100%;height: 100%;object-fit: contain;padding: 4px;}
 
     .group_button {display: none;}
     .group_button.aktiv {display: block;}
@@ -41,9 +30,24 @@
     #search_container {text-align: center;}
     #search_container input {font-size: 1em;outline-color: none;background-color: #222222;color: #dbdbdb;border: none;}
     #search_container input:focus {outline: none;box-shadow: none;}
-</style>
+
+    .movie_card {width: 100%;height: auto;display: grid;grid-template-columns: auto auto auto;grid-template-rows: auto;background-color: #222222;margin: 0 0 1rem 0;border-radius: 1rem;padding: 0.5rem;}
+    .movie_title {grid-column: 1 / span 3;grid-row: 1;height: auto;padding: 0.5rem;margin: 0 0 0.5rem 0;font-size: 1.2rem;font-weight: 1000;text-align: center;background-color: #111111;border-radius: 0.5rem;border: 1px dashed #666666;}
+    .movie_year_1 {grid-column: 1;grid-row: 2;height: 1.5rem;text-align: right;font-size: 0.8rem;margin: 0 0.5rem;}
+    .movie_year_2 {grid-column: 2;grid-row: 2;height: 1.5rem;text-align: left;font-size: 0.8rem;margin: 0 0.5rem;}
+    .movie_number_1 {grid-column: 1;grid-row: 3;height: 1.5rem;text-align: right;font-size: 0.8rem;margin: 0 0.5rem;}
+    .movie_number_2 {grid-column: 2;grid-row: 3;height: 1.5rem;text-align: left;font-size: 0.8rem;margin: 0 0.5rem;}
+    .movie_runtime_1 {grid-column: 1;grid-row: 4;height: 1.5rem;text-align: right;font-size: 0.8rem;margin: 0 0.5rem;}
+    .movie_runtime_2 {grid-column: 2;grid-row: 4;height: 1.5rem;text-align: left;font-size: 0.8rem;margin: 0 0.5rem 0.5rem 0.5rem;}
+    .movie_plot {grid-column: 1 / span 2;grid-row: 5;height: 4.5rem;font-size: 0.6rem;line-height: 0.8rem;text-align: justify;overflow: auto;background-color: none;padding: 0.5rem 0.5rem 0.5rem 0;border-radius: 0.5rem;}
+    .movie_poster {grid-column: 3;grid-row: 2 / span 4;width: auto;height: 9.5rem;aspect-ratio: 2/3;display: flex;justify-content: center;align-items: center;border-radius: 0.5rem;margin: 0 0 0 0.5rem;}
+    .movie_poster img {width: 100%;height: auto;object-fit: contain;cursor: pointer;border-radius: 0.5rem;}
+    .movie_fsk {grid-column: 2;grid-row: 2 / span 2;width: 3rem;height: 3rem;aspect-ratio: 1/1;position: relative;top: 0rem;left: calc(100% - 3rem);}
+    .movie_fsk img {height: 3rem;height: 3rem;}
+  </style>
+
 </head>
-<body onload="window.location.href = '#mb_movie_base';" class="is-preload">
+<body onload="window.location.href = '#mb_movie_base';load_moviebase();" class="is-preload">
   <div id="wrapper">
     
     <nav id="nav">
@@ -72,56 +76,22 @@
 <script src="../../assets/js/util.js"></script>
 <script src="../../assets/js/main.js"></script>
 <script>
-
-  const GITHUB_USER = "master-b-studios";
-const GITHUB_REPO = "homepage";
-const MOVIE_FOLDER = "Web-Tools/MB Movie-Base/Data";
-
-async function getMovieFolders() {
-
-    const url =
-        `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${encodeURIComponent(MOVIE_FOLDER).replace(/%2F/g,'/')}`;
-
-    const response = await fetch(url);
-
-    if (!response.ok)
-        throw new Error("Movie-Ordner konnten nicht geladen werden.");
-
-    const json = await response.json();
-
-    return json
-        .filter(entry => entry.type === "dir")
-        .map(entry => entry.name)
-        .sort((a, b) => Number(a) - Number(b));
-}
-async function testMovieFolders() {
-
-    const folders = await getMovieFolders();
-
-    console.log(folders);
-
-}
-
   let current_data = [];
-  let current_sort = {};
   let current_group = 'Name';
   let current_sort_direction = 'asc';
 
   async function load_moviebase() {
     try {
-      const response = await fetch('MB Movie-Base.xlsx');
-      if (!response.ok) throw new Error('Datei konnte nicht geladen werden');
-      const arrayBuffer = await response.arrayBuffer();
-      const data = new Uint8Array(arrayBuffer);
-      const workbook = XLSX.read(data, { type: 'array' });
-      const sheetName = workbook.SheetNames[0];
-      const worksheet = workbook.Sheets[sheetName];
-      const json = XLSX.utils.sheet_to_json(worksheet);
-      current_data = json;
+      const response = await fetch("movies.json");
+      if (!response.ok) throw new Error("movies.json konnte nicht geladen werden.");
+      current_data = await response.json();
       load_navigation();
-      load_table_data(json);
+      load_table_data(current_data);
     }
-    catch (err) {document.getElementById('output').textContent = 'Fehler beim Laden: ' + err.message;}
+    catch(err) {
+      document.getElementById("output").innerHTML = "<h3>Fehler</h3><p>" + err.message + "</p>";
+      console.error(err);
+    }
   }
 
   function load_navigation() {
@@ -190,7 +160,7 @@ async function testMovieFolders() {
       ...Object.fromEntries('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(c => [c, []]))
     };
     for (const entry of data) {
-      const name = entry[Object.keys(entry)[1]] ?? '';
+      const name = entry.title ?? "";
       const letter_1 = name.charAt(0).toUpperCase();
       groups['Name'].push(entry);
       groups['Zufall'].push(entry);
@@ -207,21 +177,21 @@ async function testMovieFolders() {
       let data = groups[group_single];
       if (group_single === 'Nummer') {
         data.sort((a, b) => {
-          const numA = parseInt(a[Object.keys(a)[0]]) || 0;
-          const numB = parseInt(b[Object.keys(b)[0]]) || 0;
+          const numA = parseInt(a.id) || 0;
+          const numB = parseInt(b.id) || 0;
           return current_sort_direction === 'asc' ? numA - numB : numB - numA;
         });
       }
       else if (group_single !== 'Zufall') {
         data.sort((a, b) => {
-          const nameA = String(a[Object.keys(a)[1]] ?? '');
-          const nameB = String(b[Object.keys(b)[1]] ?? '');
+          const nameA = a.title ?? "";
+          const nameB = b.title ?? "";
           return current_sort_direction === 'asc'
             ? nameA.localeCompare(nameB, 'de')
             : nameB.localeCompare(nameA, 'de');
         });
       }
-      if (data.length > 0) {const table = generiereTabelle(data);groupDiv.appendChild(table);}
+      if (data.length > 0) {const table = generate_table_data(data);groupDiv.appendChild(table);}
       else {groupDiv.innerHTML = '<p>Keine Einträge gefunden...</p>';}
       container.appendChild(groupDiv);
     }
@@ -246,118 +216,96 @@ async function testMovieFolders() {
     set_group_active();
   }
 
-  function shuffleArray(array) {for (let i = array.length - 1; i > 0; i--) {const j = Math.floor(Math.random() * (i + 1));[array[i], array[j]] = [array[j], array[i]];}return array;}
+  function generate_table_data(data) {
+    const container = document.createElement("div");
+    data.forEach(row => {
+      const card = document.createElement("div");
+      card.className = "movie_card";
+      card.dataset.title = (row.title ?? "").toLowerCase();
+      
+      const title = document.createElement("div");
+      title.className = "movie_title";
+      title.innerHTML = row.title ?? "";
+      
+      const year_1 = document.createElement("div");
+      year_1.className = "movie_year_1";
+      year_1.innerHTML = "Jahr:";
 
-  function generiereTabelle(data) {
-    const table = document.createElement('table');
-    const thead = document.createElement('thead');
-    const headerRow = document.createElement('tr');
-    const keys = Object.keys(data[0]);
-    for (let i = 0; i < keys.length; i++) {
-      const key = keys[i];const th = document.createElement('th');th.innerHTML = key;
-      if (i == 0) {th.className = 'header_number_';}
-      else if (i == 1) {th.className = 'header_name___';}
-      else if (i == 2) {th.className = 'header_year___';}
-      else if (i == 3) {th.className = 'header_runtime';}
-      else if (i == 4) {th.className = 'header_fsk____';}
-      else if (i == 5) {th.className = 'header_cover__';th.innerHTML = '';}
-      headerRow.appendChild(th);
-    }
-    thead.appendChild(headerRow);table.appendChild(thead);
-    for (let i = 0; i < data.length; i++) {
-      const row = data[i];
-      const wrapper = document.createElement('tbody');wrapper.className = 'movie_entry_wrapper';
-      const tr1 = document.createElement('tr');tr1.className = 'movie_row_1';
-      const tr2 = document.createElement('tr');tr2.className = 'movie_row_2';
-      let movie_id = '';
-      for (let j = 0; j < keys.length; j++) {
-        const key = keys[j];const td = document.createElement('td');td.innerHTML = row[key] ?? '';
-        if (j == 0) {movie_id = td.innerHTML;td.className = 'table_number_';td.id = movie_id + '_number_';td.value = td.innerHTML;td.innerHTML = 'Nummer:<br>' + td.innerHTML;tr2.appendChild(td);}
-        else if (j == 1) {td.className = 'table_name___';td.id = movie_id + '_name___';td.value = td.innerHTML;td.colSpan = 5;tr1.appendChild(td);}
-        else if (j == 2) {td.className = 'table_year___';td.id = movie_id + '_year___';td.value = td.innerHTML;tr1.appendChild(td);}
-        else if (j == 3) {td.className = 'table_runtime';td.id = movie_id + '_runtime';td.value = td.innerHTML;td.innerHTML += '<br>Minuten';tr2.appendChild(td);}
-        else if (j == 4) {td.className = 'table_fsk____';td.id = movie_id + '_fsk____';td.value = td.innerHTML;td.colSpan = 3;td.innerHTML = '<img src="Scripts/' + td.value + '.png" loading="lazy">';tr2.appendChild(td);}
-        else if (j == 5) {td.className = 'table_poster_';td.id = movie_id;td.value = td.innerHTML;td.innerHTML = '<img src="Cover/' + movie_id + '.jpg" loading="lazy">';td.addEventListener('click', function () {download_nfo(this);});tr2.appendChild(td);}
-      }
-      wrapper.appendChild(tr1);wrapper.appendChild(tr2);
-      if (i < data.length - 1) {
-        const spacer = document.createElement('tr');
-        const spacer_cell = document.createElement('td');
-        spacer_cell.colSpan = keys.length;
-        spacer_cell.style.height = '1em';
-        spacer_cell.style.padding = '0';
-        spacer_cell.style.border = 'none';
-        spacer.appendChild(spacer_cell);
-        wrapper.appendChild(spacer);
-      }
-      table.appendChild(wrapper);
-    }
-    return table;
+      const year_2 = document.createElement("div");
+      year_2.className = "movie_year_2";
+      year_2.innerHTML = row.year ?? "";
+      
+      const number_1 = document.createElement("div");
+      number_1.className = "movie_number_1";
+      number_1.innerHTML = "Nummer:";
+      
+      const number_2 = document.createElement("div");
+      number_2.className = "movie_number_2";
+      number_2.innerHTML = row.id ?? "";
+      
+      const runtime_1 = document.createElement("div");
+      runtime_1.className = "movie_runtime_1";
+      runtime_1.innerHTML = "Laufzeit:";
+      
+      const runtime_2 = document.createElement("div");
+      runtime_2.className = "movie_runtime_2";
+      runtime_2.innerHTML = (row.runtime ?? "") + " Minuten";
+      
+      const plot = document.createElement("div");
+      plot.className = "movie_plot";
+      plot.innerHTML = row.plot ?? "";
+      const poster = document.createElement("div");
+      poster.className = "movie_poster";
+      
+      const image = document.createElement("img");
+      image.src = row.poster;
+      image.loading = "lazy";
+      image.onclick = () => download_movie_files(row);
+      poster.appendChild(image);
+      
+      const fsk = document.createElement("div");
+      fsk.className = "movie_fsk";
+      fsk.innerHTML = '<img src="Scripts/' + row.mpaa + '.png" loading="lazy">';
+      
+      card.appendChild(title);
+      card.appendChild(year_1);
+      card.appendChild(year_2);
+      card.appendChild(number_1);
+      card.appendChild(number_2);
+      card.appendChild(runtime_1);
+      card.appendChild(runtime_2);
+      card.appendChild(plot);
+      card.appendChild(poster);
+      card.appendChild(fsk);
+      
+      container.appendChild(card);
+    });
+    return container;
   }
 
   function search_in_table_data(search_index) {
-    const group_single = current_group;
-    const divs = document.querySelectorAll('.group_button');
-    divs.forEach(div => div.classList.remove('aktiv'));
-    const group_div = document.getElementById('group_single_' + group_single);
+    const group_div = document.getElementById("group_single_" + current_group);
     if (!group_div) return;
-    group_div.classList.add('aktiv');
-    const entrys = group_div.querySelectorAll('tbody.movie_entry_wrapper');
-    const search_word = search_index.toLowerCase();
-    entrys.forEach(wrapper => {
-      const inhalt = wrapper.textContent.toLowerCase();
-      const sichtbar = search_word === '' || inhalt.includes(search_word);
-      wrapper.style.display = sichtbar ? '' : 'none';
+    const cards = group_div.querySelectorAll(".movie_card");
+    const search = search_index.trim().toLowerCase();
+    cards.forEach(card => {
+      const title = card.dataset.title;
+      card.style.display = (search === "" || title.includes(search)) ? "" : "none";
     });
   }
 
-  function download_nfo(obj) {
-    let parsing_id = obj.id;
-    let title_movie__ = document.getElementById(parsing_id + '_name___').value;
-    let number_movie_ = document.getElementById(parsing_id + '_number_').value;
-    let runtime_movie = document.getElementById(parsing_id + '_runtime').value;
-    let year_movie___ = document.getElementById(parsing_id + '_year___').value;
-    let age_movie____ = document.getElementById(parsing_id + '_fsk____').value;
-    let content_movie = document.getElementById(parsing_id).value;
-    let downloadConfirmed = confirm("NFO-Datei und Cover herunterladen?");
-    if (downloadConfirmed) {
-      content_movie = content_movie.replace(/&amp;/gi, '&');
-      title_movie__ = title_movie__.replace(/&amp;/gi, '&');
-      const link_nfo = document.createElement("A");
-      const filename_nfo = title_movie__ + '.nfo';
-      const save_content =
-        '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>\n' +
-        '<movie>\n' +
-        '   <title>' + title_movie__ + '</title>\n' +
-        '   <originaltitle>' + title_movie__ + '</originaltitle>\n' +
-        '   <plot>' + content_movie + '</plot>\n' +
-        '   <runtime>' + runtime_movie + '</runtime>\n' +
-        '   <mpaa>' + age_movie____ + '</mpaa>\n' +
-        '   <id>' + number_movie_ + '</id>\n' +
-        '   <uniqueid type="mbdb">' + number_movie_ + '</uniqueid>\n' +
-        '   <year>' + year_movie___ + '</year>\n' +
-        '</movie>\n';
-        
-      link_nfo.setAttribute("href", "data:text/xml," + encodeURIComponent(save_content));
-      link_nfo.setAttribute("style", "display:none");
-      link_nfo.setAttribute("download", filename_nfo);
-      document.body.appendChild(link_nfo);
-      link_nfo.click();
-      document.body.removeChild(link_nfo);
-      
-      const cover_image = document.getElementById(parsing_id).querySelector('img');
-      if (cover_image && cover_image.src) {
-        const cover_url = cover_image.src;
-        const cover_filename = title_movie__ + '-poster.jpg';
-        const link_cover = document.createElement("A");
-        link_cover.setAttribute("href", cover_url);
-        link_cover.setAttribute("download", cover_filename);
-        link_cover.setAttribute("style", "display:none");
-        document.body.appendChild(link_cover);
-        link_cover.click();
-        document.body.removeChild(link_cover);
-      }
-    }
-    // else {alert("Download abgebrochen...");}
+  function download_movie_files(movie) {
+    if (!confirm("NFO-Datei und Poster herunterladen?")) return;
+    downloadFile(`Movies/${movie.folder}/${movie.filename}.nfo`, `${movie.filename}.nfo`);
+    downloadFile(movie.poster, `${movie.filename}-poster.jpg`);
+  }
+  function downloadFile(url, filename) {
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    link.style.display = "none";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
 </script>

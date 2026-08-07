@@ -68,7 +68,6 @@ def read_movie(folder: Path):
     movie = {
         "id": xml_text(root, "id"),
         "title": xml_text(root, "title"),
-        "originaltitle": xml_text(root, "originaltitle"),
         "plot": xml_text(root, "plot"),
         "runtime": xml_text(root, "runtime"),
         "mpaa": xml_text(root, "mpaa"),
@@ -81,8 +80,6 @@ def read_movie(folder: Path):
             f"Movies/{folder.name}/{poster.name}"
             if poster else ""
         ),
-
-        "hasPoster": poster is not None
     }
 
     return movie
