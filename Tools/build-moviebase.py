@@ -3,7 +3,7 @@ import json
 import xml.etree.ElementTree as ET
 
 # ----------------------------------------------------------
-# Ordner
+# Pfade
 # ----------------------------------------------------------
 
 BASE = Path(__file__).resolve().parent.parent
@@ -11,15 +11,27 @@ BASE = Path(__file__).resolve().parent.parent
 MOVIES = BASE / "Web-Tools" / "MB Movie-Base" / "Movies"
 OUTPUT = BASE / "Web-Tools" / "MB Movie-Base" / "movies.json"
 
+
 # ----------------------------------------------------------
-# Film einlesen
+# XML-Hilfsfunktion
+# ----------------------------------------------------------
+
+def xml_text(root, tag):
+    element = root.find(tag)
+
+    if element is None or element.text is None:
+        return ""
+
+    return element.text.strip()
+
+
+# ----------------------------------------------------------
+# Einen Film lesen
 # ----------------------------------------------------------
 
 def read_movie(folder: Path):
 
-    # -------------------------
-    # NFO suchen
-    # -------------------------
+    # ---------- NFO suchen ----------
 
     nfo_files = list(folder.glob("*.nfo"))
 
@@ -33,9 +45,7 @@ def read_movie(folder: Path):
 
     nfo = nfo_files[0]
 
-    # -------------------------
-    # Poster suchen
-    # -------------------------
+    # ---------- Poster suchen ----------
 
     poster_files = list(folder.glob("*-poster.jpg"))
 
@@ -44,9 +54,7 @@ def read_movie(folder: Path):
 
     poster = poster_files[0] if poster_files else None
 
-    # -------------------------
-    # XML lesen
-    # -------------------------
+    # ---------- XML laden ----------
 
     try:
         root = ET.parse(nfo).getroot()
@@ -55,55 +63,40 @@ def read_movie(folder: Path):
         print(f"❌ {folder.name}: XML-Fehler ({e})")
         return None
 
-    movie = {}
+    # ---------- Filmobjekt ----------
 
-    # -------------------------
-    # Alle XML-Tags übernehmen
-    # -------------------------
+    movie = {
+        "id": xml_text(root, "id"),
+        "title": xml_text(root, "title"),
+        "originaltitle": xml_text(root, "originaltitle"),
+        "plot": xml_text(root, "plot"),
+        "runtime": xml_text(root, "runtime"),
+        "mpaa": xml_text(root, "mpaa"),
+        "year": xml_text(root, "year"),
 
-    for child in root:
+        "folder": folder.name,
+        "filename": nfo.stem,
 
-        tag = child.tag
-        value = (child.text or "").strip()
+        "poster": (
+            f"Movies/{folder.name}/{poster.name}"
+            if poster else ""
+        ),
 
-        if tag in movie:
-
-            if not isinstance(movie[tag], list):
-                movie[tag] = [movie[tag]]
-
-            movie[tag].append(value)
-
-        else:
-
-            movie[tag] = value
-
-    # -------------------------
-    # Zusätzliche Daten
-    # -------------------------
-
-    movie["folder"] = folder.name
-
-    movie["filename"] = nfo.stem
-
-    if poster:
-        movie["poster"] = f"Movies/{folder.name}/{poster.name}"
-        movie["hasPoster"] = True
-    else:
-        movie["poster"] = ""
-        movie["hasPoster"] = False
+        "hasPoster": poster is not None
+    }
 
     return movie
 
 
 # ----------------------------------------------------------
-# Filme sammeln
+# Alle Filme sammeln
 # ----------------------------------------------------------
 
 movies = []
 
 folders = sorted(
-    [f for f in MOVIES.iterdir() if f.is_dir()],
-    key=lambda p: int(p.name)
+    [folder for folder in MOVIES.iterdir() if folder.is_dir()],
+    key=lambda folder: int(folder.name)
 )
 
 for folder in folders:
@@ -113,27 +106,35 @@ for folder in folders:
     if movie:
         movies.append(movie)
 
+movies.sort(key=lambda movie: int(movie["id"]))
+
 # ----------------------------------------------------------
-# Nach ID sortieren
+# JSON erzeugen
 # ----------------------------------------------------------
 
-movies.sort(
-    key=lambda m: int(m.get("id", 0))
+json_text = json.dumps(
+    movies,
+    ensure_ascii=False,
+    indent=4
 )
 
 # ----------------------------------------------------------
-# JSON schreiben
+# Nur speichern wenn nötig
 # ----------------------------------------------------------
 
-with open(OUTPUT, "w", encoding="utf-8") as f:
+if OUTPUT.exists():
 
-    json.dump(
-        movies,
-        f,
-        ensure_ascii=False,
-        indent=4
-    )
+    old_json = OUTPUT.read_text(encoding="utf-8")
+
+    if old_json == json_text:
+        print("✅ movies.json ist bereits aktuell.")
+        raise SystemExit
+
+OUTPUT.write_text(
+    json_text,
+    encoding="utf-8"
+)
 
 print()
 print(f"✅ {len(movies)} Filme verarbeitet.")
-print(f"💾 {OUTPUT}")
+print("💾 movies.json wurde aktualisiert.")

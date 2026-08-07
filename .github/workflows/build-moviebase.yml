@@ -1,6 +1,7 @@
 name: Build Movie Database
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'Web-Tools/MB Movie-Base/Movies/**'
