@@ -105,8 +105,14 @@ for folder in folders:
 
     movie = read_movie(folder)
 
-    if movie:
-        movies.append(movie)
+    if not movie:
+        continue
+
+    if movie["id"] == "":
+        print(f"❌ {folder.name}: keine ID gefunden")
+        continue
+
+    movies.append(movie)
 
 movies.sort(key=lambda movie: int(movie["id"]))
 
