@@ -5,7 +5,7 @@ on:
   push:
     paths:
       - 'Web-Tools/MB Movie-Base/Movies/**'
-      - 'Tools/build_moviebase.py'
+      - 'Tools/build-moviebase.py'
       - '.github/workflows/build-moviebase.yml'
 
 permissions:
