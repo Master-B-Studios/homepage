@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 # Pfade
 # ----------------------------------------------------------
 
-BASE = Path(__file__).resolve().parent
+BASE = Path(__file__).resolve().parent.parent
 
 MOVIES = BASE / "Web-Tools" / "MB Movie-Base" / "Movies"
 OUTPUT = BASE / "Web-Tools" / "MB Movie-Base" / "movies.json"
