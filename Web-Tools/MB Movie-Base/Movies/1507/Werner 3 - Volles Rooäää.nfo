@@ -1,15 +1,11 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <movie>
-  <title>Werner 3 - Volles Rooäää</title>
-  <originaltitle>Werner 3 - Volles Rooäää</originaltitle>
-  <plot>Ein fieser Investor will Werners Wohnviertel dem Boden gleichmachen, um ein Einkaufszentrum zu errichten. Allerdings hat Baulöwe Günzelsen die Rechnung ohne Werner gemacht. Der plant mit Hilfe von Meister Röhrich die sanitären Anlagen durch eine gigantische Verstopfung in die Luft zu jagen.</plot>
-  <runtime>121</runtime>
-  <mpaa>FSK-6</mpaa>
-  <id>
-    <span style="white-space:pre">
-    </span>1507</id>
-  <uniqueid type="mbdb">
-    <span style="white-space:pre">
-    </span>1507</uniqueid>
-  <year>1999</year>
+   <title>Werner 3 - Volles Rooäää</title>
+   <originaltitle>Werner 3 - Volles Rooäää</originaltitle>
+   <plot>Ein fieser Investor will Werners Wohnviertel dem Boden gleichmachen, um ein Einkaufszentrum zu errichten. Allerdings hat Baulöwe Günzelsen die Rechnung ohne Werner gemacht. Der plant mit Hilfe von Meister Röhrich die sanitären Anlagen durch eine gigantische Verstopfung in die Luft zu jagen.</plot>
+   <runtime>121</runtime>
+   <mpaa>FSK-6</mpaa>
+   <id>1507</id>
+   <uniqueid type="mbdb">1507</uniqueid>
+   <year>1999</year>
 </movie>
