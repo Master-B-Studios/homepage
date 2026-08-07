@@ -27,7 +27,7 @@ jobs:
           python-version: "3.12"
 
       - name: Datenbank erzeugen
-        run: python Tools/build_moviebase.py
+        run: python Tools/build-moviebase.py
 
       - name: Änderungen committen
         run: |
