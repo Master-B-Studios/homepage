@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PS Cover-Creator</title>
+	<meta charset="utf-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+	<link rel="icon" type="image/x-icon" href="../../images/MB_Icon_02.svg"></link>
+	<link rel="stylesheet" href="../../assets/css/main.css"></link>
+</head>
+<style>
+	input {cursor: pointer;}
+	input[accept=".jpg,.png"] {display: none;z-index: 100;}
+	label {width: 18rem;height: 3rem;display: flex;align-items: center;justify-content: center;cursor: pointer;margin: 1rem auto;background-color: #222222;border-radius: 0.5rem;box-shadow: rgba(255, 255, 255, 0.3) 2px 2px 6px 1px inset;font-size: 1.2rem;}
+	label:hover {font-size: 1.17rem;box-shadow: rgba(0, 0, 0, 0.7) 2px 2px 6px 1px inset;transition: all 0.2s;}
+	
+	#window_icon {width: auto;height: 40vh;aspect-ratio: 1/1;border: 1px dashed #666666;margin: 1rem auto;}
+	#window_icon img {width: 100%;height: 100%;aspect-ratio: 1/1;}
+
+	.checkbox_table {width: 100%;text-align: center;margin: 1rem auto;font-size: 0.9rem;}
+
+	.radio_button:hover .check {stroke-dashoffset: 0;}
+	.radio_button {position: relative;display: inline-block;width: 2rem;height: 2rem;}
+	.radio_button .background {fill: #222222;transition: ease all 0.6s;-webkit-transition: ease all 0.6s;}
+	.radio_button .stroke {fill: none;stroke: #0d7fc7;stroke-miterlimit: 10;stroke-width: 2px;stroke-dashoffset: 100;stroke-dasharray: 100;transition: ease all 0.6s;-webkit-transition: ease all 0.6s;}
+	.radio_button .check {fill: none;stroke: #01ff50;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2px;stroke-dashoffset: 22;stroke-dasharray: 22;transition: ease all 0.6s;-webkit-transition: ease all 0.6s;}
+	.radio_button input[type=radio] {position: absolute;width: 100%;height: 100%;left: 0;top: 0;margin: 0;opacity: 0;-appearance: none;-webkit-appearance: none;}
+	.radio_button input[type=radio]:hover {cursor: pointer;}
+	.radio_button input[type=radio]:checked + svg .background {fill: #000000;}
+	.radio_button input[type=radio]:checked + svg .stroke {stroke-dashoffset: 0;}
+	.radio_button input[type=radio]:checked + svg .check {stroke-dashoffset: 0;}
+</style>
+
+<body onload="window.location.href = '#creator';load_preview();" class="is-preload">
+	<div id="wrapper">
+		
+		<nav id="nav">
+			<a href="../../index.html"><img class="mb_icon" src="../../images/MB_Icon_02.svg"></img><span>Home</span></a>
+			<a href="../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
+			<a href="../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
+			<a href="../../Games/games.html"><img class="mb_icon" src="../../images/Games_Icon_01.png"></img><span>Games</span></a>
+			<a href="#creator"><img class="mb_icon" src="icon_01.png"></img><span>PS Cover</span></a>
+		</nav>
+		
+		<div id="main">
+			<article id="creator" class="panel">
+				<header><h2>PS4 / PS5 Cover-Creator</h2></header>
+				<div class="description">
+					Mit diesem Tool lässt sich ein beliebiges Poster mit einem Cover-Template versehen. Das Cover wird im Verhältnis 2:3 skaliert und hat im Download eine Größe von 512 x 512 Pixeln. Anschliessend per Rechtsklick oder mit Klick auf das erzeugte Cover herunterladen.<br>
+				</div>
+
+				<table class="checkbox_table">
+					<tr><td>PS1</td><td>PS2</td><td>PS3</td><td>PS4</td><td>PS5</td><td>PSP</td><td>SNES</td><td>N64</td></tr>
+					<tr>
+						<td><div class="radio_button"><input value="template_ps1" name="signature" onclick="check_box(this);" type="radio" checked/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>
+						<td><div class="radio_button"><input value="template_ps2" name="signature" onclick="check_box(this);" type="radio"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>
+						<td><div class="radio_button"><input value="template_ps3" name="signature" onclick="check_box(this);" type="radio"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>
+						<td><div class="radio_button"><input value="template_ps4" name="signature" onclick="check_box(this);" type="radio"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>
+						<td><div class="radio_button"><input value="template_ps5" name="signature" onclick="check_box(this);" type="radio"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>
+						<td><div class="radio_button"><input value="template_psp" name="signature" onclick="check_box(this);" type="radio"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>
+						<td><div class="radio_button"><input value="template_snes" name="signature" onclick="check_box(this);" type="radio"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>
+						<td><div class="radio_button"><input value="template_n64" name="signature" onclick="check_box(this);" type="radio"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>
+					</tr>
+				</table>
+
+				<div><label><input type="file" accept=".jpg,.png" onchange="load_document(this);"></input>Poster Hochladen</label></div>
+
+				<div id="window_icon"><canvas id="canvas_preload" style="width: 100%;height: 100%;margin: auto;" onclick="save_document(this);"></canvas></div>
+				
+			</article>
+
+			<div style="display: none;">
+				<img id="template_bg" src="template_bg.png">
+				<img id="template_ps1" src="template_ps1.png">
+				<img id="template_ps2" src="template_ps2.png">
+				<img id="template_ps3" src="template_ps3.png">
+				<img id="template_ps4" src="template_ps4.png">
+				<img id="template_ps5" src="template_ps5.png">
+				<img id="template_psp" src="template_psp.png">
+				<img id="template_snes" src="template_snes.png">
+				<img id="template_n64" src="template_n64.png">
+			</div>
+		</div>
+		
+		<div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
+	</div>
+</body>
+
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/browser.min.js"></script>
+<script src="../../assets/js/breakpoints.min.js"></script>
+<script src="../../assets/js/util.js"></script>
+<script src="../../assets/js/main.js"></script>
+
+<script>
+	const window_icon = document.getElementById('window_icon');
+	const window_canvas = document.getElementById('window_canvas');
+
+	const template_bg = document.getElementById('template_bg');
+	const template_snes = document.getElementById('template_snes');
+	const template_n64 = document.getElementById('template_n64');
+	const template_ps1 = document.getElementById('template_ps1');
+	const template_ps2 = document.getElementById('template_ps2');
+	const template_ps3 = document.getElementById('template_ps3');
+	const template_ps4 = document.getElementById('template_ps4');
+	const template_ps5 = document.getElementById('template_ps5');
+	const template_psp = document.getElementById('template_psp');
+
+	let signature = document.getElementById('template_ps1');
+	let uploaded_image = null;
+
+	const img = new Image();
+	const reader = new FileReader();
+	
+	function load_preview() {
+		const canvas = document.getElementById('canvas_preload');
+		const ctx = canvas.getContext('2d');
+		canvas.width = 512;canvas.height = 512;
+		ctx.drawImage(template_bg, 0, 0, 512, 512);
+		ctx.drawImage(template_ps1, 0, 0, 512, 512);
+	}
+	
+	function check_box(obj) {signature = document.getElementById(obj.value);draw_preview();}
+	
+	function load_document(obj) {
+		const file = obj.files[0];
+		if (!file) {return;}
+		if (file.type === 'image/jpeg' || file.type === 'image/png') {import_img(file);}
+	}
+	
+	function import_img(file) {
+		const reader = new FileReader();
+		reader.addEventListener('load', () => {
+			const img = new Image();
+			img.addEventListener('load', () => {uploaded_image = img;draw_preview();});
+			img.src = reader.result;
+		});
+		reader.readAsDataURL(file);
+	}
+	
+	function draw_preview() {
+		const canvas = document.getElementById('canvas_preload');
+		const ctx = canvas.getContext('2d');
+		canvas.width = 512;canvas.height = 512;
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		if (uploaded_image) {ctx.drawImage(uploaded_image, 181, 31, 300, 450);}
+		ctx.drawImage(template_bg, 0, 0, 512, 512);
+		ctx.drawImage(signature, 0, 0, 512, 512);
+	}
+	
+	function save_document(obj) {
+		var date = new Date().toISOString().substring(0, 10);
+		var time = new Date().toISOString().substring(11, 19);
+		var day = date.substring(8);var month = date.substring(5, 7);var year = date.substring(0, 4);var second = time.substring(6);var minute = time.substring(3, 5);var hour = ('0' + (parseInt(time.substring(0, 2)) + 2)).slice(-2);
+		var date_string = year+'-'+month+'-'+day+' '+hour+'-'+minute+'-'+second;
+		var link = document.createElement('A');
+		var filename = 'icon0.png';
+		var to_download = obj;
+		link.setAttribute('href',to_download.toDataURL('image/png'));
+		link.setAttribute('style','display:none');
+		link.setAttribute('download',filename);
+		//link.setAttribute('download',date_string+filename);
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+	}
+</script>
