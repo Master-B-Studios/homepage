@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<movie>
+   <title>Enola Holmes 1</title>
+   <originaltitle>Enola Holmes 1</originaltitle>
+   <plot>Auf der Suche nach ihrer Mutter verlässt sich Enola Holmes auf ihr Talent als Spürnase, um ihren Bruder Sherlock zu überlisten und einem entlaufenen Lord zu helfen.</plot>
+   <runtime>123</runtime>
+   <mpaa>FSK-12</mpaa>
+   <id>1780</id>
+   <uniqueid type="mbdb">1780</uniqueid>
+   <year>2020</year>
+</movie>
