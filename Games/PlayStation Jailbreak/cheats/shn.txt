@@ -1,0 +1,4 @@
+CUSA20605_01.04.shn=Rebel Galaxy 2 - Outlaw
+SLES00540_01.00.shn=Wing Over
+PPSA14033_01.000.000.shn=Everspace 2
+PPSA15671_01.020.000.shn=Everspace 2
