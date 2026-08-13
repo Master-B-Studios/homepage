@@ -19567,5 +19567,27 @@
         "folder": "1779",
         "filename": "Sketch",
         "poster": "Movies/1779/Sketch-poster.jpg"
+    },
+    {
+        "id": "1780",
+        "title": "Enola Holmes 1",
+        "plot": "Auf der Suche nach ihrer Mutter verlässt sich Enola Holmes auf ihr Talent als Spürnase, um ihren Bruder Sherlock zu überlisten und einem entlaufenen Lord zu helfen.",
+        "runtime": "123",
+        "mpaa": "FSK-12",
+        "year": "2020",
+        "folder": "1780",
+        "filename": "Enola Holmes 1",
+        "poster": "Movies/1780/Enola Holmes 1-poster.jpg"
+    },
+    {
+        "id": "1781",
+        "title": "Enola Holmes 2",
+        "plot": "Enola nimmt ihren ersten offiziellen Fall als Detektivin an. Doch um das Rätsel um das vermisste Mädchen zu lösen, braucht sie die Hilfe ihrer Freunde – und ihres Bruders Sherlock.",
+        "runtime": "130",
+        "mpaa": "FSK-12",
+        "year": "2022",
+        "folder": "1781",
+        "filename": "Enola Holmes 2",
+        "poster": "Movies/1781/Enola Holmes 2-poster.jpg"
     }
 ]
