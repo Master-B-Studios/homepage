@@ -20,7 +20,7 @@ jobs:
       - name: Repository auschecken
         uses: actions/checkout@v4
 
-            - name: Cheats ZIP erstellen
+      - name: Cheats ZIP erstellen
         run: |
           cd "Games/PlayStation Jailbreak"
 
