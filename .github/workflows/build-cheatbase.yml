@@ -20,13 +20,13 @@ jobs:
       - name: Repository auschecken
         uses: actions/checkout@v4
 
-      - name: Cheats ZIP erstellen
+            - name: Cheats ZIP erstellen
         run: |
-          cd "Games/PlayStation Jailbreak/cheats"
+          cd "Games/PlayStation Jailbreak"
 
-          rm -f cheats.zip
+          rm -f cheats/cheats.zip
 
-          zip -r cheats.zip shn shn.txt
+          zip -r cheats/cheats.zip cheats -x "cheats/cheats.zip"
 
       - name: Cheats ZIP veröffentlichen
         uses: softprops/action-gh-release@v2
