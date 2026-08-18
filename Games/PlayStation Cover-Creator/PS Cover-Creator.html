@@ -10,11 +10,10 @@
 <style>
 	input {cursor: pointer;}
 	input[accept=".jpg,.png"] {display: none;z-index: 100;}
-	label {width: 18rem;height: 3rem;display: flex;align-items: center;justify-content: center;cursor: pointer;margin: 1rem auto;background-color: #222222;border-radius: 0.5rem;box-shadow: rgba(255, 255, 255, 0.3) 2px 2px 6px 1px inset;font-size: 1.2rem;}
+	label {width: 100%;height: auto;display: flex;align-items: center;justify-content: center;cursor: pointer;background-color: #222222;border-radius: 0.5rem;box-shadow: rgba(255, 255, 255, 0.3) 2px 2px 6px 1px inset;font-size: 1.2rem;box-sizing: border-box;padding: 0.5rem;}
 	label:hover {font-size: 1.17rem;box-shadow: rgba(0, 0, 0, 0.7) 2px 2px 6px 1px inset;transition: all 0.2s;}
-	
-	#window_icon {width: auto;height: 40vh;aspect-ratio: 1/1;border: 1px dashed #666666;margin: 1rem auto;}
-	#window_icon img {width: 100%;height: 100%;aspect-ratio: 1/1;}
+	.mb_button {width: 100%;height: auto;display: flex;align-items: center;justify-content: center;cursor: pointer;background-color: #222222;border-radius: 0.5rem;box-shadow: rgba(255, 255, 255, 0.3) 2px 2px 6px 1px inset;font-size: 1.2rem;box-sizing: border-box;}
+	.mb_button:hover {font-size: 1.17rem;box-shadow: rgba(0, 0, 0, 0.7) 2px 2px 6px 1px inset;transition: all 0.2s;}
 
 	.checkbox_table {width: 100%;text-align: center;margin: 1rem auto;font-size: 0.9rem;}
 
@@ -28,9 +27,29 @@
 	.radio_button input[type=radio]:checked + svg .background {fill: #000000;}
 	.radio_button input[type=radio]:checked + svg .stroke {stroke-dashoffset: 0;}
 	.radio_button input[type=radio]:checked + svg .check {stroke-dashoffset: 0;}
+
+	.button_table {width: 100%;height: auto;display: grid;grid-template-columns: 50% 50%;grid-template-rows: auto auto auto;border-radius: 1rem;padding: 1rem;border: 1px solid #666666;margin: 2rem 0;background-color: #111111;}
+
+	.icon_container {grid-column: 1;grid-row: 1 / span 2;aspect-ratio: 1920/1080;width: auto;height: auto;display: flex;align-items: center;vertical-align: middle;}
+	#icon_template {width: 60%;height: auto;border: 1px solid #666666;margin: auto;}
+	#icon_template img {width: 100%;height: 100%;}
+    .icon_upload {grid-column: 2;grid-row: 1;margin: 0;display: flex;align-items: center;padding: 0 2rem;}
+    .icon_png {grid-column: 2;grid-row: 2;margin: 0;display: flex;align-items: center;padding: 0 2rem;}
+
+	.save_container {grid-column: 1;grid-row: 1;aspect-ratio: 1920/1080;width: 100%;height: auto;display: flex;align-items: center;}
+	#save_template {width: 100%;height: auto;border: 1px solid #666666;}
+	#save_template img {width: 100%;height: 100%;}
+    .save_png {grid-column: 2;grid-row: 1;margin: 0.5rem 0 0.5rem 0.5rem;display: flex;align-items: center;padding: 0 2rem;}
+
+	.wallie_container {grid-column: 1;grid-row: 1 / span 2;aspect-ratio: 1920/1080;width: 100%;height: auto;display: flex;align-items: center;}
+	#wallie_template {width: 100%;height: auto;border: 1px solid #666666;}
+	#wallie_template img {width: 100%;height: 100%;}
+    .wallie_upload {grid-column: 2;grid-row: 1;margin: 0 0 0.5rem 0.5rem;display: flex;align-items: center;padding: 0 2rem;}
+    .wallie_png {grid-column: 2;grid-row: 2;margin: 0.5rem 0 0.5rem 0.5rem;display: flex;align-items: center;padding: 0 2rem;}
+    
 </style>
 
-<body onload="window.location.href = '#creator';load_preview();" class="is-preload">
+<body onload="window.location.href = '#creator';load_preview_icon();load_preview_wallie();load_preview_save();" class="is-preload">
 	<div id="wrapper">
 		
 		<nav id="nav">
@@ -62,14 +81,28 @@
 					</tr>
 				</table>
 
-				<div><label><input type="file" accept=".jpg,.png" onchange="load_document(this);"></input>Poster Hochladen</label></div>
+				<div class="button_table">
+					<div class="icon_container"><div id="icon_template"><canvas id="canvas_icon" style="width: 100%;height: 100%;"></canvas></div></div>
+					<div class="icon_upload"><label><input type="file" accept=".jpg,.png" onchange="upload_icon(this);"></input>Poster-Upload</label></div>
+					<div class="icon_png"><button class="mb_button" onclick="download_png('canvas_icon', 'icon');">icon0.png</button></div>
+				</div>
 
-				<div id="window_icon"><canvas id="canvas_preload" style="width: 100%;height: 100%;margin: auto;" onclick="save_document(this);"></canvas></div>
-				
+				<div class="button_table">
+					<div class="save_container"><div id="save_template_true"><canvas id="canvas_save_true" style="width: 100%;height: 100%;"></canvas></div></div>
+					<div class="save_container"><div id="save_template"><canvas id="canvas_save" style="width: 100%;height: 100%;"></canvas></div></div>
+					<div class="save_png"><button class="mb_button" onclick="download_png('canvas_save_true', 'save');">save_data.png</button></div>
+				</div>
+
+				<div class="button_table">
+					<div class="wallie_container"><div id="wallie_template"><canvas id="canvas_wallie" style="width: 100%;height: 100%;"></canvas></div></div>
+					<div class="wallie_upload"><label><input type="file" accept=".jpg,.png" onchange="upload_wallie(this);"></input>Wallpaper Hochladen</label></div>
+					<div class="wallie_png"><button class="mb_button" onclick="download_png('canvas_wallie', 'wallie');">pic0.png</button></div>
+				</div>
+
 			</article>
 
 			<div style="display: none;">
-				<img id="template_bg" src="template_bg.png">
+				<img id="template_bg" src="template_bg_01.png">
 				<img id="template_ps1" src="template_ps1.png">
 				<img id="template_ps2" src="template_ps2.png">
 				<img id="template_ps3" src="template_ps3.png">
@@ -78,6 +111,8 @@
 				<img id="template_psp" src="template_psp.png">
 				<img id="template_snes" src="template_snes.png">
 				<img id="template_n64" src="template_n64.png">
+				<img id="template_wallie" src="template_wallie.png">
+				<img id="template_save" src="template_save_data_01.png">
 			</div>
 		</div>
 		
@@ -92,8 +127,7 @@
 <script src="../../assets/js/main.js"></script>
 
 <script>
-	const window_icon = document.getElementById('window_icon');
-	const window_canvas = document.getElementById('window_canvas');
+	const icon_template = document.getElementById('icon_template');
 
 	const template_bg = document.getElementById('template_bg');
 	const template_snes = document.getElementById('template_snes');
@@ -104,41 +138,54 @@
 	const template_ps4 = document.getElementById('template_ps4');
 	const template_ps5 = document.getElementById('template_ps5');
 	const template_psp = document.getElementById('template_psp');
+	const template_wallie = document.getElementById('template_wallie');
+	const template_save = document.getElementById('template_save');
 
 	let signature = document.getElementById('template_ps1');
 	let uploaded_image = null;
 
 	const img = new Image();
 	const reader = new FileReader();
+
+	function check_box(obj) {signature = document.getElementById(obj.value);draw_icon();draw_save();}
 	
-	function load_preview() {
-		const canvas = document.getElementById('canvas_preload');
+	function load_preview_icon() {
+		const canvas = document.getElementById('canvas_icon');
 		const ctx = canvas.getContext('2d');
 		canvas.width = 512;canvas.height = 512;
 		ctx.drawImage(template_bg, 0, 0, 512, 512);
 		ctx.drawImage(template_ps1, 0, 0, 512, 512);
 	}
-	
-	function check_box(obj) {signature = document.getElementById(obj.value);draw_preview();}
-	
-	function load_document(obj) {
-		const file = obj.files[0];
-		if (!file) {return;}
-		if (file.type === 'image/jpeg' || file.type === 'image/png') {import_img(file);}
+	function load_preview_wallie() {
+		const canvas = document.getElementById('canvas_wallie');
+		const ctx = canvas.getContext('2d');
+		canvas.width = 1920;canvas.height = 1080;
+		ctx.drawImage(template_wallie, 0, 0, 1920, 1080);
+	}
+	function load_preview_save() {
+		const canvas = document.getElementById('canvas_save');
+		const ctx = canvas.getContext('2d');
+		canvas.width = 910;canvas.height = 512;
+		ctx.drawImage(template_save, 0, 0, 910, 512);
+		ctx.drawImage(template_ps1, 199, 0, 512, 512);
 	}
 	
-	function import_img(file) {
+	function upload_icon(obj) {
+		const file = obj.files[0];
+		if (!file) {return;}
+		if (file.type === 'image/jpeg' || file.type === 'image/png') {import_icon(file);}
+	}
+	function import_icon(file) {
 		const reader = new FileReader();
 		reader.addEventListener('load', () => {
 			const img = new Image();
-			img.addEventListener('load', () => {uploaded_image = img;draw_preview();});
+			img.addEventListener('load', () => {uploaded_image = img;draw_icon();draw_save();draw_save_true();});
 			img.src = reader.result;
 		});
 		reader.readAsDataURL(file);
 	}
-	
-	function draw_preview() {
-		const canvas = document.getElementById('canvas_preload');
+	function draw_icon() {
+		const canvas = document.getElementById('canvas_icon');
 		const ctx = canvas.getContext('2d');
 		canvas.width = 512;canvas.height = 512;
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -146,19 +193,155 @@
 		ctx.drawImage(template_bg, 0, 0, 512, 512);
 		ctx.drawImage(signature, 0, 0, 512, 512);
 	}
+	function draw_save() {
+		const canvas = document.getElementById('canvas_save');
+		const ctx = canvas.getContext('2d');
+		canvas.width = 910;canvas.height = 512;
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		if (uploaded_image) {ctx.drawImage(uploaded_image, 380, 31, 300, 450);}
+		ctx.drawImage(template_save, 0, 0, 910, 512);
+		ctx.drawImage(signature, 199, 0, 512, 512);
+	}
+	function draw_save_true() {
+		const canvas = document.getElementById('canvas_save_true');
+		const ctx = canvas.getContext('2d');
+		canvas.width = 228;canvas.height = 128;
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		if (uploaded_image) {ctx.drawImage(uploaded_image, 95, 8, 75, 112);}
+		ctx.drawImage(template_save, 0, 0, 228, 128);
+		ctx.drawImage(signature, 50, 0, 128, 128);
+	}
 	
-	function save_document(obj) {
-		var date = new Date().toISOString().substring(0, 10);
-		var time = new Date().toISOString().substring(11, 19);
-		var day = date.substring(8);var month = date.substring(5, 7);var year = date.substring(0, 4);var second = time.substring(6);var minute = time.substring(3, 5);var hour = ('0' + (parseInt(time.substring(0, 2)) + 2)).slice(-2);
-		var date_string = year+'-'+month+'-'+day+' '+hour+'-'+minute+'-'+second;
-		var link = document.createElement('A');
-		var filename = 'icon0.png';
-		var to_download = obj;
-		link.setAttribute('href',to_download.toDataURL('image/png'));
-		link.setAttribute('style','display:none');
-		link.setAttribute('download',filename);
-		//link.setAttribute('download',date_string+filename);
+	function upload_wallie(obj) {
+		const file = obj.files[0];
+		if (!file) {return;}
+		if (file.type === 'image/jpeg' || file.type === 'image/png') {import_wallie(file);}
+	}
+	function import_wallie(file) {
+		const reader = new FileReader();
+		reader.addEventListener('load', () => {
+			const img = new Image();
+			img.addEventListener('load', () => {uploaded_image = img;draw_wallie();});
+			img.src = reader.result;
+		});
+		reader.readAsDataURL(file);
+	}
+	function draw_wallie() {
+		const canvas = document.getElementById('canvas_wallie');
+		const ctx = canvas.getContext('2d');
+		canvas.width = 1920;canvas.height = 1080;
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		if (uploaded_image) {ctx.drawImage(uploaded_image, 0, 0, 1920, 1080);}
+	}
+	
+	async function download_png(obj, string) {
+		const canvas = document.getElementById(obj);
+		const kind = string;
+		const width = canvas.width;
+		const height = canvas.height;
+		const ctx = canvas.getContext('2d', {willReadFrequently: true});
+		const image = ctx.getImageData(0, 0, width, height);
+		const row_size = 1 + width * 3;
+		const raw = new Uint8Array(height * row_size);
+		for (let y = 0; y < height; y++) {
+			const src_row = y * width * 4;
+			const dst_row = y * row_size;
+			raw[dst_row] = 0;
+			for (let x = 0; x < width; x++) {
+				const src = src_row + x * 4;
+				const dst = dst_row + 1 + x * 3;
+				raw[dst]     = image.data[src];
+				raw[dst + 1] = image.data[src + 1];
+				raw[dst + 2] = image.data[src + 2];
+			}
+		}
+		if (typeof CompressionStream === 'undefined') {
+			alert('Dieser Browser unterstützt CompressionStream nicht.\n' + 'Der RGB-PNG-Export ist daher nicht verfügbar.');
+			return;
+		}
+		const compressed = await zlib_deflate(raw);
+		const png = create_rgb_png(width, height, compressed);
+		const blob = new Blob([png], {type: 'image/png'});
+		const url = URL.createObjectURL(blob);
+		const link = document.createElement('a');
+		link.href = url;
+		if (kind === 'icon') {link.download = 'icon0.png';}
+		else if (kind === 'save') {link.download = 'save_data.png';}
+		else if (kind === 'wallie') {link.download = 'pic0.png';}
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+		URL.revokeObjectURL(url);
+	}
+	
+	async function zlib_deflate(data) {
+		const stream = new CompressionStream('deflate');
+		const compressed = new Response(new Blob([data]).stream().pipeThrough(stream));
+		const buffer = await compressed.arrayBuffer();
+		return new Uint8Array(buffer);
+	}
+	
+	function create_rgb_png(width, height, compressed_data) {
+		const chunks = [];
+		chunks.push(new Uint8Array([0x89, 0x50, 0x4E, 0x47,0x0D, 0x0A, 0x1A, 0x0A]));
+		const ihdr = new Uint8Array(13);
+		write_uint32(ihdr, 0, width);
+		write_uint32(ihdr, 4, height);
+		ihdr[8] = 8;
+		ihdr[9] = 2;
+		ihdr[10] = 0;
+		ihdr[11] = 0;
+		ihdr[12] = 0;
+		chunks.push(png_chunk('IHDR', ihdr));
+		chunks.push(png_chunk('IDAT', compressed_data));
+		chunks.push(png_chunk('IEND', new Uint8Array(0)));
+		return concat_uint8arrays(chunks);
+	}
+	
+	function png_chunk(type, data) {
+		const type_bytes = new TextEncoder().encode(type);
+		const chunk = new Uint8Array(4 + 4 + data.length + 4);
+		write_uint32(chunk, 0, data.length);
+		chunk.set(type_bytes, 4);
+		chunk.set(data, 8);
+		const crc_data = new Uint8Array(type_bytes.length + data.length);
+		crc_data.set(type_bytes, 0);
+		crc_data.set(data, type_bytes.length);
+		const crc = crc32(crc_data);
+		write_uint32(chunk, 8 + data.length, crc);
+		return chunk;
+	}
+	
+	function crc32(data) {
+		let crc = 0xffffffff;
+		for (let i = 0; i < data.length; i++) {
+			crc ^= data[i];
+			for (let j = 0; j < 8; j++) {if (crc & 1) {crc = (crc >>> 1) ^ 0xedb88320;} else {crc >>>= 1;}}
+		}
+		return (crc ^ 0xffffffff) >>> 0;
+	}
+	
+	function write_uint32(buffer, offset, value) {
+		buffer[offset]     = (value >>> 24) & 0xff;
+		buffer[offset + 1] = (value >>> 16) & 0xff;
+		buffer[offset + 2] = (value >>> 8) & 0xff;
+		buffer[offset + 3] = value & 0xff;
+	}
+	
+	function concat_uint8arrays(arrays) {
+		let total_length = 0;
+		for (const array of arrays) {total_length += array.length;}
+		const result = new Uint8Array(total_length);
+		let offset = 0;
+		for (const array of arrays) {result.set(array, offset);offset += array.length;}
+		return result;
+	}
+
+	function download_icon_dds() {
+		const link = document.createElement("a");
+		link.href = "icon0.dds";
+		link.download = "icon0.dds";
+		link.style.display = "none";
 		document.body.appendChild(link);
 		link.click();
 		document.body.removeChild(link);
