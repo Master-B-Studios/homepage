@@ -22,7 +22,7 @@ kexForm.addEventListener("change", function (event) {
 });
 
 // jailbreak execution
-jeilbrekBtn.addEventListener("click", function (e){
+jeilbrekBtn.addEventListener("click", function (e) {
     jeilbrekBtn.disabled = true;
     stopInterval();
     doJb();
@@ -34,7 +34,6 @@ checkbox.addEventListener('change', function () {
         jailbreakCountdown();
         return;
     }
-
     stopInterval();
 });
 
@@ -43,23 +42,23 @@ function stopInterval(){
         clearInterval(timerId);
         timerId = null;
     }
-    label.textContent = "Auto Jailbreak";
+    label.textContent = "Auto-Jailbreak";
 }
 
 function jailbreakCountdown() {   
     stopInterval();
 
     let countdown = 5;
-    label.textContent = `Auto Jailbreaking in: ${countdown}`;
+    label.textContent = `AutoJailbreak: ${countdown}`;
     timerId = setInterval(() => {
         countdown--;
-        label.textContent = `Auto Jailbreaking in: ${countdown}`;
+        label.textContent = `Auto-Jailbreak: ${countdown}`;
 
         if (countdown < 0) {
             jeilbrekBtn.disabled = true; 
             clearInterval(timerId);
             timerId = null;
-            label.textContent = 'Executing';
+            label.textContent = 'Jailbreak gestartet';
             doJb();
         }
     }, 1000);
