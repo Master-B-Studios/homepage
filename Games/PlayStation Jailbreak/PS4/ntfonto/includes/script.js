@@ -74,6 +74,23 @@ function displayCacheProgress() {
     setTimeout(function () {document.title = "MB CSSFontFace-Exploit";}, 3000);
 }
 
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Cache handling
+    if (window.applicationCache) {
+        window.applicationCache.addEventListener("progress", cacheProgress, false);
+        window.applicationCache.oncached = function (e) { displayCacheProgress(); };
+        window.applicationCache.onupdateready = function (e) { displayCacheProgress(); };
+    }
+    // choose prefered exploit chain
+    if (exploitChain == "netctrl") {netctrlRadio.checked = true;}
+    else {lapseRadio.checked = true;}
+    // apply autojb localStorage value
+    checkbox.checked = autoJbValue;
+    if (autoJbValue) jailbreakCountdown();
+});
+
+/*
 document.addEventListener("DOMContentLoaded", function() {
 
     if (window.applicationCache) {
@@ -145,21 +162,5 @@ document.addEventListener("DOMContentLoaded", function() {
     if (autoJbValue) {
         jailbreakCountdown();
     }
-});
-
-/*
-document.addEventListener("DOMContentLoaded", function() {
-    // Cache handling
-    if (window.applicationCache) {
-        window.applicationCache.addEventListener("progress", cacheProgress, false);
-        window.applicationCache.oncached = function (e) { displayCacheProgress(); };
-        window.applicationCache.onupdateready = function (e) { displayCacheProgress(); };
-    }
-    // choose prefered exploit chain
-    if (exploitChain == "netctrl") {netctrlRadio.checked = true;}
-    else {lapseRadio.checked = true;}
-    // apply autojb localStorage value
-    checkbox.checked = autoJbValue;
-    if (autoJbValue) jailbreakCountdown();
 });
 */
