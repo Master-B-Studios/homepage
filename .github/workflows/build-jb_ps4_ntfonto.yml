@@ -26,7 +26,7 @@ jobs:
           cd "Games/PlayStation Jailbreak/PS4/ntfonto"
           python3 appcache_manifest_generator.py .
 
-      - name: Änderungen committen
+      - name: Cache Manifest committen
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
