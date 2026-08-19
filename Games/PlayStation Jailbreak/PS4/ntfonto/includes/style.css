@@ -1,0 +1,28 @@
+body {background: #111111;color: #dbdbdb;margin: 0;padding: 20px;text-align: center;}
+h1 {color: #dbdbdb;font-size: 28px;margin: 10px 0 5px 0;}
+h3 {color: #aaaaaa;font-size: 14px;font-weight: normal;margin: 0 0 15px 0;}
+hr {border: 0;border-top: 1px solid #333333;margin: 15px auto;width: 90%;}
+.btn-container {margin: 20px 0 30px 0;}
+.main-layout {width: 96%;margin: 0 auto;}
+.media-box {float: left;width: 25%;text-align: center;}
+.media-box img {width: 90%;height: auto;border: 1px solid #222222;}
+#console {float: right;width: 70%;background: #000000;color: #00ff00;font-size: 14px;padding: 15px;text-align: left;height: 290px;overflow-y: scroll;word-wrap: break-word;border: 1px solid #222222;}
+#kernel-options {margin-bottom: 1rem;}
+
+.checkbox_table {width: auto;text-align: center;margin: 1rem auto;font-size: 0.9rem;}
+.checkbox_table td {padding: 0 2rem;}
+.checkbox_table label {width: 20rem;word-break: keep-all;}
+
+.radio_button:hover .check {stroke-dashoffset: 0;}
+.radio_button {position: relative;display: inline-block;width: 2rem;height: 2rem;}
+.radio_button .background {fill: #222222;transition: ease all 0.6s;-webkit-transition: ease all 0.6s;}
+.radio_button .stroke {fill: none;stroke: #0d7fc7;stroke-miterlimit: 10;stroke-width: 2px;stroke-dashoffset: 100;stroke-dasharray: 100;transition: ease all 0.6s;-webkit-transition: ease all 0.6s;}
+.radio_button .check {fill: none;stroke: #01ff50;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2px;stroke-dashoffset: 22;stroke-dasharray: 22;transition: ease all 0.6s;-webkit-transition: ease all 0.6s;}
+.radio_button input[type=radio] {position: absolute;width: 100%;height: 100%;left: 0;top: 0;margin: 0;opacity: 0;-appearance: none;-webkit-appearance: none;}
+.radio_button input[type=radio]:hover {cursor: pointer;}
+.radio_button input[type=radio]:checked + svg .background {fill: #000000;}
+.radio_button input[type=radio]:checked + svg .stroke {stroke-dashoffset: 0;}
+.radio_button input[type=radio]:checked + svg .check {stroke-dashoffset: 0;}
+
+.mb_button {width: auto;height: auto;display: flex;align-items: center;justify-content: center;cursor: pointer;margin: auto;padding: 1rem 4rem;background-color: #222222;border-radius: 0.5rem;box-shadow: rgba(255, 255, 255, 0.3) 2px 2px 6px 1px inset;font-size: 1.2rem;box-sizing: border-box;color: #dbdbdb;}
+.mb_button:hover {color: #00ff00;font-size: 1.17rem;box-shadow: rgba(0, 0, 0, 0.7) 2px 2px 6px 1px inset;transition: all 0.2s;}

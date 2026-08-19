@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" manifest="cache.manifest">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MB CSSFontFace-Exploit</title>
+  <link rel="stylesheet" href="includes/style.css">
+</head>
+<body>
+
+  <h1>MB CSSFontFace-Exploit</h1>
+  <h3 id="UA">Running on:</h3>
+
+  <hr>
+
+  <div class="btn-container">
+    <form id="kernel-options">
+      <table class="checkbox_table">
+        <tr>
+          <td><div class="radio_button"><input type="radio" name="kernel" id="lapse-exploit" value="lapse"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>
+          <td><div class="radio_button"><input type="radio" name="kernel" id="netctrl-exploit" value="netctrl" checked/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>
+        </tr>
+        <tr><td>Lapse-Exploit</td><td>NetCtrl-Exploit</td></tr>
+      </table>
+    </form>
+    <button id="jeilbrek" class="mb_button">Jailbreak</button>
+    <table class="checkbox_table">
+      <tr><td><div class="radio_button"><input id="autoJbInput" type="checkbox"/><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td></tr>
+      <tr><td id="autoJbLabel">Auto-Jailbreak</td></tr>
+    </table>
+  </div>
+
+  <div class="main-layout">
+    <div class="media-box">
+      <img src="includes/cat.jpg" alt="A cat staring at you">
+    </div>
+
+    <pre id="console">Geladen. Jailbreak wird gestartet...
+  </pre>
+
+
+  </div>
+
+  <script src="src/main.js"></script>
+  <script src="includes/script.js"></script>
+</body>
+
+</html>
