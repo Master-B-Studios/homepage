@@ -28,14 +28,14 @@ jobs:
       - name: Änderungen prüfen
         run: |
           git status
-          git diff -- 'Games/PlayStation Jailbreak/PS4/ntfonto/cache.appcache'
+          git diff -- 'Games/PlayStation Jailbreak/PS4/ntfonto/cache.manifest'
 
       - name: Cache Manifest committen
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add "Games/PlayStation Jailbreak/PS4/ntfonto/cache.appcache"
+          git add "Games/PlayStation Jailbreak/PS4/ntfonto/cache.manifest"
 
           if git diff --cached --quiet; then
             echo "Keine Änderung am Cache Manifest."
