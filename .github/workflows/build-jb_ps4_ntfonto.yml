@@ -1,18 +1,18 @@
-name: Build Cheats Package
+name: Build PS4 ntfonto Cache
 
 on:
   workflow_dispatch:
+
   push:
     paths:
-      - 'Games/PlayStation Jailbreak/cheats/**'
-      - '.github/workflows/build-cheats.yml'
+      - 'Games/PlayStation Jailbreak/PS4/ntfonto/**'
+      - '.github/workflows/build_jb_ps4_ntfonto.yml'
 
 permissions:
   contents: write
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -20,20 +20,26 @@ jobs:
       - name: Repository auschecken
         uses: actions/checkout@v4
 
-      - name: Cheats ZIP erstellen
+      - name: Cache Manifest erzeugen
+        working-directory: Games/PlayStation Jailbreak/PS4/ntfonto
         run: |
-          cd "Games/PlayStation Jailbreak"
+          python3 appcache_manifest_generator.py -a
 
-          rm -f cheats/cheats.zip
+      - name: Änderungen prüfen
+        run: |
+          git status
+          git diff -- 'Games/PlayStation Jailbreak/PS4/ntfonto/cache.appcache'
 
-          zip -r cheats/cheats.zip cheats -x "cheats/cheats.zip"
+      - name: Cache Manifest committen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Cheats ZIP veröffentlichen
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: cheats-latest
-          name: Latest Cheats
-          files: "Games/PlayStation Jailbreak/cheats/cheats.zip"
-          make_latest: false
-          prerelease: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          git add "Games/PlayStation Jailbreak/PS4/ntfonto/cache.appcache"
+
+          if git diff --cached --quiet; then
+            echo "Keine Änderung am Cache Manifest."
+          else
+            git commit -m "Update PS4 ntfonto cache manifest"
+            git push
+          fi
