@@ -65,8 +65,15 @@ function jailbreakCountdown() {
 }
 
 function cacheProgress(e) {
+    console.log(
+        "[CACHE]",
+        "loaded:", e.loaded,
+        "total:", e.total,
+        "percent:", Math.round(e.loaded / e.total * 100) + "%"
+    );
     var Percent = (Math.round(e.loaded / e.total * 100));
-    document.title = "Caching: " + Percent + "%";
+    //document.title = "Caching: " + Percent + "%";
+    document.title = "Caching: " + e.loaded + " " +e.total + " = " + Percent + "%";
 }
 
 function displayCacheProgress() {
