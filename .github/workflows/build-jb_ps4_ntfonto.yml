@@ -1,4 +1,4 @@
-name: Build PS4 ntfonto Cache
+name: Build PS4 ntfonto Cache Manifest
 
 on:
   workflow_dispatch:
@@ -6,13 +6,14 @@ on:
   push:
     paths:
       - 'Games/PlayStation Jailbreak/PS4/ntfonto/**'
-      - '.github/workflows/build_jb_ps4_ntfonto.yml'
+      - '.github/workflows/build-jb_ps4_ntfonto.yml'
 
 permissions:
   contents: write
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     steps:
@@ -21,16 +22,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Cache Manifest erzeugen
-        working-directory: Games/PlayStation Jailbreak/PS4/ntfonto
         run: |
-          python3 appcache_manifest_generator.py -a
+          cd "Games/PlayStation Jailbreak/PS4/ntfonto"
+          python3 appcache_manifest_generator.py .
 
-      - name: Änderungen prüfen
-        run: |
-          git status
-          git diff -- 'Games/PlayStation Jailbreak/PS4/ntfonto/cache.manifest'
-
-      - name: Cache Manifest committen
+      - name: Änderungen committen
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -38,8 +34,8 @@ jobs:
           git add "Games/PlayStation Jailbreak/PS4/ntfonto/cache.manifest"
 
           if git diff --cached --quiet; then
-            echo "Keine Änderung am Cache Manifest."
+            echo "Keine Änderungen am cache.manifest"
           else
-            git commit -m "Update PS4 ntfonto cache manifest"
+            git commit -m "Update ntfonto cache manifest"
             git push
           fi
