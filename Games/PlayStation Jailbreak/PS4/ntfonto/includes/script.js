@@ -75,6 +75,80 @@ function displayCacheProgress() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+
+    if (window.applicationCache) {
+
+        const appCache = window.applicationCache;
+
+        appCache.addEventListener("checking", function(e) {
+            console.log("[APPCACHE] checking");
+            document.title = "Cache: checking";
+        });
+
+        appCache.addEventListener("downloading", function(e) {
+            console.log("[APPCACHE] downloading");
+            document.title = "Cache: downloading";
+        });
+
+        appCache.addEventListener("progress", function(e) {
+
+            const percent = e.total
+                ? Math.round((e.loaded / e.total) * 100)
+                : 0;
+
+            console.log(
+                "[APPCACHE] progress:",
+                e.loaded,
+                "/",
+                e.total,
+                "(" + percent + "%)"
+            );
+
+            document.title = "Caching: " + percent + "%";
+        });
+
+        appCache.addEventListener("cached", function(e) {
+            console.log("[APPCACHE] cached");
+            displayCacheProgress();
+        });
+
+        appCache.addEventListener("updateready", function(e) {
+            console.log("[APPCACHE] updateready");
+            displayCacheProgress();
+        });
+
+        appCache.addEventListener("error", function(e) {
+            console.log("[APPCACHE] ERROR", e);
+            document.title = "Cache: ERROR";
+        });
+
+        appCache.addEventListener("obsolete", function(e) {
+            console.log("[APPCACHE] obsolete");
+            document.title = "Cache: obsolete";
+        });
+
+        appCache.addEventListener("noupdate", function(e) {
+            console.log("[APPCACHE] noupdate");
+            document.title = "Cache: noupdate";
+        });
+    }
+
+    // choose preferred exploit chain
+    if (exploitChain == "netctrl") {
+        netctrlRadio.checked = true;
+    } else {
+        lapseRadio.checked = true;
+    }
+
+    checkbox.checked = autoJbValue;
+
+    if (autoJbValue) {
+        jailbreakCountdown();
+    }
+});
+
+/*
+document.addEventListener("DOMContentLoaded", function() {
     // Cache handling
     if (window.applicationCache) {
         window.applicationCache.addEventListener("progress", cacheProgress, false);
@@ -88,3 +162,4 @@ document.addEventListener("DOMContentLoaded", function() {
     checkbox.checked = autoJbValue;
     if (autoJbValue) jailbreakCountdown();
 });
+*/
