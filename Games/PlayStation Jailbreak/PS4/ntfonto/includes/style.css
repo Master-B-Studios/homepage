@@ -4,8 +4,9 @@ h3 {color: #aaaaaa;font-size: 1rem;font-weight: normal;margin: 0;}
 hr {border: 0;border-top: 1px solid #333333;margin: 15px auto;width: 90%;}
 
 .btn-container {margin: 1rem auto;width: 100%;height: auto;display: grid;grid-template-columns: 20% 40%;grid-template-rows: auto;align-items: center;justify-content: center;}
-.media-box {grid-column: 1;grid-row: 1 / span 3;width: 100%;height: auto;text-align: center;}
-.media-box img {width: 100%;height: auto;}
+.media-box {grid-column: 1;grid-row: 1 / span 3;width: 100%;height: auto;text-align: center;cursor: pointer;}
+.media-box:hover {cursor: pointer;}
+.media-box img {width: 100%;height: auto;cursor: pointer;}
 #kernel-options {margin: 0;}
 
 .checkbox_table {width: auto;text-align: center;margin: 1rem auto;font-size: 0.9rem;}
