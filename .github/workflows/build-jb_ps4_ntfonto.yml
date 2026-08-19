@@ -1,0 +1,39 @@
+name: Build Cheats Package
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'Games/PlayStation Jailbreak/cheats/**'
+      - '.github/workflows/build-cheats.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Cheats ZIP erstellen
+        run: |
+          cd "Games/PlayStation Jailbreak"
+
+          rm -f cheats/cheats.zip
+
+          zip -r cheats/cheats.zip cheats -x "cheats/cheats.zip"
+
+      - name: Cheats ZIP veröffentlichen
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: cheats-latest
+          name: Latest Cheats
+          files: "Games/PlayStation Jailbreak/cheats/cheats.zip"
+          make_latest: false
+          prerelease: true
+          token: ${{ secrets.GITHUB_TOKEN }}
