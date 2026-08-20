@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-16"?>
 <Trainer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Game="Rebel Galaxy 2 - Outlaw" Moder="Master Studios" Cusa="CUSA20605" Version="01.04" Process="eboot.bin">
-  <Genres Name="Adventure" />
+  <Genres Name="PS4" />
   <Items />
   <Cheat Text="Schild Unzerstörbar">
     <Cheatline>
