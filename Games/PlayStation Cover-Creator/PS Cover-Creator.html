@@ -265,8 +265,10 @@
 		const url = URL.createObjectURL(blob);
 		const link = document.createElement('a');
 		link.href = url;
+		console.log(signature.id);
 		if (kind === 'icon') {link.download = 'icon0.png';}
-		else if (kind === 'save') {link.download = 'save_data.png';}
+		else if (kind === 'save' && signature.id === 'template_ps5') {link.download = 'save_game.png';}
+		else if (kind === 'save' && signature.id !== 'template_ps5') {link.download = 'save_data.png';}
 		else if (kind === 'wallie') {link.download = 'pic0.png';}
 		document.body.appendChild(link);
 		link.click();
