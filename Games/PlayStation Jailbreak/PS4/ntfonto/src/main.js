@@ -8,6 +8,40 @@ function load_script(src, remote = true, transfer = []) {
   });
 }
 
+function jailbreakCountdown() {
+    stopInterval();
+
+    let countdown = 5;
+
+    // Audio starten
+    if (jbAudio) {
+        jbAudio.currentTime = 0;
+
+        jbAudio.play().catch(function (error) {
+            console.log("Audio konnte nicht automatisch gestartet werden:", error);
+        });
+    }
+
+    label.textContent = `AutoJailbreak: ${countdown}`;
+
+    timerId = setInterval(() => {
+        countdown--;
+
+        label.textContent = `Auto-Jailbreak: ${countdown}`;
+
+        if (countdown < 0) {
+            jeilbrekBtn.disabled = true;
+
+            clearInterval(timerId);
+            timerId = null;
+
+            label.textContent = "Jailbreak gestartet";
+
+            doJb();
+        }
+    }, 1000);
+}
+
 async function doJb() {
   await load_script("src/misc.js");
 

@@ -12,6 +12,7 @@ var exploitChain = localStorage.getItem("exploitChain") || "lapse";
 const netctrlRadio = document.getElementById("netctrl-exploit");
 const lapseRadio = document.getElementById("lapse-exploit");
 const kexForm = document.getElementById('kernel-options');
+const jbAudio = document.getElementById("jbAudio");
 
 // Show user agent
 UAElement.innerText += " " + navigator.userAgent;
@@ -48,11 +49,19 @@ function stopInterval(){
 function jailbreakCountdown() {   
     stopInterval();
 
-    let countdown = 5;
+    let countdown = 30;
+
+    if (jbAudio) {jbAudio.currentTime = 0;
+        jbAudio.play().catch(function (error) {
+            console.log("Audio konnte nicht automatisch gestartet werden:", error);
+        });
+    }
+
     label.textContent = `AutoJailbreak: ${countdown}`;
     timerId = setInterval(() => {
         countdown--;
-        label.textContent = `Auto-Jailbreak: ${countdown}`;
+        //label.textContent = `Auto-Jailbreak: ${countdown}`;
+        label.textContent = `Auto-Jailbreak: ...`;
 
         if (countdown < 0) {
             jeilbrekBtn.disabled = true; 
