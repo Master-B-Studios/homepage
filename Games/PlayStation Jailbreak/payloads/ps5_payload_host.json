@@ -51,6 +51,13 @@
       "version": "v2.5"
     },
     {
+      "name": "MB WebServer",
+      "filename": "MB_WebServer_0.34.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_WebServer_0.34.elf",
+      "description": "Custom-Version von websrv. Gepatchter Homebrew Launcher.",
+      "version": "v0.34"
+    },
+    {
       "name": "PS5 Backpork",
       "filename": "PS5_BackPork_0.1.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_BackPork_0.1.elf",
