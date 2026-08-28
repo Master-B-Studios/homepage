@@ -19589,5 +19589,38 @@
         "folder": "1781",
         "filename": "Enola Holmes 2",
         "poster": "Movies/1781/Enola Holmes 2-poster.jpg"
+    },
+    {
+        "id": "1782",
+        "title": "Do Not Enter",
+        "plot": "Die Creepers, eine Gruppe waghalsiger Stadtforscher, wollen mit einem Livestream aus dem berüchtigten Paragon Hotel in New Jersey ihre Reichweite steigern. Das leerstehende Gebäude mit seiner dunklen Vergangenheit als Gangsterunterschlupf, Berichten über Spukerscheinungen und einem Gerücht um versteckte Millionen zieht sie magisch an. Was als spektakulärer Stunt beginnt, entwickelt sich rasch zu einem tödlichen Spiel.",
+        "runtime": "91",
+        "mpaa": "FSK-18",
+        "year": "2026",
+        "folder": "1782",
+        "filename": "Do Not Enter",
+        "poster": "Movies/1782/Do Not Enter-poster.jpg"
+    },
+    {
+        "id": "1783",
+        "title": "Pinocchio Unstrung",
+        "plot": "Nachdem seine Eltern bei einem Autounfall gestorben sind, zieht James zu seinem Großvater Geppetto. Er freundet sich mit Zach und Michael an, doch als Zach an Krebs stirbt und Michael wegzieht, steht James allein dar. Geppetto verspricht, ihm einen Freund zu bauen, der ihn niemals verlassen wird. Ein Jahr später trifft James eines Nachts in Gepettos Werkstatt auf Pinocchio, eine sprechende Marionette, deren Nase beim Lügen wächst. Geppetto erklärt, er habe Pinocchio für James gebaut und die beiden freunden sich an. Pinocchio sehnt sich allerdings danach, ein Mensch zu sein. Er begegnet im Keller einer hölzernen Kreatur, die ihm erklärt, er brauche dafür menschliche Organe, was Pinocchio zu finsteren Taten verführt.",
+        "runtime": "82",
+        "mpaa": "FSK-18",
+        "year": "2026",
+        "folder": "1783",
+        "filename": "Pinocchio Unstrung",
+        "poster": "Movies/1783/Pinocchio Unstrung-poster.jpg"
+    },
+    {
+        "id": "1784",
+        "title": "The End Of Oak Street",
+        "plot": "Ein unerklärliches kosmisches Ereignis reißt die Oak Street aus ihrem Vorstadtidyll heraus und befördert die gesamte Nachbarschaft an einen unbekannten Ort. Die Mitglieder der Familie Platt müssen in dieser für sie völlig fremden Umgebung schnell feststellen, dass sie nur dann überleben können, wenn sie eng zusammenstehen.",
+        "runtime": "99",
+        "mpaa": "FSK-16",
+        "year": "2026",
+        "folder": "1784",
+        "filename": "The End Of Oak Street",
+        "poster": "Movies/1784/The End Of Oak Street-poster.jpg"
     }
 ]
