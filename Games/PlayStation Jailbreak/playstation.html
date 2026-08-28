@@ -101,7 +101,7 @@
               <tr class="tr_video_scripts"><td class="download_desc" rowspan="2">
                 Mini-PKG, das eine snd0.at9 mit einem Jailbreak Countdown hat. Läuft knapp 30 Sekunden und startet bei Ausführung den Youtube-Jailbreak.
               </td></tr>
-              <tr class="tr_video_scripts"><td class="download_banner design_padding_01" onclick="download('PS5 Jailbreak Countdown - MBMB57840.pkg');">Download</td></tr>
+              <tr class="tr_video_scripts"><td class="download_banner design_padding_01" onclick="download('MB5784-MBMB57840_00-JAILBREAKCOUNT00.pkg');">Download</td></tr>
             </table>
             
             <div class="tr_flipper_gap"></div>
@@ -114,7 +114,7 @@
               <tr class="tr_video_scripts"><td class="download_desc" rowspan="2">
                 Re-Packed FAKE00000. Neues Logo und Hintergrund. Die App wird nicht mehr in Games sondern in Medien angezeigt. Falls der Homebrew Launcher bereits installiert ist, einfach deinstallieren und die MB-App installieren.
               </td></tr>
-              <tr class="tr_video_scripts"><td class="download_banner design_padding_01" onclick="download('PS5 Homebrew Launcher - FAKE00000.pkg');">Download</td></tr>
+              <tr class="tr_video_scripts"><td class="download_banner design_padding_01" onclick="download('MB5784-MBMB57843_00-HOMEBREWLAUNCHER.pkg');">Download</td></tr>
             </table>
 
             <div class="tr_flipper_gap"></div>
@@ -128,7 +128,7 @@
                 Quelle ist der EZ-Remote-Client. Re-Designed Launcher. Nach Start den Browser schließen, dann läuft die App Full-Screen. Pfad-Links funktionieren nur mit Freigabeordnern.
                 <br>Beispiel: smb://IP/Freigabeordner
               </td></tr>
-              <tr class="tr_video_scripts"><td class="download_banner design_padding_01" onclick="download('PS5 NAS - MBMB57842.pkg');">Download</td></tr>
+              <tr class="tr_video_scripts"><td class="download_banner design_padding_01" onclick="download('MB5784-MBMB57842_00-NAS0000000000001.pkg');">Download</td></tr>
             </table>
 
           </details>
@@ -148,4 +148,14 @@
 <script src="../../assets/js/breakpoints.min.js"></script>
 <script src="../../assets/js/util.js"></script>
 <script src="../../assets/js/main.js"></script>
-<script src="main.js"></script>
+<script>
+  function download(obj) {
+    url = 'downloads/' + obj;
+    var link = document.createElement("a");
+    link.href = url;
+    link.download = url.split('/').pop();
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+</script>

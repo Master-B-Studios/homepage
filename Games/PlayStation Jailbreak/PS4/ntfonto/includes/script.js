@@ -49,20 +49,18 @@ function stopInterval(){
 function jailbreakCountdown() {   
     stopInterval();
 
-    let countdown = 30;
+    let countdown = 20;
 
-    if (jbAudio) {jbAudio.currentTime = 0;
-        jbAudio.play().catch(function (error) {
-            console.log("Audio konnte nicht automatisch gestartet werden:", error);
-        });
-    }
+    //if (jbAudio) {jbAudio.currentTime = 0;
+        //jbAudio.play().catch(function (error) {
+            //console.log("Audio konnte nicht automatisch gestartet werden:", error);
+        //});
+    //}
 
     label.textContent = `AutoJailbreak: ${countdown}`;
     timerId = setInterval(() => {
         countdown--;
-        //label.textContent = `Auto-Jailbreak: ${countdown}`;
-        label.textContent = `Auto-Jailbreak: ...`;
-
+        label.textContent = `Auto-Jailbreak: ${countdown}...`;
         if (countdown < 0) {
             jeilbrekBtn.disabled = true; 
             clearInterval(timerId);
