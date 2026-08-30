@@ -58,6 +58,13 @@
       "version": "v0.34"
     },
     {
+      "name": "PS5 AppDumper",
+      "filename": "PS5_AppDumper_1.11.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_AppDumper_1.11.elf",
+      "description": "Offizieller AppDumper von EchoStretch. Dumpt nur nach USB.",
+      "version": "v1.11"
+    },
+    {
       "name": "PS5 Backpork",
       "filename": "PS5_BackPork_0.1.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_BackPork_0.1.elf",
