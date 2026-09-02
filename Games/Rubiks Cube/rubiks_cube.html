@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Rubik's Cube</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
+  <link rel="icon" type="image/x-icon" href="../../images/MB_Icon_02.svg"></link>
+  <link rel="stylesheet" href="../../assets/css/main.css"></link>
+  <style>
+    .summary_icon {width: 4em;height: 4em;display: flex;align-items: center;top: -2.9em;position: relative;padding-left: 1.2em;}
+    .summary_icon img {width: 100%;height: 100%;}
+    
+    .cube_header {height: 2rem;font-size: 2rem;font-weight: 500;text-align: center;}
+    .cube_text {font-size: 1rem;word-break: normal;padding: 1rem;line-height: 1.4rem;}
+    .cube_icon {width: 40%;height: auto;text-align: center;align-content: center;border-left: 1px solid #444444;border-top: 1px solid #444444;border-right: 1px solid #444444;}
+    .cube_icon img {width: 90%;height: 90%;vertical-align: middle;}
+  </style>
+</head>
+<body onload="window.location.href = '#rubiks_cube';" class="is-preload">
+  <div id="wrapper">
+    
+    <nav id="nav">
+      <a href="../../index.html"><img class="mb_icon" src="../../images/MB_Icon_02.svg"></img><span>Home</span></a>
+      <a href="../../Web-Tools/web-tools.html"><img class="mb_icon" src="../../images/Web_Icon_01.png"></img><span>Web-Tools</span></a>
+      <a href="../../Local-Tools/local-tools.html"><img class="mb_icon" src="../../images/CMD_Icon_01.png"></img><span>Local-Tools</span></a>
+      <a href="../../Games/games.html"><img class="mb_icon" src="../../images/Games_Icon_01.png"></img><span>Games</span></a>
+      <a href="#rubiks_cube"><img class="mb_icon" src="icon_01.png"></img><span>PlayStation</span></a>
+      
+    </nav>
+    
+    <div id="main">
+      <article id="rubiks_cube" class="panel">
+        <header><h2>Rubik's Cube</h2></header>
+        
+        <section>
+          <details class="details_1" style="color: #eeeeee;" open>
+            <summary><div class="summary_icon">Anleitung&nbsp;&nbsp;&nbsp;<img src="icon_01.png"></img></div></summary>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 1:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 01.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts">
+                <td class="cube_text">
+                Alle weissen Seitenflächen nach oben drehen.
+                </td>
+              </tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 2:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 02.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts">
+                <td class="cube_text">
+                Die angrenzenden Seitenflächen farblich zum angrenzenden Mittelstein ausrichten.
+                </td>
+              </tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 3:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 03.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts">
+                <td class="cube_text">
+                Die weissen Seitenflächen auf die Unterseite drehen. (2x drehen)<br>
+                Diesen Schritt für alle 4 weissen Seitenflächen durchführen.
+                </td>
+              </tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 4.1:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 04_01.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts">
+                <td class="cube_text">
+                Den Eckstein mit der Bodenflächenfarbe und den 2 zugehörigen Seitenfarben zwischen die beiden Seitenfarben auf der Oberkante drehen.<br>
+                Ziel ist die Abbildung aus 4.10. Auf dem Weg dorthin sind verschiedene Farbkombinationen möglich.
+                </td>
+              </tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 4.2:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 04_02.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 4.3:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 04_03.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 4.4:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 04_04.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 4.5:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 04_05.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 4.6:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 04_06.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 4.7:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 04_07.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 4.8:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 04_08.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 4.9:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 04_09.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts">
+                <td class="cube_text">
+                  Diesen Schritt wiederholen bis Abbildung 4.10 erreicht ist.
+                </td>
+              </tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 4.10:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 04_10.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 4.11:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 04_11.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 4.12:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 04_12.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 4.13:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 04_13.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts">
+                <td class="cube_text">
+                  Diesen Schritt für alle 4 Ecksteine mit weisser Grundfläche wiederholen.
+                </td>
+              </tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 5.1:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 05_01.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts">
+                <td class="cube_text">
+                  Kantenstein, der keine Farbe der obersten Fläche enthält, mit zugehöriger Farbe der Seitenfläche positionieren.<br>
+                  Der Stein wird jetzt nach rechts an die Aeite gelegt. Für das Legen nach links die Schritte spiegelverkeht durchführen.<br>
+                  Der Start ist türkis markiert - das Ziel schattiert..
+                </td>
+              </tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 5.2:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 05_02.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 5.3:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 05_03.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 5.4:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 05_04.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 5.5:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 05_05.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 5.6:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 05_06.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 5.7:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 05_07.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 5.8:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 05_08.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 5.9:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 05_09.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts">
+                <td class="cube_text">
+                  Diesen Schritt für alle Kanten durchführen.<br>
+                  <br>
+                  Tipp:<br>
+                  Mit diesem Move lassen sich natürlich auch falsch liegende Seitenteile zur Verarbeitung heraus holen.
+                </td>
+              </tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 6.1:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_01_01.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts">
+                <td class="cube_text">
+                  Die Oberfläche erfordert manchmal etwas Geduld. Ziel ist der "Fisch".<br>
+                  Der kann wie in der Abbildung aussehen oder spiegelverkeht.<br>
+                  Um diese Form zu erreichen, benötigen wir jedoch mindestens ein "Kreuz" in der Oberflächenfarbe auf der Oberseite des Würfels.<br>
+                  In den folgenden Abbildungen sind die fehlenden Bereiche markiert.
+                  Da die Seitenfarben hier keine Relevanz mehr besitzen sind sie in den weiteren Abbildungen nicht markiert.
+                </td>
+              </tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Situation A:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_01_02.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts">
+                <td class="cube_text">
+                  Die Oberfläche zeigt ein kleines umgedrehtes "L". Hier brauchen wir den "Balkenmove", um mehr Farbe der Oberfläche zum verarbeiten zu bekommen.
+                </td>
+              </tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Der Balkenmove Beim "L" - 1</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_02_01.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Der Balkenmove Beim "L" - 2</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_02_02.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Der Balkenmove Beim "L" - 3</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_02_03.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Der Balkenmove Beim "L" - 4</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_02_04.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Der Balkenmove Beim "L" - 5</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_02_05.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Der Balkenmove Beim "L" - 6</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_02_06.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts">
+                <td class="cube_text">
+                  In den markierten Bereichen sollten jetzt auch Felder mit der Oberflächenfarbe vorhanden sein.
+                </td>
+              </tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Situation B:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_01_03.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts">
+                <td class="cube_text">
+                  Die Oberfläche zeigt einen Balken. Einmal den "Balkenmove" und wir können auf die Jagd nach dem Fisch gehen.
+                </td>
+              </tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Der Balkenmove Beim Balken - 1</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_03_01.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Der Balkenmove Beim Balken - 2</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_03_02.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Der Balkenmove Beim Balken - 3</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_03_03.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Der Balkenmove Beim Balken - 4</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_03_04.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Der Balkenmove Beim Balken - 5</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_03_05.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Der Balkenmove Beim Balken - 6</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_03_06.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts">
+                <td class="cube_text">
+                  In den markierten Bereichen sollten jetzt auch Felder mit der Oberflächenfarbe vorhanden sein.
+                </td>
+              </tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Die Jagd Nach Dem Fisch - 1</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_04_01.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts">
+                <td class="cube_text">
+                  Je nach Bild muss man mit mehreren Versuchen diesen Move durchführen um letztendlich den "Fisch" zu finden. Eventuell muss mal die Seite des Ansetzens verändert werden.<br>
+                  <br>
+                  Hier ein funktionierendes Beispiel:
+                </td>
+              </tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Die Jagd Nach Dem Fisch - 2</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_04_02.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Die Jagd Nach Dem Fisch - 3</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_04_03.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Die Jagd Nach Dem Fisch - 4</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_04_04.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Die Jagd Nach Dem Fisch - 5</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_04_05.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Die Jagd Nach Dem Fisch - 6</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_04_06.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Die Jagd Nach Dem Fisch - 7</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_04_07.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Die Jagd Nach Dem Fisch - 8</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_04_08.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Die Jagd Nach Dem Fisch - 9</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_04_09.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 6.2:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_05_01.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts">
+                <td class="cube_text">
+                  Zeit den "Fisch" aufzulösen.<br>
+                  Die Moves werden am farbgleichen Aussenelemt des "Kopfendes" gestartet (türkis markiert).<br>
+                  Sollte das Element auf der gegenüberliogenden Seite auftauchen, müssen die Moves dort durchgeführt werden.
+                </td>
+              </tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 6.3:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_05_02.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 6.4:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_05_03.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 6.5:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_05_04.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 6.6:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_05_05.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 6.7:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_05_06.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 6.8:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_05_07.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 6.9:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_05_08.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 6.10:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 06_05_09.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 7.1:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 07_01.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts">
+                <td class="cube_text">
+                  Die oberen mittleren Kantensteine werden mit einem Move einfach im Kreis getauscht.<br>
+                  Wichtig ist, dass nur EINE Farbe an allen 4 Seiten übereinstimmen darf (türkis markiert).<br>
+                  Sind mehrere Seiten farbgleich, einfach die Schritte durchführen und den oberen Bereich noch einmal auf die richtige Grundeinstellung drehen.
+                </td>
+              </tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 7.2:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 07_02.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 7.3:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 07_03.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 7.4:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 07_04.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 7.5:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 07_05.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 7.6:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 07_06.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 7.7:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 07_07.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 7.8:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 07_08.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 7.9:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 07_09.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 7.10:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 07_10.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 7.11:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 07_11.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 7.12:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 07_12.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 7.13:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 07_13.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts">
+                <td class="cube_text">
+                  Der Move muss eventuell mehrfach wiederholt werden, bis alle Kantensteine zur Oberflächen- und Seitenfarbe passen.
+                </td>
+              </tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 8.1:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 08_01.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts">
+                <td class="cube_text">
+                  Zuletzt müssen noch die Ecksteine an die richtige Stelle gebracht werden.<br>
+                  Hierzu positionieren wir den Cube so, dass die Ecke mit dem passenden Eckstein links von uns liegt (türkis markiert).<br>
+                  Sollte keine Ecke farbgleich sein, einfach den Move einmal durchführen. Hierdurch entsteht in jedem Fall eine Kante, an der sich ansetzen lässt.
+                </td>
+              </tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 8.2:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 08_02.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 8.3:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 08_03.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 8.4:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 08_04.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 8.5:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 08_05.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 8.6:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 08_06.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 8.7:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 08_07.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 8.8:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 08_08.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 8.9:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 08_09.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 8.10:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 08_10.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 8.11:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 08_11.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 8.12:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 08_12.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts"><td class="cube_text"></td></tr>
+            </table>
+
+            <table class="table_video_scripts design_border_01" style="cursor: default;">
+              <tr class="tr_video_scripts">
+                <td class="cube_header design_padding_01">Schritt 8.13:</td>
+                <td class="cube_icon design_padding_01" rowspan="2"><img src="Cube 08_13.svg"></img></td>
+              </tr>
+              <tr class="tr_video_scripts">
+                <td class="cube_text">
+                  Der Cube ist gelöst! Sollte er noch nicht fertig sein, einfach den Move zum Tausch der Ecksteine wiederholen.
+                </td>
+              </tr>
+            </table>
+
+          </details>
+        </section>
+
+        <section>
+          <details class="details_1" style="color: #eeeeee;" closed>
+            <summary><div class="summary_icon">Spiel&nbsp;&nbsp;&nbsp;<img src="icon_01.png"></img></div></summary>
+            <div class="description" style="color: #aaaaaa;">
+              &#9888;&nbsp;&nbsp;&nbsp;Updates ausschalten und WLAN manuell einrichten. DNS 1: 127.0.0.1 - DNS 2: 0.0.0.0
+            </div>
+            <div class="tr_flipper_gap"></div>
+
+          </details>
+          <div class="tr_flipper_gap"></div>
+        </section>
+
+      </article>
+    </div>
+    
+    <div id="footer"><ul class="copyright"><li>&copy; Master B</li></ul></div>
+
+  </div>
+</body>
+
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/browser.min.js"></script>
+<script src="../../assets/js/breakpoints.min.js"></script>
+<script src="../../assets/js/util.js"></script>
+<script src="../../assets/js/main.js"></script>
+<script>
+  function download(obj) {
+    url = 'downloads/' + obj;
+    var link = document.createElement("a");
+    link.href = url;
+    link.download = url.split('/').pop();
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+</script>
