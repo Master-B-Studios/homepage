@@ -156,6 +156,13 @@
       "version": "v1.6B16"
     },
     {
+      "name": "PS5 WebKitAutoloader",
+      "filename": "PS5_WebKitAutoloader_0.4.0.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_WebKitAutoloader_0.4.0.elf",
+      "description": "ShadowMountPlus scannt PS5-Game-Dumps, die in lokalen Ordnern abgelegt wurden und stellt einen Shortcut auf dem Homebildschirm bereit.",
+      "version": "v0.4.0"
+    },
+    {
       "name": "PS5 WebServer",
       "filename": "PS5_WebServer_1.0.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_WebServer_1.0.elf",
