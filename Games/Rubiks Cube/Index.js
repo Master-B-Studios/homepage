@@ -128,7 +128,8 @@ async function scrambleCube(numberOfMoves = 25) {
         do {face = Math.floor(Math.random() * 6);}
         while (face === lastFace || Math.floor(face / 2) === Math.floor(lastFace / 2));
         const cw = Math.random() < 0.5;
-        await rotate(face, cw);
+        //await rotate(face, cw);
+        rotate(face, cw);
         lastFace = face;
     }
 }
