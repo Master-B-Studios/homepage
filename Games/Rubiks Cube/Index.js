@@ -70,57 +70,377 @@ function swapPieces(face, times) {
 
 function rotate(face, cw) {return new Promise((resolve) => {animateRotation(face, cw, Date.now(), resolve);});}
 
-function animateRotation(face, cw, currentTime) {
-    var k = .3 * (face % 2 * 2 - 1) * (2 * cw - 1);
-    var qubes = Array(9).fill(pieces[face]).map((value, index) => index ? getPieceBy(face, index / 2, index % 2) : value);
+function animateRotation(face, cw, currentTime, onDone) {
+
+    const k =
+        .3 *
+        (face % 2 * 2 - 1) *
+        (2 * cw - 1);
+
+    const qubes = Array(9)
+        .fill(pieces[face])
+        .map((value, index) =>
+            index
+                ? getPieceBy(face, index / 2, index % 2)
+                : value
+        );
+
     (function rotatePieces() {
-        var passed = Date.now() - currentTime;
-        var style = `rotate${getAxis(face)}(${k * passed * (passed < 300)}deg)`;
-        qubes.forEach((piece) => {piece.style.transform = piece.style.transform.replace(/rotate.\(\S+\)/, style);});
+
+        const passed = Date.now() - currentTime;
+
+        const style =
+            `rotate${getAxis(face)}(` +
+            `${k * passed * (passed < 300)}deg)`;
+
+        qubes.forEach((piece) => {
+
+            piece.style.transform =
+                piece.style.transform.replace(
+                    /rotate.\(\S+\)/,
+                    style
+                );
+
+        });
+
         if (passed >= 300) {
-            return swapPieces(face, 3 - 2 * cw);
-            if (onDone) {onDone();}
+
+            swapPieces(face, 3 - 2 * cw);
+
+            if (onDone) {
+                onDone();
+            }
+
             return;
         }
+
         requestAnimationFrame(rotatePieces);
+
     })();
 }
 
+document.addEventListener('pointerdown', e => {
+    console.log(
+        'POINTERDOWN',
+        'type=', e.pointerType,
+        'target=', e.target,
+        'x=', e.clientX,
+        'y=', e.clientY
+    );
+}, true);
 
-function mouseDown(md_e) {
-    var startXY = pivot.style.transform.match(/-?\d+\.?\d*/g).map(Number);
-    var element = md_e.target.closest('.element');
-    var face = [].indexOf.call((element || cube).parentNode.children, element);
-    function mouseMove(mm_e) {
-        if (element) {
-            var gid = /\d/.exec(document.elementFromPoint(mm_e.pageX, mm_e.pageY).id);
-            if (gid && gid.input.includes('anchor')) {
-                mouseUp();
-                var e = element.parentNode.children[mx(face, Number(gid) + 3)].hasChildNodes();
-                animateRotation(mx(face, Number(gid) + 1 + 2 * e), e, Date.now());
-            }
-        }
-        else {
-            const transform = `rotateX(${startXY[0] - (mm_e.pageY - md_e.pageY) / 2}deg)rotateY(${startXY[1] + (mm_e.pageX - md_e.pageX) / 2}deg)`;
-            pivot.style.transform = transform;
-        }
+document.addEventListener('pointermove', e => {
+    console.log(
+        'POINTERMOVE',
+        'type=', e.pointerType,
+        'target=', e.target
+    );
+}, true);
+
+document.addEventListener('mousedown', e => {
+    console.log('MOUSEDOWN', e.target);
+}, true);
+
+document.addEventListener('touchstart', e => {
+    console.log('TOUCHSTART', e.target);
+}, true);
+
+function pointerDown(e) {
+    console.log(
+    'POINTER DOWN:',
+    e.pointerType,
+    e.target
+);
+
+    // Nur einen Finger gleichzeitig zulassen
+    if (e.pointerType === 'touch' && e.isPrimary === false) {
+        return;
     }
 
-    function mouseUp() {
-        document.body.appendChild(guide);
-        scene.removeEventListener('mousemove', mouseMove);
-        document.removeEventListener('mouseup', mouseUp);
-        scene.addEventListener('mousedown', mouseDown);
+    e.preventDefault();
+
+    const startX = e.clientX;
+    const startY = e.clientY;
+
+    const startXY =
+        pivot.style.transform
+            .match(/-?\d+\.?\d*/g)
+            .map(Number);
+
+    const element =
+        e.target.closest('.element');
+
+    const face = element
+        ? [].indexOf.call(
+            element.parentNode.children,
+            element
+        )
+        : -1;
+
+    let finished = false;
+
+    /*
+     * Pointer Capture ist hier sehr hilfreich:
+     * Der Finger darf das ursprüngliche Element verlassen,
+     * die Szene bekommt trotzdem weiterhin pointermove.
+     */
+    if (scene.setPointerCapture) {
+        try {
+            scene.setPointerCapture(e.pointerId);
+        } catch {}
     }
+
+    /*
+     * GUIDE anzeigen.
+     */
     (element || document.body).appendChild(guide);
-    scene.addEventListener('mousemove', mouseMove);
-    document.addEventListener('mouseup', mouseUp);
-    scene.removeEventListener('mousedown', mouseDown);
+
+
+    function pointerMove(ev) {
+        console.log(
+    'POINTER MOVE:',
+    e.clientX,
+    e.clientY
+);
+
+        if (finished) {
+            return;
+        }
+
+        if (ev.pointerId !== e.pointerId) {
+            return;
+        }
+
+        ev.preventDefault();
+
+
+        /*
+         * ==========================================
+         * EINZELNE WÜRFELSEITE
+         * ==========================================
+         */
+        if (element) {
+
+            const target =
+                document.elementFromPoint(
+                    ev.clientX,
+                    ev.clientY
+                );
+
+            if (!target) {
+                return;
+            }
+
+            /*
+             * Wir suchen das Anchor-Element.
+             *
+             * Wichtig:
+             * elementFromPoint() kann z.B. einen
+             * Sticker oder ein anderes Child liefern.
+             * Deshalb closest('.anchor').
+             */
+            const anchor =
+                target.closest('.anchor');
+
+            if (!anchor) {
+                return;
+            }
+
+
+            /*
+             * ID des Anchors.
+             *
+             * Dein ursprünglicher Code erwartet
+             * eine Zahl in der ID.
+             */
+            const gid =
+                /\d/.exec(anchor.id);
+
+            if (!gid) {
+                return;
+            }
+
+
+            /*
+             * Bewegung wurde erkannt.
+             */
+            finished = true;
+
+            const anchorIndex =
+                Number(gid[0]);
+
+
+            const neighbour =
+                element.parentNode.children[
+                    mx(
+                        face,
+                        anchorIndex + 3
+                    )
+                ];
+
+
+            const hasSticker =
+                neighbour.hasChildNodes();
+
+
+            const rotationFace =
+                mx(
+                    face,
+                    anchorIndex +
+                    1 +
+                    2 * hasSticker
+                );
+
+
+            /*
+             * Pointer-Events beenden
+             */
+            cleanup();
+
+
+            /*
+             * Layer drehen
+             */
+            animateRotation(
+                rotationFace,
+                hasSticker,
+                Date.now()
+            );
+
+        }
+
+
+        /*
+         * ==========================================
+         * GESAMTEN CUBE DREHEN
+         * ==========================================
+         */
+        else {
+
+            const dx =
+                ev.clientX - startX;
+
+            const dy =
+                ev.clientY - startY;
+
+
+            const rotateX =
+                startXY[0] - dy / 2;
+
+            const rotateY =
+                startXY[1] + dx / 2;
+
+
+            pivot.style.transform =
+                `rotateX(${rotateX}deg)` +
+                `rotateY(${rotateY}deg)`;
+        }
+    }
+
+
+    function pointerUp(ev) {
+
+        if (
+            ev &&
+            ev.pointerId !== e.pointerId
+        ) {
+            return;
+        }
+
+        cleanup();
+    }
+
+
+    function cleanup() {
+
+        if (finished) {
+            document.body.appendChild(guide);
+        }
+
+        scene.removeEventListener(
+            'pointermove',
+            pointerMove
+        );
+
+        scene.removeEventListener(
+            'pointerup',
+            pointerUp
+        );
+
+        scene.removeEventListener(
+            'pointercancel',
+            pointerUp
+        );
+
+        if (scene.releasePointerCapture) {
+
+            try {
+                scene.releasePointerCapture(
+                    e.pointerId
+                );
+            } catch {}
+        }
+
+        scene.addEventListener(
+            'pointerdown',
+            pointerDown
+        );
+    }
+
+
+    scene.addEventListener(
+        'pointermove',
+        pointerMove
+    );
+
+    scene.addEventListener(
+        'pointerup',
+        pointerUp
+    );
+
+    scene.addEventListener(
+        'pointercancel',
+        pointerUp
+    );
+
+    scene.removeEventListener(
+        'pointerdown',
+        pointerDown
+    );
 }
 document.ondragstart = () => false
 window.addEventListener('load', assembleCube);
-scene.addEventListener('mousedown', mouseDown);
+//scene.addEventListener('mousedown', mouseDown);
+scene.addEventListener('pointerdown', pointerDown);
 
+async function scrambleCube(numberOfMoves = 25) {
+
+    let lastFace = -1;
+
+    for (let i = 0; i < numberOfMoves; i++) {
+
+        let face;
+
+        do {
+            face =
+                Math.floor(Math.random() * 6);
+
+        } while (
+            face === lastFace ||
+            Math.floor(face / 2) ===
+            Math.floor(lastFace / 2)
+        );
+
+        const cw =
+            Math.random() < 0.5;
+
+        await rotate(face, cw);
+
+        lastFace = face;
+    }
+}
+
+/*
 async function scrambleCube(numberOfMoves = 25) {
     let lastFace = -1;
     for (let i = 0; i < numberOfMoves; i++) {
@@ -133,3 +453,4 @@ async function scrambleCube(numberOfMoves = 25) {
         lastFace = face;
     }
 }
+    */
