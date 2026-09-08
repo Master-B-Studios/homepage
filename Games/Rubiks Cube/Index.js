@@ -156,24 +156,12 @@ function pointerDown(e) {
             if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 2 : 0;}
             else {anchorIndex = dy > 0 ? 1 : 3;}
         }
-        
         const neighbour = element.parentNode.children[mx(face, anchorIndex + 3)];
         const hasSticker = neighbour.hasChildNodes();
         const rotationFace = mx(face, anchorIndex + 1 + 2 * hasSticker);
         const cw = hasSticker;
-
-console.log(
-    'FACE ROTATION:',
-    'element=', element.className,
-    'face=', face,
-    'dx=', dx,
-    'dy=', dy,
-    'anchorIndex=', anchorIndex,
-    'rotationFace=', rotationFace,
-    'cw=', cw
-);
-
-animateRotation(rotationFace, cw, Date.now());
+        console.log('FACE ROTATION:', 'element=', element.className, 'face=', face, 'dx=', dx, 'dy=', dy, 'anchorIndex=', anchorIndex, 'rotationFace=', rotationFace, 'cw=', cw);
+        animateRotation(rotationFace, cw, Date.now());
         cleanup();
     }
     function pointerUp(ev) {if (ev && ev.pointerId !== e.pointerId) {return;} cleanup();}
