@@ -131,31 +131,12 @@ function pointerDown(e) {
         const isBack   = element.classList.contains('back');
         const isTop    = element.classList.contains('top');
         const isBottom = element.classList.contains('bottom');
-        
-        if (isFront) {
-            if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 1 : 3;}
-            else {anchorIndex = dy > 0 ? 0 : 2;}
-        }
-        else if (isBack) {
-            if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 0 : 2;}
-            else {anchorIndex = dy > 0 ? 3 : 1;}
-        }
-        else if (isRight) {
-            if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 2 : 0;}
-            else {anchorIndex = dy > 0 ? 1 : 3;}
-        }
-        else if (isLeft) {
-            if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 3 : 1;}
-            else {anchorIndex = dy > 0 ? 2 : 0;}
-        }
-        else if (isTop) {
-            if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 0 : 2;}
-            else {anchorIndex = dy > 0 ? 3 : 1;}
-        }
-        else if (isBottom) {
-            if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 2 : 0;}
-            else {anchorIndex = dy > 0 ? 1 : 3;}
-        }
+        if (isFront) {if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 1 : 3;} else {anchorIndex = dy > 0 ? 0 : 2;}}
+        else if (isBack) {if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 0 : 2;} else {anchorIndex = dy > 0 ? 3 : 1;}}
+        else if (isRight) {if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 2 : 0;} else {anchorIndex = dy > 0 ? 1 : 3;}}
+        else if (isLeft) {if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 3 : 1;} else {anchorIndex = dy > 0 ? 2 : 0;}}
+        else if (isTop) {if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 0 : 2;} else {anchorIndex = dy > 0 ? 3 : 1;}}
+        else if (isBottom) {if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 2 : 0;} else {anchorIndex = dy > 0 ? 1 : 3;}}
         const neighbour = element.parentNode.children[mx(face, anchorIndex + 3)];
         const hasSticker = neighbour.hasChildNodes();
         const rotationFace = mx(face, anchorIndex + 1 + 2 * hasSticker);
@@ -184,7 +165,7 @@ const guide = document.getElementById('guide');
 scene.addEventListener('pointerdown', pointerDown);
 window.addEventListener('load', assembleCube);
 
-async function scrambleCube(numberOfMoves = 5) {
+async function scrambleCube(numberOfMoves = 25) {
     let lastFace = -1;
     for (let i = 0; i < numberOfMoves; i++) {
         let face;
