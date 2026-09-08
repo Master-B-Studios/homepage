@@ -71,386 +71,139 @@ function swapPieces(face, times) {
 function rotate(face, cw) {return new Promise((resolve) => {animateRotation(face, cw, Date.now(), resolve);});}
 
 function animateRotation(face, cw, currentTime, onDone) {
-
-    const k =
-        .3 *
-        (face % 2 * 2 - 1) *
-        (2 * cw - 1);
-
-    const qubes = Array(9)
-        .fill(pieces[face])
-        .map((value, index) =>
-            index
-                ? getPieceBy(face, index / 2, index % 2)
-                : value
-        );
+    const k = .3 * (face % 2 * 2 - 1) * (2 * cw - 1);
+    const qubes = Array(9).fill(pieces[face]).map((value, index) => index ? getPieceBy(face, index / 2, index % 2) : value);
 
     (function rotatePieces() {
-
         const passed = Date.now() - currentTime;
-
-        const style =
-            `rotate${getAxis(face)}(` +
-            `${k * passed * (passed < 300)}deg)`;
-
-        qubes.forEach((piece) => {
-
-            piece.style.transform =
-                piece.style.transform.replace(
-                    /rotate.\(\S+\)/,
-                    style
-                );
-
-        });
-
+        const style = `rotate${getAxis(face)}(` + `${k * passed * (passed < 300)}deg)`;
+        qubes.forEach((piece) => {piece.style.transform = piece.style.transform.replace(/rotate.\(\S+\)/, style);});
         if (passed >= 300) {
-
             swapPieces(face, 3 - 2 * cw);
-
-            if (onDone) {
-                onDone();
-            }
-
+            if (onDone) {onDone();}
             return;
         }
-
         requestAnimationFrame(rotatePieces);
-
     })();
 }
 
-document.addEventListener('pointerdown', e => {
-    console.log(
-        'POINTERDOWN',
-        'type=', e.pointerType,
-        'target=', e.target,
-        'x=', e.clientX,
-        'y=', e.clientY
-    );
-}, true);
-
-document.addEventListener('pointermove', e => {
-    console.log(
-        'POINTERMOVE',
-        'type=', e.pointerType,
-        'target=', e.target
-    );
-}, true);
-
-document.addEventListener('mousedown', e => {
-    console.log('MOUSEDOWN', e.target);
-}, true);
-
-document.addEventListener('touchstart', e => {
-    console.log('TOUCHSTART', e.target);
-}, true);
+//document.addEventListener('pointerdown', e => {console.log('POINTERDOWN', 'type=', e.pointerType, 'target=', e.target, 'x=', e.clientX,'y=', e.clientY);}, true);
+//document.addEventListener('pointermove', e => {console.log('POINTERMOVE', 'type=', e.pointerType, 'target=', e.target);}, true);
+//document.addEventListener('mousedown', e => {console.log('MOUSEDOWN', e.target);}, true);
+//document.addEventListener('touchstart', e => {console.log('TOUCHSTART', e.target);}, true);
 
 function pointerDown(e) {
-    console.log(
-    'POINTER DOWN:',
-    e.pointerType,
-    e.target
-);
-
-    // Nur einen Finger gleichzeitig zulassen
-    if (e.pointerType === 'touch' && e.isPrimary === false) {
-        return;
-    }
-
+    if (e.pointerType === 'touch' && e.isPrimary === false) {return;}
     e.preventDefault();
-
     const startX = e.clientX;
     const startY = e.clientY;
-
-    const startXY =
-        pivot.style.transform
-            .match(/-?\d+\.?\d*/g)
-            .map(Number);
-
-    const element =
-        e.target.closest('.element');
-
-    const face = element
-        ? [].indexOf.call(
-            element.parentNode.children,
-            element
-        )
-        : -1;
-
+    const startXY = pivot.style.transform
+        .match(/-?\d+(?:\.\d+)?/g)
+        .map(Number);
+    const element = e.target.closest('.element');
+    const face = element ? [].indexOf.call(element.parentNode.children, element) : -1;
+    const elementClass = element ? element.classList : null;
     let finished = false;
-
-    /*
-     * Pointer Capture ist hier sehr hilfreich:
-     * Der Finger darf das ursprüngliche Element verlassen,
-     * die Szene bekommt trotzdem weiterhin pointermove.
-     */
-    if (scene.setPointerCapture) {
-        try {
-            scene.setPointerCapture(e.pointerId);
-        } catch {}
-    }
-
-    /*
-     * GUIDE anzeigen.
-     */
-    (element || document.body).appendChild(guide);
-
-
     function pointerMove(ev) {
-        console.log(
-    'POINTER MOVE:',
-    e.clientX,
-    e.clientY
+        if (finished) {return;}
+        if (ev.pointerId !== e.pointerId) {return;}
+        ev.preventDefault();
+        const dx = ev.clientX - startX;
+        const dy = ev.clientY - startY;
+        if (!element) {
+            const rotateX = startXY[0] - dy / 2;
+            const rotateY = startXY[1] + dx / 2;
+            pivot.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            return;
+        }
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance < 20) {return;}
+        finished = true;
+        // Achsenbewegung:
+        // Rechts = 1, Unten = 2, Links = 3, Oben = 4
+        //let anchorIndex;
+        //if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 2 : 0;}
+        //else {anchorIndex = dy > 0 ? 1 : 3;}let anchorIndex;
+
+        const isLeft   = element.classList.contains('left');
+        const isRight  = element.classList.contains('right');
+        const isFront  = element.classList.contains('front');
+        const isBack   = element.classList.contains('back');
+        const isTop    = element.classList.contains('top');
+        const isBottom = element.classList.contains('bottom');
+        
+        if (isFront) {
+            if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 1 : 3;}
+            else {anchorIndex = dy > 0 ? 0 : 2;}
+        }
+        else if (isBack) {
+            if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 0 : 2;}
+            else {anchorIndex = dy > 0 ? 3 : 1;}
+        }
+        else if (isRight) {
+            if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 2 : 0;}
+            else {anchorIndex = dy > 0 ? 1 : 3;}
+        }
+        else if (isLeft) {
+            if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 3 : 1;}
+            else {anchorIndex = dy > 0 ? 2 : 0;}
+        }
+        else if (isTop) {
+            if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 0 : 2;}
+            else {anchorIndex = dy > 0 ? 3 : 1;}
+        }
+        else if (isBottom) {
+            if (Math.abs(dx) > Math.abs(dy)) {anchorIndex = dx > 0 ? 2 : 0;}
+            else {anchorIndex = dy > 0 ? 1 : 3;}
+        }
+        
+        const neighbour = element.parentNode.children[mx(face, anchorIndex + 3)];
+        const hasSticker = neighbour.hasChildNodes();
+        const rotationFace = mx(face, anchorIndex + 1 + 2 * hasSticker);
+        const cw = hasSticker;
+
+console.log(
+    'FACE ROTATION:',
+    'element=', element.className,
+    'face=', face,
+    'dx=', dx,
+    'dy=', dy,
+    'anchorIndex=', anchorIndex,
+    'rotationFace=', rotationFace,
+    'cw=', cw
 );
 
-        if (finished) {
-            return;
-        }
-
-        if (ev.pointerId !== e.pointerId) {
-            return;
-        }
-
-        ev.preventDefault();
-
-
-        /*
-         * ==========================================
-         * EINZELNE WÜRFELSEITE
-         * ==========================================
-         */
-        if (element) {
-
-            const target =
-                document.elementFromPoint(
-                    ev.clientX,
-                    ev.clientY
-                );
-
-            if (!target) {
-                return;
-            }
-
-            /*
-             * Wir suchen das Anchor-Element.
-             *
-             * Wichtig:
-             * elementFromPoint() kann z.B. einen
-             * Sticker oder ein anderes Child liefern.
-             * Deshalb closest('.anchor').
-             */
-            const anchor =
-                target.closest('.anchor');
-
-            if (!anchor) {
-                return;
-            }
-
-
-            /*
-             * ID des Anchors.
-             *
-             * Dein ursprünglicher Code erwartet
-             * eine Zahl in der ID.
-             */
-            const gid =
-                /\d/.exec(anchor.id);
-
-            if (!gid) {
-                return;
-            }
-
-
-            /*
-             * Bewegung wurde erkannt.
-             */
-            finished = true;
-
-            const anchorIndex =
-                Number(gid[0]);
-
-
-            const neighbour =
-                element.parentNode.children[
-                    mx(
-                        face,
-                        anchorIndex + 3
-                    )
-                ];
-
-
-            const hasSticker =
-                neighbour.hasChildNodes();
-
-
-            const rotationFace =
-                mx(
-                    face,
-                    anchorIndex +
-                    1 +
-                    2 * hasSticker
-                );
-
-
-            /*
-             * Pointer-Events beenden
-             */
-            cleanup();
-
-
-            /*
-             * Layer drehen
-             */
-            animateRotation(
-                rotationFace,
-                hasSticker,
-                Date.now()
-            );
-
-        }
-
-
-        /*
-         * ==========================================
-         * GESAMTEN CUBE DREHEN
-         * ==========================================
-         */
-        else {
-
-            const dx =
-                ev.clientX - startX;
-
-            const dy =
-                ev.clientY - startY;
-
-
-            const rotateX =
-                startXY[0] - dy / 2;
-
-            const rotateY =
-                startXY[1] + dx / 2;
-
-
-            pivot.style.transform =
-                `rotateX(${rotateX}deg)` +
-                `rotateY(${rotateY}deg)`;
-        }
-    }
-
-
-    function pointerUp(ev) {
-
-        if (
-            ev &&
-            ev.pointerId !== e.pointerId
-        ) {
-            return;
-        }
-
+animateRotation(rotationFace, cw, Date.now());
         cleanup();
     }
-
-
+    function pointerUp(ev) {if (ev && ev.pointerId !== e.pointerId) {return;} cleanup();}
     function cleanup() {
-
-        if (finished) {
-            document.body.appendChild(guide);
-        }
-
-        scene.removeEventListener(
-            'pointermove',
-            pointerMove
-        );
-
-        scene.removeEventListener(
-            'pointerup',
-            pointerUp
-        );
-
-        scene.removeEventListener(
-            'pointercancel',
-            pointerUp
-        );
-
-        if (scene.releasePointerCapture) {
-
-            try {
-                scene.releasePointerCapture(
-                    e.pointerId
-                );
-            } catch {}
-        }
-
-        scene.addEventListener(
-            'pointerdown',
-            pointerDown
-        );
+        scene.removeEventListener('pointermove', pointerMove);
+        scene.removeEventListener('pointerup', pointerUp);
+        scene.removeEventListener('pointercancel', pointerUp);
     }
-
-
-    scene.addEventListener(
-        'pointermove',
-        pointerMove
-    );
-
-    scene.addEventListener(
-        'pointerup',
-        pointerUp
-    );
-
-    scene.addEventListener(
-        'pointercancel',
-        pointerUp
-    );
-
-    scene.removeEventListener(
-        'pointerdown',
-        pointerDown
-    );
+    scene.addEventListener('pointermove', pointerMove);
+    scene.addEventListener('pointerup', pointerUp);
+    scene.addEventListener('pointercancel', pointerUp);
 }
+
 document.ondragstart = () => false
-window.addEventListener('load', assembleCube);
+const scene = document.getElementById('scene');
+const pivot = document.getElementById('pivot');
+const guide = document.getElementById('guide');
+
 //scene.addEventListener('mousedown', mouseDown);
 scene.addEventListener('pointerdown', pointerDown);
+window.addEventListener('load', assembleCube);
 
-async function scrambleCube(numberOfMoves = 25) {
-
-    let lastFace = -1;
-
-    for (let i = 0; i < numberOfMoves; i++) {
-
-        let face;
-
-        do {
-            face =
-                Math.floor(Math.random() * 6);
-
-        } while (
-            face === lastFace ||
-            Math.floor(face / 2) ===
-            Math.floor(lastFace / 2)
-        );
-
-        const cw =
-            Math.random() < 0.5;
-
-        await rotate(face, cw);
-
-        lastFace = face;
-    }
-}
-
-/*
-async function scrambleCube(numberOfMoves = 25) {
+async function scrambleCube(numberOfMoves = 5) {
     let lastFace = -1;
     for (let i = 0; i < numberOfMoves; i++) {
         let face;
         do {face = Math.floor(Math.random() * 6);}
         while (face === lastFace || Math.floor(face / 2) === Math.floor(lastFace / 2));
         const cw = Math.random() < 0.5;
-        //await rotate(face, cw);
-        rotate(face, cw);
+        await rotate(face, cw);
         lastFace = face;
     }
 }
-    */

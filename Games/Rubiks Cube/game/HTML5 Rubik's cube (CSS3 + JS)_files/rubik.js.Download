@@ -1,0 +1,659 @@
+(() => {
+  "use strict";
+
+  const viewport = document.querySelector("#cube-viewport");
+  const cubeElement = document.querySelector("#cube");
+  const controls = document.querySelector("#cube-controls");
+  const status = document.querySelector("#cube-status");
+
+  if (!viewport || !cubeElement || !controls) return;
+
+  const FACE_DEFINITIONS = [
+    { name: "front", normal: [0, 0, 1], color: "#37e82f", visible: (x, y, z) => z === 1 },
+    { name: "back", normal: [0, 0, -1], color: "#4330df", visible: (x, y, z) => z === -1 },
+    { name: "right", normal: [1, 0, 0], color: "#f23838", visible: (x) => x === 1 },
+    { name: "left", normal: [-1, 0, 0], color: "#f2a12f", visible: (x) => x === -1 },
+    { name: "top", normal: [0, -1, 0], color: "#f4f3ee", visible: (x, y) => y === -1 },
+    { name: "bottom", normal: [0, 1, 0], color: "#f3dc2f", visible: (x, y) => y === 1 }
+  ];
+
+  const AXIS_INDEX = { x: 0, y: 1, z: 2 };
+  const IDENTITY = [
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 1]
+  ];
+
+  const cubies = [];
+  const cubieByElement = new WeakMap();
+  const history = [];
+  const future = [];
+
+  let viewRotation = { x: -34, y: -38 };
+  let dragRotationEnabled = false;
+  let pointerState = null;
+  let isBusy = false;
+  let moveQueue = Promise.resolve();
+  let turningLayer = null;
+
+  function cloneMatrix(matrix) {
+    return matrix.map((row) => [...row]);
+  }
+
+  function multiplyMatrices(a, b) {
+    return a.map((row, rowIndex) =>
+      b[0].map((_, columnIndex) =>
+        row.reduce((sum, value, index) => sum + value * b[index][columnIndex], 0)
+      )
+    );
+  }
+
+  function multiplyVector(matrix, vector) {
+    return matrix.map((row) => row.reduce((sum, value, index) => sum + value * vector[index], 0));
+  }
+
+  function crossProduct(a, b) {
+    return [
+      a[1] * b[2] - a[2] * b[1],
+      a[2] * b[0] - a[0] * b[2],
+      a[0] * b[1] - a[1] * b[0]
+    ];
+  }
+
+  function viewMatrix() {
+    const x = viewRotation.x * Math.PI / 180;
+    const y = viewRotation.y * Math.PI / 180;
+    const sinX = Math.sin(x);
+    const cosX = Math.cos(x);
+    const sinY = Math.sin(y);
+    const cosY = Math.cos(y);
+    const rotateX = [
+      [1, 0, 0],
+      [0, cosX, -sinX],
+      [0, sinX, cosX]
+    ];
+    const rotateY = [
+      [cosY, 0, sinY],
+      [0, 1, 0],
+      [-sinY, 0, cosY]
+    ];
+
+    return multiplyMatrices(rotateX, rotateY);
+  }
+
+  function tidyNumber(value) {
+    const rounded = Math.round(value);
+    return Math.abs(value - rounded) < 0.00001 ? rounded : value;
+  }
+
+  function tidyMatrix(matrix) {
+    return matrix.map((row) => row.map(tidyNumber));
+  }
+
+  function rotationMatrix(axis, direction) {
+    const d = direction > 0 ? 1 : -1;
+
+    if (axis === "x") {
+      return [
+        [1, 0, 0],
+        [0, 0, -d],
+        [0, d, 0]
+      ];
+    }
+
+    if (axis === "y") {
+      return [
+        [0, 0, d],
+        [0, 1, 0],
+        [-d, 0, 0]
+      ];
+    }
+
+    return [
+      [0, -d, 0],
+      [d, 0, 0],
+      [0, 0, 1]
+    ];
+  }
+
+  function matrixToCss(matrix) {
+    const values = [
+      matrix[0][0], matrix[1][0], matrix[2][0], 0,
+      matrix[0][1], matrix[1][1], matrix[2][1], 0,
+      matrix[0][2], matrix[1][2], matrix[2][2], 0,
+      0, 0, 0, 1
+    ];
+
+    return `matrix3d(${values.join(",")})`;
+  }
+
+  function getCubieStep() {
+    return Number.parseFloat(getComputedStyle(viewport).getPropertyValue("--cubie-step")) || 98;
+  }
+
+  function renderCubie(cubie) {
+    const step = getCubieStep();
+    const position = cubie.position;
+    cubie.element.style.transform =
+      `translate3d(${position[0] * step}px, ${position[1] * step}px, ${position[2] * step}px) ${matrixToCss(cubie.rotation)}`;
+  }
+
+  function renderAllCubies() {
+    cubies.forEach(renderCubie);
+  }
+
+  function renderView() {
+    viewRotation.x = Math.max(-74, Math.min(74, viewRotation.x));
+    cubeElement.style.transform = `rotateX(${viewRotation.x}deg) rotateY(${viewRotation.y}deg)`;
+  }
+
+  function createCube() {
+    const fragment = document.createDocumentFragment();
+    let id = 0;
+
+    for (let x = -1; x <= 1; x += 1) {
+      for (let y = -1; y <= 1; y += 1) {
+        for (let z = -1; z <= 1; z += 1) {
+          const cubieElement = document.createElement("div");
+          cubieElement.className = "cubie no-transition";
+          cubieElement.dataset.cubie = String(id);
+
+          const cubie = {
+            id,
+            element: cubieElement,
+            position: [x, y, z],
+            rotation: cloneMatrix(IDENTITY)
+          };
+
+          FACE_DEFINITIONS.forEach((face) => {
+            const faceElement = document.createElement("div");
+            faceElement.className = `cubie-face face-${face.name}`;
+            faceElement.dataset.normal = face.normal.join(",");
+
+            if (face.visible(x, y, z)) {
+              faceElement.classList.add("has-sticker");
+              faceElement.style.setProperty("--sticker-color", face.color);
+            }
+
+            cubieElement.append(faceElement);
+          });
+
+          cubies.push(cubie);
+          cubieByElement.set(cubieElement, cubie);
+          fragment.append(cubieElement);
+          id += 1;
+        }
+      }
+    }
+
+    cubeElement.append(fragment);
+    turningLayer = document.createElement("div");
+    turningLayer.className = "turning-layer";
+    turningLayer.setAttribute("aria-hidden", "true");
+    cubeElement.append(turningLayer);
+  }
+
+  function applyMoveState(move) {
+    const axisIndex = AXIS_INDEX[move.axis];
+    const rotation = rotationMatrix(move.axis, move.direction);
+
+    cubies.forEach((cubie) => {
+      if (cubie.position[axisIndex] !== move.layer) return;
+
+      cubie.position = multiplyVector(rotation, cubie.position).map(tidyNumber);
+      cubie.rotation = tidyMatrix(multiplyMatrices(rotation, cubie.rotation));
+    });
+  }
+
+  function moveLabel(move) {
+    const faceNames = {
+      "x:1": "Right",
+      "x:-1": "Left",
+      "y:-1": "Up",
+      "y:1": "Down",
+      "z:1": "Front",
+      "z:-1": "Back"
+    };
+    return faceNames[`${move.axis}:${move.layer}`] || "Middle";
+  }
+
+  function announce(text) {
+    if (status) status.textContent = text;
+  }
+
+  function updateControls() {
+    const undoButton = controls.querySelector('[data-action="undo"]');
+    const redoButton = controls.querySelector('[data-action="redo"]');
+    const solveButton = controls.querySelector('[data-action="solve"]');
+
+    undoButton.disabled = isBusy || history.length === 0;
+    redoButton.disabled = isBusy || future.length === 0;
+    solveButton.disabled = isBusy || history.length === 0;
+  }
+
+  function waitForAnimation(duration = 330) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return Promise.resolve();
+    }
+
+    return new Promise((resolve) => window.setTimeout(resolve, duration));
+  }
+
+  function waitForFrame() {
+    return new Promise((resolve) => requestAnimationFrame(resolve));
+  }
+
+  function layerTransform(axis, angle) {
+    const rotationName = axis === "x" ? "rotateX" : axis === "y" ? "rotateY" : "rotateZ";
+    return `${rotationName}(${angle}deg)`;
+  }
+
+  function setLayerAngle(turn, angle, duration = 0) {
+    turn.currentAngle = angle;
+    turningLayer.style.transition = duration > 0
+      ? `transform ${duration}ms cubic-bezier(0.22, 0.8, 0.3, 1)`
+      : "none";
+    turningLayer.style.transform = layerTransform(turn.axis, angle);
+  }
+
+  function prepareLayer(axis, layer) {
+    const axisIndex = AXIS_INDEX[axis];
+    const selected = cubies.filter((cubie) => cubie.position[axisIndex] === layer);
+    const turn = { axis, layer, selected, currentAngle: 0 };
+
+    turningLayer.style.transition = "none";
+    turningLayer.style.transform = layerTransform(axis, 0);
+    selected.forEach((cubie) => {
+      cubie.element.classList.add("no-transition");
+      turningLayer.append(cubie.element);
+    });
+
+    return turn;
+  }
+
+  function releaseLayer(turn) {
+    turningLayer.style.transition = "none";
+    turningLayer.style.transform = "none";
+    turn.selected.forEach((cubie) => cubeElement.append(cubie.element));
+
+    requestAnimationFrame(() => {
+      turn.selected.forEach((cubie) => cubie.element.classList.remove("no-transition"));
+    });
+  }
+
+  async function rotateLayer(turn, move, startAngle = 0, duration = 310) {
+    const effectiveDuration = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : duration;
+    setLayerAngle(turn, startAngle, 0);
+    turningLayer.getBoundingClientRect();
+    setLayerAngle(turn, 90 * move.direction, effectiveDuration);
+    await waitForAnimation(effectiveDuration + 20);
+
+    applyMoveState(move);
+    turn.selected.forEach(renderCubie);
+    releaseLayer(turn);
+  }
+
+  async function returnLayer(turn, duration = 150) {
+    const effectiveDuration = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : duration;
+    setLayerAngle(turn, turn.currentAngle, 0);
+    turningLayer.getBoundingClientRect();
+    setLayerAngle(turn, 0, effectiveDuration);
+    await waitForAnimation(effectiveDuration + 20);
+    releaseLayer(turn);
+  }
+
+  async function performLayerMove(move, duration = 310) {
+    const turn = prepareLayer(move.axis, move.layer);
+    await waitForFrame();
+    await rotateLayer(turn, move, 0, duration);
+  }
+
+  async function animateMove(move, options = {}) {
+    const { record = true, announceMove = true, duration = 310 } = options;
+    isBusy = true;
+
+    if (record) {
+      history.push({ ...move });
+      future.length = 0;
+    }
+
+    updateControls();
+    if (announceMove) announce(`${moveLabel(move)} layer turned`);
+    await performLayerMove(move, duration);
+
+    isBusy = false;
+    updateControls();
+  }
+
+  function queueMove(move, options) {
+    moveQueue = moveQueue.then(() => animateMove(move, options));
+    return moveQueue;
+  }
+
+  function inverseMove(move) {
+    return { ...move, direction: move.direction * -1 };
+  }
+
+  function undo() {
+    if (isBusy || history.length === 0) return;
+    const move = history.pop();
+    future.push(move);
+    queueMove(inverseMove(move), { record: false, announceMove: false });
+    announce("Move undone");
+  }
+
+  function redo() {
+    if (isBusy || future.length === 0) return;
+    const move = future.pop();
+    history.push(move);
+    queueMove(move, { record: false, announceMove: false });
+    announce("Move redone");
+  }
+
+  async function solve() {
+    if (isBusy || history.length === 0) return;
+
+    const moves = history.splice(0).reverse().map(inverseMove);
+    future.length = 0;
+    isBusy = true;
+    updateControls();
+    announce("Solving cube");
+
+    const duration = moves.length > 16 ? 90 : 180;
+    for (const move of moves) {
+      await performLayerMove(move, duration);
+    }
+
+    isBusy = false;
+    updateControls();
+    announce("Cube solved");
+  }
+
+  function stickerContext(sticker) {
+    const cubieElement = sticker.closest(".cubie");
+    const cubie = cubieByElement.get(cubieElement);
+    if (!cubie) return null;
+
+    const localNormal = sticker.dataset.normal.split(",").map(Number);
+    const worldNormal = multiplyVector(cubie.rotation, localNormal).map(tidyNumber);
+    return { cubie, worldNormal };
+  }
+
+  function moveFromSticker(sticker, reverse = false) {
+    const context = stickerContext(sticker);
+    if (!context) return null;
+
+    const { worldNormal } = context;
+    const axisIndex = worldNormal.findIndex((value) => Math.abs(value) === 1);
+    const axis = ["x", "y", "z"][axisIndex];
+    const layer = worldNormal[axisIndex];
+    const outwardClockwise = layer > 0 ? 1 : -1;
+
+    return {
+      axis,
+      layer,
+      direction: reverse ? -outwardClockwise : outwardClockwise
+    };
+  }
+
+  function gestureTurnFromSticker(sticker, deltaX, deltaY) {
+    const context = stickerContext(sticker);
+    if (!context) return null;
+
+    const { cubie, worldNormal } = context;
+    const projectedView = viewMatrix();
+    const axisVectors = [
+      [1, 0, 0],
+      [0, 1, 0],
+      [0, 0, 1]
+    ];
+    const dragLength = Math.hypot(deltaX, deltaY) || 1;
+    const dragUnit = [deltaX / dragLength, deltaY / dragLength];
+    let best = null;
+
+    axisVectors.forEach((axisVector, axisIndex) => {
+      if (Math.abs(worldNormal[axisIndex]) === 1) return;
+
+      const radius = cubie.position.map((value, index) =>
+        index === axisIndex ? 0 : value
+      );
+      const tangent = crossProduct(axisVector, radius);
+      const screenTangent = multiplyVector(projectedView, tangent);
+      const screenLength = Math.hypot(screenTangent[0], screenTangent[1]);
+      if (screenLength < 0.001) return;
+
+      const unit = [screenTangent[0] / screenLength, screenTangent[1] / screenLength];
+      const alignment = unit[0] * dragUnit[0] + unit[1] * dragUnit[1];
+      const candidate = {
+        axis: ["x", "y", "z"][axisIndex],
+        layer: cubie.position[axisIndex],
+        unit,
+        alignment: Math.abs(alignment)
+      };
+
+      if (!best || candidate.alignment > best.alignment) best = candidate;
+    });
+
+    return best;
+  }
+
+  function startPointer(event) {
+    if (isBusy || (event.pointerType === "mouse" && event.button !== 0)) return;
+
+    const sticker = event.target.closest(".has-sticker");
+    pointerState = {
+      id: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      lastX: event.clientX,
+      lastY: event.clientY,
+      distance: 0,
+      sticker,
+      reverse: event.shiftKey,
+      activeTurn: null
+    };
+
+    viewport.setPointerCapture(event.pointerId);
+    viewport.classList.add("is-dragging");
+  }
+
+  function movePointer(event) {
+    if (!pointerState || pointerState.id !== event.pointerId) return;
+
+    const deltaX = event.clientX - pointerState.lastX;
+    const deltaY = event.clientY - pointerState.lastY;
+    const totalX = event.clientX - pointerState.startX;
+    const totalY = event.clientY - pointerState.startY;
+    pointerState.distance = Math.hypot(totalX, totalY);
+    pointerState.lastX = event.clientX;
+    pointerState.lastY = event.clientY;
+
+    if (dragRotationEnabled) {
+      viewRotation.y += deltaX * 0.42;
+      viewRotation.x -= deltaY * 0.36;
+      renderView();
+      return;
+    }
+
+    if (!pointerState.sticker || pointerState.distance < 6) return;
+
+    if (!pointerState.activeTurn) {
+      const gestureTurn = gestureTurnFromSticker(pointerState.sticker, totalX, totalY);
+      if (!gestureTurn) return;
+
+      pointerState.activeTurn = {
+        ...prepareLayer(gestureTurn.axis, gestureTurn.layer),
+        unit: gestureTurn.unit
+      };
+      isBusy = true;
+      updateControls();
+    }
+
+    const turn = pointerState.activeTurn;
+    const projectedDistance = totalX * turn.unit[0] + totalY * turn.unit[1];
+    const angle = Math.max(-88, Math.min(88, projectedDistance * 0.82));
+    setLayerAngle(turn, angle, 0);
+  }
+
+  function endPointer(event) {
+    if (!pointerState || pointerState.id !== event.pointerId) return;
+
+    const completedPointer = pointerState;
+    pointerState = null;
+    viewport.classList.remove("is-dragging");
+
+    if (viewport.hasPointerCapture(event.pointerId)) {
+      viewport.releasePointerCapture(event.pointerId);
+    }
+
+    if (dragRotationEnabled) return;
+
+    if (completedPointer.activeTurn) {
+      const turn = completedPointer.activeTurn;
+      const angle = turn.currentAngle;
+
+      if (Math.abs(angle) < 16) {
+        moveQueue = moveQueue.then(async () => {
+          await returnLayer(turn);
+          isBusy = false;
+          updateControls();
+          announce("Layer returned to its position");
+        });
+        return;
+      }
+
+      const move = {
+        axis: turn.axis,
+        layer: turn.layer,
+        direction: angle >= 0 ? 1 : -1
+      };
+      const remainingDuration = Math.max(90, 310 * (1 - Math.min(1, Math.abs(angle) / 90)));
+      history.push({ ...move });
+      future.length = 0;
+      updateControls();
+      announce(`${moveLabel(move)} layer turned`);
+
+      moveQueue = moveQueue.then(async () => {
+        await rotateLayer(turn, move, angle, remainingDuration);
+        isBusy = false;
+        updateControls();
+      });
+      return;
+    }
+
+    if (!completedPointer.sticker || completedPointer.distance >= 8) return;
+    const move = moveFromSticker(completedPointer.sticker, completedPointer.reverse);
+    if (move) queueMove(move);
+  }
+
+  function cancelPointer(event) {
+    if (!pointerState || pointerState.id !== event.pointerId) return;
+    const canceledPointer = pointerState;
+    pointerState = null;
+    viewport.classList.remove("is-dragging");
+
+    if (canceledPointer.activeTurn) {
+      moveQueue = moveQueue.then(async () => {
+        await returnLayer(canceledPointer.activeTurn);
+        isBusy = false;
+        updateControls();
+      });
+    }
+  }
+
+  function toggleRotation(button) {
+    dragRotationEnabled = !dragRotationEnabled;
+    button.classList.toggle("is-active", dragRotationEnabled);
+    button.setAttribute("aria-pressed", String(dragRotationEnabled));
+    viewport.classList.toggle("rotation-mode", dragRotationEnabled);
+    announce(dragRotationEnabled ? "Drag rotation enabled" : "Face gesture mode enabled");
+  }
+
+  function handleControlClick(event) {
+    const button = event.target.closest("button[data-action]");
+    if (!button) return;
+
+    const action = button.dataset.action;
+    if (action === "undo") undo();
+    if (action === "redo") redo();
+    if (action === "solve") solve();
+    if (action === "rotate") toggleRotation(button);
+  }
+
+  function handleKeyboard(event) {
+    if (event.ctrlKey || event.metaKey) {
+      if (event.key.toLowerCase() === "z" && !event.shiftKey) {
+        event.preventDefault();
+        undo();
+      } else if (event.key.toLowerCase() === "y" || (event.key.toLowerCase() === "z" && event.shiftKey)) {
+        event.preventDefault();
+        redo();
+      }
+      return;
+    }
+
+    const key = event.key.toLowerCase();
+    const keyboardMoves = {
+      r: { axis: "x", layer: 1, direction: 1 },
+      l: { axis: "x", layer: -1, direction: -1 },
+      u: { axis: "y", layer: -1, direction: -1 },
+      d: { axis: "y", layer: 1, direction: 1 },
+      f: { axis: "z", layer: 1, direction: 1 },
+      b: { axis: "z", layer: -1, direction: -1 }
+    };
+
+    if (keyboardMoves[key] && !isBusy) {
+      event.preventDefault();
+      const move = { ...keyboardMoves[key] };
+      if (event.shiftKey) move.direction *= -1;
+      queueMove(move);
+      return;
+    }
+
+    if (event.key.startsWith("Arrow")) {
+      event.preventDefault();
+      if (event.key === "ArrowLeft") viewRotation.y -= 8;
+      if (event.key === "ArrowRight") viewRotation.y += 8;
+      if (event.key === "ArrowUp") viewRotation.x -= 8;
+      if (event.key === "ArrowDown") viewRotation.x += 8;
+      renderView();
+    }
+  }
+
+  function loadScrambledState() {
+    const scramble = [
+      { axis: "x", layer: 1, direction: 1 },
+      { axis: "y", layer: -1, direction: -1 },
+      { axis: "z", layer: 1, direction: 1 },
+      { axis: "x", layer: -1, direction: -1 },
+      { axis: "y", layer: 1, direction: 1 },
+      { axis: "z", layer: -1, direction: -1 },
+      { axis: "x", layer: 1, direction: -1 },
+      { axis: "y", layer: -1, direction: 1 },
+      { axis: "z", layer: 1, direction: -1 }
+    ];
+
+    scramble.forEach((move) => {
+      applyMoveState(move);
+      history.push({ ...move });
+    });
+  }
+
+  createCube();
+  loadScrambledState();
+  renderAllCubies();
+  renderView();
+  updateControls();
+
+  requestAnimationFrame(() => {
+    cubies.forEach((cubie) => cubie.element.classList.remove("no-transition"));
+  });
+
+  viewport.addEventListener("pointerdown", startPointer);
+  viewport.addEventListener("pointermove", movePointer);
+  viewport.addEventListener("pointerup", endPointer);
+  viewport.addEventListener("pointercancel", cancelPointer);
+  viewport.addEventListener("keydown", handleKeyboard);
+  controls.addEventListener("click", handleControlClick);
+  window.addEventListener("resize", renderAllCubies);
+})();
