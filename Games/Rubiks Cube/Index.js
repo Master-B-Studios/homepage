@@ -165,7 +165,7 @@ const guide = document.getElementById('guide');
 scene.addEventListener('pointerdown', pointerDown);
 window.addEventListener('load', assembleCube);
 
-async function scrambleCube(numberOfMoves = 25) {
+async function scrambleCube(numberOfMoves = 2) {
     let lastFace = -1;
     for (let i = 0; i < numberOfMoves; i++) {
         let face;
@@ -175,4 +175,6 @@ async function scrambleCube(numberOfMoves = 25) {
         await rotate(face, cw);
         lastFace = face;
     }
+    const button_scramble = document.getElementById("button_scramble");
+    button_scramble.blur();
 }

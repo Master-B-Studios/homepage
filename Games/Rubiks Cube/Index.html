@@ -11,8 +11,13 @@
 </head>
 
 <body>
-    <button onclick="scrambleCube();">Mischen</button>
-    <button onclick="window.location.reload();">Reset</button>
+    <table class="mb_button_container">
+        <tr>
+            <td class="mb_button" onclick="window.location.href='rubiks_cube.html';">Zurück</td>
+            <td id="button_scramble" class="mb_button" onclick="scrambleCube();">Mischen</td>
+            <td class="mb_button" onclick="window.location.reload();">Reset</td>
+        </tr>
+    </table>
     <div class="scene" id="scene">
         <div class="pivot centered" id="pivot" style="transform: rotateX(-35deg) rotateY(-135deg);">
             <div class="cube" id="cube">
