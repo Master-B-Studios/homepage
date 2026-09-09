@@ -165,7 +165,7 @@ const guide = document.getElementById('guide');
 scene.addEventListener('pointerdown', pointerDown);
 window.addEventListener('load', assembleCube);
 
-async function scrambleCube(numberOfMoves = 2) {
+async function scrambleCube(numberOfMoves = 25) {
     let lastFace = -1;
     for (let i = 0; i < numberOfMoves; i++) {
         let face;
