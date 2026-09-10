@@ -1,4 +1,4 @@
-const colors = ['blue', 'green', 'white', 'yellow', 'orange', 'red'];
+const colors = ['blue', 'green', 'yellow', 'white', 'orange', 'red'];
 const pieces = document.getElementsByClassName('piece');
 
 /**
