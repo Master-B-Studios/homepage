@@ -9,13 +9,6 @@
       "version": "v1.6.7"
     },
     {
-      "name": "MB KstuffLite",
-      "filename": "MB_KstuffLite_1.09.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_KstuffLite_1.09.elf",
-      "description": "Recompiled Kstuff mit angepassten Debug-Messages.",
-      "version": "v1.09"
-    },
-    {
       "name": "MB NanoDNS",
       "filename": "MB_NanoDNS_0.3.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/MB_NanoDNS_0.3.elf",
@@ -65,27 +58,6 @@
       "version": "v1.11"
     },
     {
-      "name": "PS5 Backpork",
-      "filename": "PS5_BackPork_0.1.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_BackPork_0.1.elf",
-      "description": "Kann gepatchte Dateien aus GAMEXXXXX/fakelib starten.",
-      "version": "v0.1"
-    },
-    {
-      "name": "PS5 Debug",
-      "filename": "PS5_Debug_1.0B5.bin",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_Debug_1.0B5.bin",
-      "description": "Standard PS5 Debug",
-      "version": "v1.0B5"
-    },
-    {
-      "name": "PS5 Debug MemDBG",
-      "filename": "PS5_Debug_MemDBG_0.1.1.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_Debug_MemDBG_0.1.1.elf",
-      "description": "PS5 Debug MemDBG",
-      "version": "0.1.1"
-    },
-    {
       "name": "PS5 Debug NG",
       "filename": "PS5_Debug_NG_1.3.0.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_Debug_NG_1.3.0.elf",
@@ -93,14 +65,14 @@
       "version": "v1.3.0"
     },
     {
-      "name": "PS5 etaHEN 2.5B",
+      "name": "PS5 etaHEN Version 2.5B",
       "filename": "PS5_etaHEN_2.5B.bin",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_etaHEN_2.5B.bin",
       "description": "Backup von etaHEN um Einstellungen vorzunehmen, die mit MB Toolbox ausgeblendet sind.",
       "version": "v2.5B"
     },
     {
-      "name": "PS5 etaHEN 2.6B",
+      "name": "PS5 etaHEN Version 2.6B",
       "filename": "PS5_etaHEN_2.6B.bin",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_etaHEN_2.6B.bin",
       "description": "Backup von etaHEN um Einstellungen vorzunehmen, die mit MB Toolbox ausgeblendet sind.",
@@ -114,25 +86,26 @@
       "version": "v1.1"
     },
     {
-      "name": "PS5 FTPServer 0.20",
+      "name": "PS5 FTPServer",
       "filename": "PS5_FTPServer_0.20.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_FTPServer_0.20.elf",
       "description": "FTPServer von Payload-Dev. Decrypted System-PRX-Files beim Download.",
       "version": "v0.20"
     },
     {
-      "name": "PS5 KstuffFull Version 1.6.7",
-      "filename": "PS5_KstuffFull_1.6.7.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_KstuffFull_1.6.7.elf",
-      "description": "Offizielles Kstuff von EchoStretch.",
-      "version": "v1.6.7"
-    },
-    {
-      "name": "PS5 KstuffLite Version 1.10",
+      "name": "PS5 KstuffLite 1.10",
       "filename": "PS5_KstuffLite_1.10.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_KstuffLite_1.10.elf",
       "description": "Offizielles Kstuff von EchoStretch.",
       "version": "v1.10"
+    },
+
+    {
+      "name": "PS5 KstuffLite 1.12",
+      "filename": "PS5_KstuffLite_1.12_Test_8.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_KstuffLite_1.12_Test_8.elf",
+      "description": "Kstuff von Drakmor mit FPKG-Support.",
+      "version": "v1.12 Test 8"
     },
     {
       "name": "PS5 SaveManager",
@@ -142,18 +115,25 @@
       "version": "v1.7"
     },
     {
-      "name": "PS5 ShadowMountPlus",
-      "filename": "PS5_ShadowMountPlus_1.6.15.2.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_ShadowMountPlus_1.6.15.2.elf",
-      "description": "ShadowMountPlus scannt PS5-Game-Dumps, die in lokalen Ordnern abgelegt wurden und stellt einen Shortcut auf dem Homebildschirm bereit.",
-      "version": "v1.6.15.2"
-    },
-    {
-      "name": "PS5 ShadowMountPlus",
+      "name": "PS5 ShadowMountPlus 1.6 B 16",
       "filename": "PS5_ShadowMountPlus_1.6B16.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_ShadowMountPlus_1.6B16.elf",
       "description": "ShadowMountPlus scannt PS5-Game-Dumps, die in lokalen Ordnern abgelegt wurden und stellt einen Shortcut auf dem Homebildschirm bereit.",
-      "version": "v1.6B16"
+      "version": "v1.6 B 16"
+    },
+    {
+      "name": "PS5 ShadowMountPlus 1.7",
+      "filename": "PS5_ShadowMountPlus_1.7.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_ShadowMountPlus_1.7.elf",
+      "description": "ShadowMountPlus von Drakmor mit FPKG-Support.",
+      "version": "v1.7"
+    },
+    {
+      "name": "PS5 PPR",
+      "filename": "PS5_PPR_Install_Fast_15.09.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_PPR_Install_Fast_15.09.elf",
+      "description": "PPR-Loader von Drakmor mit FPKG-Support.",
+      "version": "v15.09"
     },
     {
       "name": "PS5 WebKitAutoloader",
