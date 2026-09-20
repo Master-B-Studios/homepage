@@ -136,6 +136,13 @@
       "version": "v15.09"
     },
     {
+      "name": "PS5 PPR",
+      "filename": "PS5_PPR_Install_Fast_20.09.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_PPR_Install_Fast_20.09.elf",
+      "description": "PPR-Loader von Drakmor mit FPKG-Support.",
+      "version": "v20.09"
+    },
+    {
       "name": "PS5 WebKitAutoloader",
       "filename": "PS5_WebKitAutoloader_0.4.0.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_WebKitAutoloader_0.4.0.elf",
