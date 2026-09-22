@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Trainer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Game="GTA 5" Moder="Master Studios" Cusa="PPSA04263" Version="01.010.002" Process="eboot.bin">
+  <Genres Name="PS5" />
+  <Items />
+  <Cheat Text="God-Mode">
+    <Cheatline>
+            <Offset>15CCE2C</Offset>
+            <Section>0</Section>
+            <ValueOn>E9-D8-AF-DC-01-90-90-90</ValueOn>
+            <ValueOff>C5-FA-11-83-50-02-00-00</ValueOff>
+        </Cheatline>
+        <Cheatline>
+            <Offset>3397E09</Offset>
+            <Section>0</Section>
+            <ValueOn>80-BB-D3-00-00-00-01-74-08-C5-FA-11-83-50-02-00-00-E9-15-50-23-FE</ValueOn>
+            <ValueOff>00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00</ValueOff>
+        </Cheatline>
+    </Cheat>
+  <Cheat Text="Schutzweste">
+    <Cheatline>
+      <Offset>BAAD07</Offset>
+      <Section>0</Section>
+      <ValueOn>E9-1D-D1-7E-02-90-90-90</ValueOn>
+      <ValueOff>C5-FA-11-8B-EC-14-00-00</ValueOff>
+    </Cheatline>
+    <Cheatline>
+      <Offset>3397E29</Offset>
+      <Section>0</Section>
+      <ValueOn>80-BB-D3-00-00-00-01-74-08-C5-FA-11-8B-EC-14-00-00-E9-D0-2E-81-FD</ValueOn>
+      <ValueOff>00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00</ValueOff>
+    </Cheatline>
+  </Cheat>
+    <Cheat Text="Kein Nachladen">
+        <Cheatline>
+            <Offset>24FB534</Offset>
+            <Section>0</Section>
+            <ValueOn>0F-4C-C2</ValueOn>
+            <ValueOff>0F-4C-D0</ValueOff>
+        </Cheatline>
+        <Cheatline>
+            <Offset>24FB55A</Offset>
+            <Section>0</Section>
+            <ValueOn>45-89-F6</ValueOn>
+            <ValueOff>41-29-CE</ValueOff>
+        </Cheatline>
+    </Cheat>
+    <Cheat Text="Unendlich Spezial-Fähigkeit">
+        <Cheatline>
+            <Offset>112D205</Offset>
+            <Section>0</Section>
+            <ValueOn>C5-FA-11-4B-34</ValueOn>
+            <ValueOff>C5-FA-11-43-34</ValueOff>
+        </Cheatline>
+    </Cheat>
+    <Cheat Text="Fahndungslevel Aus">
+        <Cheatline>
+            <Offset>F463ED</Offset>
+            <Section>0</Section>
+            <ValueOn>E9-51-19-45-02-90-90-90</ValueOn>
+            <ValueOff>41-89-84-24-B8-00-00-00</ValueOff>
+        </Cheatline>
+        <Cheatline>
+            <Offset>3397D43</Offset>
+            <Section>0</Section>
+            <ValueOn>B8-00-00-00-00-41-89-84-24-B8-00-00-00-E9-A0-E6-BA-FD</ValueOn>
+            <ValueOff>00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00</ValueOff>
+        </Cheatline>
+    </Cheat>
+    <Cheat Text="9.000.000 Credits (Phone - Internet - Money And Services - Liberty City Exchange - Markets - Code Aktivieren - Etwas Kaufen - Code Deaktivieren - Schnellspeichern)">
+        <Cheatline>
+            <Offset>30342A0</Offset>
+            <Section>0</Section>
+            <ValueOn>E9-02-3B-36-00-90-90</ValueOn>
+            <ValueOff>48-89-34-C8-0F-B6-03</ValueOff>
+        </Cheatline>
+        <Cheatline>
+            <Offset>3397DA7</Offset>
+            <Section>0</Section>
+            <ValueOn>48-83-F9-03-77-07-48-C7-C6-40-54-89-00-48-89-34-C8-0F-B6-03-E9-E7-C4-C9-FF-90</ValueOn>
+            <ValueOff>00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00</ValueOff>
+        </Cheatline>
+    </Cheat>
+</Trainer>

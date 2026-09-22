@@ -1,6 +1,7 @@
 CUSA20605_01.04.shn=Rebel Galaxy 2 - Outlaw
 CUSA26619_01.04.shn=GTA 3.2.0 - San Andreas
 PPSA03524_01.003.000.shn=GTA 3.2.0 - San Andreas
+PPSA04263_01.010.002.shn=GTA 5
 PPSA14033_01.000.000.shn=Everspace 2
 PPSA15671_01.020.000.shn=Everspace 2
 PPSA15671_01.027.000.shn=Everspace 2
