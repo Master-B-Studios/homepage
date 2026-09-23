@@ -99,13 +99,19 @@
       "description": "Offizielles Kstuff von EchoStretch.",
       "version": "v1.10"
     },
-
     {
       "name": "PS5 KstuffLite 1.12",
       "filename": "PS5_KstuffLite_1.12_Test_8.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_KstuffLite_1.12_Test_8.elf",
       "description": "Kstuff von Drakmor mit FPKG-Support.",
       "version": "v1.12 Test 8"
+    },
+    {
+      "name": "PS5_KstuffLite_1.13",
+      "filename": "PS5_KstuffLite_1.13_Test_1.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_KstuffLite_1.13_Test_1.elf",
+      "description": "Kstuff von Drakmor mit FPKG-Support.",
+      "version": "v1.13 Test 1"
     },
     {
       "name": "PS5 SaveManager",
