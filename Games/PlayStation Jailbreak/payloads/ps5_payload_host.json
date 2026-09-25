@@ -108,10 +108,10 @@
     },
     {
       "name": "PS5_KstuffLite_1.13",
-      "filename": "PS5_KstuffLite_1.13_Test_1.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_KstuffLite_1.13_Test_1.elf",
+      "filename": "PS5_KstuffLite_1.13_Test_3.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/Games/PlayStation%20Jailbreak/payloads/PS5_KstuffLite_1.13_Test_3.elf",
       "description": "Kstuff von Drakmor mit FPKG-Support.",
-      "version": "v1.13 Test 1"
+      "version": "v1.13 Test 3"
     },
     {
       "name": "PS5 SaveManager",
