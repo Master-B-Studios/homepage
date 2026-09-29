@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="../../assets/css/main.css"></link>
   <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
   <style>
+    @font-face {font-family: "Freelancer";src: url("fonts/CreatoDisplay-Light.otf") format("truetype");font-weight: normal;font-style: normal;color: #ffffff;}
+    body {font-family: "Freelancer";}
     tbody {width: 100%;height: auto;}
     tr {width: 100%;height: auto;}
     thead {display: none;} /* Verstecke den ursprünglichen Sortierungs-Header */
@@ -30,15 +32,24 @@
 
     .card_container {display: grid;grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));gap: 0.5em;}
     .movie_card {
+      color: #ffffff;
       width: auto;height: auto;
-      display: grid;grid-template-columns: auto auto auto;grid-template-rows: auto;
-      background-color: #222222;
-      margin: 0.5rem;
-      border-radius: 0.5rem;border: 0.05rem solid #666666;
+      display: grid;grid-template-columns: auto auto;grid-template-rows: auto;
+      background-color: #111111;
+      border-radius: 0.5rem;border: 0.05rem solid #444444;position: relative;top: 0;
+      margin: 0;cursor: pointer;transition: top 0.6s;
     }
-    .movie_card:hover {border: 0.05rem solid #999999;top: 0.2rem;transition: all 0.2s;}
-    .movie_poster {grid-column: 1;grid-row: 1;width: auto;height: auto;aspect-ratio: 2/3;display: flex;justify-content: center;align-items: center;border-radius: 0.5rem;}
-    .movie_poster img {width: 100%;height: auto;object-fit: contain;cursor: pointer;border-radius: 0.5rem;}
+    .movie_card:hover {border-color: #dddddd;top: -0.5rem;}
+
+    .movie_poster {grid-column: 1 / span 2;grid-row: 1;width: 100%;height: auto;aspect-ratio: 2/3;display: flex;justify-content: center;align-items: center;border-top-left-radius: 0.5rem;border-top-right-radius: 0.5rem;}
+    .movie_poster img {width: 100%;height: auto;object-fit: contain;border-top-left-radius: 0.5rem;border-top-right-radius: 0.5rem;}
+    .movie_number_1 {grid-column: 1;grid-row: 2;font-size: 0.7rem;margin: 0.5rem 0.5rem 0 0;line-height: 1rem;text-align: right;}
+    .movie_number_2 {grid-column: 2;grid-row: 2;font-size: 0.7rem;margin: 0.5rem 0.5rem;line-height: 1rem;}
+    .movie_year_1 {grid-column: 1;grid-row: 3;font-size: 0.7rem;margin: 0 0.5rem 0.5rem 0;line-height: 1rem;text-align: right;}
+    .movie_year_2 {grid-column: 2;grid-row: 3;font-size: 0.7rem;margin: 0 0.5rem 0.5rem;line-height: 1rem;}
+    .movie_overlay {grid-column: 1 / span 2;grid-row: 1 / span 3;z-index: 1000;border-radius: 0.5rem;background: linear-gradient(50deg, #00000000, #00000000, #00000066, #00000000, #00000000, #00000000, #00000099, #00000000);transition: all 0.8s;}
+    .movie_overlay:hover {opacity: 0;}
+    
   </style>
 
 </head>
@@ -262,8 +273,16 @@
       const fsk = document.createElement("div");
       fsk.className = "movie_fsk";
       fsk.innerHTML = '<img src="Scripts/' + row.mpaa + '.png" loading="lazy">';
+
+      const overlay = document.createElement("div");
+      overlay.className = "movie_overlay";
       
       card.appendChild(poster);
+      card.appendChild(number_1);
+      card.appendChild(number_2);
+      card.appendChild(year_1);
+      card.appendChild(year_2);
+      card.appendChild(overlay);
       
       container.appendChild(card);
     });
