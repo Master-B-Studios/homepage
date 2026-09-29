@@ -49,11 +49,34 @@
     .movie_year_2 {grid-column: 2;grid-row: 3;font-size: 0.7rem;margin: 0 0.5rem 0.5rem;line-height: 1rem;}
     .movie_overlay {grid-column: 1 / span 2;grid-row: 1 / span 3;z-index: 1000;border-radius: 0.5rem;background: linear-gradient(50deg, #00000000, #00000000, #00000066, #00000000, #00000000, #00000000, #00000099, #00000000);transition: all 0.8s;}
     .movie_overlay:hover {opacity: 0;}
-    
+
+    .windowOverlay {position: fixed;inset: 0;background-color: #000000cc;z-index: 1000;overflow: hidden;padding: 0;margin: 0;}
+    .overlayImage {position: fixed;z-index: 1001;}
+    .overlayOverlay {position: fixed;inset: 0;background-color: #000000cc;z-index: 1002;overflow: hidden;padding: 0;margin: 0;background: linear-gradient(180deg, #000000cc, #000000cc, #000000ff, #000000ff, #000000ff);border: 0.05rem solid #999999;}
+
+    .exitButton {width: 4vh;height: 4vh;top: 1em;left: calc(100vw - 3em);background-color: #111111;color: #ffffff;
+      font-size: 0.8em;font-weight: 400;
+      border-radius: 0.5rem;border: 0.05rem solid #999999;
+      transition: all 0.5s ease;cursor: pointer;z-index: 1003;
+      display: inline-flex;user-select: auto;position: fixed;overflow: hidden;align-items: center;justify-content: center;
+    }
+    .exitButton:hover {transform: scale(0.95);background-color: #cccccc;color: #000000;}
+    .exitButton:active {transform: scale(0.96);}
+
+    .overlayInfo {position: fixed;padding: 2em;top: 2.5em;z-index: 1004;overflow: scroll;}
+    .overlayTitle {font-size: 1.5rem;font-weight: bolder;color: #dbdbdb;text-align: center;}
+    .overlayTable {width: 100%;height: auto;display: grid;grid-template-columns: 20% auto 8em;grid-template-rows: 4em 4em;color: #dbdbdb;font-size: 0.9rem;font-weight: 400;margin: 2rem 0 0 0;}
+    .overlayNumber1 {grid-column: 1;grid-row: 1;}
+    .overlayNumber2 {grid-column: 2;grid-row: 1;}
+    .overlayYear1 {grid-column: 1;grid-row: 2;}
+    .overlayYear2 {grid-column: 2;grid-row: 2;}
+    .overlayFSK {grid-column: 3;grid-row: 1 / span 2;}
+    .overlayFSK img {width: 8em;height: auto;top: -1em;left: 1.5em;position: relative;}
+    .overlayPlot {font-size: 0.9rem;font-weight: 400;color: #dbdbdb;text-align: justify;margin: 2rem 0 0 0;}
   </style>
 
 </head>
-<body onload="window.location.href = '#mb_movie_base';load_moviebase();" class="is-preload">
+<body id="body" onload="window.location.href = '#mb_movie_base';load_moviebase();" class="is-preload">
   <div id="wrapper">
     
     <nav id="nav">
@@ -267,7 +290,6 @@
       const image = document.createElement("img");
       image.src = row.poster;
       image.loading = "lazy";
-      image.onclick = () => download_movie_files(row);
       poster.appendChild(image);
       
       const fsk = document.createElement("div");
@@ -276,6 +298,7 @@
 
       const overlay = document.createElement("div");
       overlay.className = "movie_overlay";
+      overlay.onclick = () => createOverlay(row);
       
       card.appendChild(poster);
       card.appendChild(number_1);
@@ -299,6 +322,75 @@
       card.style.display = (search === "" || title.includes(search)) ? "" : "none";
     });
   }
+
+  function createOverlay(movie) {
+    let mode = "";
+    if (window.innerWidth >= window.innerHeight) {mode = "landscape";}
+    else {mode = "portrait";}
+    const windowOverlay = document.createElement("div");
+    windowOverlay.className = "windowOverlay";
+
+    const overlayImage = document.createElement("img");
+    overlayImage.className = "overlayImage";
+    overlayImage.src = movie.poster;
+    overlayImage.loading = "lazy";
+    if (mode === "landscape") {overlayImage.style = "width: auto;height: 100vh;left: calc(((100vh / 3) * 2) - 2.4em);";}
+    else {overlayImage.style = "width: 100vw;height: auto;";}
+    windowOverlay.appendChild(overlayImage);
+
+    const overlayOverlay = document.createElement("div");
+    overlayOverlay.className = "overlayOverlay";
+    if (mode === "landscape") {overlayOverlay.style = "width: calc((100vh / 3) * 2);height: 100vh;left: calc(((100vh / 3) * 2) - 2.4em);";}
+    else {overlayOverlay.style = "width: 100vw;height: auto;";}
+    windowOverlay.appendChild(overlayOverlay);
+    
+    const exitButton = document.createElement("div");
+    exitButton.className = "exitButton";
+    exitButton.innerHTML = "✕";
+    exitButton.onclick = () => removeOverlay();
+    windowOverlay.appendChild(exitButton);
+
+    const overlayInfo = document.createElement("div");
+    overlayInfo.className = "overlayInfo";
+    if (mode === "landscape") {overlayInfo.style = "width: calc((100vh / 3) * 2);height: 100vh;left: calc(((100vh / 3) * 2) - 2.4em);";}
+    else {overlayInfo.style = "width: 100vw;height: auto;";}
+    const overlayTitle = document.createElement("div");
+    overlayTitle.className = "overlayTitle";
+    overlayTitle.innerHTML = movie.title;
+    overlayInfo.appendChild(overlayTitle);
+    const overlayTable = document.createElement("div");
+    overlayTable.className = "overlayTable";
+    const overlayNumber1 = document.createElement("div");
+    overlayNumber1.className = "overlayNumber1";
+    overlayNumber1.innerHTML = "Nummer:";
+    overlayTable.appendChild(overlayNumber1);
+    const overlayNumber2 = document.createElement("div");
+    overlayNumber2.className = "overlayNumber2";
+    overlayNumber2.innerHTML = movie.id;
+    overlayTable.appendChild(overlayNumber2);
+    const overlayYear1 = document.createElement("div");
+    overlayYear1.className = "overlayYear1";
+    overlayYear1.innerHTML = "Jahr:";
+    overlayTable.appendChild(overlayYear1);
+    const overlayYear2 = document.createElement("div");
+    overlayYear2.className = "overlayYear2";
+    overlayYear2.innerHTML = movie.year;
+    overlayTable.appendChild(overlayYear2);
+    const overlayFSK = document.createElement("div");
+    overlayFSK.className = "overlayFSK";
+    overlayFSK.innerHTML = '<img src="Scripts/' + movie.mpaa + '.png" loading="lazy">';
+    overlayTable.appendChild(overlayFSK);
+    overlayInfo.appendChild(overlayTable);
+    const overlayPlot = document.createElement("div");
+    overlayPlot.className = "overlayPlot";
+    overlayPlot.innerHTML = movie.plot;
+    overlayInfo.appendChild(overlayPlot);
+    windowOverlay.appendChild(overlayInfo);
+
+    document.body.appendChild(windowOverlay);
+    console.log(movie);
+  }
+  function removeOverlay() {document.querySelector(".windowOverlay")?.remove();}
 
   function download_movie_files(movie) {
     if (!confirm("NFO-Datei und Poster herunterladen?")) return;
