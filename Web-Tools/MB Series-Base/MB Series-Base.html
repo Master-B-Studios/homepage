@@ -53,15 +53,15 @@
     .windowOverlay {width: 100vw;height: 100vh;position: fixed;inset: 0;background-color: #000000cc;z-index: 1000;overflow: hidden;padding: 0;margin: 0;display: grid;grid-template-columns: auto auto;grid-template-rows: auto;}
     .overlayImage {grid-column: 1;grid-row: 1;height: 100vh;}
     .overlayImage img {width: auto;height: 100%;}
-    .overlayContainerLandscape {width: calc(100vw - ((100vh / 3) * 2));grid-column: 2;grid-row: 1;background: linear-gradient(180deg, #00000000, #00000000, #000000ff, #000000ff, #000000ff);}
+    .overlayContainerLandscape {width: calc(100vw - ((100vh / 3) * 2));grid-column: 2;grid-row: 1;background: none;}
     .overlayContainerPortrait {position: fixed;inset: 0;background-color: #000000cc;z-index: 1002;overflow: hidden;padding: 0;margin: 0;background: linear-gradient(180deg, #000000cc, #000000cc, #000000ff, #000000ff, #000000ff);border: 0.05rem solid #999999;}
 
-    .overlayInfo {width: calc(100vw - ((100vh / 3) * 2));height: calc(100vh - 4em);grid-column: 2;grid-row: 1;background-color: #00000000;display: grid;grid-template-columns: min-content min-content auto;grid-template-rows: min-content 2em 2em auto;margin: 4em 0 0 0;font-size: 0.8em;color: #dbdbdb;}
+    .overlayInfo {width: calc(100vw - ((100vh / 3) * 2));height: calc(100vh - 4em);grid-column: 2;grid-row: 1;background-color: #00000000;display: grid;grid-template-columns: min-content auto min-content;grid-template-rows: min-content 2em auto min-content;margin: 4em 0 0 0;font-size: 0.8em;color: #dbdbdb;}
     .overlayTitle {grid-column: 1 / span 3;grid-row: 1;font-size: 1.5em;font-weight: bolder;text-align: center;padding: 0.5em 1em;}
     .overlayNumber1 {grid-column: 1;grid-row: 2;padding: 0 2em;}.overlayNumber2 {grid-column: 2;grid-row: 2;padding: 0 0.5em;}
     .overlayYear1 {grid-column: 1;grid-row: 3;padding: 0 2em;}.overlayYear2 {grid-column: 2;grid-row: 3;padding: 0 0.5em;}
-    .overlayFSK {width: 5em;height: 5em;grid-column: 3;grid-row: 2 / span 2;text-align: right;}.overlayFSK img {width: 100%;height: 100%;position: relative;top: -0.5em;}
-    .overlayPlot {grid-column: 1 / span 3;grid-row: 4;text-align: justify;padding: 2em;font-size: 0.7em;}
+    .overlayFSK {width: 5em;height: 5em;grid-column: 3;grid-row: 2 / span 2;text-align: right;}.overlayFSK img {width: 100%;height: 100%;position: relative;top: -0.5em;left: -0.5em;}
+    .overlayPlot {grid-column: 1 / span 3;grid-row: 4;text-align: justify;padding: 2em;font-size: 0.8em;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;margin: 1rem;}
 
     .exitButton {width: 4vh;height: 4vh;top: 1vh;left: calc(100vw - 5vh);background-color: #111111;color: #ffffff;font-size: 1.5vh;font-weight: 400;
       border-radius: 0.5rem;border: 1px solid #444444;transition: all 0.5s ease;cursor: pointer;
