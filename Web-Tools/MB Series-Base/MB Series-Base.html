@@ -51,8 +51,8 @@
     .movie_overlay:hover {opacity: 0;}
 
     .windowOverlay {position: fixed;inset: 0;background-color: #000000cc;z-index: 1000;overflow: hidden;padding: 0;margin: 0;}
-    .overlayImage {position: fixed;z-index: 1001;}
-    .overlayOverlay {position: fixed;inset: 0;background-color: #000000cc;z-index: 1002;overflow: hidden;padding: 0;margin: 0;background: linear-gradient(180deg, #000000cc, #000000cc, #000000ff, #000000ff, #000000ff);border: 0.05rem solid #999999;}
+    .overlayImage {position: fixed;z-index: 1001;width: auto;height: 100vh;left: calc(((100vw / 3) * 2) - 2.4em);}
+    /*.overlayOverlay {position: fixed;inset: 0;background-color: #000000cc;z-index: 1002;overflow: hidden;padding: 0;margin: 0;background: linear-gradient(180deg, #000000cc, #000000cc, #000000ff, #000000ff, #000000ff);border: 0.05rem solid #999999;}*/
 
     .exitButton {width: 4vh;height: 4vh;top: 1em;left: calc(100vw - 3em);background-color: #111111;color: #ffffff;
       font-size: 0.8em;font-weight: 400;
@@ -63,7 +63,7 @@
     .exitButton:hover {transform: scale(0.95);background-color: #cccccc;color: #000000;}
     .exitButton:active {transform: scale(0.96);}
 
-    .overlayInfo {position: fixed;padding: 2em;top: 2.5em;z-index: 1004;overflow: scroll;}
+    .overlayInfo {position: fixed;padding: 2em;top: 2.5em;z-index: 1004;width: calc(100vw - 533px);height: calc(100vh - 2.5em);background-color: #00ff00;}
     .overlayTitle {font-size: 1.5rem;font-weight: bolder;color: #dbdbdb;text-align: center;}
     .overlayTable {width: 100%;height: auto;display: grid;grid-template-columns: 20% auto 8em;grid-template-rows: 4em 4em;color: #dbdbdb;font-size: 0.9rem;font-weight: 400;margin: 2rem 0 0 0;}
     .overlayNumber1 {grid-column: 1;grid-row: 1;}
@@ -334,13 +334,13 @@
     overlayImage.className = "overlayImage";
     overlayImage.src = movie.poster;
     overlayImage.loading = "lazy";
-    if (mode === "landscape") {overlayImage.style = "width: auto;height: 100vh;left: calc(((100vh / 3) * 2) - 2.4em);";}
+    if (mode === "landscape") {overlayImage.style = "";}
     else {overlayImage.style = "width: 100vw;height: auto;";}
     windowOverlay.appendChild(overlayImage);
 
     const overlayOverlay = document.createElement("div");
     overlayOverlay.className = "overlayOverlay";
-    if (mode === "landscape") {overlayOverlay.style = "width: calc((100vh / 3) * 2);height: 100vh;left: calc(((100vh / 3) * 2) - 2.4em);";}
+    if (mode === "landscape") {overlayOverlay.style = "width: calc((100vh / 3) * 2);height: 100vh;left: calc(((100vw / 3) * 2) - 2.4em);";}
     else {overlayOverlay.style = "width: 100vw;height: auto;";}
     windowOverlay.appendChild(overlayOverlay);
     
@@ -352,7 +352,7 @@
 
     const overlayInfo = document.createElement("div");
     overlayInfo.className = "overlayInfo";
-    if (mode === "landscape") {overlayInfo.style = "width: calc((100vh / 3) * 2);height: 100vh;left: calc(((100vh / 3) * 2) - 2.4em);";}
+    if (mode === "landscape") {overlayInfo.style = "";}
     else {overlayInfo.style = "width: 100vw;height: auto;";}
     const overlayTitle = document.createElement("div");
     overlayTitle.className = "overlayTitle";
