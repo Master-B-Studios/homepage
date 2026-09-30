@@ -56,12 +56,21 @@
     .overlayContainerLandscape {width: calc(100vw - ((100vh / 3) * 2));grid-column: 2;grid-row: 1;background: none;}
     .overlayContainerPortrait {position: fixed;inset: 0;background-color: #000000cc;z-index: 1002;overflow: hidden;padding: 0;margin: 0;background: linear-gradient(180deg, #000000cc, #000000cc, #000000ff, #000000ff, #000000ff);border: 0.05rem solid #999999;}
 
-    .overlayInfo {width: calc(100vw - ((100vh / 3) * 2));height: calc(100vh - 4em);grid-column: 2;grid-row: 1;background-color: #00000000;display: grid;grid-template-columns: min-content auto min-content;grid-template-rows: min-content 2em auto min-content;margin: 4em 0 0 0;font-size: 0.8em;color: #dbdbdb;}
-    .overlayTitle {grid-column: 1 / span 3;grid-row: 1;font-size: 1.5em;font-weight: bolder;text-align: center;padding: 0.5em 1em;}
-    .overlayNumber1 {grid-column: 1;grid-row: 2;padding: 0 2em;}.overlayNumber2 {grid-column: 2;grid-row: 2;padding: 0 0.5em;}
-    .overlayYear1 {grid-column: 1;grid-row: 3;padding: 0 2em;}.overlayYear2 {grid-column: 2;grid-row: 3;padding: 0 0.5em;}
-    .overlayFSK {width: 5em;height: 5em;grid-column: 3;grid-row: 2 / span 2;text-align: right;}.overlayFSK img {width: 100%;height: 100%;position: relative;top: -0.5em;left: -0.5em;}
-    .overlayPlot {grid-column: 1 / span 3;grid-row: 4;text-align: justify;padding: 2em;font-size: 0.8em;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;margin: 1rem;}
+    .overlayInfo {
+      width: calc(100vw - ((100vh / 3) * 2));height: calc(100vh - 4em);grid-column: 2;grid-row: 1;background-color: #00000000;
+      display: grid;grid-template-columns: min-content min-content min-content auto min-content min-content;grid-template-rows: min-content 5rem auto min-content;place-items: center;margin: 4em 0 0 0;font-size: 0.8em;color: #dbdbdb;
+    }
+    .overlayTitle {grid-column: 1 / span 6;grid-row: 1;font-size: 1.5em;font-weight: bolder;text-align: center;padding: 0.5em 1em;}
+    .overlayNumber {grid-column: 1;grid-row: 2;padding: 0.5rem 1rem;margin: 1rem;white-space: nowrap;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;}
+    .overlayYear {grid-column: 2;grid-row: 2;padding: 0.5rem 1rem;margin: 1rem;white-space: nowrap;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;}
+    .overlayFSK {width: 5rem;height: 5rem;grid-column: 3;grid-row: 2;}.overlayFSK img {width: 100%;height: 100%;}
+    .spacer1 {grid-column: 4;grid-row: 2;}
+    .overlayDownloadImage {grid-column: 5;grid-row: 2;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;cursor: pointer;}
+    .overlayDownloadImage img {width: 100%;height: 100%;}
+    .overlayDownloadNFO {grid-column: 6;grid-row: 2;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;cursor: pointer;}
+    .overlayDownloadNFO img {width: 100%;height: 100%;}
+    .spacer2 {grid-column: 1 / span 6;grid-row: 3;}
+    .overlayPlot {grid-column: 1 / span 6;grid-row: 4;text-align: justify;padding: 1rem;margin: 1rem;font-size: 0.8em;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;}
 
     .exitButton {width: 4vh;height: 4vh;top: 1vh;left: calc(100vw - 5vh);background-color: #111111;color: #ffffff;font-size: 1.5vh;font-weight: 400;
       border-radius: 0.5rem;border: 1px solid #444444;transition: all 0.5s ease;cursor: pointer;
@@ -339,26 +348,32 @@
     overlayTitle.className = "overlayTitle";
     overlayTitle.innerHTML = movie.title;
     overlayInfo.appendChild(overlayTitle);
-    const overlayNumber1 = document.createElement("div");
-    overlayNumber1.className = "overlayNumber1";
-    overlayNumber1.innerHTML = "Nummer:";
-    overlayInfo.appendChild(overlayNumber1);
-    const overlayNumber2 = document.createElement("div");
-    overlayNumber2.className = "overlayNumber2";
-    overlayNumber2.innerHTML = movie.id;
-    overlayInfo.appendChild(overlayNumber2);
-    const overlayYear1 = document.createElement("div");
-    overlayYear1.className = "overlayYear1";
-    overlayYear1.innerHTML = "Jahr:";
-    overlayInfo.appendChild(overlayYear1);
-    const overlayYear2 = document.createElement("div");
-    overlayYear2.className = "overlayYear2";
-    overlayYear2.innerHTML = movie.year;
-    overlayInfo.appendChild(overlayYear2);
+    const overlayNumber = document.createElement("div");
+    overlayNumber.className = "overlayNumber";
+    overlayNumber.innerHTML = "Nummer: " + movie.id;
+    overlayInfo.appendChild(overlayNumber);
+    const overlayYear = document.createElement("div");
+    overlayYear.className = "overlayYear";
+    overlayYear.innerHTML = "Jahr: " + movie.year;
+    overlayInfo.appendChild(overlayYear);
     const overlayFSK = document.createElement("div");
     overlayFSK.className = "overlayFSK";
     overlayFSK.innerHTML = '<img src="Scripts/' + movie.mpaa + '.png" loading="lazy">';
     overlayInfo.appendChild(overlayFSK);
+    const spacer1 = document.createElement("div");
+    spacer1.className = "spacer1";
+    overlayInfo.appendChild(spacer1);
+    const overlayDownloadImage = document.createElement("div");
+    overlayDownloadImage.className = "overlayDownloadImage";
+    overlayDownloadImage.innerHTML = '<img src="Buttons/Download.svg" loading="lazy"> Cover';
+    overlayInfo.appendChild(overlayDownloadImage);
+    const overlayDownloadNFO = document.createElement("div");
+    overlayDownloadNFO.className = "overlayDownloadNFO";
+    overlayDownloadNFO.innerHTML = '<img src="Buttons/Download.svg" loading="lazy"> Info-File';
+    overlayInfo.appendChild(overlayDownloadNFO);
+    const spacer2 = document.createElement("div");
+    spacer2.className = "spacer2";
+    overlayInfo.appendChild(spacer2);
     const overlayPlot = document.createElement("div");
     overlayPlot.className = "overlayPlot";
     overlayPlot.innerHTML = movie.plot;
