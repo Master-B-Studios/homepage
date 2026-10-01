@@ -43,35 +43,41 @@
     .movieOverlay {grid-column: 1 / span 2;grid-row: 1 / span 3;z-index: 1000;border-radius: 0.5rem;background: linear-gradient(50deg, #00000000, #00000000, #00000066, #00000000, #00000000, #00000000, #00000099, #00000000);transition: all 0.8s;}
     .movieOverlay:hover {opacity: 0;}
 
-    .overlayWindow {width: 100vw;height: 100vh;position: fixed;inset: 0;background-color: #000000cc;z-index: 1000;overflow: hidden;padding: 0;margin: 0;display: grid;grid-template-columns: auto auto;grid-template-rows: auto;}
-    .overlayImage {grid-column: 1;grid-row: 1;height: 100vh;}
-    .overlayImage img {width: auto;height: 100%;}
+    .overlayWindowLandscape {width: 100vw;height: 100vh;position: fixed;inset: 0;background-color: #000000cc;z-index: 1000;overflow: hidden;padding: 0;margin: 0;display: grid;grid-template-columns: auto auto;grid-template-rows: auto;}
+    .overlayImageLandscape {grid-column: 1;grid-row: 1;height: 100vh;}
+    .overlayImageLandscape img {width: auto;height: 100%;}
+
     .overlayContainerLandscape {width: calc(100vw - ((100vh / 3) * 2));grid-column: 2;grid-row: 1;background: none;}
+    .overlayInfoLandscape {width: calc(100vw - ((100vh / 3) * 2));height: 100vh;grid-column: 2;grid-row: 1;background-color: #00000000;display: grid;grid-template-columns: min-content min-content min-content min-content auto min-content min-content min-content;grid-template-rows: 5rem auto min-content;place-items: center;font-size: 1rem;color: #dbdbdb;}
+    .overlayFSKLandscape {width: 5rem;height: 5rem;grid-column: 1;grid-row: 1;margin: 0 0 0 1rem;}.overlayFSKLandscape img {width: 100%;height: 100%;}
+    .overlayNumberLandscape {height: 3.2rem;grid-column: 2;grid-row: 1;padding: 0 1rem;margin: 0 0.5rem 0 0;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;color: #dbdbdb;}
+    .overlayNumberLandscape svg {position: relative;left: -0.5rem}
+    .overlayYearLandscape {height: 3.2rem;grid-column: 3;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;color: #dbdbdb;}
+    .overlayYearLandscape svg {position: relative;left: -0.5rem}
+    .overlayTimeLandscape {height: 3.2rem;grid-column: 4;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;color: #dbdbdb;}
+    .overlayTimeLandscape svg {position: relative;left: -0.5rem}
+    .spacer1Landscape {grid-column: 5;grid-row: 1;}
+    .overlayDownloadImageLandscape {height: 3.2rem;grid-column: 6;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;cursor: pointer;color: #dbdbdb;transition: all 0.6s;}
+    .overlayDownloadImageLandscape svg {position: relative;left: -0.5rem}
+    .overlayDownloadImageLandscape:hover {transform: scale(0.95);background-color: #cccccc;color: #000000;}
+    .overlayDownloadImageLandscape:active {transform: scale(0.96);}
+    .overlayDownloadNFOLandscape {height: 3.2rem;grid-column: 7;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;cursor: pointer;transition: all 0.6s;}
+    .overlayDownloadNFOLandscape svg {position: relative;left: -0.5rem}
+    .overlayDownloadNFOLandscape:hover {transform: scale(0.95);background-color: #cccccc;color: #000000;}
+    .overlayDownloadNFOLandscape:active {transform: scale(0.96);}
+    .overlayDownloadNFOLandscape:hover img {color: #000000;}
+    .exitButtonLandscape {width: 3.2rem;height: 3.2rem;margin: 0 1rem 0 0.5rem;grid-column: 8;grid-row: 1;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;cursor: pointer;transition: all 0.6s;}
+    .exitButtonLandscape:hover {transform: scale(0.95);background-color: #cccccc;color: #000000;}
+    .exitButtonLandscape:active {transform: scale(0.96);}
+    .overlayTitleLandscape {grid-column: 1 / span 8;grid-row: 2;padding: 0.5rem 1rem;font-family: FuturaHand;font-size: 5rem;font-weight: bolder;text-align: center;line-height: 5rem;}
+    .overlayPlotLandscape {grid-column: 1 / span 8;grid-row: 3;text-align: justify;padding: 1rem;margin: 1rem;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;line-height: 1.5rem;font-size: 0.8rem;font-family: Verdana, Geneva, Tahoma, sans-serif;}
+
+    .overlayWindowPortrait {width: 100vw;height: 100vh;position: fixed;inset: 0;background-color: #000000cc;z-index: 1000;overflow: hidden;padding: 0;margin: 0;display: grid;grid-template-columns: auto auto;grid-template-rows: auto;}
+    .overlayImagePortrait {grid-column: 1;grid-row: 1;height: 100vh;}
+    .overlayImagePortrait img {width: auto;height: 100%;}
     .overlayContainerPortrait {position: fixed;inset: 0;background-color: #000000cc;z-index: 1002;overflow: hidden;padding: 0;margin: 0;background: linear-gradient(180deg, #000000cc, #000000cc, #000000ff, #000000ff, #000000ff);border: 0.05rem solid #999999;}
 
-    .overlayInfo {width: calc(100vw - ((100vh / 3) * 2));height: 100vh;grid-column: 2;grid-row: 1;background-color: #00000000;display: grid;grid-template-columns: min-content min-content min-content min-content auto min-content min-content min-content;grid-template-rows: 5rem auto min-content;place-items: center;font-size: 0.8em;color: #dbdbdb;}
-    .overlayFSK {width: 5rem;height: 5rem;grid-column: 1;grid-row: 1;margin: 0 0 0 1rem;}.overlayFSK img {width: 100%;height: 100%;}
-    .overlayNumber {grid-column: 2;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;color: #dbdbdb;}
-    .overlayNumber svg {position: relative;left: -0.5rem}
-    .overlayYear {grid-column: 3;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;color: #dbdbdb;}
-    .overlayYear svg {position: relative;left: -0.5rem}
-    .overlayTime {grid-column: 4;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;color: #dbdbdb;}
-    .overlayTime svg {position: relative;left: -0.5rem}
-    .spacer1 {grid-column: 5;grid-row: 1;}
-    .overlayDownloadImage {grid-column: 6;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;cursor: pointer;color: #dbdbdb;transition: all 0.6s;}
-    .overlayDownloadImage svg {position: relative;left: -0.5rem}
-    .overlayDownloadImage:hover {transform: scale(0.95);background-color: #cccccc;color: #000000;}
-    .overlayDownloadImage:active {transform: scale(0.96);}
-    .overlayDownloadNFO {grid-column: 7;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;cursor: pointer;transition: all 0.6s;}
-    .overlayDownloadNFO svg {position: relative;left: -0.5rem}
-    .overlayDownloadNFO:hover {transform: scale(0.95);background-color: #cccccc;color: #000000;}
-    .overlayDownloadNFO:active {transform: scale(0.96);}
-    .overlayDownloadNFO:hover img {color: #000000;}
-    .exitButton {width: 3.4rem;height: 3.4rem;margin: 0 1rem 0 0.5rem;grid-column: 8;grid-row: 1;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;cursor: pointer;transition: all 0.6s;}
-    .exitButton:hover {transform: scale(0.95);background-color: #cccccc;color: #000000;}
-    .exitButton:active {transform: scale(0.96);}
-    .overlayTitle {grid-column: 1 / span 8;grid-row: 2;padding: 0.5rem 1rem;font-family: FuturaHand;font-size: 5rem;font-weight: bolder;text-align: center;line-height: 5rem;}
-    .overlayPlot {grid-column: 1 / span 8;grid-row: 3;text-align: justify;padding: 1rem;margin: 1rem;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;line-height: 1.5rem;font-size: 0.8rem;font-family: Verdana, Geneva, Tahoma, sans-serif;}
+    
   </style>
 
 </head>
@@ -290,71 +296,73 @@
   }
 
   function createOverlay(movie) {
-    let mode = "";
-    if (window.innerWidth >= window.innerHeight) {mode = "landscape";}
-    else {mode = "portrait";}
+    let windowMode = "";
+    if (window.innerWidth >= window.innerHeight) {windowMode = "landscape";}
+    else {windowMode = "portrait";}
+
     const overlayWindow = document.createElement("div");
-    overlayWindow.className = "overlayWindow";
-
     const overlayImage = document.createElement("div");
-    overlayImage.className = "overlayImage";
-    overlayImage.innerHTML = '<img src="' + movie.poster + '" loading="lazy">';
-    overlayWindow.appendChild(overlayImage);
-
     const overlayContainer = document.createElement("div");
-    overlayContainer.className = "overlayContainerLandscape";
     const overlayInfo = document.createElement("div");
-    overlayInfo.className = "overlayInfo";
     const overlayFSK = document.createElement("div");
-    overlayFSK.className = "overlayFSK";
-    overlayFSK.innerHTML = '<img src="Scripts/' + movie.mpaa + '.png" loading="lazy">';
-    overlayInfo.appendChild(overlayFSK);
     const overlayNumber = document.createElement("div");
-    overlayNumber.className = "overlayNumber";
-    overlayNumber.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m240-160 40-160H120l20-80h160l40-160H180l20-80h160l40-160h80l-40 160h160l40-160h80l-40 160h160l-20 80H660l-40 160h160l-20 80H600l-40 160h-80l40-160H360l-40 160h-80Zm140-240h160l40-160H420l-40 160Z"/></svg>' + movie.id;
-    overlayInfo.appendChild(overlayNumber);
     const overlayYear = document.createElement("div");
-    overlayYear.className = "overlayYear";
-    overlayYear.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/></svg>' + movie.year;
-    overlayInfo.appendChild(overlayYear);
     const overlayTime = document.createElement("div");
-    overlayTime.className = "overlayTime";
-    overlayTime.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M420-800h120-120Zm0 640h120-120Zm-60 80-54-182q-48-38-77-95t-29-123q0-66 29-123t77-95l54-182h240l54 182q48 38 77 95t29 123q0 66-29 123t-77 95L600-80H360Zm261.5-258.5Q680-397 680-480t-58.5-141.5Q563-680 480-680t-141.5 58.5Q280-563 280-480t58.5 141.5Q397-280 480-280t141.5-58.5ZM404-750q20-5 38.5-8t37.5-3q19 0 37.5 3t38.5 8l-16-50H420l-16 50Zm16 590h120l16-50q-20 5-38.5 7.5T480-200q-19 0-37.5-2.5T404-210l16 50Z"/></svg>' + movie.runtime;
-    overlayInfo.appendChild(overlayTime);
-    const spacer1 = document.createElement("div");
-    spacer1.className = "spacer1";
-    overlayInfo.appendChild(spacer1);
     const overlayDownloadImage = document.createElement("div");
-    overlayDownloadImage.className = "overlayDownloadImage";
-    overlayDownloadImage.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg> Cover';
-    overlayDownloadImage.onclick = () => downloadImage(movie);
-    overlayInfo.appendChild(overlayDownloadImage);
     const overlayDownloadNFO = document.createElement("div");
-    overlayDownloadNFO.className = "overlayDownloadNFO";
-    overlayDownloadNFO.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg> Info-File';
-    overlayDownloadNFO.onclick = () => downloadNFO(movie);
-    overlayInfo.appendChild(overlayDownloadNFO);
     const exitButton = document.createElement("div");
-    exitButton.className = "exitButton";
-    exitButton.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>';
-    exitButton.onclick = () => removeOverlay();
-    overlayInfo.appendChild(exitButton);
     const overlayTitle = document.createElement("div");
-    overlayTitle.className = "overlayTitle";
-    overlayTitle.innerHTML = movie.title;
-    overlayInfo.appendChild(overlayTitle);
     const overlayPlot = document.createElement("div");
-    overlayPlot.className = "overlayPlot";
-    overlayPlot.innerHTML = movie.plot;
-    overlayInfo.appendChild(overlayPlot);
-    overlayContainer.appendChild(overlayInfo);
-    overlayWindow.appendChild(overlayContainer);
+    
+    if (windowMode === "landscape") {
+      overlayWindow.className = "overlayWindowLandscape";
+        overlayImage.className = "overlayImageLandscape";
+        overlayImage.innerHTML = '<img src="' + movie.poster + '" loading="lazy">';
+        overlayWindow.appendChild(overlayImage);
+        overlayContainer.className = "overlayContainerLandscape";
+          overlayInfo.className = "overlayInfoLandscape";
+            overlayFSK.className = "overlayFSKLandscape";
+            overlayFSK.innerHTML = '<img src="Scripts/' + movie.mpaa + '.png" loading="lazy">';
+            overlayInfo.appendChild(overlayFSK);
+            overlayNumber.className = "overlayNumberLandscape";
+            overlayNumber.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m240-160 40-160H120l20-80h160l40-160H180l20-80h160l40-160h80l-40 160h160l40-160h80l-40 160h160l-20 80H660l-40 160h160l-20 80H600l-40 160h-80l40-160H360l-40 160h-80Zm140-240h160l40-160H420l-40 160Z"/></svg>' + movie.id;
+            overlayInfo.appendChild(overlayNumber);
+            overlayYear.className = "overlayYearLandscape";
+            overlayYear.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/></svg>' + movie.year;
+            overlayInfo.appendChild(overlayYear);
+            overlayTime.className = "overlayTimeLandscape";
+            overlayTime.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M420-800h120-120Zm0 640h120-120Zm-60 80-54-182q-48-38-77-95t-29-123q0-66 29-123t77-95l54-182h240l54 182q48 38 77 95t29 123q0 66-29 123t-77 95L600-80H360Zm261.5-258.5Q680-397 680-480t-58.5-141.5Q563-680 480-680t-141.5 58.5Q280-563 280-480t58.5 141.5Q397-280 480-280t141.5-58.5ZM404-750q20-5 38.5-8t37.5-3q19 0 37.5 3t38.5 8l-16-50H420l-16 50Zm16 590h120l16-50q-20 5-38.5 7.5T480-200q-19 0-37.5-2.5T404-210l16 50Z"/></svg>' + movie.runtime;
+            overlayInfo.appendChild(overlayTime);
+            const spacer1 = document.createElement("div");
+            spacer1.className = "spacer1Landscape";
+            overlayInfo.appendChild(spacer1);
+            overlayDownloadImage.className = "overlayDownloadImageLandscape";
+            overlayDownloadImage.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg> Cover';
+            overlayDownloadImage.onclick = () => downloadImage(movie);
+            overlayInfo.appendChild(overlayDownloadImage);
+            overlayDownloadNFO.className = "overlayDownloadNFOLandscape";
+            overlayDownloadNFO.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg> Info-File';
+            overlayDownloadNFO.onclick = () => downloadNFO(movie);
+            overlayInfo.appendChild(overlayDownloadNFO);
+            exitButton.className = "exitButtonLandscape";
+            exitButton.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>';
+            exitButton.onclick = () => removeOverlay();
+            overlayInfo.appendChild(exitButton);
+            overlayTitle.className = "overlayTitleLandscape";
+            overlayTitle.innerHTML = movie.title;
+            overlayInfo.appendChild(overlayTitle);
+            overlayPlot.className = "overlayPlotLandscape";
+            overlayPlot.innerHTML = movie.plot;
+            overlayInfo.appendChild(overlayPlot);
+          overlayContainer.appendChild(overlayInfo);
+        overlayWindow.appendChild(overlayContainer);
+      document.body.appendChild(overlayWindow);
+    }
 
-    document.body.appendChild(overlayWindow);
     document.body.style = "overflow: hidden;";
     console.log(movie);
   }
-  function removeOverlay() {document.querySelector(".overlayWindow")?.remove();document.body.style = "overflow: scroll;";}
+  function removeOverlay() {document.querySelector(".overlayWindowLandscape")?.remove();document.body.style = "overflow: scroll;";}
 
   function downloadImage(movie) {downloadFile(movie.poster, `${movie.filename}-poster.jpg`);}
   function downloadNFO(movie) {downloadFile(`Movies/${movie.folder}/${movie.filename}.nfo`, `${movie.filename}.nfo`);}

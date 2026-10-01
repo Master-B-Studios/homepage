@@ -294,9 +294,10 @@
   }
 
   function createOverlay(movie) {
-    let mode = "";
-    if (window.innerWidth >= window.innerHeight) {mode = "landscape";}
-    else {mode = "portrait";}
+    let windowMode = "";
+    if (window.innerWidth >= window.innerHeight) {windowMode = "landscape";}
+    else {windowMode = "portrait";}
+    console.log(window.windowMode);
     const windowOverlay = document.createElement("div");
     windowOverlay.className = "windowOverlay";
 
@@ -306,7 +307,8 @@
     windowOverlay.appendChild(overlayImage);
 
     const overlayContainer = document.createElement("div");
-    overlayContainer.className = "overlayContainerLandscape";
+    if (windowMode === "landscape") {overlayContainer.className = "overlayContainerLandscape";}
+    else {overlayContainer.className = "overlayContainerPortrait";}
     const overlayInfo = document.createElement("div");
     overlayInfo.className = "overlayInfo";
     const overlayFSK = document.createElement("div");
@@ -357,6 +359,7 @@
     document.body.appendChild(windowOverlay);
     document.body.style = "overflow: hidden;";
     console.log(movie);
+    console.log(window.innerWidth);
   }
   function removeOverlay() {document.querySelector(".windowOverlay")?.remove();document.body.style = "overflow: scroll;";}
 
