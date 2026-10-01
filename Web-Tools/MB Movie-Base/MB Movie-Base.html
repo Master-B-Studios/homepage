@@ -28,8 +28,8 @@
     #group_button_container button.active-group {background-color: #00ff00;color: #000000;font-weight: bold;}
 
     #search_container {text-align: center;}
-    #search_container input {font-size: 1em;outline-color: none;background-color: #222222;color: #dbdbdb;border: none;}
-    #search_container input:focus {outline: none;box-shadow: none;}
+    #search_container input {background-color: #222222;padding: 0.5rem;cursor: text;border-radius: 0.5rem;border: 1px solid #444444;box-shadow: rgba(0, 0, 0, 0.7) 2px 2px 6px 1px inset;}
+    #search_container input:focus {background-color: #222222;outline: none;border: 1px solid #dddddd;}
 
     .cardContainer {display: grid;grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));gap: 0.5em;}
     .movieCard {color: #ffffff;width: auto;height: auto;display: grid;grid-template-columns: auto auto;grid-template-rows: auto;background-color: #111111;border-radius: 0.5rem;border: 1px solid #444444;position: relative;top: 0;margin: 0;cursor: pointer;transition: top 0.6s;}
@@ -135,17 +135,8 @@
   let current_sort_direction = 'asc';
 
   async function load_moviebase() {
-    try {
-      const response = await fetch("movies.json");
-      if (!response.ok) throw new Error("movies.json konnte nicht geladen werden.");
-      current_data = await response.json();
-      load_navigation();
-      load_table_data(current_data);
-    }
-    catch(err) {
-      document.getElementById("output").innerHTML = "<h3>Fehler</h3><p>" + err.message + "</p>";
-      console.error(err);
-    }
+    try {const response = await fetch("movies.json");if (!response.ok) throw new Error("movies.json konnte nicht geladen werden.");current_data = await response.json();load_navigation();load_table_data(current_data);}
+    catch(err) {document.getElementById("output").innerHTML = "<h3>Fehler</h3><p>" + err.message + "</p>";console.error(err);}
   }
 
   function load_navigation() {
@@ -434,7 +425,6 @@
     }
 
     document.body.style = "overflow: hidden;";
-    console.log(movie);
   }
   function removeOverlay() {document.querySelector(".overlayWindowLandscape")?.remove();document.querySelector(".overlayWindowPortrait")?.remove();document.body.style = "overflow: scroll;";}
 
