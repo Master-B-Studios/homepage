@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="../../assets/css/main.css"></link>
   <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
   <style>
+    @font-face {font-family: "Creato";src: url("Fonts/Creato.otf") format("truetype");font-weight: normal;font-style: normal;color: #ffffff;}
+    @font-face {font-family: "FuturaHand";src: url("Fonts/FuturaHand.ttf") format("truetype");font-weight: normal;font-style: normal;color: #ffffff;}
+    body {font-family: "Creato";}
     tbody {width: 100%;height: auto;}
     tr {width: 100%;height: auto;}
     thead {display: none;} /* Verstecke den ursprünglichen Sortierungs-Header */
@@ -28,19 +31,47 @@
     #search_container input {font-size: 1em;outline-color: none;background-color: #222222;color: #dbdbdb;border: none;}
     #search_container input:focus {outline: none;box-shadow: none;}
 
-    .movie_card {width: 100%;height: auto;display: grid;grid-template-columns: auto auto auto;grid-template-rows: auto;background-color: #222222;margin: 0 0 1rem 0;border-radius: 1rem;padding: 0.5rem;}
-    .movie_title {grid-column: 1 / span 3;grid-row: 1;height: auto;padding: 0.5rem;margin: 0 0 0.5rem 0;font-size: 1.2rem;font-weight: 1000;text-align: center;background-color: #111111;border-radius: 0.5rem;border: 1px dashed #666666;}
-    .movie_year_1 {grid-column: 1;grid-row: 2;height: 1.5rem;text-align: right;font-size: 0.8rem;margin: 0 0.5rem;}
-    .movie_year_2 {grid-column: 2;grid-row: 2;height: 1.5rem;text-align: left;font-size: 0.8rem;margin: 0 0.5rem;}
-    .movie_number_1 {grid-column: 1;grid-row: 3;height: 1.5rem;text-align: right;font-size: 0.8rem;margin: 0 0.5rem;}
-    .movie_number_2 {grid-column: 2;grid-row: 3;height: 1.5rem;text-align: left;font-size: 0.8rem;margin: 0 0.5rem;}
-    .movie_runtime_1 {grid-column: 1;grid-row: 4;height: 1.5rem;text-align: right;font-size: 0.8rem;margin: 0 0.5rem;}
-    .movie_runtime_2 {grid-column: 2;grid-row: 4;height: 1.5rem;text-align: left;font-size: 0.8rem;margin: 0 0.5rem 0.5rem 0.5rem;}
-    .movie_plot {grid-column: 1 / span 2;grid-row: 5;height: 4.5rem;font-size: 0.7rem;line-height: 0.8rem;text-align: justify;overflow: auto;background-color: none;padding: 0.5rem 0.5rem 0.5rem 0;border-radius: 0.5rem;}
-    .movie_poster {grid-column: 3;grid-row: 2 / span 4;width: auto;height: 9.5rem;aspect-ratio: 2/3;display: flex;justify-content: center;align-items: center;border-radius: 0.5rem;margin: 0 0 0 0.5rem;}
-    .movie_poster img {width: 100%;height: auto;object-fit: contain;cursor: pointer;border-radius: 0.5rem;}
-    .movie_fsk {grid-column: 2;grid-row: 2 / span 2;width: 3rem;height: 3rem;aspect-ratio: 1/1;position: relative;top: 0rem;left: calc(100% - 3rem);}
-    .movie_fsk img {height: 3rem;height: 3rem;}
+    .cardContainer {display: grid;grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));gap: 0.5em;}
+    .movieCard {color: #ffffff;width: auto;height: auto;display: grid;grid-template-columns: auto auto;grid-template-rows: auto;background-color: #111111;border-radius: 0.5rem;border: 1px solid #444444;position: relative;top: 0;margin: 0;cursor: pointer;transition: top 0.6s;}
+    .movieCard:hover {border-color: #dddddd;top: -0.5rem;}
+    .moviePoster {grid-column: 1 / span 2;grid-row: 1;width: 100%;height: auto;aspect-ratio: 2/3;display: flex;justify-content: center;align-items: center;border-top-left-radius: 0.5rem;border-top-right-radius: 0.5rem;}
+    .moviePoster img {width: 100%;height: auto;object-fit: contain;border-top-left-radius: 0.5rem;border-top-right-radius: 0.5rem;}
+    .movieNumber {grid-column: 1;grid-row: 2;font-size: 0.7rem;margin: 0.5rem;line-height: 1rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;}
+    .movieNumber svg {position: relative;left: -0.25rem;width: 0.7rem;height: 0.7rem;}
+    .movieYear {grid-column: 2;grid-row: 2;font-size: 0.7rem;margin: 0.5rem;line-height: 1rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;}
+    .movieYear svg {position: relative;left: -0.25rem;width: 0.7rem;height: 0.7rem;}
+    .movieOverlay {grid-column: 1 / span 2;grid-row: 1 / span 3;z-index: 1000;border-radius: 0.5rem;background: linear-gradient(50deg, #00000000, #00000000, #00000066, #00000000, #00000000, #00000000, #00000099, #00000000);transition: all 0.8s;}
+    .movieOverlay:hover {opacity: 0;}
+
+    .overlayWindow {width: 100vw;height: 100vh;position: fixed;inset: 0;background-color: #000000cc;z-index: 1000;overflow: hidden;padding: 0;margin: 0;display: grid;grid-template-columns: auto auto;grid-template-rows: auto;}
+    .overlayImage {grid-column: 1;grid-row: 1;height: 100vh;}
+    .overlayImage img {width: auto;height: 100%;}
+    .overlayContainerLandscape {width: calc(100vw - ((100vh / 3) * 2));grid-column: 2;grid-row: 1;background: none;}
+    .overlayContainerPortrait {position: fixed;inset: 0;background-color: #000000cc;z-index: 1002;overflow: hidden;padding: 0;margin: 0;background: linear-gradient(180deg, #000000cc, #000000cc, #000000ff, #000000ff, #000000ff);border: 0.05rem solid #999999;}
+
+    .overlayInfo {width: calc(100vw - ((100vh / 3) * 2));height: 100vh;grid-column: 2;grid-row: 1;background-color: #00000000;display: grid;grid-template-columns: min-content min-content min-content min-content auto min-content min-content min-content;grid-template-rows: 5rem auto min-content;place-items: center;font-size: 0.8em;color: #dbdbdb;}
+    .overlayFSK {width: 5rem;height: 5rem;grid-column: 1;grid-row: 1;margin: 0 0 0 1rem;}.overlayFSK img {width: 100%;height: 100%;}
+    .overlayNumber {grid-column: 2;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;color: #dbdbdb;}
+    .overlayNumber svg {position: relative;left: -0.5rem}
+    .overlayYear {grid-column: 3;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;color: #dbdbdb;}
+    .overlayYear svg {position: relative;left: -0.5rem}
+    .overlayTime {grid-column: 4;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;color: #dbdbdb;}
+    .overlayTime svg {position: relative;left: -0.5rem}
+    .spacer1 {grid-column: 5;grid-row: 1;}
+    .overlayDownloadImage {grid-column: 6;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;cursor: pointer;color: #dbdbdb;transition: all 0.6s;}
+    .overlayDownloadImage svg {position: relative;left: -0.5rem}
+    .overlayDownloadImage:hover {transform: scale(0.95);background-color: #cccccc;color: #000000;}
+    .overlayDownloadImage:active {transform: scale(0.96);}
+    .overlayDownloadNFO {grid-column: 7;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;cursor: pointer;transition: all 0.6s;}
+    .overlayDownloadNFO svg {position: relative;left: -0.5rem}
+    .overlayDownloadNFO:hover {transform: scale(0.95);background-color: #cccccc;color: #000000;}
+    .overlayDownloadNFO:active {transform: scale(0.96);}
+    .overlayDownloadNFO:hover img {color: #000000;}
+    .exitButton {width: 3.4rem;height: 3.4rem;margin: 0 1rem 0 0.5rem;grid-column: 8;grid-row: 1;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;cursor: pointer;transition: all 0.6s;}
+    .exitButton:hover {transform: scale(0.95);background-color: #cccccc;color: #000000;}
+    .exitButton:active {transform: scale(0.96);}
+    .overlayTitle {grid-column: 1 / span 8;grid-row: 2;padding: 0.5rem 1rem;font-family: FuturaHand;font-size: 5rem;font-weight: bolder;text-align: center;line-height: 5rem;}
+    .overlayPlot {grid-column: 1 / span 8;grid-row: 3;text-align: justify;padding: 1rem;margin: 1rem;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;line-height: 1.5rem;font-size: 0.8rem;font-family: Verdana, Geneva, Tahoma, sans-serif;}
   </style>
 
 </head>
@@ -214,76 +245,43 @@
   }
 
   function generate_table_data(data) {
-    const container = document.createElement("div");
+    const cardContainer = document.createElement("div");
+    cardContainer.className = "cardContainer";
     data.forEach(row => {
       const card = document.createElement("div");
-      card.className = "movie_card";
+      card.className = "movieCard";
       card.dataset.title = (row.title ?? "").toLowerCase();
-      
-      const title = document.createElement("div");
-      title.className = "movie_title";
-      title.innerHTML = row.title ?? "";
-      
-      const year_1 = document.createElement("div");
-      year_1.className = "movie_year_1";
-      year_1.innerHTML = "Jahr:";
 
-      const year_2 = document.createElement("div");
-      year_2.className = "movie_year_2";
-      year_2.innerHTML = row.year ?? "";
+      const moviePoster = document.createElement("div");
+      moviePoster.className = "moviePoster";
+      moviePoster.innerHTML = '<img src="' + row.poster + '" loading="lazy">';
       
-      const number_1 = document.createElement("div");
-      number_1.className = "movie_number_1";
-      number_1.innerHTML = "Nummer:";
+      const movieNumber = document.createElement("div");
+      movieNumber.className = "movieNumber";
+      movieNumber.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m240-160 40-160H120l20-80h160l40-160H180l20-80h160l40-160h80l-40 160h160l40-160h80l-40 160h160l-20 80H660l-40 160h160l-20 80H600l-40 160h-80l40-160H360l-40 160h-80Zm140-240h160l40-160H420l-40 160Z"/></svg>' + row.id ?? "";
       
-      const number_2 = document.createElement("div");
-      number_2.className = "movie_number_2";
-      number_2.innerHTML = row.id ?? "";
+      const movieYear = document.createElement("div");
+      movieYear.className = "movieYear";
+      movieYear.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/></svg>' + row.year ?? "";
       
-      const runtime_1 = document.createElement("div");
-      runtime_1.className = "movie_runtime_1";
-      runtime_1.innerHTML = "Laufzeit:";
+      const overlay = document.createElement("div");
+      overlay.className = "movieOverlay";
+      overlay.onclick = () => createOverlay(row);
       
-      const runtime_2 = document.createElement("div");
-      runtime_2.className = "movie_runtime_2";
-      runtime_2.innerHTML = (row.runtime ?? "") + " Minuten";
+      card.appendChild(moviePoster);
+      card.appendChild(movieNumber);
+      card.appendChild(movieYear);
+      card.appendChild(overlay);
       
-      const plot = document.createElement("div");
-      plot.className = "movie_plot";
-      plot.innerHTML = row.plot ?? "";
-      const poster = document.createElement("div");
-      poster.className = "movie_poster";
-      
-      const image = document.createElement("img");
-      image.src = row.poster;
-      image.loading = "lazy";
-      image.onclick = () => download_movie_files(row);
-      poster.appendChild(image);
-      
-      const fsk = document.createElement("div");
-      fsk.className = "movie_fsk";
-      fsk.innerHTML = '<img src="Scripts/' + row.mpaa + '.png" loading="lazy">';
-      
-      card.appendChild(title);
-      card.appendChild(year_1);
-      card.appendChild(year_2);
-      card.appendChild(number_1);
-      card.appendChild(number_2);
-      card.appendChild(runtime_1);
-      card.appendChild(runtime_2);
-      card.appendChild(plot);
-      card.appendChild(poster);
-      card.appendChild(fsk);
-      
-      container.appendChild(card);
+      cardContainer.appendChild(card);
     });
-    return container;
+    return cardContainer;
   }
 
   function search_in_table_data(search_index) {
     const group_div = document.getElementById("group_single_" + current_group);
     if (!group_div) return;
-    const cards = group_div.querySelectorAll(".movie_card");
+    const cards = group_div.querySelectorAll(".movieCard");
     const search = search_index.trim().toLowerCase();
     cards.forEach(card => {
       const title = card.dataset.title;
@@ -291,11 +289,75 @@
     });
   }
 
-  function download_movie_files(movie) {
-    if (!confirm("NFO-Datei und Poster herunterladen?")) return;
-    downloadFile(`Movies/${movie.folder}/${movie.filename}.nfo`, `${movie.filename}.nfo`);
-    downloadFile(movie.poster, `${movie.filename}-poster.jpg`);
+  function createOverlay(movie) {
+    let mode = "";
+    if (window.innerWidth >= window.innerHeight) {mode = "landscape";}
+    else {mode = "portrait";}
+    const overlayWindow = document.createElement("div");
+    overlayWindow.className = "overlayWindow";
+
+    const overlayImage = document.createElement("div");
+    overlayImage.className = "overlayImage";
+    overlayImage.innerHTML = '<img src="' + movie.poster + '" loading="lazy">';
+    overlayWindow.appendChild(overlayImage);
+
+    const overlayContainer = document.createElement("div");
+    overlayContainer.className = "overlayContainerLandscape";
+    const overlayInfo = document.createElement("div");
+    overlayInfo.className = "overlayInfo";
+    const overlayFSK = document.createElement("div");
+    overlayFSK.className = "overlayFSK";
+    overlayFSK.innerHTML = '<img src="Scripts/' + movie.mpaa + '.png" loading="lazy">';
+    overlayInfo.appendChild(overlayFSK);
+    const overlayNumber = document.createElement("div");
+    overlayNumber.className = "overlayNumber";
+    overlayNumber.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m240-160 40-160H120l20-80h160l40-160H180l20-80h160l40-160h80l-40 160h160l40-160h80l-40 160h160l-20 80H660l-40 160h160l-20 80H600l-40 160h-80l40-160H360l-40 160h-80Zm140-240h160l40-160H420l-40 160Z"/></svg>' + movie.id;
+    overlayInfo.appendChild(overlayNumber);
+    const overlayYear = document.createElement("div");
+    overlayYear.className = "overlayYear";
+    overlayYear.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/></svg>' + movie.year;
+    overlayInfo.appendChild(overlayYear);
+    const overlayTime = document.createElement("div");
+    overlayTime.className = "overlayTime";
+    overlayTime.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M420-800h120-120Zm0 640h120-120Zm-60 80-54-182q-48-38-77-95t-29-123q0-66 29-123t77-95l54-182h240l54 182q48 38 77 95t29 123q0 66-29 123t-77 95L600-80H360Zm261.5-258.5Q680-397 680-480t-58.5-141.5Q563-680 480-680t-141.5 58.5Q280-563 280-480t58.5 141.5Q397-280 480-280t141.5-58.5ZM404-750q20-5 38.5-8t37.5-3q19 0 37.5 3t38.5 8l-16-50H420l-16 50Zm16 590h120l16-50q-20 5-38.5 7.5T480-200q-19 0-37.5-2.5T404-210l16 50Z"/></svg>' + movie.runtime;
+    overlayInfo.appendChild(overlayTime);
+    const spacer1 = document.createElement("div");
+    spacer1.className = "spacer1";
+    overlayInfo.appendChild(spacer1);
+    const overlayDownloadImage = document.createElement("div");
+    overlayDownloadImage.className = "overlayDownloadImage";
+    overlayDownloadImage.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg> Cover';
+    overlayDownloadImage.onclick = () => downloadImage(movie);
+    overlayInfo.appendChild(overlayDownloadImage);
+    const overlayDownloadNFO = document.createElement("div");
+    overlayDownloadNFO.className = "overlayDownloadNFO";
+    overlayDownloadNFO.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg> Info-File';
+    overlayDownloadNFO.onclick = () => downloadNFO(movie);
+    overlayInfo.appendChild(overlayDownloadNFO);
+    const exitButton = document.createElement("div");
+    exitButton.className = "exitButton";
+    exitButton.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>';
+    exitButton.onclick = () => removeOverlay();
+    overlayInfo.appendChild(exitButton);
+    const overlayTitle = document.createElement("div");
+    overlayTitle.className = "overlayTitle";
+    overlayTitle.innerHTML = movie.title;
+    overlayInfo.appendChild(overlayTitle);
+    const overlayPlot = document.createElement("div");
+    overlayPlot.className = "overlayPlot";
+    overlayPlot.innerHTML = movie.plot;
+    overlayInfo.appendChild(overlayPlot);
+    overlayContainer.appendChild(overlayInfo);
+    overlayWindow.appendChild(overlayContainer);
+
+    document.body.appendChild(overlayWindow);
+    document.body.style = "overflow: hidden;";
+    console.log(movie);
   }
+  function removeOverlay() {document.querySelector(".overlayWindow")?.remove();document.body.style = "overflow: scroll;";}
+
+  function downloadImage(movie) {downloadFile(movie.poster, `${movie.filename}-poster.jpg`);}
+  function downloadNFO(movie) {downloadFile(`Movies/${movie.folder}/${movie.filename}.nfo`, `${movie.filename}.nfo`);}
   function downloadFile(url, filename) {
     const link = document.createElement("a");
     link.href = url;
