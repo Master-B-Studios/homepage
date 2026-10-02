@@ -15,9 +15,6 @@
     tr {width: 100%;height: auto;}
     thead {display: none;} /* Verstecke den ursprünglichen Sortierungs-Header */
 
-    .header_number_, .header_name___, .header_year___, .header_runtime, .header_fsk____ {width: 16%;height: 4rem;}
-    .header_cover__ {width: 20%;height: 4rem;}
-
     .group_button {display: none;}
     .group_button.aktiv {display: block;}
 
@@ -374,7 +371,7 @@
             overlayYear.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/></svg>' + movie.year;
             overlayInfo1.appendChild(overlayYear);
             overlayTime.className = "overlayTimeLandscape";
-            overlayTime.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M420-800h120-120Zm0 640h120-120Zm-60 80-54-182q-48-38-77-95t-29-123q0-66 29-123t77-95l54-182h240l54 182q48 38 77 95t29 123q0 66-29 123t-77 95L600-80H360Zm261.5-258.5Q680-397 680-480t-58.5-141.5Q563-680 480-680t-141.5 58.5Q280-563 280-480t58.5 141.5Q397-280 480-280t141.5-58.5ZM404-750q20-5 38.5-8t37.5-3q19 0 37.5 3t38.5 8l-16-50H420l-16 50Zm16 590h120l16-50q-20 5-38.5 7.5T480-200q-19 0-37.5-2.5T404-210l16 50Z"/></svg>' + movie.runtime;
+            overlayTime.innerHTML = movie.season + ' Staffeln';
             overlayInfo1.appendChild(overlayTime);
             const spacer1 = document.createElement("div");
             spacer1.className = "spacer1Landscape";
@@ -438,7 +435,7 @@
             overlayYear.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/></svg>' + movie.year;
             overlayInfo2.appendChild(overlayYear);
             overlayTime.className = "overlayTimePortrait";
-            overlayTime.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M420-800h120-120Zm0 640h120-120Zm-60 80-54-182q-48-38-77-95t-29-123q0-66 29-123t77-95l54-182h240l54 182q48 38 77 95t29 123q0 66-29 123t-77 95L600-80H360Zm261.5-258.5Q680-397 680-480t-58.5-141.5Q563-680 480-680t-141.5 58.5Q280-563 280-480t58.5 141.5Q397-280 480-280t141.5-58.5ZM404-750q20-5 38.5-8t37.5-3q19 0 37.5 3t38.5 8l-16-50H420l-16 50Zm16 590h120l16-50q-20 5-38.5 7.5T480-200q-19 0-37.5-2.5T404-210l16 50Z"/></svg>' + movie.runtime;
+            overlayTime.innerHTML = movie.runtime + ' Staffeln';
             overlayInfo2.appendChild(overlayTime);
             const spacer2 = document.createElement("div");
             spacer2.className = "spacer2Portrait";

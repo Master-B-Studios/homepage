@@ -1,43 +1,46 @@
 [
     {
-        "id": "0001",
+        "id": "S0013",
+        "title": "Ally McBeal",
+        "plot": "Ally McBeal ist eine junge Anwältin, die in der Bostoner Anwaltskanzlei Cage and Fish arbeitet. Allys Leben und Lieben sind exzentrisch, humorvoll, dramatisch und mit einer unglaublich überaktiven Fantasie.",
+        "mpaa": "FSK-12",
+        "year": "1997",
+        "seasons": 5,
+        "folder": "0002",
+        "filename": "tvshow",
+        "poster": "Series/0002/poster.jpg"
+    },
+    {
+        "id": "S0018",
         "title": "ALF",
         "plot": "Ein lautes Poltern in der Garage schreckt Familie Tanner auf. Was ist nur passiert? Vater Willie kann nicht glauben, was er zu sehen bekommt. Ein rothaariges Wesen mit einer gigantischen Nase ist in seinem Haus gelandet. Ein Außerirdischer Alf kommt vom Planeten Melmac und musste auf der Erde notlanden. Da die Tanners nicht in der Lage sind, sein Raumschiff zu reparieren, muss Alf zunächst bei der Familie bleiben. Sein Appetit auf Katzen, stundenlange Telefongespräche und unstillbarer Hunger machen das Zusammenleben mit ihm allerdings nicht gerade einfach. Als auch noch die Nachbarin ahnt, dass bei den Tanners etwas Außergewöhnliches vorgeht, ist die ganze Familie in Alarmbereitschaft. Schließlich ist Alf ein Alien und könnte schon bald auf einem Seziertisch landen...",
         "mpaa": "FSK-6",
         "year": "1986",
-        "runtime": "81",
+        "seasons": 4,
         "folder": "0001",
-        "filename": "ALF",
+        "filename": "tvshow",
         "poster": "Series/0001/poster.jpg"
     },
     {
-        "id": "0002",
-        "title": "Ally McBeal",
-        "plot": "Ein lautes Poltern in der Garage schreckt Familie Tanner auf. Was ist nur passiert? Vater Willie kann nicht glauben, was er zu sehen bekommt. Ein rothaariges Wesen mit einer gigantischen Nase ist in seinem Haus gelandet. Ein Außerirdischer Alf kommt vom Planeten Melmac und musste auf der Erde notlanden. Da die Tanners nicht in der Lage sind, sein Raumschiff zu reparieren, muss Alf zunächst bei der Familie bleiben. Sein Appetit auf Katzen, stundenlange Telefongespräche und unstillbarer Hunger machen das Zusammenleben mit ihm allerdings nicht gerade einfach. Als auch noch die Nachbarin ahnt, dass bei den Tanners etwas Außergewöhnliches vorgeht, ist die ganze Familie in Alarmbereitschaft. Schließlich ist Alf ein Alien und könnte schon bald auf einem Seziertisch landen...",
-        "mpaa": "FSK-6",
-        "year": "1986",
-        "folder": "0002",
-        "filename": "Ally McBeal",
-        "poster": "Series/0002/poster.jpg"
-    },
-    {
-        "id": "0003",
+        "id": "S0056",
         "title": "Animaniacs",
-        "plot": "Ein lautes Poltern in der Garage schreckt Familie Tanner auf. Was ist nur passiert? Vater Willie kann nicht glauben, was er zu sehen bekommt. Ein rothaariges Wesen mit einer gigantischen Nase ist in seinem Haus gelandet. Ein Außerirdischer Alf kommt vom Planeten Melmac und musste auf der Erde notlanden. Da die Tanners nicht in der Lage sind, sein Raumschiff zu reparieren, muss Alf zunächst bei der Familie bleiben. Sein Appetit auf Katzen, stundenlange Telefongespräche und unstillbarer Hunger machen das Zusammenleben mit ihm allerdings nicht gerade einfach. Als auch noch die Nachbarin ahnt, dass bei den Tanners etwas Außergewöhnliches vorgeht, ist die ganze Familie in Alarmbereitschaft. Schließlich ist Alf ein Alien und könnte schon bald auf einem Seziertisch landen...",
+        "plot": "Anarchischer Cartoon Spaß der Sonderklasse: Yakko, Wakko und Dot sind drei durchgeknallte Zeichentrickgeschwister, so aberwitzig verrückt, dass man sie eigentlich nicht frei herumlaufen lassen kann. So hat man die Drei in einen Turm eingesperrt, aus dem sie jedoch durch einen dummen Zufall wieder freigekommen sind und nun wieder ihr gewohntes Unwesen und die gesamte Menschheit in den Wahnsinn treiben! Dabei singt und musiziert das chaotische Trio mit Leidenschaft und schrägem Witz, bis auch der Hartgesottenste vor lachen ohnmächtig wird!",
         "mpaa": "FSK-6",
-        "year": "1986",
+        "year": "1993",
+        "seasons": 1,
         "folder": "0003",
-        "filename": "ALF",
+        "filename": "tvshow",
         "poster": "Series/0003/poster.jpg"
     },
     {
-        "id": "0004",
-        "title": "Auf Schlimmer Und Ewig Und Noch Vieles Andere Mehr",
-        "plot": "Ein lautes Poltern in der Garage schreckt Familie Tanner auf. Was ist nur passiert? Vater Willie kann nicht glauben, was er zu sehen bekommt. Ein rothaariges Wesen mit einer gigantischen Nase ist in seinem Haus gelandet. Ein Außerirdischer Alf kommt vom Planeten Melmac und musste auf der Erde notlanden. Da die Tanners nicht in der Lage sind, sein Raumschiff zu reparieren, muss Alf zunächst bei der Familie bleiben. Sein Appetit auf Katzen, stundenlange Telefongespräche und unstillbarer Hunger machen das Zusammenleben mit ihm allerdings nicht gerade einfach. Als auch noch die Nachbarin ahnt, dass bei den Tanners etwas Außergewöhnliches vorgeht, ist die ganze Familie in Alarmbereitschaft. Schließlich ist Alf ein Alien und könnte schon bald auf einem Seziertisch landen...",
-        "mpaa": "FSK-6",
-        "year": "1986",
+        "id": "S0057",
+        "title": "Auf Schlimmer & Ewig",
+        "plot": "Jack Malloy ist Gebrauchtwagenhändler, arbeitet aber nie. Von seiner Frau Jennie lässt er sich zwar scheiden, zeiht aber schon nach kurzer Zeit wieder bei ihr ein. Sein Lieblingsgesprächspartner ist der Stoffhase Mr. Floppy, der in seiner Fantasie zum Leben erwacht und meist chauvinistische Kommentare über Prominente von sich gibt. Seine Tochter ist ebenso aufreizend wie intelligent und möchte in Harvard studieren um später mal ihre Jungfräulichkeit einem „reichen, alten Sack“ zu opfern. Ihr Bruder, der Loser und Idiot Ryan wäre dagegen froh, wenn er überhaupt mal „eine abkriegen würde“. Ross, der kleinste der Familie, wird von allen ignoriert und versucht die Zuneigung der Eltern zu gewinnen.",
+        "mpaa": "FSK-16",
+        "year": "1995",
+        "seasons": 5,
         "folder": "0004",
-        "filename": "ALF",
+        "filename": "tvshow",
         "poster": "Series/0004/poster.jpg"
     }
 ]
