@@ -20,18 +20,25 @@
 
     .group_button {display: none;}
     .group_button.aktiv {display: block;}
-    .mb_button {width: 100%;height: auto;display: flex;align-items: center;justify-content: center;cursor: pointer;background-color: #222222;border-radius: 0.5rem;box-shadow: rgba(255, 255, 255, 0.3) 2px 2px 6px 1px inset;font-size: 1.2rem;box-sizing: border-box;}
-    .mb_button:hover {font-size: 1.17rem;box-shadow: rgba(0, 0, 0, 0.7) 2px 2px 6px 1px inset;transition: all 0.2s;}
 
-    #group_button_container {width: 100%;height: auto;margin: auto;display: flex;flex-wrap: wrap;justify-content: space-around;align-items: center;}
-    #group_button_container button {padding: 1em;margin: 0.2em;background-color: #222222;color: #dbdbdb;border-radius: 0.5rem;box-shadow: rgba(255, 255, 255, 0.3) 2px 2px 6px 1px inset;cursor: pointer;transition: all 0.6s;text-align: center;gap: 4px;white-space: nowrap;width: auto;}
-    #group_button_container .sort_arrow {font-size: 0.8em;width: 1.2em;text-align: center;}
-    #group_button_container button:hover {box-shadow: rgba(0, 0, 0, 0.7) 2px 2px 6px 1px inset;}
-    #group_button_container button.active-group {background-color: #00ff00;color: #000000;box-shadow: rgba(255, 255, 255, 0.3) 2px 2px 6px 1px inset;}
+    #navigation_container {width: 100%;display: flex;justify-content: center;align-items: center;gap: 0.5rem;margin: 1rem 0;}
+    #navigation_container button {padding: 1em;background-color: #222222;color: #dbdbdb;border-radius: 0.5rem;border: none;box-shadow: rgba(255, 255, 255, 0.3) 2px 2px 6px 1px inset;cursor: pointer;transition: all 0.6s;white-space: nowrap;}
+    @media (hover: hover) {#navigation_container button:hover {box-shadow: rgba(0, 0, 0, 0.7) 2px 2px 6px 1px inset;}}
+    #navigation_container button:active {box-shadow: rgba(0, 0, 0, 0.7) 2px 2px 6px 1px inset;}
+    
+    #sort_button {display: flex;align-items: center;justify-content: center;gap: 0.5rem;margin: 0 0.5rem 0 0;}
+    #sort_button .sort_arrow {min-width: 1em;text-align: center;}
+    #random_button {cursor: pointer;}
+    
+    #sort_overlay {display: none;position: fixed;inset: 0;z-index: 9999;background-color: #000000cc;align-items: center;justify-content: center;padding: 1rem;box-sizing: border-box;}
+    #sort_overlay_content {width: min(90vw, 40rem);max-height: 80vh;padding: 1rem;background-color: #111111;border: 1px solid #444444;border-radius: 0.5rem;box-shadow: rgba(0, 0, 0, 0.8) 0 0 2rem;display: flex;flex-wrap: wrap;justify-content: center;gap: 0.5rem;overflow-y: auto;}
+    #sort_overlay_title {width: 100%;text-align: center;font-size: 1.5rem;margin-bottom: 0.5rem;color: #dbdbdb;}
+    .sort_option {min-width: 4rem;}
 
-    #search_container {text-align: center;}
-    #search_container input {background-color: #222222;padding: 0.5rem;cursor: text;border-radius: 0.5rem;border: 1px solid #444444;box-shadow: rgba(0, 0, 0, 0.7) 2px 2px 6px 1px inset;}
+    #search_container {width: 100%;text-align: center;margin: 0 0 1rem 0;}
+    #search_container input {width: 100%;background-color: #222222;padding: 0.5rem;cursor: text;border-radius: 0.5rem;border: 1px solid #444444;box-shadow: rgba(0, 0, 0, 0.7) 2px 2px 6px 1px inset;}
     #search_container input:focus {background-color: #222222;outline: none;border: 1px solid #dddddd;}
+    #search_container input::-webkit-search-cancel-button {filter: invert(50%) brightness(150%);cursor: pointer;}
 
     .cardContainer {display: grid;grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));gap: 0.5em;}
     .movieCard {color: #ffffff;width: auto;height: auto;display: grid;grid-template-columns: auto auto;grid-template-rows: auto;background-color: #111111;border-radius: 0.5rem;border: 1px solid #444444;position: relative;top: 0;margin: 0;cursor: pointer;transition: top 0.6s;}
@@ -45,32 +52,32 @@
     .movieOverlay {grid-column: 1 / span 2;grid-row: 1 / span 3;z-index: 1000;border-radius: 0.5rem;background: linear-gradient(50deg, #00000000, #00000000, #00000066, #00000000, #00000000, #00000000, #00000099, #00000000);transition: all 0.8s;}
     .movieOverlay:hover {opacity: 0;}
 
-    .overlayWindowLandscape {width: 100vw;height: 100vh;position: fixed;inset: 0;background-color: #000000cc;z-index: 1000;overflow: hidden;padding: 0;margin: 0;display: grid;grid-template-columns: auto auto;grid-template-rows: auto;}
-    .overlayImageLandscape {grid-column: 1;grid-row: 1;height: 100vh;}
-    .overlayImageLandscape img {width: auto;height: 100%;}
-    .overlayContainerLandscape {width: calc(100vw - ((100vh / 3) * 2));grid-column: 2;grid-row: 1;background: none;}
-    .overlayInfo1Landscape {width: calc(100vw - ((100vh / 3) * 2));height: 100vh;grid-column: 2;grid-row: 1;background-color: #00000000;display: grid;grid-template-columns: min-content min-content min-content min-content auto min-content min-content min-content;grid-template-rows: 5rem auto min-content;place-items: center;font-size: 1rem;color: #dbdbdb;}
+    .overlayWindowLandscape {width: calc(100vw - 5vh);height: calc(100vh - 5vh);position: fixed;inset: 0;background-color: #000000cc;z-index: 1000;overflow: hidden;border-radius: 0.5rem;border: 1px solid #444444;padding: 0;margin: auto;place-items: center;display: grid;grid-template-columns: auto auto;grid-template-rows: auto;}
+    .overlayImageLandscape {grid-column: 1;grid-row: 1;height: 90vh;}
+    .overlayImageLandscape img {width: auto;height: 100%;border-radius: 0.5rem;}
+    .overlayContainerLandscape {width: calc(90vw - ((90vh / 3) * 2));grid-column: 2;grid-row: 1;background: none;}
+    .overlayInfo1Landscape {width: calc(90vw - ((90vh / 3) * 2));height: 90vh;grid-column: 2;grid-row: 1;background-color: #00000000;display: grid;grid-template-columns: min-content min-content min-content min-content auto min-content min-content min-content;grid-template-rows: 5rem auto min-content;place-items: center;font-size: 1rem;color: #dbdbdb;}
     .overlayFSKLandscape {width: 5rem;height: 5rem;grid-column: 1;grid-row: 1;margin: 0 0 0 1rem;}.overlayFSKLandscape img {width: 100%;height: 100%;}
-    .overlayNumberLandscape {height: 3.2rem;grid-column: 2;grid-row: 1;padding: 0 1rem;margin: 0 0.5rem 0 0;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;color: #dbdbdb;}
+    .overlayNumberLandscape {height: 3.2rem;grid-column: 2;grid-row: 1;padding: 0 1rem;margin: 0 0.5rem 0 0;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #111111;border: 1px solid #444444;color: #dbdbdb;}
     .overlayNumberLandscape svg {position: relative;left: -0.5rem}
-    .overlayYearLandscape {height: 3.2rem;grid-column: 3;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;color: #dbdbdb;}
+    .overlayYearLandscape {height: 3.2rem;grid-column: 3;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #111111;border: 1px solid #444444;color: #dbdbdb;}
     .overlayYearLandscape svg {position: relative;left: -0.5rem}
-    .overlayTimeLandscape {height: 3.2rem;grid-column: 4;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;color: #dbdbdb;}
+    .overlayTimeLandscape {height: 3.2rem;grid-column: 4;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #111111;border: 1px solid #444444;color: #dbdbdb;}
     .overlayTimeLandscape svg {position: relative;left: -0.5rem}
     .spacer1Landscape {grid-column: 5;grid-row: 1;}
-    .overlayDownloadImageLandscape {height: 3.2rem;grid-column: 6;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;cursor: pointer;color: #dbdbdb;transition: all 0.6s;}
+    .overlayDownloadImageLandscape {height: 3.2rem;grid-column: 6;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #111111;border: 1px solid #444444;cursor: pointer;color: #dbdbdb;transition: all 0.6s;}
     .overlayDownloadImageLandscape svg {position: relative;left: -0.5rem}
     .overlayDownloadImageLandscape:hover {transform: scale(0.95);background-color: #cccccc;color: #000000;}
     .overlayDownloadImageLandscape:active {transform: scale(0.96);}
-    .overlayDownloadNFOLandscape {height: 3.2rem;grid-column: 7;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;cursor: pointer;transition: all 0.6s;}
+    .overlayDownloadNFOLandscape {height: 3.2rem;grid-column: 7;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #111111;border: 1px solid #444444;cursor: pointer;transition: all 0.6s;}
     .overlayDownloadNFOLandscape svg {position: relative;left: -0.5rem}
     .overlayDownloadNFOLandscape:hover {transform: scale(0.95);background-color: #cccccc;color: #000000;}
     .overlayDownloadNFOLandscape:active {transform: scale(0.96);}
-    .exitButtonLandscape {width: 3.2rem;height: 3.2rem;margin: 0 1rem 0 0.5rem;grid-column: 8;grid-row: 1;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;cursor: pointer;transition: all 0.6s;}
+    .exitButtonLandscape {width: 3.2rem;height: 3.2rem;margin: 0 1rem 0 0.5rem;grid-column: 8;grid-row: 1;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #111111;border: 1px solid #444444;cursor: pointer;transition: all 0.6s;}
     .exitButtonLandscape:hover {transform: scale(0.95);background-color: #cccccc;color: #000000;}
     .exitButtonLandscape:active {transform: scale(0.96);}
     .overlayTitleLandscape {grid-column: 1 / span 8;grid-row: 2;padding: 0.5rem 1rem;font-family: FuturaHand;font-size: 5rem;font-weight: bolder;text-align: center;line-height: 5rem;}
-    .overlayPlotLandscape {grid-column: 1 / span 8;grid-row: 3;text-align: justify;padding: 1rem;margin: 1rem;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;line-height: 1.5rem;font-size: 0.8rem;font-family: Verdana, Geneva, Tahoma, sans-serif;}
+    .overlayPlotLandscape {grid-column: 1 / span 8;grid-row: 3;text-align: justify;padding: 1rem;margin: 1rem;border-radius: 0.5rem;background-color: #111111;border: 1px solid #444444;line-height: 1.5rem;font-size: 0.8rem;font-family: Verdana, Geneva, Tahoma, sans-serif;}
 
     .overlayWindowPortrait {width: 100vw;height: 100vh;position: fixed;inset: 0;background-color: #000000cc;z-index: 1000;overflow: hidden;padding: 0;margin: 0;display: grid;grid-template-columns: auto;grid-template-rows: auto;}
     .overlayImagePortrait {grid-column: 1;grid-row: 1;width: 100vw;}
@@ -99,7 +106,9 @@
     .overlayTimePortrait svg {position: relative;left: -0.5rem}
     .spacer2Portrait {grid-column: 4;grid-row: 1;}
     .overlayFSKPortrait {width: 4.8rem;height: 4.8rem;grid-column: 5;grid-row: 1;margin: 0 -0.4rem 0 0;}.overlayFSKPortrait img {width: 100%;height: 100%;}
-    .overlayPlotPortrait {grid-column: 1 / span 5;grid-row: 2;text-align: justify;padding: 1rem;margin: 0 0.5rem 0.5rem 0.5rem;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;line-height: normal;font-size: 0.7rem;font-family: Verdana, Geneva, Tahoma, sans-serif;}
+    .overlayPlotPortrait {grid-column: 1 / span 5;grid-row: 2;text-align: justify;padding: 0.5rem;margin: 0 0.5rem 0.5rem 0.5rem;border-radius: 0.5rem;background-color: #000000;border: 1px solid #444444;line-height: normal;font-size: 0.7rem;font-family: Verdana, Geneva, Tahoma, sans-serif;}
+
+    #group_single_Zufall .cardContainer {grid-template-columns: minmax(15rem, min-content);justify-content: center;}
   </style>
 
 </head>
@@ -142,64 +151,94 @@
   }
 
   function load_navigation() {
-    const sortContainer = document.createElement('div');
-    sortContainer.className = 'sortContainer';
-    const groups_container = document.createElement('nav');
-    groups_container.id = 'group_button_container';
-    const group_description = ['Nummer', 'Name', '0-9', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''), 'Zufall'];
-    group_description.forEach(z => {
-      const btn = document.createElement('button');
-      const group_button_text = document.createElement('span');
-      group_button_text.className = 'button_text';
-      group_button_text.textContent = z;
-      const sort_arrow_symbol = document.createElement('span');
-      sort_arrow_symbol.className = 'sort_arrow';
-      sort_arrow_symbol.textContent = '  ';
-      btn.appendChild(group_button_text);
-      btn.appendChild(sort_arrow_symbol);
-      btn.onclick = () => {
-        const same_group = current_group === z;
-        if (z === 'Zufall') {
-          const random_movie = [current_data[Math.floor(Math.random() * current_data.length)]];
-          current_group = 'Zufall';current_sort_direction = 'asc';load_table_data(random_movie, 'Zufall');show_group('Zufall');set_group_active();
-        }
-        else {
-          if (same_group) {current_data.reverse();current_sort_direction = current_sort_direction === 'asc' ? 'desc' : 'asc';}
-          else {current_group = z;current_sort_direction = 'asc';
-            current_data.sort((a, b) => {
-              if (z === 'Nummer') {const numA = parseInt(a[Object.keys(a)[0]]) || 0;const numB = parseInt(b[Object.keys(b)[0]]) || 0;return numA - numB;}
-              else {const nameA = String(a[Object.keys(a)[1]] ?? '');const nameB = String(b[Object.keys(b)[1]] ?? '');return nameA.localeCompare(nameB, 'de');}
-            });
-          }
-          load_table_data(current_data, z);set_group_active();
-        }
-      };
-      groups_container.appendChild(btn);
+    const navigation_container = document.createElement('nav');
+    navigation_container.id = 'navigation_container';
+
+    const sort_button = document.createElement('button');
+    sort_button.id = 'sort_button';
+    const sort_button_text = document.createElement('span');
+    sort_button_text.className = 'sort_button_text';
+    const sort_arrow = document.createElement('span');
+    sort_arrow.className = 'sort_arrow';
+    sort_button.appendChild(sort_button_text);
+    sort_button.appendChild(sort_arrow);
+
+    const random_button = document.createElement('button');
+    random_button.id = 'random_button';
+    random_button.textContent = 'Zufall';
+
+    const sort_overlay = document.createElement('div');
+    sort_overlay.id = 'sort_overlay';
+    const sort_overlay_content = document.createElement('div');
+    sort_overlay_content.id = 'sort_overlay_content';
+    const sort_overlay_title = document.createElement('div');
+    sort_overlay_title.id = 'sort_overlay_title';
+    sort_overlay_title.textContent = 'Sortieren Nach';
+    sort_overlay_content.appendChild(sort_overlay_title);
+    sort_overlay.appendChild(sort_overlay_content);
+
+    sort_button.onclick = () => {sort_overlay.style.display = 'flex';};
+    const sort_options = ['Nummer','Name','0-9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+    sort_options.forEach(z => {
+      const option_button = document.createElement('button');
+      option_button.className = 'sort_option';
+      option_button.textContent = z;
+      option_button.onclick = () => {sort_group(z);sort_overlay.style.display = 'none';};
+      sort_overlay_content.appendChild(option_button);
     });
 
-    const article = document.querySelector('article#mb_movie_base');
-    article.insertBefore(groups_container, document.getElementById('output'));
+    sort_overlay.onclick = (event) => {if (event.target === sort_overlay) {sort_overlay.style.display = 'none';}};
 
-    setTimeout(() => {
-      const buttons = document.querySelectorAll('#group_button_container button');
-      let maxWidth = 0;
-      buttons.forEach(btn => {const width = btn.offsetWidth;if (width > maxWidth) maxWidth = width;});
-      buttons.forEach(btn => {btn.style.width = maxWidth + 'px';});
-    }, 0);
+    random_button.onclick = () => {
+      if (current_data.length === 0) return;
+      const random_index = Math.floor(Math.random() * current_data.length);
+      const random_movie = current_data[random_index];
+      load_table_data([random_movie], 'Zufall');
+      const blurContainer = document.getElementById('output');
+      output.focus();
+    };
 
-    const search_container_object = document.createElement('div');
-    search_container_object.id = 'search_container';
-    search_container_object.style.margin = '1em 0';
+    navigation_container.appendChild(sort_button);
+    navigation_container.appendChild(random_button);
+
+    const output = document.querySelector('#output');
+    output.parentNode.insertBefore(navigation_container, output);
+    document.body.appendChild(sort_overlay);
+
+    set_group_active();
+
+    const search_container = document.createElement('div');
+    search_container.id = 'search_container';
     const search_input = document.createElement('input');
-    search_input.type = 'text';
-    search_input.placeholder = 'Suche nach Titel...';
+    search_input.type = 'search';
     search_input.id = 'search_input';
-    search_input.style.padding = '0.5em';
-    search_input.style.width = '100%';
-    search_input.style.maxWidth = '100%';
-    search_input.addEventListener('input', function () {search_in_table_data(this.value);});
-    search_container_object.appendChild(search_input);
-    article.insertBefore(search_container_object, document.getElementById('output'));
+    search_input.placeholder = 'Titel-Suche...';
+    search_input.addEventListener('input', () => {search_in_table_data(search_input.value);});
+    search_container.appendChild(search_input);
+    output.parentNode.insertBefore(search_container,output);
+  }
+  
+  function sort_group(z) {
+    const same_group = current_group === z;
+    if (same_group) {current_data.reverse();current_sort_direction = current_sort_direction === 'asc' ? 'desc' : 'asc';}
+    else {
+      current_group = z;
+      current_sort_direction = 'asc';
+      current_data.sort((a, b) => {
+        if (z === 'Nummer') {
+          const numA = parseInt(a[Object.keys(a)[0]]) || 0;
+          const numB = parseInt(b[Object.keys(b)[0]]) || 0;
+          return numA - numB;
+        }
+        else {
+          const nameA = String(a[Object.keys(a)[1]] ?? '');
+          const nameB = String(b[Object.keys(b)[1]] ?? '');
+          return nameA.localeCompare(nameB, 'de');
+        }
+      });
+    }
+    load_table_data(current_data, z);
+    set_group_active();
   }
 
   function load_table_data(data, group_extra = null) {
@@ -235,9 +274,7 @@
         data.sort((a, b) => {
           const nameA = a.title ?? "";
           const nameB = b.title ?? "";
-          return current_sort_direction === 'asc'
-            ? nameA.localeCompare(nameB, 'de')
-            : nameB.localeCompare(nameA, 'de');
+          return current_sort_direction === 'asc' ? nameA.localeCompare(nameB, 'de') : nameB.localeCompare(nameA, 'de');
         });
       }
       if (data.length > 0) {const table = generate_table_data(data);groupDiv.appendChild(table);}
@@ -247,22 +284,12 @@
   }
 
   function set_group_active() {
-    document.querySelectorAll('#group_button_container button').forEach(btn => {
-      const group_button_text = btn.querySelector('.button_text');
-      const sort_arrow_symbol_span = btn.querySelector('.sort_arrow');
-      const text = group_button_text.textContent;
-      btn.classList.remove('active-group');
-      if (text === current_group) {btn.classList.add('active-group');sort_arrow_symbol_span.textContent = (text === 'Zufall') ? '' : (current_sort_direction === 'asc' ? '▼' : '▲');}
-      else {sort_arrow_symbol_span.textContent = '  ';}
-    });
-  }
-
-  function show_group(group_single) {
-    current_group = group_single;
-    document.querySelectorAll('.group_button').forEach(div => {div.classList.remove('aktiv');});
-    const aktiv = document.getElementById('group_single_' + group_single);
-    if (aktiv) aktiv.classList.add('aktiv');
-    set_group_active();
+    const sort_button_text = document.querySelector('.sort_button_text');
+    const sort_button_arrow = document.querySelector('.sort_arrow');
+    if (!sort_button_text || !sort_button_arrow) return;
+    sort_button_text.textContent = 'Sortieren Nach:\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + current_group;
+    if (current_group === 'Zufall') {sort_button_arrow.textContent = '';}
+    else {sort_button_arrow.textContent = current_sort_direction === 'asc' ? '▼' : '▲';}
   }
 
   function generate_table_data(data) {
