@@ -8,8 +8,8 @@ import xml.etree.ElementTree as ET
 
 BASE = Path(__file__).resolve().parent.parent
 
-MOVIES = BASE / "Web-Tools" / "MB Serie-Base" / "Series"
-OUTPUT = BASE / "Web-Tools" / "MB Serie-Base" / "series.json"
+MOVIES = BASE / "Web-Tools" / "MB Series-Base" / "Series"
+OUTPUT = BASE / "Web-Tools" / "MB Series-Base" / "series.json"
 
 
 # ----------------------------------------------------------
