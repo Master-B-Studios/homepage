@@ -59,8 +59,8 @@
     .overlayNumberLandscape svg {position: relative;left: -0.5rem}
     .overlayYearLandscape {height: 3.2rem;grid-column: 3;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #111111;border: 1px solid #444444;color: #dbdbdb;}
     .overlayYearLandscape svg {position: relative;left: -0.5rem}
-    .overlayTimeLandscape {height: 3.2rem;grid-column: 4;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #111111;border: 1px solid #444444;color: #dbdbdb;}
-    .overlayTimeLandscape svg {position: relative;left: -0.5rem}
+    .overlaySeasonsLandscape {height: 3.2rem;grid-column: 4;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #111111;border: 1px solid #444444;color: #dbdbdb;}
+    .overlaySeasonsLandscape svg {position: relative;left: -0.5rem}
     .spacer1Landscape {grid-column: 5;grid-row: 1;}
     .overlayDownloadImageLandscape {height: 3.2rem;grid-column: 6;grid-row: 1;padding: 0.5rem 1rem;margin: 0 0.5rem 0 0.5rem;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #111111;border: 1px solid #444444;cursor: pointer;color: #dbdbdb;transition: all 0.6s;}
     .overlayDownloadImageLandscape svg {position: relative;left: -0.5rem}
@@ -99,8 +99,8 @@
     .overlayNumberPortrait svg {position: relative;left: -0.5rem}
     .overlayYearPortrait {height: 3rem;grid-column: 2;grid-row: 1;padding: 0 1rem;margin: 0 0.5rem 0 0;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #111111;border: 1px solid #444444;color: #dbdbdb;}
     .overlayYearPortrait svg {position: relative;left: -0.5rem}
-    .overlayTimePortrait {height: 3rem;grid-column: 3;grid-row: 1;padding: 0 1rem;margin: 0 0.5rem 0 0;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #111111;border: 1px solid #444444;color: #dbdbdb;}
-    .overlayTimePortrait svg {position: relative;left: -0.5rem}
+    .overlaySeasonsPortrait {height: 3rem;grid-column: 3;grid-row: 1;padding: 0 1rem;margin: 0 0.5rem 0 0;white-space: nowrap;display: flex;align-items: center;justify-content: center;border-radius: 0.5rem;background-color: #111111;border: 1px solid #444444;color: #dbdbdb;}
+    .overlaySeasonsPortrait svg {position: relative;left: -0.5rem}
     .spacer2Portrait {grid-column: 4;grid-row: 1;}
     .overlayFSKPortrait {width: 4.8rem;height: 4.8rem;grid-column: 5;grid-row: 1;margin: 0 -0.4rem 0 0;}.overlayFSKPortrait img {width: 100%;height: 100%;}
     .overlayPlotPortrait {grid-column: 1 / span 5;grid-row: 2;text-align: justify;padding: 0.5rem;margin: 0 0.5rem 0.5rem 0.5rem;border-radius: 0.5rem;background-color: #111111;border: 1px solid #444444;line-height: normal;font-size: 0.7rem;font-family: Verdana, Geneva, Tahoma, sans-serif;}
@@ -347,7 +347,7 @@
     const overlayFSK = document.createElement("div");
     const overlayNumber = document.createElement("div");
     const overlayYear = document.createElement("div");
-    const overlayTime = document.createElement("div");
+    const overlaySeasons = document.createElement("div");
     const overlayDownloadImage = document.createElement("div");
     const overlayDownloadNFO = document.createElement("div");
     const exitButton = document.createElement("div");
@@ -370,9 +370,10 @@
             overlayYear.className = "overlayYearLandscape";
             overlayYear.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/></svg>' + movie.year;
             overlayInfo1.appendChild(overlayYear);
-            overlayTime.className = "overlayTimeLandscape";
-            overlayTime.innerHTML = movie.season + ' Staffeln';
-            overlayInfo1.appendChild(overlayTime);
+            overlaySeasons.className = "overlaySeasonsLandscape";
+            if (movie.seasons == 1) {overlaySeasons.innerHTML = movie.seasons + ' Staffel';}
+            else {overlaySeasons.innerHTML = movie.seasons + ' Staffeln';}
+            overlayInfo1.appendChild(overlaySeasons);
             const spacer1 = document.createElement("div");
             spacer1.className = "spacer1Landscape";
             overlayInfo1.appendChild(spacer1);
@@ -434,9 +435,10 @@
             overlayYear.className = "overlayYearPortrait";
             overlayYear.innerHTML = '<svg height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/></svg>' + movie.year;
             overlayInfo2.appendChild(overlayYear);
-            overlayTime.className = "overlayTimePortrait";
-            overlayTime.innerHTML = movie.runtime + ' Staffeln';
-            overlayInfo2.appendChild(overlayTime);
+            overlaySeasons.className = "overlaySeasonsPortrait";
+            if (movie.seasons == 1) {overlaySeasons.innerHTML = movie.seasons + ' Staffel';}
+            else {overlaySeasons.innerHTML = movie.seasons + ' Staffeln';}
+            overlayInfo2.appendChild(overlaySeasons);
             const spacer2 = document.createElement("div");
             spacer2.className = "spacer2Portrait";
             overlayInfo2.appendChild(spacer2);
