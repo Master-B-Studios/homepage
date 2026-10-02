@@ -116,7 +116,7 @@ for folder in folders:
 
     series.append(serie)
 
-series.sort(key=lambda serie: int(serie["id"]))
+series.sort(key=lambda serie: int(serie["id"][1:]))
 
 # ----------------------------------------------------------
 # JSON erzeugen
