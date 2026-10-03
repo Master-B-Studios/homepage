@@ -68,10 +68,10 @@ header > p {margin: 0.5em 0 0 0;color: #aaa;}
 @media screen and (max-width: 736px) {header {margin: 0 0 1em 0;}}
 
 /* Image */
-.image {display: inline-block;}
-.image img {display: block;width: 100%;}
-.image.fit {display: block;width: 100%;text-align: center;color: #999999;text-decoration: none;border: 1px solid #000000;}
-.image.fit:hover {color: #dddddd;border: 1px solid #888888;transition: border 2s, color 2s;}
+.image {display: inline-block;border: 1px solid #444444;}
+.image img {display: block;width: 100%;border-radius: 0.5rem 0.5rem 0 0;border-bottom: 1px solid #444444;}
+.image.fit {display: block;width: 100%;text-align: center;color: #dddddd;text-decoration: none;border: 1px solid #444444;border-radius: 0.5rem;top: 0;transition: all 0.6s;background-color: #111111;position: relative;}
+.image.fit:hover {border: 1px solid #dddddd;top: -0.5rem;}
 .image.featured {display: block;width: 100%;margin: 0 0 2em 0;}
 .image.left {float: left;margin: 0 2em 2em 0;}
 .image.centered {display: block;margin: 0 0 2em 0;}
