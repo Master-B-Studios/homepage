@@ -6,9 +6,9 @@
         "mpaa": "FSK-12",
         "year": "1997",
         "seasons": 5,
-        "folder": "0002",
+        "folder": "0013",
         "filename": "tvshow",
-        "poster": "Series/0002/poster.jpg"
+        "poster": "Series/0013/poster.jpg"
     },
     {
         "id": "S0018",
@@ -17,9 +17,9 @@
         "mpaa": "FSK-6",
         "year": "1986",
         "seasons": 4,
-        "folder": "0001",
+        "folder": "0018",
         "filename": "tvshow",
-        "poster": "Series/0001/poster.jpg"
+        "poster": "Series/0018/poster.jpg"
     },
     {
         "id": "S0056",
@@ -28,9 +28,9 @@
         "mpaa": "FSK-6",
         "year": "1993",
         "seasons": 1,
-        "folder": "0003",
+        "folder": "0056",
         "filename": "tvshow",
-        "poster": "Series/0003/poster.jpg"
+        "poster": "Series/0056/poster.jpg"
     },
     {
         "id": "S0057",
@@ -39,8 +39,8 @@
         "mpaa": "FSK-16",
         "year": "1995",
         "seasons": 5,
-        "folder": "0004",
+        "folder": "0057",
         "filename": "tvshow",
-        "poster": "Series/0004/poster.jpg"
+        "poster": "Series/0057/poster.jpg"
     }
 ]
