@@ -1,5 +1,16 @@
 [
     {
+        "id": "S0011",
+        "title": "Avatar - Der Herr Der Elemente",
+        "plot": "Im Mittelpunkt von „Avatar: Der Herr der Elemente“ steht der zwölfjährige Aang, der in einer von den Herren des Feuers beherrschten asiatischen Fantasy-Welt lebt. Aang ist nicht nur der letzte Herrscher über die Luft, sondern auch der Avatar, der Herr über alle Elemente. Er ist derjenige, der über die Form von Wasser, Erde, Luft und Feuer bestimmt. Doch der Avatar war 100 Jahre lang in einem Gletscher am Südpol eingefroren, und während dieser Zeit sind die Herrscher des Feuers ihrem Ziel der totalen Weltherrschaft immer näher gekommen. Erst als Aang von Katara, der letzten Gebieterin des Wassers, und deren Bruder Sokka aus dem ewigen Eis befreit wird, hat er eine Chance, seine Mission zu erfüllen: Er muss die aus den Fugen geratene Welt retten und die Balance der Elemente wiederherstellen. Eine große Herausforderung für einen Zwölfjährigen - schließlich muss er noch vieles lernen.",
+        "mpaa": "FSK-6",
+        "year": "2005",
+        "seasons": 3,
+        "folder": "0011",
+        "filename": "tvshow",
+        "poster": "Series/0011/poster.jpg"
+    },
+    {
         "id": "S0013",
         "title": "Ally McBeal",
         "plot": "Ally McBeal ist eine junge Anwältin, die in der Bostoner Anwaltskanzlei Cage and Fish arbeitet. Allys Leben und Lieben sind exzentrisch, humorvoll, dramatisch und mit einer unglaublich überaktiven Fantasie.",
@@ -11,6 +22,28 @@
         "poster": "Series/0013/poster.jpg"
     },
     {
+        "id": "S0015",
+        "title": "Baywatch",
+        "plot": "Mitch Buchannon ist ein alter Hase im Lebensrettungsgeschäft und scheinbar jeder brenzligen Situation gewachsen, die an so einem gut gefüllten Strand passieren kann. Zusammen mit seinem Team aus kernigen Bademeistern und bildschönen Rettungsnixen rettet Mitch übermütigen Schwimmern das Leben, bekämpft Haie, beseitigt Erdbebenschäden, geht auf Ganovenjagd und bewältigt nebenbei noch große und kleine Beziehungsprobleme.",
+        "mpaa": "FSK-6",
+        "year": "1989",
+        "seasons": 11,
+        "folder": "0015",
+        "filename": "tvshow",
+        "poster": "Series/0015/poster.jpg"
+    },
+    {
+        "id": "S0016",
+        "title": "BraveStarr",
+        "plot": "Der Planet Neu Texas wird heimgesucht von Tex Hex und seiner Bande, die den keriumreichen Planeten unter ihre Kontrolle bringen wollen. Kerium ist das kostbarste Gut im Universum und wird benötigt, um Raumschiffe und Maschinen mit Energie zu versorgen. Marshall BraveStarr stellt sich den Ganoven mit den Augen des Falken, den Ohren des Wolfes, der Geschwindigkeit des Pumas und der Kraft des Bären...",
+        "mpaa": "FSK-6",
+        "year": "1987",
+        "seasons": 1,
+        "folder": "0016",
+        "filename": "tvshow",
+        "poster": "Series/0016/poster.jpg"
+    },
+    {
         "id": "S0018",
         "title": "ALF",
         "plot": "Ein lautes Poltern in der Garage schreckt Familie Tanner auf. Was ist nur passiert? Vater Willie kann nicht glauben, was er zu sehen bekommt. Ein rothaariges Wesen mit einer gigantischen Nase ist in seinem Haus gelandet. Ein Außerirdischer Alf kommt vom Planeten Melmac und musste auf der Erde notlanden. Da die Tanners nicht in der Lage sind, sein Raumschiff zu reparieren, muss Alf zunächst bei der Familie bleiben. Sein Appetit auf Katzen, stundenlange Telefongespräche und unstillbarer Hunger machen das Zusammenleben mit ihm allerdings nicht gerade einfach. Als auch noch die Nachbarin ahnt, dass bei den Tanners etwas Außergewöhnliches vorgeht, ist die ganze Familie in Alarmbereitschaft. Schließlich ist Alf ein Alien und könnte schon bald auf einem Seziertisch landen...",
@@ -20,6 +53,17 @@
         "folder": "0018",
         "filename": "tvshow",
         "poster": "Series/0018/poster.jpg"
+    },
+    {
+        "id": "S0019",
+        "title": "Berlin Berlin",
+        "plot": "Lolle, das Landei aus Malente, zieht in die Großstadt. Hier wohnt sie zusammen mit ihrem Cousin Sven in einer WG. Das Gefühlschaos ist vorprogrammiert Hart, Rosalie, Sarah und Vero... Das Leben in Berlin ist turbolent und Lolle mittendrin \"Das Leben ist zum Heulen schön\"...",
+        "mpaa": "FSK-12",
+        "year": "2002",
+        "seasons": 4,
+        "folder": "0019",
+        "filename": "tvshow",
+        "poster": "Series/0019/poster.jpg"
     },
     {
         "id": "S0056",
@@ -42,5 +86,27 @@
         "folder": "0057",
         "filename": "tvshow",
         "poster": "Series/0057/poster.jpg"
+    },
+    {
+        "id": "S0101",
+        "title": "Brooklyn Nine-Nine",
+        "plot": "Als ihm ein anspruchsvoller neuer Captain vorgesetzt wird, muss ein genialer, aber kindischer Polizist aus Brooklyn wohl oder übel Regeltreue und Teamfähigkeit lernen.",
+        "mpaa": "FSK-12",
+        "year": "2013",
+        "seasons": 8,
+        "folder": "0101",
+        "filename": "tvshow",
+        "poster": "Series/0101/poster.jpg"
+    },
+    {
+        "id": "S0104",
+        "title": "Avatar",
+        "plot": "Der als Avatar bekannte Junge muss vier elementare Kräfte beherrschen, um eine Welt im Krieg zu retten, und einen skrupellosen Feind besiegen, der dies verhindern will.",
+        "mpaa": "FSK-12",
+        "year": "2024",
+        "seasons": 2,
+        "folder": "0104",
+        "filename": "tvshow",
+        "poster": "Series/0104/poster.jpg"
     }
 ]
