@@ -69,14 +69,14 @@
       "version": "v1.3.0"
     },
     {
-      "name": "PS5 etaHEN Version 2.5B",
+      "name": "PS5 etaHEN 2.5B",
       "filename": "PS5_etaHEN_2.5B.bin",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_etaHEN_2.5B.bin",
       "description": "Backup von etaHEN um Einstellungen vorzunehmen, die mit MB Toolbox ausgeblendet sind.",
       "version": "v2.5B"
     },
     {
-      "name": "PS5 etaHEN Version 2.6B",
+      "name": "PS5 etaHEN 2.6B",
       "filename": "PS5_etaHEN_2.6B.bin",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_etaHEN_2.6B.bin",
       "description": "Backup von etaHEN um Einstellungen vorzunehmen, die mit MB Toolbox ausgeblendet sind.",
@@ -97,14 +97,14 @@
       "version": "v0.20"
     },
     {
-      "name": "PS5_KstuffLite_1.13",
+      "name": "PS5 KstuffLite 1.13 Test 5",
       "filename": "PS5_KstuffLite_1.13_Test_5.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_KstuffLite_1.13_Test_5.elf",
       "description": "Kstuff von Drakmor mit FPKG-Support.",
       "version": "v1.13 Test 5"
     },
     {
-      "name": "PS5_KstuffLite_1.13",
+      "name": "PS5 KstuffLite 1.13 Test 8",
       "filename": "PS5_KstuffLite_1.13_Test_8.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_KstuffLite_1.13_Test_8.elf",
       "description": "Kstuff von Drakmor mit FPKG-Support.",
