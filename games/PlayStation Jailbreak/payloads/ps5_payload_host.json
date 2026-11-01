@@ -97,32 +97,18 @@
       "version": "v0.20"
     },
     {
-      "name": "PS5 KstuffLite 1.10",
-      "filename": "PS5_KstuffLite_1.10.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_KstuffLite_1.10.elf",
-      "description": "Offizielles Kstuff von EchoStretch.",
-      "version": "v1.10"
-    },
-    {
-      "name": "PS5 KstuffLite 1.12",
-      "filename": "PS5_KstuffLite_1.12_Test_8.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_KstuffLite_1.12_Test_8.elf",
-      "description": "Kstuff von Drakmor mit FPKG-Support.",
-      "version": "v1.12 Test 8"
-    },
-    {
-      "name": "PS5_KstuffLite_1.13",
-      "filename": "PS5_KstuffLite_1.13_Test_4.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_KstuffLite_1.13_Test_4.elf",
-      "description": "Kstuff von Drakmor mit FPKG-Support.",
-      "version": "v1.13 Test 4"
-    },
-    {
       "name": "PS5_KstuffLite_1.13",
       "filename": "PS5_KstuffLite_1.13_Test_5.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_KstuffLite_1.13_Test_5.elf",
       "description": "Kstuff von Drakmor mit FPKG-Support.",
       "version": "v1.13 Test 5"
+    },
+    {
+      "name": "PS5_KstuffLite_1.13",
+      "filename": "PS5_KstuffLite_1.13_Test_8.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_KstuffLite_1.13_Test_8.elf",
+      "description": "Kstuff von Drakmor mit FPKG-Support.",
+      "version": "v1.13 Test 8"
     },
     {
       "name": "PS5 SaveManager",
@@ -132,18 +118,11 @@
       "version": "v1.7"
     },
     {
-      "name": "PS5 ShadowMountPlus 1.6 B 16",
-      "filename": "PS5_ShadowMountPlus_1.6B16.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_ShadowMountPlus_1.6B16.elf",
-      "description": "ShadowMountPlus scannt PS5-Game-Dumps, die in lokalen Ordnern abgelegt wurden und stellt einen Shortcut auf dem Homebildschirm bereit.",
-      "version": "v1.6 B 16"
-    },
-    {
-      "name": "PS5 ShadowMountPlus 1.7",
-      "filename": "PS5_ShadowMountPlus_1.7.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_ShadowMountPlus_1.7.elf",
+      "name": "PS5 ShadowMountPlus 1.7 Beta 11",
+      "filename": "PS5_ShadowMountPlus_1.7_Beta_11.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_ShadowMountPlus_1.7_Beta_11.elf",
       "description": "ShadowMountPlus von Drakmor mit FPKG-Support.",
-      "version": "v1.7"
+      "version": "v1.7_Beta_11"
     },
     {
       "name": "PS5 ShadowMountPlus 1.7.4",
@@ -151,20 +130,6 @@
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_ShadowMountPlus_1.7.4.elf",
       "description": "ShadowMountPlus von Drakmor mit FPKG-Support.",
       "version": "v1.7.4"
-    },
-    {
-      "name": "PS5 PPR",
-      "filename": "PS5_PPR_Install_Fast_15.09.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_PPR_Install_Fast_15.09.elf",
-      "description": "PPR-Loader von Drakmor mit FPKG-Support.",
-      "version": "v15.09"
-    },
-    {
-      "name": "PS5 PPR",
-      "filename": "PS5_PPR_Install_Fast_20.09.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_PPR_Install_Fast_20.09.elf",
-      "description": "PPR-Loader von Drakmor mit FPKG-Support.",
-      "version": "v20.09"
     },
     {
       "name": "PS5 WebKitAutoloader",
