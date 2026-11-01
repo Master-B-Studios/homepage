@@ -62,6 +62,13 @@
       "version": "v1.3.0"
     },
     {
+      "name": "PS5 Debug NG Scan",
+      "filename": "PS5_Debug_NG_Scan_1.3.0.elf",
+      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_Debug_NG_Scan_1.3.0.elf",
+      "description": "PS5 Debug-NG mit Pointerscan",
+      "version": "v1.3.0"
+    },
+    {
       "name": "PS5 etaHEN 2.5B",
       "filename": "PS5_etaHEN_2.5B.bin",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_etaHEN_2.5B.bin",
