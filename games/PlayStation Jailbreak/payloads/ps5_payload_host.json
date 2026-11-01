@@ -29,14 +29,7 @@
       "filename": "MB_PS5_Debug_1.3.0.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/MB_PS5_Debug_1.3.0.elf",
       "description": "PS5 Debug by Master Studios",
-      "version": "v1.3.0"
-    },
-    {
-      "name": "MB ShadowMount",
-      "filename": "MB_ShadowMount_1.6B16.elf",
-      "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/MB_ShadowMount_1.6B16.elf",
-      "description": "ShadowMount scannt PS5-Game-Dumps, die in lokalen Ordnern abgelegt wurden und stellt einen Shortcut auf dem Homebildschirm bereit.",
-      "version": "v1.6B16",
+      "version": "v1.3.0",
       "icon_key": "MB_Toolbox_2.5"
     },
     {
