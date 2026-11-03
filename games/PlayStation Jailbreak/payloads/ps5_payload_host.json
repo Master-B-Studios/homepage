@@ -5,7 +5,7 @@
       "name": "MB NanoDNS",
       "filename": "MB_NanoDNS_0.3.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/MB_NanoDNS_0.3.elf",
-      "description": "Mit dieser Custom-Version von NanoDNS kann Verbindung zum Internet trotz Router-IP 127.0.0.1 hergestellt werden. Leicht angepasste Debug-Messages.",
+      "description": "Mit dieser Custom-Version von NanoDNS kann Verbindung zum Internet trotz DNS-Adresse 127.0.0.1 hergestellt werden. Leicht angepasste Debug-Messages.",
       "version": "v0.3",
       "icon_key": "MB_NanoDNS.png"
     },
