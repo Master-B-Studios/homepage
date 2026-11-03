@@ -1,5 +1,6 @@
 {
   "name": "MB Payload-Host",
+  "icons_url": "icons.json",
   "payloads": [
     {
       "name": "MB NanoDNS",
