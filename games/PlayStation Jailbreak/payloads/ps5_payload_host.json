@@ -15,119 +15,136 @@
       "filename": "MB_PayloadManager_0.3.1.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/MB_PayloadManager_0.3.1.elf",
       "description": "Custom-Version des pldmgr von itsplk. Deutsches Layout. Die Companion-App wird unter Medien und nicht in den games installiert. Nach Download eine Kopie erstellen zu /data/ps5_autoloader/MB_Payload_Manager.elf.",
-      "version": "v0.3.1"
+      "version": "v0.3.1",
+      "icon_key": "MB_NanoDNS"
     },
     {
       "name": "MB PS5 Debug",
       "filename": "MB_PS5_Debug_1.3.0.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/MB_PS5_Debug_1.3.0.elf",
       "description": "PS5 Debug by Master Studios",
-      "version": "v1.3.0"
+      "version": "v1.3.0",
+      "icon_key": "MB_NanoDNS"
     },
     {
       "name": "MB Toolbox",
       "filename": "MB_Toolbox_2.5.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/MB_Toolbox_2.5.elf",
       "description": "Custom-Version von etaHEN 2.5b. Deutsches Layout. Neue Navigationsstruktur und viele Optionen entfernt. Bug: Messages funktionieren nicht.",
-      "version": "v2.5"
+      "version": "v2.5",
+      "icon_key": "MB_NanoDNS"
     },
     {
       "name": "MB WebServer",
       "filename": "MB_WebServer_0.34.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/MB_WebServer_0.34.elf",
       "description": "Custom-Version von websrv. Gepatchter Homebrew Launcher.",
-      "version": "v0.34"
+      "version": "v0.34",
+      "icon_key": "MB_NanoDNS"
     },
     {
       "name": "PS5 AppDumper",
       "filename": "PS5_AppDumper_1.11.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_AppDumper_1.11.elf",
       "description": "Offizieller AppDumper von EchoStretch. Dumpt nur nach USB.",
-      "version": "v1.11"
+      "version": "v1.11",
+      "icon_key": "MB_NanoDNS"
     },
     {
       "name": "PS5 Debug NG",
       "filename": "PS5_Debug_NG_1.3.0.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_Debug_NG_1.3.0.elf",
       "description": "PS5 Debug-NG",
-      "version": "v1.3.0"
+      "version": "v1.3.0",
+      "icon_key": "MB_NanoDNS"
     },
     {
       "name": "PS5 Debug NG Scan",
       "filename": "PS5_Debug_NG_Scan_1.3.0.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_Debug_NG_Scan_1.3.0.elf",
       "description": "PS5 Debug-NG mit Pointerscan",
-      "version": "v1.3.0"
+      "version": "v1.3.0",
+      "icon_key": "MB_NanoDNS"
     },
     {
       "name": "PS5 etaHEN 2.5B",
       "filename": "PS5_etaHEN_2.5B.bin",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_etaHEN_2.5B.bin",
       "description": "Backup von etaHEN um Einstellungen vorzunehmen, die mit MB Toolbox ausgeblendet sind.",
-      "version": "v2.5B"
+      "version": "v2.5B",
+      "icon_key": "MB_NanoDNS"
     },
     {
       "name": "PS5 etaHEN 2.6B",
       "filename": "PS5_etaHEN_2.6B.bin",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_etaHEN_2.6B.bin",
       "description": "Backup von etaHEN um Einstellungen vorzunehmen, die mit MB Toolbox ausgeblendet sind.",
-      "version": "v2.6B"
+      "version": "v2.6B",
+      "icon_key": "MB_NanoDNS"
     },
     {
       "name": "PS5 FakeSignIn",
       "filename": "PS5_FakeSignIn_1.1.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_FakeSignIn_1.1.elf",
       "description": "Nach der Offline-Aktivierung eines Accounts durch etaHEN kann man mit FakeSignIn Remote-Play und USB-Speicherdaten-Transfer freischalten.",
-      "version": "v1.1"
+      "version": "v1.1",
+      "icon_key": "MB_NanoDNS"
     },
     {
       "name": "PS5 FTPServer",
       "filename": "PS5_FTPServer_0.20.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_FTPServer_0.20.elf",
       "description": "FTPServer von Payload-Dev. Decrypted System-PRX-Files beim Download.",
-      "version": "v0.20"
+      "version": "v0.20",
+      "icon_key": "MB_NanoDNS"
     },
     {
       "name": "PS5 KstuffLite 1.13 Test 5",
       "filename": "PS5_KstuffLite_1.13_Test_5.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_KstuffLite_1.13_Test_5.elf",
       "description": "Kstuff von Drakmor mit FPKG-Support.",
-      "version": "v1.13 Test 5"
+      "version": "v1.13 Test 5",
+      "icon_key": "MB_NanoDNS"
     },
     {
       "name": "PS5 KstuffLite 1.13 Test 8",
       "filename": "PS5_KstuffLite_1.13_Test_8.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_KstuffLite_1.13_Test_8.elf",
       "description": "Kstuff von Drakmor mit FPKG-Support.",
-      "version": "v1.13 Test 8"
+      "version": "v1.13 Test 8",
+      "icon_key": "MB_NanoDNS"
     },
     {
       "name": "PS5 SaveManager",
       "filename": "PS5_SaveManager_1.7.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_SaveManager_1.7.elf",
       "description": "SaveManager zum Decrypten und Encrypten.",
-      "version": "v1.7"
+      "version": "v1.7",
+      "icon_key": "MB_NanoDNS"
     },
     {
       "name": "PS5 ShadowMountPlus 1.7 Beta 11",
       "filename": "PS5_ShadowMountPlus_1.7_Beta_11.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_ShadowMountPlus_1.7_Beta_11.elf",
       "description": "ShadowMountPlus von Drakmor mit FPKG-Support.",
-      "version": "v1.7 Beta 11"
+      "version": "v1.7 Beta 11",
+      "icon_key": "MB_NanoDNS"
     },
     {
       "name": "PS5 ShadowMountPlus 1.7.4",
       "filename": "PS5_ShadowMountPlus_1.7.4.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_ShadowMountPlus_1.7.4.elf",
       "description": "ShadowMountPlus von Drakmor mit FPKG-Support.",
-      "version": "v1.7.4"
+      "version": "v1.7.4",
+      "icon_key": "MB_NanoDNS"
     },
     {
       "name": "PS5 WebKitAutoloader",
       "filename": "PS5_WebKitAutoloader_0.4.0.elf",
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/PS5_WebKitAutoloader_0.4.0.elf",
       "description": "ShadowMountPlus scannt PS5-Game-Dumps, die in lokalen Ordnern abgelegt wurden und stellt einen Shortcut auf dem Homebildschirm bereit.",
-      "version": "v0.4.0"
+      "version": "v0.4.0",
+      "icon_key": "MB_NanoDNS"
     }
   ]
 }
