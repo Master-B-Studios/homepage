@@ -32,7 +32,7 @@
       "url": "https://github.com/Master-B-Studios/homepage/raw/refs/heads/main/games/PlayStation%20Jailbreak/payloads/MB_Toolbox_2.5.elf",
       "description": "Custom-Version von etaHEN 2.5b. Deutsches Layout. Neue Navigationsstruktur und viele Optionen entfernt. Bug: Messages funktionieren nicht.",
       "version": "v2.5",
-      "icon_key": "MB_NanoDNS"
+      "icon_key": "MB_Toolbox"
     },
     {
       "name": "MB WebServer",
