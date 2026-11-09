@@ -6,18 +6,19 @@
     <link rel="icon" type="image/x-icon" href="../homepage/images/MB_Icon_02.svg"></link>
     <style>
       body {width: 100vw;height: 100vh;display: grid;grid-template-columns: min-content auto;grid-template-rows: 100vh;background-color: #000000;margin: 0;padding: 0;overflow: hidden;color: #dbdbdb;font-size: 1rem;font-family: Arial, Helvetica, sans-serif;-webkit-tap-highlight-color: transparent;}
-      body {background: radial-gradient(circle at 80% 10%,#2fff6310, transparent 40%), radial-gradient(circle at 30% 90%, #4dffd810, transparent 30%), linear-gradient(50deg,#000000,#041b12 55%,#000000);}
+      /* green body {background: radial-gradient(circle at 80% 10%,#2fff6310, transparent 40%), radial-gradient(circle at 30% 90%, #4dffd810, transparent 30%), linear-gradient(50deg,#000000,#041b12 55%,#000000);}*/
+      body {background: radial-gradient(circle at 80% 10%,#111111, transparent 40%), radial-gradient(circle at 30% 90%, #111111, transparent 30%), linear-gradient(50deg,#000000,#111111 55%,#000000);}
       
-      .sidebar {grid-column: 1;grid-row: 1;display: grid;grid-template-columns: min-content;grid-template-rows: min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content;background: linear-gradient(50deg, #22222299, #11111144, #22222299, #11111144);border-right: 0.01rem solid #999999;overflow-y: auto;}
+      .sidebar {grid-column: 1;grid-row: 1;display: grid;grid-template-columns: min-content;grid-template-rows: min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content;border-right: 0.01rem solid #999999;overflow-y: auto;}
       .sidebar {display: none;}
-      .sidebar a {height: 3rem;display: flex;align-items: center;justify-content: left;margin: 0.5rem 0.5rem 0 0.5rem;padding: 0 1rem 0 0.5rem;background: linear-gradient(50deg, #222222, #111111, #222222, #111111, #222222);border-radius: 1rem;border: 0.01rem solid #99999900;text-decoration: none;color: #999999;white-space: pre;cursor: pointer;transition: all 0.6s;}
-      .sidebar a:hover {color: #dbdbdb;border-color: #dbdbdb;background: linear-gradient(50deg, #1e361e, #081a04, #1e361e, #081a04, #1e361e);}
+      .sidebar a {height: 3rem;display: flex;align-items: center;justify-content: left;margin: 0.5rem 0.5rem 0 0.5rem;padding: 0 1rem 0 0.5rem;}
       .sidebar a svg {margin: 0 0.5rem 0 0;}
       .sidebarSpacer {height: 3rem;}
       .sidebarToggle {display: none;}
-      .sidebarButton {background: radial-gradient(circle at 80% 10%,#2fff6310, transparent 40%), radial-gradient(circle at 30% 90%, #4dffd810, transparent 30%), linear-gradient(50deg,#000000,#041b12 55%,#000000);border-radius: 1rem;border: 0.01rem solid #222222;text-decoration: none;color: #999999;white-space: pre;cursor: pointer;transition: all 0.6s;}
-      .sidebarButton:hover {color: #dbdbdb;border-color: #999999;background:linear-gradient(135deg,#2fff6d47,#4dff821a);}
-      .sidebarButtonActive {background-color: #666666;border-radius: 1rem;border: 0.01rem solid #00000000;text-decoration: none;color: #000000;white-space: pre;cursor: default;transition: all 0.6s;}
+      .sidebarButton {background: linear-gradient(125deg, #222222, #444444);border-radius: 1rem;border: 0.01rem solid #444444;outline: none;text-decoration: none;color: #999999;white-space: pre;cursor: pointer;transition: all 0.6s;}
+      .sidebarButton:hover, .sidebarButton:active, .sidebarButton:focus {background: linear-gradient(125deg, #132b13, #081a04);border-color: #0f9b03;color: #dbdbdb;}
+      .sidebarButtonActive {background: linear-gradient(125deg, #111111, #222222);border-radius: 1rem;border: 0.01rem solid #00bb66;text-decoration: none;color: #00bb66;white-space: pre;cursor: default;transition: all 0.6s;}
+      .sidebarButtonNoClick {background: linear-gradient(125deg, #222222, #444444);border-radius: 1rem;border: 0.01rem solid #444444;text-decoration: none;color: #999999;white-space: pre;cursor: default;transition: all 0.6s;}
 
       .main {grid-column: 2;grid-row: 1;position: relative;display: grid;grid-template-columns: auto;grid-template-rows: min-content min-content min-content;overflow-y: auto;place-items: center;}
       
